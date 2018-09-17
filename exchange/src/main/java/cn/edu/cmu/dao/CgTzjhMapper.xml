@@ -1,0 +1,590 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.CgTzjhMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.CgTzjh" >
+    <constructor >
+      <idArg column="TZID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZLB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JHLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZJB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZZHSK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FZRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XZJB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JSZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ3" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ4" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ5" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FFGZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="CFRW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFSJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="CFTS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="SJYS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="QTYS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="YSHJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="RWPJWH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RWPFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    TZID, TZH, TZLB, JHLX, CFDW, TZJB, ZZHSK, FZRXM, XZZW, XZJB, JSZW, ZW, ZJ, CFGJ1, 
+    CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, RWPJWH, 
+    RWPFSJ, CREATETIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_CG_TZJH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_CG_TZJH
+    where TZID = #{tzid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_CG_TZJH
+    where TZID = #{tzid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgTzjhExample" >
+    delete from T_CG_TZJH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.CgTzjh" >
+    insert into T_CG_TZJH (TZID, TZH, TZLB, 
+      JHLX, CFDW, TZJB, ZZHSK, 
+      FZRXM, XZZW, XZJB, 
+      JSZW, ZW, ZJ, CFGJ1, 
+      CFGJ2, CFGJ3, CFGJ4, 
+      CFGJ5, FFGZ, TZRS, 
+      CFRW, CFSJ, CFTS, SJYS, 
+      QTYS, YSHJ, RWPJWH, 
+      RWPFSJ, CREATETIME)
+    values (#{tzid,jdbcType=VARCHAR}, #{tzh,jdbcType=VARCHAR}, #{tzlb,jdbcType=VARCHAR}, 
+      #{jhlx,jdbcType=VARCHAR}, #{cfdw,jdbcType=VARCHAR}, #{tzjb,jdbcType=VARCHAR}, #{zzhsk,jdbcType=VARCHAR}, 
+      #{fzrxm,jdbcType=VARCHAR}, #{xzzw,jdbcType=VARCHAR}, #{xzjb,jdbcType=VARCHAR}, 
+      #{jszw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{zj,jdbcType=VARCHAR}, #{cfgj1,jdbcType=VARCHAR}, 
+      #{cfgj2,jdbcType=VARCHAR}, #{cfgj3,jdbcType=VARCHAR}, #{cfgj4,jdbcType=VARCHAR}, 
+      #{cfgj5,jdbcType=VARCHAR}, #{ffgz,jdbcType=VARCHAR}, #{tzrs,jdbcType=DECIMAL}, 
+      #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=DECIMAL}, #{cfts,jdbcType=DECIMAL}, #{sjys,jdbcType=DECIMAL}, 
+      #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, #{rwpjwh,jdbcType=VARCHAR}, 
+      #{rwpfsj,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgTzjh" >
+    insert into T_CG_TZJH
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tzid != null" >
+        TZID,
+      </if>
+      <if test="tzh != null" >
+        TZH,
+      </if>
+      <if test="tzlb != null" >
+        TZLB,
+      </if>
+      <if test="jhlx != null" >
+        JHLX,
+      </if>
+      <if test="cfdw != null" >
+        CFDW,
+      </if>
+      <if test="tzjb != null" >
+        TZJB,
+      </if>
+      <if test="zzhsk != null" >
+        ZZHSK,
+      </if>
+      <if test="fzrxm != null" >
+        FZRXM,
+      </if>
+      <if test="xzzw != null" >
+        XZZW,
+      </if>
+      <if test="xzjb != null" >
+        XZJB,
+      </if>
+      <if test="jszw != null" >
+        JSZW,
+      </if>
+      <if test="zw != null" >
+        ZW,
+      </if>
+      <if test="zj != null" >
+        ZJ,
+      </if>
+      <if test="cfgj1 != null" >
+        CFGJ1,
+      </if>
+      <if test="cfgj2 != null" >
+        CFGJ2,
+      </if>
+      <if test="cfgj3 != null" >
+        CFGJ3,
+      </if>
+      <if test="cfgj4 != null" >
+        CFGJ4,
+      </if>
+      <if test="cfgj5 != null" >
+        CFGJ5,
+      </if>
+      <if test="ffgz != null" >
+        FFGZ,
+      </if>
+      <if test="tzrs != null" >
+        TZRS,
+      </if>
+      <if test="cfrw != null" >
+        CFRW,
+      </if>
+      <if test="cfsj != null" >
+        CFSJ,
+      </if>
+      <if test="cfts != null" >
+        CFTS,
+      </if>
+      <if test="sjys != null" >
+        SJYS,
+      </if>
+      <if test="qtys != null" >
+        QTYS,
+      </if>
+      <if test="yshj != null" >
+        YSHJ,
+      </if>
+      <if test="rwpjwh != null" >
+        RWPJWH,
+      </if>
+      <if test="rwpfsj != null" >
+        RWPFSJ,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tzid != null" >
+        #{tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="tzh != null" >
+        #{tzh,jdbcType=VARCHAR},
+      </if>
+      <if test="tzlb != null" >
+        #{tzlb,jdbcType=VARCHAR},
+      </if>
+      <if test="jhlx != null" >
+        #{jhlx,jdbcType=VARCHAR},
+      </if>
+      <if test="cfdw != null" >
+        #{cfdw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzjb != null" >
+        #{tzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="zzhsk != null" >
+        #{zzhsk,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrxm != null" >
+        #{fzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzzw != null" >
+        #{xzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjb != null" >
+        #{xzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="jszw != null" >
+        #{jszw,jdbcType=VARCHAR},
+      </if>
+      <if test="zw != null" >
+        #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="zj != null" >
+        #{zj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj1 != null" >
+        #{cfgj1,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj2 != null" >
+        #{cfgj2,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj3 != null" >
+        #{cfgj3,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj4 != null" >
+        #{cfgj4,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj5 != null" >
+        #{cfgj5,jdbcType=VARCHAR},
+      </if>
+      <if test="ffgz != null" >
+        #{ffgz,jdbcType=VARCHAR},
+      </if>
+      <if test="tzrs != null" >
+        #{tzrs,jdbcType=DECIMAL},
+      </if>
+      <if test="cfrw != null" >
+        #{cfrw,jdbcType=VARCHAR},
+      </if>
+      <if test="cfsj != null" >
+        #{cfsj,jdbcType=DECIMAL},
+      </if>
+      <if test="cfts != null" >
+        #{cfts,jdbcType=DECIMAL},
+      </if>
+      <if test="sjys != null" >
+        #{sjys,jdbcType=DECIMAL},
+      </if>
+      <if test="qtys != null" >
+        #{qtys,jdbcType=DECIMAL},
+      </if>
+      <if test="yshj != null" >
+        #{yshj,jdbcType=DECIMAL},
+      </if>
+      <if test="rwpjwh != null" >
+        #{rwpjwh,jdbcType=VARCHAR},
+      </if>
+      <if test="rwpfsj != null" >
+        #{rwpfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgTzjhExample" resultType="java.lang.Integer" >
+    select count(*) from T_CG_TZJH
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_CG_TZJH
+    <set >
+      <if test="record.tzid != null" >
+        TZID = #{record.tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzh != null" >
+        TZH = #{record.tzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzlb != null" >
+        TZLB = #{record.tzlb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jhlx != null" >
+        JHLX = #{record.jhlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfdw != null" >
+        CFDW = #{record.cfdw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzjb != null" >
+        TZJB = #{record.tzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzhsk != null" >
+        ZZHSK = #{record.zzhsk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fzrxm != null" >
+        FZRXM = #{record.fzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xzzw != null" >
+        XZZW = #{record.xzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xzjb != null" >
+        XZJB = #{record.xzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jszw != null" >
+        JSZW = #{record.jszw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zw != null" >
+        ZW = #{record.zw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zj != null" >
+        ZJ = #{record.zj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj1 != null" >
+        CFGJ1 = #{record.cfgj1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj2 != null" >
+        CFGJ2 = #{record.cfgj2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj3 != null" >
+        CFGJ3 = #{record.cfgj3,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj4 != null" >
+        CFGJ4 = #{record.cfgj4,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj5 != null" >
+        CFGJ5 = #{record.cfgj5,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ffgz != null" >
+        FFGZ = #{record.ffgz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzrs != null" >
+        TZRS = #{record.tzrs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cfrw != null" >
+        CFRW = #{record.cfrw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfsj != null" >
+        CFSJ = #{record.cfsj,jdbcType=DECIMAL},
+      </if>
+      <if test="record.cfts != null" >
+        CFTS = #{record.cfts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sjys != null" >
+        SJYS = #{record.sjys,jdbcType=DECIMAL},
+      </if>
+      <if test="record.qtys != null" >
+        QTYS = #{record.qtys,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yshj != null" >
+        YSHJ = #{record.yshj,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rwpjwh != null" >
+        RWPJWH = #{record.rwpjwh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rwpfsj != null" >
+        RWPFSJ = #{record.rwpfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createtime != null" >
+        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_CG_TZJH
+    set TZID = #{record.tzid,jdbcType=VARCHAR},
+      TZH = #{record.tzh,jdbcType=VARCHAR},
+      TZLB = #{record.tzlb,jdbcType=VARCHAR},
+      JHLX = #{record.jhlx,jdbcType=VARCHAR},
+      CFDW = #{record.cfdw,jdbcType=VARCHAR},
+      TZJB = #{record.tzjb,jdbcType=VARCHAR},
+      ZZHSK = #{record.zzhsk,jdbcType=VARCHAR},
+      FZRXM = #{record.fzrxm,jdbcType=VARCHAR},
+      XZZW = #{record.xzzw,jdbcType=VARCHAR},
+      XZJB = #{record.xzjb,jdbcType=VARCHAR},
+      JSZW = #{record.jszw,jdbcType=VARCHAR},
+      ZW = #{record.zw,jdbcType=VARCHAR},
+      ZJ = #{record.zj,jdbcType=VARCHAR},
+      CFGJ1 = #{record.cfgj1,jdbcType=VARCHAR},
+      CFGJ2 = #{record.cfgj2,jdbcType=VARCHAR},
+      CFGJ3 = #{record.cfgj3,jdbcType=VARCHAR},
+      CFGJ4 = #{record.cfgj4,jdbcType=VARCHAR},
+      CFGJ5 = #{record.cfgj5,jdbcType=VARCHAR},
+      FFGZ = #{record.ffgz,jdbcType=VARCHAR},
+      TZRS = #{record.tzrs,jdbcType=DECIMAL},
+      CFRW = #{record.cfrw,jdbcType=VARCHAR},
+      CFSJ = #{record.cfsj,jdbcType=DECIMAL},
+      CFTS = #{record.cfts,jdbcType=DECIMAL},
+      SJYS = #{record.sjys,jdbcType=DECIMAL},
+      QTYS = #{record.qtys,jdbcType=DECIMAL},
+      YSHJ = #{record.yshj,jdbcType=DECIMAL},
+      RWPJWH = #{record.rwpjwh,jdbcType=VARCHAR},
+      RWPFSJ = #{record.rwpfsj,jdbcType=TIMESTAMP},
+      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.CgTzjh" >
+    update T_CG_TZJH
+    <set >
+      <if test="tzh != null" >
+        TZH = #{tzh,jdbcType=VARCHAR},
+      </if>
+      <if test="tzlb != null" >
+        TZLB = #{tzlb,jdbcType=VARCHAR},
+      </if>
+      <if test="jhlx != null" >
+        JHLX = #{jhlx,jdbcType=VARCHAR},
+      </if>
+      <if test="cfdw != null" >
+        CFDW = #{cfdw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzjb != null" >
+        TZJB = #{tzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="zzhsk != null" >
+        ZZHSK = #{zzhsk,jdbcType=VARCHAR},
+      </if>
+      <if test="fzrxm != null" >
+        FZRXM = #{fzrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="xzzw != null" >
+        XZZW = #{xzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="xzjb != null" >
+        XZJB = #{xzjb,jdbcType=VARCHAR},
+      </if>
+      <if test="jszw != null" >
+        JSZW = #{jszw,jdbcType=VARCHAR},
+      </if>
+      <if test="zw != null" >
+        ZW = #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="zj != null" >
+        ZJ = #{zj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj1 != null" >
+        CFGJ1 = #{cfgj1,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj2 != null" >
+        CFGJ2 = #{cfgj2,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj3 != null" >
+        CFGJ3 = #{cfgj3,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj4 != null" >
+        CFGJ4 = #{cfgj4,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj5 != null" >
+        CFGJ5 = #{cfgj5,jdbcType=VARCHAR},
+      </if>
+      <if test="ffgz != null" >
+        FFGZ = #{ffgz,jdbcType=VARCHAR},
+      </if>
+      <if test="tzrs != null" >
+        TZRS = #{tzrs,jdbcType=DECIMAL},
+      </if>
+      <if test="cfrw != null" >
+        CFRW = #{cfrw,jdbcType=VARCHAR},
+      </if>
+      <if test="cfsj != null" >
+        CFSJ = #{cfsj,jdbcType=DECIMAL},
+      </if>
+      <if test="cfts != null" >
+        CFTS = #{cfts,jdbcType=DECIMAL},
+      </if>
+      <if test="sjys != null" >
+        SJYS = #{sjys,jdbcType=DECIMAL},
+      </if>
+      <if test="qtys != null" >
+        QTYS = #{qtys,jdbcType=DECIMAL},
+      </if>
+      <if test="yshj != null" >
+        YSHJ = #{yshj,jdbcType=DECIMAL},
+      </if>
+      <if test="rwpjwh != null" >
+        RWPJWH = #{rwpjwh,jdbcType=VARCHAR},
+      </if>
+      <if test="rwpfsj != null" >
+        RWPFSJ = #{rwpfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where TZID = #{tzid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.CgTzjh" >
+    update T_CG_TZJH
+    set TZH = #{tzh,jdbcType=VARCHAR},
+      TZLB = #{tzlb,jdbcType=VARCHAR},
+      JHLX = #{jhlx,jdbcType=VARCHAR},
+      CFDW = #{cfdw,jdbcType=VARCHAR},
+      TZJB = #{tzjb,jdbcType=VARCHAR},
+      ZZHSK = #{zzhsk,jdbcType=VARCHAR},
+      FZRXM = #{fzrxm,jdbcType=VARCHAR},
+      XZZW = #{xzzw,jdbcType=VARCHAR},
+      XZJB = #{xzjb,jdbcType=VARCHAR},
+      JSZW = #{jszw,jdbcType=VARCHAR},
+      ZW = #{zw,jdbcType=VARCHAR},
+      ZJ = #{zj,jdbcType=VARCHAR},
+      CFGJ1 = #{cfgj1,jdbcType=VARCHAR},
+      CFGJ2 = #{cfgj2,jdbcType=VARCHAR},
+      CFGJ3 = #{cfgj3,jdbcType=VARCHAR},
+      CFGJ4 = #{cfgj4,jdbcType=VARCHAR},
+      CFGJ5 = #{cfgj5,jdbcType=VARCHAR},
+      FFGZ = #{ffgz,jdbcType=VARCHAR},
+      TZRS = #{tzrs,jdbcType=DECIMAL},
+      CFRW = #{cfrw,jdbcType=VARCHAR},
+      CFSJ = #{cfsj,jdbcType=DECIMAL},
+      CFTS = #{cfts,jdbcType=DECIMAL},
+      SJYS = #{sjys,jdbcType=DECIMAL},
+      QTYS = #{qtys,jdbcType=DECIMAL},
+      YSHJ = #{yshj,jdbcType=DECIMAL},
+      RWPJWH = #{rwpjwh,jdbcType=VARCHAR},
+      RWPFSJ = #{rwpfsj,jdbcType=TIMESTAMP},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
+    where TZID = #{tzid,jdbcType=VARCHAR}
+  </update>
+</mapper>

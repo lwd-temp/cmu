@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.HyShenbMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.HyShenb" >
+    <constructor >
+      <idArg column="SBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JHID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYMC_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JBRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="JBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYDD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYJBXX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYGM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BJJBYX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZRR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SFBB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SBID, JHID, HYLX, HYMC, HYMC_EN, JBRQ, JBDW, HYDD, HYJBXX, HYGM, BJJBYX, JFLY, ZRR, 
+    SFBB, STATUS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyShenbExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_HY_SHENB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_HY_SHENB
+    where SBID = #{sbid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_HY_SHENB
+    where SBID = #{sbid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyShenbExample" >
+    delete from T_HY_SHENB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.HyShenb" >
+    insert into T_HY_SHENB (SBID, JHID, HYLX, 
+      HYMC, HYMC_EN, JBRQ, 
+      JBDW, HYDD, HYJBXX, 
+      HYGM, BJJBYX, JFLY, 
+      ZRR, SFBB, STATUS)
+    values (#{sbid,jdbcType=VARCHAR}, #{jhid,jdbcType=VARCHAR}, #{hylx,jdbcType=VARCHAR}, 
+      #{hymc,jdbcType=VARCHAR}, #{hymcEn,jdbcType=VARCHAR}, #{jbrq,jdbcType=TIMESTAMP}, 
+      #{jbdw,jdbcType=VARCHAR}, #{hydd,jdbcType=VARCHAR}, #{hyjbxx,jdbcType=VARCHAR}, 
+      #{hygm,jdbcType=VARCHAR}, #{bjjbyx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, 
+      #{zrr,jdbcType=VARCHAR}, #{sfbb,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HyShenb" >
+    insert into T_HY_SHENB
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sbid != null" >
+        SBID,
+      </if>
+      <if test="jhid != null" >
+        JHID,
+      </if>
+      <if test="hylx != null" >
+        HYLX,
+      </if>
+      <if test="hymc != null" >
+        HYMC,
+      </if>
+      <if test="hymcEn != null" >
+        HYMC_EN,
+      </if>
+      <if test="jbrq != null" >
+        JBRQ,
+      </if>
+      <if test="jbdw != null" >
+        JBDW,
+      </if>
+      <if test="hydd != null" >
+        HYDD,
+      </if>
+      <if test="hyjbxx != null" >
+        HYJBXX,
+      </if>
+      <if test="hygm != null" >
+        HYGM,
+      </if>
+      <if test="bjjbyx != null" >
+        BJJBYX,
+      </if>
+      <if test="jfly != null" >
+        JFLY,
+      </if>
+      <if test="zrr != null" >
+        ZRR,
+      </if>
+      <if test="sfbb != null" >
+        SFBB,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sbid != null" >
+        #{sbid,jdbcType=VARCHAR},
+      </if>
+      <if test="jhid != null" >
+        #{jhid,jdbcType=VARCHAR},
+      </if>
+      <if test="hylx != null" >
+        #{hylx,jdbcType=VARCHAR},
+      </if>
+      <if test="hymc != null" >
+        #{hymc,jdbcType=VARCHAR},
+      </if>
+      <if test="hymcEn != null" >
+        #{hymcEn,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrq != null" >
+        #{jbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jbdw != null" >
+        #{jbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="hydd != null" >
+        #{hydd,jdbcType=VARCHAR},
+      </if>
+      <if test="hyjbxx != null" >
+        #{hyjbxx,jdbcType=VARCHAR},
+      </if>
+      <if test="hygm != null" >
+        #{hygm,jdbcType=VARCHAR},
+      </if>
+      <if test="bjjbyx != null" >
+        #{bjjbyx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="zrr != null" >
+        #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="sfbb != null" >
+        #{sfbb,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyShenbExample" resultType="java.lang.Integer" >
+    select count(*) from T_HY_SHENB
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_HY_SHENB
+    <set >
+      <if test="record.sbid != null" >
+        SBID = #{record.sbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jhid != null" >
+        JHID = #{record.jhid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hylx != null" >
+        HYLX = #{record.hylx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hymc != null" >
+        HYMC = #{record.hymc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hymcEn != null" >
+        HYMC_EN = #{record.hymcEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jbrq != null" >
+        JBRQ = #{record.jbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.jbdw != null" >
+        JBDW = #{record.jbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hydd != null" >
+        HYDD = #{record.hydd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hyjbxx != null" >
+        HYJBXX = #{record.hyjbxx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hygm != null" >
+        HYGM = #{record.hygm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bjjbyx != null" >
+        BJJBYX = #{record.bjjbyx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfly != null" >
+        JFLY = #{record.jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zrr != null" >
+        ZRR = #{record.zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfbb != null" >
+        SFBB = #{record.sfbb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_HY_SHENB
+    set SBID = #{record.sbid,jdbcType=VARCHAR},
+      JHID = #{record.jhid,jdbcType=VARCHAR},
+      HYLX = #{record.hylx,jdbcType=VARCHAR},
+      HYMC = #{record.hymc,jdbcType=VARCHAR},
+      HYMC_EN = #{record.hymcEn,jdbcType=VARCHAR},
+      JBRQ = #{record.jbrq,jdbcType=TIMESTAMP},
+      JBDW = #{record.jbdw,jdbcType=VARCHAR},
+      HYDD = #{record.hydd,jdbcType=VARCHAR},
+      HYJBXX = #{record.hyjbxx,jdbcType=VARCHAR},
+      HYGM = #{record.hygm,jdbcType=VARCHAR},
+      BJJBYX = #{record.bjjbyx,jdbcType=VARCHAR},
+      JFLY = #{record.jfly,jdbcType=VARCHAR},
+      ZRR = #{record.zrr,jdbcType=VARCHAR},
+      SFBB = #{record.sfbb,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.HyShenb" >
+    update T_HY_SHENB
+    <set >
+      <if test="jhid != null" >
+        JHID = #{jhid,jdbcType=VARCHAR},
+      </if>
+      <if test="hylx != null" >
+        HYLX = #{hylx,jdbcType=VARCHAR},
+      </if>
+      <if test="hymc != null" >
+        HYMC = #{hymc,jdbcType=VARCHAR},
+      </if>
+      <if test="hymcEn != null" >
+        HYMC_EN = #{hymcEn,jdbcType=VARCHAR},
+      </if>
+      <if test="jbrq != null" >
+        JBRQ = #{jbrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jbdw != null" >
+        JBDW = #{jbdw,jdbcType=VARCHAR},
+      </if>
+      <if test="hydd != null" >
+        HYDD = #{hydd,jdbcType=VARCHAR},
+      </if>
+      <if test="hyjbxx != null" >
+        HYJBXX = #{hyjbxx,jdbcType=VARCHAR},
+      </if>
+      <if test="hygm != null" >
+        HYGM = #{hygm,jdbcType=VARCHAR},
+      </if>
+      <if test="bjjbyx != null" >
+        BJJBYX = #{bjjbyx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        JFLY = #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="zrr != null" >
+        ZRR = #{zrr,jdbcType=VARCHAR},
+      </if>
+      <if test="sfbb != null" >
+        SFBB = #{sfbb,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SBID = #{sbid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.HyShenb" >
+    update T_HY_SHENB
+    set JHID = #{jhid,jdbcType=VARCHAR},
+      HYLX = #{hylx,jdbcType=VARCHAR},
+      HYMC = #{hymc,jdbcType=VARCHAR},
+      HYMC_EN = #{hymcEn,jdbcType=VARCHAR},
+      JBRQ = #{jbrq,jdbcType=TIMESTAMP},
+      JBDW = #{jbdw,jdbcType=VARCHAR},
+      HYDD = #{hydd,jdbcType=VARCHAR},
+      HYJBXX = #{hyjbxx,jdbcType=VARCHAR},
+      HYGM = #{hygm,jdbcType=VARCHAR},
+      BJJBYX = #{bjjbyx,jdbcType=VARCHAR},
+      JFLY = #{jfly,jdbcType=VARCHAR},
+      ZRR = #{zrr,jdbcType=VARCHAR},
+      SFBB = #{sfbb,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where SBID = #{sbid,jdbcType=VARCHAR}
+  </update>
+</mapper>

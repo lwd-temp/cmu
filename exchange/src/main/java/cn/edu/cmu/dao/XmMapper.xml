@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.XmMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.Xm" >
+    <constructor >
+      <idArg column="XM_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMZM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GLXMMCID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMBH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMKSSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SMJSSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="XMJLTS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="XMCC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZJJE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMGK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMZZJH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JLMBJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JLMBGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FYBZ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="XMNJXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMZYXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="OPERATOR_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    XM_ID, XMLX, XMZM, GLXMMCID, XMMC, XMBH, XMKSSJ, SMJSSJ, XMJLTS, XMCC, JFLY, ZJJE, 
+    XMGK, XMZZJH, JLMBJGMC, JLMBGJ, FYBZ, ZYSM, SFXZRS, JHRS, XMNJXZ, XMZYXZ, CREATE_TIME, 
+    OPERATOR_CODE, STATUS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_XM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_XM
+    where XM_ID = #{xmId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_XM
+    where XM_ID = #{xmId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmExample" >
+    delete from T_XM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.Xm" >
+    insert into T_XM (XM_ID, XMLX, XMZM, 
+      GLXMMCID, XMMC, XMBH, 
+      XMKSSJ, SMJSSJ, XMJLTS, 
+      XMCC, JFLY, ZJJE, XMGK, 
+      XMZZJH, JLMBJGMC, JLMBGJ, 
+      FYBZ, ZYSM, SFXZRS, 
+      JHRS, XMNJXZ, XMZYXZ, 
+      CREATE_TIME, OPERATOR_CODE, STATUS
+      )
+    values (#{xmId,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
+      #{glxmmcid,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, #{xmbh,jdbcType=VARCHAR}, 
+      #{xmkssj,jdbcType=TIMESTAMP}, #{smjssj,jdbcType=TIMESTAMP}, #{xmjlts,jdbcType=DECIMAL}, 
+      #{xmcc,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{zjje,jdbcType=VARCHAR}, #{xmgk,jdbcType=VARCHAR}, 
+      #{xmzzjh,jdbcType=VARCHAR}, #{jlmbjgmc,jdbcType=VARCHAR}, #{jlmbgj,jdbcType=VARCHAR}, 
+      #{fybz,jdbcType=DECIMAL}, #{zysm,jdbcType=VARCHAR}, #{sfxzrs,jdbcType=VARCHAR}, 
+      #{jhrs,jdbcType=DECIMAL}, #{xmnjxz,jdbcType=VARCHAR}, #{xmzyxz,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{operatorCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Xm" >
+    insert into T_XM
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xmId != null" >
+        XM_ID,
+      </if>
+      <if test="xmlx != null" >
+        XMLX,
+      </if>
+      <if test="xmzm != null" >
+        XMZM,
+      </if>
+      <if test="glxmmcid != null" >
+        GLXMMCID,
+      </if>
+      <if test="xmmc != null" >
+        XMMC,
+      </if>
+      <if test="xmbh != null" >
+        XMBH,
+      </if>
+      <if test="xmkssj != null" >
+        XMKSSJ,
+      </if>
+      <if test="smjssj != null" >
+        SMJSSJ,
+      </if>
+      <if test="xmjlts != null" >
+        XMJLTS,
+      </if>
+      <if test="xmcc != null" >
+        XMCC,
+      </if>
+      <if test="jfly != null" >
+        JFLY,
+      </if>
+      <if test="zjje != null" >
+        ZJJE,
+      </if>
+      <if test="xmgk != null" >
+        XMGK,
+      </if>
+      <if test="xmzzjh != null" >
+        XMZZJH,
+      </if>
+      <if test="jlmbjgmc != null" >
+        JLMBJGMC,
+      </if>
+      <if test="jlmbgj != null" >
+        JLMBGJ,
+      </if>
+      <if test="fybz != null" >
+        FYBZ,
+      </if>
+      <if test="zysm != null" >
+        ZYSM,
+      </if>
+      <if test="sfxzrs != null" >
+        SFXZRS,
+      </if>
+      <if test="jhrs != null" >
+        JHRS,
+      </if>
+      <if test="xmnjxz != null" >
+        XMNJXZ,
+      </if>
+      <if test="xmzyxz != null" >
+        XMZYXZ,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="operatorCode != null" >
+        OPERATOR_CODE,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xmId != null" >
+        #{xmId,jdbcType=VARCHAR},
+      </if>
+      <if test="xmlx != null" >
+        #{xmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzm != null" >
+        #{xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="glxmmcid != null" >
+        #{glxmmcid,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xmbh != null" >
+        #{xmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xmkssj != null" >
+        #{xmkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smjssj != null" >
+        #{smjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xmjlts != null" >
+        #{xmjlts,jdbcType=DECIMAL},
+      </if>
+      <if test="xmcc != null" >
+        #{xmcc,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="zjje != null" >
+        #{zjje,jdbcType=VARCHAR},
+      </if>
+      <if test="xmgk != null" >
+        #{xmgk,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzzjh != null" >
+        #{xmzzjh,jdbcType=VARCHAR},
+      </if>
+      <if test="jlmbjgmc != null" >
+        #{jlmbjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jlmbgj != null" >
+        #{jlmbgj,jdbcType=VARCHAR},
+      </if>
+      <if test="fybz != null" >
+        #{fybz,jdbcType=DECIMAL},
+      </if>
+      <if test="zysm != null" >
+        #{zysm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfxzrs != null" >
+        #{sfxzrs,jdbcType=VARCHAR},
+      </if>
+      <if test="jhrs != null" >
+        #{jhrs,jdbcType=DECIMAL},
+      </if>
+      <if test="xmnjxz != null" >
+        #{xmnjxz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzyxz != null" >
+        #{xmzyxz,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorCode != null" >
+        #{operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmExample" resultType="java.lang.Integer" >
+    select count(*) from T_XM
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_XM
+    <set >
+      <if test="record.xmId != null" >
+        XM_ID = #{record.xmId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmlx != null" >
+        XMLX = #{record.xmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmzm != null" >
+        XMZM = #{record.xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.glxmmcid != null" >
+        GLXMMCID = #{record.glxmmcid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmmc != null" >
+        XMMC = #{record.xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmbh != null" >
+        XMBH = #{record.xmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmkssj != null" >
+        XMKSSJ = #{record.xmkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.smjssj != null" >
+        SMJSSJ = #{record.smjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.xmjlts != null" >
+        XMJLTS = #{record.xmjlts,jdbcType=DECIMAL},
+      </if>
+      <if test="record.xmcc != null" >
+        XMCC = #{record.xmcc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfly != null" >
+        JFLY = #{record.jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjje != null" >
+        ZJJE = #{record.zjje,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmgk != null" >
+        XMGK = #{record.xmgk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmzzjh != null" >
+        XMZZJH = #{record.xmzzjh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jlmbjgmc != null" >
+        JLMBJGMC = #{record.jlmbjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jlmbgj != null" >
+        JLMBGJ = #{record.jlmbgj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fybz != null" >
+        FYBZ = #{record.fybz,jdbcType=DECIMAL},
+      </if>
+      <if test="record.zysm != null" >
+        ZYSM = #{record.zysm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfxzrs != null" >
+        SFXZRS = #{record.sfxzrs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jhrs != null" >
+        JHRS = #{record.jhrs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.xmnjxz != null" >
+        XMNJXZ = #{record.xmnjxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmzyxz != null" >
+        XMZYXZ = #{record.xmzyxz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.operatorCode != null" >
+        OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_XM
+    set XM_ID = #{record.xmId,jdbcType=VARCHAR},
+      XMLX = #{record.xmlx,jdbcType=VARCHAR},
+      XMZM = #{record.xmzm,jdbcType=VARCHAR},
+      GLXMMCID = #{record.glxmmcid,jdbcType=VARCHAR},
+      XMMC = #{record.xmmc,jdbcType=VARCHAR},
+      XMBH = #{record.xmbh,jdbcType=VARCHAR},
+      XMKSSJ = #{record.xmkssj,jdbcType=TIMESTAMP},
+      SMJSSJ = #{record.smjssj,jdbcType=TIMESTAMP},
+      XMJLTS = #{record.xmjlts,jdbcType=DECIMAL},
+      XMCC = #{record.xmcc,jdbcType=VARCHAR},
+      JFLY = #{record.jfly,jdbcType=VARCHAR},
+      ZJJE = #{record.zjje,jdbcType=VARCHAR},
+      XMGK = #{record.xmgk,jdbcType=VARCHAR},
+      XMZZJH = #{record.xmzzjh,jdbcType=VARCHAR},
+      JLMBJGMC = #{record.jlmbjgmc,jdbcType=VARCHAR},
+      JLMBGJ = #{record.jlmbgj,jdbcType=VARCHAR},
+      FYBZ = #{record.fybz,jdbcType=DECIMAL},
+      ZYSM = #{record.zysm,jdbcType=VARCHAR},
+      SFXZRS = #{record.sfxzrs,jdbcType=VARCHAR},
+      JHRS = #{record.jhrs,jdbcType=DECIMAL},
+      XMNJXZ = #{record.xmnjxz,jdbcType=VARCHAR},
+      XMZYXZ = #{record.xmzyxz,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.Xm" >
+    update T_XM
+    <set >
+      <if test="xmlx != null" >
+        XMLX = #{xmlx,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzm != null" >
+        XMZM = #{xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="glxmmcid != null" >
+        GLXMMCID = #{glxmmcid,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        XMMC = #{xmmc,jdbcType=VARCHAR},
+      </if>
+      <if test="xmbh != null" >
+        XMBH = #{xmbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xmkssj != null" >
+        XMKSSJ = #{xmkssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="smjssj != null" >
+        SMJSSJ = #{smjssj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="xmjlts != null" >
+        XMJLTS = #{xmjlts,jdbcType=DECIMAL},
+      </if>
+      <if test="xmcc != null" >
+        XMCC = #{xmcc,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        JFLY = #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="zjje != null" >
+        ZJJE = #{zjje,jdbcType=VARCHAR},
+      </if>
+      <if test="xmgk != null" >
+        XMGK = #{xmgk,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzzjh != null" >
+        XMZZJH = #{xmzzjh,jdbcType=VARCHAR},
+      </if>
+      <if test="jlmbjgmc != null" >
+        JLMBJGMC = #{jlmbjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="jlmbgj != null" >
+        JLMBGJ = #{jlmbgj,jdbcType=VARCHAR},
+      </if>
+      <if test="fybz != null" >
+        FYBZ = #{fybz,jdbcType=DECIMAL},
+      </if>
+      <if test="zysm != null" >
+        ZYSM = #{zysm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfxzrs != null" >
+        SFXZRS = #{sfxzrs,jdbcType=VARCHAR},
+      </if>
+      <if test="jhrs != null" >
+        JHRS = #{jhrs,jdbcType=DECIMAL},
+      </if>
+      <if test="xmnjxz != null" >
+        XMNJXZ = #{xmnjxz,jdbcType=VARCHAR},
+      </if>
+      <if test="xmzyxz != null" >
+        XMZYXZ = #{xmzyxz,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorCode != null" >
+        OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where XM_ID = #{xmId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Xm" >
+    update T_XM
+    set XMLX = #{xmlx,jdbcType=VARCHAR},
+      XMZM = #{xmzm,jdbcType=VARCHAR},
+      GLXMMCID = #{glxmmcid,jdbcType=VARCHAR},
+      XMMC = #{xmmc,jdbcType=VARCHAR},
+      XMBH = #{xmbh,jdbcType=VARCHAR},
+      XMKSSJ = #{xmkssj,jdbcType=TIMESTAMP},
+      SMJSSJ = #{smjssj,jdbcType=TIMESTAMP},
+      XMJLTS = #{xmjlts,jdbcType=DECIMAL},
+      XMCC = #{xmcc,jdbcType=VARCHAR},
+      JFLY = #{jfly,jdbcType=VARCHAR},
+      ZJJE = #{zjje,jdbcType=VARCHAR},
+      XMGK = #{xmgk,jdbcType=VARCHAR},
+      XMZZJH = #{xmzzjh,jdbcType=VARCHAR},
+      JLMBJGMC = #{jlmbjgmc,jdbcType=VARCHAR},
+      JLMBGJ = #{jlmbgj,jdbcType=VARCHAR},
+      FYBZ = #{fybz,jdbcType=DECIMAL},
+      ZYSM = #{zysm,jdbcType=VARCHAR},
+      SFXZRS = #{sfxzrs,jdbcType=VARCHAR},
+      JHRS = #{jhrs,jdbcType=DECIMAL},
+      XMNJXZ = #{xmnjxz,jdbcType=VARCHAR},
+      XMZYXZ = #{xmzyxz,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where XM_ID = #{xmId,jdbcType=VARCHAR}
+  </update>
+</mapper>

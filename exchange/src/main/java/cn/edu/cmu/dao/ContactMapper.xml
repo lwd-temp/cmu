@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.ContactMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.Contact" >
+    <constructor >
+      <idArg column="LXR_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GENDER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZWZC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZYLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GLXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FAX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TELPHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="REMARK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    LXR_ID, NAME, GENDER, GJ, YZ, GZDW, ZWZC, ZYLY, GLXM, EMAIL, FAX, TELPHONE, ADDRESS, 
+    REMARK, STATUS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.ContactExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_CMU_CONTACT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_CMU_CONTACT
+    where LXR_ID = #{lxrId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_CMU_CONTACT
+    where LXR_ID = #{lxrId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.ContactExample" >
+    delete from T_CMU_CONTACT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.Contact" >
+    insert into T_CMU_CONTACT (LXR_ID, NAME, GENDER, 
+      GJ, YZ, GZDW, ZWZC, 
+      ZYLY, GLXM, EMAIL, 
+      FAX, TELPHONE, ADDRESS, 
+      REMARK, STATUS)
+    values (#{lxrId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{gj,jdbcType=VARCHAR}, #{yz,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, #{zwzc,jdbcType=VARCHAR}, 
+      #{zyly,jdbcType=VARCHAR}, #{glxm,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Contact" >
+    insert into T_CMU_CONTACT
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lxrId != null" >
+        LXR_ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="gender != null" >
+        GENDER,
+      </if>
+      <if test="gj != null" >
+        GJ,
+      </if>
+      <if test="yz != null" >
+        YZ,
+      </if>
+      <if test="gzdw != null" >
+        GZDW,
+      </if>
+      <if test="zwzc != null" >
+        ZWZC,
+      </if>
+      <if test="zyly != null" >
+        ZYLY,
+      </if>
+      <if test="glxm != null" >
+        GLXM,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="fax != null" >
+        FAX,
+      </if>
+      <if test="telphone != null" >
+        TELPHONE,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lxrId != null" >
+        #{lxrId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="yz != null" >
+        #{yz,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="zwzc != null" >
+        #{zwzc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyly != null" >
+        #{zyly,jdbcType=VARCHAR},
+      </if>
+      <if test="glxm != null" >
+        #{glxm,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.ContactExample" resultType="java.lang.Integer" >
+    select count(*) from T_CMU_CONTACT
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_CMU_CONTACT
+    <set >
+      <if test="record.lxrId != null" >
+        LXR_ID = #{record.lxrId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        GENDER = #{record.gender,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gj != null" >
+        GJ = #{record.gj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yz != null" >
+        YZ = #{record.yz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzdw != null" >
+        GZDW = #{record.gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwzc != null" >
+        ZWZC = #{record.zwzc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zyly != null" >
+        ZYLY = #{record.zyly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.glxm != null" >
+        GLXM = #{record.glxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fax != null" >
+        FAX = #{record.fax,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telphone != null" >
+        TELPHONE = #{record.telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        ADDRESS = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remark != null" >
+        REMARK = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_CMU_CONTACT
+    set LXR_ID = #{record.lxrId,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      GENDER = #{record.gender,jdbcType=VARCHAR},
+      GJ = #{record.gj,jdbcType=VARCHAR},
+      YZ = #{record.yz,jdbcType=VARCHAR},
+      GZDW = #{record.gzdw,jdbcType=VARCHAR},
+      ZWZC = #{record.zwzc,jdbcType=VARCHAR},
+      ZYLY = #{record.zyly,jdbcType=VARCHAR},
+      GLXM = #{record.glxm,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      FAX = #{record.fax,jdbcType=VARCHAR},
+      TELPHONE = #{record.telphone,jdbcType=VARCHAR},
+      ADDRESS = #{record.address,jdbcType=VARCHAR},
+      REMARK = #{record.remark,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.Contact" >
+    update T_CMU_CONTACT
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        GENDER = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        GJ = #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="yz != null" >
+        YZ = #{yz,jdbcType=VARCHAR},
+      </if>
+      <if test="gzdw != null" >
+        GZDW = #{gzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="zwzc != null" >
+        ZWZC = #{zwzc,jdbcType=VARCHAR},
+      </if>
+      <if test="zyly != null" >
+        ZYLY = #{zyly,jdbcType=VARCHAR},
+      </if>
+      <if test="glxm != null" >
+        GLXM = #{glxm,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="fax != null" >
+        FAX = #{fax,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null" >
+        TELPHONE = #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LXR_ID = #{lxrId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Contact" >
+    update T_CMU_CONTACT
+    set NAME = #{name,jdbcType=VARCHAR},
+      GENDER = #{gender,jdbcType=VARCHAR},
+      GJ = #{gj,jdbcType=VARCHAR},
+      YZ = #{yz,jdbcType=VARCHAR},
+      GZDW = #{gzdw,jdbcType=VARCHAR},
+      ZWZC = #{zwzc,jdbcType=VARCHAR},
+      ZYLY = #{zyly,jdbcType=VARCHAR},
+      GLXM = #{glxm,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      FAX = #{fax,jdbcType=VARCHAR},
+      TELPHONE = #{telphone,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where LXR_ID = #{lxrId,jdbcType=VARCHAR}
+  </update>
+</mapper>

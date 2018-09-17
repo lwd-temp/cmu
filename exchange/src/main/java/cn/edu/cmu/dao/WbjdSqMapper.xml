@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.WbjdSqMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.WbjdSq" >
+    <constructor >
+      <idArg column="LFID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DBTMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LFRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="LFSJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TLSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="TLSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LFMD_QT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YJTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQXX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LPSL" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="QKJL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FWCG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZXB" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="TZCSRQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZGZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZZY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZXSLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQCG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZQRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZQRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZQLXRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZQLXRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JDBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JDLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    LFID, DBTMC, LFRS, LFSJ, TLSJ_START, TLSJ_END, LFMD, LFMD_QT, YJTM, YQXX, JFLY, LP, 
+    LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, TZZY, TZXSLY, YQCG, ZQRXM, 
+    ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSqExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_WBJD_SQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_WBJD_SQ
+    where LFID = #{lfid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_WBJD_SQ
+    where LFID = #{lfid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbjdSqExample" >
+    delete from T_WBJD_SQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.WbjdSq" >
+    insert into T_WBJD_SQ (LFID, DBTMC, LFRS, 
+      LFSJ, TLSJ_START, TLSJ_END, 
+      LFMD, LFMD_QT, YJTM, 
+      YQXX, JFLY, LP, LPSL, 
+      QKJL, FWCG, TZXM, TZGJ, 
+      TZXB, TZCSRQ, TZGZDW, 
+      TZZW, TZZY, TZXSLY, 
+      YQCG, ZQRXM, ZQRDH, 
+      ZQLXRXM, ZQLXRDH, JDBM, 
+      JDLX, STATUS)
+    values (#{lfid,jdbcType=VARCHAR}, #{dbtmc,jdbcType=VARCHAR}, #{lfrs,jdbcType=DECIMAL}, 
+      #{lfsj,jdbcType=VARCHAR}, #{tlsjStart,jdbcType=TIMESTAMP}, #{tlsjEnd,jdbcType=TIMESTAMP}, 
+      #{lfmd,jdbcType=VARCHAR}, #{lfmdQt,jdbcType=VARCHAR}, #{yjtm,jdbcType=VARCHAR}, 
+      #{yqxx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{lp,jdbcType=VARCHAR}, #{lpsl,jdbcType=DECIMAL}, 
+      #{qkjl,jdbcType=VARCHAR}, #{fwcg,jdbcType=VARCHAR}, #{tzxm,jdbcType=VARCHAR}, #{tzgj,jdbcType=VARCHAR}, 
+      #{tzxb,jdbcType=TIMESTAMP}, #{tzcsrq,jdbcType=VARCHAR}, #{tzgzdw,jdbcType=VARCHAR}, 
+      #{tzzw,jdbcType=VARCHAR}, #{tzzy,jdbcType=VARCHAR}, #{tzxsly,jdbcType=VARCHAR}, 
+      #{yqcg,jdbcType=VARCHAR}, #{zqrxm,jdbcType=VARCHAR}, #{zqrdh,jdbcType=VARCHAR}, 
+      #{zqlxrxm,jdbcType=VARCHAR}, #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, 
+      #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdSq" >
+    insert into T_WBJD_SQ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="lfid != null" >
+        LFID,
+      </if>
+      <if test="dbtmc != null" >
+        DBTMC,
+      </if>
+      <if test="lfrs != null" >
+        LFRS,
+      </if>
+      <if test="lfsj != null" >
+        LFSJ,
+      </if>
+      <if test="tlsjStart != null" >
+        TLSJ_START,
+      </if>
+      <if test="tlsjEnd != null" >
+        TLSJ_END,
+      </if>
+      <if test="lfmd != null" >
+        LFMD,
+      </if>
+      <if test="lfmdQt != null" >
+        LFMD_QT,
+      </if>
+      <if test="yjtm != null" >
+        YJTM,
+      </if>
+      <if test="yqxx != null" >
+        YQXX,
+      </if>
+      <if test="jfly != null" >
+        JFLY,
+      </if>
+      <if test="lp != null" >
+        LP,
+      </if>
+      <if test="lpsl != null" >
+        LPSL,
+      </if>
+      <if test="qkjl != null" >
+        QKJL,
+      </if>
+      <if test="fwcg != null" >
+        FWCG,
+      </if>
+      <if test="tzxm != null" >
+        TZXM,
+      </if>
+      <if test="tzgj != null" >
+        TZGJ,
+      </if>
+      <if test="tzxb != null" >
+        TZXB,
+      </if>
+      <if test="tzcsrq != null" >
+        TZCSRQ,
+      </if>
+      <if test="tzgzdw != null" >
+        TZGZDW,
+      </if>
+      <if test="tzzw != null" >
+        TZZW,
+      </if>
+      <if test="tzzy != null" >
+        TZZY,
+      </if>
+      <if test="tzxsly != null" >
+        TZXSLY,
+      </if>
+      <if test="yqcg != null" >
+        YQCG,
+      </if>
+      <if test="zqrxm != null" >
+        ZQRXM,
+      </if>
+      <if test="zqrdh != null" >
+        ZQRDH,
+      </if>
+      <if test="zqlxrxm != null" >
+        ZQLXRXM,
+      </if>
+      <if test="zqlxrdh != null" >
+        ZQLXRDH,
+      </if>
+      <if test="jdbm != null" >
+        JDBM,
+      </if>
+      <if test="jdlx != null" >
+        JDLX,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="lfid != null" >
+        #{lfid,jdbcType=VARCHAR},
+      </if>
+      <if test="dbtmc != null" >
+        #{dbtmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lfrs != null" >
+        #{lfrs,jdbcType=DECIMAL},
+      </if>
+      <if test="lfsj != null" >
+        #{lfsj,jdbcType=VARCHAR},
+      </if>
+      <if test="tlsjStart != null" >
+        #{tlsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tlsjEnd != null" >
+        #{tlsjEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfmd != null" >
+        #{lfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="lfmdQt != null" >
+        #{lfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="yjtm != null" >
+        #{yjtm,jdbcType=VARCHAR},
+      </if>
+      <if test="yqxx != null" >
+        #{yqxx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="lp != null" >
+        #{lp,jdbcType=VARCHAR},
+      </if>
+      <if test="lpsl != null" >
+        #{lpsl,jdbcType=DECIMAL},
+      </if>
+      <if test="qkjl != null" >
+        #{qkjl,jdbcType=VARCHAR},
+      </if>
+      <if test="fwcg != null" >
+        #{fwcg,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxm != null" >
+        #{tzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="tzgj != null" >
+        #{tzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxb != null" >
+        #{tzxb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tzcsrq != null" >
+        #{tzcsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="tzgzdw != null" >
+        #{tzgzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzw != null" >
+        #{tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzy != null" >
+        #{tzzy,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxsly != null" >
+        #{tzxsly,jdbcType=VARCHAR},
+      </if>
+      <if test="yqcg != null" >
+        #{yqcg,jdbcType=VARCHAR},
+      </if>
+      <if test="zqrxm != null" >
+        #{zqrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zqrdh != null" >
+        #{zqrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zqlxrxm != null" >
+        #{zqlxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zqlxrdh != null" >
+        #{zqlxrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jdbm != null" >
+        #{jdbm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdlx != null" >
+        #{jdlx,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.WbjdSqExample" resultType="java.lang.Integer" >
+    select count(*) from T_WBJD_SQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_WBJD_SQ
+    <set >
+      <if test="record.lfid != null" >
+        LFID = #{record.lfid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dbtmc != null" >
+        DBTMC = #{record.dbtmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lfrs != null" >
+        LFRS = #{record.lfrs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.lfsj != null" >
+        LFSJ = #{record.lfsj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tlsjStart != null" >
+        TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tlsjEnd != null" >
+        TLSJ_END = #{record.tlsjEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lfmd != null" >
+        LFMD = #{record.lfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lfmdQt != null" >
+        LFMD_QT = #{record.lfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yjtm != null" >
+        YJTM = #{record.yjtm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqxx != null" >
+        YQXX = #{record.yqxx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfly != null" >
+        JFLY = #{record.jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lp != null" >
+        LP = #{record.lp,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lpsl != null" >
+        LPSL = #{record.lpsl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.qkjl != null" >
+        QKJL = #{record.qkjl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fwcg != null" >
+        FWCG = #{record.fwcg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzxm != null" >
+        TZXM = #{record.tzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzgj != null" >
+        TZGJ = #{record.tzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzxb != null" >
+        TZXB = #{record.tzxb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.tzcsrq != null" >
+        TZCSRQ = #{record.tzcsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzgzdw != null" >
+        TZGZDW = #{record.tzgzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzzw != null" >
+        TZZW = #{record.tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzzy != null" >
+        TZZY = #{record.tzzy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzxsly != null" >
+        TZXSLY = #{record.tzxsly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqcg != null" >
+        YQCG = #{record.yqcg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zqrxm != null" >
+        ZQRXM = #{record.zqrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zqrdh != null" >
+        ZQRDH = #{record.zqrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zqlxrxm != null" >
+        ZQLXRXM = #{record.zqlxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zqlxrdh != null" >
+        ZQLXRDH = #{record.zqlxrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jdbm != null" >
+        JDBM = #{record.jdbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jdlx != null" >
+        JDLX = #{record.jdlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_WBJD_SQ
+    set LFID = #{record.lfid,jdbcType=VARCHAR},
+      DBTMC = #{record.dbtmc,jdbcType=VARCHAR},
+      LFRS = #{record.lfrs,jdbcType=DECIMAL},
+      LFSJ = #{record.lfsj,jdbcType=VARCHAR},
+      TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
+      TLSJ_END = #{record.tlsjEnd,jdbcType=TIMESTAMP},
+      LFMD = #{record.lfmd,jdbcType=VARCHAR},
+      LFMD_QT = #{record.lfmdQt,jdbcType=VARCHAR},
+      YJTM = #{record.yjtm,jdbcType=VARCHAR},
+      YQXX = #{record.yqxx,jdbcType=VARCHAR},
+      JFLY = #{record.jfly,jdbcType=VARCHAR},
+      LP = #{record.lp,jdbcType=VARCHAR},
+      LPSL = #{record.lpsl,jdbcType=DECIMAL},
+      QKJL = #{record.qkjl,jdbcType=VARCHAR},
+      FWCG = #{record.fwcg,jdbcType=VARCHAR},
+      TZXM = #{record.tzxm,jdbcType=VARCHAR},
+      TZGJ = #{record.tzgj,jdbcType=VARCHAR},
+      TZXB = #{record.tzxb,jdbcType=TIMESTAMP},
+      TZCSRQ = #{record.tzcsrq,jdbcType=VARCHAR},
+      TZGZDW = #{record.tzgzdw,jdbcType=VARCHAR},
+      TZZW = #{record.tzzw,jdbcType=VARCHAR},
+      TZZY = #{record.tzzy,jdbcType=VARCHAR},
+      TZXSLY = #{record.tzxsly,jdbcType=VARCHAR},
+      YQCG = #{record.yqcg,jdbcType=VARCHAR},
+      ZQRXM = #{record.zqrxm,jdbcType=VARCHAR},
+      ZQRDH = #{record.zqrdh,jdbcType=VARCHAR},
+      ZQLXRXM = #{record.zqlxrxm,jdbcType=VARCHAR},
+      ZQLXRDH = #{record.zqlxrdh,jdbcType=VARCHAR},
+      JDBM = #{record.jdbm,jdbcType=VARCHAR},
+      JDLX = #{record.jdlx,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.WbjdSq" >
+    update T_WBJD_SQ
+    <set >
+      <if test="dbtmc != null" >
+        DBTMC = #{dbtmc,jdbcType=VARCHAR},
+      </if>
+      <if test="lfrs != null" >
+        LFRS = #{lfrs,jdbcType=DECIMAL},
+      </if>
+      <if test="lfsj != null" >
+        LFSJ = #{lfsj,jdbcType=VARCHAR},
+      </if>
+      <if test="tlsjStart != null" >
+        TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tlsjEnd != null" >
+        TLSJ_END = #{tlsjEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfmd != null" >
+        LFMD = #{lfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="lfmdQt != null" >
+        LFMD_QT = #{lfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="yjtm != null" >
+        YJTM = #{yjtm,jdbcType=VARCHAR},
+      </if>
+      <if test="yqxx != null" >
+        YQXX = #{yqxx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        JFLY = #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="lp != null" >
+        LP = #{lp,jdbcType=VARCHAR},
+      </if>
+      <if test="lpsl != null" >
+        LPSL = #{lpsl,jdbcType=DECIMAL},
+      </if>
+      <if test="qkjl != null" >
+        QKJL = #{qkjl,jdbcType=VARCHAR},
+      </if>
+      <if test="fwcg != null" >
+        FWCG = #{fwcg,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxm != null" >
+        TZXM = #{tzxm,jdbcType=VARCHAR},
+      </if>
+      <if test="tzgj != null" >
+        TZGJ = #{tzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxb != null" >
+        TZXB = #{tzxb,jdbcType=TIMESTAMP},
+      </if>
+      <if test="tzcsrq != null" >
+        TZCSRQ = #{tzcsrq,jdbcType=VARCHAR},
+      </if>
+      <if test="tzgzdw != null" >
+        TZGZDW = #{tzgzdw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzw != null" >
+        TZZW = #{tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="tzzy != null" >
+        TZZY = #{tzzy,jdbcType=VARCHAR},
+      </if>
+      <if test="tzxsly != null" >
+        TZXSLY = #{tzxsly,jdbcType=VARCHAR},
+      </if>
+      <if test="yqcg != null" >
+        YQCG = #{yqcg,jdbcType=VARCHAR},
+      </if>
+      <if test="zqrxm != null" >
+        ZQRXM = #{zqrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zqrdh != null" >
+        ZQRDH = #{zqrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="zqlxrxm != null" >
+        ZQLXRXM = #{zqlxrxm,jdbcType=VARCHAR},
+      </if>
+      <if test="zqlxrdh != null" >
+        ZQLXRDH = #{zqlxrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="jdbm != null" >
+        JDBM = #{jdbm,jdbcType=VARCHAR},
+      </if>
+      <if test="jdlx != null" >
+        JDLX = #{jdlx,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where LFID = #{lfid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.WbjdSq" >
+    update T_WBJD_SQ
+    set DBTMC = #{dbtmc,jdbcType=VARCHAR},
+      LFRS = #{lfrs,jdbcType=DECIMAL},
+      LFSJ = #{lfsj,jdbcType=VARCHAR},
+      TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
+      TLSJ_END = #{tlsjEnd,jdbcType=TIMESTAMP},
+      LFMD = #{lfmd,jdbcType=VARCHAR},
+      LFMD_QT = #{lfmdQt,jdbcType=VARCHAR},
+      YJTM = #{yjtm,jdbcType=VARCHAR},
+      YQXX = #{yqxx,jdbcType=VARCHAR},
+      JFLY = #{jfly,jdbcType=VARCHAR},
+      LP = #{lp,jdbcType=VARCHAR},
+      LPSL = #{lpsl,jdbcType=DECIMAL},
+      QKJL = #{qkjl,jdbcType=VARCHAR},
+      FWCG = #{fwcg,jdbcType=VARCHAR},
+      TZXM = #{tzxm,jdbcType=VARCHAR},
+      TZGJ = #{tzgj,jdbcType=VARCHAR},
+      TZXB = #{tzxb,jdbcType=TIMESTAMP},
+      TZCSRQ = #{tzcsrq,jdbcType=VARCHAR},
+      TZGZDW = #{tzgzdw,jdbcType=VARCHAR},
+      TZZW = #{tzzw,jdbcType=VARCHAR},
+      TZZY = #{tzzy,jdbcType=VARCHAR},
+      TZXSLY = #{tzxsly,jdbcType=VARCHAR},
+      YQCG = #{yqcg,jdbcType=VARCHAR},
+      ZQRXM = #{zqrxm,jdbcType=VARCHAR},
+      ZQRDH = #{zqrdh,jdbcType=VARCHAR},
+      ZQLXRXM = #{zqlxrxm,jdbcType=VARCHAR},
+      ZQLXRDH = #{zqlxrdh,jdbcType=VARCHAR},
+      JDBM = #{jdbm,jdbcType=VARCHAR},
+      JDLX = #{jdlx,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR}
+    where LFID = #{lfid,jdbcType=VARCHAR}
+  </update>
+</mapper>

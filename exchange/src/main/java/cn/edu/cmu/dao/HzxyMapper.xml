@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.HzxyMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.Hzxy" >
+    <constructor >
+      <idArg column="XYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HZFMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QDRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SXRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="UPLOAD_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    XYID, XYMC, HZFMC, QDRQ, SXRQ, UPLOAD_ID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_HZXY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_HZXY
+    where XYID = #{xyid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_HZXY
+    where XYID = #{xyid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HzxyExample" >
+    delete from T_HZXY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.Hzxy" >
+    insert into T_HZXY (XYID, XYMC, HZFMC, 
+      QDRQ, SXRQ, UPLOAD_ID
+      )
+    values (#{xyid,jdbcType=VARCHAR}, #{xymc,jdbcType=VARCHAR}, #{hzfmc,jdbcType=VARCHAR}, 
+      #{qdrq,jdbcType=TIMESTAMP}, #{sxrq,jdbcType=TIMESTAMP}, #{uploadId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Hzxy" >
+    insert into T_HZXY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xyid != null" >
+        XYID,
+      </if>
+      <if test="xymc != null" >
+        XYMC,
+      </if>
+      <if test="hzfmc != null" >
+        HZFMC,
+      </if>
+      <if test="qdrq != null" >
+        QDRQ,
+      </if>
+      <if test="sxrq != null" >
+        SXRQ,
+      </if>
+      <if test="uploadId != null" >
+        UPLOAD_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xyid != null" >
+        #{xyid,jdbcType=VARCHAR},
+      </if>
+      <if test="xymc != null" >
+        #{xymc,jdbcType=VARCHAR},
+      </if>
+      <if test="hzfmc != null" >
+        #{hzfmc,jdbcType=VARCHAR},
+      </if>
+      <if test="qdrq != null" >
+        #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sxrq != null" >
+        #{sxrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadId != null" >
+        #{uploadId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HzxyExample" resultType="java.lang.Integer" >
+    select count(*) from T_HZXY
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_HZXY
+    <set >
+      <if test="record.xyid != null" >
+        XYID = #{record.xyid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xymc != null" >
+        XYMC = #{record.xymc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hzfmc != null" >
+        HZFMC = #{record.hzfmc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qdrq != null" >
+        QDRQ = #{record.qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sxrq != null" >
+        SXRQ = #{record.sxrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.uploadId != null" >
+        UPLOAD_ID = #{record.uploadId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_HZXY
+    set XYID = #{record.xyid,jdbcType=VARCHAR},
+      XYMC = #{record.xymc,jdbcType=VARCHAR},
+      HZFMC = #{record.hzfmc,jdbcType=VARCHAR},
+      QDRQ = #{record.qdrq,jdbcType=TIMESTAMP},
+      SXRQ = #{record.sxrq,jdbcType=TIMESTAMP},
+      UPLOAD_ID = #{record.uploadId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.Hzxy" >
+    update T_HZXY
+    <set >
+      <if test="xymc != null" >
+        XYMC = #{xymc,jdbcType=VARCHAR},
+      </if>
+      <if test="hzfmc != null" >
+        HZFMC = #{hzfmc,jdbcType=VARCHAR},
+      </if>
+      <if test="qdrq != null" >
+        QDRQ = #{qdrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sxrq != null" >
+        SXRQ = #{sxrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="uploadId != null" >
+        UPLOAD_ID = #{uploadId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where XYID = #{xyid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Hzxy" >
+    update T_HZXY
+    set XYMC = #{xymc,jdbcType=VARCHAR},
+      HZFMC = #{hzfmc,jdbcType=VARCHAR},
+      QDRQ = #{qdrq,jdbcType=TIMESTAMP},
+      SXRQ = #{sxrq,jdbcType=TIMESTAMP},
+      UPLOAD_ID = #{uploadId,jdbcType=VARCHAR}
+    where XYID = #{xyid,jdbcType=VARCHAR}
+  </update>
+</mapper>

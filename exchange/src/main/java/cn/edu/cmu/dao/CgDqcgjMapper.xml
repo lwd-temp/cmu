@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.CgDqcgjMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.CgDqcgj" >
+    <constructor >
+      <idArg column="CGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CGLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CSD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HJSZD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SFZH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SSEJDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="KS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LXDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RJCS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFKSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFJSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFMD_QT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XXDZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XM_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_ZW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XXDZ_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DH_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFYSMX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFYSHJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="SQBSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SQRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="STATUS" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="SHJG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHYJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="GDWJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFZJBGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CGID, CGLX, XM, XB, CSRQ, CSD, HJSZD, SFZH, SSEJDW, KS, ZW, ZC, LXDH, EMAIL, CFGJ, 
+    RJCS, TZID, CFKSRQ, CFJSRQ, CFMD, CFMD_QT, YQR_XM, YQR_ZW, YQR_DW, YQR_XXDZ, YQR_DH, 
+    YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, JFYSMX, JFYSHJ, SQBSM, 
+    SQRQ, STATUS, SHJG, SHR, SHYJ, SHRQ, GDWJID, CFZJBGID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_CG_DQCGJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_CG_DQCGJ
+    where CGID = #{cgid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_CG_DQCGJ
+    where CGID = #{cgid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgDqcgjExample" >
+    delete from T_CG_DQCGJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.CgDqcgj" >
+    insert into T_CG_DQCGJ (CGID, CGLX, XM, 
+      XB, CSRQ, CSD, HJSZD, 
+      SFZH, SSEJDW, KS, ZW, 
+      ZC, LXDH, EMAIL, CFGJ, 
+      RJCS, TZID, CFKSRQ, 
+      CFJSRQ, CFMD, CFMD_QT, 
+      YQR_XM, YQR_ZW, YQR_DW, 
+      YQR_XXDZ, YQR_DH, YQR_XM_EN, 
+      YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, 
+      YQR_DH_EN, JFLY, JFYSMX, 
+      JFYSHJ, SQBSM, SQRQ, 
+      STATUS, SHJG, SHR, SHYJ, 
+      SHRQ, GDWJID, CFZJBGID
+      )
+    values (#{cgid,jdbcType=VARCHAR}, #{cglx,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
+      #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{csd,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR}, 
+      #{sfzh,jdbcType=VARCHAR}, #{ssejdw,jdbcType=VARCHAR}, #{ks,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, 
+      #{zc,jdbcType=VARCHAR}, #{lxdh,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{cfgj,jdbcType=VARCHAR}, 
+      #{rjcs,jdbcType=VARCHAR}, #{tzid,jdbcType=VARCHAR}, #{cfksrq,jdbcType=TIMESTAMP}, 
+      #{cfjsrq,jdbcType=TIMESTAMP}, #{cfmd,jdbcType=VARCHAR}, #{cfmdQt,jdbcType=VARCHAR}, 
+      #{yqrXm,jdbcType=VARCHAR}, #{yqrZw,jdbcType=VARCHAR}, #{yqrDw,jdbcType=VARCHAR}, 
+      #{yqrXxdz,jdbcType=VARCHAR}, #{yqrDh,jdbcType=VARCHAR}, #{yqrXmEn,jdbcType=VARCHAR}, 
+      #{yqrZwEn,jdbcType=VARCHAR}, #{yqrDwEn,jdbcType=VARCHAR}, #{yqrXxdzEn,jdbcType=VARCHAR}, 
+      #{yqrDhEn,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{jfysmx,jdbcType=VARCHAR}, 
+      #{jfyshj,jdbcType=DECIMAL}, #{sqbsm,jdbcType=VARCHAR}, #{sqrq,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=CHAR}, #{shjg,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, #{shyj,jdbcType=VARCHAR}, 
+      #{shrq,jdbcType=TIMESTAMP}, #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
+    insert into T_CG_DQCGJ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cgid != null" >
+        CGID,
+      </if>
+      <if test="cglx != null" >
+        CGLX,
+      </if>
+      <if test="xm != null" >
+        XM,
+      </if>
+      <if test="xb != null" >
+        XB,
+      </if>
+      <if test="csrq != null" >
+        CSRQ,
+      </if>
+      <if test="csd != null" >
+        CSD,
+      </if>
+      <if test="hjszd != null" >
+        HJSZD,
+      </if>
+      <if test="sfzh != null" >
+        SFZH,
+      </if>
+      <if test="ssejdw != null" >
+        SSEJDW,
+      </if>
+      <if test="ks != null" >
+        KS,
+      </if>
+      <if test="zw != null" >
+        ZW,
+      </if>
+      <if test="zc != null" >
+        ZC,
+      </if>
+      <if test="lxdh != null" >
+        LXDH,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="cfgj != null" >
+        CFGJ,
+      </if>
+      <if test="rjcs != null" >
+        RJCS,
+      </if>
+      <if test="tzid != null" >
+        TZID,
+      </if>
+      <if test="cfksrq != null" >
+        CFKSRQ,
+      </if>
+      <if test="cfjsrq != null" >
+        CFJSRQ,
+      </if>
+      <if test="cfmd != null" >
+        CFMD,
+      </if>
+      <if test="cfmdQt != null" >
+        CFMD_QT,
+      </if>
+      <if test="yqrXm != null" >
+        YQR_XM,
+      </if>
+      <if test="yqrZw != null" >
+        YQR_ZW,
+      </if>
+      <if test="yqrDw != null" >
+        YQR_DW,
+      </if>
+      <if test="yqrXxdz != null" >
+        YQR_XXDZ,
+      </if>
+      <if test="yqrDh != null" >
+        YQR_DH,
+      </if>
+      <if test="yqrXmEn != null" >
+        YQR_XM_EN,
+      </if>
+      <if test="yqrZwEn != null" >
+        YQR_ZW_EN,
+      </if>
+      <if test="yqrDwEn != null" >
+        YQR_DW_EN,
+      </if>
+      <if test="yqrXxdzEn != null" >
+        YQR_XXDZ_EN,
+      </if>
+      <if test="yqrDhEn != null" >
+        YQR_DH_EN,
+      </if>
+      <if test="jfly != null" >
+        JFLY,
+      </if>
+      <if test="jfysmx != null" >
+        JFYSMX,
+      </if>
+      <if test="jfyshj != null" >
+        JFYSHJ,
+      </if>
+      <if test="sqbsm != null" >
+        SQBSM,
+      </if>
+      <if test="sqrq != null" >
+        SQRQ,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="shjg != null" >
+        SHJG,
+      </if>
+      <if test="shr != null" >
+        SHR,
+      </if>
+      <if test="shyj != null" >
+        SHYJ,
+      </if>
+      <if test="shrq != null" >
+        SHRQ,
+      </if>
+      <if test="gdwjid != null" >
+        GDWJID,
+      </if>
+      <if test="cfzjbgid != null" >
+        CFZJBGID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cgid != null" >
+        #{cgid,jdbcType=VARCHAR},
+      </if>
+      <if test="cglx != null" >
+        #{cglx,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null" >
+        #{csrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csd != null" >
+        #{csd,jdbcType=VARCHAR},
+      </if>
+      <if test="hjszd != null" >
+        #{hjszd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ssejdw != null" >
+        #{ssejdw,jdbcType=VARCHAR},
+      </if>
+      <if test="ks != null" >
+        #{ks,jdbcType=VARCHAR},
+      </if>
+      <if test="zw != null" >
+        #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="zc != null" >
+        #{zc,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdh != null" >
+        #{lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj != null" >
+        #{cfgj,jdbcType=VARCHAR},
+      </if>
+      <if test="rjcs != null" >
+        #{rjcs,jdbcType=VARCHAR},
+      </if>
+      <if test="tzid != null" >
+        #{tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfksrq != null" >
+        #{cfksrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfjsrq != null" >
+        #{cfjsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfmd != null" >
+        #{cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="cfmdQt != null" >
+        #{cfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXm != null" >
+        #{yqrXm,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrZw != null" >
+        #{yqrZw,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDw != null" >
+        #{yqrDw,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXxdz != null" >
+        #{yqrXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDh != null" >
+        #{yqrDh,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXmEn != null" >
+        #{yqrXmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrZwEn != null" >
+        #{yqrZwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDwEn != null" >
+        #{yqrDwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXxdzEn != null" >
+        #{yqrXxdzEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDhEn != null" >
+        #{yqrDhEn,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="jfysmx != null" >
+        #{jfysmx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfyshj != null" >
+        #{jfyshj,jdbcType=DECIMAL},
+      </if>
+      <if test="sqbsm != null" >
+        #{sqbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="sqrq != null" >
+        #{sqrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="shjg != null" >
+        #{shjg,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shyj != null" >
+        #{shyj,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null" >
+        #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdwjid != null" >
+        #{gdwjid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfzjbgid != null" >
+        #{cfzjbgid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgDqcgjExample" resultType="java.lang.Integer" >
+    select count(*) from T_CG_DQCGJ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_CG_DQCGJ
+    <set >
+      <if test="record.cgid != null" >
+        CGID = #{record.cgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cglx != null" >
+        CGLX = #{record.cglx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xm != null" >
+        XM = #{record.xm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xb != null" >
+        XB = #{record.xb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.csrq != null" >
+        CSRQ = #{record.csrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.csd != null" >
+        CSD = #{record.csd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hjszd != null" >
+        HJSZD = #{record.hjszd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfzh != null" >
+        SFZH = #{record.sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ssejdw != null" >
+        SSEJDW = #{record.ssejdw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ks != null" >
+        KS = #{record.ks,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zw != null" >
+        ZW = #{record.zw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zc != null" >
+        ZC = #{record.zc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lxdh != null" >
+        LXDH = #{record.lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgj != null" >
+        CFGJ = #{record.cfgj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rjcs != null" >
+        RJCS = #{record.rjcs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tzid != null" >
+        TZID = #{record.tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfksrq != null" >
+        CFKSRQ = #{record.cfksrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cfjsrq != null" >
+        CFJSRQ = #{record.cfjsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cfmd != null" >
+        CFMD = #{record.cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfmdQt != null" >
+        CFMD_QT = #{record.cfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrXm != null" >
+        YQR_XM = #{record.yqrXm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrZw != null" >
+        YQR_ZW = #{record.yqrZw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrDw != null" >
+        YQR_DW = #{record.yqrDw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrXxdz != null" >
+        YQR_XXDZ = #{record.yqrXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrDh != null" >
+        YQR_DH = #{record.yqrDh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrXmEn != null" >
+        YQR_XM_EN = #{record.yqrXmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrZwEn != null" >
+        YQR_ZW_EN = #{record.yqrZwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrDwEn != null" >
+        YQR_DW_EN = #{record.yqrDwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrXxdzEn != null" >
+        YQR_XXDZ_EN = #{record.yqrXxdzEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqrDhEn != null" >
+        YQR_DH_EN = #{record.yqrDhEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfly != null" >
+        JFLY = #{record.jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfysmx != null" >
+        JFYSMX = #{record.jfysmx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jfyshj != null" >
+        JFYSHJ = #{record.jfyshj,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sqbsm != null" >
+        SQBSM = #{record.sqbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sqrq != null" >
+        SQRQ = #{record.sqrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.shjg != null" >
+        SHJG = #{record.shjg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shr != null" >
+        SHR = #{record.shr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shyj != null" >
+        SHYJ = #{record.shyj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.shrq != null" >
+        SHRQ = #{record.shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gdwjid != null" >
+        GDWJID = #{record.gdwjid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfzjbgid != null" >
+        CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_CG_DQCGJ
+    set CGID = #{record.cgid,jdbcType=VARCHAR},
+      CGLX = #{record.cglx,jdbcType=VARCHAR},
+      XM = #{record.xm,jdbcType=VARCHAR},
+      XB = #{record.xb,jdbcType=VARCHAR},
+      CSRQ = #{record.csrq,jdbcType=TIMESTAMP},
+      CSD = #{record.csd,jdbcType=VARCHAR},
+      HJSZD = #{record.hjszd,jdbcType=VARCHAR},
+      SFZH = #{record.sfzh,jdbcType=VARCHAR},
+      SSEJDW = #{record.ssejdw,jdbcType=VARCHAR},
+      KS = #{record.ks,jdbcType=VARCHAR},
+      ZW = #{record.zw,jdbcType=VARCHAR},
+      ZC = #{record.zc,jdbcType=VARCHAR},
+      LXDH = #{record.lxdh,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      CFGJ = #{record.cfgj,jdbcType=VARCHAR},
+      RJCS = #{record.rjcs,jdbcType=VARCHAR},
+      TZID = #{record.tzid,jdbcType=VARCHAR},
+      CFKSRQ = #{record.cfksrq,jdbcType=TIMESTAMP},
+      CFJSRQ = #{record.cfjsrq,jdbcType=TIMESTAMP},
+      CFMD = #{record.cfmd,jdbcType=VARCHAR},
+      CFMD_QT = #{record.cfmdQt,jdbcType=VARCHAR},
+      YQR_XM = #{record.yqrXm,jdbcType=VARCHAR},
+      YQR_ZW = #{record.yqrZw,jdbcType=VARCHAR},
+      YQR_DW = #{record.yqrDw,jdbcType=VARCHAR},
+      YQR_XXDZ = #{record.yqrXxdz,jdbcType=VARCHAR},
+      YQR_DH = #{record.yqrDh,jdbcType=VARCHAR},
+      YQR_XM_EN = #{record.yqrXmEn,jdbcType=VARCHAR},
+      YQR_ZW_EN = #{record.yqrZwEn,jdbcType=VARCHAR},
+      YQR_DW_EN = #{record.yqrDwEn,jdbcType=VARCHAR},
+      YQR_XXDZ_EN = #{record.yqrXxdzEn,jdbcType=VARCHAR},
+      YQR_DH_EN = #{record.yqrDhEn,jdbcType=VARCHAR},
+      JFLY = #{record.jfly,jdbcType=VARCHAR},
+      JFYSMX = #{record.jfysmx,jdbcType=VARCHAR},
+      JFYSHJ = #{record.jfyshj,jdbcType=DECIMAL},
+      SQBSM = #{record.sqbsm,jdbcType=VARCHAR},
+      SQRQ = #{record.sqrq,jdbcType=TIMESTAMP},
+      STATUS = #{record.status,jdbcType=CHAR},
+      SHJG = #{record.shjg,jdbcType=VARCHAR},
+      SHR = #{record.shr,jdbcType=VARCHAR},
+      SHYJ = #{record.shyj,jdbcType=VARCHAR},
+      SHRQ = #{record.shrq,jdbcType=TIMESTAMP},
+      GDWJID = #{record.gdwjid,jdbcType=VARCHAR},
+      CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
+    update T_CG_DQCGJ
+    <set >
+      <if test="cglx != null" >
+        CGLX = #{cglx,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        XM = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="xb != null" >
+        XB = #{xb,jdbcType=VARCHAR},
+      </if>
+      <if test="csrq != null" >
+        CSRQ = #{csrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="csd != null" >
+        CSD = #{csd,jdbcType=VARCHAR},
+      </if>
+      <if test="hjszd != null" >
+        HJSZD = #{hjszd,jdbcType=VARCHAR},
+      </if>
+      <if test="sfzh != null" >
+        SFZH = #{sfzh,jdbcType=VARCHAR},
+      </if>
+      <if test="ssejdw != null" >
+        SSEJDW = #{ssejdw,jdbcType=VARCHAR},
+      </if>
+      <if test="ks != null" >
+        KS = #{ks,jdbcType=VARCHAR},
+      </if>
+      <if test="zw != null" >
+        ZW = #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="zc != null" >
+        ZC = #{zc,jdbcType=VARCHAR},
+      </if>
+      <if test="lxdh != null" >
+        LXDH = #{lxdh,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgj != null" >
+        CFGJ = #{cfgj,jdbcType=VARCHAR},
+      </if>
+      <if test="rjcs != null" >
+        RJCS = #{rjcs,jdbcType=VARCHAR},
+      </if>
+      <if test="tzid != null" >
+        TZID = #{tzid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfksrq != null" >
+        CFKSRQ = #{cfksrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfjsrq != null" >
+        CFJSRQ = #{cfjsrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfmd != null" >
+        CFMD = #{cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="cfmdQt != null" >
+        CFMD_QT = #{cfmdQt,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXm != null" >
+        YQR_XM = #{yqrXm,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrZw != null" >
+        YQR_ZW = #{yqrZw,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDw != null" >
+        YQR_DW = #{yqrDw,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXxdz != null" >
+        YQR_XXDZ = #{yqrXxdz,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDh != null" >
+        YQR_DH = #{yqrDh,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXmEn != null" >
+        YQR_XM_EN = #{yqrXmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrZwEn != null" >
+        YQR_ZW_EN = #{yqrZwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDwEn != null" >
+        YQR_DW_EN = #{yqrDwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrXxdzEn != null" >
+        YQR_XXDZ_EN = #{yqrXxdzEn,jdbcType=VARCHAR},
+      </if>
+      <if test="yqrDhEn != null" >
+        YQR_DH_EN = #{yqrDhEn,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        JFLY = #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="jfysmx != null" >
+        JFYSMX = #{jfysmx,jdbcType=VARCHAR},
+      </if>
+      <if test="jfyshj != null" >
+        JFYSHJ = #{jfyshj,jdbcType=DECIMAL},
+      </if>
+      <if test="sqbsm != null" >
+        SQBSM = #{sqbsm,jdbcType=VARCHAR},
+      </if>
+      <if test="sqrq != null" >
+        SQRQ = #{sqrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+      <if test="shjg != null" >
+        SHJG = #{shjg,jdbcType=VARCHAR},
+      </if>
+      <if test="shr != null" >
+        SHR = #{shr,jdbcType=VARCHAR},
+      </if>
+      <if test="shyj != null" >
+        SHYJ = #{shyj,jdbcType=VARCHAR},
+      </if>
+      <if test="shrq != null" >
+        SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdwjid != null" >
+        GDWJID = #{gdwjid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfzjbgid != null" >
+        CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CGID = #{cgid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.CgDqcgj" >
+    update T_CG_DQCGJ
+    set CGLX = #{cglx,jdbcType=VARCHAR},
+      XM = #{xm,jdbcType=VARCHAR},
+      XB = #{xb,jdbcType=VARCHAR},
+      CSRQ = #{csrq,jdbcType=TIMESTAMP},
+      CSD = #{csd,jdbcType=VARCHAR},
+      HJSZD = #{hjszd,jdbcType=VARCHAR},
+      SFZH = #{sfzh,jdbcType=VARCHAR},
+      SSEJDW = #{ssejdw,jdbcType=VARCHAR},
+      KS = #{ks,jdbcType=VARCHAR},
+      ZW = #{zw,jdbcType=VARCHAR},
+      ZC = #{zc,jdbcType=VARCHAR},
+      LXDH = #{lxdh,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      CFGJ = #{cfgj,jdbcType=VARCHAR},
+      RJCS = #{rjcs,jdbcType=VARCHAR},
+      TZID = #{tzid,jdbcType=VARCHAR},
+      CFKSRQ = #{cfksrq,jdbcType=TIMESTAMP},
+      CFJSRQ = #{cfjsrq,jdbcType=TIMESTAMP},
+      CFMD = #{cfmd,jdbcType=VARCHAR},
+      CFMD_QT = #{cfmdQt,jdbcType=VARCHAR},
+      YQR_XM = #{yqrXm,jdbcType=VARCHAR},
+      YQR_ZW = #{yqrZw,jdbcType=VARCHAR},
+      YQR_DW = #{yqrDw,jdbcType=VARCHAR},
+      YQR_XXDZ = #{yqrXxdz,jdbcType=VARCHAR},
+      YQR_DH = #{yqrDh,jdbcType=VARCHAR},
+      YQR_XM_EN = #{yqrXmEn,jdbcType=VARCHAR},
+      YQR_ZW_EN = #{yqrZwEn,jdbcType=VARCHAR},
+      YQR_DW_EN = #{yqrDwEn,jdbcType=VARCHAR},
+      YQR_XXDZ_EN = #{yqrXxdzEn,jdbcType=VARCHAR},
+      YQR_DH_EN = #{yqrDhEn,jdbcType=VARCHAR},
+      JFLY = #{jfly,jdbcType=VARCHAR},
+      JFYSMX = #{jfysmx,jdbcType=VARCHAR},
+      JFYSHJ = #{jfyshj,jdbcType=DECIMAL},
+      SQBSM = #{sqbsm,jdbcType=VARCHAR},
+      SQRQ = #{sqrq,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=CHAR},
+      SHJG = #{shjg,jdbcType=VARCHAR},
+      SHR = #{shr,jdbcType=VARCHAR},
+      SHYJ = #{shyj,jdbcType=VARCHAR},
+      SHRQ = #{shrq,jdbcType=TIMESTAMP},
+      GDWJID = #{gdwjid,jdbcType=VARCHAR},
+      CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR}
+    where CGID = #{cgid,jdbcType=VARCHAR}
+  </update>
+</mapper>
