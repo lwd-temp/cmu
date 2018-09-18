@@ -31,7 +31,7 @@ public class UserDemoController extends BaseController {
         //构造分页信息
         Page<Object> page = PageHelper.startPage((iDisplayStart+pageSize)/pageSize, pageSize);
         //分页查询
-        List list = userService.list(condition);
+        List list = null;//userService.list(condition);
         //返回分页信息 json
         return pagingInfo(page,list,sEcho);
 

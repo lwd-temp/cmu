@@ -1,6 +1,10 @@
 package cn.edu.cmu.service;
 
+import cn.edu.cmu.dao.UserMapper;
 import cn.edu.cmu.domain.User;
+import cn.edu.cmu.domain.UserExample;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,68 +21,54 @@ import java.util.List;
  * @author 东软，张金山
 */
 
-
+//ALT+ENTER  自动提示
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Override
-    public List list(String condition) {
-        return null;
-    }
+
+    @Autowired
+    private UserMapper userDao;
 
     @Override
-    public boolean save(User user) {
-        return false;
-    }
-
-    @Override
-    public User selectByPrimaryKey(String userid) {
-        return null;
-    }
-
-    @Override
-    public boolean deleteById(String userid) {
-        return false;
-    }
-
-   // @Autowired
-    //UserDAO userDAO;
-	
-	//@Override
-	/*public List list(String condition) {
-
+    public List list(User user) {
         UserExample ex = new UserExample();
-        if(StringUtils.isNotEmpty(condition)){//模糊查询
-            UserExample.Criteria cr = ex.createCriteria();
-            cr.andUsernameLike("%"+condition+"%");
-        }
-        ex.setOrderByClause(" userid+0 asc ");
+        if(user != null){//如果 User不等于 null 说明可能穿条件了
 
-		List list = userDAO.selectByExample(ex);
-		return list;
-	}
-	
-	
-    @Override
-    public boolean save(User user) {
-        int count = 0;
-	    if(StringUtils.isEmpty(user.getUserid())){
-            count = userDAO.insert(user);
-        }else{
-            count = userDAO.updateByPrimaryKey(user);
+            //(username like   and  )  ()
+            UserExample.Criteria c = ex.createCriteria();
+            if(StringUtils.isNotEmpty(user.getUserName())){//此处 拼接的事 Username的 like条件，其他字段一样
+                c.andUserNameLike("%"+user.getUserName()+"%");
+            }
+            UserExample.Criteria otherc = ex.createCriteria();
+            if(StringUtils.isNotEmpty(user.getPassword())){//此处 拼接的事 Username的 like条件，其他字段一样
+                otherc.andUserNameLike("%"+user.getPassword()+"%");
+            }
+            ex.or(otherc);
         }
-        return count>0;
+
+        return userDao.selectByExample(ex);
     }
 
     @Override
     public User selectByPrimaryKey(String userid) {
-        return userDAO.selectByPrimaryKey(userid);
+        return null;
+    }
+
+    @Override
+    public boolean save(User user) {
+        //userDao.insert();//shiyong kongzhi  charu
+        int count = userDao.insertSelective(user);//ruguo  shuxing   null  bu  charu
+
+        return count>0;
+    }
+
+    @Override
+    public boolean update(User user) {
+        return false;
     }
 
     @Override
     public boolean deleteById(String userid) {
-        int count = userDAO.deleteByPrimaryKey(userid);
-        return count>0;
-    }*/
-
+        return false;
+    }
 }

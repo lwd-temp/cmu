@@ -20,12 +20,19 @@ import java.util.List;
  *
  */
 public interface UserService {
+	//按条件查询
+	public List list(User user);
 
-	public List list(String condition);
-
-	boolean save(User user);
-
+	//根据逐渐查询
     User selectByPrimaryKey(String userid);
 
+    //添加用户
+	boolean save(User user);
+
+	//根据主键 更新 用户
+	boolean update(User user);
+
+    //根据主键删除
 	boolean deleteById(String userid);
 }
+
