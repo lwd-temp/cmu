@@ -97,7 +97,7 @@
     CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, RWPJWH, 
     RWPFSJ, CREATETIME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
     select
     <if test="distinct" >
       distinct
@@ -122,7 +122,7 @@
     delete from T_CG_TZJH
     where TZID = #{tzid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgTzjhExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
     delete from T_CG_TZJH
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -329,7 +329,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgTzjhExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgTzjhParams" resultType="java.lang.Integer" >
     select count(*) from T_CG_TZJH
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

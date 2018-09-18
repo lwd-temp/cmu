@@ -69,7 +69,7 @@
   <sql id="Base_Column_List" >
     ROLE_ID, ROLE_NAME, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.RoleExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.RoleParams" >
     select
     <if test="distinct" >
       distinct
@@ -94,7 +94,7 @@
     delete from T_SYS_ROLE
     where ROLE_ID = #{roleId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.RoleExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.RoleParams" >
     delete from T_SYS_ROLE
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -131,7 +131,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.RoleExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.RoleParams" resultType="java.lang.Integer" >
     select count(*) from T_SYS_ROLE
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

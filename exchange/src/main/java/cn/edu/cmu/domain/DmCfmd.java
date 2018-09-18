@@ -13,7 +13,7 @@ public class DmCfmd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmCfmd(String code, String name) {
         this.code = code;
@@ -22,7 +22,7 @@ public class DmCfmd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmCfmd() {
         super();
@@ -62,7 +62,7 @@ public class DmCfmd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -100,7 +100,7 @@
     LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, TZZY, TZXSLY, YQCG, 
     ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdXjExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdXjParams" >
     select
     <if test="distinct" >
       distinct
@@ -125,7 +125,7 @@
     delete from T_WBJD_ZJ
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbjdXjExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbjdXjParams" >
     delete from T_WBJD_ZJ
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -354,7 +354,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.WbjdXjExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.WbjdXjParams" resultType="java.lang.Integer" >
     select count(*) from T_WBJD_ZJ
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

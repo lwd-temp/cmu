@@ -13,7 +13,7 @@ public class CgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public CgSqlx(String code, String name) {
         this.code = code;
@@ -22,7 +22,7 @@ public class CgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public CgSqlx() {
         super();
@@ -62,7 +62,7 @@ public class CgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -74,7 +74,7 @@
   <sql id="Base_Column_List" >
     MDID, XM, GJ, DW, ZW, CREATETIME, JHID, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyRymdExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyRymdParams" >
     select
     <if test="distinct" >
       distinct
@@ -99,7 +99,7 @@
     delete from T_HY_RYMD
     where MDID = #{mdid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyRymdExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyRymdParams" >
     delete from T_HY_RYMD
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyRymdExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyRymdParams" resultType="java.lang.Integer" >
     select count(*) from T_HY_RYMD
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

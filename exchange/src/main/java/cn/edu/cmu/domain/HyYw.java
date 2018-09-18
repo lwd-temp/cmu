@@ -30,7 +30,7 @@ public class HyYw {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyYw(String ywid, String hzid, String operator, Date operatorTime, String sx) {
         this.ywid = ywid;
@@ -42,7 +42,7 @@ public class HyYw {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyYw() {
         super();
@@ -130,7 +130,7 @@ public class HyYw {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

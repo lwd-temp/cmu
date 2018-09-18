@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     FJ_ID, FILE_ID, SQJL_ID, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssbfjExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssbfjParams" >
     select
     <if test="distinct" >
       distinct
@@ -95,7 +95,7 @@
     delete from T_XM_XSSBFJ
     where FJ_ID = #{fjId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmXssbfjExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmXssbfjParams" >
     delete from T_XM_XSSBFJ
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -138,7 +138,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmXssbfjExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmXssbfjParams" resultType="java.lang.Integer" >
     select count(*) from T_XM_XSSBFJ
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

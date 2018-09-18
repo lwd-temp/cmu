@@ -74,7 +74,7 @@
   <sql id="Base_Column_List" >
     CYID, TZID, XM, EJDWMC, ZW, JB, CREATETIME, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzcyExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzcyParams" >
     select
     <if test="distinct" >
       distinct
@@ -99,7 +99,7 @@
     delete from T_CG_TZCY
     where CYID = #{cyid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgTzcyExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgTzcyParams" >
     delete from T_CG_TZCY
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -168,7 +168,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgTzcyExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgTzcyParams" resultType="java.lang.Integer" >
     select count(*) from T_CG_TZCY
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

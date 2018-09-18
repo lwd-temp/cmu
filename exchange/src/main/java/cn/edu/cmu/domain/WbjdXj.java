@@ -166,7 +166,7 @@ public class WbjdXj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public WbjdXj(String zjid, String lfid, String dbtmc, BigDecimal lfrs, String lfsj, Date tlsjStart, Date tlsjEnd, String lfmd, String yjtm, String lfmdQt, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, Date tzxb, String tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String jdlx, String status) {
         this.zjid = zjid;
@@ -205,7 +205,7 @@ public class WbjdXj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public WbjdXj() {
         super();
@@ -725,7 +725,7 @@ public class WbjdXj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -81,7 +81,7 @@
     JHID, HYBH, HYLX, HYMC, ZBDW, CBDW, JXRQ, DD, JFLY, FZRXM, FZR, OPERATOR, CREATETIME, 
     STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyJhExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyJhParams" >
     select
     <if test="distinct" >
       distinct
@@ -106,7 +106,7 @@
     delete from T_HY_JH
     where JHID = #{jhid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyJhExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyJhParams" >
     delete from T_HY_JH
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -215,7 +215,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyJhExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyJhParams" resultType="java.lang.Integer" >
     select count(*) from T_HY_JH
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

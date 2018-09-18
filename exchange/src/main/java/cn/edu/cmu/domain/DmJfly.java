@@ -13,7 +13,7 @@ public class DmJfly {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmJfly(String code, String name) {
         this.code = code;
@@ -22,7 +22,7 @@ public class DmJfly {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmJfly() {
         super();
@@ -62,7 +62,7 @@ public class DmJfly {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

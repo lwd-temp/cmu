@@ -86,7 +86,7 @@
     RWFK_ID, TZDW, CFGJDQ, TZXM, TZZDW, TZZW, PZCFRW, PZCFTS, SJCFRS, SJCFTS, CJSJ, RJSJ, 
     RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgRwzxqkfkExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" >
     select
     <if test="distinct" >
       distinct
@@ -111,7 +111,7 @@
     delete from T_CG_RWZXQKFK
     where RWFK_ID = #{rwfkId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgRwzxqkfkExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" >
     delete from T_CG_RWZXQKFK
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -254,7 +254,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgRwzxqkfkExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" resultType="java.lang.Integer" >
     select count(*) from T_CG_RWZXQKFK
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

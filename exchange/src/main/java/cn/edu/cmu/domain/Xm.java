@@ -131,7 +131,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String jlmbgj, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String xmzyxz, Date createTime, String operatorCode, String status) {
         this.xmId = xmId;
@@ -163,7 +163,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public Xm() {
         super();
@@ -571,7 +571,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

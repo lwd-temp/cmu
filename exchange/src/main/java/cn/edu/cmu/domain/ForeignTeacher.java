@@ -33,7 +33,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public ForeignTeacher(String 教师id, String 教师姓名, String 教师性别, String 国籍, String 状态, String 等等) {
         this.教师id = 教师id;
@@ -46,7 +46,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public ForeignTeacher() {
         super();
@@ -150,7 +150,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

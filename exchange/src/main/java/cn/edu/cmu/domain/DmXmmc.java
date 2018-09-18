@@ -13,7 +13,7 @@ public class DmXmmc {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmXmmc(String xmId, String xmmc) {
         this.xmId = xmId;
@@ -22,7 +22,7 @@ public class DmXmmc {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmXmmc() {
         super();
@@ -62,7 +62,7 @@ public class DmXmmc {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

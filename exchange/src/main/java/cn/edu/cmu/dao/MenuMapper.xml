@@ -73,7 +73,7 @@
   <sql id="Base_Column_List" >
     MENU_ID, MENU_NAME, PARENT_ID, ICON, STYLE, URL, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MenuExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MenuParams" >
     select
     <if test="distinct" >
       distinct
@@ -98,7 +98,7 @@
     delete from T_SYS_MENU
     where MENU_ID = #{menuId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.MenuExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.MenuParams" >
     delete from T_SYS_MENU
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -161,7 +161,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.MenuExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.MenuParams" resultType="java.lang.Integer" >
     select count(*) from T_SYS_MENU
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

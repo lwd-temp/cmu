@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     ZJID, SQJL_ID, FILE_ID, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmJlzjbgExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmJlzjbgParams" >
     select
     <if test="distinct" >
       distinct
@@ -85,7 +85,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmJlzjbgExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmJlzjbgParams" >
     delete from T_XM_JLZJBG
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmJlzjbgExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmJlzjbgParams" resultType="java.lang.Integer" >
     select count(*) from T_XM_JLZJBG
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

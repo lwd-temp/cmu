@@ -27,20 +27,26 @@ public class XmGsxy {
     private String status;
 
     /**
-     *
-     * @mbggenerated 2018-09-17
+     * null
      */
-    public XmGsxy(String proCollegId, String xyid, String xymc, String xmid, String status) {
+    private String valid;
+
+    /**
+     *
+     * @mbggenerated 2018-09-18
+     */
+    public XmGsxy(String proCollegId, String xyid, String xymc, String xmid, String status, String valid) {
         this.proCollegId = proCollegId;
         this.xyid = xyid;
         this.xymc = xymc;
         this.xmid = xmid;
         this.status = status;
+        this.valid = valid;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public XmGsxy() {
         super();
@@ -127,8 +133,24 @@ public class XmGsxy {
     }
 
     /**
+     * null
+     * @return VALID null
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * null
+     * @param valid null
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {
@@ -141,6 +163,7 @@ public class XmGsxy {
         sb.append(", xymc=").append(xymc);
         sb.append(", xmid=").append(xmid);
         sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
         sb.append("]");
         return sb.toString();
     }

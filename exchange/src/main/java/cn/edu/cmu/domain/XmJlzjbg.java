@@ -23,7 +23,7 @@ public class XmJlzjbg {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public XmJlzjbg(String zjid, String sqjlId, String fileId, String status) {
         this.zjid = zjid;
@@ -34,7 +34,7 @@ public class XmJlzjbg {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public XmJlzjbg() {
         super();
@@ -106,7 +106,7 @@ public class XmJlzjbg {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -80,7 +80,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, Date jbrq, String jbdw, String hydd, String hyjbxx, String hygm, String bjjbyx, String jfly, String zrr, String sfbb, String status) {
         this.sbid = sbid;
@@ -102,7 +102,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyShenb() {
         super();
@@ -350,7 +350,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -28,7 +28,7 @@ public class WbjdSxry {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public WbjdSxry(String ryid, String lfid, String xm, String gj, String zw) {
         this.ryid = ryid;
@@ -40,7 +40,7 @@ public class WbjdSxry {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public WbjdSxry() {
         super();
@@ -128,7 +128,7 @@ public class WbjdSxry {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

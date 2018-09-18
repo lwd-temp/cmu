@@ -72,7 +72,7 @@
   <sql id="Base_Column_List" >
     USER_ID, USER_NAME, PASSWORD, LAST_MODIFY_TIME, LAST_LOGIN_TIME, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.UserExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.UserParams" >
     select
     <if test="distinct" >
       distinct
@@ -97,7 +97,7 @@
     delete from T_SYS_USER
     where USER_ID = #{userId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.UserExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.UserParams" >
     delete from T_SYS_USER
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -154,7 +154,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.UserExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.UserParams" resultType="java.lang.Integer" >
     select count(*) from T_SYS_USER
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

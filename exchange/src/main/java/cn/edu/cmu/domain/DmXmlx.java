@@ -13,7 +13,7 @@ public class DmXmlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmXmlx(String code, String name) {
         this.code = code;
@@ -22,7 +22,7 @@ public class DmXmlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public DmXmlx() {
         super();
@@ -62,7 +62,7 @@ public class DmXmlx {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

@@ -88,7 +88,7 @@
     SQJL_ID, XM_ID, XH, XM, GENDER, YCDM, YXMC, RXN, NJ, ZY, BJ, CHPM, ZHPJ, YYSP, PHONE, 
     EMAIL, ZZJE, SELFT_PAY, XLCP, STATUS, CONFIRM_STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     select
     <if test="distinct" >
       distinct
@@ -113,7 +113,7 @@
     delete from T_XM_XSSQJL
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmXssqjlExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     delete from T_XM_XSSQJL
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -268,7 +268,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmXssqjlExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmXssqjlParams" resultType="java.lang.Integer" >
     select count(*) from T_XM_XSSQJL
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

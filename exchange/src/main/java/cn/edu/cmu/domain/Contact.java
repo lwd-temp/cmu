@@ -78,7 +78,7 @@ public class Contact {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public Contact(String lxrId, String name, String gender, String gj, String yz, String gzdw, String zwzc, String zyly, String glxm, String email, String fax, String telphone, String address, String remark, String status) {
         this.lxrId = lxrId;
@@ -100,7 +100,7 @@ public class Contact {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public Contact() {
         super();
@@ -348,7 +348,7 @@ public class Contact {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

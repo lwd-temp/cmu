@@ -82,7 +82,7 @@
     SBID, JHID, HYLX, HYMC, HYMC_EN, JBRQ, JBDW, HYDD, HYJBXX, HYGM, BJJBYX, JFLY, ZRR, 
     SFBB, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyShenbExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyShenbParams" >
     select
     <if test="distinct" >
       distinct
@@ -107,7 +107,7 @@
     delete from T_HY_SHENB
     where SBID = #{sbid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyShenbExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HyShenbParams" >
     delete from T_HY_SHENB
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -222,7 +222,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyShenbExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HyShenbParams" resultType="java.lang.Integer" >
     select count(*) from T_HY_SHENB
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

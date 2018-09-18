@@ -93,7 +93,7 @@
     XMGK, XMZZJH, JLMBJGMC, JLMBGJ, FYBZ, ZYSM, SFXZRS, JHRS, XMNJXZ, XMZYXZ, CREATE_TIME, 
     OPERATOR_CODE, STATUS
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmParams" >
     select
     <if test="distinct" >
       distinct
@@ -118,7 +118,7 @@
     delete from T_XM
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmParams" >
     delete from T_XM
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -301,7 +301,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmParams" resultType="java.lang.Integer" >
     select count(*) from T_XM
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

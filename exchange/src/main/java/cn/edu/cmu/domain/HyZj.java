@@ -38,7 +38,7 @@ public class HyZj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyZj(String zjid, String sbid, String jbxx, String pjwh, String jtqkjs, String ccqkjs, String jyywt) {
         this.zjid = zjid;
@@ -52,7 +52,7 @@ public class HyZj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HyZj() {
         super();
@@ -172,7 +172,7 @@ public class HyZj {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {

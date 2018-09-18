@@ -70,7 +70,7 @@
   <sql id="Base_Column_List" >
     GBID, GBMC, HZYS, XYID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyGbExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyGbParams" >
     select
     <if test="distinct" >
       distinct
@@ -95,7 +95,7 @@
     delete from T_HZXY_GB
     where GBID = #{gbid,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HzxyGbExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HzxyGbParams" >
     delete from T_HZXY_GB
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -138,7 +138,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.HzxyGbExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.HzxyGbParams" resultType="java.lang.Integer" >
     select count(*) from T_HZXY_GB
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

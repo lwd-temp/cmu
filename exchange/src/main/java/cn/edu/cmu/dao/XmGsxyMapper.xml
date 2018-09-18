@@ -8,6 +8,7 @@
       <arg column="XYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -69,9 +70,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    PRO_COLLEG_ID, XYID, XYMC, XMID, STATUS
+    PRO_COLLEG_ID, XYID, XYMC, XMID, STATUS, VALID
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmGsxyExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmGsxyParams" >
     select
     <if test="distinct" >
       distinct
@@ -91,12 +92,13 @@
     <include refid="Base_Column_List" />
     from T_XM_GSXY
     where PRO_COLLEG_ID = #{proCollegId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_XM_GSXY
     where PRO_COLLEG_ID = #{proCollegId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmGsxyExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmGsxyParams" >
     delete from T_XM_GSXY
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -104,9 +106,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.XmGsxy" >
     insert into T_XM_GSXY (PRO_COLLEG_ID, XYID, XYMC, 
-      XMID, STATUS)
+      XMID, STATUS, VALID
+      )
     values (#{proCollegId,jdbcType=VARCHAR}, #{xyid,jdbcType=VARCHAR}, #{xymc,jdbcType=VARCHAR}, 
-      #{xmid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+      #{xmid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmGsxy" >
     insert into T_XM_GSXY
@@ -126,6 +130,9 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="proCollegId != null" >
@@ -143,9 +150,12 @@
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmGsxyExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmGsxyParams" resultType="java.lang.Integer" >
     select count(*) from T_XM_GSXY
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -169,6 +179,9 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -180,7 +193,8 @@
       XYID = #{record.xyid,jdbcType=VARCHAR},
       XYMC = #{record.xymc,jdbcType=VARCHAR},
       XMID = #{record.xmid,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -200,6 +214,9 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
     </set>
     where PRO_COLLEG_ID = #{proCollegId,jdbcType=VARCHAR}
   </update>
@@ -208,7 +225,8 @@
     set XYID = #{xyid,jdbcType=VARCHAR},
       XYMC = #{xymc,jdbcType=VARCHAR},
       XMID = #{xmid,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR}
     where PRO_COLLEG_ID = #{proCollegId,jdbcType=VARCHAR}
   </update>
 </mapper>

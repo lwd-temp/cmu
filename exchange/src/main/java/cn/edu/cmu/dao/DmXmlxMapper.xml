@@ -68,7 +68,7 @@
   <sql id="Base_Column_List" >
     CODE, NAME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.DmXmlxExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.DmXmlxParams" >
     select
     <if test="distinct" >
       distinct
@@ -93,7 +93,7 @@
     delete from T_DM_XMLX
     where CODE = #{code,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.DmXmlxExample" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.DmXmlxParams" >
     delete from T_DM_XMLX
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -122,7 +122,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.DmXmlxExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.DmXmlxParams" resultType="java.lang.Integer" >
     select count(*) from T_DM_XMLX
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

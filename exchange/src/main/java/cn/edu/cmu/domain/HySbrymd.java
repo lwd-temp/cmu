@@ -45,7 +45,7 @@ public class HySbrymd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HySbrymd(String mdid, String sbid, String xm, String gj, String dw, String zw, Date createtime, String status) {
         this.mdid = mdid;
@@ -60,7 +60,7 @@ public class HySbrymd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     public HySbrymd() {
         super();
@@ -196,7 +196,7 @@ public class HySbrymd {
 
     /**
      *
-     * @mbggenerated 2018-09-17
+     * @mbggenerated 2018-09-18
      */
     @Override
     public String toString() {
