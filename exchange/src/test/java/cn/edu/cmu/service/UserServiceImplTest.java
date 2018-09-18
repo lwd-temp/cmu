@@ -25,6 +25,7 @@ public class UserServiceImplTest {
     //根据条件查询
     public void list() {
         //ALT+ENTER
+        //陈静该的
         //张金山改动
 //        User user = new User();
 //        user.setUserName("admin");
