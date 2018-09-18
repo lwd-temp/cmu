@@ -636,9 +636,7 @@
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     归国管理
                                 </a>
-
                             </li>
-
                         </ul>
                     </li>
 
@@ -654,7 +652,7 @@
                         <ul class="submenu">
 
                             <li class="active">
-                                <a href="javascript:getUrl(this,'unknow')">
+                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_jh_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议计划
                                 </a>
