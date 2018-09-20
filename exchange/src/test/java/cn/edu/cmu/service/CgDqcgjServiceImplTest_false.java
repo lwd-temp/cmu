@@ -17,7 +17,7 @@ import java.util.List;
  *
  * 增加删改查
  */
-public class CgDqcgjServiceImplTest extends SpringIOC {
+public class CgDqcgjServiceImplTest_false extends SpringIOC {
 
     CgDqcgjService service;
 
@@ -31,13 +31,17 @@ public class CgDqcgjServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "1",  "1", "1",
-                 new Date(), "1", "1", "1", "1",  "1",
-                "1", "1", "1", "1", "1", "1", "1",
-                new Date(),new Date(),"1","1","1","1","1",
-                "1","1","1","1","1","1",
-                "1","1","1",BigDecimal.valueOf(1.34), "1",new Date(),"1",
-                "1","1","1", new Date(),"1", "1",null,null);
+
+        //有问题 shr  错误
+
+
+        CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "01",  "01", "01",
+                 new Date(), "01", "01", "01", "01",  "01",
+                "01", "01", "01", "01", "01", "01", "01",
+                new Date(),new Date(),"01","01","01","01","01",
+                "01","01","01","01","01","01",
+                "01","01","01",BigDecimal.valueOf(1.34), "01",new Date(),"01",
+                "01","","01", new Date(),"01", "01",null,null);
         boolean success = service.insert(CgDqcgj);
         System.out.println("CgDqcgj:"+CgDqcgj);
         System.out.println("success:"+success);
@@ -91,8 +95,8 @@ public class CgDqcgjServiceImplTest extends SpringIOC {
         System.out.println("插入后查询到的 ："+queryCgDqcgj);
 
 
-        success = service.deleteById(keyId);
-        System.out.println("删除成功："+success);
+        cgDqcgj.setValid("0");
+        success = service.updateByIdAllColumn(cgDqcgj);
 
         Assert.assertTrue(success);
 

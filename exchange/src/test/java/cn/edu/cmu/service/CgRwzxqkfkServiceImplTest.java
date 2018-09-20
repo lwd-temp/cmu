@@ -2,7 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgRwzxqkfk;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -27,9 +26,9 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(CmuStringUtil.UUID(), "1","1","1","1",
-                "1", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
-                "1","1","1","1","1","1","1",null,null);
+        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(CmuStringUtil.UUID(), "02","02","02","02",
+                "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
+                "02","02","02","02","02","02","01",null,null);
         boolean success = service.insert(cgRwzxqkfk);
         System.out.println("cgRwzxqkfk:"+cgRwzxqkfk);
         System.out.println("success:"+success);
@@ -38,7 +37,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     //根据主键查询
     @Test
     public void selectByPrimaryKey() {
-        String keyId = "";
+        String keyId = "01";
         CgRwzxqkfk cgRwzxqkfk = service.queryById(keyId);
         System.out.println(cgRwzxqkfk);
         Assert.assertTrue(cgRwzxqkfk!=null);
@@ -48,7 +47,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     @Test
     public void list() {
         CgRwzxqkfk cgRwzxqkfkParam = new CgRwzxqkfk();
-        cgRwzxqkfkParam.setCfbt("");
+        cgRwzxqkfkParam.setCfbt("02");
         List<CgRwzxqkfk> cgRwzxqkfks = service.list(cgRwzxqkfkParam);
         for (CgRwzxqkfk cgRwzxqkfk : cgRwzxqkfks ) {
             System.out.println(cgRwzxqkfk);
@@ -58,31 +57,30 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     //更新
     @Test
     public void update() {
-        String keyId = "7144f867cb9d41988cb95a3fa0bea9ef";
+        String keyId = "4211dcf373014fa3a21f3e767620f97a";
         CgRwzxqkfk cgRwzxqkfk = service.queryById(keyId);
         System.out.println("更新前:"+cgRwzxqkfk);
-        cgRwzxqkfk.setCfbt("2");
+        cgRwzxqkfk.setCfbt("01_01");
         boolean success = service.updateById(cgRwzxqkfk);
         System.out.println("success:"+success);
         CgRwzxqkfk newcgRwzxqkfk = service.queryById(keyId);
         System.out.println("更新后:"+newcgRwzxqkfk);
-        Assert.assertTrue(newcgRwzxqkfk.getCfbt().contains("2")); //断言查询到更新后的 值 包含update
+        Assert.assertTrue(newcgRwzxqkfk.getCfbt().contains("01"));
     }
 
     //根据主键删除
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
-        CgRwzxqkfk CgRwzxqkfk = new CgRwzxqkfk("1", "1", "1", "1", "1",
-                "1", BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), new Date(), new Date(),
-                "1", "1", "1", "1", "1", "1", "1",null,null);
-        User user = new User(keyId, "testDelete", "123456", new Date(), new Date(), null,null);
-        boolean success = service.insert(CgRwzxqkfk);
+        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(keyId, "02","02","02","02",
+                "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
+                "02","02","02","02","02","02","01",null,null);
+        boolean success = service.insert(cgRwzxqkfk);
         System.out.println("保存成功：" + success);
         CgRwzxqkfk queryCgRwzxqkfk = service.queryById(keyId);
         System.out.println("插入后查询到：" + queryCgRwzxqkfk);
-        success = service.deleteById(keyId);
-        System.out.println("删除成功：" + success);
+        cgRwzxqkfk.setValid("0");
+        success = service.updateByIdAllColumn(cgRwzxqkfk);
         Assert.assertTrue(success);
     }
 }

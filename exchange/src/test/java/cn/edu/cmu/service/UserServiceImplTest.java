@@ -6,7 +6,6 @@ import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +27,9 @@ public class UserServiceImplTest extends SpringIOC {
     //根据条件查询
     @Test
     public void list() {
+        //ALT+ENTER  前台页面接到的查询条件
         User userParam = new User();
-        userParam.setUserName("admin");
+        userParam.setUserName("chenjing");
         List<User> users = service.list(userParam);
         for (User user : users ) {
             System.out.println(user);
@@ -41,7 +41,7 @@ public class UserServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
-        User user = new User(keyId, "testDelete",  "123456", new Date() ,new Date(), null,null);
+        User user = new User(keyId, "chenjing1",  "123456", new Date() ,new Date(), null,null);
 
         boolean success = service.insert(user);
         System.out.println("保存成功："+success);
@@ -49,8 +49,8 @@ public class UserServiceImplTest extends SpringIOC {
         User queryUser = service.queryById(keyId);
         System.out.println("插入后查询到的User ："+queryUser);
 
-
-        success = service.deleteById(keyId);
+        user.setValid("0");
+        success = service.updateByIdAllColumn(user);
         System.out.println("删除成功："+success);
 
         Assert.assertTrue(success);
@@ -60,7 +60,7 @@ public class UserServiceImplTest extends SpringIOC {
     //根据主键查询
     @Test
     public void selectByPrimaryKey() {
-        String keyId = "4cab1118867d44e4aea94213d0c543b4";
+        String keyId = "3d331604574846cb9032569a3759fe3e";
         User user = service.queryById(keyId);
         System.out.println(user);
         Assert.assertTrue(user!=null);
@@ -69,9 +69,10 @@ public class UserServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        User user = new User(CmuStringUtil.UUID(), "admin",  "123456", new Date() ,new Date(), null,null);
+        User user = new User(CmuStringUtil.UUID(), "chenjing",  "123456", new Date() ,new Date(), null,null);
 
         boolean success = service.insert(user);
+        System.out.println("user:"+user);
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
@@ -80,7 +81,7 @@ public class UserServiceImplTest extends SpringIOC {
     //更新
     @Test
     public void update() {
-        String keyId = "4cab1118867d44e4aea94213d0c543b4";
+        String keyId = "3d331604574846cb9032569a3759fe3e";
         User user = service.queryById(keyId);
         System.out.println("更新前:"+user);
 
