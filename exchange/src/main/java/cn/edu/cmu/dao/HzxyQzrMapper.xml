@@ -7,6 +7,8 @@
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XYID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -68,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    RYID, XM, XYID, STATUS
+    RYID, XM, XYID, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyQzrParams" >
     select
@@ -84,12 +86,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_HZXY_QZR
     where RYID = #{ryid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HZXY_QZR
@@ -103,9 +107,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HzxyQzr" >
     insert into T_HZXY_QZR (RYID, XM, XYID, 
-      STATUS)
+      STATUS, VALID, CREATE_TIME
+      )
     values (#{ryid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{xyid,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR})
+      #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HzxyQzr" >
     insert into T_HZXY_QZR
@@ -122,6 +128,12 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="ryid != null" >
@@ -135,6 +147,12 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -159,6 +177,12 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -169,7 +193,9 @@
     set RYID = #{record.ryid,jdbcType=VARCHAR},
       XM = #{record.xm,jdbcType=VARCHAR},
       XYID = #{record.xyid,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -186,6 +212,12 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where RYID = #{ryid,jdbcType=VARCHAR}
   </update>
@@ -193,7 +225,9 @@
     update T_HZXY_QZR
     set XM = #{xm,jdbcType=VARCHAR},
       XYID = #{xyid,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where RYID = #{ryid,jdbcType=VARCHAR}
   </update>
 </mapper>

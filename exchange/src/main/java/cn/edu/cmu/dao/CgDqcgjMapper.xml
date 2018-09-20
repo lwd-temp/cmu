@@ -46,6 +46,8 @@
       <arg column="SHRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="GDWJID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CFZJBGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -110,7 +112,7 @@
     CGID, CGLX, XM, XB, CSRQ, CSD, HJSZD, SFZH, SSEJDW, KS, ZW, ZC, LXDH, EMAIL, CFGJ, 
     RJCS, TZID, CFKSRQ, CFJSRQ, CFMD, CFMD_QT, YQR_XM, YQR_ZW, YQR_DW, YQR_XXDZ, YQR_DH, 
     YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, JFYSMX, JFYSHJ, SQBSM, 
-    SQRQ, STATUS, SHJG, SHR, SHYJ, SHRQ, GDWJID, CFZJBGID
+    SQRQ, STATUS, SHJG, SHR, SHYJ, SHRQ, GDWJID, CFZJBGID, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
     select
@@ -126,12 +128,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_CG_DQCGJ
     where CGID = #{cgid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_CG_DQCGJ
@@ -156,8 +160,8 @@
       YQR_DH_EN, JFLY, JFYSMX, 
       JFYSHJ, SQBSM, SQRQ, 
       STATUS, SHJG, SHR, SHYJ, 
-      SHRQ, GDWJID, CFZJBGID
-      )
+      SHRQ, GDWJID, CFZJBGID, 
+      VALID, CREATE_TIME)
     values (#{cgid,jdbcType=VARCHAR}, #{cglx,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{csd,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR}, 
       #{sfzh,jdbcType=VARCHAR}, #{ssejdw,jdbcType=VARCHAR}, #{ks,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, 
@@ -170,8 +174,8 @@
       #{yqrDhEn,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{jfysmx,jdbcType=VARCHAR}, 
       #{jfyshj,jdbcType=DECIMAL}, #{sqbsm,jdbcType=VARCHAR}, #{sqrq,jdbcType=TIMESTAMP}, 
       #{status,jdbcType=CHAR}, #{shjg,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, #{shyj,jdbcType=VARCHAR}, 
-      #{shrq,jdbcType=TIMESTAMP}, #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}
-      )
+      #{shrq,jdbcType=TIMESTAMP}, #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
     insert into T_CG_DQCGJ
@@ -305,6 +309,12 @@
       <if test="cfzjbgid != null" >
         CFZJBGID,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cgid != null" >
@@ -435,6 +445,12 @@
       </if>
       <if test="cfzjbgid != null" >
         #{cfzjbgid,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -576,6 +592,12 @@
       <if test="record.cfzjbgid != null" >
         CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -625,7 +647,9 @@
       SHYJ = #{record.shyj,jdbcType=VARCHAR},
       SHRQ = #{record.shrq,jdbcType=TIMESTAMP},
       GDWJID = #{record.gdwjid,jdbcType=VARCHAR},
-      CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR}
+      CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -759,6 +783,12 @@
       <if test="cfzjbgid != null" >
         CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
@@ -805,7 +835,9 @@
       SHYJ = #{shyj,jdbcType=VARCHAR},
       SHRQ = #{shrq,jdbcType=TIMESTAMP},
       GDWJID = #{gdwjid,jdbcType=VARCHAR},
-      CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR}
+      CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -2,7 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,7 +37,7 @@ public class CgDqcgjServiceImplTest extends SpringIOC {
                 new Date(),new Date(),"1","1","1","1","1",
                 "1","1","1","1","1","1",
                 "1","1","1",BigDecimal.valueOf(1.34), "1",new Date(),"1",
-                "1","1","1", new Date(),"1", "1");
+                "1","1","1", new Date(),"1", "1",null,null);
         boolean success = service.insert(CgDqcgj);
         System.out.println("CgDqcgj:"+CgDqcgj);
         System.out.println("success:"+success);

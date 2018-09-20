@@ -29,7 +29,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     public void save() {
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(CmuStringUtil.UUID(), "1","1","1","1",
                 "1", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
-                "1","1","1","1","1","1","1");
+                "1","1","1","1","1","1","1",null,null);
         boolean success = service.insert(cgRwzxqkfk);
         System.out.println("cgRwzxqkfk:"+cgRwzxqkfk);
         System.out.println("success:"+success);
@@ -75,8 +75,8 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
         String keyId = CmuStringUtil.UUID();
         CgRwzxqkfk CgRwzxqkfk = new CgRwzxqkfk("1", "1", "1", "1", "1",
                 "1", BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), BigDecimal.valueOf(1.34), new Date(), new Date(),
-                "1", "1", "1", "1", "1", "1", "1");
-        User user = new User(keyId, "testDelete", "123456", new Date(), new Date(), null);
+                "1", "1", "1", "1", "1", "1", "1",null,null);
+        User user = new User(keyId, "testDelete", "123456", new Date(), new Date(), null,null);
         boolean success = service.insert(CgRwzxqkfk);
         System.out.println("保存成功：" + success);
         CgRwzxqkfk queryCgRwzxqkfk = service.queryById(keyId);

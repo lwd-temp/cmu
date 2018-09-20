@@ -15,12 +15,12 @@
  */
 package cn.edu.cmu.mybatis_gen;
 
+import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByExampleWithBLOBsElementGenerator;
+import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByExampleWithoutBLOBsElementGenerator;
 import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByPrimaryKeyElementGenerator;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.AbstractXmlElementGenerator;
-import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.SelectByExampleWithBLOBsElementGenerator;
-import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.SelectByExampleWithoutBLOBsElementGenerator;
 
 /**
  * 
@@ -37,14 +37,14 @@ public class CmuXMLMapperGenerator extends XMLMapperGenerator {
     protected void addSelectByExampleWithoutBLOBsElement(
             XmlElement parentElement) {
         if (introspectedTable.getRules().generateSelectByExampleWithoutBLOBs()) {
-            AbstractXmlElementGenerator elementGenerator = new SelectByExampleWithoutBLOBsElementGenerator();
+            AbstractXmlElementGenerator elementGenerator = new CmuSelectByExampleWithoutBLOBsElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }
 
     protected void addSelectByExampleWithBLOBsElement(XmlElement parentElement) {
         if (introspectedTable.getRules().generateSelectByExampleWithBLOBs()) {
-            AbstractXmlElementGenerator elementGenerator = new SelectByExampleWithBLOBsElementGenerator();
+            AbstractXmlElementGenerator elementGenerator = new CmuSelectByExampleWithBLOBsElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
     }

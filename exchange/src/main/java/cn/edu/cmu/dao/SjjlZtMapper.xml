@@ -9,6 +9,8 @@
       <arg column="CZGH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SQJL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -70,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    GJID, GJNR, CREATETIME, CZGH, SQJL_ID, STATUS
+    GJID, GJNR, CREATETIME, CZGH, SQJL_ID, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.SjjlZtParams" >
     select
@@ -86,12 +88,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_SJJL_ZT
     where GJID = #{gjid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_SJJL_ZT
@@ -105,11 +109,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.SjjlZt" >
     insert into T_SJJL_ZT (GJID, GJNR, CREATETIME, 
-      CZGH, SQJL_ID, STATUS
-      )
+      CZGH, SQJL_ID, STATUS, 
+      VALID, CREATE_TIME)
     values (#{gjid,jdbcType=VARCHAR}, #{gjnr,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{czgh,jdbcType=VARCHAR}, #{sqjlId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
-      )
+      #{czgh,jdbcType=VARCHAR}, #{sqjlId,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.SjjlZt" >
     insert into T_SJJL_ZT
@@ -132,6 +136,12 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="gjid != null" >
@@ -151,6 +161,12 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -181,6 +197,12 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -193,7 +215,9 @@
       CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       CZGH = #{record.czgh,jdbcType=VARCHAR},
       SQJL_ID = #{record.sqjlId,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -216,6 +240,12 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where GJID = #{gjid,jdbcType=VARCHAR}
   </update>
@@ -225,7 +255,9 @@
       CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       CZGH = #{czgh,jdbcType=VARCHAR},
       SQJL_ID = #{sqjlId,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where GJID = #{gjid,jdbcType=VARCHAR}
   </update>
 </mapper>

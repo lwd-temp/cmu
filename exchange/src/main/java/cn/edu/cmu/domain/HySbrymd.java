@@ -34,33 +34,39 @@ public class HySbrymd {
     private String zw;
 
     /**
-     * 创建时间
-     */
-    private Date createtime;
-
-    /**
-     * 状态
+     * 状态是否有效
      */
     private String status;
 
     /**
-     *
-     * @mbggenerated 2018-09-18
+     * 数据是否有效(0已经删除 1有效)
      */
-    public HySbrymd(String mdid, String sbid, String xm, String gj, String dw, String zw, Date createtime, String status) {
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
+
+    /**
+     *
+     * @mbggenerated 2018-09-20
+     */
+    public HySbrymd(String mdid, String sbid, String xm, String gj, String dw, String zw, String status, String valid, Date createTime) {
         this.mdid = mdid;
         this.sbid = sbid;
         this.xm = xm;
         this.gj = gj;
         this.dw = dw;
         this.zw = zw;
-        this.createtime = createtime;
         this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public HySbrymd() {
         super();
@@ -163,40 +169,56 @@ public class HySbrymd {
     }
 
     /**
-     * 创建时间
-     * @return CREATETIME 创建时间
-     */
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    /**
-     * 创建时间
-     * @param createtime 创建时间
-     */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    /**
-     * 状态
-     * @return STATUS 状态
+     * 状态是否有效
+     * @return STATUS 状态是否有效
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     * 状态
-     * @param status 状态
+     * 状态是否有效
+     * @param status 状态是否有效
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
     }
 
     /**
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -210,8 +232,9 @@ public class HySbrymd {
         sb.append(", gj=").append(gj);
         sb.append(", dw=").append(dw);
         sb.append(", zw=").append(zw);
-        sb.append(", createtime=").append(createtime);
         sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

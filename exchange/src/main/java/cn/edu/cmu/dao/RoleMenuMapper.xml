@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.edu.cmu.dao.RoleMenuMapper" >
-  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.RoleMenuKey" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.RoleMenu" >
     <constructor >
       <idArg column="ROLE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <idArg column="MENU_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ROLE_ID, MENU_ID
+    ROLE_ID, MENU_ID, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.RoleMenuParams" >
     select
@@ -82,6 +84,15 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.RoleMenuKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_SYS_ROLE_MENU
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and MENU_ID = #{menuId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="cn.edu.cmu.domain.RoleMenuKey" >
     delete from T_SYS_ROLE_MENU
@@ -94,11 +105,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.edu.cmu.domain.RoleMenuKey" >
-    insert into T_SYS_ROLE_MENU (ROLE_ID, MENU_ID)
-    values (#{roleId,jdbcType=VARCHAR}, #{menuId,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="cn.edu.cmu.domain.RoleMenu" >
+    insert into T_SYS_ROLE_MENU (ROLE_ID, MENU_ID, VALID, 
+      CREATE_TIME)
+    values (#{roleId,jdbcType=VARCHAR}, #{menuId,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.RoleMenuKey" >
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.RoleMenu" >
     insert into T_SYS_ROLE_MENU
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="roleId != null" >
@@ -107,6 +120,12 @@
       <if test="menuId != null" >
         MENU_ID,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="roleId != null" >
@@ -114,6 +133,12 @@
       </if>
       <if test="menuId != null" >
         #{menuId,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -132,6 +157,12 @@
       <if test="record.menuId != null" >
         MENU_ID = #{record.menuId,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -140,9 +171,31 @@
   <update id="updateByExample" parameterType="map" >
     update T_SYS_ROLE_MENU
     set ROLE_ID = #{record.roleId,jdbcType=VARCHAR},
-      MENU_ID = #{record.menuId,jdbcType=VARCHAR}
+      MENU_ID = #{record.menuId,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.RoleMenu" >
+    update T_SYS_ROLE_MENU
+    <set >
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and MENU_ID = #{menuId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.RoleMenu" >
+    update T_SYS_ROLE_MENU
+    set VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and MENU_ID = #{menuId,jdbcType=VARCHAR}
   </update>
 </mapper>

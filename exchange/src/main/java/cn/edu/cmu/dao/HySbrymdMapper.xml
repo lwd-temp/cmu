@@ -9,8 +9,9 @@
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -72,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MDID, SBID, XM, GJ, DW, ZW, CREATETIME, STATUS
+    MDID, SBID, XM, GJ, DW, ZW, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HySbrymdParams" >
     select
@@ -88,12 +89,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_HY_SBRYMD
     where MDID = #{mdid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HY_SBRYMD
@@ -107,11 +110,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HySbrymd" >
     insert into T_HY_SBRYMD (MDID, SBID, XM, 
-      GJ, DW, ZW, CREATETIME, 
-      STATUS)
+      GJ, DW, ZW, STATUS, 
+      VALID, CREATE_TIME)
     values (#{mdid,jdbcType=VARCHAR}, #{sbid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
-      #{gj,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=VARCHAR})
+      #{gj,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HySbrymd" >
     insert into T_HY_SBRYMD
@@ -134,11 +137,14 @@
       <if test="zw != null" >
         ZW,
       </if>
-      <if test="createtime != null" >
-        CREATETIME,
-      </if>
       <if test="status != null" >
         STATUS,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -160,11 +166,14 @@
       <if test="zw != null" >
         #{zw,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
-      </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -195,11 +204,14 @@
       <if test="record.zw != null" >
         ZW = #{record.zw,jdbcType=VARCHAR},
       </if>
-      <if test="record.createtime != null" >
-        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -214,8 +226,9 @@
       GJ = #{record.gj,jdbcType=VARCHAR},
       DW = #{record.dw,jdbcType=VARCHAR},
       ZW = #{record.zw,jdbcType=VARCHAR},
-      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -238,11 +251,14 @@
       <if test="zw != null" >
         ZW = #{zw,jdbcType=VARCHAR},
       </if>
-      <if test="createtime != null" >
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where MDID = #{mdid,jdbcType=VARCHAR}
@@ -254,8 +270,9 @@
       GJ = #{gj,jdbcType=VARCHAR},
       DW = #{dw,jdbcType=VARCHAR},
       ZW = #{zw,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where MDID = #{mdid,jdbcType=VARCHAR}
   </update>
 </mapper>

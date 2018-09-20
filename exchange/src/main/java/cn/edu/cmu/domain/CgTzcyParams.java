@@ -22,7 +22,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public CgTzcyParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class CgTzcyParams {
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class CgTzcyParams {
     }
 
     /**
-     * T_CG_TZCY 2018-09-18
+     * T_CG_TZCY 2018-09-20
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -581,133 +581,133 @@ public class CgTzcyParams {
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNull() {
-            addCriterion("CREATETIME is null");
+        public Criteria andValidIsNull() {
+            addCriterion("VALID is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIsNotNull() {
-            addCriterion("CREATETIME is not null");
+        public Criteria andValidIsNotNull() {
+            addCriterion("VALID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeEqualTo(Date value) {
-            addCriterion("CREATETIME =", value, "createtime");
+        public Criteria andValidEqualTo(String value) {
+            addCriterion("VALID =", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotEqualTo(Date value) {
-            addCriterion("CREATETIME <>", value, "createtime");
+        public Criteria andValidNotEqualTo(String value) {
+            addCriterion("VALID <>", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThan(Date value) {
-            addCriterion("CREATETIME >", value, "createtime");
+        public Criteria andValidGreaterThan(String value) {
+            addCriterion("VALID >", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("CREATETIME >=", value, "createtime");
+        public Criteria andValidGreaterThanOrEqualTo(String value) {
+            addCriterion("VALID >=", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThan(Date value) {
-            addCriterion("CREATETIME <", value, "createtime");
+        public Criteria andValidLessThan(String value) {
+            addCriterion("VALID <", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeLessThanOrEqualTo(Date value) {
-            addCriterion("CREATETIME <=", value, "createtime");
+        public Criteria andValidLessThanOrEqualTo(String value) {
+            addCriterion("VALID <=", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeIn(List<Date> values) {
-            addCriterion("CREATETIME in", values, "createtime");
+        public Criteria andValidLike(String value) {
+            addCriterion("VALID like", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotIn(List<Date> values) {
-            addCriterion("CREATETIME not in", values, "createtime");
+        public Criteria andValidNotLike(String value) {
+            addCriterion("VALID not like", value, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeBetween(Date value1, Date value2) {
-            addCriterion("CREATETIME between", value1, value2, "createtime");
+        public Criteria andValidIn(List<String> values) {
+            addCriterion("VALID in", values, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andCreatetimeNotBetween(Date value1, Date value2) {
-            addCriterion("CREATETIME not between", value1, value2, "createtime");
+        public Criteria andValidNotIn(List<String> values) {
+            addCriterion("VALID not in", values, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNull() {
-            addCriterion("STATUS is null");
+        public Criteria andValidBetween(String value1, String value2) {
+            addCriterion("VALID between", value1, value2, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIsNotNull() {
-            addCriterion("STATUS is not null");
+        public Criteria andValidNotBetween(String value1, String value2) {
+            addCriterion("VALID not between", value1, value2, "valid");
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(String value) {
-            addCriterion("STATUS =", value, "status");
+        public Criteria andCreateTimeIsNull() {
+            addCriterion("CREATE_TIME is null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(String value) {
-            addCriterion("STATUS <>", value, "status");
+        public Criteria andCreateTimeIsNotNull() {
+            addCriterion("CREATE_TIME is not null");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(String value) {
-            addCriterion("STATUS >", value, "status");
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("CREATE_TIME =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(String value) {
-            addCriterion("STATUS >=", value, "status");
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("CREATE_TIME <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(String value) {
-            addCriterion("STATUS <", value, "status");
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("CREATE_TIME >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(String value) {
-            addCriterion("STATUS <=", value, "status");
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("CREATE_TIME >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLike(String value) {
-            addCriterion("STATUS like", value, "status");
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("CREATE_TIME <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotLike(String value) {
-            addCriterion("STATUS not like", value, "status");
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("CREATE_TIME <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<String> values) {
-            addCriterion("STATUS in", values, "status");
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("CREATE_TIME in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<String> values) {
-            addCriterion("STATUS not in", values, "status");
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("CREATE_TIME not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(String value1, String value2) {
-            addCriterion("STATUS between", value1, value2, "status");
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("CREATE_TIME between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(String value1, String value2) {
-            addCriterion("STATUS not between", value1, value2, "status");
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
     }
@@ -723,7 +723,7 @@ public class CgTzcyParams {
     }
 
     /**
-     * T_CG_TZCY 2018-09-18
+     * T_CG_TZCY 2018-09-20
      */
     public static class Criterion {
         private String condition;

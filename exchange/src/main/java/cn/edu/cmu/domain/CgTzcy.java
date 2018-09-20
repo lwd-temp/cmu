@@ -34,33 +34,33 @@ public class CgTzcy {
     private String jb;
 
     /**
-     * 创建时间
+     * 数据是否有效(0已经删除 1有效)
      */
-    private Date createtime;
+    private String valid;
 
     /**
-     * 状态
+     * 创建时间默认当前数据生成时间
      */
-    private String status;
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public CgTzcy(String cyid, String tzid, String xm, String ejdwmc, String zw, String jb, Date createtime, String status) {
+    public CgTzcy(String cyid, String tzid, String xm, String ejdwmc, String zw, String jb, String valid, Date createTime) {
         this.cyid = cyid;
         this.tzid = tzid;
         this.xm = xm;
         this.ejdwmc = ejdwmc;
         this.zw = zw;
         this.jb = jb;
-        this.createtime = createtime;
-        this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public CgTzcy() {
         super();
@@ -163,40 +163,40 @@ public class CgTzcy {
     }
 
     /**
-     * 创建时间
-     * @return CREATETIME 创建时间
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public Date getCreatetime() {
-        return createtime;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 创建时间
-     * @param createtime 创建时间
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
     }
 
     /**
-     * 状态
-     * @return STATUS 状态
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
      */
-    public String getStatus() {
-        return status;
+    public Date getCreateTime() {
+        return createTime;
     }
 
     /**
-     * 状态
-     * @param status 状态
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -210,8 +210,8 @@ public class CgTzcy {
         sb.append(", ejdwmc=").append(ejdwmc);
         sb.append(", zw=").append(zw);
         sb.append(", jb=").append(jb);
-        sb.append(", createtime=").append(createtime);
-        sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

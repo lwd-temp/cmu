@@ -34,27 +34,33 @@ public class Upload {
     private String ip;
 
     /**
-     * 状态
+     * 数据是否有效(0已经删除 1有效)
      */
-    private String status;
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public Upload(String fileId, String uploadPath, Date createtime, String ext, String operator, String ip, String status) {
+    public Upload(String fileId, String uploadPath, Date createtime, String ext, String operator, String ip, String valid, Date createTime) {
         this.fileId = fileId;
         this.uploadPath = uploadPath;
         this.createtime = createtime;
         this.ext = ext;
         this.operator = operator;
         this.ip = ip;
-        this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Upload() {
         super();
@@ -157,24 +163,40 @@ public class Upload {
     }
 
     /**
-     * 状态
-     * @return STATUS 状态
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public String getStatus() {
-        return status;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 状态
-     * @param status 状态
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -188,7 +210,8 @@ public class Upload {
         sb.append(", ext=").append(ext);
         sb.append(", operator=").append(operator);
         sb.append(", ip=").append(ip);
-        sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

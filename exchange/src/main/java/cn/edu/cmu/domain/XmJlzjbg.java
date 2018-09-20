@@ -1,5 +1,7 @@
 package cn.edu.cmu.domain;
 
+import java.util.Date;
+
 public class XmJlzjbg {
     /**
      * 总结id
@@ -17,24 +19,30 @@ public class XmJlzjbg {
     private String fileId;
 
     /**
-     * 0 已删除 1 正常
+     * 数据是否有效(0已经删除 1有效)
      */
-    private String status;
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public XmJlzjbg(String zjid, String sqjlId, String fileId, String status) {
+    public XmJlzjbg(String zjid, String sqjlId, String fileId, String valid, Date createTime) {
         this.zjid = zjid;
         this.sqjlId = sqjlId;
         this.fileId = fileId;
-        this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public XmJlzjbg() {
         super();
@@ -89,24 +97,40 @@ public class XmJlzjbg {
     }
 
     /**
-     * 0 已删除 1 正常
-     * @return STATUS 0 已删除 1 正常
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public String getStatus() {
-        return status;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 0 已删除 1 正常
-     * @param status 0 已删除 1 正常
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -117,7 +141,8 @@ public class XmJlzjbg {
         sb.append(", zjid=").append(zjid);
         sb.append(", sqjlId=").append(sqjlId);
         sb.append(", fileId=").append(fileId);
-        sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

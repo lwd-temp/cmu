@@ -21,7 +21,6 @@ public class CmuSelectByPrimaryKeyElementGenerator extends AbstractXmlElementGen
     }
 
     public void addElements(XmlElement parentElement) {
-        System.out.println("afdafsfsfasfasfasfasfasfasfasfsfa");
         XmlElement answer = new XmlElement("select");
         answer.addAttribute(new Attribute("id", this.introspectedTable.getSelectByPrimaryKeyStatementId()));
         if (this.introspectedTable.getRules().generateResultMapWithBLOBs()) {

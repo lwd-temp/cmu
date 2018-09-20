@@ -31,7 +31,8 @@
       <arg column="YSHJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="RWPJWH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="RWPFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -95,7 +96,7 @@
   <sql id="Base_Column_List" >
     TZID, TZH, TZLB, JHLX, CFDW, TZJB, ZZHSK, FZRXM, XZZW, XZJB, JSZW, ZW, ZJ, CFGJ1, 
     CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, RWPJWH, 
-    RWPFSJ, CREATETIME
+    RWPFSJ, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
     select
@@ -111,12 +112,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_CG_TZJH
     where TZID = #{tzid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_CG_TZJH
@@ -137,7 +140,8 @@
       CFGJ5, FFGZ, TZRS, 
       CFRW, CFSJ, CFTS, SJYS, 
       QTYS, YSHJ, RWPJWH, 
-      RWPFSJ, CREATETIME)
+      RWPFSJ, VALID, CREATE_TIME
+      )
     values (#{tzid,jdbcType=VARCHAR}, #{tzh,jdbcType=VARCHAR}, #{tzlb,jdbcType=VARCHAR}, 
       #{jhlx,jdbcType=VARCHAR}, #{cfdw,jdbcType=VARCHAR}, #{tzjb,jdbcType=VARCHAR}, #{zzhsk,jdbcType=VARCHAR}, 
       #{fzrxm,jdbcType=VARCHAR}, #{xzzw,jdbcType=VARCHAR}, #{xzjb,jdbcType=VARCHAR}, 
@@ -146,7 +150,8 @@
       #{cfgj5,jdbcType=VARCHAR}, #{ffgz,jdbcType=VARCHAR}, #{tzrs,jdbcType=DECIMAL}, 
       #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=DECIMAL}, #{cfts,jdbcType=DECIMAL}, #{sjys,jdbcType=DECIMAL}, 
       #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, #{rwpjwh,jdbcType=VARCHAR}, 
-      #{rwpfsj,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP})
+      #{rwpfsj,jdbcType=TIMESTAMP}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgTzjh" >
     insert into T_CG_TZJH
@@ -235,8 +240,11 @@
       <if test="rwpfsj != null" >
         RWPFSJ,
       </if>
-      <if test="createtime != null" >
-        CREATETIME,
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -324,8 +332,11 @@
       <if test="rwpfsj != null" >
         #{rwpfsj,jdbcType=TIMESTAMP},
       </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -422,8 +433,11 @@
       <if test="record.rwpfsj != null" >
         RWPFSJ = #{record.rwpfsj,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.createtime != null" >
-        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -460,7 +474,8 @@
       YSHJ = #{record.yshj,jdbcType=DECIMAL},
       RWPJWH = #{record.rwpjwh,jdbcType=VARCHAR},
       RWPFSJ = #{record.rwpfsj,jdbcType=TIMESTAMP},
-      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP}
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -549,8 +564,11 @@
       <if test="rwpfsj != null" >
         RWPFSJ = #{rwpfsj,jdbcType=TIMESTAMP},
       </if>
-      <if test="createtime != null" >
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where TZID = #{tzid,jdbcType=VARCHAR}
@@ -584,7 +602,8 @@
       YSHJ = #{yshj,jdbcType=DECIMAL},
       RWPJWH = #{rwpjwh,jdbcType=VARCHAR},
       RWPFSJ = #{rwpfsj,jdbcType=TIMESTAMP},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP}
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where TZID = #{tzid,jdbcType=VARCHAR}
   </update>
 </mapper>

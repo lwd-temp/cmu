@@ -17,7 +17,8 @@
       <arg column="TELPHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ADDRESS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="REMARK" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -80,7 +81,7 @@
   </sql>
   <sql id="Base_Column_List" >
     LXR_ID, NAME, GENDER, GJ, YZ, GZDW, ZWZC, ZYLY, GLXM, EMAIL, FAX, TELPHONE, ADDRESS, 
-    REMARK, STATUS
+    REMARK, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.ContactParams" >
     select
@@ -96,12 +97,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_CMU_CONTACT
     where LXR_ID = #{lxrId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_CMU_CONTACT
@@ -118,12 +121,14 @@
       GJ, YZ, GZDW, ZWZC, 
       ZYLY, GLXM, EMAIL, 
       FAX, TELPHONE, ADDRESS, 
-      REMARK, STATUS)
+      REMARK, VALID, CREATE_TIME
+      )
     values (#{lxrId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{gj,jdbcType=VARCHAR}, #{yz,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, #{zwzc,jdbcType=VARCHAR}, 
       #{zyly,jdbcType=VARCHAR}, #{glxm,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
       #{fax,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+      #{remark,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Contact" >
     insert into T_CMU_CONTACT
@@ -170,8 +175,11 @@
       <if test="remark != null" >
         REMARK,
       </if>
-      <if test="status != null" >
-        STATUS,
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -217,8 +225,11 @@
       <if test="remark != null" >
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -273,8 +284,11 @@
       <if test="record.remark != null" >
         REMARK = #{record.remark,jdbcType=VARCHAR},
       </if>
-      <if test="record.status != null" >
-        STATUS = #{record.status,jdbcType=VARCHAR},
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -297,7 +311,8 @@
       TELPHONE = #{record.telphone,jdbcType=VARCHAR},
       ADDRESS = #{record.address,jdbcType=VARCHAR},
       REMARK = #{record.remark,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -344,8 +359,11 @@
       <if test="remark != null" >
         REMARK = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        STATUS = #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where LXR_ID = #{lxrId,jdbcType=VARCHAR}
@@ -365,7 +383,8 @@
       TELPHONE = #{telphone,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
       REMARK = #{remark,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where LXR_ID = #{lxrId,jdbcType=VARCHAR}
   </update>
 </mapper>

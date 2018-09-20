@@ -1,5 +1,7 @@
 package cn.edu.cmu.domain;
 
+import java.util.Date;
+
 public class HyZj {
     /**
      * 总结id
@@ -37,10 +39,20 @@ public class HyZj {
     private String jyywt;
 
     /**
-     *
-     * @mbggenerated 2018-09-18
+     * 数据是否有效(0已经删除 1有效)
      */
-    public HyZj(String zjid, String sbid, String jbxx, String pjwh, String jtqkjs, String ccqkjs, String jyywt) {
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
+
+    /**
+     *
+     * @mbggenerated 2018-09-20
+     */
+    public HyZj(String zjid, String sbid, String jbxx, String pjwh, String jtqkjs, String ccqkjs, String jyywt, String valid, Date createTime) {
         this.zjid = zjid;
         this.sbid = sbid;
         this.jbxx = jbxx;
@@ -48,11 +60,13 @@ public class HyZj {
         this.jtqkjs = jtqkjs;
         this.ccqkjs = ccqkjs;
         this.jyywt = jyywt;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public HyZj() {
         super();
@@ -171,8 +185,40 @@ public class HyZj {
     }
 
     /**
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -187,6 +233,8 @@ public class HyZj {
         sb.append(", jtqkjs=").append(jtqkjs);
         sb.append(", ccqkjs=").append(ccqkjs);
         sb.append(", jyywt=").append(jyywt);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

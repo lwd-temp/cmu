@@ -1,9 +1,7 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
-import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.CgSqlx;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -60,7 +58,7 @@ public class CgSqlxServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        CgSqlx cgSqlx = new CgSqlx("1","name");
+        CgSqlx cgSqlx = new CgSqlx("1","name",null,null);
         boolean success = service.insert(cgSqlx);
         System.out.println("cgSqlx:"+cgSqlx);
         System.out.println("success:"+success);
@@ -81,5 +79,4 @@ public class CgSqlxServiceImplTest extends SpringIOC {
 
         Assert.assertTrue(newcgSqlx.getCode().contains("1"));
     }
-}
 }

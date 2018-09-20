@@ -35,6 +35,8 @@
       <arg column="JDBM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JDLX" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -98,7 +100,7 @@
   <sql id="Base_Column_List" >
     ZJID, LFID, DBTMC, LFRS, LFSJ, TLSJ_START, TLSJ_END, LFMD, YJTM, LFMD_QT, YQXX, JFLY, 
     LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, TZZY, TZXSLY, YQCG, 
-    ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS
+    ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdXjParams" >
     select
@@ -114,12 +116,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_WBJD_ZJ
     where ZJID = #{zjid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_WBJD_ZJ
@@ -142,7 +146,8 @@
       TZZY, TZXSLY, YQCG, 
       ZQRXM, ZQRDH, ZQLXRXM, 
       ZQLXRDH, JDBM, JDLX, 
-      STATUS)
+      STATUS, VALID, CREATE_TIME
+      )
     values (#{zjid,jdbcType=VARCHAR}, #{lfid,jdbcType=VARCHAR}, #{dbtmc,jdbcType=VARCHAR}, 
       #{lfrs,jdbcType=DECIMAL}, #{lfsj,jdbcType=VARCHAR}, #{tlsjStart,jdbcType=TIMESTAMP}, 
       #{tlsjEnd,jdbcType=TIMESTAMP}, #{lfmd,jdbcType=VARCHAR}, #{yjtm,jdbcType=VARCHAR}, 
@@ -153,7 +158,8 @@
       #{tzzy,jdbcType=VARCHAR}, #{tzxsly,jdbcType=VARCHAR}, #{yqcg,jdbcType=VARCHAR}, 
       #{zqrxm,jdbcType=VARCHAR}, #{zqrdh,jdbcType=VARCHAR}, #{zqlxrxm,jdbcType=VARCHAR}, 
       #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, #{jdlx,jdbcType=VARCHAR}, 
-      #{status,jdbcType=VARCHAR})
+      #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdXj" >
     insert into T_WBJD_ZJ
@@ -254,6 +260,12 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="zjid != null" >
@@ -351,6 +363,12 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -459,6 +477,12 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -497,7 +521,9 @@
       ZQLXRDH = #{record.zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{record.jdbm,jdbcType=VARCHAR},
       JDLX = #{record.jdlx,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -598,6 +624,12 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
@@ -633,7 +665,9 @@
       ZQLXRDH = #{zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{jdbm,jdbcType=VARCHAR},
       JDLX = #{jdlx,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
 </mapper>

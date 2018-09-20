@@ -1,5 +1,7 @@
 package cn.edu.cmu.domain;
 
+import java.util.Date;
+
 public class Contact {
     /**
      * 联系人id
@@ -72,15 +74,20 @@ public class Contact {
     private String remark;
 
     /**
-     * 1 正常 0 已删除
+     * 数据是否有效(0已经删除 1有效)
      */
-    private String status;
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public Contact(String lxrId, String name, String gender, String gj, String yz, String gzdw, String zwzc, String zyly, String glxm, String email, String fax, String telphone, String address, String remark, String status) {
+    public Contact(String lxrId, String name, String gender, String gj, String yz, String gzdw, String zwzc, String zyly, String glxm, String email, String fax, String telphone, String address, String remark, String valid, Date createTime) {
         this.lxrId = lxrId;
         this.name = name;
         this.gender = gender;
@@ -95,12 +102,13 @@ public class Contact {
         this.telphone = telphone;
         this.address = address;
         this.remark = remark;
-        this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Contact() {
         super();
@@ -331,24 +339,40 @@ public class Contact {
     }
 
     /**
-     * 1 正常 0 已删除
-     * @return STATUS 1 正常 0 已删除
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public String getStatus() {
-        return status;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 1 正常 0 已删除
-     * @param status 1 正常 0 已删除
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -370,7 +394,8 @@ public class Contact {
         sb.append(", telphone=").append(telphone);
         sb.append(", address=").append(address);
         sb.append(", remark=").append(remark);
-        sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

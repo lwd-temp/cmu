@@ -10,6 +10,8 @@
       <arg column="JTQKJS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CCQKJS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JYYWT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +73,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ZJID, SBID, JBXX, PJWH, JTQKJS, CCQKJS, JYYWT
+    ZJID, SBID, JBXX, PJWH, JTQKJS, CCQKJS, JYYWT, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyZjParams" >
     select
@@ -87,12 +89,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_HY_ZJ
     where ZJID = #{zjid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HY_ZJ
@@ -107,10 +111,12 @@
   <insert id="insert" parameterType="cn.edu.cmu.domain.HyZj" >
     insert into T_HY_ZJ (ZJID, SBID, JBXX, 
       PJWH, JTQKJS, CCQKJS, 
-      JYYWT)
+      JYYWT, VALID, CREATE_TIME
+      )
     values (#{zjid,jdbcType=VARCHAR}, #{sbid,jdbcType=VARCHAR}, #{jbxx,jdbcType=VARCHAR}, 
       #{pjwh,jdbcType=VARCHAR}, #{jtqkjs,jdbcType=VARCHAR}, #{ccqkjs,jdbcType=VARCHAR}, 
-      #{jyywt,jdbcType=VARCHAR})
+      #{jyywt,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HyZj" >
     insert into T_HY_ZJ
@@ -136,6 +142,12 @@
       <if test="jyywt != null" >
         JYYWT,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="zjid != null" >
@@ -158,6 +170,12 @@
       </if>
       <if test="jyywt != null" >
         #{jyywt,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -191,6 +209,12 @@
       <if test="record.jyywt != null" >
         JYYWT = #{record.jyywt,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -204,7 +228,9 @@
       PJWH = #{record.pjwh,jdbcType=VARCHAR},
       JTQKJS = #{record.jtqkjs,jdbcType=VARCHAR},
       CCQKJS = #{record.ccqkjs,jdbcType=VARCHAR},
-      JYYWT = #{record.jyywt,jdbcType=VARCHAR}
+      JYYWT = #{record.jyywt,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -230,6 +256,12 @@
       <if test="jyywt != null" >
         JYYWT = #{jyywt,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
@@ -240,7 +272,9 @@
       PJWH = #{pjwh,jdbcType=VARCHAR},
       JTQKJS = #{jtqkjs,jdbcType=VARCHAR},
       CCQKJS = #{ccqkjs,jdbcType=VARCHAR},
-      JYYWT = #{jyywt,jdbcType=VARCHAR}
+      JYYWT = #{jyywt,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
 </mapper>

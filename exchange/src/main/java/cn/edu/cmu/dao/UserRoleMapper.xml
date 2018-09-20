@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.edu.cmu.dao.UserRoleMapper" >
-  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.UserRoleKey" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.UserRole" >
     <constructor >
       <idArg column="USER_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <idArg column="ROLE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -66,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    USER_ID, ROLE_ID
+    USER_ID, ROLE_ID, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.UserRoleParams" >
     select
@@ -82,6 +84,15 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.UserRoleKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_SYS_USER_ROLE
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="cn.edu.cmu.domain.UserRoleKey" >
     delete from T_SYS_USER_ROLE
@@ -94,11 +105,13 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.edu.cmu.domain.UserRoleKey" >
-    insert into T_SYS_USER_ROLE (USER_ID, ROLE_ID)
-    values (#{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="cn.edu.cmu.domain.UserRole" >
+    insert into T_SYS_USER_ROLE (USER_ID, ROLE_ID, VALID, 
+      CREATE_TIME)
+    values (#{userId,jdbcType=VARCHAR}, #{roleId,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.UserRoleKey" >
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.UserRole" >
     insert into T_SYS_USER_ROLE
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -107,6 +120,12 @@
       <if test="roleId != null" >
         ROLE_ID,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userId != null" >
@@ -114,6 +133,12 @@
       </if>
       <if test="roleId != null" >
         #{roleId,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -132,6 +157,12 @@
       <if test="record.roleId != null" >
         ROLE_ID = #{record.roleId,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -140,9 +171,31 @@
   <update id="updateByExample" parameterType="map" >
     update T_SYS_USER_ROLE
     set USER_ID = #{record.userId,jdbcType=VARCHAR},
-      ROLE_ID = #{record.roleId,jdbcType=VARCHAR}
+      ROLE_ID = #{record.roleId,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.UserRole" >
+    update T_SYS_USER_ROLE
+    <set >
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ROLE_ID = #{roleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.UserRole" >
+    update T_SYS_USER_ROLE
+    set VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+      and ROLE_ID = #{roleId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -145,15 +145,20 @@ public class CgTzjh {
     private Date rwpfsj;
 
     /**
-     * 录入系统时间
+     * 数据是否有效(0已经删除 1有效)
      */
-    private Date createtime;
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, BigDecimal cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, Date createtime) {
+    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, BigDecimal cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String valid, Date createTime) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzlb = tzlb;
@@ -182,12 +187,13 @@ public class CgTzjh {
         this.yshj = yshj;
         this.rwpjwh = rwpjwh;
         this.rwpfsj = rwpfsj;
-        this.createtime = createtime;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public CgTzjh() {
         super();
@@ -642,24 +648,40 @@ public class CgTzjh {
     }
 
     /**
-     * 录入系统时间
-     * @return CREATETIME 录入系统时间
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public Date getCreatetime() {
-        return createtime;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 录入系统时间
-     * @param createtime 录入系统时间
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -695,7 +717,8 @@ public class CgTzjh {
         sb.append(", yshj=").append(yshj);
         sb.append(", rwpjwh=").append(rwpjwh);
         sb.append(", rwpfsj=").append(rwpfsj);
-        sb.append(", createtime=").append(createtime);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

@@ -9,7 +9,8 @@
       <arg column="ICON" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STYLE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="URL" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MENU_ID, MENU_NAME, PARENT_ID, ICON, STYLE, URL, STATUS
+    MENU_ID, MENU_NAME, PARENT_ID, ICON, STYLE, URL, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MenuParams" >
     select
@@ -87,12 +88,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_SYS_MENU
     where MENU_ID = #{menuId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_SYS_MENU
@@ -106,11 +109,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU (MENU_ID, MENU_NAME, PARENT_ID, 
-      ICON, STYLE, URL, STATUS
-      )
+      ICON, STYLE, URL, VALID, 
+      CREATE_TIME)
     values (#{menuId,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
-      #{icon,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
-      )
+      #{icon,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU
@@ -133,8 +136,11 @@
       <if test="url != null" >
         URL,
       </if>
-      <if test="status != null" >
-        STATUS,
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -156,8 +162,11 @@
       <if test="url != null" >
         #{url,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -188,8 +197,11 @@
       <if test="record.url != null" >
         URL = #{record.url,jdbcType=VARCHAR},
       </if>
-      <if test="record.status != null" >
-        STATUS = #{record.status,jdbcType=VARCHAR},
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -204,7 +216,8 @@
       ICON = #{record.icon,jdbcType=VARCHAR},
       STYLE = #{record.style,jdbcType=VARCHAR},
       URL = #{record.url,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -227,8 +240,11 @@
       <if test="url != null" >
         URL = #{url,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        STATUS = #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where MENU_ID = #{menuId,jdbcType=VARCHAR}
@@ -240,7 +256,8 @@
       ICON = #{icon,jdbcType=VARCHAR},
       STYLE = #{style,jdbcType=VARCHAR},
       URL = #{url,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where MENU_ID = #{menuId,jdbcType=VARCHAR}
   </update>
 </mapper>

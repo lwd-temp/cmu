@@ -1,5 +1,7 @@
 package cn.edu.cmu.domain;
 
+import java.util.Date;
+
 public class Role {
     /**
      * 角色id
@@ -12,23 +14,29 @@ public class Role {
     private String roleName;
 
     /**
-     * 状态
+     * 数据是否有效(0已经删除 1有效)
      */
-    private String status;
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
-    public Role(String roleId, String roleName, String status) {
+    public Role(String roleId, String roleName, String valid, Date createTime) {
         this.roleId = roleId;
         this.roleName = roleName;
-        this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Role() {
         super();
@@ -67,24 +75,40 @@ public class Role {
     }
 
     /**
-     * 状态
-     * @return STATUS 状态
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
-    public String getStatus() {
-        return status;
+    public String getValid() {
+        return valid;
     }
 
     /**
-     * 状态
-     * @param status 状态
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -94,7 +118,8 @@ public class Role {
         sb.append("Hash = ").append(hashCode());
         sb.append(", roleId=").append(roleId);
         sb.append(", roleName=").append(roleName);
-        sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

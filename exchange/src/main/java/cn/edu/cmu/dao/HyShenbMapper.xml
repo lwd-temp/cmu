@@ -18,6 +18,8 @@
       <arg column="ZRR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SFBB" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -80,7 +82,7 @@
   </sql>
   <sql id="Base_Column_List" >
     SBID, JHID, HYLX, HYMC, HYMC_EN, JBRQ, JBDW, HYDD, HYJBXX, HYGM, BJJBYX, JFLY, ZRR, 
-    SFBB, STATUS
+    SFBB, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyShenbParams" >
     select
@@ -96,12 +98,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_HY_SHENB
     where SBID = #{sbid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HY_SHENB
@@ -118,12 +122,14 @@
       HYMC, HYMC_EN, JBRQ, 
       JBDW, HYDD, HYJBXX, 
       HYGM, BJJBYX, JFLY, 
-      ZRR, SFBB, STATUS)
+      ZRR, SFBB, STATUS, 
+      VALID, CREATE_TIME)
     values (#{sbid,jdbcType=VARCHAR}, #{jhid,jdbcType=VARCHAR}, #{hylx,jdbcType=VARCHAR}, 
       #{hymc,jdbcType=VARCHAR}, #{hymcEn,jdbcType=VARCHAR}, #{jbrq,jdbcType=TIMESTAMP}, 
       #{jbdw,jdbcType=VARCHAR}, #{hydd,jdbcType=VARCHAR}, #{hyjbxx,jdbcType=VARCHAR}, 
       #{hygm,jdbcType=VARCHAR}, #{bjjbyx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, 
-      #{zrr,jdbcType=VARCHAR}, #{sfbb,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR})
+      #{zrr,jdbcType=VARCHAR}, #{sfbb,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HyShenb" >
     insert into T_HY_SHENB
@@ -173,6 +179,12 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sbid != null" >
@@ -219,6 +231,12 @@
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -276,6 +294,12 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -297,7 +321,9 @@
       JFLY = #{record.jfly,jdbcType=VARCHAR},
       ZRR = #{record.zrr,jdbcType=VARCHAR},
       SFBB = #{record.sfbb,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -347,6 +373,12 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where SBID = #{sbid,jdbcType=VARCHAR}
   </update>
@@ -365,7 +397,9 @@
       JFLY = #{jfly,jdbcType=VARCHAR},
       ZRR = #{zrr,jdbcType=VARCHAR},
       SFBB = #{sfbb,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where SBID = #{sbid,jdbcType=VARCHAR}
   </update>
 </mapper>

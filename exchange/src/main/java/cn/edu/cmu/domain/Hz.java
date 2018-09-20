@@ -74,10 +74,20 @@ public class Hz {
     private String status;
 
     /**
-     *
-     * @mbggenerated 2018-09-18
+     * 数据是否有效(0已经删除 1有效)
      */
-    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String status) {
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
+
+    /**
+     *
+     * @mbggenerated 2018-09-20
+     */
+    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String status, String valid, Date createTime) {
         this.hzid = hzid;
         this.hzhm = hzhm;
         this.xm = xm;
@@ -92,11 +102,13 @@ public class Hz {
         this.hzlx = hzlx;
         this.jcsj = jcsj;
         this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public Hz() {
         super();
@@ -327,8 +339,40 @@ public class Hz {
     }
 
     /**
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -350,6 +394,8 @@ public class Hz {
         sb.append(", hzlx=").append(hzlx);
         sb.append(", jcsj=").append(jcsj);
         sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

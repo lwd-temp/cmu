@@ -24,6 +24,8 @@
       <arg column="XLCP" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CONFIRM_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -86,7 +88,7 @@
   </sql>
   <sql id="Base_Column_List" >
     SQJL_ID, XM_ID, XH, XM, GENDER, YCDM, YXMC, RXN, NJ, ZY, BJ, CHPM, ZHPJ, YYSP, PHONE, 
-    EMAIL, ZZJE, SELFT_PAY, XLCP, STATUS, CONFIRM_STATUS
+    EMAIL, ZZJE, SELFT_PAY, XLCP, STATUS, CONFIRM_STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     select
@@ -102,12 +104,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_XM_XSSQJL
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_XM_XSSQJL
@@ -125,15 +129,15 @@
       RXN, NJ, ZY, BJ, 
       CHPM, ZHPJ, YYSP, PHONE, 
       EMAIL, ZZJE, SELFT_PAY, 
-      XLCP, STATUS, CONFIRM_STATUS
-      )
+      XLCP, STATUS, CONFIRM_STATUS, 
+      VALID, CREATE_TIME)
     values (#{sqjlId,jdbcType=VARCHAR}, #{xmId,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, 
       #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{ycdm,jdbcType=VARCHAR}, #{yxmc,jdbcType=VARCHAR}, 
       #{rxn,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, #{bj,jdbcType=VARCHAR}, 
       #{chpm,jdbcType=VARCHAR}, #{zhpj,jdbcType=VARCHAR}, #{yysp,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{zzje,jdbcType=DECIMAL}, #{selftPay,jdbcType=VARCHAR}, 
-      #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}
-      )
+      #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmXssqjl" >
     insert into T_XM_XSSQJL
@@ -201,6 +205,12 @@
       <if test="confirmStatus != null" >
         CONFIRM_STATUS,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sqjlId != null" >
@@ -265,6 +275,12 @@
       </if>
       <if test="confirmStatus != null" >
         #{confirmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -340,6 +356,12 @@
       <if test="record.confirmStatus != null" >
         CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -367,7 +389,9 @@
       SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
       XLCP = #{record.xlcp,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
-      CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR}
+      CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -435,6 +459,12 @@
       <if test="confirmStatus != null" >
         CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR},
       </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
   </update>
@@ -459,7 +489,9 @@
       SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
       XLCP = #{xlcp,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
-      CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR}
+      CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
   </update>
 </mapper>

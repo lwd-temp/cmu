@@ -64,20 +64,25 @@ public class HyJh {
     private String operator;
 
     /**
-     * 操作时间
-     */
-    private Date createtime;
-
-    /**
      * 状态
      */
     private String status;
 
     /**
-     *
-     * @mbggenerated 2018-09-18
+     * 数据是否有效(0已经删除 1有效)
      */
-    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzr, String operator, Date createtime, String status) {
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
+
+    /**
+     *
+     * @mbggenerated 2018-09-20
+     */
+    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzr, String operator, String status, String valid, Date createTime) {
         this.jhid = jhid;
         this.hybh = hybh;
         this.hylx = hylx;
@@ -90,13 +95,14 @@ public class HyJh {
         this.fzrxm = fzrxm;
         this.fzr = fzr;
         this.operator = operator;
-        this.createtime = createtime;
         this.status = status;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public HyJh() {
         super();
@@ -295,22 +301,6 @@ public class HyJh {
     }
 
     /**
-     * 操作时间
-     * @return CREATETIME 操作时间
-     */
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    /**
-     * 操作时间
-     * @param createtime 操作时间
-     */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    /**
      * 状态
      * @return STATUS 状态
      */
@@ -327,8 +317,40 @@ public class HyJh {
     }
 
     /**
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -348,8 +370,9 @@ public class HyJh {
         sb.append(", fzrxm=").append(fzrxm);
         sb.append(", fzr=").append(fzr);
         sb.append(", operator=").append(operator);
-        sb.append(", createtime=").append(createtime);
         sb.append(", status=").append(status);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

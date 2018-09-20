@@ -41,7 +41,7 @@ public class UserServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
-        User user = new User(keyId, "testDelete",  "123456", new Date() ,new Date(), null);
+        User user = new User(keyId, "testDelete",  "123456", new Date() ,new Date(), null,null);
 
         boolean success = service.insert(user);
         System.out.println("保存成功："+success);
@@ -69,7 +69,7 @@ public class UserServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        User user = new User(CmuStringUtil.UUID(), "admin",  "123456", new Date() ,new Date(), null);
+        User user = new User(CmuStringUtil.UUID(), "admin",  "123456", new Date() ,new Date(), null,null);
 
         boolean success = service.insert(user);
         System.out.println("success:"+success);

@@ -25,9 +25,10 @@
       <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="XMNJXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMZYXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="OPERATOR_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -90,8 +91,8 @@
   </sql>
   <sql id="Base_Column_List" >
     XM_ID, XMLX, XMZM, GLXMMCID, XMMC, XMBH, XMKSSJ, SMJSSJ, XMJLTS, XMCC, JFLY, ZJJE, 
-    XMGK, XMZZJH, JLMBJGMC, JLMBGJ, FYBZ, ZYSM, SFXZRS, JHRS, XMNJXZ, XMZYXZ, CREATE_TIME, 
-    OPERATOR_CODE, STATUS
+    XMGK, XMZZJH, JLMBJGMC, JLMBGJ, FYBZ, ZYSM, SFXZRS, JHRS, XMNJXZ, XMZYXZ, OPERATOR_CODE, 
+    STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmParams" >
     select
@@ -107,12 +108,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_XM
     where XM_ID = #{xmId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_XM
@@ -132,8 +135,8 @@
       XMZZJH, JLMBJGMC, JLMBGJ, 
       FYBZ, ZYSM, SFXZRS, 
       JHRS, XMNJXZ, XMZYXZ, 
-      CREATE_TIME, OPERATOR_CODE, STATUS
-      )
+      OPERATOR_CODE, STATUS, VALID, 
+      CREATE_TIME)
     values (#{xmId,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{glxmmcid,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, #{xmbh,jdbcType=VARCHAR}, 
       #{xmkssj,jdbcType=TIMESTAMP}, #{smjssj,jdbcType=TIMESTAMP}, #{xmjlts,jdbcType=DECIMAL}, 
@@ -141,8 +144,8 @@
       #{xmzzjh,jdbcType=VARCHAR}, #{jlmbjgmc,jdbcType=VARCHAR}, #{jlmbgj,jdbcType=VARCHAR}, 
       #{fybz,jdbcType=DECIMAL}, #{zysm,jdbcType=VARCHAR}, #{sfxzrs,jdbcType=VARCHAR}, 
       #{jhrs,jdbcType=DECIMAL}, #{xmnjxz,jdbcType=VARCHAR}, #{xmzyxz,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{operatorCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
-      )
+      #{operatorCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Xm" >
     insert into T_XM
@@ -213,14 +216,17 @@
       <if test="xmzyxz != null" >
         XMZYXZ,
       </if>
-      <if test="createTime != null" >
-        CREATE_TIME,
-      </if>
       <if test="operatorCode != null" >
         OPERATOR_CODE,
       </if>
       <if test="status != null" >
         STATUS,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -290,14 +296,17 @@
       <if test="xmzyxz != null" >
         #{xmzyxz,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="operatorCode != null" >
         #{operatorCode,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -376,14 +385,17 @@
       <if test="record.xmzyxz != null" >
         XMZYXZ = #{record.xmzyxz,jdbcType=VARCHAR},
       </if>
-      <if test="record.createTime != null" >
-        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.operatorCode != null" >
         OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -414,9 +426,10 @@
       JHRS = #{record.jhrs,jdbcType=DECIMAL},
       XMNJXZ = #{record.xmnjxz,jdbcType=VARCHAR},
       XMZYXZ = #{record.xmzyxz,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      STATUS = #{record.status,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -487,14 +500,17 @@
       <if test="xmzyxz != null" >
         XMZYXZ = #{xmzyxz,jdbcType=VARCHAR},
       </if>
-      <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
       <if test="operatorCode != null" >
         OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where XM_ID = #{xmId,jdbcType=VARCHAR}
@@ -522,9 +538,10 @@
       JHRS = #{jhrs,jdbcType=DECIMAL},
       XMNJXZ = #{xmnjxz,jdbcType=VARCHAR},
       XMZYXZ = #{xmzyxz,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      STATUS = #{status,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </update>
 </mapper>

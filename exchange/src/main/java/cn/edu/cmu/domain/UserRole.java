@@ -2,17 +2,7 @@ package cn.edu.cmu.domain;
 
 import java.util.Date;
 
-public class DmJfly {
-    /**
-     * 来源id
-     */
-    private String code;
-
-    /**
-     * 经费来源
-     */
-    private String name;
-
+public class UserRole extends UserRoleKey {
     /**
      * 数据是否有效(0已经删除 1有效)
      */
@@ -27,9 +17,8 @@ public class DmJfly {
      *
      * @mbggenerated 2018-09-20
      */
-    public DmJfly(String code, String name, String valid, Date createTime) {
-        this.code = code;
-        this.name = name;
+    public UserRole(String userId, String roleId, String valid, Date createTime) {
+        super(userId, roleId);
         this.valid = valid;
         this.createTime = createTime;
     }
@@ -38,40 +27,8 @@ public class DmJfly {
      *
      * @mbggenerated 2018-09-20
      */
-    public DmJfly() {
+    public UserRole() {
         super();
-    }
-
-    /**
-     * 来源id
-     * @return CODE 来源id
-     */
-    public String getCode() {
-        return code;
-    }
-
-    /**
-     * 来源id
-     * @param code 来源id
-     */
-    public void setCode(String code) {
-        this.code = code == null ? null : code.trim();
-    }
-
-    /**
-     * 经费来源
-     * @return NAME 经费来源
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 经费来源
-     * @param name 经费来源
-     */
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
     }
 
     /**
@@ -116,8 +73,6 @@ public class DmJfly {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
-        sb.append(", code=").append(code);
-        sb.append(", name=").append(name);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

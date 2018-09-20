@@ -1,6 +1,7 @@
 package cn.edu.cmu.domain;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class XmXssqjl {
     /**
@@ -109,10 +110,20 @@ public class XmXssqjl {
     private String confirmStatus;
 
     /**
-     *
-     * @mbggenerated 2018-09-18
+     * 数据是否有效(0已经删除 1有效)
      */
-    public XmXssqjl(String sqjlId, String xmId, String xh, String xm, String gender, String ycdm, String yxmc, String rxn, String nj, String zy, String bj, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String selftPay, String xlcp, String status, String confirmStatus) {
+    private String valid;
+
+    /**
+     * 创建时间默认当前数据生成时间
+     */
+    private Date createTime;
+
+    /**
+     *
+     * @mbggenerated 2018-09-20
+     */
+    public XmXssqjl(String sqjlId, String xmId, String xh, String xm, String gender, String ycdm, String yxmc, String rxn, String nj, String zy, String bj, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String selftPay, String xlcp, String status, String confirmStatus, String valid, Date createTime) {
         this.sqjlId = sqjlId;
         this.xmId = xmId;
         this.xh = xh;
@@ -134,11 +145,13 @@ public class XmXssqjl {
         this.xlcp = xlcp;
         this.status = status;
         this.confirmStatus = confirmStatus;
+        this.valid = valid;
+        this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     public XmXssqjl() {
         super();
@@ -481,8 +494,40 @@ public class XmXssqjl {
     }
 
     /**
+     * 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
+     */
+    public String getValid() {
+        return valid;
+    }
+
+    /**
+     * 数据是否有效(0已经删除 1有效)
+     * @param valid 数据是否有效(0已经删除 1有效)
+     */
+    public void setValid(String valid) {
+        this.valid = valid == null ? null : valid.trim();
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 创建时间默认当前数据生成时间
+     * @param createTime 创建时间默认当前数据生成时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-09-18
+     * @mbggenerated 2018-09-20
      */
     @Override
     public String toString() {
@@ -511,6 +556,8 @@ public class XmXssqjl {
         sb.append(", xlcp=").append(xlcp);
         sb.append(", status=").append(status);
         sb.append(", confirmStatus=").append(confirmStatus);
+        sb.append(", valid=").append(valid);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }

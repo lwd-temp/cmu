@@ -5,7 +5,8 @@
     <constructor >
       <idArg column="ROLE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ROLE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ROLE_ID, ROLE_NAME, STATUS
+    ROLE_ID, ROLE_NAME, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.RoleParams" >
     select
@@ -83,12 +84,14 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
     from T_SYS_ROLE
     where ROLE_ID = #{roleId,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_SYS_ROLE
@@ -101,10 +104,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Role" >
-    insert into T_SYS_ROLE (ROLE_ID, ROLE_NAME, STATUS
-      )
-    values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
-      )
+    insert into T_SYS_ROLE (ROLE_ID, ROLE_NAME, VALID, 
+      CREATE_TIME)
+    values (#{roleId,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Role" >
     insert into T_SYS_ROLE
@@ -115,8 +118,11 @@
       <if test="roleName != null" >
         ROLE_NAME,
       </if>
-      <if test="status != null" >
-        STATUS,
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -126,8 +132,11 @@
       <if test="roleName != null" >
         #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -146,8 +155,11 @@
       <if test="record.roleName != null" >
         ROLE_NAME = #{record.roleName,jdbcType=VARCHAR},
       </if>
-      <if test="record.status != null" >
-        STATUS = #{record.status,jdbcType=VARCHAR},
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -158,7 +170,8 @@
     update T_SYS_ROLE
     set ROLE_ID = #{record.roleId,jdbcType=VARCHAR},
       ROLE_NAME = #{record.roleName,jdbcType=VARCHAR},
-      STATUS = #{record.status,jdbcType=VARCHAR}
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -169,8 +182,11 @@
       <if test="roleName != null" >
         ROLE_NAME = #{roleName,jdbcType=VARCHAR},
       </if>
-      <if test="status != null" >
-        STATUS = #{status,jdbcType=VARCHAR},
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ROLE_ID = #{roleId,jdbcType=VARCHAR}
@@ -178,7 +194,8 @@
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Role" >
     update T_SYS_ROLE
     set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
-      STATUS = #{status,jdbcType=VARCHAR}
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where ROLE_ID = #{roleId,jdbcType=VARCHAR}
   </update>
 </mapper>

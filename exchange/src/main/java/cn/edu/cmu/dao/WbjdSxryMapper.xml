@@ -8,6 +8,8 @@
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -69,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    RYID, LFID, XM, GJ, ZW
+    RYID, LFID, XM, GJ, ZW, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSxryParams" >
     select
@@ -85,6 +87,7 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
+      and VALID = 1
   </select>
   <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbjdSxryParams" >
     delete from T_WBJD_SXRY
@@ -94,9 +97,11 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.WbjdSxry" >
     insert into T_WBJD_SXRY (RYID, LFID, XM, 
-      GJ, ZW)
+      GJ, ZW, VALID, CREATE_TIME
+      )
     values (#{ryid,jdbcType=VARCHAR}, #{lfid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
-      #{gj,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR})
+      #{gj,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdSxry" >
     insert into T_WBJD_SXRY
@@ -116,6 +121,12 @@
       <if test="zw != null" >
         ZW,
       </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="ryid != null" >
@@ -132,6 +143,12 @@
       </if>
       <if test="zw != null" >
         #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -159,6 +176,12 @@
       <if test="record.zw != null" >
         ZW = #{record.zw,jdbcType=VARCHAR},
       </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -170,7 +193,9 @@
       LFID = #{record.lfid,jdbcType=VARCHAR},
       XM = #{record.xm,jdbcType=VARCHAR},
       GJ = #{record.gj,jdbcType=VARCHAR},
-      ZW = #{record.zw,jdbcType=VARCHAR}
+      ZW = #{record.zw,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
