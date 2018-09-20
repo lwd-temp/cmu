@@ -1,15 +1,6 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
-import cn.edu.cmu.domain.CgTzjh;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.List;
 
 /**
  * Service层的测试类
@@ -17,7 +8,7 @@ import java.util.List;
  * 增加删改查
  */
 public class CgTzjhServiceImplTest extends SpringIOC {
-    CgTzjhService service;
+    /*CgTzjhService service;
     @Before
     public  void init(){
         service = ac.getBean(CgTzjhService.class);
@@ -84,5 +75,5 @@ public class CgTzjhServiceImplTest extends SpringIOC {
         success = service.updateByIdAllColumn(CgTzjh);
         System.out.println("删除成功："+success);
         Assert.assertTrue(success);
-    }
+    }*/
 }

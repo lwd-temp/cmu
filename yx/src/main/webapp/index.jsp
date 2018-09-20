@@ -107,7 +107,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-                            CMU Admin(国际交流管理信息系统)
+                            CMU Admin(国际交流管理信息系统 原型)
 						</small>
 					</a>
 
@@ -661,7 +661,7 @@
                             </li>
 
                             <li class="">
-                                <a href="javascript:getUrl(this,'unknow')">
+                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_sb_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议申报
                                 </a>
