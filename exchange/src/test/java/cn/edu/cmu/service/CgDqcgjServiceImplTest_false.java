@@ -31,13 +31,10 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     //保存
     @Test
     public void save() {
-
         //有问题 shr  错误
-
-
         CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "01",  "01", "01",
                  new Date(), "01", "01", "01", "01",  "01",
-                "01", "01", "01", "01", "01", "01", "01",
+                "01", "01", "01", "01", "01", "01", "5b47eb139d874a5c9dc80c909fdf4ee4",
                 new Date(),new Date(),"01","01","01","01","01",
                 "01","01","01","01","01","01",
                 "01","01","01",BigDecimal.valueOf(1.34), "01",new Date(),"01",
