@@ -2,9 +2,69 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/exchange" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/domain/ForeignTeacherExample.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/CgTzcyService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/CgTzjhService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/CgTzjhServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyRymdService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyRymdServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HySbrymdService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HySbrymdServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyShenbService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyShenbServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyYwService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyYwServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyYwServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyYwServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyZjService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HyZjServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyGbService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyGbServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyQzrService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyQzrServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/HzxyServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/MenuService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/MenuServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/RoleMenuService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/RoleMenuServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/RoleService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/RoleServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/SjjlZtService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/SjjlZtServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/UploadService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/UploadServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/UserRoleService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/UserRoleServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdSqService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdSqServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdSxryService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdSxryServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdXjService.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/main/java/cn/edu/cmu/service/WbjdXjServiceImpl.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HyRymdServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HySbrymdServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HyShenbServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HyYwServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HyZjServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HzServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HzxyGbServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HzxyQzrServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/HzxyServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/MenuServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/RoleMenuServiceImplTest_false.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/RoleServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/SjjlZtServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/UploadServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/UserRoleServiceImplTest_false.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/WbjdSqServiceImplTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/WbjdSxryServiceImplTest_false.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/exchange/src/test/java/cn/edu/cmu/service/WbjdXjServiceImplTest_false.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/exchange/src/test/resources/generatorConfig.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/guiextensionformbg" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/yx" charset="UTF-8" />
     <file url="PROJECT" charset="GBK" />
   </component>
