@@ -3,8 +3,8 @@ import cn.edu.cmu.dao.ForeignTeacherMapper;
 import cn.edu.cmu.domain.ForeignTeacher;
 import cn.edu.cmu.domain.ForeignTeacherParams;
 import cn.edu.cmu.framework.web.BaseService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 /*
@@ -28,9 +28,9 @@ public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, Forei
         ForeignTeacherParams ex = new ForeignTeacherParams();
         if(foreignTeacher != null){
             ForeignTeacherParams.Criteria c = ex.createCriteria();
-            if(StringUtils.isNotEmpty(foreignTeacher.get教师姓名())){
+            /*if(StringUtils.isNotEmpty(foreignTeacher.get教师姓名())){
                 c.and教师姓名Like("%"+foreignTeacher.get教师姓名()+"%");
-            }
+            }*/
         }
         return dao.selectByExample(ex);
     }
