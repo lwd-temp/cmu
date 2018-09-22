@@ -137,6 +137,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 年内出访次数   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="username"  value="1" readonly="readonly"  placeholder="年内出访次数"     class="col-xs-12" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 申请人其他社会任职   : </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" readonly="readonly" id="form-field-13" maxlength="300">其他任职</textarea>
+                                </div>
+
+
+                            </div>
+                            <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 联系电话   : </label>
                                 <div class="col-xs-4">
                                     <input type="text" readonly="readonly"  name="username"  value="13888888888"    class="col-xs-12" />

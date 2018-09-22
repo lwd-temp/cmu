@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 护照人姓名: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 护照、通行证持有人姓名: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="护照人姓名" class="col-xs-12" />
+                <input type="text" id="form-field-1" placeholder="护照、通行证持有人姓名" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -35,20 +35,20 @@
 <script type="text/javascript">
     var grid_data =
         [
-            {id:"1",	name:"护照持有人1",gender:"男",	ejdw:"妇产科",		hzlx:"因公护照",  zt:'暂存'},
-            {id:"2",	name:"护照持有人12",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'报废（过期）'},
-            {id:"3",	name:"护照持有人13",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'调往新单位'},
-            {id:"4",	name:"护照持有人14",gender:"女",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在省签证处'},
-            {id:"5",	name:"护照持有人15",gender:"男",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'调至省外'},
-            {id:"6",	name:"护照持有人16",gender:"女",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'在省签证处'},
-            {id:"7",	name:"护照持有人17",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在我部'},
-            {id:"8",	name:"护照持有人18",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在我部'},
-            {id:"9",	name:"护照持有人19",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'借出中'},
-            {id:"10",	name:"护照持有人20",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'借出中'},
-            {id:"11",	name:"护照持有人21",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'调往新单位'},
-            {id:"12",	name:"护照持有人22",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
-            {id:"13",	name:"护照持有人23",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
-            {id:"14",	name:"护照持有人24",gender:"男",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
+            {id:"1",	name:"护照、通行证持有人1",gender:"男",	ejdw:"妇产科",		hzlx:"因公护照",  zt:'暂存'},
+            {id:"2",	name:"护照、通行证持有人12",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'报废（过期）'},
+            {id:"3",	name:"护照、通行证持有人13",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'调往新单位'},
+            {id:"4",	name:"护照、通行证持有人14",gender:"女",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在省签证处'},
+            {id:"5",	name:"护照、通行证持有人15",gender:"男",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'调至省外'},
+            {id:"6",	name:"护照、通行证持有人16",gender:"女",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'在省签证处'},
+            {id:"7",	name:"护照、通行证持有人17",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在我部'},
+            {id:"8",	name:"护照、通行证持有人18",gender:"男",	ejdw:"妇产科",	hzlx:"因公护照",  zt:'在我部'},
+            {id:"9",	name:"护照、通行证持有人19",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'借出中'},
+            {id:"10",	name:"护照、通行证持有人20",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'借出中'},
+            {id:"11",	name:"护照、通行证持有人21",gender:"男",	ejdw:"妇产科",	hzlx:"因公港澳",  zt:'调往新单位'},
+            {id:"12",	name:"护照、通行证持有人22",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
+            {id:"13",	name:"护照、通行证持有人23",gender:"女",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
+            {id:"14",	name:"护照、通行证持有人24",gender:"男",	ejdw:"妇产科",	hzlx:"因公台湾",  zt:'暂存'},
         ];
 
 
@@ -78,12 +78,12 @@
         //自定义 按钮
         var navBtns = [
             {
-                caption:"添加护照 ",
+                caption:"添加护照、通行证",
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['850px', "400px"],
-                        title:'添加护照',
+                        area: ['850px', ($(window).height()-20)+"px"],
+                        title:'添加护照、通行证',
                         content:'business/hzgl/hzgl_add.jsp',
                     });
                 }
@@ -93,7 +93,7 @@
         var settings = {
             caption: "护照管理",
             data: grid_data,
-            colNames:['姓名','性别', '所属二级单位', '护照类型','状态','备注',"操作"],
+            colNames:['姓名','性别', '所属二级单位', '证件类型','状态','备注','操作'],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -162,8 +162,8 @@
     //修改用户
     function editHz(sqid){
         layer.newpage({
-            area: ['850px', "400px"],
-            title:'编辑护照',
+            area: ['850px', ($(window).height()-20)+"px"],
+            title:'编辑护照、通行证',
             content:'business/hzgl/hzgl_edit.jsp',
         });
     }

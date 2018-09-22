@@ -129,18 +129,6 @@
                                     <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-xs-3 control-label "  > 是否在属地公安部门备案 </label>
-                                <div class="col-xs-9">
-                                    <input name="form-field-radio"    type="radio" class="ace" />
-                                    <span class="lbl"> 男</span>
-                                    <input name="form-field-radio"    type="radio"  class="ace" />
-                                    <span class="lbl"> 女</span>
-                                </div>
-
-                            </div>
-
                             <hr/>
                             <div class="form-group">
                                 <div class="col-xs-3">
@@ -204,9 +192,9 @@
 
 
                             <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info btn-sm" type="button">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    保存
+                                <button class="btn btn-info btn-sm" id="close"  type="button">
+                                    <i class="ace-icon fa fa-close bigger-110"></i>
+                                    关闭
                                 </button>
 
                                 &nbsp; &nbsp; &nbsp;
@@ -253,23 +241,14 @@
             todayHighlight: true
         });
 
-
-        //选择录入框
-        $('input.typeahead').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'states',
-            displayKey: 'value',
-            source: substringMatcher(names),
-            limit: 10
-        });
-
-
-
         $('.chosen-select').chosen({allow_single_deselect:true});
 
+
+        $("#close").click(function(){
+
+            var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+            parent.layer.close(index);
+        });
     });
 
 

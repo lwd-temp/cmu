@@ -137,6 +137,25 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 年内出访次数   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="username"  value="1"  placeholder="年内出访次数"     class="col-xs-12" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 申请人其他社会任职   : </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" id="form-field-13" maxlength="300"></textarea>
+                                </div>
+
+
+                            </div>
+
+
+
+
+                            <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 联系电话   : </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="username"  value="13888888888"    class="col-xs-12" />
@@ -217,16 +236,16 @@
                                     <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                                 </div>
                             </div><div class="form-group">
-                                <label class="col-xs-2 control-label "  > 邀请人姓名(英文)   : </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
-                                </div>
-
-                                <label class="col-xs-2 control-label "  > 邀请人职务(英文): </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
-                                </div>
+                            <label class="col-xs-2 control-label "  > 邀请人姓名(英文)   : </label>
+                            <div class="col-xs-4">
+                                <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                             </div>
+
+                            <label class="col-xs-2 control-label "  > 邀请人职务(英文): </label>
+                            <div class="col-xs-4">
+                                <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
+                            </div>
+                        </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 邀请人单位   : </label>
                                 <div class="col-xs-4">

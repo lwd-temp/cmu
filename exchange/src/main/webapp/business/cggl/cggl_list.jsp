@@ -85,7 +85,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-20)+"px"],
+                        area: ['1000px', ($(window).height()-20)+"px"],
                         title:'申请短期出国',
                         content:'business/cggl/cggl_add.jsp',
                     });
@@ -154,9 +154,9 @@
     //修改用户
     function editCgsq(sqid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1000px', ($(window).height()-20)+"px"],
             title:'编辑出国申请',
-            content:'business/cggl/cggl_edit.jsp',
+            content:'business/cggl/cggl_show.jsp',
         });
     }
 

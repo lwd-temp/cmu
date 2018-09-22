@@ -1,59 +1,11 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2018/9/13
-  Time: 16:08
+  Date: 2018/9/10
+  Time: 17:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <%
-        String path = request.getContextPath();
-        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-    %>
-    <base href="<%=basePath%>" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
-
-    <meta name="description" content="Common form elements and layouts" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-    <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/font-awesome.css" />
-
-    <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
-    <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
-    <link rel="stylesheet" href="assets/css/chosen.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css" />
-
-    <!-- text fonts -->
-    <link rel="stylesheet" href="assets/css/ace-fonts.css" />
-
-    <!-- ace styles -->
-    <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
-
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
-    <link rel="stylesheet" href="assets/css/ace-ie.css" />
-    <![endif]-->
-
-    <!--[if lte IE 9]>
-    <![endif]-->
-
-    <!--[if lte IE 8]>
-    <script src="assets/js/html5shiv.js"></script>
-    <script src="assets/js/respond.js"></script>
-    <![endif]-->
-
-
-</head>
-
-<body class="no-skin">
 <div >
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
@@ -77,25 +29,12 @@
     <table id="grid-table"></table>
 
 </div>
+<script type="text/javascript">
+    var $path_base = "..";//in Ace demo this will be used for editurl parameter
+</script>
 
-
-<script src='assets/js/jquery.js'></script>
-
-<script src="assets/js/bootstrap.js"></script>
-<script src="assets/js/chosen.jquery.js"></script>
-<script src="assets/js/date-time/bootstrap-datepicker.js"></script>
-<script src="assets/js/typeahead.jquery.js"></script>
-<script src="assets/js/ace/elements.typeahead.js"></script>
-
-<script src="assets/js/layer/layer.js"></script>
-<script src="assets/project/js/common-script.js"></script>
-<script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
-<script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
-<!-- ace scripts -->
-
-
-<script>
-
+<!-- inline scripts related to this page -->
+<script type="text/javascript">
     var grid_data =
         [
 
@@ -119,36 +58,75 @@
             {id:"18",	hymc:"会议名称18",	zbdw:"主办单位18"	,cbdw:"承办单位18",	dd:"会议室18",	jxrq:"2019-18-19",  jfly:'省级财政'}
         ];
 
+
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
 
-    var settings = {
-        caption: "国际会议计划管理",
-        data: grid_data,
-        colNames:["会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"操作"],
-        navBtns:[],//自定义按钮
-        pager:pager_selector,
-        colModel:[
-            {name:'hymc',index:'hymc',  },
-            {name:'zbdw',index:'zbdw',  },
-            {name:'cbdw',index:'cbdw',  },
-            {name:'jxrq',index:'jxrq',  },
-            {name:'dd',index:'dd',  },
-            {name:'jfly',index:'jfly',  },
 
-            {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                formatter:function(id, options, rowObject){
-                    return "<button class='btn btn-success btn-mini' onclick='selectedJh()' title='选择计划申报' ><i class='ace-icon fa fa-plus '>申报</i></button>";
+    $(function() {
+        grid_selector = "#grid-table";
+        pager_selector = "#grid-pager";
+
+        var parent_column = $(grid_selector).closest('[class*="col-"]');
+        //resize to fit page size
+        $(window).on('resize.jqGrid', function () {
+            $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
+        })
+
+        //侧边栏发生变化时重新设置宽度
+        $(document).on('settings.ace.jqGrid' , function(ev, event_name, collapsed) {
+            if( event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed' ) {
+                //setTimeout is for webkit only to give time for DOM changes and then redraw!!!
+                setTimeout(function() {
+                    $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
+                }, 0);
+            }
+        })
+
+        //自定义 按钮
+        var navBtns = [
+            {
+                caption:"填写会议计划",
+                buttonicon:"ace-icon fa fa-plus orange",
+                onClickButton: function(){
+                    layer.newpage({
+                        area: ['900px', ($(window).height()-10)+"px"],
+                        title:'填写会议计划',
+                        content:'business/gjhy/gjhy_jh_add.jsp',
+                    });
                 }
-            },
+            }
         ]
 
-    }
+        var settings = {
+            caption: "国际会议计划管理",
+            data: grid_data,
+            colNames:["会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"操作"],
+            navBtns:navBtns,//自定义按钮
+            pager:pager_selector,
+            colModel:[
+                {name:'hymc',index:'hymc',  },
+                {name:'zbdw',index:'zbdw',  },
+                {name:'cbdw',index:'cbdw',  },
+                {name:'jxrq',index:'jxrq',  },
+                {name:'dd',index:'dd',  },
+                {name:'jfly',index:'jfly',  },
 
-    $(function(){
+                {name:'id',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(id, options, rowObject){
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editGjyyJh("+id+")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjyyJh("+id+")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                    }
+                },
+            ]
+
+        }
+
 
         //渲染jqGrid表格 ,包括渲染 分页信息
         $(grid_selector).tables(settings);
+
+
 
         //查询按钮添加事件
         $("#query").click(function(){
@@ -157,10 +135,10 @@
             setTimeout(function(){
                 refreshTable();//刷新页面
             },800);
+
         });
 
     });
-
 
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
@@ -175,22 +153,17 @@
         }).trigger("reloadGrid");
     }
 
-
-    function selectedJh(rowObject){
-        alert("此处根据选择的计划，将会议信息直接填写到申报页面....");
-
-        var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-
-        parent.layer.close(index);
-
-        parent.layer.newpage({
-            area: ['1000px', ($(window).height()-10)+"px"],
-            title:'申报会议',
-            content:'business/gjhy/gjhy_sb_add.jsp',
+    //修改用户
+    function editGjyyJh(userId){
+        layer.newpage({
+            area: ['900px', ($(window).height()-10)+"px"],
+            title:'修改会议计划',
+            content:'business/gjhy/gjhy_jh_edit.jsp',
         });
-
     }
 
+    //删除用户
+    function delUser(userId){
+        $(grid_selector).delGridRow(userId);
+    }
 </script>
-</body>
-</html>

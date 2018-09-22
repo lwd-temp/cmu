@@ -129,18 +129,6 @@
                                     <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
-
-                            <div class="form-group">
-                                <label class="col-xs-3 control-label "  > 是否在属地公安部门备案 </label>
-                                <div class="col-xs-9">
-                                    <input name="form-field-radio"    type="radio" class="ace" />
-                                    <span class="lbl"> 男</span>
-                                    <input name="form-field-radio"    type="radio"  class="ace" />
-                                    <span class="lbl"> 女</span>
-                                </div>
-
-                            </div>
-
                             <hr/>
                             <div class="form-group">
                                 <div class="col-xs-3">

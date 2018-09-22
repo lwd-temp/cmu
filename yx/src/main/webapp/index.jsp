@@ -648,7 +648,6 @@
                         </a>
 
                         <b class="arrow"></b>
-
                         <ul class="submenu">
 
                             <li class="active">
@@ -692,7 +691,7 @@
                     <li class="">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 因公护照管理</span>
+                            <span class="menu-text"> 护照及通行证管理</span>
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
@@ -703,7 +702,7 @@
                             <li class="active">
                                 <a href="javascript:getUrl(this,'business/hzgl/hzgl_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    因公护照管理
+                                    护照及通行证管理
                                 </a>
 
                                 <b class="arrow"></b>

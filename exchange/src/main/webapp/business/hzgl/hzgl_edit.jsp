@@ -88,13 +88,16 @@
 
                                 <label class="col-xs-2 control-label "  > 性别: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value="男"     class="col-xs-12" />
+                                    <input name="form-field-radio"    type="radio" class="ace"  checked/>
+                                    <span class="lbl"> 男</span>
+                                    <input name="form-field-radio"    type="radio"  class="ace" />
+                                    <span class="lbl"> 女</span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 出生日期 : </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value="1999-01-01"    class="col-xs-12" />
+                                    <input class="form-control date-picker" id="id-date-picker-bir"value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 出生地: </label>
@@ -106,12 +109,12 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签发日期  : </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value="户籍所在地"     class="col-xs-12" />
+                                    <input class="form-control date-picker" id="id-date-picker-0" value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 签发地点: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value="101010190101015489"     class="col-xs-12" />
+                                    <input type="text"  name="username"  value="沈阳"     class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -119,32 +122,62 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 有效期至   : </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
+                                    <input class="form-control date-picker" id="id-date-picker-1"value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 发证机关: </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                                 </div>
-                            </div><div class="form-group">
-                                <label class="col-xs-2 control-label "  > 护照类型   : </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 证件类型   : </label>
                                 <div class="col-xs-4">
-                                    <select class="chosen-select form-control"   data-placeholder="请选择护照类型"  >
+                                    <select class="chosen-select form-control"   data-placeholder="请选择证件类型"  >
                                         <option value="">  因公护照</option>
                                         <option value="">  因公港澳</option>
                                         <option value="">  因公台湾</option>
                                     </select>
                                 </div>
 
+                                <label class="col-xs-2 control-label "  > 签证或签注时间: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="id-date-picker-2"value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+
                                 <label class="col-xs-2 control-label "  > 借出时间: </label>
                                 <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="id-date-picker-3"value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+
+                                <label class="col-xs-2 control-label "  > 出访时间: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="id-date-picker-4"value="2018-11-15"   type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                <label class="col-xs-2 control-label "  > 出访目的地: </label>
+                                <div class="col-xs-10">
                                     <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 护照状态   : </label>
+                                <label class="col-xs-2 control-label "  > 出访内容: </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" id="form-field-10" maxlength="300"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 证件状态   : </label>
                                 <div class="col-xs-4">
-                                    <select class="chosen-select form-control"   data-placeholder="请选择护照状态"  >
+                                    <select class="chosen-select form-control"   data-placeholder="请选择证件状态"  >
                                         <option value="">  报废（过期）</option>
                                         <option value="">  在省签证处</option>
                                         <option value="" selected>  在我部</option>
@@ -162,7 +195,7 @@
 
                                 <button class="btn btn-info btn-sm" type="button">
                                     <i class="ace-icon fa fa-save bigger-110"></i>
-                                   保存
+                                    保存
                                 </button>
 
                             </div>
@@ -226,19 +259,6 @@
         });
 
         $('.chosen-select').chosen({allow_single_deselect:true});
-
-        $("#submit").click(function(){
-
-            var index = parent.layer.alert("本人承诺:以上情况均属实。.........",function(){
-                parent.window.open( "alink/doc/sqb.pdf");
-                parent.layer.close(index);
-
-            })
-
-        })
-
-
-
 
 
     })

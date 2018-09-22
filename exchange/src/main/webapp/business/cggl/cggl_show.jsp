@@ -236,16 +236,16 @@
                                     <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                                 </div>
                             </div><div class="form-group">
-                                <label class="col-xs-2 control-label "  > 邀请人姓名(英文)   : </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
-                                </div>
-
-                                <label class="col-xs-2 control-label "  > 邀请人职务(英文): </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
-                                </div>
+                            <label class="col-xs-2 control-label "  > 邀请人姓名(英文)   : </label>
+                            <div class="col-xs-4">
+                                <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
                             </div>
+
+                            <label class="col-xs-2 control-label "  > 邀请人职务(英文): </label>
+                            <div class="col-xs-4">
+                                <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
+                            </div>
+                        </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 邀请人单位   : </label>
                                 <div class="col-xs-4">
@@ -303,17 +303,12 @@
                             </div>
                             <div class="col-md-offset-3 col-md-9">
 
-                                <button class="btn btn-info btn-sm" type="button">
-                                    <i class="ace-icon fa fa-save bigger-110"></i>
-                                    暂存
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
 
 
-                                <button class="btn btn-info btn-sm" id="submit"  type="button">
+
+                                <button class="btn btn-info btn-sm" id="close"  type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    提交
+                                    关闭
                                 </button>
 
 
@@ -387,14 +382,10 @@
 
         $('.chosen-select').chosen({allow_single_deselect:true});
 
-        $("#submit").click(function(){
+        $("#close").click(function(){
 
-            var index = parent.layer.alert("本人承诺:以上情况均属实。.........",function(){
-                parent.window.open( "alink/doc/sqb.pdf");
-                parent.layer.close(index);
-
-            })
-
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
         })
 
 

@@ -107,7 +107,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-                            CMU Admin(国际交流管理信息系统)
+                            CMU Admin(国际交流管理信息系统 原型)
 						</small>
 					</a>
 
@@ -636,9 +636,7 @@
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     归国管理
                                 </a>
-
                             </li>
-
                         </ul>
                     </li>
 
@@ -650,11 +648,10 @@
                         </a>
 
                         <b class="arrow"></b>
-
                         <ul class="submenu">
 
                             <li class="active">
-                                <a href="javascript:getUrl(this,'unknow')">
+                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_jh_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议计划
                                 </a>
@@ -663,7 +660,7 @@
                             </li>
 
                             <li class="">
-                                <a href="javascript:getUrl(this,'unknow')">
+                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_sb_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议申报
                                 </a>
@@ -694,7 +691,7 @@
                     <li class="">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 因公护照管理</span>
+                            <span class="menu-text"> 护照及通行证管理</span>
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
@@ -705,7 +702,7 @@
                             <li class="active">
                                 <a href="javascript:getUrl(this,'business/hzgl/hzgl_list.jsp')">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    因公护照管理
+                                    护照及通行证管理
                                 </a>
 
                                 <b class="arrow"></b>

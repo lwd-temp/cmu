@@ -146,7 +146,7 @@
     //修改用户
     function cgsh(sqid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1000px', ($(window).height()-20)+"px"],
             title:'出国审核',
             content:'business/cggl/cggl_sh.jsp',
         });
