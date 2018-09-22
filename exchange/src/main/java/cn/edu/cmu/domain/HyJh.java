@@ -80,7 +80,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzr, String operator, String status, String valid, Date createTime) {
         this.jhid = jhid;
@@ -102,7 +102,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public HyJh() {
         super();
@@ -350,7 +350,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {

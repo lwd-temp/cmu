@@ -17,6 +17,8 @@
       <arg column="ZC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="LXDH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NNCFCS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="QTSHRZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CFGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="RJCS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZID" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -39,9 +41,9 @@
       <arg column="JFYSHJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="SQBSM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SQRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="STATUS" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SHJG" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="SHR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHRY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SHYJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SHRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="GDWJID" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -109,10 +111,11 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    CGID, CGLX, XM, XB, CSRQ, CSD, HJSZD, SFZH, SSEJDW, KS, ZW, ZC, LXDH, EMAIL, CFGJ, 
-    RJCS, TZID, CFKSRQ, CFJSRQ, CFMD, CFMD_QT, YQR_XM, YQR_ZW, YQR_DW, YQR_XXDZ, YQR_DH, 
-    YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, JFYSMX, JFYSHJ, SQBSM, 
-    SQRQ, STATUS, SHJG, SHR, SHYJ, SHRQ, GDWJID, CFZJBGID, VALID, CREATE_TIME
+    CGID, CGLX, XM, XB, CSRQ, CSD, HJSZD, SFZH, SSEJDW, KS, ZW, ZC, LXDH, EMAIL, NNCFCS, 
+    QTSHRZ, CFGJ, RJCS, TZID, CFKSRQ, CFJSRQ, CFMD, CFMD_QT, YQR_XM, YQR_ZW, YQR_DW, 
+    YQR_XXDZ, YQR_DH, YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, 
+    JFYSMX, JFYSHJ, SQBSM, SQRQ, STATUS, SHJG, SHRY, SHYJ, SHRQ, GDWJID, CFZJBGID, VALID, 
+    CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
     select
@@ -151,31 +154,33 @@
     insert into T_CG_DQCGJ (CGID, CGLX, XM, 
       XB, CSRQ, CSD, HJSZD, 
       SFZH, SSEJDW, KS, ZW, 
-      ZC, LXDH, EMAIL, CFGJ, 
-      RJCS, TZID, CFKSRQ, 
-      CFJSRQ, CFMD, CFMD_QT, 
-      YQR_XM, YQR_ZW, YQR_DW, 
-      YQR_XXDZ, YQR_DH, YQR_XM_EN, 
-      YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, 
-      YQR_DH_EN, JFLY, JFYSMX, 
-      JFYSHJ, SQBSM, SQRQ, 
-      STATUS, SHJG, SHR, SHYJ, 
-      SHRQ, GDWJID, CFZJBGID, 
-      VALID, CREATE_TIME)
+      ZC, LXDH, EMAIL, NNCFCS, 
+      QTSHRZ, CFGJ, RJCS, 
+      TZID, CFKSRQ, CFJSRQ, 
+      CFMD, CFMD_QT, YQR_XM, 
+      YQR_ZW, YQR_DW, YQR_XXDZ, 
+      YQR_DH, YQR_XM_EN, YQR_ZW_EN, 
+      YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, 
+      JFLY, JFYSMX, JFYSHJ, 
+      SQBSM, SQRQ, STATUS, 
+      SHJG, SHRY, SHYJ, SHRQ, 
+      GDWJID, CFZJBGID, VALID, 
+      CREATE_TIME)
     values (#{cgid,jdbcType=VARCHAR}, #{cglx,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{csd,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR}, 
       #{sfzh,jdbcType=VARCHAR}, #{ssejdw,jdbcType=VARCHAR}, #{ks,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, 
-      #{zc,jdbcType=VARCHAR}, #{lxdh,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{cfgj,jdbcType=VARCHAR}, 
-      #{rjcs,jdbcType=VARCHAR}, #{tzid,jdbcType=VARCHAR}, #{cfksrq,jdbcType=TIMESTAMP}, 
-      #{cfjsrq,jdbcType=TIMESTAMP}, #{cfmd,jdbcType=VARCHAR}, #{cfmdQt,jdbcType=VARCHAR}, 
-      #{yqrXm,jdbcType=VARCHAR}, #{yqrZw,jdbcType=VARCHAR}, #{yqrDw,jdbcType=VARCHAR}, 
-      #{yqrXxdz,jdbcType=VARCHAR}, #{yqrDh,jdbcType=VARCHAR}, #{yqrXmEn,jdbcType=VARCHAR}, 
-      #{yqrZwEn,jdbcType=VARCHAR}, #{yqrDwEn,jdbcType=VARCHAR}, #{yqrXxdzEn,jdbcType=VARCHAR}, 
-      #{yqrDhEn,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{jfysmx,jdbcType=VARCHAR}, 
-      #{jfyshj,jdbcType=DECIMAL}, #{sqbsm,jdbcType=VARCHAR}, #{sqrq,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=CHAR}, #{shjg,jdbcType=VARCHAR}, #{shr,jdbcType=VARCHAR}, #{shyj,jdbcType=VARCHAR}, 
-      #{shrq,jdbcType=TIMESTAMP}, #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{zc,jdbcType=VARCHAR}, #{lxdh,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{nncfcs,jdbcType=DECIMAL}, 
+      #{qtshrz,jdbcType=VARCHAR}, #{cfgj,jdbcType=VARCHAR}, #{rjcs,jdbcType=VARCHAR}, 
+      #{tzid,jdbcType=VARCHAR}, #{cfksrq,jdbcType=TIMESTAMP}, #{cfjsrq,jdbcType=TIMESTAMP}, 
+      #{cfmd,jdbcType=VARCHAR}, #{cfmdQt,jdbcType=VARCHAR}, #{yqrXm,jdbcType=VARCHAR}, 
+      #{yqrZw,jdbcType=VARCHAR}, #{yqrDw,jdbcType=VARCHAR}, #{yqrXxdz,jdbcType=VARCHAR}, 
+      #{yqrDh,jdbcType=VARCHAR}, #{yqrXmEn,jdbcType=VARCHAR}, #{yqrZwEn,jdbcType=VARCHAR}, 
+      #{yqrDwEn,jdbcType=VARCHAR}, #{yqrXxdzEn,jdbcType=VARCHAR}, #{yqrDhEn,jdbcType=VARCHAR}, 
+      #{jfly,jdbcType=VARCHAR}, #{jfysmx,jdbcType=VARCHAR}, #{jfyshj,jdbcType=DECIMAL}, 
+      #{sqbsm,jdbcType=VARCHAR}, #{sqrq,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{shjg,jdbcType=VARCHAR}, #{shry,jdbcType=VARCHAR}, #{shyj,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, 
+      #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
     insert into T_CG_DQCGJ
@@ -221,6 +226,12 @@
       </if>
       <if test="email != null" >
         EMAIL,
+      </if>
+      <if test="nncfcs != null" >
+        NNCFCS,
+      </if>
+      <if test="qtshrz != null" >
+        QTSHRZ,
       </if>
       <if test="cfgj != null" >
         CFGJ,
@@ -294,8 +305,8 @@
       <if test="shjg != null" >
         SHJG,
       </if>
-      <if test="shr != null" >
-        SHR,
+      <if test="shry != null" >
+        SHRY,
       </if>
       <if test="shyj != null" >
         SHYJ,
@@ -358,6 +369,12 @@
       </if>
       <if test="email != null" >
         #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nncfcs != null" >
+        #{nncfcs,jdbcType=DECIMAL},
+      </if>
+      <if test="qtshrz != null" >
+        #{qtshrz,jdbcType=VARCHAR},
       </if>
       <if test="cfgj != null" >
         #{cfgj,jdbcType=VARCHAR},
@@ -426,13 +443,13 @@
         #{sqrq,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=CHAR},
+        #{status,jdbcType=VARCHAR},
       </if>
       <if test="shjg != null" >
         #{shjg,jdbcType=VARCHAR},
       </if>
-      <if test="shr != null" >
-        #{shr,jdbcType=VARCHAR},
+      <if test="shry != null" >
+        #{shry,jdbcType=VARCHAR},
       </if>
       <if test="shyj != null" >
         #{shyj,jdbcType=VARCHAR},
@@ -505,6 +522,12 @@
       <if test="record.email != null" >
         EMAIL = #{record.email,jdbcType=VARCHAR},
       </if>
+      <if test="record.nncfcs != null" >
+        NNCFCS = #{record.nncfcs,jdbcType=DECIMAL},
+      </if>
+      <if test="record.qtshrz != null" >
+        QTSHRZ = #{record.qtshrz,jdbcType=VARCHAR},
+      </if>
       <if test="record.cfgj != null" >
         CFGJ = #{record.cfgj,jdbcType=VARCHAR},
       </if>
@@ -572,13 +595,13 @@
         SQRQ = #{record.sqrq,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null" >
-        STATUS = #{record.status,jdbcType=CHAR},
+        STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
       <if test="record.shjg != null" >
         SHJG = #{record.shjg,jdbcType=VARCHAR},
       </if>
-      <if test="record.shr != null" >
-        SHR = #{record.shr,jdbcType=VARCHAR},
+      <if test="record.shry != null" >
+        SHRY = #{record.shry,jdbcType=VARCHAR},
       </if>
       <if test="record.shyj != null" >
         SHYJ = #{record.shyj,jdbcType=VARCHAR},
@@ -619,6 +642,8 @@
       ZC = #{record.zc,jdbcType=VARCHAR},
       LXDH = #{record.lxdh,jdbcType=VARCHAR},
       EMAIL = #{record.email,jdbcType=VARCHAR},
+      NNCFCS = #{record.nncfcs,jdbcType=DECIMAL},
+      QTSHRZ = #{record.qtshrz,jdbcType=VARCHAR},
       CFGJ = #{record.cfgj,jdbcType=VARCHAR},
       RJCS = #{record.rjcs,jdbcType=VARCHAR},
       TZID = #{record.tzid,jdbcType=VARCHAR},
@@ -641,9 +666,9 @@
       JFYSHJ = #{record.jfyshj,jdbcType=DECIMAL},
       SQBSM = #{record.sqbsm,jdbcType=VARCHAR},
       SQRQ = #{record.sqrq,jdbcType=TIMESTAMP},
-      STATUS = #{record.status,jdbcType=CHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
       SHJG = #{record.shjg,jdbcType=VARCHAR},
-      SHR = #{record.shr,jdbcType=VARCHAR},
+      SHRY = #{record.shry,jdbcType=VARCHAR},
       SHYJ = #{record.shyj,jdbcType=VARCHAR},
       SHRQ = #{record.shrq,jdbcType=TIMESTAMP},
       GDWJID = #{record.gdwjid,jdbcType=VARCHAR},
@@ -695,6 +720,12 @@
       </if>
       <if test="email != null" >
         EMAIL = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="nncfcs != null" >
+        NNCFCS = #{nncfcs,jdbcType=DECIMAL},
+      </if>
+      <if test="qtshrz != null" >
+        QTSHRZ = #{qtshrz,jdbcType=VARCHAR},
       </if>
       <if test="cfgj != null" >
         CFGJ = #{cfgj,jdbcType=VARCHAR},
@@ -763,13 +794,13 @@
         SQRQ = #{sqrq,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
-        STATUS = #{status,jdbcType=CHAR},
+        STATUS = #{status,jdbcType=VARCHAR},
       </if>
       <if test="shjg != null" >
         SHJG = #{shjg,jdbcType=VARCHAR},
       </if>
-      <if test="shr != null" >
-        SHR = #{shr,jdbcType=VARCHAR},
+      <if test="shry != null" >
+        SHRY = #{shry,jdbcType=VARCHAR},
       </if>
       <if test="shyj != null" >
         SHYJ = #{shyj,jdbcType=VARCHAR},
@@ -807,6 +838,8 @@
       ZC = #{zc,jdbcType=VARCHAR},
       LXDH = #{lxdh,jdbcType=VARCHAR},
       EMAIL = #{email,jdbcType=VARCHAR},
+      NNCFCS = #{nncfcs,jdbcType=DECIMAL},
+      QTSHRZ = #{qtshrz,jdbcType=VARCHAR},
       CFGJ = #{cfgj,jdbcType=VARCHAR},
       RJCS = #{rjcs,jdbcType=VARCHAR},
       TZID = #{tzid,jdbcType=VARCHAR},
@@ -829,9 +862,9 @@
       JFYSHJ = #{jfyshj,jdbcType=DECIMAL},
       SQBSM = #{sqbsm,jdbcType=VARCHAR},
       SQRQ = #{sqrq,jdbcType=TIMESTAMP},
-      STATUS = #{status,jdbcType=CHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
       SHJG = #{shjg,jdbcType=VARCHAR},
-      SHR = #{shr,jdbcType=VARCHAR},
+      SHRY = #{shry,jdbcType=VARCHAR},
       SHYJ = #{shyj,jdbcType=VARCHAR},
       SHRQ = #{shrq,jdbcType=TIMESTAMP},
       GDWJID = #{gdwjid,jdbcType=VARCHAR},

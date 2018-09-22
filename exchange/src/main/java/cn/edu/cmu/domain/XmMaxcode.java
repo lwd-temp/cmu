@@ -16,7 +16,7 @@ public class XmMaxcode extends XmMaxcodeKey {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public XmMaxcode(BigDecimal year, BigDecimal maxcode, String valid, Date createTime) {
         super(year, maxcode);
@@ -26,7 +26,7 @@ public class XmMaxcode extends XmMaxcodeKey {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public XmMaxcode() {
         super();
@@ -66,7 +66,7 @@ public class XmMaxcode extends XmMaxcodeKey {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {

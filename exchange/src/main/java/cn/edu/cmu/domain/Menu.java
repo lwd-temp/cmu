@@ -45,7 +45,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Menu(String menuId, String menuName, String parentId, String icon, String style, String url, String valid, Date createTime) {
         this.menuId = menuId;
@@ -60,7 +60,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Menu() {
         super();
@@ -196,7 +196,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {

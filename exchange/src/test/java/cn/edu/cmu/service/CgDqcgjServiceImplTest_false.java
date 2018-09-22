@@ -32,13 +32,10 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     @Test
     public void save() {
         //有问题 shr  错误
-        CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "01",  "01", "01",
-                 new Date(), "01", "01", "01", "01",  "01",
-                "01", "01", "01", "01", "01", "01", "5b47eb139d874a5c9dc80c909fdf4ee4",
-                new Date(),new Date(),"01","01","01","01","01",
-                "01","01","01","01","01","01",
-                "01","01","01",BigDecimal.valueOf(1.34), "01",new Date(),"01",
-                "01","","01", new Date(),"01", "01",null,null);
+        CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "cglx", "xm", "xb", new Date(), "csd", "hjszd", "sfzh",  "ssejdw", "ks", "zw", "zc", "lxdh" , "email" , new BigDecimal(10.0),
+                "qtshrz" , "cfgj" , "rjcs" , "tzid" ,new Date(), new Date(), "cfmd" , "cfmdQt" , "yqrXm" , "yqrZw" , "yqrDw" ,
+                "yqrXxdz" , "yqrDh" , "yqrXmEn" , "yqrZwEn" , "yqrDwEn" , "yqrXxdzEn" , "yqrDhEn" , "jfly" , "jfysmx" , new BigDecimal(15.0)
+                , "sqbsm" , new Date(), "01" , "shjg" , "shry" , "shyj" , new Date(), "gdwjid" , "cfzjbgid" , null,null);
         boolean success = service.insert(CgDqcgj);
         System.out.println("CgDqcgj:"+CgDqcgj);
         System.out.println("success:"+success);

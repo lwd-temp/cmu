@@ -45,7 +45,7 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Upload(String fileId, String uploadPath, Date createtime, String ext, String operator, String ip, String valid, Date createTime) {
         this.fileId = fileId;
@@ -60,7 +60,7 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Upload() {
         super();
@@ -196,7 +196,7 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {

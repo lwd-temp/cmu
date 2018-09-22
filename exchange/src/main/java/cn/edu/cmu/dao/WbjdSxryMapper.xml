@@ -3,7 +3,7 @@
 <mapper namespace="cn.edu.cmu.dao.WbjdSxryMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.WbjdSxry" >
     <constructor >
-      <arg column="RYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="RYID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="LFID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -89,6 +89,17 @@
     </if>
       and VALID = 1
   </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_WBJD_SXRY
+    where RYID = #{ryid,jdbcType=VARCHAR}
+      and VALID = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_WBJD_SXRY
+    where RYID = #{ryid,jdbcType=VARCHAR}
+  </delete>
   <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbjdSxryParams" >
     delete from T_WBJD_SXRY
     <if test="_parameter != null" >
@@ -199,5 +210,39 @@
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.WbjdSxry" >
+    update T_WBJD_SXRY
+    <set >
+      <if test="lfid != null" >
+        LFID = #{lfid,jdbcType=VARCHAR},
+      </if>
+      <if test="xm != null" >
+        XM = #{xm,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        GJ = #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="zw != null" >
+        ZW = #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where RYID = #{ryid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.WbjdSxry" >
+    update T_WBJD_SXRY
+    set LFID = #{lfid,jdbcType=VARCHAR},
+      XM = #{xm,jdbcType=VARCHAR},
+      GJ = #{gj,jdbcType=VARCHAR},
+      ZW = #{zw,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where RYID = #{ryid,jdbcType=VARCHAR}
   </update>
 </mapper>

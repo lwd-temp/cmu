@@ -3,12 +3,20 @@
 <mapper namespace="cn.edu.cmu.dao.ForeignTeacherMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.ForeignTeacher" >
     <constructor >
-      <arg column="教师ID" jdbcType="CHAR" javaType="java.lang.String" />
-      <arg column="教师姓名" jdbcType="CHAR" javaType="java.lang.String" />
-      <arg column="教师性别" jdbcType="CHAR" javaType="java.lang.String" />
-      <arg column="国籍" jdbcType="CHAR" javaType="java.lang.String" />
-      <arg column="状态" jdbcType="CHAR" javaType="java.lang.String" />
-      <arg column="等等" jdbcType="CHAR" javaType="java.lang.String" />
+      <arg column="TID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GENDER" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LANGUAGE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZYLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZWZC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GLXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TXDZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZT" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -72,7 +80,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    教师ID, 教师姓名, 教师性别, 国籍, 状态, 等等, VALID, CREATE_TIME
+    TID, NAME, GENDER, LANGUAGE, GZDW, ZYLY, EMAIL, PHONE, ZWZC, GLXM, CZ, TXDZ, GJ, 
+    ZT, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.ForeignTeacherParams" >
     select
@@ -97,33 +106,63 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
-    insert into T_FOREIGN_TEACHER (教师ID, 教师姓名, 教师性别, 国籍, 
-      状态, 等等, VALID, CREATE_TIME
+    insert into T_FOREIGN_TEACHER (TID, NAME, GENDER, 
+      LANGUAGE, GZDW, ZYLY, 
+      EMAIL, PHONE, ZWZC, 
+      GLXM, CZ, TXDZ, GJ, 
+      ZT, VALID, CREATE_TIME
       )
-    values (#{教师id,jdbcType=CHAR}, #{教师姓名,jdbcType=CHAR}, #{教师性别,jdbcType=CHAR}, #{国籍,jdbcType=CHAR}, 
-      #{状态,jdbcType=CHAR}, #{等等,jdbcType=CHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+    values (#{tid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{language,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, #{zyly,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{zwzc,jdbcType=VARCHAR}, 
+      #{glxm,jdbcType=VARCHAR}, #{cz,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, 
+      #{zt,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
     insert into T_FOREIGN_TEACHER
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="教师id != null" >
-        教师ID,
+      <if test="tid != null" >
+        TID,
       </if>
-      <if test="教师姓名 != null" >
-        教师姓名,
+      <if test="name != null" >
+        NAME,
       </if>
-      <if test="教师性别 != null" >
-        教师性别,
+      <if test="gender != null" >
+        GENDER,
       </if>
-      <if test="国籍 != null" >
-        国籍,
+      <if test="language != null" >
+        LANGUAGE,
       </if>
-      <if test="状态 != null" >
-        状态,
+      <if test="gzdw != null" >
+        GZDW,
       </if>
-      <if test="等等 != null" >
-        等等,
+      <if test="zyly != null" >
+        ZYLY,
+      </if>
+      <if test="email != null" >
+        EMAIL,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
+      <if test="zwzc != null" >
+        ZWZC,
+      </if>
+      <if test="glxm != null" >
+        GLXM,
+      </if>
+      <if test="cz != null" >
+        CZ,
+      </if>
+      <if test="txdz != null" >
+        TXDZ,
+      </if>
+      <if test="gj != null" >
+        GJ,
+      </if>
+      <if test="zt != null" >
+        ZT,
       </if>
       <if test="valid != null" >
         VALID,
@@ -133,23 +172,47 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="教师id != null" >
-        #{教师id,jdbcType=CHAR},
+      <if test="tid != null" >
+        #{tid,jdbcType=VARCHAR},
       </if>
-      <if test="教师姓名 != null" >
-        #{教师姓名,jdbcType=CHAR},
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
       </if>
-      <if test="教师性别 != null" >
-        #{教师性别,jdbcType=CHAR},
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="国籍 != null" >
-        #{国籍,jdbcType=CHAR},
+      <if test="language != null" >
+        #{language,jdbcType=VARCHAR},
       </if>
-      <if test="状态 != null" >
-        #{状态,jdbcType=CHAR},
+      <if test="gzdw != null" >
+        #{gzdw,jdbcType=VARCHAR},
       </if>
-      <if test="等等 != null" >
-        #{等等,jdbcType=CHAR},
+      <if test="zyly != null" >
+        #{zyly,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="zwzc != null" >
+        #{zwzc,jdbcType=VARCHAR},
+      </if>
+      <if test="glxm != null" >
+        #{glxm,jdbcType=VARCHAR},
+      </if>
+      <if test="cz != null" >
+        #{cz,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null" >
+        #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="gj != null" >
+        #{gj,jdbcType=VARCHAR},
+      </if>
+      <if test="zt != null" >
+        #{zt,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -168,23 +231,47 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update T_FOREIGN_TEACHER
     <set >
-      <if test="record.教师id != null" >
-        教师ID = #{record.教师id,jdbcType=CHAR},
+      <if test="record.tid != null" >
+        TID = #{record.tid,jdbcType=VARCHAR},
       </if>
-      <if test="record.教师姓名 != null" >
-        教师姓名 = #{record.教师姓名,jdbcType=CHAR},
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
       </if>
-      <if test="record.教师性别 != null" >
-        教师性别 = #{record.教师性别,jdbcType=CHAR},
+      <if test="record.gender != null" >
+        GENDER = #{record.gender,jdbcType=VARCHAR},
       </if>
-      <if test="record.国籍 != null" >
-        国籍 = #{record.国籍,jdbcType=CHAR},
+      <if test="record.language != null" >
+        LANGUAGE = #{record.language,jdbcType=VARCHAR},
       </if>
-      <if test="record.状态 != null" >
-        状态 = #{record.状态,jdbcType=CHAR},
+      <if test="record.gzdw != null" >
+        GZDW = #{record.gzdw,jdbcType=VARCHAR},
       </if>
-      <if test="record.等等 != null" >
-        等等 = #{record.等等,jdbcType=CHAR},
+      <if test="record.zyly != null" >
+        ZYLY = #{record.zyly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        EMAIL = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwzc != null" >
+        ZWZC = #{record.zwzc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.glxm != null" >
+        GLXM = #{record.glxm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cz != null" >
+        CZ = #{record.cz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.txdz != null" >
+        TXDZ = #{record.txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gj != null" >
+        GJ = #{record.gj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zt != null" >
+        ZT = #{record.zt,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -199,12 +286,20 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update T_FOREIGN_TEACHER
-    set 教师ID = #{record.教师id,jdbcType=CHAR},
-      教师姓名 = #{record.教师姓名,jdbcType=CHAR},
-      教师性别 = #{record.教师性别,jdbcType=CHAR},
-      国籍 = #{record.国籍,jdbcType=CHAR},
-      状态 = #{record.状态,jdbcType=CHAR},
-      等等 = #{record.等等,jdbcType=CHAR},
+    set TID = #{record.tid,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      GENDER = #{record.gender,jdbcType=VARCHAR},
+      LANGUAGE = #{record.language,jdbcType=VARCHAR},
+      GZDW = #{record.gzdw,jdbcType=VARCHAR},
+      ZYLY = #{record.zyly,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      ZWZC = #{record.zwzc,jdbcType=VARCHAR},
+      GLXM = #{record.glxm,jdbcType=VARCHAR},
+      CZ = #{record.cz,jdbcType=VARCHAR},
+      TXDZ = #{record.txdz,jdbcType=VARCHAR},
+      GJ = #{record.gj,jdbcType=VARCHAR},
+      ZT = #{record.zt,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >

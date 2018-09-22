@@ -40,7 +40,7 @@ public class XmGsxy {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public XmGsxy(String proCollegId, String xyid, String xymc, String xmid, String status, String valid, Date createTime) {
         this.proCollegId = proCollegId;
@@ -54,7 +54,7 @@ public class XmGsxy {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public XmGsxy() {
         super();
@@ -174,7 +174,7 @@ public class XmGsxy {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {

@@ -16,6 +16,11 @@
       <arg column="FZJG" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="HZLX" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JCSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="QZSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFNR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QZHM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -80,8 +85,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    HZID, HZHM, XM, GENDER, GJ, BIRTHDAY, CSDD, QFRQ, QFDD, YXQZ, FZJG, HZLX, JCSJ, STATUS, 
-    VALID, CREATE_TIME
+    HZID, HZHM, XM, GENDER, GJ, BIRTHDAY, CSDD, QFRQ, QFDD, YXQZ, FZJG, HZLX, JCSJ, QZSJ, 
+    CFSJ, CFMD, CFNR, QZHM, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzParams" >
     select
@@ -121,14 +126,16 @@
       GENDER, GJ, BIRTHDAY, 
       CSDD, QFRQ, QFDD, 
       YXQZ, FZJG, HZLX, 
-      JCSJ, STATUS, VALID, 
-      CREATE_TIME)
+      JCSJ, QZSJ, CFSJ, 
+      CFMD, CFNR, QZHM, STATUS, 
+      VALID, CREATE_TIME)
     values (#{hzid,jdbcType=VARCHAR}, #{hzhm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{gender,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
       #{csdd,jdbcType=VARCHAR}, #{qfrq,jdbcType=TIMESTAMP}, #{qfdd,jdbcType=VARCHAR}, 
       #{yxqz,jdbcType=TIMESTAMP}, #{fzjg,jdbcType=VARCHAR}, #{hzlx,jdbcType=VARCHAR}, 
-      #{jcsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{jcsj,jdbcType=TIMESTAMP}, #{qzsj,jdbcType=TIMESTAMP}, #{cfsj,jdbcType=TIMESTAMP}, 
+      #{cfmd,jdbcType=VARCHAR}, #{cfnr,jdbcType=VARCHAR}, #{qzhm,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Hz" >
     insert into T_HZ
@@ -171,6 +178,21 @@
       </if>
       <if test="jcsj != null" >
         JCSJ,
+      </if>
+      <if test="qzsj != null" >
+        QZSJ,
+      </if>
+      <if test="cfsj != null" >
+        CFSJ,
+      </if>
+      <if test="cfmd != null" >
+        CFMD,
+      </if>
+      <if test="cfnr != null" >
+        CFNR,
+      </if>
+      <if test="qzhm != null" >
+        QZHM,
       </if>
       <if test="status != null" >
         STATUS,
@@ -221,6 +243,21 @@
       </if>
       <if test="jcsj != null" >
         #{jcsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qzsj != null" >
+        #{qzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfsj != null" >
+        #{cfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfmd != null" >
+        #{cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="cfnr != null" >
+        #{cfnr,jdbcType=VARCHAR},
+      </if>
+      <if test="qzhm != null" >
+        #{qzhm,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
@@ -281,6 +318,21 @@
       <if test="record.jcsj != null" >
         JCSJ = #{record.jcsj,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.qzsj != null" >
+        QZSJ = #{record.qzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cfsj != null" >
+        CFSJ = #{record.cfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.cfmd != null" >
+        CFMD = #{record.cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfnr != null" >
+        CFNR = #{record.cfnr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qzhm != null" >
+        QZHM = #{record.qzhm,jdbcType=VARCHAR},
+      </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
@@ -310,6 +362,11 @@
       FZJG = #{record.fzjg,jdbcType=VARCHAR},
       HZLX = #{record.hzlx,jdbcType=VARCHAR},
       JCSJ = #{record.jcsj,jdbcType=TIMESTAMP},
+      QZSJ = #{record.qzsj,jdbcType=TIMESTAMP},
+      CFSJ = #{record.cfsj,jdbcType=TIMESTAMP},
+      CFMD = #{record.cfmd,jdbcType=VARCHAR},
+      CFNR = #{record.cfnr,jdbcType=VARCHAR},
+      QZHM = #{record.qzhm,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -356,6 +413,21 @@
       <if test="jcsj != null" >
         JCSJ = #{jcsj,jdbcType=TIMESTAMP},
       </if>
+      <if test="qzsj != null" >
+        QZSJ = #{qzsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfsj != null" >
+        CFSJ = #{cfsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfmd != null" >
+        CFMD = #{cfmd,jdbcType=VARCHAR},
+      </if>
+      <if test="cfnr != null" >
+        CFNR = #{cfnr,jdbcType=VARCHAR},
+      </if>
+      <if test="qzhm != null" >
+        QZHM = #{qzhm,jdbcType=VARCHAR},
+      </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
@@ -382,6 +454,11 @@
       FZJG = #{fzjg,jdbcType=VARCHAR},
       HZLX = #{hzlx,jdbcType=VARCHAR},
       JCSJ = #{jcsj,jdbcType=TIMESTAMP},
+      QZSJ = #{qzsj,jdbcType=TIMESTAMP},
+      CFSJ = #{cfsj,jdbcType=TIMESTAMP},
+      CFMD = #{cfmd,jdbcType=VARCHAR},
+      CFNR = #{cfnr,jdbcType=VARCHAR},
+      QZHM = #{qzhm,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}

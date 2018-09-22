@@ -23,7 +23,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public CgDqcgjParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgDqcgjParams {
     }
 
     /**
-     * T_CG_DQCGJ 2018-09-20
+     * T_CG_DQCGJ 2018-09-22
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1129,6 +1129,136 @@ public class CgDqcgjParams {
 
         public Criteria andEmailNotBetween(String value1, String value2) {
             addCriterion("EMAIL not between", value1, value2, "email");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsIsNull() {
+            addCriterion("NNCFCS is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsIsNotNull() {
+            addCriterion("NNCFCS is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsEqualTo(BigDecimal value) {
+            addCriterion("NNCFCS =", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsNotEqualTo(BigDecimal value) {
+            addCriterion("NNCFCS <>", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsGreaterThan(BigDecimal value) {
+            addCriterion("NNCFCS >", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("NNCFCS >=", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsLessThan(BigDecimal value) {
+            addCriterion("NNCFCS <", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("NNCFCS <=", value, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsIn(List<BigDecimal> values) {
+            addCriterion("NNCFCS in", values, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsNotIn(List<BigDecimal> values) {
+            addCriterion("NNCFCS not in", values, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("NNCFCS between", value1, value2, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andNncfcsNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("NNCFCS not between", value1, value2, "nncfcs");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzIsNull() {
+            addCriterion("QTSHRZ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzIsNotNull() {
+            addCriterion("QTSHRZ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzEqualTo(String value) {
+            addCriterion("QTSHRZ =", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzNotEqualTo(String value) {
+            addCriterion("QTSHRZ <>", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzGreaterThan(String value) {
+            addCriterion("QTSHRZ >", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzGreaterThanOrEqualTo(String value) {
+            addCriterion("QTSHRZ >=", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzLessThan(String value) {
+            addCriterion("QTSHRZ <", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzLessThanOrEqualTo(String value) {
+            addCriterion("QTSHRZ <=", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzLike(String value) {
+            addCriterion("QTSHRZ like", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzNotLike(String value) {
+            addCriterion("QTSHRZ not like", value, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzIn(List<String> values) {
+            addCriterion("QTSHRZ in", values, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzNotIn(List<String> values) {
+            addCriterion("QTSHRZ not in", values, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzBetween(String value1, String value2) {
+            addCriterion("QTSHRZ between", value1, value2, "qtshrz");
+            return (Criteria) this;
+        }
+
+        public Criteria andQtshrzNotBetween(String value1, String value2) {
+            addCriterion("QTSHRZ not between", value1, value2, "qtshrz");
             return (Criteria) this;
         }
 
@@ -2772,73 +2902,73 @@ public class CgDqcgjParams {
             return (Criteria) this;
         }
 
-        public Criteria andShrIsNull() {
-            addCriterion("SHR is null");
+        public Criteria andShryIsNull() {
+            addCriterion("SHRY is null");
             return (Criteria) this;
         }
 
-        public Criteria andShrIsNotNull() {
-            addCriterion("SHR is not null");
+        public Criteria andShryIsNotNull() {
+            addCriterion("SHRY is not null");
             return (Criteria) this;
         }
 
-        public Criteria andShrEqualTo(String value) {
-            addCriterion("SHR =", value, "shr");
+        public Criteria andShryEqualTo(String value) {
+            addCriterion("SHRY =", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrNotEqualTo(String value) {
-            addCriterion("SHR <>", value, "shr");
+        public Criteria andShryNotEqualTo(String value) {
+            addCriterion("SHRY <>", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrGreaterThan(String value) {
-            addCriterion("SHR >", value, "shr");
+        public Criteria andShryGreaterThan(String value) {
+            addCriterion("SHRY >", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrGreaterThanOrEqualTo(String value) {
-            addCriterion("SHR >=", value, "shr");
+        public Criteria andShryGreaterThanOrEqualTo(String value) {
+            addCriterion("SHRY >=", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrLessThan(String value) {
-            addCriterion("SHR <", value, "shr");
+        public Criteria andShryLessThan(String value) {
+            addCriterion("SHRY <", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrLessThanOrEqualTo(String value) {
-            addCriterion("SHR <=", value, "shr");
+        public Criteria andShryLessThanOrEqualTo(String value) {
+            addCriterion("SHRY <=", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrLike(String value) {
-            addCriterion("SHR like", value, "shr");
+        public Criteria andShryLike(String value) {
+            addCriterion("SHRY like", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrNotLike(String value) {
-            addCriterion("SHR not like", value, "shr");
+        public Criteria andShryNotLike(String value) {
+            addCriterion("SHRY not like", value, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrIn(List<String> values) {
-            addCriterion("SHR in", values, "shr");
+        public Criteria andShryIn(List<String> values) {
+            addCriterion("SHRY in", values, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrNotIn(List<String> values) {
-            addCriterion("SHR not in", values, "shr");
+        public Criteria andShryNotIn(List<String> values) {
+            addCriterion("SHRY not in", values, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrBetween(String value1, String value2) {
-            addCriterion("SHR between", value1, value2, "shr");
+        public Criteria andShryBetween(String value1, String value2) {
+            addCriterion("SHRY between", value1, value2, "shry");
             return (Criteria) this;
         }
 
-        public Criteria andShrNotBetween(String value1, String value2) {
-            addCriterion("SHR not between", value1, value2, "shr");
+        public Criteria andShryNotBetween(String value1, String value2) {
+            addCriterion("SHRY not between", value1, value2, "shry");
             return (Criteria) this;
         }
 
@@ -3254,7 +3384,7 @@ public class CgDqcgjParams {
     }
 
     /**
-     * T_CG_DQCGJ 2018-09-20
+     * T_CG_DQCGJ 2018-09-22
      */
     public static class Criterion {
         private String condition;

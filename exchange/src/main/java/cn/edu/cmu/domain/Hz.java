@@ -69,6 +69,31 @@ public class Hz {
     private Date jcsj;
 
     /**
+     * null
+     */
+    private Date qzsj;
+
+    /**
+     * null
+     */
+    private Date cfsj;
+
+    /**
+     * null
+     */
+    private String cfmd;
+
+    /**
+     * null
+     */
+    private String cfnr;
+
+    /**
+     * null
+     */
+    private String qzhm;
+
+    /**
      * 护照状态 01 报废（过期）、02 在省签证处、03 在我部、04 借出中、05 调往新单位、06 调至省外
      */
     private String status;
@@ -85,9 +110,9 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
-    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String status, String valid, Date createTime) {
+    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, Date qzsj, Date cfsj, String cfmd, String cfnr, String qzhm, String status, String valid, Date createTime) {
         this.hzid = hzid;
         this.hzhm = hzhm;
         this.xm = xm;
@@ -101,6 +126,11 @@ public class Hz {
         this.fzjg = fzjg;
         this.hzlx = hzlx;
         this.jcsj = jcsj;
+        this.qzsj = qzsj;
+        this.cfsj = cfsj;
+        this.cfmd = cfmd;
+        this.cfnr = cfnr;
+        this.qzhm = qzhm;
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
@@ -108,7 +138,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public Hz() {
         super();
@@ -323,6 +353,86 @@ public class Hz {
     }
 
     /**
+     * null
+     * @return QZSJ null
+     */
+    public Date getQzsj() {
+        return qzsj;
+    }
+
+    /**
+     * null
+     * @param qzsj null
+     */
+    public void setQzsj(Date qzsj) {
+        this.qzsj = qzsj;
+    }
+
+    /**
+     * null
+     * @return CFSJ null
+     */
+    public Date getCfsj() {
+        return cfsj;
+    }
+
+    /**
+     * null
+     * @param cfsj null
+     */
+    public void setCfsj(Date cfsj) {
+        this.cfsj = cfsj;
+    }
+
+    /**
+     * null
+     * @return CFMD null
+     */
+    public String getCfmd() {
+        return cfmd;
+    }
+
+    /**
+     * null
+     * @param cfmd null
+     */
+    public void setCfmd(String cfmd) {
+        this.cfmd = cfmd == null ? null : cfmd.trim();
+    }
+
+    /**
+     * null
+     * @return CFNR null
+     */
+    public String getCfnr() {
+        return cfnr;
+    }
+
+    /**
+     * null
+     * @param cfnr null
+     */
+    public void setCfnr(String cfnr) {
+        this.cfnr = cfnr == null ? null : cfnr.trim();
+    }
+
+    /**
+     * null
+     * @return QZHM null
+     */
+    public String getQzhm() {
+        return qzhm;
+    }
+
+    /**
+     * null
+     * @param qzhm null
+     */
+    public void setQzhm(String qzhm) {
+        this.qzhm = qzhm == null ? null : qzhm.trim();
+    }
+
+    /**
      * 护照状态 01 报废（过期）、02 在省签证处、03 在我部、04 借出中、05 调往新单位、06 调至省外
      * @return STATUS 护照状态 01 报废（过期）、02 在省签证处、03 在我部、04 借出中、05 调往新单位、06 调至省外
      */
@@ -372,7 +482,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {
@@ -393,6 +503,11 @@ public class Hz {
         sb.append(", fzjg=").append(fzjg);
         sb.append(", hzlx=").append(hzlx);
         sb.append(", jcsj=").append(jcsj);
+        sb.append(", qzsj=").append(qzsj);
+        sb.append(", cfsj=").append(cfsj);
+        sb.append(", cfmd=").append(cfmd);
+        sb.append(", cfnr=").append(cfnr);
+        sb.append(", qzhm=").append(qzhm);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

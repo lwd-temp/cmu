@@ -75,6 +75,16 @@ public class CgDqcgj {
     private String email;
 
     /**
+     * null
+     */
+    private BigDecimal nncfcs;
+
+    /**
+     * null
+     */
+    private String qtshrz;
+
+    /**
      * 出访国家（地区）
      */
     private String cfgj;
@@ -197,7 +207,7 @@ public class CgDqcgj {
     /**
      * 审核人 教职工工号
      */
-    private String shr;
+    private String shry;
 
     /**
      * 审核意见
@@ -231,9 +241,9 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
-    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shr, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime) {
+    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime) {
         this.cgid = cgid;
         this.cglx = cglx;
         this.xm = xm;
@@ -248,6 +258,8 @@ public class CgDqcgj {
         this.zc = zc;
         this.lxdh = lxdh;
         this.email = email;
+        this.nncfcs = nncfcs;
+        this.qtshrz = qtshrz;
         this.cfgj = cfgj;
         this.rjcs = rjcs;
         this.tzid = tzid;
@@ -272,7 +284,7 @@ public class CgDqcgj {
         this.sqrq = sqrq;
         this.status = status;
         this.shjg = shjg;
-        this.shr = shr;
+        this.shry = shry;
         this.shyj = shyj;
         this.shrq = shrq;
         this.gdwjid = gdwjid;
@@ -283,7 +295,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     public CgDqcgj() {
         super();
@@ -511,6 +523,38 @@ public class CgDqcgj {
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
+    }
+
+    /**
+     * null
+     * @return NNCFCS null
+     */
+    public BigDecimal getNncfcs() {
+        return nncfcs;
+    }
+
+    /**
+     * null
+     * @param nncfcs null
+     */
+    public void setNncfcs(BigDecimal nncfcs) {
+        this.nncfcs = nncfcs;
+    }
+
+    /**
+     * null
+     * @return QTSHRZ null
+     */
+    public String getQtshrz() {
+        return qtshrz;
+    }
+
+    /**
+     * null
+     * @param qtshrz null
+     */
+    public void setQtshrz(String qtshrz) {
+        this.qtshrz = qtshrz == null ? null : qtshrz.trim();
     }
 
     /**
@@ -899,18 +943,18 @@ public class CgDqcgj {
 
     /**
      * 审核人 教职工工号
-     * @return SHR 审核人 教职工工号
+     * @return SHRY 审核人 教职工工号
      */
-    public String getShr() {
-        return shr;
+    public String getShry() {
+        return shry;
     }
 
     /**
      * 审核人 教职工工号
-     * @param shr 审核人 教职工工号
+     * @param shry 审核人 教职工工号
      */
-    public void setShr(String shr) {
-        this.shr = shr == null ? null : shr.trim();
+    public void setShry(String shry) {
+        this.shry = shry == null ? null : shry.trim();
     }
 
     /**
@@ -1011,7 +1055,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-20
+     * @mbggenerated 2018-09-22
      */
     @Override
     public String toString() {
@@ -1033,6 +1077,8 @@ public class CgDqcgj {
         sb.append(", zc=").append(zc);
         sb.append(", lxdh=").append(lxdh);
         sb.append(", email=").append(email);
+        sb.append(", nncfcs=").append(nncfcs);
+        sb.append(", qtshrz=").append(qtshrz);
         sb.append(", cfgj=").append(cfgj);
         sb.append(", rjcs=").append(rjcs);
         sb.append(", tzid=").append(tzid);
@@ -1057,7 +1103,7 @@ public class CgDqcgj {
         sb.append(", sqrq=").append(sqrq);
         sb.append(", status=").append(status);
         sb.append(", shjg=").append(shjg);
-        sb.append(", shr=").append(shr);
+        sb.append(", shry=").append(shry);
         sb.append(", shyj=").append(shyj);
         sb.append(", shrq=").append(shrq);
         sb.append(", gdwjid=").append(gdwjid);

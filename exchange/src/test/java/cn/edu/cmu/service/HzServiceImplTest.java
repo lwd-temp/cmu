@@ -2,7 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Hz;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,7 +27,9 @@ public class HzServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() {
-        Hz hz = new Hz(CmuStringUtil.UUID(),"01","01","01","01",new Date(), "01",new Date(), "01",new Date(),"01","01",new  Date(), "01", null,null);
+        Hz hz = new Hz(CmuStringUtil.UUID(), "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
+                Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
+
         boolean success = service.insert(hz);
         System.out.println("Hz:"+hz);
         System.out.println("success:"+success);
@@ -70,7 +71,8 @@ public class HzServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
-        Hz hz = new Hz(keyId ,"01","01","01","01",new Date(), "01",new Date(), "01",new Date(),"01","01",new  Date(), "01", null,null);
+        Hz hz = new Hz(keyId, "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
+                Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
         boolean success = service.insert(hz);
         System.out.println("保存成功："+success);
         Hz queryHz = service.queryById(keyId);
