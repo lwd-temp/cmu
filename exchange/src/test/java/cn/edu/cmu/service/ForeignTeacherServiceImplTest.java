@@ -1,15 +1,7 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
-import cn.edu.cmu.domain.Contact;
-import cn.edu.cmu.domain.ForeignTeacher;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Test;
-
-import java.util.Date;
-import java.util.List;
 
 
 /**
@@ -26,7 +18,7 @@ public class ForeignTeacherServiceImplTest extends SpringIOC {
         service = ac.getBean(ForeignTeacherService.class);
     }
     //保存
-    @Test
+    /*@Test
     public void save() {
         ForeignTeacher foreignTeacher = new ForeignTeacher("01", "01","01","01","01","01",null,null);
         boolean success = service.insert(foreignTeacher);
@@ -80,5 +72,5 @@ public class ForeignTeacherServiceImplTest extends SpringIOC {
         success = service.updateByIdAllColumn(queryForeignTeacher);
         System.out.println("删除成功："+success);
         Assert.assertTrue(success);
-    }
+    }*/
 }
