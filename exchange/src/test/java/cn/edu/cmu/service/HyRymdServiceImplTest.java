@@ -2,7 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HyRymd;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,9 +12,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HyRymdServiceImplTest extends SpringIOC {
 
@@ -25,7 +24,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HyRymdService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         HyRymd hyRymd = new HyRymd(CmuStringUtil.UUID(), "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
@@ -34,7 +33,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "394fb5ed07bd4e08841726eb5e914bf0";
@@ -42,7 +41,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
         System.out.println(hyRymd);
         Assert.assertTrue(hyRymd!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         HyRymd hyRymdParam = new HyRymd();
@@ -53,32 +52,32 @@ public class HyRymdServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hyRymds.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "394fb5ed07bd4e08841726eb5e914bf0";
         HyRymd hyRymd = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hyRymd);
+        System.out.println("æ›´æ–°å‰:"+hyRymd);
         hyRymd.setXm("02");
         boolean success = service.updateById(hyRymd);
         System.out.println("success:"+success);
         HyRymd newHyRymd = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHyRymd);
+        System.out.println("æ›´æ–°å:"+newHyRymd);
         Assert.assertTrue(newHyRymd.getXm().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         HyRymd hyRymd = new HyRymd(keyId, "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
         boolean success = service.insert(hyRymd);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         HyRymd queryHyRymd = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHyRymd);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHyRymd);
         queryHyRymd.setValid("0");
         queryHyRymd.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHyRymd);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

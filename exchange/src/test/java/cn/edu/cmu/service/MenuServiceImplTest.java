@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class MenuServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class MenuServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(MenuService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         Menu menu = new Menu(CmuStringUtil.UUID(),"01","01","01","01","01",null,null);
@@ -34,7 +34,7 @@ public class MenuServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "de05ce34c9a343eaa5e08244d1e93425";
@@ -42,7 +42,7 @@ public class MenuServiceImplTest extends SpringIOC {
         System.out.println(menu);
         Assert.assertTrue(menu!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         Menu menuParam = new Menu();
@@ -53,32 +53,32 @@ public class MenuServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(menus.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "de05ce34c9a343eaa5e08244d1e93425";
         Menu menu = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+menu);
+        System.out.println("æ›´æ–°å‰:"+menu);
         menu.setMenuName("02");
         boolean success = service.updateById(menu);
         System.out.println("success:"+success);
         Menu newMenu = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newMenu);
+        System.out.println("æ›´æ–°å:"+newMenu);
         Assert.assertTrue(newMenu.getMenuName().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         Menu menu = new Menu(keyId,"01","01","01","01","01",null,null);
         boolean success = service.insert(menu);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         Menu queryMenu = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryMenu);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryMenu);
         queryMenu.setValid("0");
         queryMenu.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryMenu);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

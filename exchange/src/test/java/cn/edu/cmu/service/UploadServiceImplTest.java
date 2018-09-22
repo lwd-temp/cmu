@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class UploadServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class UploadServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(UploadService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         Upload upload = new Upload(CmuStringUtil.UUID(),"01", new Date(), "01", "01", "01",null,null);
@@ -34,7 +34,7 @@ public class UploadServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "485600be9cb34b20b0340a376756f064";
@@ -42,7 +42,7 @@ public class UploadServiceImplTest extends SpringIOC {
         System.out.println(upload);
         Assert.assertTrue(upload!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         Upload uploadParam = new Upload();
@@ -53,32 +53,32 @@ public class UploadServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(uploads.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "485600be9cb34b20b0340a376756f064";
         Upload upload = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+upload);
+        System.out.println("æ›´æ–°å‰:"+upload);
         upload.setUploadPath("02");
         boolean success = service.updateById(upload);
         System.out.println("success:"+success);
         Upload newUpload = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newUpload);
+        System.out.println("æ›´æ–°å:"+newUpload);
         Assert.assertTrue(newUpload.getUploadPath().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         Upload upload = new Upload(keyId,"01", new Date(), "01", "01", "01",null,null);
         boolean success = service.insert(upload);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         Upload queryUpload = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryUpload);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryUpload);
         queryUpload.setValid("0");
         queryUpload.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryUpload);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

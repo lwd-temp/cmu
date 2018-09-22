@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HzxyServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HzxyService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         Hzxy hzxy = new Hzxy(CmuStringUtil.UUID(),"01", "01",new Date(),new Date(), "01",null,null);
@@ -34,7 +34,7 @@ public class HzxyServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "611eece2fe8244fa8e1729e9a8d3417a";
@@ -42,7 +42,7 @@ public class HzxyServiceImplTest extends SpringIOC {
         System.out.println(hzxy);
         Assert.assertTrue(hzxy!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         Hzxy hzxyParam = new Hzxy();
@@ -53,32 +53,32 @@ public class HzxyServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hzxys.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "611eece2fe8244fa8e1729e9a8d3417a";
         Hzxy hzxy = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hzxy);
+        System.out.println("æ›´æ–°å‰:"+hzxy);
         hzxy.setXymc("02");
         boolean success = service.updateById(hzxy);
         System.out.println("success:"+success);
         Hzxy newHzxy = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHzxy);
+        System.out.println("æ›´æ–°å:"+newHzxy);
         Assert.assertTrue(newHzxy.getXymc().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         Hzxy hzxy = new Hzxy(keyId,"01", "01",new Date(),new Date(), "01",null,null);
         boolean success = service.insert(hzxy);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         Hzxy queryHzxy = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHzxy);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHzxy);
         queryHzxy.setValid("0");
         queryHzxy.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHzxy);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

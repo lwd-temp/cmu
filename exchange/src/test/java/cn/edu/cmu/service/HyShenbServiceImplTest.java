@@ -2,7 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HyShenb;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
@@ -13,9 +12,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HyShenbServiceImplTest extends SpringIOC {
 
@@ -25,7 +24,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HyShenbService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         HyShenb hyShenb = new HyShenb(CmuStringUtil.UUID(), "3e0b62966c6347d49729316edfa79fda","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01", null,null);
@@ -34,7 +33,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "db7922e1e7fc4da79e6158fbf8025640";
@@ -42,7 +41,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
         System.out.println(hyShenb);
         Assert.assertTrue(hyShenb!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         HyShenb hyShenbParam = new HyShenb();
@@ -53,32 +52,32 @@ public class HyShenbServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hyShenbs.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "db7922e1e7fc4da79e6158fbf8025640";
         HyShenb hyShenb = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hyShenb);
+        System.out.println("æ›´æ–°å‰:"+hyShenb);
         hyShenb.setJbdw("02");
         boolean success = service.updateById(hyShenb);
         System.out.println("success:"+success);
         HyShenb newHyShenb = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHyShenb);
+        System.out.println("æ›´æ–°å:"+newHyShenb);
         Assert.assertTrue(newHyShenb.getJbdw().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         HyShenb hyShenb = new HyShenb(keyId, "3e0b62966c6347d49729316edfa79fda","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01", null,null);
         boolean success = service.insert(hyShenb);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         HyShenb queryHyShenb = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHyShenb);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHyShenb);
         queryHyShenb.setValid("0");
         queryHyShenb.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHyShenb);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

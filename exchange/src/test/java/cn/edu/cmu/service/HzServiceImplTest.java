@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HzServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class HzServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HzService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         Hz hz = new Hz(CmuStringUtil.UUID(),"01","01","01","01",new Date(), "01",new Date(), "01",new Date(),"01","01",new  Date(), "01", null,null);
@@ -34,7 +34,7 @@ public class HzServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "c8f98f57d4e54ee29e85ac849db01552";
@@ -42,7 +42,7 @@ public class HzServiceImplTest extends SpringIOC {
         System.out.println(hz);
         Assert.assertTrue(hz!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         Hz hzParam = new Hz();
@@ -53,32 +53,32 @@ public class HzServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hzs.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "c8f98f57d4e54ee29e85ac849db01552";
         Hz hz = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hz);
+        System.out.println("æ›´æ–°å‰:"+hz);
         hz.setXm("02");
         boolean success = service.updateById(hz);
         System.out.println("success:"+success);
         Hz newHz = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHz);
+        System.out.println("æ›´æ–°å:"+newHz);
         Assert.assertTrue(newHz.getXm().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         Hz hz = new Hz(keyId ,"01","01","01","01",new Date(), "01",new Date(), "01",new Date(),"01","01",new  Date(), "01", null,null);
         boolean success = service.insert(hz);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         Hz queryHz = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHz);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHz);
         queryHz.setValid("0");
         queryHz.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHz);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

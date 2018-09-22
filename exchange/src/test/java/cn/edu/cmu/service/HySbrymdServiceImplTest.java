@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HySbrymdServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class HySbrymdServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HySbrymdService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         HySbrymd hySbrymd = new HySbrymd(CmuStringUtil.UUID(), "01","01","01","01","01","01",null,null);
@@ -34,7 +34,7 @@ public class HySbrymdServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "88459d2616e241e99c3a07188d2ab597";
@@ -42,7 +42,7 @@ public class HySbrymdServiceImplTest extends SpringIOC {
         System.out.println(hySbrymd);
         Assert.assertTrue(hySbrymd!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         HySbrymd hySbrymdParam = new HySbrymd();
@@ -53,32 +53,32 @@ public class HySbrymdServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hySbrymds.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "88459d2616e241e99c3a07188d2ab597";
         HySbrymd hySbrymd = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hySbrymd);
+        System.out.println("æ›´æ–°å‰:"+hySbrymd);
         hySbrymd.setXm("02");
         boolean success = service.updateById(hySbrymd);
         System.out.println("success:"+success);
         HySbrymd newHySbrymd = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHySbrymd);
+        System.out.println("æ›´æ–°å:"+newHySbrymd);
         Assert.assertTrue(newHySbrymd.getXm().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         HySbrymd hySbrymd = new HySbrymd(keyId,"01","01","01","01","01","01",null,null);
         boolean success = service.insert(hySbrymd);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         HySbrymd queryHySbrymd = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHySbrymd);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHySbrymd);
         queryHySbrymd.setValid("0");
         queryHySbrymd.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHySbrymd);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

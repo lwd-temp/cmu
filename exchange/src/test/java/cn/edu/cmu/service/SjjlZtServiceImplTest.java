@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class SjjlZtServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(SjjlZtService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         SjjlZt sjjlZt = new SjjlZt(CmuStringUtil.UUID(),"01", new Date(), "01","01","01", null,null);
@@ -34,7 +34,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "bfc64cee16ef4935a7f34a8b9f0ed2eb";
@@ -42,7 +42,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
         System.out.println(sjjlZt);
         Assert.assertTrue(sjjlZt!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         SjjlZt sjjlZtParam = new SjjlZt();
@@ -53,32 +53,32 @@ public class SjjlZtServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(sjjlZts.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "bfc64cee16ef4935a7f34a8b9f0ed2eb";
         SjjlZt sjjlZt = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+sjjlZt);
+        System.out.println("æ›´æ–°å‰:"+sjjlZt);
         sjjlZt.setGjnr("02");
         boolean success = service.updateById(sjjlZt);
         System.out.println("success:"+success);
         SjjlZt newSjjlZt = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newSjjlZt);
+        System.out.println("æ›´æ–°å:"+newSjjlZt);
         Assert.assertTrue(newSjjlZt.getGjnr().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         SjjlZt sjjlZt = new SjjlZt(keyId,"01", new Date(), "01","01","01", null,null);
         boolean success = service.insert(sjjlZt);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         SjjlZt querySjjlZt = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+querySjjlZt);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+querySjjlZt);
         querySjjlZt.setValid("0");
         querySjjlZt.setCreateTime(new Date());
         success = service.updateByIdAllColumn(querySjjlZt);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

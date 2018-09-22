@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class WbjdSxryServiceImplTest_false extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class WbjdSxryServiceImplTest_false extends SpringIOC {
     public  void init(){
         service = ac.getBean(WbjdSxryService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         WbjdSxry wbjdSxry = new WbjdSxry(CmuStringUtil.UUID(),"eb036d5ea1394154bddbc27aa5b34900","01","01","01",null,null);
@@ -34,7 +34,7 @@ public class WbjdSxryServiceImplTest_false extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "24f5abdd9fb646829635e2e83e758141";
@@ -42,7 +42,7 @@ public class WbjdSxryServiceImplTest_false extends SpringIOC {
         System.out.println(wbjdSxry);
         Assert.assertTrue(wbjdSxry!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         WbjdSxry wbjdSxryParam = new WbjdSxry();
@@ -53,32 +53,32 @@ public class WbjdSxryServiceImplTest_false extends SpringIOC {
         }
         Assert.assertTrue(wbjdSxrys.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "24f5abdd9fb646829635e2e83e758141";
         WbjdSxry wbjdSxry = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+wbjdSxry);
+        System.out.println("æ›´æ–°å‰:"+wbjdSxry);
         wbjdSxry.setXm("02");
         boolean success = service.updateById(wbjdSxry);
         System.out.println("success:"+success);
         WbjdSxry newWbjdSxry = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newWbjdSxry);
+        System.out.println("æ›´æ–°å:"+newWbjdSxry);
         Assert.assertTrue(newWbjdSxry.getXm().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         WbjdSxry wbjdSxry = new WbjdSxry(keyId,"eb036d5ea1394154bddbc27aa5b34900","01","01","01",null,null);
         boolean success = service.insert(wbjdSxry);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         WbjdSxry queryWbjdSxry = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryWbjdSxry);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryWbjdSxry);
         queryWbjdSxry.setValid("0");
         queryWbjdSxry.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryWbjdSxry);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

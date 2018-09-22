@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HyZjServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HyZjService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         HyZj hyZj = new HyZj(CmuStringUtil.UUID(),"01", "01","01","01","01","01", null,null);
@@ -34,7 +34,7 @@ public class HyZjServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "fe4a4893ac6f46caafa4c4f60f684623";
@@ -42,7 +42,7 @@ public class HyZjServiceImplTest extends SpringIOC {
         System.out.println(hyZj);
         Assert.assertTrue(hyZj!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         HyZj hyZjParam = new HyZj();
@@ -53,32 +53,32 @@ public class HyZjServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hyZjs.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "fe4a4893ac6f46caafa4c4f60f684623";
         HyZj hyZj = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hyZj);
+        System.out.println("æ›´æ–°å‰:"+hyZj);
         hyZj.setPjwh("02");
         boolean success = service.updateById(hyZj);
         System.out.println("success:"+success);
         HyZj newHyZj = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHyZj);
+        System.out.println("æ›´æ–°å:"+newHyZj);
         Assert.assertTrue(newHyZj.getPjwh().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         HyZj hyZj = new HyZj(keyId,"01", "01","01","01","01","01", null,null);
         boolean success = service.insert(hyZj);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         HyZj queryHyZj = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHyZj);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHyZj);
         queryHyZj.setValid("0");
         queryHyZj.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHyZj);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

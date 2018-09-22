@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class XmXssbfjServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(XmXssbfjService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         XmXssbfj xmXssbfj = new XmXssbfj(CmuStringUtil.UUID(),"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
@@ -34,7 +34,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "85fac2e23b14498ab9bc040a8c384aad";
@@ -42,7 +42,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
         System.out.println(xmXssbfj);
         Assert.assertTrue(xmXssbfj!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         XmXssbfj xmXssbfjParam = new XmXssbfj();
@@ -53,32 +53,32 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(xmXssbfjs.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "85fac2e23b14498ab9bc040a8c384aad";
         XmXssbfj xmXssbfj = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+xmXssbfj);
+        System.out.println("æ›´æ–°å‰:"+xmXssbfj);
         xmXssbfj.setSqjlId("03d424b544914747969656add5b104a7");
         boolean success = service.updateById(xmXssbfj);
         System.out.println("success:"+success);
         XmXssbfj newXmXssbfj = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newXmXssbfj);
+        System.out.println("æ›´æ–°å:"+newXmXssbfj);
         Assert.assertTrue(newXmXssbfj.getSqjlId().contains("03d424b544914747969656add5b104a7"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         XmXssbfj xmXssbfj = new XmXssbfj(keyId,"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
         boolean success = service.insert(xmXssbfj);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         XmXssbfj queryXmXssbfj = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryXmXssbfj);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryXmXssbfj);
         queryXmXssbfj.setValid("0");
         queryXmXssbfj.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryXmXssbfj);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

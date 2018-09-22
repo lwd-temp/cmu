@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class XmGsxyServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(XmGsxyService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         XmGsxy xmGsxy = new XmGsxy(CmuStringUtil.UUID(),"01","01","01","01",null,null);
@@ -34,7 +34,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "db3d9d9ab6084ebd853d859a7c0f5f36";
@@ -42,7 +42,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
         System.out.println(xmGsxy);
         Assert.assertTrue(xmGsxy!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         XmGsxy xmGsxyParam = new XmGsxy();
@@ -53,32 +53,32 @@ public class XmGsxyServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(xmGsxys.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "db3d9d9ab6084ebd853d859a7c0f5f36";
         XmGsxy xmGsxy = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+xmGsxy);
+        System.out.println("æ›´æ–°å‰:"+xmGsxy);
         xmGsxy.setXymc("02");
         boolean success = service.updateById(xmGsxy);
         System.out.println("success:"+success);
         XmGsxy newXmGsxy = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newXmGsxy);
+        System.out.println("æ›´æ–°å:"+newXmGsxy);
         Assert.assertTrue(newXmGsxy.getXymc().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         XmGsxy xmGsxy = new XmGsxy(keyId,"01","01","01","01",null,null);
         boolean success = service.insert(xmGsxy);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         XmGsxy queryXmGsxy = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryXmGsxy);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryXmGsxy);
         queryXmGsxy.setValid("0");
         queryXmGsxy.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryXmGsxy);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

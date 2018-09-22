@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class UserRoleServiceImplTest_false extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     public  void init(){
         service = ac.getBean(UserRoleService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         UserRole userRole = new UserRole("3d331604574846cb9032569a3759fe3e","7cd757d6508e4f31a2a2318d06a68c5a",null,null);
@@ -34,7 +34,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
@@ -42,7 +42,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
         System.out.println(userRole);
         Assert.assertTrue(userRole!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         UserRole userRoleParam = new UserRole();
@@ -53,31 +53,31 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
         }
         Assert.assertTrue(userRoles.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         UserRole userRole = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+userRole);
+        System.out.println("æ›´æ–°å‰:"+userRole);
         userRole.setRoleId("02");
         boolean success = service.updateById(userRole);
         System.out.println("success:"+success);
         UserRole newUserRole = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newUserRole);
+        System.out.println("æ›´æ–°å:"+newUserRole);
         Assert.assertTrue(newUserRole.getRoleId().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         UserRole userRole = new UserRole("d538b9ce55a04737acd4ac3bef6903ed","7cd757d6508e4f31a2a2318d06a68c5a",null,null);
         boolean success = service.insert(userRole);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         UserRole queryUserRole = service.queryById("d538b9ce55a04737acd4ac3bef6903ed");
-        System.out.println("²åÈëºó²éÑ¯"+queryUserRole);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryUserRole);
         queryUserRole.setValid("0");
         queryUserRole.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryUserRole);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

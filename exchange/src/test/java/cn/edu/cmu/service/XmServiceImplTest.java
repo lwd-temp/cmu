@@ -14,9 +14,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class XmServiceImplTest extends SpringIOC {
 
@@ -26,7 +26,7 @@ public class XmServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(XmService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         Xm xm = new Xm(CmuStringUtil.UUID(),"01","01","01","01","01",
@@ -37,7 +37,7 @@ public class XmServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "6ae324e03fd84ace9497cbfedc908a0b";
@@ -45,7 +45,7 @@ public class XmServiceImplTest extends SpringIOC {
         System.out.println(xm);
         Assert.assertTrue(xm!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         Xm xmParam = new Xm();
@@ -56,20 +56,20 @@ public class XmServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(xms.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "6ae324e03fd84ace9497cbfedc908a0b";
         Xm xm = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+xm);
+        System.out.println("æ›´æ–°å‰:"+xm);
         xm.setXmmc("02");
         boolean success = service.updateById(xm);
         System.out.println("success:"+success);
         Xm newXm = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newXm);
+        System.out.println("æ›´æ–°å:"+newXm);
         Assert.assertTrue(newXm.getXmmc().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
@@ -77,13 +77,13 @@ public class XmServiceImplTest extends SpringIOC {
                 new Date(),new Date(), BigDecimal.valueOf(1.34), "01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),"01",
                 "01", BigDecimal.valueOf(1.34),"01","01","01","01", null,null);
         boolean success = service.insert(xm);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         Xm queryXm = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryXm);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryXm);
         queryXm.setValid("0");
         queryXm.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryXm);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }

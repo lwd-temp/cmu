@@ -13,9 +13,9 @@ import java.util.List;
 
 
 /**
- * Service²ãµÄ²âÊÔÀà
+ * Serviceå±‚çš„æµ‹è¯•ç±»
  *
- * Ôö¼ÓÉ¾¸Ä²é
+ * å¢åŠ åˆ æ”¹æŸ¥
  */
 public class HzxyQzrServiceImplTest extends SpringIOC {
 
@@ -25,7 +25,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     public  void init(){
         service = ac.getBean(HzxyQzrService.class);
     }
-    //±£´æ
+    //ä¿å­˜
     @Test
     public void save() {
         HzxyQzr hzxyQzr = new HzxyQzr(CmuStringUtil.UUID(),"01", "611eece2fe8244fa8e1729e9a8d3417a","01",null,null);
@@ -34,7 +34,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
         System.out.println("success:"+success);
         Assert.assertTrue(success);
     }
-    //¸ù¾İÖ÷¼ü²éÑ¯
+    //æ ¹æ®ä¸»é”®æŸ¥è¯¢
     @Test
     public void selectByPrimaryKey() {
         String keyId = "8485978a68b84453949fd18561e9a22f";
@@ -42,7 +42,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
         System.out.println(hzxyQzr);
         Assert.assertTrue(hzxyQzr!=null);
     }
-    //¸ù¾İÌõ¼ş²éÑ¯
+    //æ ¹æ®æ¡ä»¶æŸ¥è¯¢
     @Test
     public void list() {
         HzxyQzr hzxyQzrParam = new HzxyQzr();
@@ -53,32 +53,32 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
         }
         Assert.assertTrue(hzxyQzrs.size()>0);
     }
-    //¸üĞÂ
+    //æ›´æ–°
     @Test
     public void update() {
         String keyId = "8485978a68b84453949fd18561e9a22f";
         HzxyQzr hzxyQzr = service.queryById(keyId);
-        System.out.println("¸üĞÂÇ°:"+hzxyQzr);
+        System.out.println("æ›´æ–°å‰:"+hzxyQzr);
         hzxyQzr.setXm("02");
         boolean success = service.updateById(hzxyQzr);
         System.out.println("success:"+success);
         HzxyQzr newHzxyQzr = service.queryById(keyId);
-        System.out.println("¸üĞÂºó:"+newHzxyQzr);
+        System.out.println("æ›´æ–°å:"+newHzxyQzr);
         Assert.assertTrue(newHzxyQzr.getXm().contains("02"));
     }
-    //¸ù¾İÖ÷¼üÉ¾³ı
+    //æ ¹æ®ä¸»é”®åˆ é™¤
     @Test
     public void deleteById() {
         String keyId = CmuStringUtil.UUID();
         HzxyQzr hzxyQzr = new HzxyQzr(keyId,"01", "611eece2fe8244fa8e1729e9a8d3417a","01",null,null);
         boolean success = service.insert(hzxyQzr);
-        System.out.println("±£´æ³É¹¦£º"+success);
+        System.out.println("ä¿å­˜æˆåŠŸï¼š"+success);
         HzxyQzr queryHzxyQzr = service.queryById(keyId);
-        System.out.println("²åÈëºó²éÑ¯"+queryHzxyQzr);
+        System.out.println("æ’å…¥åæŸ¥è¯¢"+queryHzxyQzr);
         queryHzxyQzr.setValid("0");
         queryHzxyQzr.setCreateTime(new Date());
         success = service.updateByIdAllColumn(queryHzxyQzr);
-        System.out.println("É¾³ı³É¹¦£º"+success);
+        System.out.println("åˆ é™¤æˆåŠŸï¼š"+success);
         Assert.assertTrue(success);
     }
 }
