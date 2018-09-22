@@ -15,8 +15,7 @@
  */
 package cn.edu.cmu.mybatis_gen;
 
-import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByExampleWithBLOBsElementGenerator;
-import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByExampleWithoutBLOBsElementGenerator;
+import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuExampleWhereClauseElementGenerator;
 import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByPrimaryKeyElementGenerator;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
@@ -34,7 +33,15 @@ public class CmuXMLMapperGenerator extends XMLMapperGenerator {
     }
 
 
-    protected void addSelectByExampleWithoutBLOBsElement(
+    protected void addExampleWhereClauseElement(XmlElement parentElement) {
+        if (introspectedTable.getRules().generateSQLExampleWhereClause()) {
+            AbstractXmlElementGenerator elementGenerator = new CmuExampleWhereClauseElementGenerator(
+                    false);
+            initializeAndExecuteGenerator(elementGenerator, parentElement);
+        }
+    }
+
+    /*protected void addSelectByExampleWithoutBLOBsElement(
             XmlElement parentElement) {
         if (introspectedTable.getRules().generateSelectByExampleWithoutBLOBs()) {
             AbstractXmlElementGenerator elementGenerator = new CmuSelectByExampleWithoutBLOBsElementGenerator();
@@ -47,7 +54,7 @@ public class CmuXMLMapperGenerator extends XMLMapperGenerator {
             AbstractXmlElementGenerator elementGenerator = new CmuSelectByExampleWithBLOBsElementGenerator();
             initializeAndExecuteGenerator(elementGenerator, parentElement);
         }
-    }
+    }*/
 
     protected void addSelectByPrimaryKeyElement(XmlElement parentElement) {
         if (introspectedTable.getRules().generateSelectByPrimaryKey()) {
