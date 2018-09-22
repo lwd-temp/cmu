@@ -9,9 +9,21 @@ import javax.servlet.ServletContextListener;
 public class InitListener implements ServletContextListener{
 
     Logger logger = Logger.getLogger(InitListener.class);
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        logger.info("初始化工程上下文 start ....");
+
+        logger.info("=======初始化工程上下文  start ....");
+        initRootPath(sce);
+        logger.info("=======初始化工程上下文  end   ....");
+    }
+
+
+    /**
+     * 初始化跟路径
+     * @param sce
+     */
+    private void initRootPath(ServletContextEvent sce){
 
         ServletContext app = sce.getServletContext();
         String path = app.getContextPath();
@@ -22,9 +34,6 @@ public class InitListener implements ServletContextListener{
         sb.append("/");
 
         app.setAttribute("rootPath",sb.toString());
-
-        logger.info("初始化工程上下文  end ....");
-
     }
 
     @Override

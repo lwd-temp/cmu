@@ -55,6 +55,7 @@
           </trim>
         </if>
       </foreach>
+       and valid = 1
     </where>
   </sql>
   <sql id="Update_By_Example_Where_Clause" >
@@ -104,7 +105,6 @@
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
-      and VALID = 1
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
