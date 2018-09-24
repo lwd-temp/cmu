@@ -1,3 +1,12 @@
+/****
+ * 自定义 js
+ */
+
+/**
+ * 扩展日期类，添加格式化方法
+ * @param fmt
+ * @returns {*}
+ */
 Date.prototype.getYmd = function(fmt){
     var date = this;
     var o = {
@@ -68,6 +77,9 @@ var initIndex = layer.loading();
         },
         complete:function(XHR, TS){
             layer.close(ajaxIndex);
+        },error:function(err,xhr){
+            layer.close(ajaxIndex);
+            layer.alert("处理失败..");
         }
     });
 })()
@@ -76,8 +88,6 @@ var initIndex = layer.loading();
 
 
 $(function(){
-
-
 
     //定义加载表格的公共方法
     $.fn.extend({
@@ -160,6 +170,49 @@ $(function(){
 
 });
 
+
+/***
+ * 加载代码缓存
+ */
+(function(){
+    var dmcache = {};
+
+    dmcache.getCode = function(table,paramCode){
+        var data = this.data;
+        var name = '';
+        if(data){
+            table = table.toUpperCase();
+            var codes = data[table];
+            if($.isArray(codes) ){
+                $(codes).each(function(){
+                    var json = this;
+                    console.info(json);
+                    console.info(paramCode);
+                    if(json[paramCode] && json[paramCode].length>0){
+                        name = json[paramCode]
+                        return false;
+                    }
+                });
+                if(name.length>0){
+                    return name;
+                }
+            }
+        }
+
+        return paramCode;
+    }
+
+    window.dmcache = dmcache;
+
+    $.ajax('ui/dm_cache',{
+        success:function(data){
+            console.info(data);
+            dmcache.data = data;
+        }
+    })
+
+
+})()
 
 //菜单点击 时调用
 function getUrl(ahref ,url){

@@ -82,7 +82,7 @@
 
                                 <label class="col-xs-2 control-label " > 语种: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -93,7 +93,7 @@
 
                                 <label class="col-xs-2 control-label " > 职务职称: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -104,7 +104,7 @@
 
                                 <label class="col-xs-2 control-label " > 关联项目: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -115,7 +115,7 @@
 
                                 <label class="col-xs-2 control-label " > 传真: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -126,7 +126,7 @@
 
                                 <label class="col-xs-2 control-label " > 通信地址: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">

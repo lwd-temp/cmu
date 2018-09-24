@@ -8,8 +8,9 @@ sys:
       false
   cache:
     mapperbeans:
-      dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
+      dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
   access:
+    #忽略访问，ext为忽略扩展名，url，为忽略路径
     ignore:
       ext:
         css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot

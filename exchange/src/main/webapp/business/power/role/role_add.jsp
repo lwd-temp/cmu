@@ -122,8 +122,8 @@
 <!-- ace scripts -->
 
 <!-- jqueryValidate验证框架-->
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
 <script src="assets/js/layer/layer.js"></script>
 
 <script src="assets/project/js/common-window.js"></script>

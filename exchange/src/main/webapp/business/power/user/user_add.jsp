@@ -142,8 +142,8 @@
 <!-- ace scripts -->
 
 <!-- jqueryValidate验证框架-->
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
-<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
 <script src="assets/js/layer/layer.js"></script>
 
 <script src="assets/project/js/common-window.js"></script>
@@ -195,7 +195,7 @@
                 success:function(res){
                     if(res && res.success){
                         closeLayer();//关闭
-                        winAlert("保存成功,用户ID: "+res.data.userId);//弹出确认消息
+                        winAlert("保存成功");//弹出确认消息
                     }
                 }
             });

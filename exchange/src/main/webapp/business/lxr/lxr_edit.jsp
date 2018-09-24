@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,82 +59,83 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
+                            <input type="hidden" name="lxrId" value="${contact.lxrId}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 姓名: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder="姓名"  class="col-xs-12" />
+                                    <input type="text"  name="name" id="name" value="${contact.name}" placeholder="姓名"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 性别: </label>
 
                                 <div class="col-xs-4">
-                                    <input name="form-field-radio"    type="radio" class="ace"  checked/>  <span class="lbl"> 男</span>
-                                    <input name="form-field-radio"   type="radio"  class="ace" />  <span class="lbl"> 女</span>
+                                    <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  value="${contact.gender}" ></dm:list>
+
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder="国籍"  class="col-xs-12" />
+                                    <input type="text"  name="gj" id="gj" value="${contact.gj}"  placeholder="国籍"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 语种: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="yz"  id="yz" value="${contact.yz}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 工作单位: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="gzdw" id="gzdw" value="${contact.gzdw}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 职务职称: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="zwzc"  id="zwzc"  value="${contact.zwzc}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 专业领域: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="zyly" id="zyly" value="${contact.zyly}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 关联项目: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="glxm"  id="glxm" value="${contact.glxm}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 邮箱: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="email" id="email" value="${contact.email}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 传真: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="fax"  id="fax" value="${contact.fax}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 工作电话: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="telphone" id="telphone" value="${contact.telphone}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 通信地址: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value=" " placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="address" id="address"  value="${contact.address}" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 备注: </label>
                                 <div class="col-xs-10">
-                                    <input type="text"  name="username" id="" value="" placeholder="备注"  class="col-xs-12" />
+                                    <input type="text"  name="remark" id="remark" value="${contact.remark}" placeholder="备注"  class="col-xs-12" />
                                 </div>
 
                             </div>
@@ -141,7 +144,7 @@
                                 <div class="col-md-offset-3 col-md-9">
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
-                                        修改
+                                        保存
                                     </button>
 
 
@@ -178,21 +181,60 @@
 <script src="assets/js/jquery.inputlimiter.1.3.1.js"></script>
 <script src="assets/js/jquery.maskedinput.js"></script>
 <script src="assets/js/bootstrap-tag.js"></script>
+
+<!-- jqueryValidate验证框架-->
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
+<!--弹出层 -->
+<script src="assets/js/layer/layer.js"></script>
+
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
+
 <!-- ace scripts -->
 <script>
     var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
     $(function(){
+
+        $("#form").setValid({
+            //校验规则
+            rules: {
+                name:{
+                    required:true
+                },
+                gender:{
+                    required:true
+                },
+                email:{
+                    email: true
+                },
+
+            }
+        });
+
+
         $("#btn-submit").click(function(){
-            var par = parent;
-            parent.layer.close(index);
-            parent.clearTable();
-            parent.layer.alert('点击修改按钮，修改完成后提示成功，并刷新联系人列表', {icon: 6});
-            setTimeout(function(){
-                par.refreshTable();
 
-            },900);
+            if(!$("#form").valid()){
+                return;
+            }
 
+            $.ajax('lxr/save',{
+                type:'post',
+                dataType:'json',
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        parent.refreshTable();
+                        closeLayer();//关闭
+                        winAlert("保存成功");//弹出确认消息
+                    }else{
+                        winAlert("保存失败");//弹出确认消息
+                    }
+                }
+
+            });
         });
 
     })

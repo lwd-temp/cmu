@@ -186,12 +186,13 @@
                 data:{id:roleId},
                 success:function(res){
                     if(res && res.success){
+                        layer.alert("删除成功");
                         refreshTable();
+                    }else{
+                        layer.alert("删除失败")
                     }
                 }
             })
-
-
         })
         //$(grid_selector).delGridRow(roleId);
     }

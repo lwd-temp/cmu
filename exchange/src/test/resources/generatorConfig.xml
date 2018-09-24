@@ -81,7 +81,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <table tableName="T_XM_GSXY" 	domainObjectName="XmGsxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_XM_GSXY" 	domainObjectName="XmGsxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmGsxyParams&gt;"/>
         </table>
         <table tableName="T_XM_JLZJBG" 	domainObjectName="XmJlzjbg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -142,8 +142,11 @@
         </table>
         <table tableName="T_DM_WBLF_JDLX" 	domainObjectName="DmWblfJdlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmWblfJdlxParams&gt;"/>
+        </table>-->
+        <table tableName="T_DM_XB" 	domainObjectName="DmXb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmXbParams&gt;"/>
         </table>
-        <table tableName="T_DM_XMCC" 	domainObjectName="DmXmcc"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_DM_XMCC" 	domainObjectName="DmXmcc"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmXmccParams&gt;"/>
         </table>
         <table tableName="T_DM_XMLX" 	domainObjectName="DmXmlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -225,6 +228,6 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmParams&gt;"/>
             <columnOverride column="XMGK" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="XMZZJH" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>
