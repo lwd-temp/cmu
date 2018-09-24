@@ -184,6 +184,7 @@
                                         <option value="">  借出中</option>
                                         <option value="">  调往新单位</option>
                                         <option value="">  调至省外</option>
+                                        <option value="">  调至其他单位</option>
                                     </select>
                                 </div>
 

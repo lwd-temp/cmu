@@ -95,10 +95,6 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 签字人: </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="签字人"  class="col-xs-12" />
-                                </div>
                                 <label class="col-xs-2 control-label " > 国别: </label>
 
                                 <div class="col-xs-4">
@@ -112,8 +108,20 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 签字人: </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" id="form-field-10"  placeholder="签字人"  maxlength="300"></textarea>
+                                </div>
 
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 签字人职务: </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" id="form-field-12"  placeholder="签字人职务"  maxlength="300"></textarea>
+                                </div>
 
+                            </div>
 
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-success btn-sm" type="button">

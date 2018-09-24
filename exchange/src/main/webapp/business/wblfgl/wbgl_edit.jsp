@@ -88,7 +88,7 @@
                     <div class="col-xs-4">
                         <input type="text"  name="tzh"   placeholder="20180100001"  class="col-xs-12" />
                     </div>
-                    
+
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
                         <input type="text"  name="tzh"   placeholder="20180100001"  class="col-xs-12" />
@@ -184,57 +184,57 @@
                         <input class="form-control  " id="" value="" type="text"   />
                     </div>
                 </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 团长性别: </label>
-                    <div class="col-xs-4">
-                        <input name="form-field-radio"    type="radio" class="ace"  checked/>  <span class="lbl"> 男</span>
-                        <input name="form-field-radio"   type="radio"  class="ace" />  <span class="lbl"> 女</span>
-                    </div>
-
-                    <label class="col-xs-2 control-label "  > 团长出生日期: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control date-picker" id="id-date-picker-61" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
-                    </div>
-                </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 团长工作单位: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-
-                    <label class="col-xs-2 control-label "  > 团长职务: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-                </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 团长专业: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-
-                    <label class="col-xs-2 control-label "  > 学术领域: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-                </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 主请人姓名: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-
-                    <label class="col-xs-2 control-label "  > 主请人电话: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-                </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
-
-                    <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
-                    <div class="col-xs-4">
-                        <input class="form-control  " id="" value="" type="text"   />
-                    </div>
+                <label class="col-xs-2 control-label "  > 团长性别: </label>
+                <div class="col-xs-4">
+                    <input name="form-field-radio"    type="radio" class="ace"  checked/>  <span class="lbl"> 男</span>
+                    <input name="form-field-radio"   type="radio"  class="ace" />  <span class="lbl"> 女</span>
                 </div>
+
+                <label class="col-xs-2 control-label "  > 团长出生日期: </label>
+                <div class="col-xs-4">
+                    <input class="form-control date-picker" id="id-date-picker-61" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
+                </div>
+            </div> <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 团长工作单位: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+
+                <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+            </div> <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
+                <div class="col-xs-10">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+
+                <%--<label class="col-xs-2 control-label "  > 学术领域: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>--%>
+            </div> <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 主请人姓名: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+
+                <label class="col-xs-2 control-label "  > 主请人电话: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+            </div> <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+
+                <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
+                <div class="col-xs-4">
+                    <input class="form-control  " id="" value="" type="text"   />
+                </div>
+            </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">

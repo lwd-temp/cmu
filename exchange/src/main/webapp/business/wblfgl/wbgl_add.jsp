@@ -200,20 +200,20 @@
                         <input class="form-control  " id="" value="" type="text"   />
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 团长职务: </label>
+                    <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
                     <div class="col-xs-4">
                         <input class="form-control  " id="" value="" type="text"   />
                     </div>
                 </div> <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 团长专业: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
+                    <div class="col-xs-10">
                         <input class="form-control  " id="" value="" type="text"   />
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 学术领域: </label>
+                   <%-- <label class="col-xs-2 control-label "  > 学术领域: </label>
                     <div class="col-xs-4">
                         <input class="form-control  " id="" value="" type="text"   />
-                    </div>
+                    </div>--%>
                 </div> <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请人姓名: </label>
                     <div class="col-xs-4">

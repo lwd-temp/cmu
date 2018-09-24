@@ -301,6 +301,16 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 年内出访次数  : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="username"  value=""     placeholder="demo@cmu.edu.cn"    class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 申请人其他社会任职  : </label>
+                                <div class="col-xs-4">
+                                    <textarea class="form-control limited" id="form-field-10" maxlength="300"></textarea>
+                                </div>
+                            </div>
                             <div class="col-md-offset-3 col-md-9">
 
 

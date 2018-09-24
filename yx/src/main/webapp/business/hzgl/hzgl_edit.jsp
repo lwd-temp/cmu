@@ -184,6 +184,7 @@
                                         <option value="">  借出中</option>
                                         <option value="">  调往新单位</option>
                                         <option value="">  调至省外</option>
+                                        <option value="">  调至其他单位</option>
                                     </select>
                                 </div>
 
@@ -246,6 +247,7 @@
 
 
         $('[type=file]').ace_file_input({
+
             no_file:'暂无文件 ...',
             btn_choose:'选择',
             btn_change:'替换',
