@@ -1,7 +1,31 @@
+Date.prototype.getYmd = function(fmt){
+    var date = this;
+    var o = {
+        "M+" : date.getMonth()+1,                 //月份
+        "d+" : date.getDate(),                    //日
+        "h+" : date.getHours(),                   //小时
+        "m+" : date.getMinutes(),                 //分
+        "s+" : date.getSeconds(),                 //秒
+        "q+" : Math.floor((date.getMonth()+3)/3), //季度
+        "S"  : date.getMilliseconds()             //毫秒
+    };
+    if(/(y+)/.test(fmt)) {
+        fmt=fmt.replace(RegExp.$1, (date.getFullYear()+"").substr(4 - RegExp.$1.length));
+    }
+    for(var k in o){
+        if(new RegExp("("+ k +")").test(fmt)) {
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+        }
+    }
+    return fmt;
+
+}
+
 //定义layer的 加载层...
 layer.loading = function(){
-    var index = layer.load(1, {
-        shade: [0.5,'#000'] //0.1透明度的白色背景
+    var index = layer.msg('正在处理(^.^)', {
+        icon: 16
+        ,shade: 0.61
     });
     return index;
 }
@@ -21,7 +45,35 @@ layer.newpage = function(options) {
     return index;
 }
 
+
+layer.dconfirm = function(msg,okfun){
+    var index = layer.confirm(msg,{
+        icon:3,
+        btn: ['删除','取消'], //按钮
+    },function(){
+        okfun();
+    });
+    return index;
+}
+
 var initIndex = layer.loading();
+
+(function(){
+    var ajaxIndex;
+    $.ajaxSetup({
+        type:'post',
+        dataType:'json',
+        beforeSend:function(){
+            var ajaxIndex = layer.loading();
+        },
+        complete:function(XHR, TS){
+            layer.close(ajaxIndex);
+        }
+    });
+})()
+
+
+
 
 $(function(){
 
@@ -33,7 +85,16 @@ $(function(){
 
             var tab = this;
             var settings = {
-                datatype: "local",
+                datatype: "json",
+                //如果有url 从服务器端获取数据，数据返回的jsonkey可以在jsonReader中定义
+                jsonReader : {
+                    root:"data",//array或者List数据
+                    page: "page",//当前页码
+                    total: "pages",//总页数
+                    records: "count",//总记录数
+                    repeatitems: false
+                },
+                mtype:"post",
                 shrinkToFit:true,
                 /*width:"100%",*/
                 autowidth:true,

@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.XmGsxy;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception{
         XmGsxy xmGsxy = new XmGsxy(CmuStringUtil.UUID(),"01","01","01","01",null,null);
         boolean success = service.insert(xmGsxy);
         System.out.println("XmGsxy:"+xmGsxy);
@@ -36,7 +35,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "db3d9d9ab6084ebd853d859a7c0f5f36";
         XmGsxy xmGsxy = service.queryById(keyId);
         System.out.println(xmGsxy);
@@ -44,7 +43,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list()throws Exception {
         XmGsxy xmGsxyParam = new XmGsxy();
         xmGsxyParam.setXymc("0");
         List<XmGsxy> xmGsxys = service.list(xmGsxyParam);
@@ -55,7 +54,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "db3d9d9ab6084ebd853d859a7c0f5f36";
         XmGsxy xmGsxy = service.queryById(keyId);
         System.out.println("更新前:"+xmGsxy);
@@ -68,7 +67,7 @@ public class XmGsxyServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         XmGsxy xmGsxy = new XmGsxy(keyId,"01","01","01","01",null,null);
         boolean success = service.insert(xmGsxy);

@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.SjjlZt;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         SjjlZt sjjlZt = new SjjlZt(CmuStringUtil.UUID(),"01", new Date(), "01","01","01", null,null);
         boolean success = service.insert(sjjlZt);
         System.out.println("SjjlZt:"+sjjlZt);
@@ -36,7 +35,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "bfc64cee16ef4935a7f34a8b9f0ed2eb";
         SjjlZt sjjlZt = service.queryById(keyId);
         System.out.println(sjjlZt);
@@ -44,7 +43,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list()throws Exception {
         SjjlZt sjjlZtParam = new SjjlZt();
         sjjlZtParam.setGjnr("0");
         List<SjjlZt> sjjlZts = service.list(sjjlZtParam);
@@ -55,7 +54,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "bfc64cee16ef4935a7f34a8b9f0ed2eb";
         SjjlZt sjjlZt = service.queryById(keyId);
         System.out.println("更新前:"+sjjlZt);
@@ -68,7 +67,7 @@ public class SjjlZtServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         SjjlZt sjjlZt = new SjjlZt(keyId,"01", new Date(), "01","01","01", null,null);
         boolean success = service.insert(sjjlZt);

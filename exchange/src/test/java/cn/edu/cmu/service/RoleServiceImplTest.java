@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Role;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class RoleServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         Role role = new Role(CmuStringUtil.UUID(),"01",null,null);
         boolean success = service.insert(role);
         System.out.println("Role:"+role);
@@ -36,7 +35,7 @@ public class RoleServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "7cd757d6508e4f31a2a2318d06a68c5a";
         Role role = service.queryById(keyId);
         System.out.println(role);
@@ -44,7 +43,7 @@ public class RoleServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         Role roleParam = new Role();
         roleParam.setRoleName("01");
         List<Role> roles = service.list(roleParam);
@@ -55,7 +54,7 @@ public class RoleServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update()throws Exception{
         String keyId = "7cd757d6508e4f31a2a2318d06a68c5a";
         Role role = service.queryById(keyId);
         System.out.println("更新前:"+role);
@@ -68,7 +67,7 @@ public class RoleServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         Role role = new Role(keyId,"01",null,null);
         boolean success = service.insert(role);

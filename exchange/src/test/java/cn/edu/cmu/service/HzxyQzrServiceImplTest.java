@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HzxyQzr;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         HzxyQzr hzxyQzr = new HzxyQzr(CmuStringUtil.UUID(),"01", "611eece2fe8244fa8e1729e9a8d3417a","01",null,null);
         boolean success = service.insert(hzxyQzr);
         System.out.println("HzxyQzr:"+hzxyQzr);
@@ -36,7 +35,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "8485978a68b84453949fd18561e9a22f";
         HzxyQzr hzxyQzr = service.queryById(keyId);
         System.out.println(hzxyQzr);
@@ -44,7 +43,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         HzxyQzr hzxyQzrParam = new HzxyQzr();
         hzxyQzrParam.setXm("01");
         List<HzxyQzr> hzxyQzrs = service.list(hzxyQzrParam);
@@ -55,7 +54,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "8485978a68b84453949fd18561e9a22f";
         HzxyQzr hzxyQzr = service.queryById(keyId);
         System.out.println("更新前:"+hzxyQzr);
@@ -68,7 +67,7 @@ public class HzxyQzrServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         HzxyQzr hzxyQzr = new HzxyQzr(keyId,"01", "611eece2fe8244fa8e1729e9a8d3417a","01",null,null);
         boolean success = service.insert(hzxyQzr);

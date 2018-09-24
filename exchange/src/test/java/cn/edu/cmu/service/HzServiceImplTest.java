@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Hz;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class HzServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         Hz hz = new Hz(CmuStringUtil.UUID(), "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
                 Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
 
@@ -37,7 +37,7 @@ public class HzServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception{
         String keyId = "c8f98f57d4e54ee29e85ac849db01552";
         Hz hz = service.queryById(keyId);
         System.out.println(hz);
@@ -45,7 +45,7 @@ public class HzServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         Hz hzParam = new Hz();
         hzParam.setXm("01");
         List<Hz> hzs = service.list(hzParam);
@@ -56,7 +56,7 @@ public class HzServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "c8f98f57d4e54ee29e85ac849db01552";
         Hz hz = service.queryById(keyId);
         System.out.println("更新前:"+hz);
@@ -69,7 +69,7 @@ public class HzServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         Hz hz = new Hz(keyId, "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
                 Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);

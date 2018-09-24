@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +30,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
 
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         //有问题 shr  错误
         CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "cglx", "xm", "xb", new Date(), "csd", "hjszd", "sfzh",  "ssejdw", "ks", "zw", "zc", "lxdh" , "email" , new BigDecimal(10.0),
                 "qtshrz" , "cfgj" , "rjcs" , "tzid" ,new Date(), new Date(), "cfmd" , "cfmdQt" , "yqrXm" , "yqrZw" , "yqrDw" ,
@@ -43,7 +43,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception {
         String keyId = "7144f867cb9d41988cb95a3fa0bea9ef";
         CgDqcgj cgDqcgj = service.queryById(keyId);
         System.out.println(cgDqcgj);
@@ -52,7 +52,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception {
         //ALT+ENTER  前台页面接到的查询条件
         CgDqcgj cgDqcgjParam = new CgDqcgj();
         cgDqcgjParam.setCfgj("中国");
@@ -64,7 +64,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception {
         String keyId = "7144f867cb9d41988cb95a3fa0bea9ef";
         CgDqcgj cgDqcgj = service.queryById(keyId);
         System.out.println("更新前:"+cgDqcgj);
@@ -77,7 +77,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         CgDqcgj cgDqcgj = new CgDqcgj();
         cgDqcgj.setCgid("123456");

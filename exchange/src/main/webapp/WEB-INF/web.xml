@@ -4,21 +4,19 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
-    <!-- 前端控制器， 的 初始化参数 classpath:springmvc.xml -->
-    <servlet>
-        <servlet-name>springmvc</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springmvc.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 
+    <!--  配置全局 加载监听器-->
+    <listener>
+        <listener-class>cn.edu.cmu.framework.listener.InitListener</listener-class>
+    </listener>
+
+    <!--访问过滤器-->
+    <filter>
+        <filter-name>AccessFilter</filter-name>
+        <filter-class>cn.edu.cmu.framework.filter.AccessFilter</filter-class>
+    </filter>
+
+    <!--编码拦截器-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -36,16 +34,35 @@
         </init-param>
     </filter>
 
+
+    <filter-mapping>
+        <filter-name>AccessFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <filter-mapping>
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
 
-    <!--  配置全局 加载监听器-->
-    <listener>
-        <listener-class>cn.edu.cmu.framework.listener.InitListener</listener-class>
-    </listener>
+
+    <!-- 前端控制器， 的 初始化参数 classpath:springmvc.xml -->
+    <servlet>
+        <servlet-name>springmvc</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springmvc</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

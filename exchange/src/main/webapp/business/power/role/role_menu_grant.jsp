@@ -37,16 +37,16 @@
     <![endif]-->
 </head>
 <body>
+<input type="hidden" id="roleId" value="${roleId}">
 <div class="row" >
     <button class="btn btn-info btn-sm" id="role_grant" type="button" style="margin-left: 2px">
         <i class="ace-icon fa fa-check bigger-110"></i>
         授权
     </button>
-    <div class="col-xs-11"  style="max-height: 320px;overflow-y: auto;">
+    <div class="col-xs-11"  style="max-height: 500px;overflow-y: auto;">
 
         <ul id="treeDemo" class="ztree"></ul>
     </div>
-
 
 </div>
 
@@ -56,14 +56,21 @@
 <link rel="stylesheet" href="assets/zTree/css/metroStyle/metroStyle.css" type="text/css">
 <script src='assets/js/jquery.js'></script>
 <script type="text/javascript" src="assets/zTree/js/jquery.ztree.all.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+<script src="assets/project/js/common-window.js"></script>
+
 <script LANGUAGE="JavaScript">
+
+    var roleMenuArray = ${roleMenuArray};
     var zTreeObj;
     // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
     var setting = {
         data:{
             simpleData: {
                 enable: true,
-                idKey: "id",
+                idKey: "menuId",
                 pIdKey: "pId",
                 rootPId: 0
             }
@@ -87,54 +94,93 @@
     };
     // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
     var zNodes = [
-        {id:"0",	name:"系统菜单"	 ,open:true 	},
-        {id:"1",	name:"学生交流项目管理" ,		pId:"0"	  },
-        {id:"11",	name:"交流项目设定" ,		pId:"1"	  },
-        {id:"12",	name:"申请交流项目" ,		pId:"1"	  },
-        {id:"13",	name:"项目审核" ,		pId:"1"	  },
-        {id:"13",	name:"交流报告总结" ,		pId:"1"	  },
-        {id:"2",	name:"出国团组计划与管理" ,		pId:"0"	  },
-        {id:"21",	name:"出访团组申请" ,		pId:"2"	  },
-        {id:"22",	name:"出访团组审批" ,		pId:"2"	  },
-        {id:"23",	name:"出访团组管理" ,		pId:"2"	  },
-        {id:"3",	name:"短期出国（境）管理" ,		pId:"0"	  },
-        {id:"31",	name:"短期出国（境）申请" ,		pId:"3"	  },
-        {id:"32",	name:"出国（境）审批流程" ,		pId:"3"	  },
-        {id:"33",	name:"归国管理" ,		pId:"3"	  },
-        {id:"4",	name:"国际会议管理" ,		pId:"0"	  },
-        {id:"41",	name:"国际会议计划" ,		pId:"4"	  },
-        {id:"42",	name:"国际会议申报" ,		pId:"4"	  },
-        {id:"43",	name:"国际会议总结" ,		pId:"4"	  },
-        {id:"44",	name:"国际会议数据统计" ,		pId:"4"	  },
-        {id:"5",	name:"因公护照管理" ,		pId:"0"	  },
-        {id:"51",	name:"因公护照管理" ,		pId:"5"	  },
-        {id:"6",	name:"外宾来访接待" ,		pId:"0"	  },
-        {id:"61",	name:"来访接待申请" ,		pId:"6"	  },
-        {id:"62",	name:"来访接待" ,			pId:"6"	  },
-        {id:"63",	name:"来访接待总结" ,		pId:"6"	  },
-        {id:"7",	name:"交流合作协议管理" ,		pId:"0"	  },
-        {id:"71",	name:"交流合作协议管理" ,		pId:"7"	  },
-        {id:"8",	name:"外籍教师管理" ,		pId:"0"	  },
-        {id:"81",	name:"外籍教师管理" ,		pId:"8"	  },
-        {id:"9",	name:"国际交流联系人库" ,		pId:"0"	  },
-        {id:"91",	name:"联系人库管理" ,		pId:"9"	  }
+        {menuId:"0",	name:"系统菜单"	 ,open:true 	},
+        {menuId:"1",	name:"学生交流项目管理" ,		pId:"0"	  },
+        {menuId:"11",	name:"交流项目设定" ,		pId:"1"	  },
+        {menuId:"12",	name:"申请交流项目" ,		pId:"1"	  },
+        {menuId:"13",	name:"项目审核" ,		pId:"1"	  },
+        {menuId:"14",	name:"交流报告总结" ,		pId:"1"	  },
+        {menuId:"2",	name:"出国团组计划与管理" ,		pId:"0"	  },
+        {menuId:"21",	name:"出访团组申请" ,		pId:"2"	  },
+        {menuId:"22",	name:"出访团组审批" ,		pId:"2"	  },
+        {menuId:"23",	name:"出访团组管理" ,		pId:"2"	  },
+        {menuId:"3",	name:"短期出国（境）管理" ,		pId:"0"	  },
+        {menuId:"31",	name:"短期出国（境）申请" ,		pId:"3"	  },
+        {menuId:"32",	name:"出国（境）审批流程" ,		pId:"3"	  },
+        {menuId:"33",	name:"归国管理" ,		pId:"3"	  },
+        {menuId:"4",	name:"国际会议管理" ,		pId:"0"	  },
+        {menuId:"41",	name:"国际会议计划" ,		pId:"4"	  },
+        {menuId:"42",	name:"国际会议申报" ,		pId:"4"	  },
+        {menuId:"43",	name:"国际会议总结" ,		pId:"4"	  },
+        {menuId:"44",	name:"国际会议数据统计" ,		pId:"4"	  },
+        {menuId:"5",	name:"因公护照管理" ,		pId:"0"	  },
+        {menuId:"51",	name:"因公护照管理" ,		pId:"5"	  },
+        {menuId:"6",	name:"外宾来访接待" ,		pId:"0"	  },
+        {menuId:"61",	name:"来访接待申请" ,		pId:"6"	  },
+        {menuId:"62",	name:"来访接待" ,			pId:"6"	  },
+        {menuId:"63",	name:"来访接待总结" ,		pId:"6"	  },
+        {menuId:"7",	name:"交流合作协议管理" ,		pId:"0"	  },
+        {menuId:"71",	name:"交流合作协议管理" ,		pId:"7"	  },
+        {menuId:"8",	name:"外籍教师管理" ,		pId:"0"	  },
+        {menuId:"81",	name:"外籍教师管理" ,		pId:"8"	  },
+        {menuId:"9",	name:"国际交流联系人库" ,		pId:"0"	  },
+        {menuId:"91",	name:"联系人库管理" ,		pId:"9"	  }
 
     ];
     $(document).ready(function(){
         zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
 
-        $("#role_grant").click(function(){
+        $(roleMenuArray).each(function(){
+            var roleMenu = this;
 
-            var index = parent.layer.getframeindex(window.name); //获取窗口索引
-            parent.layer.close(index);
-            parent.layer.alert("授权成功。。。")
+            var nodes = zTreeObj.getNodesByParam("menuId", roleMenu.menuId, null);
+            $(nodes).each(function(){
+                var node = this;
+                //console.info(node);
+                zTreeObj.checkNode(node, true, false);
+            });
         });
 
 
 
+        $("#role_grant").click(function(){
+
+            var nodes = zTreeObj.getCheckedNodes(true);
+            if(nodes && nodes.length>0){
+                var menuIds = [];
+                for(var name in nodes){
+                    var node = nodes[name];
+                    menuIds.push(node.menuId);
+                }
+                grantMenu(menuIds);
+            }else{
+                parent.layer.alert("请选择授权菜单.....")
+            }
+
+        });
 
     });
+
+
+    /**
+     * 给角色授权菜单权限
+     * @param menuIds
+     */
+    function grantMenu(menuIds){
+        $.ajax('sys/role/grantMenu',{
+            traditional:true,
+            data:{"ids":menuIds,roleId:$("#roleId").val()},
+            success:function(resp){
+                if(resp && resp.success){
+                    closeLayer();
+                    winAlert("授权成功...")
+                }else{
+                    winAlert("操作失败,请重试...")
+                }
+            }
+        });
+    }
 </script>
 </body>
 </html>

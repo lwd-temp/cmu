@@ -1,7 +1,7 @@
 package cn.edu.cmu.service;
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgTzcy;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class CgTzcyServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         CgTzcy cgTzcy = new CgTzcy(CmuStringUtil.UUID(), "01", "01", "01", "01", "01", null,null);
         boolean success = service.insert(cgTzcy);
         System.out.println("cgTzcy:"+cgTzcy);
@@ -29,7 +29,7 @@ public class CgTzcyServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception {
         String keyId = "725bb88c57d44d3b8ad60cf9b879450e";
         CgTzcy cgTzcy = service.queryById(keyId);
         System.out.println(cgTzcy);
@@ -37,7 +37,7 @@ public class CgTzcyServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception {
         //ALT+ENTER  前台页面接到的查询条件
         CgTzcy cgTzcyParam = new CgTzcy();
         cgTzcyParam.setXm("01");
@@ -49,7 +49,7 @@ public class CgTzcyServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception {
         String keyId = "725bb88c57d44d3b8ad60cf9b879450e";
         CgTzcy cgTzcy = service.queryById(keyId);
         System.out.println("更新前:"+cgTzcy);
@@ -62,7 +62,7 @@ public class CgTzcyServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         CgTzcy cgTzcy = new CgTzcy(keyId, "01", "01", "01", "01", "01", null,null);
         boolean success = service.insert(cgTzcy);

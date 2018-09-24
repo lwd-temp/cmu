@@ -25,7 +25,7 @@ public class RoleMenuServiceImplTest_false extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         RoleMenu roleMenu = new RoleMenu("7cd757d6508e4f31a2a2318d06a68c5a","de05ce34c9a343eaa5e08244d1e93425",null,null);
         boolean success = service.insert(roleMenu);
         System.out.println("RoleMenu:"+roleMenu);
@@ -34,7 +34,7 @@ public class RoleMenuServiceImplTest_false extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "7cd757d6508e4f31a2a2318d06a68c5a";
         RoleMenu roleMenu = service.queryById(keyId);
         System.out.println(roleMenu);
@@ -42,7 +42,7 @@ public class RoleMenuServiceImplTest_false extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         RoleMenu roleMenuParam = new RoleMenu();
         roleMenuParam.setMenuId("0");
         List<RoleMenu> roleMenus = service.list(roleMenuParam);
@@ -53,7 +53,7 @@ public class RoleMenuServiceImplTest_false extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "7cd757d6508e4f31a2a2318d06a68c5a";
         RoleMenu roleMenu = service.queryById(keyId);
         System.out.println("更新前:"+roleMenu);
@@ -66,7 +66,7 @@ public class RoleMenuServiceImplTest_false extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception{
         //String keyId = CmuStringUtil.UUID();
         RoleMenu roleMenu = new RoleMenu("116f3c9b61a048c690cdb5f6ad5012b1","de05ce34c9a343eaa5e08244d1e93425",null,null);
         boolean success = service.insert(roleMenu);

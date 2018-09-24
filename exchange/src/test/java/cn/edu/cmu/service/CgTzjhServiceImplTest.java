@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgTzjh;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,7 +24,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         CgTzjh CgTzjh = new CgTzjh(
                 CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01",
                 "01","01","01","01","01","01","01","01","01",
@@ -37,7 +37,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception {
         String keyId = "5b47eb139d874a5c9dc80c909fdf4ee4";
         CgTzjh CgTzjh = service.queryById(keyId);
         System.out.println(CgTzjh);
@@ -45,7 +45,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception {
         //ALT+ENTER  前台页面接到的查询条件
         CgTzjh CgTzjhParam = new CgTzjh();
         CgTzjhParam.setCfdw("01");
@@ -57,7 +57,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception {
         String keyId = "5b47eb139d874a5c9dc80c909fdf4ee4";
         CgTzjh CgTzjh = service.queryById(keyId);
         System.out.println("更新前:"+CgTzjh);
@@ -70,7 +70,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         CgTzjh CgTzjh = new CgTzjh(keyId, "01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01",
                 BigDecimal.valueOf(1.34), "01",BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,

@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HyRymd;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         HyRymd hyRymd = new HyRymd(CmuStringUtil.UUID(), "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
         boolean success = service.insert(hyRymd);
         System.out.println("HyRymd:"+hyRymd);
@@ -35,7 +35,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "394fb5ed07bd4e08841726eb5e914bf0";
         HyRymd hyRymd = service.queryById(keyId);
         System.out.println(hyRymd);
@@ -43,7 +43,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         HyRymd hyRymdParam = new HyRymd();
         hyRymdParam.setXm("01");
         List<HyRymd> hyRymds = service.list(hyRymdParam);
@@ -54,7 +54,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "394fb5ed07bd4e08841726eb5e914bf0";
         HyRymd hyRymd = service.queryById(keyId);
         System.out.println("更新前:"+hyRymd);
@@ -67,7 +67,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         HyRymd hyRymd = new HyRymd(keyId, "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
         boolean success = service.insert(hyRymd);

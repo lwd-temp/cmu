@@ -2,8 +2,6 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.UserRole;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +25,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         UserRole userRole = new UserRole("3d331604574846cb9032569a3759fe3e","7cd757d6508e4f31a2a2318d06a68c5a",null,null);
         boolean success = service.insert(userRole);
         System.out.println("UserRole:"+userRole);
@@ -36,7 +34,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         UserRole userRole = service.queryById(keyId);
         System.out.println(userRole);
@@ -44,7 +42,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list()throws Exception {
         UserRole userRoleParam = new UserRole();
         userRoleParam.setRoleId("0");
         List<UserRole> userRoles = service.list(userRoleParam);
@@ -55,7 +53,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         UserRole userRole = service.queryById(keyId);
         System.out.println("更新前:"+userRole);
@@ -68,7 +66,7 @@ public class UserRoleServiceImplTest_false extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception{
         UserRole userRole = new UserRole("d538b9ce55a04737acd4ac3bef6903ed","7cd757d6508e4f31a2a2318d06a68c5a",null,null);
         boolean success = service.insert(userRole);
         System.out.println("保存成功："+success);

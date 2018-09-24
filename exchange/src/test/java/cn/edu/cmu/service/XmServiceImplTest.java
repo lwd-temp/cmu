@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Xm;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class XmServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         Xm xm = new Xm(CmuStringUtil.UUID(),"01","01","01","01","01",
                 new Date(),new Date(), BigDecimal.valueOf(1.34), "01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),"01",
                 "01", BigDecimal.valueOf(1.34),"01","01","01","01", null,null);
@@ -39,7 +38,7 @@ public class XmServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "6ae324e03fd84ace9497cbfedc908a0b";
         Xm xm = service.queryById(keyId);
         System.out.println(xm);
@@ -47,7 +46,7 @@ public class XmServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list()throws Exception {
         Xm xmParam = new Xm();
         xmParam.setXmmc("0");
         List<Xm> xms = service.list(xmParam);
@@ -58,7 +57,7 @@ public class XmServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "6ae324e03fd84ace9497cbfedc908a0b";
         Xm xm = service.queryById(keyId);
         System.out.println("更新前:"+xm);
@@ -71,7 +70,7 @@ public class XmServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         Xm xm = new Xm(keyId,"01","01","01","01","01",
                 new Date(),new Date(), BigDecimal.valueOf(1.34), "01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),"01",

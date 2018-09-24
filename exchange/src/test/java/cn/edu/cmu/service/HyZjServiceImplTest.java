@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HyZj;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         HyZj hyZj = new HyZj(CmuStringUtil.UUID(),"01", "01","01","01","01","01", null,null);
         boolean success = service.insert(hyZj);
         System.out.println("HyZj:"+hyZj);
@@ -36,7 +35,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "fe4a4893ac6f46caafa4c4f60f684623";
         HyZj hyZj = service.queryById(keyId);
         System.out.println(hyZj);
@@ -44,7 +43,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         HyZj hyZjParam = new HyZj();
         hyZjParam.setPjwh("01");
         List<HyZj> hyZjs = service.list(hyZjParam);
@@ -55,7 +54,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update()throws Exception {
         String keyId = "fe4a4893ac6f46caafa4c4f60f684623";
         HyZj hyZj = service.queryById(keyId);
         System.out.println("更新前:"+hyZj);
@@ -68,7 +67,7 @@ public class HyZjServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         HyZj hyZj = new HyZj(keyId,"01", "01","01","01","01","01", null,null);
         boolean success = service.insert(hyZj);

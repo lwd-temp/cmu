@@ -57,20 +57,20 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 角色名称: </label>
 
-                                <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value=""  placeholder="请输入角色名称"  class="col-xs-12" />
+                                <div class="col-xs-10">
+                                    <input type="text"  name="roleName" id="roleName" value=""  placeholder="请输入角色名称"  class="col-xs-12" />
                                 </div>
-
+<%--
                                 <label class="col-xs-2 control-label " > 部门名称: </label>
 
                                 <div class="col-xs-4">
                                     <input type="text"  name="username"   value="" placeholder="请输入部门名称"  class="col-xs-12" />
-                                </div>
+                                </div>--%>
 
                             </div>
 
@@ -78,7 +78,7 @@
                                 <div class="col-md-offset-3 col-md-9">
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
-                                        修改
+                                        保存
                                     </button>
 
                                     &nbsp; &nbsp; &nbsp;
@@ -120,20 +120,50 @@
 <script src="assets/js/jquery.maskedinput.js"></script>
 <script src="assets/js/bootstrap-tag.js"></script>
 <!-- ace scripts -->
+
+<!-- jqueryValidate验证框架-->
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+<script src="assets/js/layer/layer.js"></script>
+
+<script src="assets/project/js/common-window.js"></script>
+
+
+
 <script>
-    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
 
     $(function(){
+        //添加校验
+        $("#form").setValid({
+            //校验规则
+            rules: {
+                roleName:{
+                    required: true,
+                    minlength: 2
+                }
+            }
+        });
+
+
+
         $("#btn-submit").click(function(){
-            var par = parent;
-            parent.layer.close(index);
-            parent.clearTable();
-            parent.layer.alert('点击修改按钮，修改完成后提示成功，并刷新用户列表', {icon: 6});
-            setTimeout(function(){
-                par.refreshTable();
 
-            },900);
+            if(!$("#form").valid()){
+                return;
+            }
 
+            $.ajax('sys/role/save',{
+                type:'post',
+                dataType:'json',
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        parent.refreshTable();
+                        closeLayer();//关闭
+                        winAlert("保存成功");//弹出确认消息
+                    }
+                }
+            });
         });
 
     })

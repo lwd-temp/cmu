@@ -20,10 +20,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 用户: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 角色: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="请输入角色名称" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="请输入角色名称" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -45,12 +45,6 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-            {id:"1",	roleName:"管理员", dept:"部门",   createTime:'2017-03-08'},
-            {id:"2",	roleName:"国际事务部", dept:"国际事务部",   createTime:'2018-09-12'},
-            {id:"3",	roleName:"学生", dept:"院系",   createTime:'2017-01-01'},
-        ];
 
 
     var grid_selector = "#grid-table";
@@ -81,7 +75,7 @@
         var navBtns = [
             {
                 caption:"添加角色",
-                buttonicon:"ace-icon fa fa-trash-o red",
+                buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
                         area: ['600px', '290px'],
@@ -121,21 +115,24 @@
 
         var settings = {
             caption: "角色管理",
-            data: grid_data,
-            colNames:['ID','角色名称','部门', '创建时间', "操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"],
+            url:'sys/role/list',
+            colNames:[/*'ID',*/'角色名称', '创建时间', "操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'id',index:'id',  },
+                /*{name:'roleId',index:'roleId',  },*/
                 {name:'roleName',index:'roleName',  },
-                {name:'dept',index:'dept',  },
-                {name:'createTime',index:'createTime',  },
+                {name:'createTime',index:'createTime', formatter:function(time){
+                        return new Date(time).getYmd("yyyy年MM月dd日")
 
-                {name:'id',index:'', /*fixed:true,*/ sortable:false, resize:true,
+                    } },
+
+                {name:'roleId',index:'', /*fixed:true,*/ sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editRole("+cellvalue+")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='测试' onclick='grant(\"+cellvalue+\")' ><i class='ace-icon fa fa-pencil '>授权</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delRole("+cellvalue+")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        var idStr = "'"+cellvalue+"'";
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick=\"editRole("+idStr+")\" ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='测试' onclick=\"grant("+idStr+")\" ><i class='ace-icon fa fa-pencil '>授权</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"delRole("+idStr+")\" title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -150,25 +147,15 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
-
+            refreshTable();
         });
 
     });
 
-    function clearTable(){
-        $(grid_selector).jqGrid('clearGridData');  //清空表格
-    }
 
     function refreshTable(){
-
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{'condition':$("#condition").val()},
             page:1
         }).trigger("reloadGrid");
     }
@@ -178,20 +165,34 @@
         layer.newpage({
             area: ['600px', '290px'],
             title:'修改角色',
-            content:'business/power/role/role_edit.jsp',
+            content:'sys/role/toEdit?id='+roleId,
         });
     }
 
     function grant(roleId){
         layer.newpage({
-            area: ['300px', '490px'],
+            area: ['300px', '590px'],
             title:'角色【授权】',
-            content:'business/power/role/role_menu_grant.jsp',
+            content:'sys/role/toGrant?id='+roleId,
         });
     }
 
     //删除用户
     function delRole(roleId){
-        $(grid_selector).delGridRow(roleId);
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+
+            $.ajax('sys/role/delById',{
+                data:{id:roleId},
+                success:function(res){
+                    if(res && res.success){
+                        refreshTable();
+                    }
+                }
+            })
+
+
+        })
+        //$(grid_selector).delGridRow(roleId);
     }
 </script>

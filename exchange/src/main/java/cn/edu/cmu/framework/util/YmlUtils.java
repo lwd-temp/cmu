@@ -1,4 +1,4 @@
-package cn.edu.cmu.framework.utils;
+package cn.edu.cmu.framework.util;
 
 import java.util.Map;
 

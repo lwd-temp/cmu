@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Menu;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class MenuServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         Menu menu = new Menu(CmuStringUtil.UUID(),"01","01","01","01","01",null,null);
         boolean success = service.insert(menu);
         System.out.println("Menu:"+menu);
@@ -36,7 +35,7 @@ public class MenuServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "de05ce34c9a343eaa5e08244d1e93425";
         Menu menu = service.queryById(keyId);
         System.out.println(menu);
@@ -44,7 +43,7 @@ public class MenuServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         Menu menuParam = new Menu();
         menuParam.setMenuName("0");
         List<Menu> menus = service.list(menuParam);
@@ -55,7 +54,7 @@ public class MenuServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "de05ce34c9a343eaa5e08244d1e93425";
         Menu menu = service.queryById(keyId);
         System.out.println("更新前:"+menu);
@@ -68,7 +67,7 @@ public class MenuServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         Menu menu = new Menu(keyId,"01","01","01","01","01",null,null);
         boolean success = service.insert(menu);

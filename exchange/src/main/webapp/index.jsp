@@ -107,7 +107,7 @@
 					<a href="#" class="navbar-brand">
 						<small>
 							<i class="fa fa-leaf"></i>
-                            CMU Admin(国际交流管理信息系统 原型)
+                            CMU Admin(国际交流管理信息系统 )
 						</small>
 					</a>
 

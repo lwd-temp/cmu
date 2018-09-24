@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Upload;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class UploadServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         Upload upload = new Upload(CmuStringUtil.UUID(),"01", new Date(), "01", "01", "01",null,null);
         boolean success = service.insert(upload);
         System.out.println("Upload:"+upload);
@@ -36,7 +35,7 @@ public class UploadServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "485600be9cb34b20b0340a376756f064";
         Upload upload = service.queryById(keyId);
         System.out.println(upload);
@@ -44,7 +43,7 @@ public class UploadServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         Upload uploadParam = new Upload();
         uploadParam.setUploadPath("0");
         List<Upload> uploads = service.list(uploadParam);
@@ -55,7 +54,7 @@ public class UploadServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "485600be9cb34b20b0340a376756f064";
         Upload upload = service.queryById(keyId);
         System.out.println("更新前:"+upload);
@@ -68,7 +67,7 @@ public class UploadServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         Upload upload = new Upload(keyId,"01", new Date(), "01", "01", "01",null,null);
         boolean success = service.insert(upload);

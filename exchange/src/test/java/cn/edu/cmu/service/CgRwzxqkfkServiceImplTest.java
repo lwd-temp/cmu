@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgRwzxqkfk;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(CmuStringUtil.UUID(), "02","02","02","02",
                 "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
                 "02","02","02","02","02","02","01",null,null);
@@ -36,7 +36,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception {
         String keyId = "01";
         CgRwzxqkfk cgRwzxqkfk = service.queryById(keyId);
         System.out.println(cgRwzxqkfk);
@@ -45,7 +45,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception {
         CgRwzxqkfk cgRwzxqkfkParam = new CgRwzxqkfk();
         cgRwzxqkfkParam.setCfbt("02");
         List<CgRwzxqkfk> cgRwzxqkfks = service.list(cgRwzxqkfkParam);
@@ -56,7 +56,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception {
         String keyId = "4211dcf373014fa3a21f3e767620f97a";
         CgRwzxqkfk cgRwzxqkfk = service.queryById(keyId);
         System.out.println("更新前:"+cgRwzxqkfk);
@@ -70,7 +70,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
 
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(keyId, "02","02","02","02",
                 "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),

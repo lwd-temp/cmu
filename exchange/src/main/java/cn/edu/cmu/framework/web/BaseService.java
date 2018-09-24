@@ -1,60 +1,89 @@
 package cn.edu.cmu.framework.web;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
-public abstract class BaseService<Domain,DomainParams,MyBatisMapper extends  BaseMapper> implements IBaseService<Domain,DomainParams> {
+public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends BaseMapper> implements IBaseService<Domain, DomainParams> {
 
     @Autowired
     protected MyBatisMapper dao;
 
 
     @Override
-    public boolean insert(Domain domain) {
-        return dao.insertSelective(domain)>0;
+    public boolean insert(Domain domain)throws Exception {
+        return dao.insertSelective(domain) > 0;
     }
 
     @Override
-    public boolean insertAllColumn(Domain domain) {
-        return dao.insert(domain)>0;
+    public boolean insertAllColumn(Domain domain)throws Exception {
+        return dao.insert(domain) > 0;
     }
 
     @Override
-    public boolean deleteById(String keyId) {
-        return dao.deleteByPrimaryKey(keyId)>0;
+    public boolean deleteById(String keyId)throws Exception {
+        return dao.deleteByPrimaryKey(keyId) > 0;
     }
 
     @Override
-    public boolean deleteByCondition(DomainParams domainParams) {
-        return dao.deleteByExample(domainParams)>0;
+    public boolean deleteByCondition(DomainParams domainParams)throws Exception {
+        return dao.deleteByExample(domainParams) > 0;
     }
 
     @Override
-    public boolean updateByIdAllColumn(Domain domain) {
-        return dao.updateByPrimaryKey(domain)>0;
+    public boolean updateByIdAllColumn(Domain domain)throws Exception {
+        return dao.updateByPrimaryKey(domain) > 0;
     }
 
     @Override
-    public boolean updateById(Domain domain) {
-        return dao.updateByPrimaryKeySelective(domain)>0;
+    public boolean updateById(Domain domain)throws Exception {
+        return dao.updateByPrimaryKeySelective(domain) > 0;
     }
 
     /**
      * 每个表的查询条件都不一样，没法抽象，所以让继承类实现
+     *
      * @param domain
      * @return
      */
     @Override
-    public abstract List list(Domain domain);
+    public abstract List list(Domain domain)throws Exception;
 
     @Override
-    public Domain queryById(String keyId) {
+    public List list(Object... conditions) throws  Exception{ return null;  }
+
+    @Override
+    public Domain queryById(String keyId)throws Exception {
         return (Domain) dao.selectByPrimaryKey(keyId);
     }
 
+
     @Override
-    public int countByCondition(DomainParams domainParams) {
+    public int countByCondition(DomainParams domainParams)throws Exception {
         return dao.countByExample(domainParams);
+    }
+
+
+
+    public void addOrderBy(Object myBatisParam,Object... conditions) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        Assert.notNull(myBatisParam,"mybatis查询条件不能为空.");
+        if(conditions == null || conditions.length <=1){
+            return ;
+        }
+
+        Method setOrderByClauseMethod = myBatisParam.getClass().getDeclaredMethod("setOrderByClause", String.class);
+        String orderCol = (String) conditions[1];
+        String orderType = (String) (conditions.length>2 ?conditions[2]:"");
+
+        if(StringUtils.isEmpty(orderCol)){
+            return;
+        }
+        //order by %s %s
+        setOrderByClauseMethod.invoke(myBatisParam,String.format(" %s %s",orderCol,orderType));
+
     }
 }

@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Contact;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class ContactServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception {
         Contact contact = new Contact(CmuStringUtil.UUID(),"01","01","01","01",
                 "01","01","01","01",
                 "01","01","01","01", "01",null,null);
@@ -38,7 +37,7 @@ public class ContactServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         Contact contact = service.queryById(keyId);
         System.out.println(contact);
@@ -46,7 +45,7 @@ public class ContactServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception {
         Contact contactParam = new Contact();
         contactParam.setGzdw("0");
         List<Contact> contacts = service.list(contactParam);
@@ -57,7 +56,7 @@ public class ContactServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         Contact contact = service.queryById(keyId);
         System.out.println("更新前:"+contact);
@@ -70,7 +69,7 @@ public class ContactServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         Contact contact = new Contact(keyId,"01","01","01","01",
                 "01","01","01","01",

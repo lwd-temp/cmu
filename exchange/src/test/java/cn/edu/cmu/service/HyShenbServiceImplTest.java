@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.HyShenb;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         HyShenb hyShenb = new HyShenb(CmuStringUtil.UUID(), "3e0b62966c6347d49729316edfa79fda","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01", null,null);
         boolean success = service.insert(hyShenb);
         System.out.println("HyShenb:"+hyShenb);
@@ -35,7 +35,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "db7922e1e7fc4da79e6158fbf8025640";
         HyShenb hyShenb = service.queryById(keyId);
         System.out.println(hyShenb);
@@ -43,7 +43,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         HyShenb hyShenbParam = new HyShenb();
         hyShenbParam.setJbdw("01");
         List<HyShenb> hyShenbs = service.list(hyShenbParam);
@@ -54,7 +54,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "db7922e1e7fc4da79e6158fbf8025640";
         HyShenb hyShenb = service.queryById(keyId);
         System.out.println("更新前:"+hyShenb);
@@ -67,7 +67,7 @@ public class HyShenbServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         HyShenb hyShenb = new HyShenb(keyId, "3e0b62966c6347d49729316edfa79fda","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01", null,null);
         boolean success = service.insert(hyShenb);

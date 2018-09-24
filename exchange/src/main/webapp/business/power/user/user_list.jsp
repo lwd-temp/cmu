@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 用户: </label>
+            <label class="col-sm-4 control-label no-padding-right" > 用户: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="请输入用户显示名称或用户名" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="请输入用户显示名称或用户名" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -35,25 +35,6 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-            {id:"1",	showName:"显示名1",name:"admin",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"2",	showName:"显示名2",name:"system",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"3",	showName:"显示名3",name:"test",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"4",	showName:"显示名3",name:"test1",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"5",	showName:"显示名4",name:"adminabc ",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"6",	showName:"显示名5",name:"liqifan",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"7",	showName:"显示名6",name:"username",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"8",	showName:"显示名8",name:"yangwenbin",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"9",	showName:"显示名9",name:"lixin",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"10",	showName:"显示名10",name:"xijinp",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"11",	showName:"显示名11",name:"wanghaom",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"12",	showName:"显示名12",name:"wuzongx",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"13",	showName:"显示名13",name:"gafgag",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"14",	showName:"显示名14",name:"bailinxi",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"15",	showName:"显示名15",name:"shishuo",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-            {id:"16",	showName:"显示名16",name:"xiejiaan",	passrord:"*",	expDate:"2019-01-01",  createTime:'2017-01-01'},
-    ];
 
 
     var grid_selector = "#grid-table";
@@ -123,25 +104,50 @@
         ]
 
         var settings = {
-            caption: "用户管理",
-            data: grid_data,
-            colNames:['显示名称','用户名', '密码', '过期时间','创建时间',"操作"],
+            caption: "用户管理2",
+            /*data: grid_data,*/
+            postData:{'condition':$("#condition").val()},
+            gridview:false,
+            prmNames:{
+                sort: "orderCol", // 表示用于排序的列名的参数名称  05.
+                order: "orderType", // 表示采用的排序方式的参数名称
+            },
+            url: 'sys/user/list',
+            datatype: "json",
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
+            colNames:['显示名称','用户名', '密码','最后一次登录时间', '最后一次修改时间','创建时间',"操作"],
             colModel:[
-                {name:'showName',index:'showName',  },
-                {name:'name',index:'name',  },
-                {name:'passrord',index:'passrord',  },
-                {name:'expDate',index:'expDate',  },
-                {name:'createTime',index:'createTime',  },
+                {name:'userName',index:'user_name',  },
+                {name:'userName',index:'user_name', sortable:false },
+                {name:'password',index:'password', formatter:function(time){
+                        return "☆☆☆☆☆☆☆☆☆";
+                    }  },
+                {name:'lastModifyTime',index:'last_modify_time', formatter:function(time){
+                    return new Date(time).getYmd("yyyy-MM-dd");
+                }, },
+                {name:'lastLoginTime',index:'last_login_time', formatter:function(time){
+                    return new Date(time).getYmd("yyyy-MM-dd");
+                }, },
+                {name:'createTime',index:'create_time', formatter:function(time){
+                        return new Date(time).getYmd("yyyy-MM-dd");
+                    }, },
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
+                {name:'userId',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editUser("+cellvalue+")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delUser("+cellvalue+")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        var idStr = "'"+cellvalue+"'";
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick=\"editUser("+idStr+")\" ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"delUser("+idStr+")\" title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
-            ]
+            ],
+            //给行加样式
+            /*afterInsertRow:function( rowid, rowdata ,rowelem ,a){
+                if(rowid>5){
+                    $("tr#"+rowid).css("background","#ff99cc");
+                }
+
+            }*/
 
         }
 
@@ -150,31 +156,17 @@
         $(grid_selector).tables(settings);
 
 
-
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
+            $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
+                postData:{'condition':$("#condition").val()},
+                page:1
+            }).trigger("reloadGrid");
 
         });
 
     });
 
-    function clearTable(){
-        $(grid_selector).jqGrid('clearGridData');  //清空表格
-    }
-
-    function refreshTable(){
-
-        $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
-            page:1
-        }).trigger("reloadGrid");
-    }
 
     //修改用户
     function editUser(userId){

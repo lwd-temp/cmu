@@ -2,7 +2,7 @@ package cn.edu.cmu.framework;
 
 import cn.edu.cmu.framework.cache.DMCache;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
-import cn.edu.cmu.framework.utils.YmlUtils;
+import cn.edu.cmu.framework.util.YmlUtils;
 import cn.edu.cmu.framework.web.BaseMapper;
 import org.apache.log4j.Logger;
 import org.springframework.beans.BeansException;
@@ -50,6 +50,7 @@ public class CmuBeanFatoryDelegate implements ApplicationContextAware{
     /**
      * 初始化代码缓存
      */
+    @SuppressWarnings(value="unchecked")
     private void initDmCache(String mybatisMapperBeanName) {
 
         String tableName = "T_DM_"+mybatisMapperBeanName.toUpperCase().replace("MAPPER","").replace("DM","");

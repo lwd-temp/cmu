@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.XmJlzjbg;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class XmJlzjbgServiceImplTest_false extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         XmJlzjbg xmJlzjbg = new XmJlzjbg(CmuStringUtil.UUID(),"be9cb34b22b0340a376756f064","485600be9cb34b20b0340a376756f064",null,null);
         boolean success = service.insert(xmJlzjbg);
         System.out.println("XmJlzjbg:"+xmJlzjbg);
@@ -36,7 +35,7 @@ public class XmJlzjbgServiceImplTest_false extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "68489552a2b84486b6fa33467dd561e9";
         XmJlzjbg xmJlzjbg = service.queryById(keyId);
         System.out.println(xmJlzjbg);
@@ -44,7 +43,7 @@ public class XmJlzjbgServiceImplTest_false extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         XmJlzjbg xmJlzjbgParam = new XmJlzjbg();
         xmJlzjbgParam.setSqjlId("0");
         List<XmJlzjbg> xmJlzjbgs = service.list(xmJlzjbgParam);
@@ -55,7 +54,7 @@ public class XmJlzjbgServiceImplTest_false extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update()throws Exception {
         String keyId = "68489552a2b84486b6fa33467dd561e9";
         XmJlzjbg xmJlzjbg = service.queryById(keyId);
         System.out.println("更新前:"+xmJlzjbg);
@@ -68,7 +67,7 @@ public class XmJlzjbgServiceImplTest_false extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         XmJlzjbg xmJlzjbg = new XmJlzjbg(keyId,"01","01",null,null);
         boolean success = service.insert(xmJlzjbg);

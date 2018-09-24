@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.XmXssbfj;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         XmXssbfj xmXssbfj = new XmXssbfj(CmuStringUtil.UUID(),"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
         boolean success = service.insert(xmXssbfj);
         System.out.println("XmXssbfj:"+xmXssbfj);
@@ -36,7 +35,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "85fac2e23b14498ab9bc040a8c384aad";
         XmXssbfj xmXssbfj = service.queryById(keyId);
         System.out.println(xmXssbfj);
@@ -44,7 +43,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         XmXssbfj xmXssbfjParam = new XmXssbfj();
         xmXssbfjParam.setSqjlId("0");
         List<XmXssbfj> xmXssbfjs = service.list(xmXssbfjParam);
@@ -55,7 +54,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "85fac2e23b14498ab9bc040a8c384aad";
         XmXssbfj xmXssbfj = service.queryById(keyId);
         System.out.println("更新前:"+xmXssbfj);
@@ -68,7 +67,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         XmXssbfj xmXssbfj = new XmXssbfj(keyId,"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
         boolean success = service.insert(xmXssbfj);

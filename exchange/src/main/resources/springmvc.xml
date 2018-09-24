@@ -61,9 +61,8 @@
             <array>
                 <bean class="com.github.pagehelper.PageHelper">
                     <property name="properties">
-                        <value>dialect=mysql</value>
+                        <value>dialect=Oracle</value>
                     </property>
-
                 </bean>
             </array>
         </property>

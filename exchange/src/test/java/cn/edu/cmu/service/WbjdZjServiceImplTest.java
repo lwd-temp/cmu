@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.WbjdZj;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         WbjdZj WbjdZj = new WbjdZj(CmuStringUtil.UUID(),"01","01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01",
                 "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(), "01","01",
                 "01","01","01","01","01","01","01","01","01","01","01", null,null);
@@ -37,7 +37,7 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         WbjdZj WbjdZj = service.queryById(keyId);
         System.out.println(WbjdZj);
@@ -45,7 +45,7 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         WbjdZj WbjdZjParam = new WbjdZj();
         WbjdZjParam.setDbtmc("0");
         List<WbjdZj> WbjdZjs = service.list(WbjdZjParam);
@@ -56,7 +56,7 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update()throws Exception {
         String keyId = "e6a186552a5a4707a3d80d98e2d5f50b";
         WbjdZj WbjdZj = service.queryById(keyId);
         System.out.println("更新前:"+WbjdZj);
@@ -69,7 +69,7 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         WbjdZj WbjdZj = new WbjdZj(keyId,"01","01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01",
                 "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(), "01","01",

@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.XmXssqjl;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         XmXssqjl xmXssqjl = new XmXssqjl(CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),
                 "01","01","01","01", null,null);
         boolean success = service.insert(xmXssqjl);
@@ -38,7 +37,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "03d424b544914747969656add5b104a7";
         XmXssqjl xmXssqjl = service.queryById(keyId);
         System.out.println(xmXssqjl);
@@ -46,7 +45,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list()throws Exception {
         XmXssqjl xmXssqjlParam = new XmXssqjl();
         xmXssqjlParam.setXm("0");
         List<XmXssqjl> xmXssqjls = service.list(xmXssqjlParam);
@@ -57,7 +56,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update()throws Exception {
         String keyId = "03d424b544914747969656add5b104a7";
         XmXssqjl xmXssqjl = service.queryById(keyId);
         System.out.println("更新前:"+xmXssqjl);
@@ -70,7 +69,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception{
         String keyId = CmuStringUtil.UUID();
         XmXssqjl xmXssqjl = new XmXssqjl(keyId,"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),
                 "01","01","01","01", null,null);

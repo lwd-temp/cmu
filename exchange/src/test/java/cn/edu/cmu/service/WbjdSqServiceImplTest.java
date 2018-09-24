@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.WbjdSq;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,7 +27,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save() throws Exception{
         WbjdSq wbjdSq = new WbjdSq(CmuStringUtil.UUID(), "01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01", "01","01","01","01","01",
                 BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);
         boolean success = service.insert(wbjdSq);
@@ -38,7 +37,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey() throws Exception{
         String keyId = "eb036d5ea1394154bddbc27aa5b34900";
         WbjdSq wbjdSq = service.queryById(keyId);
         System.out.println(wbjdSq);
@@ -46,7 +45,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         WbjdSq wbjdSqParam = new WbjdSq();
         wbjdSqParam.setDbtmc("0");
         List<WbjdSq> wbjdSqs = service.list(wbjdSqParam);
@@ -57,7 +56,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "eb036d5ea1394154bddbc27aa5b34900";
         WbjdSq wbjdSq = service.queryById(keyId);
         System.out.println("更新前:"+wbjdSq);
@@ -70,7 +69,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         WbjdSq wbjdSq = new WbjdSq(keyId , "01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01", "01","01","01","01","01",
                 BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);

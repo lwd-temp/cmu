@@ -2,8 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.Hzxy;
-import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,7 +26,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         Hzxy hzxy = new Hzxy(CmuStringUtil.UUID(),"01", "01",new Date(),new Date(), "01",null,null);
         boolean success = service.insert(hzxy);
         System.out.println("Hzxy:"+hzxy);
@@ -36,7 +35,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     }
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "611eece2fe8244fa8e1729e9a8d3417a";
         Hzxy hzxy = service.queryById(keyId);
         System.out.println(hzxy);
@@ -44,7 +43,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     }
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         Hzxy hzxyParam = new Hzxy();
         hzxyParam.setXymc("01");
         List<Hzxy> hzxys = service.list(hzxyParam);
@@ -55,7 +54,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     }
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "611eece2fe8244fa8e1729e9a8d3417a";
         Hzxy hzxy = service.queryById(keyId);
         System.out.println("更新前:"+hzxy);
@@ -68,7 +67,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     }
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
         Hzxy hzxy = new Hzxy(keyId,"01", "01",new Date(),new Date(), "01",null,null);
         boolean success = service.insert(hzxy);

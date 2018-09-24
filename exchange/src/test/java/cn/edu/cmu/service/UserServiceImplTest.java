@@ -2,7 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.User;
-import cn.edu.cmu.framework.utils.CmuStringUtil;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -26,7 +26,7 @@ public class UserServiceImplTest extends SpringIOC {
 
     //根据条件查询
     @Test
-    public void list() {
+    public void list() throws Exception{
         //ALT+ENTER  前台页面接到的查询条件
         User userParam = new User();
         userParam.setUserName("chenjing");
@@ -39,7 +39,7 @@ public class UserServiceImplTest extends SpringIOC {
 
     //根据主键删除
     @Test
-    public void deleteById() {
+    public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
         User user = new User(keyId, "chenjing1",  "123456", new Date() ,new Date(), null,null);
 
@@ -59,7 +59,7 @@ public class UserServiceImplTest extends SpringIOC {
 
     //根据主键查询
     @Test
-    public void selectByPrimaryKey() {
+    public void selectByPrimaryKey()throws Exception {
         String keyId = "3d331604574846cb9032569a3759fe3e";
         User user = service.queryById(keyId);
         System.out.println(user);
@@ -68,7 +68,7 @@ public class UserServiceImplTest extends SpringIOC {
     }
     //保存
     @Test
-    public void save() {
+    public void save()throws Exception {
         User user = new User(CmuStringUtil.UUID(), "chenjing",  "123456", new Date() ,new Date(), null,null);
 
         boolean success = service.insert(user);
@@ -80,7 +80,7 @@ public class UserServiceImplTest extends SpringIOC {
 
     //更新
     @Test
-    public void update() {
+    public void update() throws Exception{
         String keyId = "3d331604574846cb9032569a3759fe3e";
         User user = service.queryById(keyId);
         System.out.println("更新前:"+user);

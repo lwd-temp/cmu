@@ -1,6 +1,18 @@
 sys:
+  debug:
+    #DEBUG开关
+    switch:
+      true
+    #ignoreLogin 是否忽略注释 true、false
+    ignoreLogin:
+      false
   cache:
     mapperbeans:
       dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
+  access:
+    ignore:
+      ext:
+        css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot
+      url:
 
 
