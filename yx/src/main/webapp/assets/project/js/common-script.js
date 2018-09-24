@@ -34,6 +34,14 @@ $(function(){
             var tab = this;
             var settings = {
                 datatype: "local",
+                //如果有url 从服务器端获取数据，数据返回的jsonkey可以在jsonReader中定义
+                jsonReader : {
+                    root:"data",//array或者List数据
+                    page: "page",//当前页码
+                    total: "pages",//总页数
+                    records: "count",//总记录数
+                    repeatitems: false
+                },
                 shrinkToFit:true,
                 /*width:"100%",*/
                 autowidth:true,
