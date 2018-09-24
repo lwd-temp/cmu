@@ -184,7 +184,7 @@
         parent.layer.close(index);
 
         parent.layer.newpage({
-            area: ['1000px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-10)+"px"],
             title:'申报会议',
             content:'business/gjhy/gjhy_sb_add.jsp',
         });

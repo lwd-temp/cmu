@@ -103,12 +103,11 @@
                     },function(){//无计划立即申报
                         layer.close(confirmIndex);
                         layer.newpage({
-                            area: ['1000px', ($(window).height()-10)+"px"],
+                            area: ['1100px', ($(window).height()-10)+"px"],
                             title:'申报会议',
                             content:'business/gjhy/gjhy_sb_add.jsp',
                         });
                     })
-
                 }
             }
         ]
@@ -116,10 +115,11 @@
         var settings = {
             caption: "已申报国际会议计划列表",
             data: grid_data,
-            colNames:["会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"状态","操作"],
+            colNames:["会议编号","会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"状态","操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
+                {name:'id',index:'id',  },
                 {name:'hymc',index:'hymc',  },
                 {name:'zbdw',index:'zbdw',  },
                 {name:'cbdw',index:'cbdw',  },
@@ -181,7 +181,7 @@
     //修改用户
     function editGjyyJh(userId){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-10)+"px"],
             title:'修改会议申报信息',
             content:'business/gjhy/gjhy_sb_edit.jsp',
         });
@@ -195,7 +195,7 @@
     //查看用户
     function showSbInfo(userId){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-10)+"px"],
             title:'查看会议申报信息',
             content:'business/gjhy/gjhy_sb_show.jsp',
         });

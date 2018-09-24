@@ -668,18 +668,18 @@
                             </li>
 
                             <li class="">
-                                <a href="javascript:getUrl(this,'unknow')">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    国际会议总结
-                                </a>
+								<a href="javascript:getUrl(this,'business/gjhy/gjhy_zj_list.jsp')">
+									<i class="menu-icon fa fa-caret-right"></i>
+									国际会议总结
+								</a>
 
-                            </li>
+							</li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'unknow')">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    国际会议数据统计
-                                </a>
+							<li class="">
+								<a href="javascript:getUrl(this,'business/gjhy/gjhy_tj_list.jsp')">
+									<i class="menu-icon fa fa-caret-right"></i>
+									国际会议数据统计
+								</a>
 
                             </li>
 

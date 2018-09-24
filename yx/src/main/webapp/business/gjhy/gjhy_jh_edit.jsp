@@ -129,6 +129,19 @@
                                     <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 会议类型: </label>
+                                <div class="col-xs-4">
+                                    <select class="chosen-select form-control"   data-placeholder="请选择会议类型">
+                                        <option value=""> 请选择 </option>
+                                        <option value="01" selected>国际会议</option>
+                                        <option value="02">两国间报告</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6">
+
+                                </div>
+                            </div>
                             <hr/>
                             <div class="form-group">
                                 <div class="col-xs-3">
@@ -198,7 +211,7 @@
                                 </button>
 
                                 &nbsp; &nbsp; &nbsp;
-                                
+
                             </div>
 
                         </form>
@@ -240,33 +253,6 @@
             autoclose: true,
             todayHighlight: true
         });
-
-        var names  = ["美国","英国1","英国2","英国3","英国4","英国5","英国6","英国7","英国8"];
-
-
-        var substringMatcher = function(strs) {
-            return function findMatches(q, cb) {
-                var matches, substringRegex;
-
-                // an array that will be populated with substring matches
-                matches = [];
-
-                // regex used to determine if a string contains the substring `q`
-                substrRegex = new RegExp(q, 'i');
-
-                // iterate through the pool of strings and for any string that
-                // contains the substring `q`, add it to the `matches` array
-                $.each(strs, function(i, str) {
-                    if (substrRegex.test(str)) {
-                        // the typeahead jQuery plugin expects suggestions to a
-                        // JavaScript object, refer to typeahead docs for more info
-                        matches.push({ value: str });
-                    }
-                });
-
-                cb(matches);
-            }
-        }
 
 
         //选择录入框

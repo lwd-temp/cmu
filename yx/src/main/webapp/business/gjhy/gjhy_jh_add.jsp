@@ -129,6 +129,19 @@
                                     <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 会议类型: </label>
+                                <div class="col-xs-4">
+                                    <select class="chosen-select form-control"   data-placeholder="请选择会议类型">
+                                        <option value=""> 请选择 </option>
+                                        <option value="01">国际会议</option>
+                                        <option value="02">两国间报告</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-6">
+
+                                </div>
+                            </div>
                             <hr/>
                             <div class="form-group">
                                 <div class="col-xs-3">

@@ -131,12 +131,20 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-3 control-label "  > 是否在属地公安部门备案 </label>
-                                <div class="col-xs-9">
+                                <label class="col-xs-2 control-label "  > 会议类型: </label>
+                                <div class="col-xs-4">
+                                    <select class="chosen-select form-control"   data-placeholder="请选择会议类型">
+                                        <option value=""> 请选择 </option>
+                                        <option value="01">国际会议</option>
+                                        <option value="02">两国间报告</option>
+                                    </select>
+                                </div>
+                                <label class="col-xs-2 control-label "  > 是否在属地公安部门备案 </label>
+                                <div class="col-xs-4">
                                     <input name="form-field-radio"    type="radio" class="ace" />
-                                    <span class="lbl"> 男</span>
+                                    <span class="lbl"> 是</span>
                                     <input name="form-field-radio"    type="radio"  class="ace" />
-                                    <span class="lbl"> 女</span>
+                                    <span class="lbl"> 否</span>
                                 </div>
 
                             </div>
@@ -206,7 +214,13 @@
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-info btn-sm" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    保存
+                                    暂存
+                                </button>
+
+                                &nbsp; &nbsp; &nbsp;
+                                <button class="btn btn-info btn-sm" id="submit" type="button">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    提交
                                 </button>
 
                                 &nbsp; &nbsp; &nbsp;
@@ -254,21 +268,15 @@
         });
 
 
-        //选择录入框
-        $('input.typeahead').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'states',
-            displayKey: 'value',
-            source: substringMatcher(names),
-            limit: 10
-        });
-
-
-
         $('.chosen-select').chosen({allow_single_deselect:true});
+
+
+        $("#submit").click(function(){
+
+            alert("提交成功后系统自动生成《国际会议申报表》或《两国会议申报表》");
+
+            window.open("alink/doc/gjhy_sqb.pdf")
+        });
 
     });
 
