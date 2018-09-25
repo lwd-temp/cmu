@@ -2,6 +2,7 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/exchange" />
+    <file type="web" url="file://$PROJECT_DIR$/sso" />
     <file type="web" url="file://$PROJECT_DIR$/yx" />
   </component>
   <component name="MavenProjectsManager">
@@ -9,6 +10,7 @@
       <list>
         <option value="$PROJECT_DIR$/yx/pom.xml" />
         <option value="$PROJECT_DIR$/exchange/pom.xml" />
+        <option value="$PROJECT_DIR$/sso/pom.xml" />
       </list>
     </option>
   </component>
