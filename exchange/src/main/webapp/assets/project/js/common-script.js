@@ -73,7 +73,7 @@ var initIndex = layer.loading();
         type:'post',
         dataType:'json',
         beforeSend:function(){
-            var ajaxIndex = layer.loading();
+             ajaxIndex = layer.loading();
         },
         complete:function(XHR, TS){
             layer.close(ajaxIndex);
@@ -83,8 +83,6 @@ var initIndex = layer.loading();
         }
     });
 })()
-
-
 
 
 $(function(){
@@ -164,9 +162,7 @@ $(function(){
     });
 
 
-    setTimeout(function(){
-        layer.close(initIndex);
-    },500);
+
 
 });
 

@@ -9,9 +9,9 @@ public class HzxyGb {
     private String gbid;
 
     /**
-     * 国别名称
+     * null
      */
-    private String gbmc;
+    private String gjdm;
 
     /**
      * 盒子颜色 此处需求还需待确认???
@@ -35,11 +35,11 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
-    public HzxyGb(String gbid, String gbmc, String hzys, String xyid, String valid, Date createTime) {
+    public HzxyGb(String gbid, String gjdm, String hzys, String xyid, String valid, Date createTime) {
         this.gbid = gbid;
-        this.gbmc = gbmc;
+        this.gjdm = gjdm;
         this.hzys = hzys;
         this.xyid = xyid;
         this.valid = valid;
@@ -48,7 +48,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
     public HzxyGb() {
         super();
@@ -56,7 +56,7 @@ public class HzxyGb {
 
     /**
      * 国别id
-     * @return GBID 国别id
+     * @return gbid 国别id
      */
     public String getGbid() {
         return gbid;
@@ -71,24 +71,24 @@ public class HzxyGb {
     }
 
     /**
-     * 国别名称
-     * @return GBMC 国别名称
+     * null
+     * @return gjdm null
      */
-    public String getGbmc() {
-        return gbmc;
+    public String getGjdm() {
+        return gjdm;
     }
 
     /**
-     * 国别名称
-     * @param gbmc 国别名称
+     * null
+     * @param gjdm null
      */
-    public void setGbmc(String gbmc) {
-        this.gbmc = gbmc == null ? null : gbmc.trim();
+    public void setGjdm(String gjdm) {
+        this.gjdm = gjdm == null ? null : gjdm.trim();
     }
 
     /**
      * 盒子颜色 此处需求还需待确认???
-     * @return HZYS 盒子颜色 此处需求还需待确认???
+     * @return hzys 盒子颜色 此处需求还需待确认???
      */
     public String getHzys() {
         return hzys;
@@ -104,7 +104,7 @@ public class HzxyGb {
 
     /**
      * 协议id
-     * @return XYID 协议id
+     * @return xyid 协议id
      */
     public String getXyid() {
         return xyid;
@@ -120,7 +120,7 @@ public class HzxyGb {
 
     /**
      * 数据是否有效(0已经删除 1有效)
-     * @return VALID 数据是否有效(0已经删除 1有效)
+     * @return valid 数据是否有效(0已经删除 1有效)
      */
     public String getValid() {
         return valid;
@@ -136,7 +136,7 @@ public class HzxyGb {
 
     /**
      * 创建时间默认当前数据生成时间
-     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     * @return create_time 创建时间默认当前数据生成时间
      */
     public Date getCreateTime() {
         return createTime;
@@ -152,7 +152,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
     @Override
     public String toString() {
@@ -161,7 +161,7 @@ public class HzxyGb {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", gbid=").append(gbid);
-        sb.append(", gbmc=").append(gbmc);
+        sb.append(", gjdm=").append(gjdm);
         sb.append(", hzys=").append(hzys);
         sb.append(", xyid=").append(xyid);
         sb.append(", valid=").append(valid);

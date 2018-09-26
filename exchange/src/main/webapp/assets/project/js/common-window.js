@@ -21,7 +21,7 @@ var ajaxIndex ;
 
 $.ajaxSetup({
     beforeSend:function(){
-        var ajaxIndex = parent.layer.loading();
+        ajaxIndex = parent.layer.loading();
     },
     complete:function(XHR, TS){
         parent.layer.close(ajaxIndex);

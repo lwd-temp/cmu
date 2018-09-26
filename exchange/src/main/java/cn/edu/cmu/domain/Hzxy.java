@@ -34,6 +34,16 @@ public class Hzxy {
     private String uploadId;
 
     /**
+     * 签字人
+     */
+    private String qzr;
+
+    /**
+     * 签字人职务
+     */
+    private String qzrzw;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -45,22 +55,24 @@ public class Hzxy {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
-    public Hzxy(String xyid, String xymc, String hzfmc, Date qdrq, Date sxrq, String uploadId, String valid, Date createTime) {
+    public Hzxy(String xyid, String xymc, String hzfmc, Date qdrq, Date sxrq, String uploadId, String qzr, String qzrzw, String valid, Date createTime) {
         this.xyid = xyid;
         this.xymc = xymc;
         this.hzfmc = hzfmc;
         this.qdrq = qdrq;
         this.sxrq = sxrq;
         this.uploadId = uploadId;
+        this.qzr = qzr;
+        this.qzrzw = qzrzw;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
     public Hzxy() {
         super();
@@ -68,7 +80,7 @@ public class Hzxy {
 
     /**
      * 协议id
-     * @return XYID 协议id
+     * @return xyid 协议id
      */
     public String getXyid() {
         return xyid;
@@ -84,7 +96,7 @@ public class Hzxy {
 
     /**
      * 协议名称
-     * @return XYMC 协议名称
+     * @return xymc 协议名称
      */
     public String getXymc() {
         return xymc;
@@ -100,7 +112,7 @@ public class Hzxy {
 
     /**
      * 合作方名称
-     * @return HZFMC 合作方名称
+     * @return hzfmc 合作方名称
      */
     public String getHzfmc() {
         return hzfmc;
@@ -116,7 +128,7 @@ public class Hzxy {
 
     /**
      * 签订日期
-     * @return QDRQ 签订日期
+     * @return qdrq 签订日期
      */
     public Date getQdrq() {
         return qdrq;
@@ -132,7 +144,7 @@ public class Hzxy {
 
     /**
      * 失效日期
-     * @return SXRQ 失效日期
+     * @return sxrq 失效日期
      */
     public Date getSxrq() {
         return sxrq;
@@ -148,7 +160,7 @@ public class Hzxy {
 
     /**
      * 电子稿上传路径
-     * @return UPLOAD_ID 电子稿上传路径
+     * @return upload_id 电子稿上传路径
      */
     public String getUploadId() {
         return uploadId;
@@ -163,8 +175,40 @@ public class Hzxy {
     }
 
     /**
+     * 签字人
+     * @return qzr 签字人
+     */
+    public String getQzr() {
+        return qzr;
+    }
+
+    /**
+     * 签字人
+     * @param qzr 签字人
+     */
+    public void setQzr(String qzr) {
+        this.qzr = qzr == null ? null : qzr.trim();
+    }
+
+    /**
+     * 签字人职务
+     * @return qzrzw 签字人职务
+     */
+    public String getQzrzw() {
+        return qzrzw;
+    }
+
+    /**
+     * 签字人职务
+     * @param qzrzw 签字人职务
+     */
+    public void setQzrzw(String qzrzw) {
+        this.qzrzw = qzrzw == null ? null : qzrzw.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
-     * @return VALID 数据是否有效(0已经删除 1有效)
+     * @return valid 数据是否有效(0已经删除 1有效)
      */
     public String getValid() {
         return valid;
@@ -180,7 +224,7 @@ public class Hzxy {
 
     /**
      * 创建时间默认当前数据生成时间
-     * @return CREATE_TIME 创建时间默认当前数据生成时间
+     * @return create_time 创建时间默认当前数据生成时间
      */
     public Date getCreateTime() {
         return createTime;
@@ -196,7 +240,7 @@ public class Hzxy {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-09-26
      */
     @Override
     public String toString() {
@@ -210,6 +254,8 @@ public class Hzxy {
         sb.append(", qdrq=").append(qdrq);
         sb.append(", sxrq=").append(sxrq);
         sb.append(", uploadId=").append(uploadId);
+        sb.append(", qzr=").append(qzr);
+        sb.append(", qzrzw=").append(qzrzw);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

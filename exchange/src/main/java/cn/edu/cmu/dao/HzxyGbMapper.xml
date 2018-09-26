@@ -3,12 +3,12 @@
 <mapper namespace="cn.edu.cmu.dao.HzxyGbMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.HzxyGb" >
     <constructor >
-      <idArg column="GBID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="GBMC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="HZYS" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="XYID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <idArg column="gbid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gjdm" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="hzys" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="xyid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="valid" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    GBID, GBMC, HZYS, XYID, VALID, CREATE_TIME
+    gbid, gjdm, hzys, xyid, valid, create_time
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyGbParams" >
     select
@@ -92,12 +92,12 @@
     select 
     <include refid="Base_Column_List" />
     from T_HZXY_GB
-    where GBID = #{gbid,jdbcType=VARCHAR}
-      and VALID = 1
+    where gbid = #{gbid,jdbcType=VARCHAR}
+      and valid = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HZXY_GB
-    where GBID = #{gbid,jdbcType=VARCHAR}
+    where gbid = #{gbid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HzxyGbParams" >
     delete from T_HZXY_GB
@@ -106,10 +106,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HzxyGb" >
-    insert into T_HZXY_GB (GBID, GBMC, HZYS, 
-      XYID, VALID, CREATE_TIME
+    insert into T_HZXY_GB (gbid, gjdm, hzys, 
+      xyid, valid, create_time
       )
-    values (#{gbid,jdbcType=VARCHAR}, #{gbmc,jdbcType=VARCHAR}, #{hzys,jdbcType=VARCHAR}, 
+    values (#{gbid,jdbcType=VARCHAR}, #{gjdm,jdbcType=VARCHAR}, #{hzys,jdbcType=VARCHAR}, 
       #{xyid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
@@ -117,30 +117,30 @@
     insert into T_HZXY_GB
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="gbid != null" >
-        GBID,
+        gbid,
       </if>
-      <if test="gbmc != null" >
-        GBMC,
+      <if test="gjdm != null" >
+        gjdm,
       </if>
       <if test="hzys != null" >
-        HZYS,
+        hzys,
       </if>
       <if test="xyid != null" >
-        XYID,
+        xyid,
       </if>
       <if test="valid != null" >
-        VALID,
+        valid,
       </if>
       <if test="createTime != null" >
-        CREATE_TIME,
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="gbid != null" >
         #{gbid,jdbcType=VARCHAR},
       </if>
-      <if test="gbmc != null" >
-        #{gbmc,jdbcType=VARCHAR},
+      <if test="gjdm != null" >
+        #{gjdm,jdbcType=VARCHAR},
       </if>
       <if test="hzys != null" >
         #{hzys,jdbcType=VARCHAR},
@@ -166,22 +166,22 @@
     update T_HZXY_GB
     <set >
       <if test="record.gbid != null" >
-        GBID = #{record.gbid,jdbcType=VARCHAR},
+        gbid = #{record.gbid,jdbcType=VARCHAR},
       </if>
-      <if test="record.gbmc != null" >
-        GBMC = #{record.gbmc,jdbcType=VARCHAR},
+      <if test="record.gjdm != null" >
+        gjdm = #{record.gjdm,jdbcType=VARCHAR},
       </if>
       <if test="record.hzys != null" >
-        HZYS = #{record.hzys,jdbcType=VARCHAR},
+        hzys = #{record.hzys,jdbcType=VARCHAR},
       </if>
       <if test="record.xyid != null" >
-        XYID = #{record.xyid,jdbcType=VARCHAR},
+        xyid = #{record.xyid,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
-        VALID = #{record.valid,jdbcType=VARCHAR},
+        valid = #{record.valid,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
-        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -190,12 +190,12 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update T_HZXY_GB
-    set GBID = #{record.gbid,jdbcType=VARCHAR},
-      GBMC = #{record.gbmc,jdbcType=VARCHAR},
-      HZYS = #{record.hzys,jdbcType=VARCHAR},
-      XYID = #{record.xyid,jdbcType=VARCHAR},
-      VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    set gbid = #{record.gbid,jdbcType=VARCHAR},
+      gjdm = #{record.gjdm,jdbcType=VARCHAR},
+      hzys = #{record.hzys,jdbcType=VARCHAR},
+      xyid = #{record.xyid,jdbcType=VARCHAR},
+      valid = #{record.valid,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -203,31 +203,31 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.HzxyGb" >
     update T_HZXY_GB
     <set >
-      <if test="gbmc != null" >
-        GBMC = #{gbmc,jdbcType=VARCHAR},
+      <if test="gjdm != null" >
+        gjdm = #{gjdm,jdbcType=VARCHAR},
       </if>
       <if test="hzys != null" >
-        HZYS = #{hzys,jdbcType=VARCHAR},
+        hzys = #{hzys,jdbcType=VARCHAR},
       </if>
       <if test="xyid != null" >
-        XYID = #{xyid,jdbcType=VARCHAR},
+        xyid = #{xyid,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
-        VALID = #{valid,jdbcType=VARCHAR},
+        valid = #{valid,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where GBID = #{gbid,jdbcType=VARCHAR}
+    where gbid = #{gbid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.HzxyGb" >
     update T_HZXY_GB
-    set GBMC = #{gbmc,jdbcType=VARCHAR},
-      HZYS = #{hzys,jdbcType=VARCHAR},
-      XYID = #{xyid,jdbcType=VARCHAR},
-      VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
-    where GBID = #{gbid,jdbcType=VARCHAR}
+    set gjdm = #{gjdm,jdbcType=VARCHAR},
+      hzys = #{hzys,jdbcType=VARCHAR},
+      xyid = #{xyid,jdbcType=VARCHAR},
+      valid = #{valid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where gbid = #{gbid,jdbcType=VARCHAR}
   </update>
 </mapper>

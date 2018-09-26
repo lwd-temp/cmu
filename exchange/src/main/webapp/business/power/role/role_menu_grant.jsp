@@ -71,8 +71,12 @@
             simpleData: {
                 enable: true,
                 idKey: "menuId",
-                pIdKey: "pId",
+                pIdKey: "parentId",
                 rootPId: 0
+            },
+            key: {
+                name: "menuName",
+                title: "menuName",
             }
         },
         check:{
@@ -82,53 +86,27 @@
         callback: {
             onClick: function(e,treeid,node,cliFlag){
                 // node.name;
-                $("#addForm").hide();
+                /*$("#addForm").hide();
                 $("#editForm").show();
 
                 $("#menuName").val(node.name)
                 $("#menuUrl").val(node.name+"的Url")
-                $("#menuMemo").val(node.name+"的备注")
+                $("#menuMemo").val(node.name+"的备注")*/
 
             }
         }
     };
-    // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
-    var zNodes = [
-        {menuId:"0",	name:"系统菜单"	 ,open:true 	},
-        {menuId:"1",	name:"学生交流项目管理" ,		pId:"0"	  },
-        {menuId:"11",	name:"交流项目设定" ,		pId:"1"	  },
-        {menuId:"12",	name:"申请交流项目" ,		pId:"1"	  },
-        {menuId:"13",	name:"项目审核" ,		pId:"1"	  },
-        {menuId:"14",	name:"交流报告总结" ,		pId:"1"	  },
-        {menuId:"2",	name:"出国团组计划与管理" ,		pId:"0"	  },
-        {menuId:"21",	name:"出访团组申请" ,		pId:"2"	  },
-        {menuId:"22",	name:"出访团组审批" ,		pId:"2"	  },
-        {menuId:"23",	name:"出访团组管理" ,		pId:"2"	  },
-        {menuId:"3",	name:"短期出国（境）管理" ,		pId:"0"	  },
-        {menuId:"31",	name:"短期出国（境）申请" ,		pId:"3"	  },
-        {menuId:"32",	name:"出国（境）审批流程" ,		pId:"3"	  },
-        {menuId:"33",	name:"归国管理" ,		pId:"3"	  },
-        {menuId:"4",	name:"国际会议管理" ,		pId:"0"	  },
-        {menuId:"41",	name:"国际会议计划" ,		pId:"4"	  },
-        {menuId:"42",	name:"国际会议申报" ,		pId:"4"	  },
-        {menuId:"43",	name:"国际会议总结" ,		pId:"4"	  },
-        {menuId:"44",	name:"国际会议数据统计" ,		pId:"4"	  },
-        {menuId:"5",	name:"因公护照管理" ,		pId:"0"	  },
-        {menuId:"51",	name:"因公护照管理" ,		pId:"5"	  },
-        {menuId:"6",	name:"外宾来访接待" ,		pId:"0"	  },
-        {menuId:"61",	name:"来访接待申请" ,		pId:"6"	  },
-        {menuId:"62",	name:"来访接待" ,			pId:"6"	  },
-        {menuId:"63",	name:"来访接待总结" ,		pId:"6"	  },
-        {menuId:"7",	name:"交流合作协议管理" ,		pId:"0"	  },
-        {menuId:"71",	name:"交流合作协议管理" ,		pId:"7"	  },
-        {menuId:"8",	name:"外籍教师管理" ,		pId:"0"	  },
-        {menuId:"81",	name:"外籍教师管理" ,		pId:"8"	  },
-        {menuId:"9",	name:"国际交流联系人库" ,		pId:"0"	  },
-        {menuId:"91",	name:"联系人库管理" ,		pId:"9"	  }
-
-    ];
     $(document).ready(function(){
-        zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+        //动态加载tree数据,并展开根节点
+        $.ajax('sys/menu/list',{
+            success:function(data){
+                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, data);
+                var nodes = zTreeObj.getNodesByParam("menuId", "0", null);
+                treeObj.expandNode(nodes[0], true);
+            }
+        });
+
+        //zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
 
         $(roleMenuArray).each(function(){
