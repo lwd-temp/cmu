@@ -1,10 +1,7 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/9/13
-  Time: 16:08
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<!DOCTYPE html>
+<html lang="en">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +27,6 @@
     <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
     <link rel="stylesheet" href="assets/css/chosen.css" />
     <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css" />
-
     <!-- text fonts -->
     <link rel="stylesheet" href="assets/css/ace-fonts.css" />
 
@@ -50,13 +46,10 @@
     <script src="assets/js/respond.js"></script>
     <![endif]-->
 
-
 </head>
 
 <body class="no-skin">
-<!-- #section:basics/navbar.layout -->
 
-<!-- /section:basics/navbar.layout -->
 <div class="main-container" id="main-container">
     <div class="main-content">
         <div class="main-content-inner">
@@ -64,67 +57,56 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
+                            <input type="hidden" name="xyid" value="${jlxy.xyid}" />
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 协议名称: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="协议名称"  class="col-xs-12" />
+
+                                    <input type="text"  name="xymc" value="${jlxy.xymc}"  placeholder="协议名称"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label " > 合作方名称: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="合作方名称"  class="col-xs-12" />
+                                    <input type="text"  name="hzfmc"  value="${jlxy.hzfmc}" placeholder="合作方名称"  class="col-xs-12" />
                                 </div>
                             </div>
-
 
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签订日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-1" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
+                                    <input class="form-control date-picker" id="id-date-picker-1" name="qdrq" value="${jlxy.qdrq}"
+                                           type="text" data-date-format="yyyy-mm-dd" />
+
                                 </div>
                                 <label class="col-xs-2 control-label " > 失效日期: </label>
 
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-2" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
+                                    <input class="form-control date-picker" id="id-date-picker-2" name="sxrq" value="${jlxy.sxrq}"
+                                           type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                             </div>
 
-
-
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label " > 国别: </label>
-
-                                <div class="col-xs-4">
-                                    <select class="form-control chosen-select"   data-placeholder="请选择国别" multiple="multiple">
-                                        <option value="2014" selected>中国</option>
-                                        <option value="2015" selected>美国</option>
-                                        <option value="1" >新加坡</option>
-                                        <option value="2" >日本</option>
-                                        <option value="3" >英国</option>
-                                        <option value="4" >俄罗斯</option>
-                                    </select>
-                                </div>
-                            </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签字人: </label>
-                                <div class="col-xs-10">
-                                    <textarea class="form-control limited" id="form-field-10"  placeholder="签字人"  maxlength="300"></textarea>
-                                </div>
 
+                                <div class="col-xs-4">
+
+                                    <input type="text"  name="qzr" value="${jlxy.qzr}"   placeholder=""  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label " > 签字人职务: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="qzrzw"  value="${jlxy.qzrzw}"  placeholder=""  class="col-xs-12" />
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 签字人职务: </label>
-                                <div class="col-xs-10">
-                                    <textarea class="form-control limited" id="form-field-12"  placeholder="签字人职务"  maxlength="300"></textarea>
-                                </div>
-
+                                <label class="col-xs-2 control-label " > 国别: </label>
+                                <dm:list tabName="T_DM_GB" class="chosen-select" type="select" multiple="multiple" valueList="${gbList}" id="gb"  name="gbs"   ></dm:list>
                             </div>
-
                             <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-success btn-sm" type="button">
+                                <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
@@ -144,87 +126,76 @@
 
 
 </div><!-- /.main-container -->
-
-
 <script src='assets/js/jquery.js'></script>
-
+<script type="text/javascript">
+    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+</script>
 <script src="assets/js/bootstrap.js"></script>
+<!-- page specific plugin scripts -->
+<script src="assets/js/jquery-ui.custom.js"></script>
+<script src="assets/js/jquery.ui.touch-punch.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
+<script src="assets/js/fuelux/fuelux.spinner.js"></script>
+<script src="assets/js/jquery.knob.js"></script>
+<script src="assets/js/autosize.js"></script>
+<script src="assets/js/jquery.inputlimiter.1.3.1.js"></script>
+<script src="assets/js/jquery.maskedinput.js"></script>
+<script src="assets/js/bootstrap-tag.js"></script>
+<!-- jqueryValidate验证框架-->
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
+<!--弹出层 -->
+<script src="assets/js/layer/layer.js"></script>
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
+<!---date-->
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>
+
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
-
-<script src="assets/js/layer/layer.js"></script>
-<script src="assets/project/js/common-script.js"></script>
-<script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
-<script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
-
-
 <script>
-
-
-
     $(function(){
 
+        $('#gb').chosen({allow_single_deselect:true});
 
-        //日期选择器
         $('.date-picker').datepicker({
             autoclose: true,
             todayHighlight: true
         });
 
-        var names  = ["美国","英国1","英国2","英国3","英国4","英国5","英国6","英国7","英国8"];
-
-
-        var substringMatcher = function(strs) {
-            return function findMatches(q, cb) {
-                var matches, substringRegex;
-
-                // an array that will be populated with substring matches
-                matches = [];
-
-                // regex used to determine if a string contains the substring `q`
-                substrRegex = new RegExp(q, 'i');
-
-                // iterate through the pool of strings and for any string that
-                // contains the substring `q`, add it to the `matches` array
-                $.each(strs, function(i, str) {
-                    if (substrRegex.test(str)) {
-                        // the typeahead jQuery plugin expects suggestions to a
-                        // JavaScript object, refer to typeahead docs for more info
-                        matches.push({ value: str });
-                    }
-                });
-
-                cb(matches);
+        $("#form").setValid({
+            //校验规则
+            rules: {
+                xymc: {
+                    required: true
+                },
+                hzfmc: {
+                    required: true
+                }
             }
-        }
-
-
-        //选择录入框
-        $('input.typeahead').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'states',
-            displayKey: 'value',
-            source: substringMatcher(names),
-            limit: 10
         });
+        $("#btn-submit").click(function(){
+            if(!$("#form").valid()){
+                return;
+            }
+            $.ajax('jlxy/save',{
+                type:'post',
+                dataType:'json',
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        parent.refreshTable();
+                        closeLayer();//关闭
+                        winAlert("保存成功");//弹出确认消息
+                    }else{
+                        winAlert("保存失败");//弹出确认消息
+                    }
+                }
 
-
-
-        $('.chosen-select').chosen({allow_single_deselect:true});
-
-
-
-    });
-
-
-
-
+            });
+        });
+    })
 </script>
 </body>
 </html>

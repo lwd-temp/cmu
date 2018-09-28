@@ -230,4 +230,12 @@
       create_time = #{createTime,jdbcType=TIMESTAMP}
     where gbid = #{gbid,jdbcType=VARCHAR}
   </update>
+
+
+  <update id="deleteByxyId" parameterType="cn.edu.cmu.domain.HzxyGb" >
+    update T_HZXY_GB
+    set valid = #{valid,jdbcType=VARCHAR}
+    where xyid = #{xyid,jdbcType=VARCHAR}
+  </update>
+
 </mapper>

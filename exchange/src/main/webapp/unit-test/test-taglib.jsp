@@ -1,4 +1,4 @@
-<%--
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: Administrator
   Date: 2018/9/24
@@ -61,9 +61,16 @@ T_DM_XB : <dm:list tabName="T_DM_XB" id="T_DM_XB" name="T_DM_XB" value="01"></dm
 T_DM_XB radio  <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  value="${'01'}" ></dm:list>
 
 <hr>
+<%
+    List list = new java.util.ArrayList();
+    list.add("01");
+    list.add("02");
+    list.add("03");
+    request.setAttribute("gbList",list);
+%>
 
-
-
-
+T_DM_GB : <dm:list tabName="T_DM_GB" id="T_DM_GB" multiple="multiple"  length="10" valueList="${gbList}" name="T_DM_GB"  ></dm:list><br/>
+T_DM_GB radio  <dm:list tabName="T_DM_GB" type="radio" id="gb" name="gb"  value="${'01'}" ></dm:list>
+<hr>
 </body>
 </html>

@@ -1,6 +1,6 @@
 package cn.edu.cmu.domain;
-
 import java.util.Date;
+import java.util.List;
 
 public class Hzxy {
     /**
@@ -53,6 +53,8 @@ public class Hzxy {
      */
     private Date createTime;
 
+
+    private List<String> gbs;
     /**
      *
      * @mbggenerated 2018-09-26
@@ -238,27 +240,30 @@ public class Hzxy {
         this.createTime = createTime;
     }
 
-    /**
-     *
-     * @mbggenerated 2018-09-26
-     */
+
+
+    public List<String> getGbs() {
+        return gbs;
+    }
+
+    public void setGbs(List<String> gbs) {
+        this.gbs = gbs;
+    }
+
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", xyid=").append(xyid);
-        sb.append(", xymc=").append(xymc);
-        sb.append(", hzfmc=").append(hzfmc);
-        sb.append(", qdrq=").append(qdrq);
-        sb.append(", sxrq=").append(sxrq);
-        sb.append(", uploadId=").append(uploadId);
-        sb.append(", qzr=").append(qzr);
-        sb.append(", qzrzw=").append(qzrzw);
-        sb.append(", valid=").append(valid);
-        sb.append(", createTime=").append(createTime);
-        sb.append("]");
-        return sb.toString();
+        return "Hzxy{" +
+                "xyid='" + xyid + '\'' +
+                ", xymc='" + xymc + '\'' +
+                ", hzfmc='" + hzfmc + '\'' +
+                ", qdrq=" + qdrq +
+                ", sxrq=" + sxrq +
+                ", uploadId='" + uploadId + '\'' +
+                ", qzr='" + qzr + '\'' +
+                ", qzrzw='" + qzrzw + '\'' +
+                ", valid='" + valid + '\'' +
+                ", createTime=" + createTime +
+                ", gbs=" + gbs +
+                '}';
     }
 }

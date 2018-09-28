@@ -20,6 +20,7 @@ public class CodeTag extends  BasetTag {
     public String name = "";
     public String value = "";
     public String type="select";
+    public List<String> valueList = null;
 
 
     private static  String optionFMT = "\t<option value='%s' %s >%s</option>\r\n";
@@ -83,11 +84,21 @@ public class CodeTag extends  BasetTag {
         }
         // String radioFMT = "<input name=\"%s\"    type=\"radio\" class=\"ace\"  id=\"%s_%d\" value="%s"/>  <span class=\"lbl\"> %s</span>\r\n";
         int count = 1;
+
+
+
         for (Map<String,String> dm: list) {
             String dmCode = dm.keySet().iterator().next();
             String dmName = dm.get(dmCode);
             if("select".equals(type)){
-                String isSelected = (dmCode.equals(value)?"selected":"");
+                String isSelected = "";
+                if(daValue.indexOf("multiple")!=-1){
+                    boolean isSel = containsListValue(dmCode);
+                    isSelected = (isSel?"selected":"");
+                }else{
+                    isSelected = (dmCode.equals(value)?"selected":"");
+                }
+
                 super.writeln(String.format(optionFMT,  dmCode, isSelected,   dmName));
             }else if("radio".equals(type)){
                 String checked = (dmCode.equals(value)?"checked":"");
@@ -96,8 +107,27 @@ public class CodeTag extends  BasetTag {
         }
     }
 
-    @Override
-    public void setDynamicAttribute(String s, String s1, Object o) throws JspException {
 
+    //判断 Value 是否在结合value中
+    private boolean containsListValue(String value){
+        if(valueList!=null && valueList.size()>0){
+            for (int i = 0; i < valueList.size(); i++) {
+                String itemValue = valueList.get(i);
+                if(itemValue.equals(value)){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    public List<String> getValueList() {
+        return valueList;
+    }
+
+    public void setValueList(List<String> valueList) {
+        this.valueList = valueList;
     }
 }
