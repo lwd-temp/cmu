@@ -122,9 +122,14 @@ public class JlxyController extends BaseController {
     @RequestMapping("/delById")
     @ResponseBody
     public Map delById(String id) throws Exception {
-
-        boolean success = jlxyService.deleteById(id);
-
+        HzxyGb hzxyGb = new HzxyGb();
+        hzxyGb.setXyid(id);
+        hzxyGb.setValid("0");
+        hzxyGbService.deleteByxyId(hzxyGb);
+        Hzxy hzxy = new Hzxy();
+        hzxy.setXyid(id);
+        hzxy.setValid("0");
+        boolean success = jlxyService.updateById(hzxy);
         return super.ajaxStatus(success);
     }
 
