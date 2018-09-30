@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border: none;
+           /* border-width: 1px 0 0 1px*/
+        }
+
+        td {
+            border: black dotted 1px;
+            /*border-width: 0 1px 1px 0*/
+        }
+    </style>
+</head>
+<body>
+<h1 style="text-align: center;">Jshand </h1>
+<div style="">
+
+    <table>
+        <tr>
+            <td><b>Name</b></td>
+        </tr>
+        <#list names as name>
+        <tr>
+            <td>${name}</td>
+        </tr>
+    </#list>
+    </table>
+</div>
+<div>
+    <a href="https://www.baidu.com/" target="_blank">百度</a>
+</div>
+</body>
+</html>
