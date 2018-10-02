@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,35 +77,42 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签订日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-1" name="qdrq" value="${jlxy.qdrq}"
+                                    <input class="form-control date-picker" id="id-date-picker-1" name="qdrq" value="<fmt:formatDate value="${jlxy.qdrq}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
 
                                 </div>
                                 <label class="col-xs-2 control-label " > 失效日期: </label>
 
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-2" name="sxrq" value="${jlxy.sxrq}"
+                                    <input class="form-control date-picker" id="id-date-picker-2"   name="sxrq" value="<fmt:formatDate value="${jlxy.sxrq}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                             </div>
 
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label" > 国别: </label>
+                                <div class="col-xs-5">
+                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbList}" id="gb"  name="gbs"   data-placeholder="请选择国别"></dm:list>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签字人: </label>
-
-                                <div class="col-xs-4">
-
-                                    <input type="text"  name="qzr" value="${jlxy.qzr}"   placeholder=""  class="col-xs-12" />
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" name="qzr"  placeholder="签字人"  maxlength="300">${jlxy.qzr}</textarea>
                                 </div>
-                                <label class="col-xs-2 control-label " > 签字人职务: </label>
-                                <div class="col-xs-4">
-                                    <input type="text"  name="qzrzw"  value="${jlxy.qzrzw}"  placeholder=""  class="col-xs-12" />
-                                </div>
+
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label " > 国别: </label>
-                                <dm:list tabName="T_DM_GB" class="chosen-select" type="select" multiple="multiple" valueList="${gbList}" id="gb"  name="gbs"   ></dm:list>
+                                <label class="col-xs-2 control-label "  > 签字人职务: </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" name="qzrzw"   placeholder="签字人职务"  maxlength="300">${jlxy.qzrzw}</textarea>
+                                </div>
                             </div>
+
+
+
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
@@ -159,10 +167,7 @@
 
         $('#gb').chosen({allow_single_deselect:true});
 
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
+
 
         $("#form").setValid({
             //校验规则

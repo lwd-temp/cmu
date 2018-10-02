@@ -51,13 +51,12 @@ public class UserServiceImpl extends BaseService<User,UserParams,UserMapper> imp
     public List list(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
 
         UserParams params = new UserParams();
-        if(conditions != null && conditions.length>0){//如果 User不等于 null 说明可能穿条件了
-            String condition = (String) conditions[0];
+        UserParams.Criteria c = params.createCriteria();
+        if(conditions != null && conditions.length>0 && conditions[0] != null){//如果 User不等于 null 说明可能穿条件了
+            User user = (User) conditions[0];
 
-            if(StringUtils.isNotEmpty(condition)){//此处 拼接的事 Username的 like条件，其他字段一样
-
-                UserParams.Criteria c = params.createCriteria();
-                c.andUserNameLike("%"+condition+"%");
+            if(StringUtils.isNotEmpty(user.getUserName())){//此处 拼接的事 Username的 like条件，其他字段一样
+               c.andUserNameLike("%"+user.getUserName()+"%");
             }
 
             super.addOrderBy(params,conditions);

@@ -104,11 +104,13 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
     @Override
     public List list(Object... conditions) throws Exception {
         HzxyParams params = new HzxyParams();
-        if(conditions != null && conditions.length>0){
-            String condition = (String) conditions[0];
-            if(StringUtils.isNotEmpty(condition)){
-                HzxyParams.Criteria c = params.createCriteria();
-                c.andXymcLike("%"+condition+"%");//先按照这个查询，如果有多个条件 就在该这
+        HzxyParams.Criteria c = params.createCriteria();
+
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            Hzxy hzxy = (Hzxy) conditions[0];
+            if(StringUtils.isNotEmpty(hzxy.getXymc())){
+
+                c.andXymcLike("%"+hzxy.getXymc()+"%");//先按照这个查询，如果有多个条件 就在该这
             }
             super.addOrderBy(params,conditions);//排序
         }

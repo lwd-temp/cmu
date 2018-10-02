@@ -10,13 +10,15 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 团组号: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 团组号: </label>
+
             <div class="col-sm-3">
-                <input type="text" id="form-field-1" placeholder="团组号" class="col-xs-12" />
+                <input type="text" id="condition1" name="condition" placeholder="请输入团组号" class="col-xs-12" />
             </div>
-            <label class="col-sm-2 control-label no-padding-right" for="form-field-1"> 出访单位: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 团组负责人姓名: </label>
+
             <div class="col-sm-3">
-                <input type="text" id="form-field-2" placeholder="请输入出访单位" class="col-xs-12" />
+                <input type="text" id="condition2" name="condition" placeholder="请输入团组负责人姓名" class="col-xs-12" />
             </div>
 
             <div class="col-sm-2">
@@ -42,23 +44,7 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-            {id:"1",	tzh:"2018010001",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"副厅级", zt:'暂存',  cfts:'12'},
-            {id:"2",	tzh:"2018010002",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'退回',  cfts:'11'},
-            {id:"3",	tzh:"2018010003",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"副厅级", zt:'暂存',  cfts:'10'},
-            {id:"4",	tzh:"2018010004",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'退回',  cfts:'12'},
-            {id:"5",	tzh:"2018010005",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"副厅级", zt:'已通过',  cfts:'15'},
-            {id:"6",	tzh:"2018010006",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'已通过', cfts:'16'},
-            {id:"7",	tzh:"2018010007",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"副厅级", zt:'已通过',  cfts:'12'},
-            {id:"8",	tzh:"2018010008",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'已通过',  cfts:'18'},
-            {id:"9",	tzh:"2018010009",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"处级",  zt:'已通过', cfts:'12'},
-            {id:"10",	tzh:"20180100010",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'已通过',  cfts:'21'},
-            {id:"11",	tzh:"20180100011",tzlb:"赴港澳(行政)",	 cfdw:"xxxxx医院",	tzjb:"处级",  zt:'已通过', cfts:'12'},
-            {id:"12",	tzh:"20180100012",tzlb:"赴港澳(学术)",	cfdw:"xxxxx医院",	tzjb:"正厅级", zt:'已通过',  cfts:'5'},
-            {id:"13",	tzh:"20180100013",tzlb:"赴港澳(行政)",	cfdw:"xxxxx医院",	tzjb:"处级",  zt:'已通过',  cfts:'4'},
 
-        ];
 
 
     var grid_selector = "#grid-table";
@@ -66,7 +52,6 @@
 
 
     $(function() {
-
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -85,27 +70,45 @@
         })
 
         //自定义 按钮
-        var navBtns = [ ]
+        var navBtns = [];
 
         var settings = {
-            caption: "出访计划【审批】",
-            data: grid_data,
-            colNames:['团组号','团组类别', '出访单位', '团组级别','出访天数',"操作"],
+            caption: "出访计划管理",
+            /* data: grid_data,*/
+            url:'cgjh/gllist',
+            colNames:['团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'tzh',index:'tzh',  },
-                {name:'tzlb',index:'tzlb',  },
-                {name:'cfdw',index:'cfdw',  },
-                {name:'tzjb',index:'tzjb',  },
+                {name:'tzlb',index:'tzlb', formatter:function(tzlb,options,rowObject){
+                        return dmcache.getCode('t_dm_tzlb',tzlb);
+                    }  },
+                {name:'fzrxm',index:'fzrxm',  },
+                {name:'tzjb',index:'tzjb', formatter:function(tzjb,options,rowObject){
+                        return dmcache.getCode('t_dm_tzjb',tzjb);
+                    }   },
                 {name:'cfts',index:'cfts',  },
+                {name:'status',index:'status', formatter:function(status,options,rowObject){
+                        var zt = "未知";
+                        switch (status) {
+                            case '01':
+                                zt = "暂存";
+                                break;
+                            case '02':
+                                zt = "待审核";
+                                break;
+                            case '03':
+                                zt = "退回";
+                                break;
+                            case '04':
+                                zt = "审核通过";
+                                break;
+                        }
+                        return zt;
+                    } }
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' onclick='editCgjh(\"+cellvalue+\")' title='修改' ><i class='ace-icon fa fa-dedent '>详情</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' onclick='expWord(\"+cellvalue+\")' title='修改' ><i class='ace-icon fa fa-book '>导出word</i></button>";
-                    }
-                },
+
             ]
 
         }
@@ -118,48 +121,45 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
-
+            refreshTable();
         });
 
         //下载团组信息
         $("#download").click(function(){
-
             window.location.href = "alink/doc/tzxx.xls";
+        });
 
-        })
 
     });
 
-    function clearTable(){
-        $(grid_selector).jqGrid('clearGridData');  //清空表格
-    }
 
     function refreshTable(){
 
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{
+                'tzh':$("#condition1").val(),
+                'fzrxm':$("#condition2").val()
+            },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
     }
 
     //修改出访计划
-    function editCgjh(userId){
+    function editCgjh(jhid){
         layer.newpage({
-            area: ['800px', ($(window).height()-5)+"px"],
-            title:'出访详情',
-            content:'business/cgjh/cgjh_edit.jsp',
+            area: ['1000px', ($(window).height()-15)+'px'],
+            title:'修改出访计划',
+            content:'cgjh/toEdit?id='+jhid,
         });
     }
 
-
-    function expWord(jhid){
-        window.location.href = "alink/doc/zzryygdqcg_ysb.doc";
+    //查看出访计划
+    function showShCgjh(jhid){
+        layer.newpage({
+            area: ['1000px', ($(window).height()-15)+'px'],
+            title:'查看出访计划',
+            content:'cgjh/show?type=sh&id='+jhid,
+        });
     }
 
 

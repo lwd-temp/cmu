@@ -37,15 +37,13 @@ public class RoleServiceImpl extends BaseService<Role, RoleParams, RoleMapper> i
     @Override
     public List list(Object... conditions) throws Exception {
         RoleParams params = new RoleParams();
-        if(conditions != null && conditions.length>0){//如果 User不等于 null 说明可能穿条件了
-            String condition = (String) conditions[0];
+        RoleParams.Criteria c = params.createCriteria();
+        if(conditions != null && conditions.length>0 && conditions[0] != null){
+            Role role = (Role) conditions[0];
 
-            if(StringUtils.isNotEmpty(condition)){//此处 拼接的事 Username的 like条件，其他字段一样
-
-                RoleParams.Criteria c = params.createCriteria();
-                c.andRoleNameLike("%"+condition+"%");
+            if(StringUtils.isNotEmpty(role.getRoleName())){
+                c.andRoleNameLike("%"+role.getRoleName()+"%");
             }
-
             super.addOrderBy(params,conditions);
         }
 

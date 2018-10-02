@@ -145,6 +145,11 @@ public class CgTzjh {
     private Date rwpfsj;
 
     /**
+     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     */
+    private String status;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -156,9 +161,9 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
-    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, BigDecimal cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String valid, Date createTime) {
+    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, BigDecimal cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzlb = tzlb;
@@ -187,13 +192,14 @@ public class CgTzjh {
         this.yshj = yshj;
         this.rwpjwh = rwpjwh;
         this.rwpfsj = rwpfsj;
+        this.status = status;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public CgTzjh() {
         super();
@@ -648,6 +654,22 @@ public class CgTzjh {
     }
 
     /**
+     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     * @return STATUS 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     * @param status 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     */
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -681,7 +703,7 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     @Override
     public String toString() {
@@ -717,6 +739,7 @@ public class CgTzjh {
         sb.append(", yshj=").append(yshj);
         sb.append(", rwpjwh=").append(rwpjwh);
         sb.append(", rwpfsj=").append(rwpfsj);
+        sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

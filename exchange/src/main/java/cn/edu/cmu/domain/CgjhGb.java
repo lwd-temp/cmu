@@ -1,9 +1,23 @@
 package cn.edu.cmu.domain;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
-public class XmMaxcode extends XmMaxcodeKey {
+public class CgjhGb {
+    /**
+     * 国别id
+     */
+    private String gbid;
+
+    /**
+     * 国家代码
+     */
+    private String gjdm;
+
+    /**
+     * 计划id
+     */
+    private String jhid;
+
     /**
      * 数据是否有效(0已经删除 1有效)
      */
@@ -16,20 +30,70 @@ public class XmMaxcode extends XmMaxcodeKey {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
-    public XmMaxcode(BigDecimal year, BigDecimal maxcode, String valid, Date createTime) {
-        super(year, maxcode);
+    public CgjhGb(String gbid, String gjdm, String jhid, String valid, Date createTime) {
+        this.gbid = gbid;
+        this.gjdm = gjdm;
+        this.jhid = jhid;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
-    public XmMaxcode() {
+    public CgjhGb() {
         super();
+    }
+
+    /**
+     * 国别id
+     * @return GBID 国别id
+     */
+    public String getGbid() {
+        return gbid;
+    }
+
+    /**
+     * 国别id
+     * @param gbid 国别id
+     */
+    public void setGbid(String gbid) {
+        this.gbid = gbid == null ? null : gbid.trim();
+    }
+
+    /**
+     * 国家代码
+     * @return GJDM 国家代码
+     */
+    public String getGjdm() {
+        return gjdm;
+    }
+
+    /**
+     * 国家代码
+     * @param gjdm 国家代码
+     */
+    public void setGjdm(String gjdm) {
+        this.gjdm = gjdm == null ? null : gjdm.trim();
+    }
+
+    /**
+     * 计划id
+     * @return JHID 计划id
+     */
+    public String getJhid() {
+        return jhid;
+    }
+
+    /**
+     * 计划id
+     * @param jhid 计划id
+     */
+    public void setJhid(String jhid) {
+        this.jhid = jhid == null ? null : jhid.trim();
     }
 
     /**
@@ -66,7 +130,7 @@ public class XmMaxcode extends XmMaxcodeKey {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     @Override
     public String toString() {
@@ -74,6 +138,9 @@ public class XmMaxcode extends XmMaxcodeKey {
         sb.append(getClass().getSimpleName());
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
+        sb.append(", gbid=").append(gbid);
+        sb.append(", gjdm=").append(gjdm);
+        sb.append(", jhid=").append(jhid);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

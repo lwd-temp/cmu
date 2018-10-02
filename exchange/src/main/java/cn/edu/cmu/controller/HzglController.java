@@ -1,5 +1,4 @@
 package cn.edu.cmu.controller;
-import cn.edu.cmu.domain.Contact;
 import cn.edu.cmu.domain.Hz;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseController;
@@ -13,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.util.List;
 import java.util.Map;
 @Controller
@@ -25,7 +25,7 @@ public class HzglController extends BaseController {
 
     /**
      * 分页查询
-     * @param condition 查询条件
+     * @param hz 查询条件
      * @param orderCol 排序字段
      * @param orderType 排序方式 asc desc
      * @param page   分页对象页号，即想查询第几页
@@ -35,17 +35,17 @@ public class HzglController extends BaseController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public Map list(String condition, //一个 查询条件
+    public Map list(Hz hz, //一个 查询条件
                     String orderCol,    // 排序 字段   order by   【name】
                     String orderType,// 排序 类型  asc   desc
                     @RequestParam(defaultValue = "1",required = false )Integer  page,
                     @RequestParam(defaultValue = "10",required = false) Integer rows  ) throws Exception {
 
-        logger.debug("condition:"+condition);
+        logger.debug("condition:"+hz);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
-        List list = hzService.list(condition,orderCol,orderType);
+        List list = hzService.list(hz,orderCol,orderType);
         logger.debug("list:"+list);
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo,list);

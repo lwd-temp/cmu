@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.edu.cmu.dao.XmMaxcodeMapper" >
-  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.XmMaxcode" >
+<mapper namespace="cn.edu.cmu.dao.MaxCodeMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.MaxCode" >
     <constructor >
-      <idArg column="YEAR" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <idArg column="MAXCODE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <idArg column="ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TYPE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YEAR" jdbcType="DECIMAL" javaType="java.lang.Long" />
+      <arg column="MAXCODE" jdbcType="DECIMAL" javaType="java.lang.Long" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -69,16 +71,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    YEAR, MAXCODE, VALID, CREATE_TIME
+    ID, TYPE, YEAR, MAXCODE, VALID, CREATE_TIME
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmMaxcodeParams" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MaxCodeParams" >
     select
     <if test="distinct" >
       distinct
     </if>
     'false' as QUERYID,
     <include refid="Base_Column_List" />
-    from T_XM_MAXCODE
+    from T_SYS_MAXCODE
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,34 +88,40 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmMaxcodeKey" >
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from T_XM_MAXCODE
-    where YEAR = #{year,jdbcType=DECIMAL}
-      and MAXCODE = #{maxcode,jdbcType=DECIMAL}
+    from T_SYS_MAXCODE
+    where ID = #{id,jdbcType=VARCHAR}
       and VALID = 1
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="cn.edu.cmu.domain.XmMaxcodeKey" >
-    delete from T_XM_MAXCODE
-    where YEAR = #{year,jdbcType=DECIMAL}
-      and MAXCODE = #{maxcode,jdbcType=DECIMAL}
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_SYS_MAXCODE
+    where ID = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmMaxcodeParams" >
-    delete from T_XM_MAXCODE
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.MaxCodeParams" >
+    delete from T_SYS_MAXCODE
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.edu.cmu.domain.XmMaxcode" >
-    insert into T_XM_MAXCODE (YEAR, MAXCODE, VALID, 
-      CREATE_TIME)
-    values (#{year,jdbcType=DECIMAL}, #{maxcode,jdbcType=DECIMAL}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="cn.edu.cmu.domain.MaxCode" >
+    insert into T_SYS_MAXCODE (ID, TYPE, YEAR, 
+      MAXCODE, VALID, CREATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{year,jdbcType=DECIMAL}, 
+      #{maxcode,jdbcType=DECIMAL}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
-  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmMaxcode" >
-    insert into T_XM_MAXCODE
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.MaxCode" >
+    insert into T_SYS_MAXCODE
     <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="type != null" >
+        TYPE,
+      </if>
       <if test="year != null" >
         YEAR,
       </if>
@@ -128,6 +136,12 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
       <if test="year != null" >
         #{year,jdbcType=DECIMAL},
       </if>
@@ -142,15 +156,21 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmMaxcodeParams" resultType="java.lang.Integer" >
-    select count(*) from T_XM_MAXCODE
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.MaxCodeParams" resultType="java.lang.Integer" >
+    select count(*) from T_SYS_MAXCODE
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update T_XM_MAXCODE
+    update T_SYS_MAXCODE
     <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.type != null" >
+        TYPE = #{record.type,jdbcType=VARCHAR},
+      </if>
       <if test="record.year != null" >
         YEAR = #{record.year,jdbcType=DECIMAL},
       </if>
@@ -169,8 +189,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update T_XM_MAXCODE
-    set YEAR = #{record.year,jdbcType=DECIMAL},
+    update T_SYS_MAXCODE
+    set ID = #{record.id,jdbcType=VARCHAR},
+      TYPE = #{record.type,jdbcType=VARCHAR},
+      YEAR = #{record.year,jdbcType=DECIMAL},
       MAXCODE = #{record.maxcode,jdbcType=DECIMAL},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -178,9 +200,18 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.XmMaxcode" >
-    update T_XM_MAXCODE
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.MaxCode" >
+    update T_SYS_MAXCODE
     <set >
+      <if test="type != null" >
+        TYPE = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        YEAR = #{year,jdbcType=DECIMAL},
+      </if>
+      <if test="maxcode != null" >
+        MAXCODE = #{maxcode,jdbcType=DECIMAL},
+      </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
       </if>
@@ -188,14 +219,15 @@
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where YEAR = #{year,jdbcType=DECIMAL}
-      and MAXCODE = #{maxcode,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.XmMaxcode" >
-    update T_XM_MAXCODE
-    set VALID = #{valid,jdbcType=VARCHAR},
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.MaxCode" >
+    update T_SYS_MAXCODE
+    set TYPE = #{type,jdbcType=VARCHAR},
+      YEAR = #{year,jdbcType=DECIMAL},
+      MAXCODE = #{maxcode,jdbcType=DECIMAL},
+      VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
-    where YEAR = #{year,jdbcType=DECIMAL}
-      and MAXCODE = #{maxcode,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

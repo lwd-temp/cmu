@@ -20,17 +20,30 @@ public class BaseController {
         return info;
     }
     public Map ajaxStatus(boolean success){
-        return ajaxStatus(success,null);
+        return ajaxStatus(success,"",null);
+    }
+
+
+    public Map ajaxStatus(boolean success,String msg){
+        return ajaxStatus(success,msg,null);
     }
 
     public Map ajaxStatus(boolean success,Object data){
+         return ajaxStatus(success,"",data);
+    }
+
+
+    public Map ajaxStatus(boolean success,String msg,Object data){
         Map status = new HashMap();
 
         status.put("success",false);
         status.put("success",success);
+        status.put("msg",msg);
         status.put("data",data);
         return status;
     }
+
+
 
 
 }

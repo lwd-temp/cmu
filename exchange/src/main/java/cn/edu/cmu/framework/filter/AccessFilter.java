@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
@@ -28,9 +29,22 @@ public class AccessFilter implements Filter {
         ignoreLogin = Boolean.valueOf((Boolean)YmlUtils.getProperty("sys.debug.ignoreLogin"));
     }
 
+    private void noCache(HttpServletResponse response ){
+        //禁止浏览器缓存所有动态页面
+        response.setDateHeader("Expires", -1);
+        response.setHeader("Cache-Control", "no-cache");
+        response.setHeader("Pragma", "no-cache");
+
+    }
+
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
+
+        //禁用浏览器缓存
+        noCache((HttpServletResponse) servletResponse);
+
         String contextPath = request.getContextPath();
 
         if(debug && ignoreLogin){

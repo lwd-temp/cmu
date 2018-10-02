@@ -159,7 +159,7 @@
         //查询按钮添加事件
         $("#query").click(function(){
             $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-                postData:{'condition':$("#condition").val()},
+                postData:{'userName':$("#condition").val()},
                 page:1
             }).trigger("reloadGrid");
 

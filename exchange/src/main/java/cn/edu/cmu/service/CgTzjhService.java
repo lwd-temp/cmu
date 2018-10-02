@@ -14,6 +14,10 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgTzjhParams;
 import cn.edu.cmu.framework.web.IBaseService;
+import cn.edu.cmu.vo.CgtzjhVO;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * 用户操作的 业务的抽象
@@ -23,5 +27,12 @@ import cn.edu.cmu.framework.web.IBaseService;
 public interface CgTzjhService extends IBaseService<CgTzjh, CgTzjhParams> {
 
 
+    public boolean saveOrUpdate(CgtzjhVO vo) throws Exception;
+
+    public  List shlist(Object... conditions) throws Exception;
+
+    public boolean sh(String id, String status);
+
+    public List gllist(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

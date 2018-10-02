@@ -61,6 +61,9 @@ T_DM_XB : <dm:list tabName="T_DM_XB" id="T_DM_XB" name="T_DM_XB" value="01"></dm
 T_DM_XB radio  <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  value="${'01'}" ></dm:list>
 
 <hr>
+
+
+
 <%
     List list = new java.util.ArrayList();
     list.add("01");

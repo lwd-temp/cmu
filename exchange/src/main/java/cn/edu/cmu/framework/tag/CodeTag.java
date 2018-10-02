@@ -63,6 +63,10 @@ public class CodeTag extends  BasetTag {
         if("select".equals(type)){
             String selectTagStartFMT = "<select id='%s' name='%s' class='form-control chosen-select'  %s>\r\n";
             super.writeln(String.format(selectTagStartFMT,  id, name, daValue));
+
+            if(daValue.indexOf("multiple")==-1){//如果不是多选，默认让他有一个请选择
+                super.writeln(String.format(optionFMT,  "", "",   "请选择"));
+            }
         }
     }
 

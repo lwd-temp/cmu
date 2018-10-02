@@ -35,10 +35,16 @@ $.fn.extend({
         var form = this;
         var settings = {
             onkeyup:false,
-            errorPlacement: function(error, element) {
+            obblur:true,
+            ignore: ":hidden:not(select)",
+            errorPlacement: function(error, el) {
                 var text = $(error).text();
-                var eleId = $(element).attr("id");
-                //alert(eleId);
+                var eleId = $(el).attr("id");
+                if($(el).hasClass("chosen-select")){
+
+                    eleId = eleId+"_chosen";
+                }
+                //console.info($(el));
                 layer.tips(text, "#"+eleId, {
                     tips: [3, '#78BA32'],
                     tipsMore: true,
@@ -53,5 +59,30 @@ $.fn.extend({
 })
 
 
+$(function(){
+    try{
+        //日期控件
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+    }catch(e){
+        console.error(e.message);
+    }
+
+
+    try{
+        //下拉选
+        $('.chosen-select').chosen({allow_single_deselect:true});
+    }catch(e){
+        console.error(e.message);
+    }
+
+
+
+
+
+
+})
 
 

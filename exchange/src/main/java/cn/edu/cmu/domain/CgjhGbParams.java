@@ -1,37 +1,36 @@
 package cn.edu.cmu.domain;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class XmMaxcodeParams {
+public class CgjhGbParams {
     /**
-     * T_XM_MAXCODE
+     * T_CG_CGJH_GB
      */
     protected String orderByClause;
 
     /**
-     * T_XM_MAXCODE
+     * T_CG_CGJH_GB
      */
     protected boolean distinct;
 
     /**
-     * T_XM_MAXCODE
+     * T_CG_CGJH_GB
      */
     protected List<Criteria> oredCriteria;
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
-    public XmMaxcodeParams() {
+    public CgjhGbParams() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +38,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +46,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +54,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +62,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +70,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +78,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +88,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +100,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +109,7 @@ public class XmMaxcodeParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +118,7 @@ public class XmMaxcodeParams {
     }
 
     /**
-     * T_XM_MAXCODE 2018-09-22
+     * T_CG_CGJH_GB 2018-10-01
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -162,123 +161,213 @@ public class XmMaxcodeParams {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andYearIsNull() {
-            addCriterion("YEAR is null");
+        public Criteria andGbidIsNull() {
+            addCriterion("GBID is null");
             return (Criteria) this;
         }
 
-        public Criteria andYearIsNotNull() {
-            addCriterion("YEAR is not null");
+        public Criteria andGbidIsNotNull() {
+            addCriterion("GBID is not null");
             return (Criteria) this;
         }
 
-        public Criteria andYearEqualTo(BigDecimal value) {
-            addCriterion("YEAR =", value, "year");
+        public Criteria andGbidEqualTo(String value) {
+            addCriterion("GBID =", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotEqualTo(BigDecimal value) {
-            addCriterion("YEAR <>", value, "year");
+        public Criteria andGbidNotEqualTo(String value) {
+            addCriterion("GBID <>", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThan(BigDecimal value) {
-            addCriterion("YEAR >", value, "year");
+        public Criteria andGbidGreaterThan(String value) {
+            addCriterion("GBID >", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("YEAR >=", value, "year");
+        public Criteria andGbidGreaterThanOrEqualTo(String value) {
+            addCriterion("GBID >=", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThan(BigDecimal value) {
-            addCriterion("YEAR <", value, "year");
+        public Criteria andGbidLessThan(String value) {
+            addCriterion("GBID <", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("YEAR <=", value, "year");
+        public Criteria andGbidLessThanOrEqualTo(String value) {
+            addCriterion("GBID <=", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearIn(List<BigDecimal> values) {
-            addCriterion("YEAR in", values, "year");
+        public Criteria andGbidLike(String value) {
+            addCriterion("GBID like", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotIn(List<BigDecimal> values) {
-            addCriterion("YEAR not in", values, "year");
+        public Criteria andGbidNotLike(String value) {
+            addCriterion("GBID not like", value, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("YEAR between", value1, value2, "year");
+        public Criteria andGbidIn(List<String> values) {
+            addCriterion("GBID in", values, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andYearNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("YEAR not between", value1, value2, "year");
+        public Criteria andGbidNotIn(List<String> values) {
+            addCriterion("GBID not in", values, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeIsNull() {
-            addCriterion("MAXCODE is null");
+        public Criteria andGbidBetween(String value1, String value2) {
+            addCriterion("GBID between", value1, value2, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeIsNotNull() {
-            addCriterion("MAXCODE is not null");
+        public Criteria andGbidNotBetween(String value1, String value2) {
+            addCriterion("GBID not between", value1, value2, "gbid");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeEqualTo(BigDecimal value) {
-            addCriterion("MAXCODE =", value, "maxcode");
+        public Criteria andGjdmIsNull() {
+            addCriterion("GJDM is null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeNotEqualTo(BigDecimal value) {
-            addCriterion("MAXCODE <>", value, "maxcode");
+        public Criteria andGjdmIsNotNull() {
+            addCriterion("GJDM is not null");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeGreaterThan(BigDecimal value) {
-            addCriterion("MAXCODE >", value, "maxcode");
+        public Criteria andGjdmEqualTo(String value) {
+            addCriterion("GJDM =", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("MAXCODE >=", value, "maxcode");
+        public Criteria andGjdmNotEqualTo(String value) {
+            addCriterion("GJDM <>", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeLessThan(BigDecimal value) {
-            addCriterion("MAXCODE <", value, "maxcode");
+        public Criteria andGjdmGreaterThan(String value) {
+            addCriterion("GJDM >", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("MAXCODE <=", value, "maxcode");
+        public Criteria andGjdmGreaterThanOrEqualTo(String value) {
+            addCriterion("GJDM >=", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeIn(List<BigDecimal> values) {
-            addCriterion("MAXCODE in", values, "maxcode");
+        public Criteria andGjdmLessThan(String value) {
+            addCriterion("GJDM <", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeNotIn(List<BigDecimal> values) {
-            addCriterion("MAXCODE not in", values, "maxcode");
+        public Criteria andGjdmLessThanOrEqualTo(String value) {
+            addCriterion("GJDM <=", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("MAXCODE between", value1, value2, "maxcode");
+        public Criteria andGjdmLike(String value) {
+            addCriterion("GJDM like", value, "gjdm");
             return (Criteria) this;
         }
 
-        public Criteria andMaxcodeNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("MAXCODE not between", value1, value2, "maxcode");
+        public Criteria andGjdmNotLike(String value) {
+            addCriterion("GJDM not like", value, "gjdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjdmIn(List<String> values) {
+            addCriterion("GJDM in", values, "gjdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjdmNotIn(List<String> values) {
+            addCriterion("GJDM not in", values, "gjdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjdmBetween(String value1, String value2) {
+            addCriterion("GJDM between", value1, value2, "gjdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjdmNotBetween(String value1, String value2) {
+            addCriterion("GJDM not between", value1, value2, "gjdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidIsNull() {
+            addCriterion("JHID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidIsNotNull() {
+            addCriterion("JHID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidEqualTo(String value) {
+            addCriterion("JHID =", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidNotEqualTo(String value) {
+            addCriterion("JHID <>", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidGreaterThan(String value) {
+            addCriterion("JHID >", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidGreaterThanOrEqualTo(String value) {
+            addCriterion("JHID >=", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidLessThan(String value) {
+            addCriterion("JHID <", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidLessThanOrEqualTo(String value) {
+            addCriterion("JHID <=", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidLike(String value) {
+            addCriterion("JHID like", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidNotLike(String value) {
+            addCriterion("JHID not like", value, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidIn(List<String> values) {
+            addCriterion("JHID in", values, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidNotIn(List<String> values) {
+            addCriterion("JHID not in", values, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidBetween(String value1, String value2) {
+            addCriterion("JHID between", value1, value2, "jhid");
+            return (Criteria) this;
+        }
+
+        public Criteria andJhidNotBetween(String value1, String value2) {
+            addCriterion("JHID not between", value1, value2, "jhid");
             return (Criteria) this;
         }
 
@@ -414,7 +503,7 @@ public class XmMaxcodeParams {
     }
 
     /**
-     * T_XM_MAXCODE
+     * T_CG_CGJH_GB
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -424,7 +513,7 @@ public class XmMaxcodeParams {
     }
 
     /**
-     * T_XM_MAXCODE 2018-09-22
+     * T_CG_CGJH_GB 2018-10-01
      */
     public static class Criterion {
         private String condition;

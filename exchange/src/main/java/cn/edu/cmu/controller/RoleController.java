@@ -29,7 +29,7 @@ public class RoleController extends BaseController {
 
     /**
      * 分页查询
-     * @param condition 查询条件
+     * @param role 查询条件
      * @param orderCol 排序字段
      * @param orderType 排序方式 asc desc
      * @param page   分页对象页号，即想查询第几页
@@ -39,17 +39,17 @@ public class RoleController extends BaseController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public Map list(String condition,
+    public Map list(Role role,
                     String orderCol,
                     String orderType,
                     @RequestParam(defaultValue = "1",required = false )Integer  page,
                     @RequestParam(defaultValue = "10",required = false) Integer rows  ) throws Exception {
 
-        logger.debug("condition:"+condition);
+        logger.debug("condition:"+role);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
-        List list = roleService.list(condition,orderCol,orderType);//demoList();
+        List list = roleService.list(role,orderCol,orderType);//demoList();
 
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo,list);

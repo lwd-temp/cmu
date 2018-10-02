@@ -145,7 +145,7 @@
 
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'condition':$("#condition").val()},//条件查询项后台发送的条件数据
+            postData:{'name':$("#condition").val()},//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
 

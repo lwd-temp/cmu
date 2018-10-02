@@ -27,7 +27,7 @@ public class UploadServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        Upload upload = new Upload(CmuStringUtil.UUID(),"01", new Date(), "01", "01", "01",null,null);
+        Upload upload = new Upload(CmuStringUtil.UUID(),"01", "01", "01", "01",null,null);
         boolean success = service.insert(upload);
         System.out.println("Upload:"+upload);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class UploadServiceImplTest extends SpringIOC {
     @Test
     public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
-        Upload upload = new Upload(keyId,"01", new Date(), "01", "01", "01",null,null);
+        Upload upload = new Upload(keyId,"01",  "01", "01", "01",null,null);
         boolean success = service.insert(upload);
         System.out.println("保存成功："+success);
         Upload queryUpload = service.queryById(keyId);

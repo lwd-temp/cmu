@@ -155,7 +155,7 @@
 
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'condition':$("#condition").val()},
+            postData:{'roleName':$("#condition").val()},
             page:1
         }).trigger("reloadGrid");
     }

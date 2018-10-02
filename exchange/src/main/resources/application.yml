@@ -15,5 +15,8 @@ sys:
       ext:
         css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot
       url:
-
+  upload:
+    #上传文件的基本路径
+    base_dir:
+      D:\\upload\\
 

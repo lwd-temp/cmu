@@ -14,11 +14,6 @@ public class Upload {
     private String uploadPath;
 
     /**
-     * 上传时间
-     */
-    private Date createtime;
-
-    /**
      * 扩展名
      */
     private String ext;
@@ -45,12 +40,11 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
-    public Upload(String fileId, String uploadPath, Date createtime, String ext, String operator, String ip, String valid, Date createTime) {
+    public Upload(String fileId, String uploadPath, String ext, String operator, String ip, String valid, Date createTime) {
         this.fileId = fileId;
         this.uploadPath = uploadPath;
-        this.createtime = createtime;
         this.ext = ext;
         this.operator = operator;
         this.ip = ip;
@@ -60,7 +54,7 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     public Upload() {
         super();
@@ -96,22 +90,6 @@ public class Upload {
      */
     public void setUploadPath(String uploadPath) {
         this.uploadPath = uploadPath == null ? null : uploadPath.trim();
-    }
-
-    /**
-     * 上传时间
-     * @return CREATETIME 上传时间
-     */
-    public Date getCreatetime() {
-        return createtime;
-    }
-
-    /**
-     * 上传时间
-     * @param createtime 上传时间
-     */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
     }
 
     /**
@@ -196,7 +174,7 @@ public class Upload {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-01
      */
     @Override
     public String toString() {
@@ -206,7 +184,6 @@ public class Upload {
         sb.append("Hash = ").append(hashCode());
         sb.append(", fileId=").append(fileId);
         sb.append(", uploadPath=").append(uploadPath);
-        sb.append(", createtime=").append(createtime);
         sb.append(", ext=").append(ext);
         sb.append(", operator=").append(operator);
         sb.append(", ip=").append(ip);

@@ -182,8 +182,8 @@ $(function(){
             if($.isArray(codes) ){
                 $(codes).each(function(){
                     var json = this;
-                    console.info(json);
-                    console.info(paramCode);
+                    //console.info(json);
+                    //console.info(paramCode);
                     if(json[paramCode] && json[paramCode].length>0){
                         name = json[paramCode]
                         return false;
@@ -202,7 +202,7 @@ $(function(){
 
     $.ajax('ui/dm_cache',{
         success:function(data){
-            console.info(data);
+            //console.info(data);
             dmcache.data = data;
         }
     })

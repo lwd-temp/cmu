@@ -92,9 +92,19 @@
             pager:pager_selector,
             colModel:[
                 {name:'xymc',index:'xymc'},
-                {name:'qdrq',index:'qdrq'},
-                {name:'sxrq',index:'sxrq'},
-                {name:'uploadId',index:'uploadId'},
+                {name:'qdrq',index:'qdrq',formatter:function(qdrq, options, rowObject){
+                        return new Date(qdrq).getYmd("yyyy-MM-dd");
+                    }},
+                {name:'sxrq',index:'sxrq',formatter:function(sxrq, options, rowObject){
+                        return new Date(sxrq).getYmd("yyyy-MM-dd");
+                    }},
+                {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(id, options, rowObject){
+                        var fileId = rowObject.uploadId;
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick=\"uploadXy('"+id+"')\" ><i class='ace-icon fa fa-upload '>上传</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='测试' ><i class='ace-icon fa fa-download '>下载</i></button>";
+                    }
+                },
                 {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='测试' onclick='editHzxy(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
@@ -115,10 +125,32 @@
     }
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'condition':$("#xymc").val()},//条件查询项后台发送的条件数据
+            postData:{'xymc':$("#xymc").val()},//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
     }
+
+
+    //上传协议
+    function uploadXy(xyid){
+        layer.newpage({
+            area: ['400px', "220px"],
+            title:'上传交流合作协议',
+            content:'sys/file/uppage?targetUrl=jlxy/updateUploadId&xyid='+xyid,
+        });
+    }
+
+    //下载协议
+    function downloadXy(fileId){
+        if(fileId =='null'){
+            layer.alert("未查询到上传协议.");
+            return ;
+        }
+        window.open("sys/file/download?fileId="+fileId+"&fileName=download")
+    }
+
+
+
     //修改
     function editHzxy(bzid){
         layer.newpage({
@@ -126,6 +158,9 @@
             title:'编辑协议',
             content:'jlxy/toEdit?id='+bzid
         });
+
+
+
     }
     //删除
     function delHzxy(bzid){

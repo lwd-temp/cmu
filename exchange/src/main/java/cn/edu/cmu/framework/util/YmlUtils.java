@@ -1,5 +1,6 @@
 package cn.edu.cmu.framework.util;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -10,6 +11,8 @@ import java.util.Map;
  * @Version 1.0
  */
 public class YmlUtils {
+    //yml 每次都加载会很慢，增加缓存
+    private static Map cache = new HashMap();
 
     public static Object getProperty(String key){
         return getProperty(key,"/application.yml");
@@ -36,7 +39,8 @@ public class YmlUtils {
         }
 
         if(!key.contains(".")){//如果不包含点 则直接按照key返回value
-            return entity.get(key);
+            cache.put(key,entity.get(key));
+            return cache.get(key);
         }
         String beforeKey =key.substring(0,key.lastIndexOf("."));
         String lastKey =key.substring(key.lastIndexOf(".")+1 ,key.length());
@@ -53,8 +57,8 @@ public class YmlUtils {
                 return null;
             }
         }
-
-        return entity.get(lastKey);
+        cache.put(lastKey,entity.get(lastKey));
+        return cache.get(lastKey);
 
     }
 

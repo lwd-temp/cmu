@@ -25,12 +25,13 @@ public class JlxyController extends BaseController {
 
     @Autowired
     JlxyService jlxyService;
+
     @Autowired
     HzxyGbService hzxyGbService;
-    private List list ;
+
     /**
      * 分页查询
-     * @param condition 查询条件
+     * @param hzxy 查询条件
      * @param orderCol 排序字段
      * @param orderType 排序方式 asc desc
      * @param page   分页对象页号，即想查询第几页
@@ -40,17 +41,17 @@ public class JlxyController extends BaseController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public Map list(String condition, //一个 查询条件
+    public Map list(Hzxy hzxy, //一个 查询条件
                     String orderCol,    // 排序 字段   order by   【name】
                     String orderType,// 排序 类型  asc   desc
                     @RequestParam(defaultValue = "1",required = false )Integer  page,
                     @RequestParam(defaultValue = "10",required = false) Integer rows  ) throws Exception {
 
-        logger.debug("condition:"+condition);
+        logger.debug("condition:"+hzxy);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
-        List list = jlxyService.list(condition,orderCol,orderType);
+        List list = jlxyService.list(hzxy,orderCol,orderType);
         logger.info("list:"+list);
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo,list);
@@ -132,6 +133,25 @@ public class JlxyController extends BaseController {
         boolean success = jlxyService.updateById(hzxy);
         return super.ajaxStatus(success);
     }
+
+
+    /**
+     * 上传文件成功后更新协议表中 文件id
+     * @param fileId
+     * @param xyid
+     */
+    @ResponseBody
+    @RequestMapping("/updateUploadId")
+    public Map uploadXy(String fileId, String xyid) throws Exception {
+        Hzxy xy = jlxyService.queryById(xyid);
+        xy.setUploadId(fileId);
+
+        boolean success = jlxyService.updateById(xy);
+
+        return super.ajaxStatus(success);
+    }
+
+
 
 
 

@@ -72,7 +72,12 @@
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                             </div>
-
+                             <div class="form-group">
+                                 <label class="col-xs-2 control-label" > 国别: </label>
+                                 <div class="col-xs-5">
+                                     <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   data-placeholder="请选择国别"  ></dm:list>
+                                 </div>
+                             </div>
                              <div class="form-group">
                                  <label class="col-xs-2 control-label "  > 签字人: </label>
                                  <div class="col-xs-10">
@@ -86,10 +91,7 @@
                                      <textarea class="form-control limited" name="qzrzw"   placeholder="签字人职务"  maxlength="300"></textarea>
                                  </div>
                              </div>
-                             <div class="form-group">
-                                 <label class="col-xs-2 control-label" > 国别: </label>
-                                 <dm:list tabName="T_DM_GB" class="chosen-select" type="select" multiple="multiple"  id="gb"  name="gbs"   ></dm:list>
-                             </div>
+
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
@@ -136,11 +138,7 @@
 <!-- ace scripts -->
 <script>
     $(function(){
-       //日期选择器
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
+
         $("#form").setValid({
             //校验规则
             rules: {

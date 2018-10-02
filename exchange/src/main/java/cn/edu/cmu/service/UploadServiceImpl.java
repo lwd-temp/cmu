@@ -25,4 +25,26 @@ public class UploadServiceImpl extends BaseService<Upload, UploadParams, UploadM
         }
         return dao.selectByExample(ex);
     }
+
+
+    /**
+     * 将上传信息保存到数据库中
+     * @param uploads
+     * @return
+     */
+    @Override
+    public boolean upload(List<Upload> uploads) throws Exception {
+        if(uploads == null || uploads.size()<=0){
+            return false;
+        }
+
+        int count = 0;
+        for (Upload upload : uploads) {
+            count += dao.insertSelective(upload) ;
+        }
+        if(count != uploads.size()){
+            throw new Exception(String.format("上传文件失败，应上传 %d,实际上传 %d",uploads.size() ,count ));
+        }
+        return true;
+    }
 }

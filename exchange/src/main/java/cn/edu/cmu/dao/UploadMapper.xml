@@ -5,7 +5,6 @@
     <constructor >
       <idArg column="FILE_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="UPLOAD_PATH" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CREATETIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="EXT" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="IP" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -73,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    FILE_ID, UPLOAD_PATH, CREATETIME, EXT, OPERATOR, IP, VALID, CREATE_TIME
+    FILE_ID, UPLOAD_PATH, EXT, OPERATOR, IP, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.UploadParams" >
     select
@@ -108,12 +107,12 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Upload" >
-    insert into T_SYS_UPLOAD (FILE_ID, UPLOAD_PATH, CREATETIME, 
-      EXT, OPERATOR, IP, 
-      VALID, CREATE_TIME)
-    values (#{fileId,jdbcType=VARCHAR}, #{uploadPath,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
-      #{ext,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+    insert into T_SYS_UPLOAD (FILE_ID, UPLOAD_PATH, EXT, 
+      OPERATOR, IP, VALID, 
+      CREATE_TIME)
+    values (#{fileId,jdbcType=VARCHAR}, #{uploadPath,jdbcType=VARCHAR}, #{ext,jdbcType=VARCHAR}, 
+      #{operator,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Upload" >
     insert into T_SYS_UPLOAD
@@ -123,9 +122,6 @@
       </if>
       <if test="uploadPath != null" >
         UPLOAD_PATH,
-      </if>
-      <if test="createtime != null" >
-        CREATETIME,
       </if>
       <if test="ext != null" >
         EXT,
@@ -149,9 +145,6 @@
       </if>
       <if test="uploadPath != null" >
         #{uploadPath,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null" >
-        #{createtime,jdbcType=TIMESTAMP},
       </if>
       <if test="ext != null" >
         #{ext,jdbcType=VARCHAR},
@@ -185,9 +178,6 @@
       <if test="record.uploadPath != null" >
         UPLOAD_PATH = #{record.uploadPath,jdbcType=VARCHAR},
       </if>
-      <if test="record.createtime != null" >
-        CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
-      </if>
       <if test="record.ext != null" >
         EXT = #{record.ext,jdbcType=VARCHAR},
       </if>
@@ -212,7 +202,6 @@
     update T_SYS_UPLOAD
     set FILE_ID = #{record.fileId,jdbcType=VARCHAR},
       UPLOAD_PATH = #{record.uploadPath,jdbcType=VARCHAR},
-      CREATETIME = #{record.createtime,jdbcType=TIMESTAMP},
       EXT = #{record.ext,jdbcType=VARCHAR},
       OPERATOR = #{record.operator,jdbcType=VARCHAR},
       IP = #{record.ip,jdbcType=VARCHAR},
@@ -227,9 +216,6 @@
     <set >
       <if test="uploadPath != null" >
         UPLOAD_PATH = #{uploadPath,jdbcType=VARCHAR},
-      </if>
-      <if test="createtime != null" >
-        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       </if>
       <if test="ext != null" >
         EXT = #{ext,jdbcType=VARCHAR},
@@ -252,7 +238,6 @@
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Upload" >
     update T_SYS_UPLOAD
     set UPLOAD_PATH = #{uploadPath,jdbcType=VARCHAR},
-      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
       EXT = #{ext,jdbcType=VARCHAR},
       OPERATOR = #{operator,jdbcType=VARCHAR},
       IP = #{ip,jdbcType=VARCHAR},

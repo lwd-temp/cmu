@@ -41,12 +41,13 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
     @Override
     public List list(Object... conditions) throws Exception {
         ContactParams params = new ContactParams();
-        if(conditions != null && conditions.length>0){//如果 User不等于 null 说明可能穿条件了
-            String condition = (String) conditions[0];
+        ContactParams.Criteria c = params.createCriteria();
 
-            if(StringUtils.isNotEmpty(condition)){//此处 拼接的事 Username的 like条件，其他字段一样
-                ContactParams.Criteria c = params.createCriteria();
-                c.andNameLike("%"+condition+"%");
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            Contact contact = (Contact) conditions[0];
+
+            if(StringUtils.isNotEmpty(contact.getName())){
+                c.andNameLike("%"+contact.getName()+"%");
             }
             super.addOrderBy(params,conditions);
         }

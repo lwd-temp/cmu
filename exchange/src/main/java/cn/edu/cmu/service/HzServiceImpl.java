@@ -20,16 +20,16 @@ public class HzServiceImpl extends BaseService<Hz, HzParams, HzMapper> implement
         return dao.selectByExample(ex);
     }
 
-    //分页查询 调用的事这个
+    //分页查询 调用的是这个
     //conditions  参数就叫这个就行， 意思是 多个条件，
     @Override
     public List list(Object... conditions) throws Exception {
         HzParams params = new HzParams();
-        if(conditions != null && conditions.length>0){
-            String condition = (String) conditions[0];
-            if(StringUtils.isNotEmpty(condition)){
-                HzParams.Criteria c = params.createCriteria();
-                c.andXmLike("%"+condition+"%");//先按照这个查询，如果有多个条件 就在该这
+        HzParams.Criteria c = params.createCriteria();
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            Hz hz = (Hz) conditions[0];
+            if(StringUtils.isNotEmpty(hz.getXm())){
+                c.andXmLike("%"+hz.getXm()+"%");//先按照这个查询，如果有多个条件 就在该这
             }
             super.addOrderBy(params,conditions);//排序
         }
