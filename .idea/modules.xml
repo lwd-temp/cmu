@@ -5,6 +5,10 @@
       <module fileurl="file://$PROJECT_DIR$/cmu.iml" filepath="$PROJECT_DIR$/cmu.iml" />
       <module fileurl="file://$PROJECT_DIR$/exchange/exchange.iml" filepath="$PROJECT_DIR$/exchange/exchange.iml" />
       <module fileurl="file://$PROJECT_DIR$/poi/poi.iml" filepath="$PROJECT_DIR$/poi/poi.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/sso/sso.iml" filepath="$PROJECT_DIR$/sso/sso.iml" />
+
+      <module fileurl="file://$PROJECT_DIR$/yx/yx.iml" filepath="$PROJECT_DIR$/yx/yx.iml" />
     </modules>
   </component>
 </project>
