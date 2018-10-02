@@ -124,13 +124,13 @@
 						<li class="grey">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-tasks"></i>
-								<span class="badge badge-grey">4</span>
+								<span class="badge badge-grey">0</span>
 							</a>
 
 							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-check"></i>
-									4 Tasks to complete
+									0 个待完成的任务
 								</li>
 
 								<li class="dropdown-content">
@@ -138,17 +138,17 @@
 										<li>
 											<a href="#">
 												<div class="clearfix">
-													<span class="pull-left">Software Update</span>
-													<span class="pull-right">65%</span>
+													<span class="pull-left">暂无任务</span>
+													<span class="pull-right">done</span>
 												</div>
 
-												<div class="progress progress-mini">
-													<div style="width:65%" class="progress-bar"></div>
-												</div>
+												<%--<div class="progress progress-mini">
+													<div style="width:100%" class="progress-bar"></div>
+												</div>--%>
 											</a>
 										</li>
 
-										<li>
+										<%--<li>
 											<a href="#">
 												<div class="clearfix">
 													<span class="pull-left">Hardware Upgrade</span>
@@ -185,29 +185,29 @@
 													<div style="width:90%" class="progress-bar progress-bar-success"></div>
 												</div>
 											</a>
-										</li>
+										</li>--%>
 									</ul>
 								</li>
 
-								<li class="dropdown-footer">
+								<%--<li class="dropdown-footer">
 									<a href="#">
 										See tasks with details
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
-								</li>
+								</li>--%>
 							</ul>
 						</li>
 
 						<li class="purple">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
-								<span class="badge badge-important">8</span>
+								<span class="badge badge-important">0</span>
 							</a>
 
 							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-exclamation-triangle"></i>
-									8 Notifications
+									暂无通知
 								</li>
 
 								<li class="dropdown-content">
@@ -217,14 +217,14 @@
 												<div class="clearfix">
 													<span class="pull-left">
 														<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>
-														New Comments
+														待处理通知
 													</span>
-													<span class="pull-right badge badge-info">+12</span>
+													<span class="pull-right badge badge-info">0</span>
 												</div>
 											</a>
 										</li>
 
-										<li>
+										<%--<li>
 											<a href="#">
 												<i class="btn btn-xs btn-primary fa fa-user"></i>
 												Bob just signed up as an editor ...
@@ -253,29 +253,29 @@
 													<span class="pull-right badge badge-info">+11</span>
 												</div>
 											</a>
-										</li>
+										</li>--%>
 									</ul>
 								</li>
 
-								<li class="dropdown-footer">
+								<%--<li class="dropdown-footer">
 									<a href="#">
 										See all notifications
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
-								</li>
+								</li>--%>
 							</ul>
 						</li>
 
 						<li class="green">
 							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
-								<span class="badge badge-success">5</span>
+								<span class="badge badge-success">1</span>
 							</a>
 
 							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
 									<i class="ace-icon fa fa-envelope-o"></i>
-									5 Messages
+									消息列表
 								</li>
 
 								<li class="dropdown-content">
@@ -285,19 +285,19 @@
 												<img src="assets/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
-														<span class="blue">Alex:</span>
-														Ciao sociis natoque penatibus et auctor ...
+														<span class="blue">系统消息:</span>
+														欢迎各位老师使用本系统
 													</span>
 
 													<span class="msg-time">
 														<i class="ace-icon fa fa-clock-o"></i>
-														<span>a moment ago</span>
+														<span>2018年10月1日</span>
 													</span>
 												</span>
 											</a>
 										</li>
 
-										<li>
+										<%--<li>
 											<a href="#" class="clearfix">
 												<img src="assets/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
@@ -363,16 +363,16 @@
 													</span>
 												</span>
 											</a>
-										</li>
+										</li>--%>
 									</ul>
 								</li>
 
-								<li class="dropdown-footer">
+								<%--<li class="dropdown-footer">
 									<a href="html/demo/inbox.html">
 										See all messages
 										<i class="ace-icon fa fa-arrow-right"></i>
 									</a>
-								</li>
+								</li>--%>
 							</ul>
 						</li>
 
