@@ -87,6 +87,12 @@ var initIndex = layer.loading();
 
 $(function(){
 
+    //给菜单添加点击事件.
+    $('li [tg]').click(function(){
+        getUrl(this);
+    });
+
+
     //定义加载表格的公共方法
     $.fn.extend({
         tables:function(options){
@@ -209,19 +215,26 @@ $(function(){
             //console.info(data);
             dmcache.data = data;
         }
-    })
+    });
 
+
+
+    //给菜单添加点击事件
 
 })()
 
 //菜单点击 时调用
-function getUrl(ahref ,url){
-    if(!url  || url == '' || url=='unknow'){
-        layer.msg("原型开发中，请稍等....")
-        return;
-    }
-    var text = $(ahref).text();
-    $("#breadcrumb").text(text);
+function getUrl(li){
+
+    var url = $(li).attr('tg');
+    //移除其他active
+    $(li).siblings('.active').removeClass("active");
+    $(li).addClass("active");
+
+    var text = $(li).text();
+    //alert("text :"+text);
+    $("#breadcrumb").text(text.trim());
+
     var index = layer.loading();
 
     $.ajax(url,{

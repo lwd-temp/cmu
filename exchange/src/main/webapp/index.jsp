@@ -12,7 +12,6 @@
 		<meta charset="utf-8" />
 		<title>CMU Admin(国际交流管理信息系统)</title>
 
-		<meta name="description" content="Dynamic tables and grids using jqGrid plugin" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
@@ -469,12 +468,12 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.jsp">
+						<a href="">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> 功能仪表盘 </span>
 						</a>
 
-						<b class="arrow"></b>
+
 					</li>
                     <li class=" ">
                         <a href="#" class="dropdown-toggle">
@@ -487,28 +486,25 @@
                         <ul class="submenu">
 
                             <li class="">
-                                <a href="javascript:getUrl(this,'business/power/user/user_list.jsp')">
+                                <a href="#" tg="business/power/user/user_list.jsp">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     用户管理
                                 </a>
 
-                                <b class="arrow"></b>
+
                             </li>
                             <li class="">
-                                <a href="javascript:getUrl(this,'business/power/menu/menu_list.jsp')">
+                                <a href="#" tg="business/power/menu/menu_list.jsp">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     菜单管理
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
                             <li class="">
-                                <a href="javascript:getUrl(this,'business/power/role/role_list.jsp')">
+                                <a href="#" tg="business/power/role/role_list.jsp">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     角色管理
                                 </a>
-
-                                <b class="arrow"></b>
                             </li>
                         </ul>
 
@@ -521,43 +517,38 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
 
                         <ul class="submenu">
 
-                            <li class="active">
-                                <a href="javascript:getUrl(this,'business/xmgl/xmgl_list.jsp')">
+                            <li class="" tg="business/xmgl/xmgl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
 									交流项目设定
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
 
-							<li class="">
-								<a href="javascript:getUrl(this,'business/xmgl/xmgl_list_sq.jsp')">
+							<li class="" tg="business/xmgl/xmgl_list_sq.jsp">
+								<a href="#" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									申请交流项目
 								</a>
 
-								<b class="arrow"></b>
 							</li>
 
-							<li class="">
-								<a href="javascript:getUrl(this,'business/xmgl/xmgl_sh.jsp')">
+							<li class="" tg="business/xmgl/xmgl_sh.jsp">
+								<a href="#" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									项目审核
 								</a>
 
-								<b class="arrow"></b>
 							</li>
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/xmgl/xmgl_ysqxm.jsp')">
+                            <li class="" tg="business/xmgl/xmgl_ysqxm.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     已申请项目管理(交流报告总结)
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
 
 
@@ -571,29 +562,27 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
-
                         <ul class="submenu">
 
-                            <li class="active">
-                                <a href="javascript:getUrl(this,'business/cgjh/cgjh_list.jsp')">
+                            <li class="" tg="business/cgjh/cgjh_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     出访团组申请
                                 </a>
 
-                                <b class="arrow"></b>
+
                             </li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/cgjh/cgjh_sp_list.jsp')">
+                            <li class="" tg="business/cgjh/cgjh_sp_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     出访团组审批
                                 </a>
 
                             </li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/cgjh/cgjh_gl_list.jsp')">
+                            <li class="" tg="business/cgjh/cgjh_gl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     出访团组管理
                                 </a>
@@ -610,29 +599,27 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
-
                         <ul class="submenu">
 
-                            <li class="active">
-                                <a href="javascript:getUrl(this,'business/cggl/cggl_list.jsp')">
+                            <li class="" tg="business/cggl/cggl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     出国（境）申请
                                 </a>
 
-                                <b class="arrow"></b>
+
                             </li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/cggl/cggl_sh_list.jsp')">
+                            <li class="" tg="business/cggl/cggl_sh_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     出国（境）审批
                                 </a>
 
                             </li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/cggl/cggl_gg_list.jsp')">
+                            <li class="" tg="business/cggl/cggl_gg_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     归国管理
                                 </a>
@@ -647,36 +634,36 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
+
                         <ul class="submenu">
 
-                            <li class="active">
-                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_jh_list.jsp')">
+                            <li class="" tg="business/gjhy/gjhy_jh_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议计划
                                 </a>
 
-                                <b class="arrow"></b>
+
                             </li>
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/gjhy/gjhy_sb_list.jsp')">
+                            <li class="" tg="business/gjhy/gjhy_sb_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     国际会议申报
                                 </a>
 
                             </li>
 
-                            <li class="">
-								<a href="javascript:getUrl(this,'business/gjhy/gjhy_zj_list.jsp')">
+                            <li class="" tg="business/gjhy/gjhy_zj_list.jsp">
+								<a href="#" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									国际会议总结
 								</a>
 
 							</li>
 
-							<li class="">
-								<a href="javascript:getUrl(this,'business/gjhy/gjhy_tj_list.jsp')">
+							<li class="" tg="business/gjhy/gjhy_tj_list.jsp">
+								<a href="#" >
 									<i class="menu-icon fa fa-caret-right"></i>
 									国际会议数据统计
 								</a>
@@ -693,17 +680,14 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
-
                         <ul class="submenu">
 
-                            <li class="active">
-                                <a href="javascript:getUrl(this,'business/hzgl/hzgl_list.jsp')">
+                            <li class="" tg="business/hzgl/hzgl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     护照及通行证管理
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
 
                         </ul>
@@ -716,33 +700,27 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
-
                         <ul class="submenu">
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/wblfgl/wbgl_list.jsp')">
+                            <li class="" tg="business/wblfgl/wbgl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     来访接待申请
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/wblfgl/wbgl_sp_list.jsp')">
+                            <li class="" tg="business/wblfgl/wbgl_sp_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     接待审批
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
                             <li class="">
-                                <a href="javascript:getUrl(this,'business/wblfgl/wbgl_zj_list.jsp')">
+                                <a href="#" tg="business/wblfgl/wbgl_zj_list.jsp">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     来访接待总结
                                 </a>
-
-                                <b class="arrow"></b>
                             </li>
 
                         </ul>
@@ -758,13 +736,12 @@
                         <b class="arrow"></b>
                         <ul class="submenu">
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/jlxy/jlxy_list.jsp')">
+                            <li class="" tg="business/jlxy/jlxy_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     协议信息管理
                                 </a>
 
-                                <b class="arrow"></b>
                             </li>
                         </ul>
 
@@ -777,17 +754,13 @@
                             <span class="menu-text"> 外籍教师管理</span>
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
-
-                        <b class="arrow"></b>
                         <ul class="submenu">
 
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/jsgl/jsgl_list.jsp')">
+                            <li class="" tg="business/jsgl/jsgl_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     外籍教师管理
                                 </a>
-
-                                <b class="arrow"></b>
                             </li>
                         </ul>
 
@@ -801,474 +774,16 @@
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
                         <ul class="submenu">
-
-                            <li class="">
-                                <a href="javascript:getUrl(this,'business/lxr/lxr_list.jsp')">
+                            <li class="" tg="business/lxr/lxr_list.jsp">
+                                <a href="#" >
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     联系人库管理
                                 </a>
-
-                                <b class="arrow"></b>
                             </li>
                         </ul>
 
                     </li>
-
-
-
-					<!-- 其他功能模板-->
-                    <li class="" style="display: none">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 其他功能</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <b class="arrow"></b>
-                        <ul class="submenu">
-
-                            <li class="">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="menu-icon fa fa-desktop"></i>
-                                    <span class="menu-text">
-								UI &amp; Elements
-							</span>
-
-                                    <b class="arrow fa fa-angle-down"></b>
-                                </a>
-
-                                <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-
-                                            Layouts
-                                            <b class="arrow fa fa-angle-down"></b>
-                                        </a>
-
-                                        <b class="arrow"></b>
-
-                                        <ul class="submenu">
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/top-menu.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Top Menu
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/two-menu-1.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Two Menus 1
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/two-menu-2.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Two Menus 2
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/mobile-menu-1.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Default Mobile Menu
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/mobile-menu-2.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Mobile Menu 2
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                               <a href="javascript:getUrl(this,'demo/mobile-menu-3.html')">
-                                                    <i class="menu-icon fa fa-caret-right"></i>
-                                                    Mobile Menu 3
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/typography.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Typography
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/elements.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Elements
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/buttons.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Buttons &amp; Icons
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/content-slider.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Content Sliders
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/treeview.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Treeview
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/jquery-ui.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            jQuery UI
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/nestable-list.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Nestable Lists
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                        <a href="#" class="dropdown-toggle">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-
-                                            Three Level Menu
-                                            <b class="arrow fa fa-angle-down"></b>
-                                        </a>
-
-                                        <b class="arrow"></b>
-
-                                        <ul class="submenu">
-                                            <li class="">
-                                                <a href="#">
-                                                    <i class="menu-icon fa fa-leaf green"></i>
-                                                    Item #1
-                                                </a>
-
-                                                <b class="arrow"></b>
-                                            </li>
-
-                                            <li class="">
-                                                <a href="#" class="dropdown-toggle">
-                                                    <i class="menu-icon fa fa-pencil orange"></i>
-
-                                                    4th level
-                                                    <b class="arrow fa fa-angle-down"></b>
-                                                </a>
-
-                                                <b class="arrow"></b>
-
-                                                <ul class="submenu">
-                                                    <li class="">
-                                                        <a href="#">
-                                                            <i class="menu-icon fa fa-plus purple"></i>
-                                                            Add Product
-                                                        </a>
-
-                                                        <b class="arrow"></b>
-                                                    </li>
-
-                                                    <li class="">
-                                                        <a href="#">
-                                                            <i class="menu-icon fa fa-eye pink"></i>
-                                                            View Products
-                                                        </a>
-
-                                                        <b class="arrow"></b>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="menu-icon fa fa-pencil-square-o"></i>
-                                    <span class="menu-text"> Forms </span>
-
-                                    <b class="arrow fa fa-angle-down"></b>
-                                </a>
-
-                                <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/form-elements.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Form Elements
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/form-elements-2.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Form Elements 2
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/form-wizard.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Wizard &amp; Validation
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/wysiwyg.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Wysiwyg &amp; Markdown
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/dropzone.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Dropzone File Upload
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="">
-                               <a href="javascript:getUrl(this,'demo/widgets.html')">
-                                    <i class="menu-icon fa fa-list-alt"></i>
-                                    <span class="menu-text"> Widgets </span>
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                               <a href="javascript:getUrl(this,'demo/calendar.html')">
-                                    <i class="menu-icon fa fa-calendar"></i>
-
-                                    <span class="menu-text">
-								Calendar
-
-                                        <!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-transparent tooltip-error" title="2 Important Events">
-									<i class="ace-icon fa fa-exclamation-triangle red bigger-130"></i>
-								</span>
-
-                                        <!-- /section:basics/sidebar.layout.badge -->
-							</span>
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                               <a href="javascript:getUrl(this,'demo/gallery.html')">
-                                    <i class="menu-icon fa fa-picture-o"></i>
-                                    <span class="menu-text"> Gallery </span>
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-
-                            <li class="">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="menu-icon fa fa-tag"></i>
-                                    <span class="menu-text"> More Pages </span>
-
-                                    <b class="arrow fa fa-angle-down"></b>
-                                </a>
-
-                                <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/profile.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            User Profile
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/inbox.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Inbox
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/pricing.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Pricing Tables
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/invoice.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Invoice
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/timeline.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Timeline
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/email.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Email Templates
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/login.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Login &amp; Register
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-                                </ul>
-                            </li>
-
-                            <li class="">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="menu-icon fa fa-file-o"></i>
-
-                                    <span class="menu-text">
-								Other Pages
-
-                                        <!-- #section:basics/sidebar.layout.badge -->
-								<span class="badge badge-primary">5</span>
-
-                                        <!-- /section:basics/sidebar.layout.badge -->
-							</span>
-
-                                    <b class="arrow fa fa-angle-down"></b>
-                                </a>
-
-                                <b class="arrow"></b>
-
-                                <ul class="submenu">
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/faq.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            FAQ
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/error-404.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Error 404
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/error-500.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Error 500
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/grid.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Grid
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-
-                                    <li class="">
-                                       <a href="javascript:getUrl(this,'demo/blank.html')">
-                                            <i class="menu-icon fa fa-caret-right"></i>
-                                            Blank Page
-                                        </a>
-
-                                        <b class="arrow"></b>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                    </li>
-
-
-
 
 				</ul><!-- /.nav-list -->
 
@@ -1304,7 +819,6 @@
 							<%--<li class="active">项目设定</li>--%>
 						</ul><!-- /.breadcrumb -->
 
-
 					</div>
 
 					<!-- /section:basics/content.breadcrumbs -->
@@ -1322,7 +836,7 @@
 				</div>
 			</div><!-- /.main-content -->
 
-			<div class="footer">
+            <div class="footer">
 				<div class="footer-inner">
 					<!-- #section:basics/footer -->
 					<div class="footer-content">
@@ -1391,8 +905,6 @@
         <script>
 
             $(function(){
-
-
 
                ace.settings.navbar_fixed(null, true);
                ace.settings.sidebar_fixed(null, true);
