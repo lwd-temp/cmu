@@ -501,7 +501,7 @@
     function deleteCy(btn){
 
         var size = $("#messages .cy").size();
-        console.info()
+        //console.info()
         if(size<=1){
             parent.layer.alert("请至少录入一个团组成员");
             return false;

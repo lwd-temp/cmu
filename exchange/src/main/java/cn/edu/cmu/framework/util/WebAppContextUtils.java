@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationContext;
 public class WebAppContextUtils {
 
     private static ApplicationContext context = null;
-
+    public static  String REAL_CONTEXT_PATH = "";
 
     public static void setContext(ApplicationContext context) {
         WebAppContextUtils.context = context;

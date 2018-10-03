@@ -34,5 +34,7 @@ public interface CgTzjhService extends IBaseService<CgTzjh, CgTzjhParams> {
     public boolean sh(String id, String status);
 
     public List gllist(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
+
+    public List gllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

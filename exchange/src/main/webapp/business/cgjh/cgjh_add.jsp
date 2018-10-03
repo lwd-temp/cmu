@@ -98,7 +98,7 @@
                     <div class="col-xs-4">
 
 
-                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  data-placeholder="请选择团组类别2" onchange="selecttzjb(this)"></dm:list>
+                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
 
                     </div>
 
@@ -466,7 +466,7 @@
     function deleteCy(btn){
 
         var size = $("#messages .cy").size();
-        console.info()
+        //console.info()
         if(size<=1){
             parent.layer.alert("请至少录入一个团组成员");
             return false;

@@ -378,7 +378,7 @@
 
     //审核，03 退回， 04通过
     function sh(status){
-        console.info(status);
+        //console.info(status);
         $.ajax('cgjh/sh',{
             data: {
                 'id':$("#tzid").val(),
@@ -387,6 +387,7 @@
             success:function(res){
                 if(res && res.success){
                     winAlert("处理成功");
+                    parent.refreshTable();
                     closeLayer();
                 }else{
                     winAlert("处理失败");

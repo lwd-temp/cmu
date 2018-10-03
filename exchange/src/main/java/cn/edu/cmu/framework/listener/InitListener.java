@@ -1,5 +1,6 @@
 package cn.edu.cmu.framework.listener;
 
+import cn.edu.cmu.framework.util.WebAppContextUtils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContext;
@@ -16,6 +17,8 @@ public class InitListener implements ServletContextListener{
         logger.info("=======初始化工程上下文  start ....");
         initRootPath(sce);
         logger.info("=======初始化工程上下文  end   ....");
+
+
     }
 
 
@@ -34,6 +37,15 @@ public class InitListener implements ServletContextListener{
         sb.append("/");
 
         app.setAttribute("rootPath",sb.toString());
+
+        //工程实际目录
+        String realContextPath = sce.getServletContext().getRealPath("/");
+        logger.info("realContextPath :"+realContextPath);
+
+        WebAppContextUtils.REAL_CONTEXT_PATH = realContextPath;
+        app.setAttribute("realContextPath",realContextPath);
+
+
     }
 
     @Override

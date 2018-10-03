@@ -145,7 +145,7 @@
             pager_selector:"",
             colModel:[
                 {name:'name',index:'name', formatter:function(cellvalue, options, rowObject){
-                        console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
+                        //console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
                         if(parseInt(rowObject.id)%3 != 0) {
                             return cellvalue;
                         }
@@ -157,7 +157,7 @@
 
                 {name:'id',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
-                        console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
+                        //console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
                         if(parseInt(cellvalue)%2 == 0){
                             return "<button class='btn btn-info btn-mini' onclick='sh_ch("+cellvalue+")' title='删除' ><i class='ace-icon fa fa-eye '>初审</i></button>";
                         }else{

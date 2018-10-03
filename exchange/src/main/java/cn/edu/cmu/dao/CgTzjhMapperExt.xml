@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.CgTzjhMapperExt" >
+
+  <!--自定义查询 使用代码转换
+    resultMap 引用的是其他Mapper中定义好的
+  -->
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.CgTzjhMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_TZLB', 'code', 'name', TZLB) TZLB,
+        F_GetTableText('T_DM_JHLX', 'code', 'name', JHLX) JHLX,
+        F_GetTableText('T_DM_TZJB', 'code', 'name', TZJB) TZJB,
+        F_GetTableText('T_DM_ZZSK', 'code', 'name', ZZHSK) ZZHSK,
+
+        (select wm_concat(gb.name) from t_cg_cgjh_gb t inner join T_DM_GB gb on gb.code = t.gjdm  where t.jhid =TZID) cfgj1,
+
+        TZID, TZH,  CFDW,  FZRXM, XZZW, XZJB, JSZW, ZW, ZJ,
+        CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, RWPJWH,
+        RWPFSJ, STATUS, VALID, CREATE_TIME
+
+        from T_CG_TZJH
+        <if test="_parameter != null" >
+            /*此处应用的refid 是其他Mapper中写好的*/
+            <include refid="cn.edu.cmu.dao.CgTzjhMapper.Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+
+
+
+</mapper>

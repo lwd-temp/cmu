@@ -26,9 +26,6 @@
                     查询
                 </button>
 
-                <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
-                    下载团组
-                </button>
             </div>
         </div>
 
@@ -129,11 +126,6 @@
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
-        });
-
-        //下载团组信息
-        $("#download").click(function(){
-            window.location.href = "alink/doc/tzxx.xls";
         });
 
 

@@ -22,10 +22,12 @@ public class DMCache {
     private static Logger logger = Logger.getLogger(DMCache.class);
 
     //代码表 Cache
-    private static Map<String ,List> tableCache = new HashMap<String , List>();
+    private static Map<String, List> tableCache = new HashMap<String, List>();
+
+    private static Map<String,String> tableCodeNameParis = new HashMap<>(0);
 
 
-    public static void clear(){
+    public static void clear() {
         tableCache.clear();
     }
 
@@ -35,22 +37,24 @@ public class DMCache {
 
     /**
      * 初始化
+     *
      * @param tableName
      * @param list
      */
-    public static void init(String tableName,List list){
-        tableCache.put(tableName,list);
+    public static void init(String tableName, List list) {
+        tableCache.put(tableName, list);
     }
 
     /**
      * 获取缓存
+     *
      * @param tableName
      * @return
      */
-    public static List getTableList(String tableName){
+    public static List getTableList(String tableName) {
         List list = tableCache.get(tableName.toUpperCase());
 
-        if(list == null){
+        if (list == null) {
             list = new ArrayList();
         }
 
@@ -58,6 +62,14 @@ public class DMCache {
     }
 
 
+    public static String translateCode2Name(String tableName, String code) {
+        String key = tableName+"_"+code;
+        if(tableCodeNameParis.containsKey(key)){
+            return  tableCodeNameParis.get(key);
+        }
+        return null;
+
+    }
 
 
     public static void initAllDmCache() {
@@ -65,13 +77,13 @@ public class DMCache {
         clear();//清空代码缓存
 
 
-        String  allDmMapper = (String) YmlUtils.getProperty("sys.cache.mapperbeans");
+        String allDmMapper = (String) YmlUtils.getProperty("sys.cache.mapperbeans");
         String[] mapperBeanNames = allDmMapper.split(",");//所有需要缓存的代码表 mapper的Bean对象名称
         int count = 0;
 
-        for (String mybatisMapperBeanName: mapperBeanNames) {
+        for (String mybatisMapperBeanName : mapperBeanNames) {
             initDmCache(mybatisMapperBeanName);
-            logger.info(String.format("=======初始化代码缓存 %d %s 完成",count++,mybatisMapperBeanName));
+            logger.info(String.format("=======初始化代码缓存 %d %s 完成", count++, mybatisMapperBeanName));
 
         }
 
@@ -80,38 +92,38 @@ public class DMCache {
     /**
      * 初始化代码缓存
      */
-    @SuppressWarnings(value="unchecked")
+    @SuppressWarnings(value = "unchecked")
     private static void initDmCache(String mybatisMapperBeanName) {
 
-        String tableName = "T_DM_"+mybatisMapperBeanName.toUpperCase().replace("MAPPER","").replace("DM","");
+        String tableName = "T_DM_" + mybatisMapperBeanName.toUpperCase().replace("MAPPER", "").replace("DM", "");
 
         BaseMapper mapper = (BaseMapper) WebAppContextUtils.getBean(mybatisMapperBeanName);
         List codeList = mapper.selectByExample(null);
-        if(codeList!=null && codeList.size()>0){
+        if (codeList != null && codeList.size() > 0) {
             Class codeClass = codeList.get(0).getClass();
-            List<Map<String,String>> cacheList = new ArrayList();
-            for (Object bean:codeList) {
+            List<Map<String, String>> cacheList = new ArrayList();
+            for (Object bean : codeList) {
                 try {
                     Method getCodeMethod = codeClass.getDeclaredMethod("getCode", null);
                     Method getNameMethod = codeClass.getDeclaredMethod("getName", null);
-                    String code = (String) getCodeMethod.invoke(bean,null);
-                    String name = (String) getNameMethod.invoke(bean,null);
+                    String code = (String) getCodeMethod.invoke(bean, null);
+                    String name = (String) getNameMethod.invoke(bean, null);
 
-                    Map<String,String> dm = new HashMap<String,String>();
-                    dm.put(code,name);
+                    Map<String, String> dm = new HashMap<String, String>();
+                    dm.put(code, name); //可以是code --value
+
+                    tableCodeNameParis.put(tableName+"_"+code,name);
 
                     cacheList.add(dm);
                 } catch (Exception e) {
-                    logger.error(String.format("=======初始化代码缓存时出错,表名称：%s",tableName));
+                    logger.error(String.format("=======初始化代码缓存时出错,表名称：%s", tableName));
                     e.printStackTrace();
                 }
             }
-            DMCache.init(tableName,cacheList);
+            DMCache.init(tableName, cacheList);
         }
 
     }
-
-
 
 
 }

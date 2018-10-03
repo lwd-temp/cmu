@@ -3,6 +3,8 @@ package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.CgTzcy;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgjhGb;
+import cn.edu.cmu.framework.util.ExcelUtils;
+import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgTzcyService;
 import cn.edu.cmu.service.CgTzjhService;
@@ -13,10 +15,13 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -228,6 +233,23 @@ public class CgTzjhController extends BaseController {
     public Map sh(String id, String status) {
         boolean success = cgTzjhService.sh(id, status);
         return super.ajaxStatus(success);
+    }
+
+
+    @RequestMapping("/download")
+    public void export(CgTzjh tzjh, String orderCol, String orderType, HttpServletResponse response) throws Exception {
+
+
+        List<CgTzjh> list = cgTzjhService.gllistExp(tzjh, orderCol, orderType);//demoList();
+
+        logger.info(String.format("导出团组信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "tzgl.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = WebAppContextUtils.REAL_CONTEXT_PATH + "/excel_template/cgjh/cgjh_gl.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 
 

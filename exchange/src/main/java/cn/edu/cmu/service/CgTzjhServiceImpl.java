@@ -2,6 +2,7 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.CgTzcyMapper;
 import cn.edu.cmu.dao.CgTzjhMapper;
+import cn.edu.cmu.dao.CgTzjhMapperExt;
 import cn.edu.cmu.dao.CgjhGbMapper;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
@@ -38,6 +39,9 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
 
     @Autowired
     private CgjhGbMapper gbDao;
+
+    @Autowired
+    private CgTzjhMapperExt extDao;
     //
     @Override
     public List list(CgTzjh cgTzjh) {
@@ -185,6 +189,30 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
 
 
         return dao.selectByExample(params);
+    }
+
+    @Override
+    public List gllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        CgTzjhParams params = new CgTzjhParams();
+        CgTzjhParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+
+
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            CgTzjh tzjh = (CgTzjh) conditions[0];
+
+            if(StringUtils.isNotEmpty(tzjh.getFzrxm())){
+                c.andFzrxmLike("%"+tzjh.getFzrxm()+"%");
+            }
+
+            if(StringUtils.isNotEmpty(tzjh.getTzh())){
+                c.andTzhLike("%"+tzjh.getTzh()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+
+        return extDao.selectByExampleTranslateCode(params);
     }
 
     /**

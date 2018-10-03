@@ -126,9 +126,15 @@
 
         //下载团组信息
         $("#download").click(function(){
-            window.location.href = "alink/doc/tzxx.xls";
-        });
 
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("cgjh/download?tzh="+$("#condition1").val()+"&fzrxm="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+        });
 
     });
 

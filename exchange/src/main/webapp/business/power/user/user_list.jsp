@@ -108,10 +108,7 @@
             /*data: grid_data,*/
             postData:{'condition':$("#condition").val()},
             gridview:false,
-            prmNames:{
-                sort: "orderCol", // 表示用于排序的列名的参数名称  05.
-                order: "orderType", // 表示采用的排序方式的参数名称
-            },
+
             url: 'sys/user/list',
             datatype: "json",
             navBtns:navBtns,//自定义按钮

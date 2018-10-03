@@ -102,6 +102,10 @@ $(function(){
                     records: "count",//总记录数
                     repeatitems: false
                 },
+                prmNames:{
+                    sort: "orderCol", // 表示用于排序的列名的参数名称  05.
+                    order: "orderType", // 表示采用的排序方式的参数名称
+                },
                 mtype:"post",
                 shrinkToFit:true,
                 /*width:"100%",*/
