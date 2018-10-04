@@ -121,6 +121,7 @@
             key: {
                 name: "menuName",
                 title: "menuName",
+                url:'nourl'
             }
         },
         callback: {

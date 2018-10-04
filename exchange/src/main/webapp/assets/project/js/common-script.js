@@ -85,13 +85,66 @@ var initIndex = layer.loading();
 })()
 
 
+function initMenu() {
+    var topMenuTempBase = $(' <li class="">\n' +
+        '                        <a href="#" class="dropdown-toggle">\n' +
+        '                            <i class="menu-icon fa fa-bar-chart"></i>\n' +
+        '                            <span class="menu-text"> 主菜单</span>\n' +
+        '                            <b class="arrow fa fa-angle-down"></b>\n' +
+        '                        </a>\n' +
+        '                    </li>');
+    var secondMenuTempBase = $('<li class="" tg="business/wblfgl/wbgl_list.jsp">\n' +
+        '                        <a href="#" >\n' +
+        '                            <i class="menu-icon fa fa-caret-right second-text"></i>' +
+        '                        </a>' +
+        '                     </li>');
+
+    $.ajax('sys/menu/umenu_list',{
+        success:function(menus){
+            var menuLis = "";
+            //循环添加一级菜单
+            $.each(menus,function(index,topMenu){
+                if(topMenu.parentId == "0"){
+                    var topMenuTemp = topMenuTempBase.clone();
+                    topMenuTemp.find('.menu-text').text(topMenu.menuName);
+
+                    //循环向一级菜单中添加二级菜单
+                    $.each(menus,function(index,secondMenu){
+                        if(secondMenu.parentId == topMenu.menuId){
+
+                            var secondMenuTemp = secondMenuTempBase.clone();
+                            secondMenuTemp.find('.second-text').after(secondMenu.menuName);
+                            secondMenuTemp.attr("tg",secondMenu.url);
+                            topMenuTemp.append(secondMenuTemp);
+                        }
+                    });
+
+                    //如果一级菜单有内容，使用ul包裹
+                    if(topMenuTemp.children().size() >0){
+                        topMenuTemp.find("li").wrapAll('<ul class="submenu cc"></ul>')
+                    }
+                    console.info(topMenuTemp);
+                    //向主菜单中添加一级菜单元素（一级元素一级包裹二级菜单了.）
+                    $("ul.menus").append(topMenuTemp);
+
+                }
+
+            });
+
+            //给菜单添加点击事件.
+            $('li [tg]').click(function(){
+                getUrl(this);
+            });
+
+        }
+    })
+
+}
+
 $(function(){
 
-    //给菜单添加点击事件.
-    $('li [tg]').click(function(){
-        getUrl(this);
-    });
-
+    //初始化菜单
+    initMenu();
 
     //定义加载表格的公共方法
     $.fn.extend({

@@ -83,4 +83,16 @@ public class MenuController extends BaseController {
 
 
 
+    @ResponseBody
+    @RequestMapping("/umenu_list")
+    public List umenuList() throws Exception {
+
+        List list = menuService.list(new Menu());
+
+        return list;
+    }
+
+
+
+
 }

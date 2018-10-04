@@ -77,6 +77,7 @@
             key: {
                 name: "menuName",
                 title: "menuName",
+                url:'nourl'
             }
         },
         check:{
@@ -84,15 +85,8 @@
             chkboxType :{ "Y" : "ps", "N" : "s" }
         },
         callback: {
-            onClick: function(e,treeid,node,cliFlag){
-                // node.name;
-                /*$("#addForm").hide();
-                $("#editForm").show();
-
-                $("#menuName").val(node.name)
-                $("#menuUrl").val(node.name+"的Url")
-                $("#menuMemo").val(node.name+"的备注")*/
-
+            onClick: function (e, treeId, treeNode, clickFlag) {
+                zTreeObj.checkNode(treeNode, !treeNode.checked, true);
             }
         }
     };

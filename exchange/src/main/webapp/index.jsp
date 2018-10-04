@@ -466,7 +466,7 @@
 					</div>
 				</div><!-- /.sidebar-shortcuts -->
 
-				<ul class="nav nav-list">
+				<ul class="nav nav-list menus">
 					<li class="">
 						<a href="">
 							<i class="menu-icon fa fa-tachometer"></i>
@@ -475,14 +475,14 @@
 
 
 					</li>
-                    <li class=" ">
+                    <%--<li class=" ">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-bar-chart"></i>
                             <span class="menu-text"> 权限管理</span>
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
 
-                        <b class="arrow"></b>
+
                         <ul class="submenu">
 
                             <li class="">
@@ -783,7 +783,7 @@
                             </li>
                         </ul>
 
-                    </li>
+                    </li>--%>
 
 				</ul><!-- /.nav-list -->
 
