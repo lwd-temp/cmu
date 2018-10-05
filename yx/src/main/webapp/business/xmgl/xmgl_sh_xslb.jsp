@@ -145,7 +145,6 @@
             pager_selector:"",
             colModel:[
                 {name:'name',index:'name', formatter:function(cellvalue, options, rowObject){
-                        //console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
                         if(parseInt(rowObject.id)%3 != 0) {
                             return cellvalue;
                         }

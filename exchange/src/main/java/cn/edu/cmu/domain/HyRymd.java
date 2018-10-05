@@ -34,11 +34,6 @@ public class HyRymd {
     private String jhid;
 
     /**
-     * 状态
-     */
-    private String status;
-
-    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -50,23 +45,22 @@ public class HyRymd {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
-    public HyRymd(String mdid, String xm, String gj, String dw, String zw, String jhid, String status, String valid, Date createTime) {
+    public HyRymd(String mdid, String xm, String gj, String dw, String zw, String jhid, String valid, Date createTime) {
         this.mdid = mdid;
         this.xm = xm;
         this.gj = gj;
         this.dw = dw;
         this.zw = zw;
         this.jhid = jhid;
-        this.status = status;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public HyRymd() {
         super();
@@ -169,22 +163,6 @@ public class HyRymd {
     }
 
     /**
-     * 状态
-     * @return STATUS 状态
-     */
-    public String getStatus() {
-        return status;
-    }
-
-    /**
-     * 状态
-     * @param status 状态
-     */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
-    }
-
-    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -218,7 +196,7 @@ public class HyRymd {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     @Override
     public String toString() {
@@ -232,7 +210,6 @@ public class HyRymd {
         sb.append(", dw=").append(dw);
         sb.append(", zw=").append(zw);
         sb.append(", jhid=").append(jhid);
-        sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

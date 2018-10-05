@@ -22,7 +22,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public HyJhParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HyJhParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HyJhParams {
     }
 
     /**
-     * T_HY_JH 2018-09-22
+     * T_HY_JH 2018-10-04
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -851,73 +851,73 @@ public class HyJhParams {
             return (Criteria) this;
         }
 
-        public Criteria andFzrIsNull() {
-            addCriterion("FZR is null");
+        public Criteria andFzrdhIsNull() {
+            addCriterion("FZRDH is null");
             return (Criteria) this;
         }
 
-        public Criteria andFzrIsNotNull() {
-            addCriterion("FZR is not null");
+        public Criteria andFzrdhIsNotNull() {
+            addCriterion("FZRDH is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFzrEqualTo(String value) {
-            addCriterion("FZR =", value, "fzr");
+        public Criteria andFzrdhEqualTo(String value) {
+            addCriterion("FZRDH =", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrNotEqualTo(String value) {
-            addCriterion("FZR <>", value, "fzr");
+        public Criteria andFzrdhNotEqualTo(String value) {
+            addCriterion("FZRDH <>", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrGreaterThan(String value) {
-            addCriterion("FZR >", value, "fzr");
+        public Criteria andFzrdhGreaterThan(String value) {
+            addCriterion("FZRDH >", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrGreaterThanOrEqualTo(String value) {
-            addCriterion("FZR >=", value, "fzr");
+        public Criteria andFzrdhGreaterThanOrEqualTo(String value) {
+            addCriterion("FZRDH >=", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrLessThan(String value) {
-            addCriterion("FZR <", value, "fzr");
+        public Criteria andFzrdhLessThan(String value) {
+            addCriterion("FZRDH <", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrLessThanOrEqualTo(String value) {
-            addCriterion("FZR <=", value, "fzr");
+        public Criteria andFzrdhLessThanOrEqualTo(String value) {
+            addCriterion("FZRDH <=", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrLike(String value) {
-            addCriterion("FZR like", value, "fzr");
+        public Criteria andFzrdhLike(String value) {
+            addCriterion("FZRDH like", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrNotLike(String value) {
-            addCriterion("FZR not like", value, "fzr");
+        public Criteria andFzrdhNotLike(String value) {
+            addCriterion("FZRDH not like", value, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrIn(List<String> values) {
-            addCriterion("FZR in", values, "fzr");
+        public Criteria andFzrdhIn(List<String> values) {
+            addCriterion("FZRDH in", values, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrNotIn(List<String> values) {
-            addCriterion("FZR not in", values, "fzr");
+        public Criteria andFzrdhNotIn(List<String> values) {
+            addCriterion("FZRDH not in", values, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrBetween(String value1, String value2) {
-            addCriterion("FZR between", value1, value2, "fzr");
+        public Criteria andFzrdhBetween(String value1, String value2) {
+            addCriterion("FZRDH between", value1, value2, "fzrdh");
             return (Criteria) this;
         }
 
-        public Criteria andFzrNotBetween(String value1, String value2) {
-            addCriterion("FZR not between", value1, value2, "fzr");
+        public Criteria andFzrdhNotBetween(String value1, String value2) {
+            addCriterion("FZRDH not between", value1, value2, "fzrdh");
             return (Criteria) this;
         }
 
@@ -1203,7 +1203,7 @@ public class HyJhParams {
     }
 
     /**
-     * T_HY_JH 2018-09-22
+     * T_HY_JH 2018-10-04
      */
     public static class Criterion {
         private String condition;

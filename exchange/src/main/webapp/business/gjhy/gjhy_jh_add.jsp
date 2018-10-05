@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -64,17 +66,17 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 会议名称: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="会议名称"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.hymc" id="hymc"   placeholder="会议名称"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label " > 会议编号: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value="" readonly="readonly"  placeholder="会议编号保存时自动生成"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.hybh" id="hybh"  value="" readonly="readonly"  placeholder="会议编号保存时自动生成"  class="col-xs-12" />
                                 </div>
 
 
@@ -84,12 +86,12 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 主办单位: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"  value=""   placeholder="主办单位"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.zbdw" id="zbdw"  value=""   placeholder="主办单位"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label " > 承办单位: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="承办单位"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.cbdw"  id="cbdw"  placeholder="承办单位"  class="col-xs-12" />
                                 </div>
 
                             </div>
@@ -99,12 +101,12 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 举行日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-1" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
+                                    <input class="form-control date-picker"  name="hyJh.jxrq" id="jbrq" value="" type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 经费来源: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="经费来源"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.jfly"  id="jfly" placeholder="经费来源"  class="col-xs-12" />
                                 </div>
 
                             </div>
@@ -114,7 +116,7 @@
                                 <label class="col-xs-2 control-label " > 地点: </label>
 
                                 <div class="col-xs-10">
-                                    <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.dd"  id="dd"  placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -122,21 +124,17 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 负责人姓名: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.fzrxm"  id="fzrxm" placeholder="负责人姓名"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 负责人电话: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   placeholder="地点"  class="col-xs-12" />
+                                    <input type="text"  name="hyJh.fzrdh"  id="fzrdh"  placeholder="负责人电话"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 会议类型: </label>
                                 <div class="col-xs-4">
-                                    <select class="chosen-select form-control"   data-placeholder="请选择会议类型">
-                                        <option value=""> 请选择 </option>
-                                        <option value="01">国际会议</option>
-                                        <option value="02">两国间报告</option>
-                                    </select>
+                                    <dm:list  name="hyJh.hylx" type="select" id="hylx" tabName="t_dm_hylx" />
                                 </div>
                                 <div class="col-xs-6">
 
@@ -144,10 +142,10 @@
                             </div>
                             <hr/>
                             <div class="form-group">
-                                <div class="col-xs-3">
+                                <div class="col-xs-2">
                                     参会人员姓名
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-2">
                                     国籍
                                 </div>
                                 <div class="col-xs-3">
@@ -156,56 +154,33 @@
                                 <div class="col-xs-3">
                                     职务
                                 </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="姓名"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="国籍"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="单位"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="职务"  class="col-xs-12" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="姓名"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="国籍"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="单位"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="职务"  class="col-xs-12" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="姓名"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="国籍"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="单位"  class="col-xs-12" />
-                                </div>
-                                <div class="col-xs-3">
-                                    <input type="text"  name="username"   placeholder="职务"  class="col-xs-12" />
+                                <div class="col-xs-2">
+                                    操作
                                 </div>
                             </div>
 
 
+                            <div class="form-group cy">
+                                <div class="col-xs-2">
+                                    <input type="text"  inp="xm" name="chrys[@].xm"   placeholder="姓名"  class="col-xs-12" />
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="text"  inp="gj" name="chrys[@].gj"  placeholder="国籍"  class="col-xs-12" />
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text"  inp="dw" name="chrys[@].dw"   placeholder="单位"  class="col-xs-12" />
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
+                                </div>
+                                <div class="col-xs-2">
+                                    <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                                    <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                                </div>
+                            </div>
 
-                            <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info btn-sm" type="button">
+                            <div id="btns" class="col-md-offset-3 col-md-9">
+                                <button class="btn btn-info btn-sm" id="saveHyjh" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
@@ -224,7 +199,27 @@
 
 
 </div><!-- /.main-container -->
+<div id="template" style="display: none">
 
+    <div class="form-group cy">
+        <div class="col-xs-2">
+            <input type="text"  inp="xm" name="chrys[@].xm"   placeholder="姓名"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-2">
+            <input type="text"  inp="gj" name="chrys[@].gj"  placeholder="国籍"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-3">
+            <input type="text"  inp="dw" name="chrys[@].dw"   placeholder="单位"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-3">
+            <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-2">
+            <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+            <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+        </div>
+    </div>
+</div>
 
 <script src='assets/js/jquery.js'></script>
 
@@ -234,48 +229,122 @@
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
 
-<script src="assets/js/layer/layer.js"></script>
-<script src="assets/project/js/common-script.js"></script>
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+
+<!-- jqueryValidate验证框架-->
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
+<!--弹出层 -->
+<script src="assets/js/layer/layer.js"></script>
+
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
+
+
 <!-- ace scripts -->
 
 
 <script>
 
-
+    function setFormValid(){
+        $("#form").setValid({
+            //校验规则
+            rules: {
+                "hyJh.hylx":{required : true},
+                "hyJh.hymc":{required : true},
+                "hyJh.zbdw":{required : true},
+                "hyJh.cbdw":{required : true},
+                "hyJh.jxrq":{required : true},
+                "hyJh.dd":{required : true},
+                "hyJh.jfly":{required : true},
+                "hyJh.fzrxm":{required : true},
+                "hyJh.fzrdh":{required : true,isphoneNum:true},
+                "chrys[@].xm":{required : true},
+                "chrys[@].gj":{required : true},
+                "chrys[@].dw":{required : true},
+                "chrys[@].zw":{required : true},
+            }
+        });
+    }
 
     $(function(){
+        setFormValid();
 
+        $("#saveHyjh").click(function(){
 
-        //日期选择器
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
-        });
+            if(!$("#form").valid()){
+                return;
+            }
 
+            //将List类型的参数设置下标
+            setRyListIndex();
 
-        //选择录入框
-        $('input.typeahead').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'states',
-            displayKey: 'value',
-            source: substringMatcher(names),
-            limit: 10
-        });
+            $.ajax('hyjh/save',{
+                data:$("#form").serialize(),
+                success:function(resp){
 
+                    if(resp && resp.success){
+                        winAlert("保存计划成功");
+                        parent.refreshTable();
+                        closeLayer();
+                    }else{
+                        winAlert("保存失败");
+                    }
+                }
+            })
 
+        })
 
-        $('.chosen-select').chosen({allow_single_deselect:true});
 
     });
+    //将List类型的参数设置下标
+    function setRyListIndex(){
+        $("form input[inp=xm]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].xm');
+            console.info($(el).attr(name));
+        });
+
+        $("form input[inp=gj]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].gj');
+        });
+
+        $("form input[inp=dw]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].dw');
+        });
+        $("form input[inp=zw]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].zw');
+        });
+
+    }
 
 
+    function deleteCy(btn){
+
+        var size = $("#form .cy").size();
+        if(size<=1){
+            parent.layer.alert("请至少录入一个会议成员");
+            return false;
+        }
+
+        var row = $(btn).parent().parent();
+        row.remove();
+
+        setFormValid();
+    }
 
 
+    function appendCy(){
+        $("#btns").before($("#template").html());
+        var cy = $("#btns").prev(".cy");
+        cy.find("input").each(function(index,el){
+
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+
+        })
+        setFormValid();
+    }
 
 </script>
 </body>

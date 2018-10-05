@@ -109,7 +109,6 @@
             var nodes = zTreeObj.getNodesByParam("menuId", roleMenu.menuId, null);
             $(nodes).each(function(){
                 var node = this;
-                //console.info(node);
                 zTreeObj.checkNode(node, true, false);
             });
         });

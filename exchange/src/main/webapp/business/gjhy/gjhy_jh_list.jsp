@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 主办单位或承办单位: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 主办单位或承办单位: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="请输入主办单位或承办单位" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="请输入主办单位或承办单位" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -35,37 +35,12 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-
-            {id:"1",  	hymc:"会议名称1",	zbdw:"主办单位1"	,cbdw:"承办单位1",	dd:"会议室1",	jxrq:"2019-01-01",  jfly:'自筹'},
-            {id:"2",	hymc:"会议名称2",	zbdw:"主办单位2"	,cbdw:"承办单位2",	dd:"会议室2",	jxrq:"2019-02-02",  jfly:'财政拨款'},
-            {id:"3",	hymc:"会议名称3",	zbdw:"主办单位3"	,cbdw:"承办单位3",	dd:"会议室3",	jxrq:"2019-03-03",  jfly:'财政拨款'},
-            {id:"4",	hymc:"会议名称4",	zbdw:"主办单位4"	,cbdw:"承办单位4",	dd:"会议室4",	jxrq:"2019-04-04",  jfly:'财政拨款'},
-            {id:"5",	hymc:"会议名称5",	zbdw:"主办单位5"	,cbdw:"承办单位5",	dd:"会议室5",	jxrq:"2019-05-05",  jfly:'财政拨款'},
-            {id:"6",	hymc:"会议名称6",	zbdw:"主办单位6"	,cbdw:"承办单位6",	dd:"会议室6",	jxrq:"2019-06-06",  jfly:'财政拨款'},
-            {id:"7",	hymc:"会议名称7",	zbdw:"主办单位7"	,cbdw:"承办单位7",	dd:"会议室7",	jxrq:"2019-07-07",  jfly:'财政拨款'},
-            {id:"8",	hymc:"会议名称8",	zbdw:"主办单位8"	,cbdw:"承办单位8",	dd:"会议室8",	jxrq:"2019-08-08",  jfly:'省级财政'},
-            {id:"9",	hymc:"会议名称9",	zbdw:"主办单位9"	,cbdw:"承办单位9",	dd:"会议室9",	jxrq:"2019-09-10",  jfly:'省级财政'},
-            {id:"10",	hymc:"会议名称10",	zbdw:"主办单位10"	,cbdw:"承办单位10",	dd:"会议室10",	jxrq:"2019-10-11",  jfly:'省级财政'},
-            {id:"11",	hymc:"会议名称11",	zbdw:"主办单位11"	,cbdw:"承办单位11",	dd:"会议室11",	jxrq:"2019-11-12",  jfly:'省级财政'},
-            {id:"12",	hymc:"会议名称12",	zbdw:"主办单位12"	,cbdw:"承办单位12",	dd:"会议室12",	jxrq:"2019-12-13",  jfly:'省级财政'},
-            {id:"13",	hymc:"会议名称13",	zbdw:"主办单位13"	,cbdw:"承办单位13",	dd:"会议室13",	jxrq:"2019-13-14",  jfly:'省级财政'},
-            {id:"14",	hymc:"会议名称14",	zbdw:"主办单位14"	,cbdw:"承办单位14",	dd:"会议室14",	jxrq:"2019-14-15",  jfly:'省级财政'},
-            {id:"15",	hymc:"会议名称15",	zbdw:"主办单位15"	,cbdw:"承办单位15",	dd:"会议室15",	jxrq:"2019-15-16",  jfly:'省级财政'},
-            {id:"16",	hymc:"会议名称16",	zbdw:"主办单位16"	,cbdw:"承办单位16",	dd:"会议室16",	jxrq:"2019-16-17",  jfly:'省级财政'},
-            {id:"17",	hymc:"会议名称17",	zbdw:"主办单位17"	,cbdw:"承办单位17",	dd:"会议室17",	jxrq:"2019-17-18",  jfly:'省级财政'},
-            {id:"18",	hymc:"会议名称18",	zbdw:"主办单位18"	,cbdw:"承办单位18",	dd:"会议室18",	jxrq:"2019-18-19",  jfly:'省级财政'}
-        ];
-
 
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
 
-
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
+
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -90,7 +65,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-10)+"px"],
+                        area: ['1100px', ($(window).height()-10)+"px"],
                         title:'填写会议计划',
                         content:'business/gjhy/gjhy_jh_add.jsp',
                     });
@@ -100,22 +75,27 @@
 
         var settings = {
             caption: "国际会议计划管理",
-            data: grid_data,
-            colNames:["会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"操作"],
+            /*data: grid_data,*/
+            url:'hyjh/list',
+            colNames:["会议名称","主办单位","承办单位","举行日期3","地点","经费来源" ,"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'hymc',index:'hymc',  },
                 {name:'zbdw',index:'zbdw',  },
                 {name:'cbdw',index:'cbdw',  },
-                {name:'jxrq',index:'jxrq',  },
+                {name:'jxrq',index:'jxrq',
+                    formatter:function(jxrq){
+                        return new Date(jxrq).getYmd("yyyy年MM月dd日");
+                    }
+                },
                 {name:'dd',index:'dd',  },
-                {name:'jfly',index:'jfly',  },
+                {name:'jfly',index:'jfly', },
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(id, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editGjyyJh("+id+")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjyyJh("+id+")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                {name:'jhid',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(jhid, options, rowObject){
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editGjhyJh(\""+jhid+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjhyJh(\""+jhid+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -130,12 +110,7 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
-
+            refreshTable();
         });
 
     });
@@ -144,26 +119,43 @@
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }
 
-    function refreshTable(){
 
+    function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{
+                'zbdw':$("#condition").val(),
+                'cbdw':$("#condition").val()
+            },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
+
     }
 
     //修改用户
-    function editGjyyJh(userId){
+    function editGjhyJh(jhid){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-10)+"px"],
             title:'修改会议计划',
-            content:'business/gjhy/gjhy_jh_edit.jsp',
+            content:'hyjh/toEdit?id='+jhid,
         });
     }
 
     //删除用户
-    function delUser(userId){
-        $(grid_selector).delGridRow(userId);
+    function delGjhyJh(jhid){
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+
+            $.ajax('hyjh/delById',{
+                data:{id:jhid},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("删除成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("删除失败")
+                    }
+                }
+            })
+        })
     }
 </script>

@@ -6,9 +6,10 @@
       <idArg column="MENU_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="MENU_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="PARENT_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ICON" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="STYLE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="URL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MENU_ICON" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MENU_STYLE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -73,7 +74,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MENU_ID, MENU_NAME, PARENT_ID, ICON, STYLE, URL, VALID, CREATE_TIME
+    MENU_ID, MENU_NAME, PARENT_ID, URL, MENU_ICON, MENU_STYLE, MEMO, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MenuParams" >
     select
@@ -109,11 +110,13 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU (MENU_ID, MENU_NAME, PARENT_ID, 
-      ICON, STYLE, URL, VALID, 
-      CREATE_TIME)
+      URL, MENU_ICON, MENU_STYLE, 
+      MEMO, VALID, CREATE_TIME
+      )
     values (#{menuId,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
-      #{icon,jdbcType=VARCHAR}, #{style,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{url,jdbcType=VARCHAR}, #{menuIcon,jdbcType=VARCHAR}, #{menuStyle,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU
@@ -127,14 +130,17 @@
       <if test="parentId != null" >
         PARENT_ID,
       </if>
-      <if test="icon != null" >
-        ICON,
-      </if>
-      <if test="style != null" >
-        STYLE,
-      </if>
       <if test="url != null" >
         URL,
+      </if>
+      <if test="menuIcon != null" >
+        MENU_ICON,
+      </if>
+      <if test="menuStyle != null" >
+        MENU_STYLE,
+      </if>
+      <if test="memo != null" >
+        MEMO,
       </if>
       <if test="valid != null" >
         VALID,
@@ -153,14 +159,17 @@
       <if test="parentId != null" >
         #{parentId,jdbcType=VARCHAR},
       </if>
-      <if test="icon != null" >
-        #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="style != null" >
-        #{style,jdbcType=VARCHAR},
-      </if>
       <if test="url != null" >
         #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIcon != null" >
+        #{menuIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStyle != null" >
+        #{menuStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -188,14 +197,17 @@
       <if test="record.parentId != null" >
         PARENT_ID = #{record.parentId,jdbcType=VARCHAR},
       </if>
-      <if test="record.icon != null" >
-        ICON = #{record.icon,jdbcType=VARCHAR},
-      </if>
-      <if test="record.style != null" >
-        STYLE = #{record.style,jdbcType=VARCHAR},
-      </if>
       <if test="record.url != null" >
         URL = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuIcon != null" >
+        MENU_ICON = #{record.menuIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.menuStyle != null" >
+        MENU_STYLE = #{record.menuStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -213,9 +225,10 @@
     set MENU_ID = #{record.menuId,jdbcType=VARCHAR},
       MENU_NAME = #{record.menuName,jdbcType=VARCHAR},
       PARENT_ID = #{record.parentId,jdbcType=VARCHAR},
-      ICON = #{record.icon,jdbcType=VARCHAR},
-      STYLE = #{record.style,jdbcType=VARCHAR},
       URL = #{record.url,jdbcType=VARCHAR},
+      MENU_ICON = #{record.menuIcon,jdbcType=VARCHAR},
+      MENU_STYLE = #{record.menuStyle,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -231,14 +244,17 @@
       <if test="parentId != null" >
         PARENT_ID = #{parentId,jdbcType=VARCHAR},
       </if>
-      <if test="icon != null" >
-        ICON = #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="style != null" >
-        STYLE = #{style,jdbcType=VARCHAR},
-      </if>
       <if test="url != null" >
         URL = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="menuIcon != null" >
+        MENU_ICON = #{menuIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="menuStyle != null" >
+        MENU_STYLE = #{menuStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
@@ -253,9 +269,10 @@
     update T_SYS_MENU
     set MENU_NAME = #{menuName,jdbcType=VARCHAR},
       PARENT_ID = #{parentId,jdbcType=VARCHAR},
-      ICON = #{icon,jdbcType=VARCHAR},
-      STYLE = #{style,jdbcType=VARCHAR},
       URL = #{url,jdbcType=VARCHAR},
+      MENU_ICON = #{menuIcon,jdbcType=VARCHAR},
+      MENU_STYLE = #{menuStyle,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where MENU_ID = #{menuId,jdbcType=VARCHAR}

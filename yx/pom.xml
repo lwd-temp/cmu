@@ -9,7 +9,7 @@
   <version>1.0</version>
   <packaging>war</packaging>
 
-  <name>yx Maven Webapp</name>
+  <name>原型项目</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 

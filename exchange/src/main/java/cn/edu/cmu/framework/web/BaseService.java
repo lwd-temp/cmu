@@ -1,14 +1,18 @@
 package cn.edu.cmu.framework.web;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.List;
 
 public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends BaseMapper> implements IBaseService<Domain, DomainParams> {
+
+    protected Logger logger = Logger.getLogger(this.getClass());
 
     @Autowired
     protected MyBatisMapper dao;
@@ -26,7 +30,13 @@ public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends Ba
 
     @Override
     public boolean deleteById(String keyId)throws Exception {
-        return dao.deleteByPrimaryKey(keyId) > 0;
+        Object domain = dao.selectByPrimaryKey(keyId);
+        Field field = domain.getClass().getDeclaredField("valid");
+        field.setAccessible(true);
+
+        field.set(domain,"0");//将valid 设置为 0 逻辑删除，查询时默认只查询valid为1的
+        int count = dao.updateByPrimaryKeySelective(domain);
+        return count > 0;
     }
 
     @Override

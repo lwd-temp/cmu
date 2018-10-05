@@ -14,6 +14,9 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.domain.HyJh;
 import cn.edu.cmu.domain.HyJhParams;
 import cn.edu.cmu.framework.web.IBaseService;
+import cn.edu.cmu.vo.HyjhVO;
+
+import java.util.List;
 
 /**
  * 用户操作的 业务的抽象
@@ -22,5 +25,8 @@ import cn.edu.cmu.framework.web.IBaseService;
  */
 public interface HyJhService extends IBaseService<HyJh, HyJhParams> {
 
+    boolean save(HyjhVO hyjhVo) throws Exception;
+
+    List rymcList(String jhid);
 }
 

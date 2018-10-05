@@ -104,7 +104,6 @@
 <script src="assets/js/bootstrap.js"></script>
 
 <script src="assets/js/layer/layer.js"></script>
-<script src="assets/project/js/common-script.js"></script>
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->

@@ -88,7 +88,7 @@ var initIndex = layer.loading();
 function initMenu() {
     var topMenuTempBase = $(' <li class="">\n' +
         '                        <a href="#" class="dropdown-toggle">\n' +
-        '                            <i class="menu-icon fa fa-bar-chart"></i>\n' +
+        '                            <i class="menu-icon fa "></i>\n' +
         '                            <span class="menu-text"> 主菜单</span>\n' +
         '                            <b class="arrow fa fa-angle-down"></b>\n' +
         '                        </a>\n' +
@@ -106,7 +106,12 @@ function initMenu() {
             $.each(menus,function(index,topMenu){
                 if(topMenu.parentId == "0"){
                     var topMenuTemp = topMenuTempBase.clone();
-                    topMenuTemp.find('.menu-text').text(topMenu.menuName);
+                    topMenuTemp.find('.menu-text').text(topMenu.menuName);//设置菜单名称
+                    var iconClass = "fa-bar-chart";
+                    if(topMenu.menuIcon && topMenu.menuIcon.trim() !=''){
+                        iconClass = topMenu.menuIcon;
+                    }
+                    topMenuTemp.find(".menu-icon").addClass(iconClass);
 
                     //循环向一级菜单中添加二级菜单
                     $.each(menus,function(index,secondMenu){
@@ -123,7 +128,6 @@ function initMenu() {
                     if(topMenuTemp.children().size() >0){
                         topMenuTemp.find("li").wrapAll('<ul class="submenu cc"></ul>')
                     }
-                    console.info(topMenuTemp);
                     //向主菜单中添加一级菜单元素（一级元素一级包裹二级菜单了.）
                     $("ul.menus").append(topMenuTemp);
 
@@ -245,8 +249,6 @@ $(function(){
             if($.isArray(codes) ){
                 $(codes).each(function(){
                     var json = this;
-                    //console.info(json);
-                    //console.info(paramCode);
                     if(json[paramCode] && json[paramCode].length>0){
                         name = json[paramCode]
                         return false;

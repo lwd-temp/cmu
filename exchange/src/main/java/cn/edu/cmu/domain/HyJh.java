@@ -56,7 +56,7 @@ public class HyJh {
     /**
      * 负责人电话
      */
-    private String fzr;
+    private String fzrdh;
 
     /**
      * 操作人
@@ -64,6 +64,7 @@ public class HyJh {
     private String operator;
 
     /**
+     * 状态
      * 状态
      */
     private String status;
@@ -80,9 +81,9 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
-    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzr, String operator, String status, String valid, Date createTime) {
+    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzrdh, String operator, String status, String valid, Date createTime) {
         this.jhid = jhid;
         this.hybh = hybh;
         this.hylx = hylx;
@@ -93,7 +94,7 @@ public class HyJh {
         this.dd = dd;
         this.jfly = jfly;
         this.fzrxm = fzrxm;
-        this.fzr = fzr;
+        this.fzrdh = fzrdh;
         this.operator = operator;
         this.status = status;
         this.valid = valid;
@@ -102,7 +103,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public HyJh() {
         super();
@@ -270,18 +271,18 @@ public class HyJh {
 
     /**
      * 负责人电话
-     * @return FZR 负责人电话
+     * @return FZRDH 负责人电话
      */
-    public String getFzr() {
-        return fzr;
+    public String getFzrdh() {
+        return fzrdh;
     }
 
     /**
      * 负责人电话
-     * @param fzr 负责人电话
+     * @param fzrdh 负责人电话
      */
-    public void setFzr(String fzr) {
-        this.fzr = fzr == null ? null : fzr.trim();
+    public void setFzrdh(String fzrdh) {
+        this.fzrdh = fzrdh == null ? null : fzrdh.trim();
     }
 
     /**
@@ -350,7 +351,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     @Override
     public String toString() {
@@ -368,7 +369,7 @@ public class HyJh {
         sb.append(", dd=").append(dd);
         sb.append(", jfly=").append(jfly);
         sb.append(", fzrxm=").append(fzrxm);
-        sb.append(", fzr=").append(fzr);
+        sb.append(", fzrdh=").append(fzrdh);
         sb.append(", operator=").append(operator);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);

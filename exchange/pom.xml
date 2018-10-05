@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.neusoft</groupId>
-    <artifactId>admin</artifactId>
+    <artifactId>exchange</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
-    <name>admin Maven Webapp</name>
+    <name>exchange Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
@@ -200,7 +200,7 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.0.28</version>
+            <version>1.0.31</version>
         </dependency>
 
 
@@ -233,7 +233,7 @@
 
 
     <build>
-        <finalName>admin</finalName>
+        <finalName>exchange</finalName>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>

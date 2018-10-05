@@ -59,19 +59,34 @@
 
         <!-- 修改菜单-->
         <form class="form-horizontal"  id="editForm"   >
+            <input type="hidden"  name="menuId" id="menuId"    class="col-xs-10" />
             <div class="form-group">
                 <label class="col-xs-2 control-label "  > 菜单名称: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="menuName" id="menuName"   placeholder="请输入菜单名称"  class="col-xs-10" />
                 </div>
-
             </div>
             <div class="form-group">
                 <label class="col-xs-2 control-label "  > 功能url: </label>
 
                 <div class="col-xs-10">
-                    <input type="text"  name="menuUrl" id="menuUrl"   placeholder="请输入功能url"  class="col-xs-10" />
+                    <input type="text"  name="url" id="url"   placeholder="请输入功能url"  class="col-xs-10" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label "  > 图标: </label>
+
+                <div class="col-xs-10">
+                    <input type="text"  name="menuIcon" id="menuIcon"     class="col-xs-10" />
+                </div>
+
+            </div>  <div class="form-group">
+                <label class="col-xs-2 control-label "  > 自定义样式: </label>
+
+                <div class="col-xs-10">
+                    <input type="text"  name="menuStyle" id="menuStyle"      class="col-xs-10" />
                 </div>
 
             </div>
@@ -79,7 +94,7 @@
                 <label class="col-xs-2 control-label "  > 备注: </label>
 
                 <div class="col-xs-10">
-                    <input type="text"  name="menuMemo" id="menuMemo"   placeholder="请输入备注"  class="col-xs-10" />
+                    <input type="text"  name="memo" id="memo"   placeholder="请输入备注"  class="col-xs-10" />
                 </div>
 
             </div>
@@ -127,37 +142,59 @@
         callback: {
             onClick: function(e,treeid,node,cliFlag){
                // node.name;
-                $("#addForm").hide();
-                $("#editForm").show();
+               /* $("#addForm").hide();
+                $("#editForm").show();*/
 
-                $("#menuName").val(node.menuName)
-                $("#menuUrl").val(node.menuName+"的Url")
-                $("#menuMemo").val(node.menuName+"的备注")
+                $("#menuId").val(node.menuId);
+                $("#menuName").val(node.menuName);
+                $("#url").val(node.url);
+                $("#menuIcon").val(node.menuIcon);
+                $("#menuStyle").val(node.menuStyle);
+                $("#memo").val(node.memo);
 
             }
         }
     };
     // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
     var zNodes = []
-    $(document).ready(function(){
+
+    function loadMenu(){
         $.ajax('sys/menu/list',{
             success:function(data){
-                //console.info(data);
                 zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, data);
                 var nodes = zTreeObj.getNodesByParam("menuId", "0", null);
                 zTreeObj.expandNode(nodes[0], true);
             }
         });
+    }
+    $(document).ready(function(){
+
+        loadMenu();
 
 
-
-        $("#btn-save").click(function(){
+        /*$("#btn-save").click(function(){
 
             layer.alert("插入成功，并更新左侧菜单树...")
 
-        });
+        });*/
         $("#btn-edit").click(function(){
-            layer.alert("修改成功，并更新左侧菜单树...")
+
+
+            //layer.alert("修改成功，并更新左侧菜单树..."+$("#editForm").serialize());
+
+            $.ajax('sys/menu/save',{
+                data:$("#editForm").serialize(),
+                success:function(resp){
+                    if(resp && resp.success){
+                        layer.alert("修改成功");
+                        loadMenu();
+                    }else{
+                        layer.alert("处理失败");
+                    }
+                }
+            });
+
+
         });
 
 

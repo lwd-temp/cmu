@@ -27,7 +27,7 @@ public class MenuServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        Menu menu = new Menu(CmuStringUtil.UUID(),"01","01","01","01","01",null,null);
+        Menu menu = new Menu(CmuStringUtil.UUID(),"01","01","01","01","01", null,null,null);
         boolean success = service.insert(menu);
         System.out.println("Menu:"+menu);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class MenuServiceImplTest extends SpringIOC {
     @Test
     public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
-        Menu menu = new Menu(keyId,"01","01","01","01","01",null,null);
+        Menu menu = new Menu(keyId,"01","01","01","01","01",null,null,null);
         boolean success = service.insert(menu);
         System.out.println("保存成功："+success);
         Menu queryMenu = service.queryById(keyId);

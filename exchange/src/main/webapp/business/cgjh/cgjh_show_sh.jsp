@@ -378,7 +378,6 @@
 
     //审核，03 退回， 04通过
     function sh(status){
-        //console.info(status);
         $.ajax('cgjh/sh',{
             data: {
                 'id':$("#tzid").val(),

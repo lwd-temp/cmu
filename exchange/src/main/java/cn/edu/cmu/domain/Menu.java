@@ -19,19 +19,24 @@ public class Menu {
     private String parentId;
 
     /**
+     * 功能路径
+     */
+    private String url;
+
+    /**
      * 图标
      */
-    private String icon;
+    private String menuIcon;
 
     /**
      * 样式
      */
-    private String style;
+    private String menuStyle;
 
     /**
-     * 功能路径
+     * 备注
      */
-    private String url;
+    private String memo;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -45,22 +50,23 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
-    public Menu(String menuId, String menuName, String parentId, String icon, String style, String url, String valid, Date createTime) {
+    public Menu(String menuId, String menuName, String parentId, String url, String menuIcon, String menuStyle, String memo, String valid, Date createTime) {
         this.menuId = menuId;
         this.menuName = menuName;
         this.parentId = parentId;
-        this.icon = icon;
-        this.style = style;
         this.url = url;
+        this.menuIcon = menuIcon;
+        this.menuStyle = menuStyle;
+        this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     public Menu() {
         super();
@@ -115,38 +121,6 @@ public class Menu {
     }
 
     /**
-     * 图标
-     * @return ICON 图标
-     */
-    public String getIcon() {
-        return icon;
-    }
-
-    /**
-     * 图标
-     * @param icon 图标
-     */
-    public void setIcon(String icon) {
-        this.icon = icon == null ? null : icon.trim();
-    }
-
-    /**
-     * 样式
-     * @return STYLE 样式
-     */
-    public String getStyle() {
-        return style;
-    }
-
-    /**
-     * 样式
-     * @param style 样式
-     */
-    public void setStyle(String style) {
-        this.style = style == null ? null : style.trim();
-    }
-
-    /**
      * 功能路径
      * @return URL 功能路径
      */
@@ -160,6 +134,54 @@ public class Menu {
      */
     public void setUrl(String url) {
         this.url = url == null ? null : url.trim();
+    }
+
+    /**
+     * 图标
+     * @return MENU_ICON 图标
+     */
+    public String getMenuIcon() {
+        return menuIcon;
+    }
+
+    /**
+     * 图标
+     * @param menuIcon 图标
+     */
+    public void setMenuIcon(String menuIcon) {
+        this.menuIcon = menuIcon == null ? null : menuIcon.trim();
+    }
+
+    /**
+     * 样式
+     * @return MENU_STYLE 样式
+     */
+    public String getMenuStyle() {
+        return menuStyle;
+    }
+
+    /**
+     * 样式
+     * @param menuStyle 样式
+     */
+    public void setMenuStyle(String menuStyle) {
+        this.menuStyle = menuStyle == null ? null : menuStyle.trim();
+    }
+
+    /**
+     * 备注
+     * @return MEMO 备注
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * 备注
+     * @param memo 备注
+     */
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
     }
 
     /**
@@ -196,7 +218,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-04
      */
     @Override
     public String toString() {
@@ -207,9 +229,10 @@ public class Menu {
         sb.append(", menuId=").append(menuId);
         sb.append(", menuName=").append(menuName);
         sb.append(", parentId=").append(parentId);
-        sb.append(", icon=").append(icon);
-        sb.append(", style=").append(style);
         sb.append(", url=").append(url);
+        sb.append(", menuIcon=").append(menuIcon);
+        sb.append(", menuStyle=").append(menuStyle);
+        sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

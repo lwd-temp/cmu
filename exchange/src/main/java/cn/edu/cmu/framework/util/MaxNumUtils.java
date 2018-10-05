@@ -14,10 +14,10 @@ public class MaxNumUtils {
 
 
 
-    public static  String getMaxNum(String tableName,Long year, int limit) throws Exception {
+    public static  String getMaxNum(String key,Long year, int limit) throws Exception {
 
         MaxCodeService service = WebAppContextUtils.getBean(MaxCodeService.class);
-        long max = service.getMaxCode(tableName, year);
+        long max = service.getMaxCode(key, year);
 
 
         if(limit-String.valueOf(max).length()<0){

@@ -82,7 +82,11 @@ public class MenuController extends BaseController {
     }
 
 
-
+    /**
+     * 获取用户的权限id
+     * @return
+     * @throws Exception
+     */
     @ResponseBody
     @RequestMapping("/umenu_list")
     public List umenuList() throws Exception {

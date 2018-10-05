@@ -27,7 +27,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception {
-        HyRymd hyRymd = new HyRymd(CmuStringUtil.UUID(), "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
+        HyRymd hyRymd = new HyRymd(CmuStringUtil.UUID(), "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", null,null);
         boolean success = service.insert(hyRymd);
         System.out.println("HyRymd:"+hyRymd);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class HyRymdServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
-        HyRymd hyRymd = new HyRymd(keyId, "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", "01", null,null);
+        HyRymd hyRymd = new HyRymd(keyId, "01", "01", "01", "01", "3e0b62966c6347d49729316edfa79fda", null,null);
         boolean success = service.insert(hyRymd);
         System.out.println("保存成功："+success);
         HyRymd queryHyRymd = service.queryById(keyId);

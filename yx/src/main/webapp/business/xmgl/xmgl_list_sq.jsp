@@ -84,9 +84,7 @@
             colModel:[
                 {name:'xmzm',index:'xmzm',  formatter:function(cellvalue, options, rowObject){
                         var callback = 'javascript:applyXm("'+rowObject.id+'")';
-                        //console.info(callback)
                         var href = "<a href='"+callback+"'  >"+cellvalue+"<a>";
-                        //console.info(href);
                         return href;
                     }},
                 {name:'kssj',index:'kssj',  },
