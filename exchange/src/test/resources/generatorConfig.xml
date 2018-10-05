@@ -85,7 +85,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
 
-        <!--<table tableName="T_XM_GSXY" 	domainObjectName="XmGsxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="T_XM_GSXY" 	domainObjectName="XmGsxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmGsxyParams&gt;"/>
         </table>
         <table tableName="T_XM_JLZJBG" 	domainObjectName="XmJlzjbg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -164,6 +164,9 @@
         <table tableName="T_DM_XMMC" 	domainObjectName="DmXmmc"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmXmmcParams&gt;"/>
         </table>
+        <table tableName="T_DM_YN" 	domainObjectName="DmYn"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmYnParams&gt;"/>
+        </table>
         <table tableName="T_DM_ZZSK" 	domainObjectName="DmZzsk"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmZzskParams&gt;"/>
         </table>
@@ -175,11 +178,11 @@
         </table>
         <table tableName="T_HY_JH" 	domainObjectName="HyJh"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyJhParams&gt;"/>
-        </table>-->
+        </table>
        <table tableName="T_HY_RYMD" 	domainObjectName="HyRymd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyRymdParams&gt;"/>
         </table>
-        <!--<table tableName="T_HY_SBRYMD" 	domainObjectName="HySbrymd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="T_HY_SBRYMD" 	domainObjectName="HySbrymd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HySbrymdParams&gt;"/>
         </table>
         <table tableName="T_HY_SHENB" 	domainObjectName="HyShenb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -243,6 +246,6 @@
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmParams&gt;"/>
              <columnOverride column="XMGK" javaType="java.lang.String" jdbcType="VARCHAR" />
              <columnOverride column="XMZZJH" javaType="java.lang.String" jdbcType="VARCHAR" />
-         </table>-->
+         </table>
     </context>
 </generatorConfiguration>

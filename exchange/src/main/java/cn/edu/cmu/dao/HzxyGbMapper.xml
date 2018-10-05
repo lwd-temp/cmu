@@ -232,10 +232,4 @@
   </update>
 
 
-  <update id="deleteByxyId" parameterType="cn.edu.cmu.domain.HzxyGb" >
-    update T_HZXY_GB
-    set valid = #{valid,jdbcType=VARCHAR}
-    where xyid = #{xyid,jdbcType=VARCHAR}
-  </update>
-
 </mapper>

@@ -3,13 +3,20 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.DmGbMapper;
 import cn.edu.cmu.dao.HzxyGbMapper;
 import cn.edu.cmu.dao.HzxyMapper;
-import cn.edu.cmu.domain.*;
+import cn.edu.cmu.domain.Hzxy;
+import cn.edu.cmu.domain.HzxyGb;
+import cn.edu.cmu.domain.HzxyGbParams;
+import cn.edu.cmu.domain.HzxyParams;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
+import cn.edu.cmu.vo.HzxyVo;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
+import java.util.Arrays;
+import java.util.List;
 
 
 @Service
@@ -25,65 +32,67 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
 
 
     @Override
-    public boolean insertSave(Hzxy hzxy) {
-        hzxy.setValid("1");
-        hzxy.setCreateTime(new Date());
-        int count = dao.insert(hzxy);
-        HzxyGb hzxyGb = new HzxyGb();
-        hzxyGb.setXyid(hzxy.getXyid());
-        List<String> list = new ArrayList();
-        list =  hzxy.getGbs();
-        //国别关联表  多条数据
-        for (int i = 0; i < list.size(); i++) {
-            String gbxy =list.get(i);
-            hzxyGb.setGbid(CmuStringUtil.UUID());
-            hzxyGb.setGjdm(gbxy);
-            hzxyGb.setValid("1");
-            hzxyGb.setCreateTime(new Date());
-            hzxyGbMapper.insert(hzxyGb);
+    public boolean insertSave(HzxyVo hzxyVo) {
+
+        Hzxy hzxy = hzxyVo.getHzxy();
+        hzxy.setXyid(CmuStringUtil.UUID());
+        int count = dao.insertSelective(hzxy);
+
+
+
+        List<String> list = null;
+        if(hzxyVo.getGbs()!=null){
+            list = Arrays.asList(hzxyVo.getGbs());
         }
-        //合作协议 主表 保存 一条数据
-        if(count>0){
-            return true;
-        }else{
-            return false;
+
+        HzxyGb hzxyGb = null;
+        if(!CollectionUtils.isEmpty(list)){
+            for (int i = 0; i < list.size(); i++) {
+                String gbxy =list.get(i);
+                hzxyGb = new HzxyGb();
+                hzxyGb.setGbid(CmuStringUtil.UUID());
+                hzxyGb.setGjdm(gbxy);
+                hzxyGb.setXyid(hzxy.getXyid());
+                hzxyGbMapper.insertSelective(hzxyGb);
+            }
         }
+        return count>0;
     }
 
 
 
 
     @Override
-    public boolean updateSave(Hzxy hzxy) {
+    public boolean updateSave(HzxyVo hzxyVo) {
         //合作协议 主表 更新 一条数据
-        hzxy.setCreateTime(new Date());
-        hzxy.setValid("1");
-        int count = dao.updateByPrimaryKey(hzxy);
 
-        //删除  关联表 数据
-        HzxyGb hzxyGb = new HzxyGb();
-        hzxyGb.setValid("0");
-        hzxyGb.setXyid(hzxy.getXyid());
-        hzxyGbMapper.deleteByxyId(hzxyGb);
+        Hzxy hzxy = hzxyVo.getHzxy();
+        int count = dao.updateByPrimaryKeySelective(hzxy);
+
+        //删除国别表
+        HzxyGbParams gbParam = new HzxyGbParams();
+        gbParam.createCriteria().andXyidEqualTo(hzxy.getXyid());
+        hzxyGbMapper.deleteByExample(gbParam);
 
         //国别关联表  多条数据
-        List<String> list = new ArrayList();
-        list =  hzxy.getGbs();
-        //国别关联表  多条数据
-        for (int i = 0; i < list.size(); i++) {
-            String gbxy =list.get(i);
-            hzxyGb.setGbid(CmuStringUtil.UUID());
-            hzxyGb.setGjdm(gbxy);
-            hzxyGb.setValid("1");
-            hzxyGb.setCreateTime(new Date());
-            hzxyGbMapper.insert(hzxyGb);
+        List<String> list = null;
+        if(hzxyVo.getGbs()!=null){
+            list = Arrays.asList(hzxyVo.getGbs());
         }
 
-        if(count>0){
-            return true;
-        }else{
-            return false;
+        HzxyGb hzxyGb = null;
+        if(!CollectionUtils.isEmpty(list)){
+            for (int i = 0; i < list.size(); i++) {
+                String gbxy =list.get(i);
+                hzxyGb = new HzxyGb();
+                hzxyGb.setGbid(CmuStringUtil.UUID());
+                hzxyGb.setGjdm(gbxy);
+                hzxyGb.setXyid(hzxy.getXyid());
+                hzxyGbMapper.insertSelective(hzxyGb);
+            }
         }
+
+       return count>0;
     }
 
 

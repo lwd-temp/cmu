@@ -3,8 +3,10 @@
 <mapper namespace="cn.edu.cmu.dao.DmGbMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.DmGb" >
     <constructor >
-      <idArg column="code" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <idArg column="CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -67,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    code, name
+    CODE, NAME, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.DmGbParams" >
     select
@@ -88,11 +90,12 @@
     select 
     <include refid="Base_Column_List" />
     from T_DM_GB
-    where code = #{code,jdbcType=VARCHAR}
+    where CODE = #{code,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_DM_GB
-    where code = #{code,jdbcType=VARCHAR}
+    where CODE = #{code,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.DmGbParams" >
     delete from T_DM_GB
@@ -101,17 +104,25 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.DmGb" >
-    insert into T_DM_GB (code, name)
-    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+    insert into T_DM_GB (CODE, NAME, VALID, 
+      CREATE_TIME)
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.DmGb" >
     insert into T_DM_GB
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="code != null" >
-        code,
+        CODE,
       </if>
       <if test="name != null" >
-        name,
+        NAME,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -120,6 +131,12 @@
       </if>
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -133,10 +150,16 @@
     update T_DM_GB
     <set >
       <if test="record.code != null" >
-        code = #{record.code,jdbcType=VARCHAR},
+        CODE = #{record.code,jdbcType=VARCHAR},
       </if>
       <if test="record.name != null" >
-        name = #{record.name,jdbcType=VARCHAR},
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -145,8 +168,10 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update T_DM_GB
-    set code = #{record.code,jdbcType=VARCHAR},
-      name = #{record.name,jdbcType=VARCHAR}
+    set CODE = #{record.code,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -155,14 +180,22 @@
     update T_DM_GB
     <set >
       <if test="name != null" >
-        name = #{name,jdbcType=VARCHAR},
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where code = #{code,jdbcType=VARCHAR}
+    where CODE = #{code,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.DmGb" >
     update T_DM_GB
-    set name = #{name,jdbcType=VARCHAR}
-    where code = #{code,jdbcType=VARCHAR}
+    set NAME = #{name,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where CODE = #{code,jdbcType=VARCHAR}
   </update>
 </mapper>

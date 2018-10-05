@@ -3,16 +3,16 @@
 <mapper namespace="cn.edu.cmu.dao.HzxyMapper" >
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.Hzxy" >
     <constructor >
-      <idArg column="xyid" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="xymc" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="hzfmc" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="qdrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="sxrq" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="upload_id" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="qzr" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="qzrzw" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="valid" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <idArg column="XYID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HZFMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QDRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SXRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="UPLOAD_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QZR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QZRZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -75,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    xyid, xymc, hzfmc, qdrq, sxrq, upload_id, qzr, qzrzw, valid, create_time
+    XYID, XYMC, HZFMC, QDRQ, SXRQ, UPLOAD_ID, QZR, QZRZW, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyParams" >
     select
@@ -96,12 +96,12 @@
     select 
     <include refid="Base_Column_List" />
     from T_HZXY
-    where xyid = #{xyid,jdbcType=VARCHAR}
-      and valid = 1
+    where XYID = #{xyid,jdbcType=VARCHAR}
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_HZXY
-    where xyid = #{xyid,jdbcType=VARCHAR}
+    where XYID = #{xyid,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.HzxyParams" >
     delete from T_HZXY
@@ -110,10 +110,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Hzxy" >
-    insert into T_HZXY (xyid, xymc, hzfmc, 
-      qdrq, sxrq, upload_id, 
-      qzr, qzrzw, valid, 
-      create_time)
+    insert into T_HZXY (XYID, XYMC, HZFMC, 
+      QDRQ, SXRQ, UPLOAD_ID, 
+      QZR, QZRZW, VALID, 
+      CREATE_TIME)
     values (#{xyid,jdbcType=VARCHAR}, #{xymc,jdbcType=VARCHAR}, #{hzfmc,jdbcType=VARCHAR}, 
       #{qdrq,jdbcType=TIMESTAMP}, #{sxrq,jdbcType=TIMESTAMP}, #{uploadId,jdbcType=VARCHAR}, 
       #{qzr,jdbcType=VARCHAR}, #{qzrzw,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
@@ -123,34 +123,34 @@
     insert into T_HZXY
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="xyid != null" >
-        xyid,
+        XYID,
       </if>
       <if test="xymc != null" >
-        xymc,
+        XYMC,
       </if>
       <if test="hzfmc != null" >
-        hzfmc,
+        HZFMC,
       </if>
       <if test="qdrq != null" >
-        qdrq,
+        QDRQ,
       </if>
       <if test="sxrq != null" >
-        sxrq,
+        SXRQ,
       </if>
       <if test="uploadId != null" >
-        upload_id,
+        UPLOAD_ID,
       </if>
       <if test="qzr != null" >
-        qzr,
+        QZR,
       </if>
       <if test="qzrzw != null" >
-        qzrzw,
+        QZRZW,
       </if>
       <if test="valid != null" >
-        valid,
+        VALID,
       </if>
       <if test="createTime != null" >
-        create_time,
+        CREATE_TIME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -196,34 +196,34 @@
     update T_HZXY
     <set >
       <if test="record.xyid != null" >
-        xyid = #{record.xyid,jdbcType=VARCHAR},
+        XYID = #{record.xyid,jdbcType=VARCHAR},
       </if>
       <if test="record.xymc != null" >
-        xymc = #{record.xymc,jdbcType=VARCHAR},
+        XYMC = #{record.xymc,jdbcType=VARCHAR},
       </if>
       <if test="record.hzfmc != null" >
-        hzfmc = #{record.hzfmc,jdbcType=VARCHAR},
+        HZFMC = #{record.hzfmc,jdbcType=VARCHAR},
       </if>
       <if test="record.qdrq != null" >
-        qdrq = #{record.qdrq,jdbcType=TIMESTAMP},
+        QDRQ = #{record.qdrq,jdbcType=TIMESTAMP},
       </if>
       <if test="record.sxrq != null" >
-        sxrq = #{record.sxrq,jdbcType=TIMESTAMP},
+        SXRQ = #{record.sxrq,jdbcType=TIMESTAMP},
       </if>
       <if test="record.uploadId != null" >
-        upload_id = #{record.uploadId,jdbcType=VARCHAR},
+        UPLOAD_ID = #{record.uploadId,jdbcType=VARCHAR},
       </if>
       <if test="record.qzr != null" >
-        qzr = #{record.qzr,jdbcType=VARCHAR},
+        QZR = #{record.qzr,jdbcType=VARCHAR},
       </if>
       <if test="record.qzrzw != null" >
-        qzrzw = #{record.qzrzw,jdbcType=VARCHAR},
+        QZRZW = #{record.qzrzw,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
-        valid = #{record.valid,jdbcType=VARCHAR},
+        VALID = #{record.valid,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
-        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -232,16 +232,16 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update T_HZXY
-    set xyid = #{record.xyid,jdbcType=VARCHAR},
-      xymc = #{record.xymc,jdbcType=VARCHAR},
-      hzfmc = #{record.hzfmc,jdbcType=VARCHAR},
-      qdrq = #{record.qdrq,jdbcType=TIMESTAMP},
-      sxrq = #{record.sxrq,jdbcType=TIMESTAMP},
-      upload_id = #{record.uploadId,jdbcType=VARCHAR},
-      qzr = #{record.qzr,jdbcType=VARCHAR},
-      qzrzw = #{record.qzrzw,jdbcType=VARCHAR},
-      valid = #{record.valid,jdbcType=VARCHAR},
-      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    set XYID = #{record.xyid,jdbcType=VARCHAR},
+      XYMC = #{record.xymc,jdbcType=VARCHAR},
+      HZFMC = #{record.hzfmc,jdbcType=VARCHAR},
+      QDRQ = #{record.qdrq,jdbcType=TIMESTAMP},
+      SXRQ = #{record.sxrq,jdbcType=TIMESTAMP},
+      UPLOAD_ID = #{record.uploadId,jdbcType=VARCHAR},
+      QZR = #{record.qzr,jdbcType=VARCHAR},
+      QZRZW = #{record.qzrzw,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -250,46 +250,46 @@
     update T_HZXY
     <set >
       <if test="xymc != null" >
-        xymc = #{xymc,jdbcType=VARCHAR},
+        XYMC = #{xymc,jdbcType=VARCHAR},
       </if>
       <if test="hzfmc != null" >
-        hzfmc = #{hzfmc,jdbcType=VARCHAR},
+        HZFMC = #{hzfmc,jdbcType=VARCHAR},
       </if>
       <if test="qdrq != null" >
-        qdrq = #{qdrq,jdbcType=TIMESTAMP},
+        QDRQ = #{qdrq,jdbcType=TIMESTAMP},
       </if>
       <if test="sxrq != null" >
-        sxrq = #{sxrq,jdbcType=TIMESTAMP},
+        SXRQ = #{sxrq,jdbcType=TIMESTAMP},
       </if>
       <if test="uploadId != null" >
-        upload_id = #{uploadId,jdbcType=VARCHAR},
+        UPLOAD_ID = #{uploadId,jdbcType=VARCHAR},
       </if>
       <if test="qzr != null" >
-        qzr = #{qzr,jdbcType=VARCHAR},
+        QZR = #{qzr,jdbcType=VARCHAR},
       </if>
       <if test="qzrzw != null" >
-        qzrzw = #{qzrzw,jdbcType=VARCHAR},
+        QZRZW = #{qzrzw,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
-        valid = #{valid,jdbcType=VARCHAR},
+        VALID = #{valid,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
-        create_time = #{createTime,jdbcType=TIMESTAMP},
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
-    where xyid = #{xyid,jdbcType=VARCHAR}
+    where XYID = #{xyid,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Hzxy" >
     update T_HZXY
-    set xymc = #{xymc,jdbcType=VARCHAR},
-      hzfmc = #{hzfmc,jdbcType=VARCHAR},
-      qdrq = #{qdrq,jdbcType=TIMESTAMP},
-      sxrq = #{sxrq,jdbcType=TIMESTAMP},
-      upload_id = #{uploadId,jdbcType=VARCHAR},
-      qzr = #{qzr,jdbcType=VARCHAR},
-      qzrzw = #{qzrzw,jdbcType=VARCHAR},
-      valid = #{valid,jdbcType=VARCHAR},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
-    where xyid = #{xyid,jdbcType=VARCHAR}
+    set XYMC = #{xymc,jdbcType=VARCHAR},
+      HZFMC = #{hzfmc,jdbcType=VARCHAR},
+      QDRQ = #{qdrq,jdbcType=TIMESTAMP},
+      SXRQ = #{sxrq,jdbcType=TIMESTAMP},
+      UPLOAD_ID = #{uploadId,jdbcType=VARCHAR},
+      QZR = #{qzr,jdbcType=VARCHAR},
+      QZRZW = #{qzrzw,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where XYID = #{xyid,jdbcType=VARCHAR}
   </update>
 </mapper>

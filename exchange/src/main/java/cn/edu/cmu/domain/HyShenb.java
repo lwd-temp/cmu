@@ -29,19 +29,29 @@ public class HyShenb {
     private String hymcEn;
 
     /**
+     * 会议编号
+     */
+    private String hybh;
+
+    /**
      * 举办日期
      */
-    private Date jbrq;
+    private Date jxrq;
 
     /**
      * 主办单位
      */
-    private String jbdw;
+    private String zbdw;
+
+    /**
+     * 承办单位
+     */
+    private String cbdw;
 
     /**
      * 会议地点
      */
-    private String hydd;
+    private String dd;
 
     /**
      * 会议基本信息
@@ -66,12 +76,22 @@ public class HyShenb {
     /**
      * 会议责任人
      */
-    private String zrr;
+    private String fzrxm;
+
+    /**
+     * 负责人电话
+     */
+    private String fzrdh;
 
     /**
      * 是否在属地公安部门报备 0 否 1 是
      */
     private String sfbb;
+
+    /**
+     * 操作人员
+     */
+    private String operator;
 
     /**
      * 01 暂存、02 退回修改、03 确定提交
@@ -90,23 +110,27 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-05
      */
-    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, Date jbrq, String jbdw, String hydd, String hyjbxx, String hygm, String bjjbyx, String jfly, String zrr, String sfbb, String status, String valid, Date createTime) {
+    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, String hybh, Date jxrq, String zbdw, String cbdw, String dd, String hyjbxx, String hygm, String bjjbyx, String jfly, String fzrxm, String fzrdh, String sfbb, String operator, String status, String valid, Date createTime) {
         this.sbid = sbid;
         this.jhid = jhid;
         this.hylx = hylx;
         this.hymc = hymc;
         this.hymcEn = hymcEn;
-        this.jbrq = jbrq;
-        this.jbdw = jbdw;
-        this.hydd = hydd;
+        this.hybh = hybh;
+        this.jxrq = jxrq;
+        this.zbdw = zbdw;
+        this.cbdw = cbdw;
+        this.dd = dd;
         this.hyjbxx = hyjbxx;
         this.hygm = hygm;
         this.bjjbyx = bjjbyx;
         this.jfly = jfly;
-        this.zrr = zrr;
+        this.fzrxm = fzrxm;
+        this.fzrdh = fzrdh;
         this.sfbb = sfbb;
+        this.operator = operator;
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
@@ -114,7 +138,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-05
      */
     public HyShenb() {
         super();
@@ -201,51 +225,83 @@ public class HyShenb {
     }
 
     /**
-     * 举办日期
-     * @return JBRQ 举办日期
+     * 会议编号
+     * @return HYBH 会议编号
      */
-    public Date getJbrq() {
-        return jbrq;
+    public String getHybh() {
+        return hybh;
+    }
+
+    /**
+     * 会议编号
+     * @param hybh 会议编号
+     */
+    public void setHybh(String hybh) {
+        this.hybh = hybh == null ? null : hybh.trim();
     }
 
     /**
      * 举办日期
-     * @param jbrq 举办日期
+     * @return JXRQ 举办日期
      */
-    public void setJbrq(Date jbrq) {
-        this.jbrq = jbrq;
+    public Date getJxrq() {
+        return jxrq;
+    }
+
+    /**
+     * 举办日期
+     * @param jxrq 举办日期
+     */
+    public void setJxrq(Date jxrq) {
+        this.jxrq = jxrq;
     }
 
     /**
      * 主办单位
-     * @return JBDW 主办单位
+     * @return ZBDW 主办单位
      */
-    public String getJbdw() {
-        return jbdw;
+    public String getZbdw() {
+        return zbdw;
     }
 
     /**
      * 主办单位
-     * @param jbdw 主办单位
+     * @param zbdw 主办单位
      */
-    public void setJbdw(String jbdw) {
-        this.jbdw = jbdw == null ? null : jbdw.trim();
+    public void setZbdw(String zbdw) {
+        this.zbdw = zbdw == null ? null : zbdw.trim();
+    }
+
+    /**
+     * 承办单位
+     * @return CBDW 承办单位
+     */
+    public String getCbdw() {
+        return cbdw;
+    }
+
+    /**
+     * 承办单位
+     * @param cbdw 承办单位
+     */
+    public void setCbdw(String cbdw) {
+        this.cbdw = cbdw == null ? null : cbdw.trim();
     }
 
     /**
      * 会议地点
-     * @return HYDD 会议地点
+     * @return DD 会议地点
      */
-    public String getHydd() {
-        return hydd;
+    public String getDd() {
+        return dd;
     }
 
     /**
      * 会议地点
-     * @param hydd 会议地点
+     * @param dd 会议地点
      */
-    public void setHydd(String hydd) {
-        this.hydd = hydd == null ? null : hydd.trim();
+    public void setDd(String dd) {
+        this.dd = dd == null ? null : dd.trim();
     }
 
     /**
@@ -314,18 +370,34 @@ public class HyShenb {
 
     /**
      * 会议责任人
-     * @return ZRR 会议责任人
+     * @return FZRXM 会议责任人
      */
-    public String getZrr() {
-        return zrr;
+    public String getFzrxm() {
+        return fzrxm;
     }
 
     /**
      * 会议责任人
-     * @param zrr 会议责任人
+     * @param fzrxm 会议责任人
      */
-    public void setZrr(String zrr) {
-        this.zrr = zrr == null ? null : zrr.trim();
+    public void setFzrxm(String fzrxm) {
+        this.fzrxm = fzrxm == null ? null : fzrxm.trim();
+    }
+
+    /**
+     * 负责人电话
+     * @return FZRDH 负责人电话
+     */
+    public String getFzrdh() {
+        return fzrdh;
+    }
+
+    /**
+     * 负责人电话
+     * @param fzrdh 负责人电话
+     */
+    public void setFzrdh(String fzrdh) {
+        this.fzrdh = fzrdh == null ? null : fzrdh.trim();
     }
 
     /**
@@ -342,6 +414,22 @@ public class HyShenb {
      */
     public void setSfbb(String sfbb) {
         this.sfbb = sfbb == null ? null : sfbb.trim();
+    }
+
+    /**
+     * 操作人员
+     * @return OPERATOR 操作人员
+     */
+    public String getOperator() {
+        return operator;
+    }
+
+    /**
+     * 操作人员
+     * @param operator 操作人员
+     */
+    public void setOperator(String operator) {
+        this.operator = operator == null ? null : operator.trim();
     }
 
     /**
@@ -394,7 +482,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-05
      */
     @Override
     public String toString() {
@@ -407,15 +495,19 @@ public class HyShenb {
         sb.append(", hylx=").append(hylx);
         sb.append(", hymc=").append(hymc);
         sb.append(", hymcEn=").append(hymcEn);
-        sb.append(", jbrq=").append(jbrq);
-        sb.append(", jbdw=").append(jbdw);
-        sb.append(", hydd=").append(hydd);
+        sb.append(", hybh=").append(hybh);
+        sb.append(", jxrq=").append(jxrq);
+        sb.append(", zbdw=").append(zbdw);
+        sb.append(", cbdw=").append(cbdw);
+        sb.append(", dd=").append(dd);
         sb.append(", hyjbxx=").append(hyjbxx);
         sb.append(", hygm=").append(hygm);
         sb.append(", bjjbyx=").append(bjjbyx);
         sb.append(", jfly=").append(jfly);
-        sb.append(", zrr=").append(zrr);
+        sb.append(", fzrxm=").append(fzrxm);
+        sb.append(", fzrdh=").append(fzrdh);
         sb.append(", sfbb=").append(sfbb);
+        sb.append(", operator=").append(operator);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

@@ -1,13 +1,13 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.Hzxy;
 import cn.edu.cmu.domain.HzxyGb;
-import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HzxyGbService;
 import cn.edu.cmu.service.JlxyService;
+import cn.edu.cmu.vo.HzxyVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.StringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,22 +66,16 @@ public class JlxyController extends BaseController {
      */
     @RequestMapping("/save")
     @ResponseBody
-    public Map add(Hzxy jlxy) throws Exception {
-        boolean isEdit = false;//是否修改标志
-        if(StringUtil.isEmpty(jlxy.getXyid())){
-            String keyId = CmuStringUtil.UUID();
-            jlxy.setXyid(keyId);
-        }else{//如果存在id则说明是修改
-            isEdit = true;
-        }
+    public Map add(HzxyVo hzxyVo) throws Exception {
+
         boolean success =false;
-        if(isEdit){
-            success = jlxyService.updateSave(jlxy);
+        if(!StringUtils.isEmpty(hzxyVo.getHzxy().getXyid())){
+            success = jlxyService.updateSave(hzxyVo);
         }else{
-            success = jlxyService.insertSave(jlxy);
+            success = jlxyService.insertSave(hzxyVo);
         }
-        //返回带【分页】 的表格JSON 信息
-        return super.ajaxStatus(success,jlxy);
+
+        return super.ajaxStatus(success,hzxyVo);
     }
 
 
@@ -100,6 +94,7 @@ public class JlxyController extends BaseController {
         hzxyGb.setXyid(id);
         List gbList = new ArrayList();
         gbList = hzxyGbService.list(hzxyGb);
+
         List list = new ArrayList();
         if(gbList.size()>0){
             for (int i = 0; i < gbList.size(); i++) {
@@ -108,7 +103,7 @@ public class JlxyController extends BaseController {
                 list.add(gb.getGjdm());
             }
         }
-        hzxy.setGbs(list);
+        //hzxy.setGbs(list);
         model.addAttribute("jlxy",hzxy);
         model.addAttribute("gbList",list);
         logger.info(hzxy);
@@ -123,14 +118,9 @@ public class JlxyController extends BaseController {
     @RequestMapping("/delById")
     @ResponseBody
     public Map delById(String id) throws Exception {
-        HzxyGb hzxyGb = new HzxyGb();
-        hzxyGb.setXyid(id);
-        hzxyGb.setValid("0");
-        hzxyGbService.deleteByxyId(hzxyGb);
-        Hzxy hzxy = new Hzxy();
-        hzxy.setXyid(id);
-        hzxy.setValid("0");
-        boolean success = jlxyService.updateById(hzxy);
+
+        boolean success = jlxyService.deleteById(id);
+
         return super.ajaxStatus(success);
     }
 

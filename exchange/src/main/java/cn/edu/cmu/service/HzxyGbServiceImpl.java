@@ -26,8 +26,4 @@ public class HzxyGbServiceImpl extends BaseService<HzxyGb, HzxyGbParams, HzxyGbM
         return dao.selectByExample(ex);
     }
 
-    @Override
-    public void deleteByxyId(HzxyGb hzxyGb) {
-        dao.deleteByxyId(hzxyGb);
-    }
 }

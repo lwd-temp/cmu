@@ -78,7 +78,14 @@
                 s.parentNode.insertBefore(hm, s);
             })();
 		</script>
-
+		<style>
+			.ui-jqgrid tr.jqgrow td {
+				white-space: normal !important;
+				height:auto;
+				vertical-align:text-top;
+				padding-top:2px;
+			}
+		</style>
 	</head>
 
 	<body class="no-skin">

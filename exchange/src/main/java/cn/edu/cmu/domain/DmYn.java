@@ -2,7 +2,7 @@ package cn.edu.cmu.domain;
 
 import java.util.Date;
 
-public class DmXb {
+public class DmYn {
     /**
      * 代码
      */
@@ -14,12 +14,12 @@ public class DmXb {
     private String name;
 
     /**
-     * 数据有效性
+     * null
      */
     private String valid;
 
     /**
-     * 创建时间
+     * null
      */
     private Date createTime;
 
@@ -27,7 +27,7 @@ public class DmXb {
      *
      * @mbggenerated 2018-10-05
      */
-    public DmXb(String code, String name, String valid, Date createTime) {
+    public DmYn(String code, String name, String valid, Date createTime) {
         this.code = code;
         this.name = name;
         this.valid = valid;
@@ -38,7 +38,7 @@ public class DmXb {
      *
      * @mbggenerated 2018-10-05
      */
-    public DmXb() {
+    public DmYn() {
         super();
     }
 
@@ -75,32 +75,32 @@ public class DmXb {
     }
 
     /**
-     * 数据有效性
-     * @return VALID 数据有效性
+     * null
+     * @return VALID null
      */
     public String getValid() {
         return valid;
     }
 
     /**
-     * 数据有效性
-     * @param valid 数据有效性
+     * null
+     * @param valid null
      */
     public void setValid(String valid) {
         this.valid = valid == null ? null : valid.trim();
     }
 
     /**
-     * 创建时间
-     * @return CREATE_TIME 创建时间
+     * null
+     * @return CREATE_TIME null
      */
     public Date getCreateTime() {
         return createTime;
     }
 
     /**
-     * 创建时间
-     * @param createTime 创建时间
+     * null
+     * @param createTime null
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;

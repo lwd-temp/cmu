@@ -15,8 +15,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
 
-    <meta name="description" content="Common form elements and layouts" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="hzxy.description" content="Common form elements and layouts" />
+    <meta name="hzxy.viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
@@ -60,31 +60,31 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
-                            <input type="hidden" name="xyid" value="${jlxy.xyid}" />
+                            <input type="hidden" name="hzxy.xyid" value="${jlxy.xyid}" />
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 协议名称: </label>
 
                                 <div class="col-xs-4">
 
-                                    <input type="text"  name="xymc" value="${jlxy.xymc}"  placeholder="协议名称"  class="col-xs-12" />
+                                    <input type="text"  name="hzxy.xymc" value="${jlxy.xymc}"  placeholder="协议名称"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label " > 合作方名称: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="hzfmc"  value="${jlxy.hzfmc}" placeholder="合作方名称"  class="col-xs-12" />
+                                    <input type="text"  name="hzxy.hzfmc"  value="${jlxy.hzfmc}" placeholder="合作方名称"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签订日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-1" name="qdrq" value="<fmt:formatDate value="${jlxy.qdrq}" pattern="yyyy-MM-dd"/>"
+                                    <input class="form-control date-picker" id="id-date-picker-1" name="hzxy.qdrq" value="<fmt:formatDate value="${jlxy.qdrq}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
 
                                 </div>
                                 <label class="col-xs-2 control-label " > 失效日期: </label>
 
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-2"   name="sxrq" value="<fmt:formatDate value="${jlxy.sxrq}" pattern="yyyy-MM-dd"/>"
+                                    <input class="form-control date-picker" id="id-date-picker-2"   name="hzxy.sxrq" value="<fmt:formatDate value="${jlxy.sxrq}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
@@ -100,14 +100,14 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签字人: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="qzr"  placeholder="签字人"  maxlength="300">${jlxy.qzr}</textarea>
+                                    <textarea class="form-control limited" name="hzxy.qzr"  placeholder="签字人"  maxlength="300">${jlxy.qzr}</textarea>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签字人职务: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="qzrzw"   placeholder="签字人职务"  maxlength="300">${jlxy.qzrzw}</textarea>
+                                    <textarea class="form-control limited" name="hzxy.qzrzw"   placeholder="签字人职务"  maxlength="300">${jlxy.qzrzw}</textarea>
                                 </div>
                             </div>
 
@@ -169,19 +169,20 @@
 
 
 
-        $("#form").setValid({
+        var validator = $("#form").setValid({
             //校验规则
             rules: {
-                xymc: {
+                'hzxy.xymc': {
                     required: true
                 },
-                hzfmc: {
+                'hzxy.hzfmc': {
                     required: true
                 }
             }
         });
         $("#btn-submit").click(function(){
             if(!$("#form").valid()){
+                validator.focusInvalid();
                 return;
             }
             $.ajax('jlxy/save',{

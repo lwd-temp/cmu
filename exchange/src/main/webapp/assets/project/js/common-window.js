@@ -30,6 +30,7 @@ var ajaxIndex;
 $.ajaxSetup({
     type: 'post',
     dataType: 'json',
+    traditional: true,
     beforeSend: function () {
         ajaxIndex = parent.layer.loading();
     },
@@ -46,9 +47,11 @@ $.fn.extend({
         var settings = {
             onkeyup: false,
             obblur: true,
-            ignore: ":hidden:not(select)",
+            ignore: "",
+            focusInvalid:true,
             errorPlacement: function (error, el) {
                 var text = $(error).text();
+                console.info(el);
                 var eleId = $(el).attr("id");
                 if (!eleId || eleId == '') {
                     $(el).attr("id", 'inputId' + (new Date().getTime()));
@@ -66,7 +69,7 @@ $.fn.extend({
             },
         }
         $.extend(settings, options);
-        $(form).validate(settings);
+        return $(form).validate(settings);
     }
 
 })

@@ -277,9 +277,9 @@
 
 
 <script>
-
+    var validator = null;
     function setFormValid(){
-        $("#form").setValid({
+        validator = $("#form").setValid({
             //校验规则
             rules: {
                 "hyJh.hylx":{required : true},
@@ -305,6 +305,7 @@
         $("#saveHyjh").click(function(){
 
             if(!$("#form").valid()){
+                validator.focusInvalid();
                 return;
             }
 

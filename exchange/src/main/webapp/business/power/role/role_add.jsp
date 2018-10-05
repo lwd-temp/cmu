@@ -134,7 +134,7 @@
 
     $(function(){
         //添加校验
-        $("#form").setValid({
+        var validator = $("#form").setValid({
             //校验规则
             rules: {
                 roleName:{
@@ -149,6 +149,7 @@
         $("#btn-submit").click(function(){
 
             if(!$("#form").valid()){
+                validator.focusInvalid();
                 return;
             }
 

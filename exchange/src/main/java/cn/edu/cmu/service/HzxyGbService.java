@@ -6,6 +6,6 @@ import cn.edu.cmu.framework.web.IBaseService;
 
 
 public interface HzxyGbService extends IBaseService<HzxyGb, HzxyGbParams> {
-    public  void  deleteByxyId(HzxyGb hzxyGb);
+
 }
 

@@ -12,10 +12,10 @@ import cn.edu.cmu.framework.util.MaxNumUtils;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.HyjhVO;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.Calendar;
 import java.util.List;
@@ -57,7 +57,7 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
     public List list(Object... conditions) throws Exception {
         HyJhParams params = new HyJhParams();
         HyJhParams.Criteria c1 = params.createCriteria();
-        HyJhParams.Criteria c2 = params.createCriteria();
+        HyJhParams.Criteria c2 = params.or();
 
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             HyJh hyjh = (HyJh) conditions[0];
@@ -66,11 +66,8 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
                 c1.andZbdwLike("%"+hyjh.getZbdw()+"%");
             }
             if(StringUtils.isNotEmpty(hyjh.getCbdw())){
-                c1.andCbdwLike("%"+hyjh.getCbdw()+"%");
+                c2.andCbdwLike("%"+hyjh.getCbdw()+"%");
             }
-
-
-            c2.andCbdwLike("%"+hyjh.getZbdw()+"%");
             super.addOrderBy(params,conditions);
         }
 

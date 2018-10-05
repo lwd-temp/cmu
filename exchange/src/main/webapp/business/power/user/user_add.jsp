@@ -152,7 +152,7 @@
 
     $(function(){
         //添加校验
-        $("#form").setValid({
+        var validator = $("#form").setValid({
             //校验规则
             rules: {
                 userName:{
@@ -183,6 +183,7 @@
             var addUrl = 'sys/user/save';
 
             if(!$("#form").valid()){
+                validator.focusInvalid();
                 return;
             }
             if(1==1){

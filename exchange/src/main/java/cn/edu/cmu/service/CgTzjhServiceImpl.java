@@ -12,11 +12,11 @@ import cn.edu.cmu.framework.util.MaxNumUtils;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.CgtzjhVO;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

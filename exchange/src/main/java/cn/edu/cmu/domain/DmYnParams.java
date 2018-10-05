@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class DmXbParams {
+public class DmYnParams {
     /**
-     * T_DM_XB
+     * T_DM_YN
      */
     protected String orderByClause;
 
     /**
-     * T_DM_XB
+     * T_DM_YN
      */
     protected boolean distinct;
 
     /**
-     * T_DM_XB
+     * T_DM_YN
      */
     protected List<Criteria> oredCriteria;
 
@@ -24,7 +24,7 @@ public class DmXbParams {
      *
      * @mbggenerated 2018-10-05
      */
-    public DmXbParams() {
+    public DmYnParams() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -118,7 +118,7 @@ public class DmXbParams {
     }
 
     /**
-     * T_DM_XB 2018-10-05
+     * T_DM_YN 2018-10-05
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -433,7 +433,7 @@ public class DmXbParams {
     }
 
     /**
-     * T_DM_XB
+     * T_DM_YN
      */
     public static class Criteria extends GeneratedCriteria {
 
@@ -443,7 +443,7 @@ public class DmXbParams {
     }
 
     /**
-     * T_DM_XB 2018-10-05
+     * T_DM_YN 2018-10-05
      */
     public static class Criterion {
         private String condition;

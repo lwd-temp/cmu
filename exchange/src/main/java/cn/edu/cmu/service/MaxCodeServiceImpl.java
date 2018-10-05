@@ -4,9 +4,9 @@ import cn.edu.cmu.dao.MaxCodeMapper;
 import cn.edu.cmu.domain.MaxCode;
 import cn.edu.cmu.domain.MaxCodeParams;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import java.util.List;
 
