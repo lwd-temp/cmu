@@ -23,7 +23,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public WbjdZjParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class WbjdZjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class WbjdZjParams {
     }
 
     /**
-     * T_WBJD_ZJ 2018-09-22
+     * T_WBJD_ZJ 2018-10-08
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -442,62 +442,52 @@ public class WbjdZjParams {
             return (Criteria) this;
         }
 
-        public Criteria andLfsjEqualTo(String value) {
+        public Criteria andLfsjEqualTo(Date value) {
             addCriterion("LFSJ =", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjNotEqualTo(String value) {
+        public Criteria andLfsjNotEqualTo(Date value) {
             addCriterion("LFSJ <>", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjGreaterThan(String value) {
+        public Criteria andLfsjGreaterThan(Date value) {
             addCriterion("LFSJ >", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjGreaterThanOrEqualTo(String value) {
+        public Criteria andLfsjGreaterThanOrEqualTo(Date value) {
             addCriterion("LFSJ >=", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjLessThan(String value) {
+        public Criteria andLfsjLessThan(Date value) {
             addCriterion("LFSJ <", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjLessThanOrEqualTo(String value) {
+        public Criteria andLfsjLessThanOrEqualTo(Date value) {
             addCriterion("LFSJ <=", value, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjLike(String value) {
-            addCriterion("LFSJ like", value, "lfsj");
-            return (Criteria) this;
-        }
-
-        public Criteria andLfsjNotLike(String value) {
-            addCriterion("LFSJ not like", value, "lfsj");
-            return (Criteria) this;
-        }
-
-        public Criteria andLfsjIn(List<String> values) {
+        public Criteria andLfsjIn(List<Date> values) {
             addCriterion("LFSJ in", values, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjNotIn(List<String> values) {
+        public Criteria andLfsjNotIn(List<Date> values) {
             addCriterion("LFSJ not in", values, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjBetween(String value1, String value2) {
+        public Criteria andLfsjBetween(Date value1, Date value2) {
             addCriterion("LFSJ between", value1, value2, "lfsj");
             return (Criteria) this;
         }
 
-        public Criteria andLfsjNotBetween(String value1, String value2) {
+        public Criteria andLfsjNotBetween(Date value1, Date value2) {
             addCriterion("LFSJ not between", value1, value2, "lfsj");
             return (Criteria) this;
         }
@@ -1392,52 +1382,62 @@ public class WbjdZjParams {
             return (Criteria) this;
         }
 
-        public Criteria andTzxbEqualTo(Date value) {
+        public Criteria andTzxbEqualTo(String value) {
             addCriterion("TZXB =", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbNotEqualTo(Date value) {
+        public Criteria andTzxbNotEqualTo(String value) {
             addCriterion("TZXB <>", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbGreaterThan(Date value) {
+        public Criteria andTzxbGreaterThan(String value) {
             addCriterion("TZXB >", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbGreaterThanOrEqualTo(Date value) {
+        public Criteria andTzxbGreaterThanOrEqualTo(String value) {
             addCriterion("TZXB >=", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbLessThan(Date value) {
+        public Criteria andTzxbLessThan(String value) {
             addCriterion("TZXB <", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbLessThanOrEqualTo(Date value) {
+        public Criteria andTzxbLessThanOrEqualTo(String value) {
             addCriterion("TZXB <=", value, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbIn(List<Date> values) {
+        public Criteria andTzxbLike(String value) {
+            addCriterion("TZXB like", value, "tzxb");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzxbNotLike(String value) {
+            addCriterion("TZXB not like", value, "tzxb");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzxbIn(List<String> values) {
             addCriterion("TZXB in", values, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbNotIn(List<Date> values) {
+        public Criteria andTzxbNotIn(List<String> values) {
             addCriterion("TZXB not in", values, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbBetween(Date value1, Date value2) {
+        public Criteria andTzxbBetween(String value1, String value2) {
             addCriterion("TZXB between", value1, value2, "tzxb");
             return (Criteria) this;
         }
 
-        public Criteria andTzxbNotBetween(Date value1, Date value2) {
+        public Criteria andTzxbNotBetween(String value1, String value2) {
             addCriterion("TZXB not between", value1, value2, "tzxb");
             return (Criteria) this;
         }
@@ -1452,62 +1452,52 @@ public class WbjdZjParams {
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqEqualTo(String value) {
+        public Criteria andTzcsrqEqualTo(Date value) {
             addCriterion("TZCSRQ =", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqNotEqualTo(String value) {
+        public Criteria andTzcsrqNotEqualTo(Date value) {
             addCriterion("TZCSRQ <>", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqGreaterThan(String value) {
+        public Criteria andTzcsrqGreaterThan(Date value) {
             addCriterion("TZCSRQ >", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqGreaterThanOrEqualTo(String value) {
+        public Criteria andTzcsrqGreaterThanOrEqualTo(Date value) {
             addCriterion("TZCSRQ >=", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqLessThan(String value) {
+        public Criteria andTzcsrqLessThan(Date value) {
             addCriterion("TZCSRQ <", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqLessThanOrEqualTo(String value) {
+        public Criteria andTzcsrqLessThanOrEqualTo(Date value) {
             addCriterion("TZCSRQ <=", value, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqLike(String value) {
-            addCriterion("TZCSRQ like", value, "tzcsrq");
-            return (Criteria) this;
-        }
-
-        public Criteria andTzcsrqNotLike(String value) {
-            addCriterion("TZCSRQ not like", value, "tzcsrq");
-            return (Criteria) this;
-        }
-
-        public Criteria andTzcsrqIn(List<String> values) {
+        public Criteria andTzcsrqIn(List<Date> values) {
             addCriterion("TZCSRQ in", values, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqNotIn(List<String> values) {
+        public Criteria andTzcsrqNotIn(List<Date> values) {
             addCriterion("TZCSRQ not in", values, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqBetween(String value1, String value2) {
+        public Criteria andTzcsrqBetween(Date value1, Date value2) {
             addCriterion("TZCSRQ between", value1, value2, "tzcsrq");
             return (Criteria) this;
         }
 
-        public Criteria andTzcsrqNotBetween(String value1, String value2) {
+        public Criteria andTzcsrqNotBetween(Date value1, Date value2) {
             addCriterion("TZCSRQ not between", value1, value2, "tzcsrq");
             return (Criteria) this;
         }
@@ -2494,7 +2484,7 @@ public class WbjdZjParams {
     }
 
     /**
-     * T_WBJD_ZJ 2018-09-22
+     * T_WBJD_ZJ 2018-10-08
      */
     public static class Criterion {
         private String condition;

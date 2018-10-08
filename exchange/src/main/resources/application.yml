@@ -12,7 +12,12 @@ sys:
   upload:
     #上传文件的基本路径
     base_dir:
+      ######### 本地开发环境  ##############
       D:\\upload\\
+      ########    121测试环境   ##############
+      #/mntdata/picdir/exchange
+      #######   上线前UAT测试环境  ###########
+      #/home/weblogic/upload/
   access:
     #忽略访问，ext为忽略扩展名，url，为忽略路径
     ignore:

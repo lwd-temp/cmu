@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
-	<!-- CAS验证服务器地址 -->
-	<loginServer>http://www.cmu.edu.cn/cas</loginServer>
-	<validateServer>http://www.cmu.edu.cn/cas</validateServer>
-	<!--平台地址-->
-	<serverName>http://www.cmu.edu.cn/cas</serverName>
-	<!-- 排除被保护的资源  -->
-	<notForceAuthUrls>
-		<url-pattern>\.js$</url-pattern>
-		<url-pattern>\.png$</url-pattern>
-		<url-pattern>\.css$</url-pattern>
-		<url-pattern>\.jpg$</url-pattern>
-		<url-pattern>\.jpeg$</url-pattern>
-		<url-pattern>\.xml$</url-pattern>
-		<url-pattern>\.html.*</url-pattern>
-		<url-pattern><![CDATA[.*/fileUpload.*]]></url-pattern>
-	</notForceAuthUrls>
+<!-- CAS验证服务器地址 -->
+<loginServer>http://www.cmu.edu.cn/cas</loginServer>
+<validateServer>http://www.cmu.edu.cn/cas</validateServer>
+<!--平台地址-->
+<serverName>http://www.cmu.edu.cn/cas</serverName>
+<!-- 排除被保护的资源  -->
+<notForceAuthUrls>
+	<url-pattern>\.js$</url-pattern>
+	<url-pattern>\.png$</url-pattern>
+	<url-pattern>\.css$</url-pattern>
+	<url-pattern>\.jpg$</url-pattern>
+	<url-pattern>\.jpeg$</url-pattern>
+	<url-pattern>\.xml$</url-pattern>
+	<url-pattern>\.html.*</url-pattern>
+	<url-pattern><![CDATA[.*/fileUpload.*]]></url-pattern>
+</notForceAuthUrls>
 </config>

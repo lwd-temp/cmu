@@ -22,7 +22,7 @@ public class WbjdSq {
     /**
      * 来访时间
      */
-    private String lfsj;
+    private Date lfsj;
 
     /**
      * 停留时间（时间开始）
@@ -92,12 +92,12 @@ public class WbjdSq {
     /**
      * 团长性别
      */
-    private Date tzxb;
+    private String tzxb;
 
     /**
      * 团长出生日期
      */
-    private String tzcsrq;
+    private Date tzcsrq;
 
     /**
      * 团长工作单位
@@ -171,9 +171,9 @@ public class WbjdSq {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
-    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, String lfsj, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, Date tzxb, String tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String jdlx, String status, String valid, Date createTime) {
+    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, Date lfsj, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String jdlx, String status, String valid, Date createTime) {
         this.lfid = lfid;
         this.dbtmc = dbtmc;
         this.lfrs = lfrs;
@@ -211,7 +211,7 @@ public class WbjdSq {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     public WbjdSq() {
         super();
@@ -269,7 +269,7 @@ public class WbjdSq {
      * 来访时间
      * @return LFSJ 来访时间
      */
-    public String getLfsj() {
+    public Date getLfsj() {
         return lfsj;
     }
 
@@ -277,8 +277,8 @@ public class WbjdSq {
      * 来访时间
      * @param lfsj 来访时间
      */
-    public void setLfsj(String lfsj) {
-        this.lfsj = lfsj == null ? null : lfsj.trim();
+    public void setLfsj(Date lfsj) {
+        this.lfsj = lfsj;
     }
 
     /**
@@ -493,7 +493,7 @@ public class WbjdSq {
      * 团长性别
      * @return TZXB 团长性别
      */
-    public Date getTzxb() {
+    public String getTzxb() {
         return tzxb;
     }
 
@@ -501,15 +501,15 @@ public class WbjdSq {
      * 团长性别
      * @param tzxb 团长性别
      */
-    public void setTzxb(Date tzxb) {
-        this.tzxb = tzxb;
+    public void setTzxb(String tzxb) {
+        this.tzxb = tzxb == null ? null : tzxb.trim();
     }
 
     /**
      * 团长出生日期
      * @return TZCSRQ 团长出生日期
      */
-    public String getTzcsrq() {
+    public Date getTzcsrq() {
         return tzcsrq;
     }
 
@@ -517,8 +517,8 @@ public class WbjdSq {
      * 团长出生日期
      * @param tzcsrq 团长出生日期
      */
-    public void setTzcsrq(String tzcsrq) {
-        this.tzcsrq = tzcsrq == null ? null : tzcsrq.trim();
+    public void setTzcsrq(Date tzcsrq) {
+        this.tzcsrq = tzcsrq;
     }
 
     /**
@@ -747,7 +747,7 @@ public class WbjdSq {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-08
      */
     @Override
     public String toString() {
