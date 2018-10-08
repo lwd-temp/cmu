@@ -27,8 +27,8 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        WbjdZj WbjdZj = new WbjdZj(CmuStringUtil.UUID(),"01","01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01",
-                "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(), "01","01",
+        WbjdZj WbjdZj = new WbjdZj(CmuStringUtil.UUID(),"01","01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01",
+                "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(), "01",
                 "01","01","01","01","01","01","01","01","01","01","01", null,null);
         boolean success = service.insert(WbjdZj);
         System.out.println("WbjdZj:"+WbjdZj);
@@ -71,8 +71,8 @@ public class WbjdZjServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
-        WbjdZj WbjdZj = new WbjdZj(keyId,"01","01", BigDecimal.valueOf(1.34),"01",new  Date(),new  Date(), "01",
-                "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01",new  Date(), "01","01",
+        WbjdZj WbjdZj = new WbjdZj(keyId,"01","01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01",
+                "01","01","01","01", "01",BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(), "01",
                 "01","01","01","01","01","01","01","01","01","01","01", null,null);
         boolean success = service.insert(WbjdZj);
         System.out.println("保存成功："+success);
