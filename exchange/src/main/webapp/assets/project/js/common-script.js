@@ -94,7 +94,7 @@ function initMenu() {
         '                        </a>\n' +
         '                    </li>');
     var secondMenuTempBase = $('<li class="" tg="business/wblfgl/wbgl_list.jsp">\n' +
-        '                        <a href="#" >\n' +
+        '                        <a href="javascript:void(0)" >\n' +
         '                            <i class="menu-icon fa fa-caret-right second-text"></i>' +
         '                        </a>' +
         '                     </li>');

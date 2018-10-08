@@ -4,9 +4,11 @@
 <loginServer>http://cas.cmu.edu.cn/cas/</loginServer>
 <validateServer>http://cas.cmu.edu.cn/cas/</validateServer>
 <!--平台地址-->
-<serverName>http://fam.cmu.edu.cn/sso/</serverName>
+<serverName>fam.cmu.edu.cn</serverName>
 <!-- 排除被保护的资源  -->
 <notForceAuthUrls>
+
+	<url-pattern>\*</url-pattern>
 	<url-pattern>\.js$</url-pattern>
 	<url-pattern>\.png$</url-pattern>
 	<url-pattern>\.css$</url-pattern>

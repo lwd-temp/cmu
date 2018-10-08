@@ -233,6 +233,19 @@
             <version>1.9.3</version>
         </dependency>
 
+        <!--单点登录-->
+        <dependency>
+            <groupId>com.neusoft.cas</groupId>
+            <artifactId>cas-client-core</artifactId>
+            <version>3.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.neusoft.cas</groupId>
+            <artifactId>neusoft-cas-client</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+
 
     </dependencies>
 
