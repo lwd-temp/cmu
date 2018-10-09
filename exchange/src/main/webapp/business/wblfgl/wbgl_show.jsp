@@ -1,5 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,35 +53,40 @@
                     基本信息
                 </a>
             </li>
+
             <li>
                 <a data-toggle="tab" id="tzcyinfo" href="#messages">
                     随行成员信息
                 </a>
             </li>
+
         </ul>
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
+                <input type="hidden" name="wbjdSq.lfid" id="lfid" value="${wbjdSq.lfid}" />
                 <input type="hidden" name="wbjdSq.status" id="status" value="01" />
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 代表团名称: </label>
 
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.dbtmc"   placeholder=""  class="col-xs-12" />
+                        <input type="text"  disabled="disabled" name="wbjdSq.dbtmc" value="${wbjdSq.dbtmc}"  placeholder=""  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.lfrs"   placeholder=""  class="col-xs-12" />
+                        <input type="text"  disabled="disabled" name="wbjdSq.lfrs"  value="${wbjdSq.lfrs}"  placeholder=""  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 来访时间: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.lfsj" value="" id="lfsj" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker"disabled="disabled"  name="wbjdSq.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdSq.lfsj}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-2 control-label " > 停留时间: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjStart" id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker"disabled="disabled"  name="wbjdSq.tlsjStart" value="<fmt:formatDate value="${wbjdSq.tlsjStart}" pattern="yyyy-MM-dd"/>"
+                               id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                 </div>
@@ -87,138 +94,144 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 国家: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB" disabled="disabled"  type="select" multiple="multiple" valueList="${gbCodeList}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+
                     </div>
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd" id="jdlx" name="wbjdSq.lfmd"  data-placeholder="请选择来访目的" ></dm:list>
+                        <dm:list tabName="t_dm_lfmd" disabled="disabled" id="jdlx" name="wbjdSq.lfmd" value="${wbjdSq.lfmd}"  data-placeholder="请选择来访目的" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd" style="display:none;">
                     <label class="col-xs-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.lfmdQt" value="" type="text"   />
+                        <input class="form-control  " disabled="disabled"  name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}"   type="text"   />
                     </div>
                 </div>
                 <div class="form-group yjtm" style="display: none;">
                     <label class="col-xs-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yjtm" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.yjtm" disabled="disabled" value="${wbjdSq.yjtm}"  type="text"   />
                     </div>
                 </div>
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 邀请信息: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yqxx" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.yqxx" disabled="disabled" value="${wbjdSq.yqxx}"  type="text"   />
                     </div>
                 </div>
                 <div class="form-group lx1">
                     <label class="col-xs-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.jfly" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.jfly" disabled="disabled" value="${wbjdSq.jfly}" type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 礼品: </label>
                     <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.lp" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.lp" disabled="disabled" value="${wbjdSq.lp}"  type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 数量: </label>
                     <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.lpsl" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.lpsl" disabled="disabled" value="${wbjdSq.lpsl}"  type="text"   />
                     </div>
                 </div>
 
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 情况记录: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.qkjl" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.qkjl" disabled="disabled" value="${wbjdSq.qkjl}"  type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 访问成果: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.fwcg" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.fwcg" disabled="disabled" value="${wbjdSq.fwcg}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzxm" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.tzxm" disabled="disabled" value="${wbjdSq.tzxm}"  type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 团长国籍: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzgj" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.tzgj" disabled="disabled" value="${wbjdSq.tzgj}" type="text"   />
 
                     </div>
                 </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长性别: </label>
                 <div class="col-xs-4">
-                    <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" type="radio" data-placeholder="请选接待类型" ></dm:list>
+                    <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" disabled="disabled" value="${wbjdSq.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
                 </div>
 
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
-                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="" type="text" data-date-format="yyyy-mm-dd" />
+                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" disabled="disabled" id="tzcsrq" value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
+                           type="text" data-date-format="yyyy-mm-dd" />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长工作单位: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzgzdw" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.tzgzdw" disabled="disabled" value="${wbjdSq.tzgzdw}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzw" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.tzzw" disabled="disabled" value="${wbjdSq.tzzw}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdSq.tzzy" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.tzzy" disabled="disabled" value="${wbjdSq.tzzy}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 主请人姓名: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrxm" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.zqrxm" disabled="disabled" value="${wbjdSq.zqrxm}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 主请人电话: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrdh" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.zqrdh" disabled="disabled" value="${wbjdSq.zqrdh}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrxm" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.zqlxrxm" disabled="disabled" value="${wbjdSq.zqlxrxm}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrdh" value="" type="text"   />
+                    <input class="form-control  " name="wbjdSq.zqlxrdh" disabled="disabled" value="${wbjdSq.zqlxrdh}" type="text"   />
                 </div>
             </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" name="wbjdSq.jdbm"  data-placeholder="请选择接待部门" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" disabled="disabled" name="wbjdSq.jdbm" value="${wbjdSq.jdbm}" data-placeholder="请选择接待部门" ></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "  > 接待类型: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" name="wbjdSq.jdlx"  data-placeholder="请选接待类型" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" disabled="disabled" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
                 </div>
-                <div class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info btn-sm" id="saveForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        暂存
-                    </button>
-                    &nbsp; &nbsp; &nbsp;
-                    <button class="btn btn-danger btn-sm" id="submitForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        提交
-                    </button>
+                <div class="row">
+                    <div class="col-md-offset-2 col-md-9">
+                        &nbsp; &nbsp; &nbsp;
+                    </div>
+                    <div class="col-md-offset-2 col-md-9">
+                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                        <button class="btn btn-danger btn-sm" id="btnClose" type="button">
+                            <i class="ace-icon fa fa-close bigger-110"></i>
+                            关闭
+                        </button>
+                    </div>
+                    <div class="col-md-offset-2 col-md-9">
+                        &nbsp; &nbsp; &nbsp;
+                    </div>
                 </div>
             </div>
             <div id="messages" class="tab-pane fade in " style="">
@@ -226,34 +239,38 @@
                     <div class="col-xs-3">姓名</div>
                     <div class="col-xs-3">国籍</div>
                     <div class="col-xs-3">职务</div>
-                    <div class="col-xs-2">操作</div>
                 </div>
-                <div class="row sxr">
-                    <div class="col-xs-3"><input type="text" inp="xm"       name="sxr[0].xm" class="col-xs-12"/></div>
-                    <div class="col-xs-3"><input type="text" inp="gj"       name="sxr[0].gj" class="col-xs-12"/></div>
-                    <div class="col-xs-3"><input type="text" inp="zw"       name="sxr[0].zw" class="col-xs-12"/></div>
-                    <div class="col-xs-2">
-                        <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                        <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
-                    </div>
-                </div>
+                <c:choose>
+                    <c:when test="${sxryList!=null && sxryList.size()>0}">
+                        <c:forEach items="${sxryList}" var="sxr">
+                            <div class="row sxr">
+                                <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled"   value="${sxr.xm}"   name="sxr[0].xm" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled"  value="${sxr.gj}"   name="sxr[0].gj" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled"   value="${sxr.zw}"   name="sxr[0].zw" class="col-xs-12"/></div>
+                            </div>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="row sxr">
+                            <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled"    name="sxr[0].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled"    name="sxr[0].gj" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"     name="sxr[0].zw" class="col-xs-12"/></div>
+
+                        </div>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
 </form>
-
 <div id="template" style="display: none">
     <div class="row sxr" >
         <div class="col-xs-3"><input type="text" inp="xm"   name="sxr[@].xm" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="gj"   name="sxr[@].gj" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="zw"   name="sxr[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2"  >
-            <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-            <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
-        </div>
+
     </div>
 </div>
-</body>
 <script src='assets/js/jquery.js'></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
@@ -271,81 +288,14 @@
 <script src="assets/js/layer/layer.js"></script>
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
-    <script>
-        $(function () {
-            setFormValid();//设置校验规则
-            $("#saveForm").click(function(){
-                $("#status").val("01");//暂存
-                saveSq();
-            });
-            $("#submitForm").click(function(){
-                $("#status").val("02");//提交
-                saveSq();
-            });
-        });
-        function setFormValid(){
-            $("#form").setValid({
-                //校验规则
-                rules: {
-                    "wbjdSq.dbtmc":{ required:true},
-                    "wbjdSq.lfrs":{ required:true},
-                    "wbjdSq.lfmd":{ required:true},
-                    "wbjdSq.tzxm":{ required:true},
-                    "wbjdSq.zqrxm":{ required:true},
-                    "wbjdSq.zqrdh":{ required:true},
-                    "wbjdSq.zqlxrxm":{ required:true},
-                    "wbjdSq.zqlxrdh":{ required:true}
-                }
-            })
-        }
-        function saveSq(){
-            if(!validateSq()){
-                return;
-            }
-            calInputNames();
-            $.ajax('wbjd/save',{
-                type:'post',
-                dataType:'json',
-                data:$("#form").serialize(),
-                success:function(res){
-                    if(res && res.success){
-                        parent.refreshTable();
-                        closeLayer();//关闭
-                        winAlert("保存成功");//弹出确认消息
-                    }
-                }
-            });
-        }
-        //校验整个计划
-        function validateSq(){
-            if(!$("#form").valid()){
-                return false;
-            }
-            return true;
-        }
-        function calInputNames(){
-            $('form input[inp=xm]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].xm');
-            });
-            $('form input[inp=gj]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].gj');
-            });
-            $('form input[inp=zw]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].zw');
-            });
-        }
-        function deleteSxr(btn){
-            var size = $("#messages .sxr").size();
-            if(size<=1){
-                parent.layer.alert("请至少录入一个随行成员");
-                return false;
-            }
-            var row = $(btn).parent().parent();
-            row.remove();
-        }
-        function appendSxr(){
-            $("#messages").append($("#template").html());
-        }
-    </script>
+
+<script>
+    $(function () {
+        $("#btnClose").click(function(){
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
+        })
+    });
+</script>
 </body>
 </html>
