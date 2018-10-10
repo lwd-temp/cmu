@@ -93,61 +93,66 @@
                         <input class="form-control date-picker" name="wbjdSq.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdSq.lfsj}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label " > 停留时间: </label>
+                    <label class="col-xs-2 control-label " > 停留时间起始: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjStart" value="<fmt:formatDate value="${wbjdSq.tlsjStart}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" name="wbjdSq.tlsjStart"
+                               value="<fmt:formatDate value="${wbjdSq.tlsjStart}" pattern="yyyy-MM-dd"/>"
                                id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                 </div>
-
                 <div class="form-group">
+                    <label class="col-xs-2 control-label " > 停留时间截止: </label>
+
+                    <div class="col-xs-4">
+                        <input class="form-control date-picker" name="wbjdSq.tlsjEnd" id="tlsjEnd"
+                               value="<fmt:formatDate value="${wbjdSq.tlsjEnd}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
                     <label class="col-xs-2 control-label "  > 国家: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple" valueList="${gbCodeList}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
-
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbCodeList}" id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
                     </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd" id="jdlx" name="wbjdSq.lfmd" value="${wbjdSq.lfmd}"  data-placeholder="请选择来访目的" ></dm:list>
+                        <dm:list tabName="t_dm_lfmd" id="lfmd" name="wbjdSq.lfmd" value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
+                    </div>
+                    <label class="col-xs-2 control-label "  > 经费来源: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.jfly" value="${wbjdSq.jfly}" type="text"   />
                     </div>
                 </div>
-                <div class="form-group qtmd" style="display:none;">
+                <div class="form-group qtmd">
                     <label class="col-xs-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}"   type="text"   />
+                        <input class="form-control  " name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}" type="text"   />
                     </div>
                 </div>
-                <div class="form-group yjtm" style="display: none;">
+                <div class="form-group yjtm" >
                     <label class="col-xs-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yjtm" value="${wbjdSq.yjtm}"  type="text"   />
+                        <input class="form-control  " name="wbjdSq.yjtm" value="${wbjdSq.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 邀请信息: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yqxx" value="${wbjdSq.yqxx}"  type="text"   />
+                        <input class="form-control  " name="wbjdSq.yqxx" value="${wbjdSq.yqxx}" type="text"   />
                     </div>
                 </div>
-                <div class="form-group lx1">
-                    <label class="col-xs-2 control-label "  > 经费来源: </label>
-                    <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.jfly" value="${wbjdSq.jfly}" type="text"   />
-                    </div>
-
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 礼品: </label>
-                    <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.lp" value="${wbjdSq.lp}"  type="text"   />
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.lp" value="${wbjdSq.lp}" type="text"   />
                     </div>
-
                     <label class="col-xs-2 control-label "  > 数量: </label>
-                    <div class="col-xs-2">
-                        <input class="form-control  " name="wbjdSq.lpsl" value="${wbjdSq.lpsl}"  type="text"   />
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.lpsl" value="${wbjdSq.lpsl}" type="text"   />
                     </div>
                 </div>
-
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 情况记录: </label>
                     <div class="col-xs-10">
@@ -309,6 +314,23 @@
 
 <script>
     $(function () {
+
+        var md= $("#lfmd").val();
+        //学术讲座 -- 演讲题目
+        if (md == '03') {
+            $(".yjtm").show();
+            $(".qtmd").hide();
+        }
+        if (md == '99') {
+            $(".qtmd").show();
+            $(".yjtm").hide();
+        }
+        if (md == '01'||md == '02'||md == '04') {
+            $(".yjtm").hide();
+            $(".qtmd").hide();
+        }
+
+
         setFormValid();//设置校验规则
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
@@ -327,8 +349,6 @@
                 "wbjdSq.lfrs":{ required:true},
                 "wbjdSq.lfmd":{ required:true},
                 "wbjdSq.tzxm":{ required:true},
-                "wbjdSq.zqrxm":{ required:true},
-                "wbjdSq.zqrdh":{ required:true},
                 "wbjdSq.zqlxrxm":{ required:true},
                 "wbjdSq.zqlxrdh":{ required:true}
             }
@@ -381,6 +401,23 @@
     }
     function appendSxr(){
         $("#messages").append($("#template").html());
+    }
+    //选择来访目的
+    function selectlfmd(select) {
+        var md = $(select).val();
+        //学术讲座 -- 演讲题目
+        if (md == '03') {
+            $(".yjtm").show();
+            $(".qtmd").hide();
+        }
+        if (md == '99') {
+            $(".qtmd").show();
+            $(".yjtm").hide();
+        }
+        if (md == '01'||md == '02'||md == '04') {
+            $(".yjtm").hide();
+            $(".qtmd").hide();
+        }
     }
 </script>
 </body>
