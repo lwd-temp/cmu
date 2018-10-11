@@ -52,13 +52,26 @@ public class DMCache {
      * @return
      */
     public static List getTableList(String tableName) {
-        List list = tableCache.get(tableName.toUpperCase());
+        List list = tableCache.get(getTableKey(tableName));
 
         if (list == null) {
             list = new ArrayList();
         }
 
         return list;
+    }
+
+    /**
+     * 获取代码表 缓存 的 key  如果是 T_DM_XXX key为表明， 如果是T_DM_XXX_XX  咋XXX 部分后面的 下划线 去掉为 T_DM_XXXXX
+     * @param tableName
+     * @return
+     */
+    public static String getTableKey(String tableName){
+        int splitKeyLength = tableName.split("_").length-1;
+        String otherKey =tableName.substring(5).replace("_","");
+        String key = splitKeyLength>=3?"t_dm_"+otherKey:tableName;
+
+        return key.toUpperCase();
     }
 
 
