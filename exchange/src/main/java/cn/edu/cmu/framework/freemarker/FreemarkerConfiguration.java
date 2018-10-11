@@ -1,8 +1,10 @@
 package cn.edu.cmu.framework.freemarker;
 
+import cn.edu.cmu.framework.util.WebAppContextUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+import javax.servlet.ServletContext;
 import java.io.IOException;
 
 public class FreemarkerConfiguration {
@@ -14,14 +16,20 @@ public class FreemarkerConfiguration {
 	 * Initialize the configuration of Freemarker.
 	 */
 	static {
+
 		config = new Configuration();
-		config.setClassForTemplateLoading(FreemarkerConfiguration.class,
-                "/pdf_template");
+//		config.setClassForTemplateLoading(FreemarkerConfiguration.class,
+//				"/download_template/pdf");
+        ServletContext application = WebAppContextUtils.getApplication();
+		config.setServletContextForTemplateLoading(application,"/download_template/pdf");
 	}
 
 	public static Configuration getConfiguation() {
-		return config;
+
+	    return config;
 	}
+
+
 	public static Template getTemplate(String template) throws IOException {
 		return config.getTemplate(template);
 	}

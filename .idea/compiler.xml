@@ -9,7 +9,6 @@
         <module name="exchange" />
         <module name="poi" />
         <module name="sso" />
-        <module name="yx" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

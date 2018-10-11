@@ -23,7 +23,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public CgTzjhParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-10-01
+     * T_CG_TZJH 2018-10-11
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1632,52 +1632,52 @@ public class CgTzjhParams {
             return (Criteria) this;
         }
 
-        public Criteria andCfsjEqualTo(BigDecimal value) {
+        public Criteria andCfsjEqualTo(Date value) {
             addCriterion("CFSJ =", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjNotEqualTo(BigDecimal value) {
+        public Criteria andCfsjNotEqualTo(Date value) {
             addCriterion("CFSJ <>", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjGreaterThan(BigDecimal value) {
+        public Criteria andCfsjGreaterThan(Date value) {
             addCriterion("CFSJ >", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjGreaterThanOrEqualTo(BigDecimal value) {
+        public Criteria andCfsjGreaterThanOrEqualTo(Date value) {
             addCriterion("CFSJ >=", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjLessThan(BigDecimal value) {
+        public Criteria andCfsjLessThan(Date value) {
             addCriterion("CFSJ <", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjLessThanOrEqualTo(BigDecimal value) {
+        public Criteria andCfsjLessThanOrEqualTo(Date value) {
             addCriterion("CFSJ <=", value, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjIn(List<BigDecimal> values) {
+        public Criteria andCfsjIn(List<Date> values) {
             addCriterion("CFSJ in", values, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjNotIn(List<BigDecimal> values) {
+        public Criteria andCfsjNotIn(List<Date> values) {
             addCriterion("CFSJ not in", values, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCfsjBetween(Date value1, Date value2) {
             addCriterion("CFSJ between", value1, value2, "cfsj");
             return (Criteria) this;
         }
 
-        public Criteria andCfsjNotBetween(BigDecimal value1, BigDecimal value2) {
+        public Criteria andCfsjNotBetween(Date value1, Date value2) {
             addCriterion("CFSJ not between", value1, value2, "cfsj");
             return (Criteria) this;
         }
@@ -2264,7 +2264,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-10-01
+     * T_CG_TZJH 2018-10-11
      */
     public static class Criterion {
         private String condition;

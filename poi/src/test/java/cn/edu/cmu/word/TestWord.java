@@ -22,7 +22,7 @@ public class TestWord {
 
         InputStream is = TestWord.class.getClassLoader().getResourceAsStream("template.docx");
 
-        //FileInputStream is = new FileInputStream(new File("E:\\development\\workspace\\ideaworspace\\space2\\cmu\\poi\\src\\test\\resources\\template.docx"));
+        //FileInputStream is = new FileInputStream(new File("E:\\development\\workspace\\ideaworspace\\space2\\cmu\\poi\\src\\test\\resources\\pdf_template.docx"));
 
         int length = is.available();
         System.out.println("length :"+length);

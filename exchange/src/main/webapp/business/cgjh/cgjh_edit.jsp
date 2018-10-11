@@ -35,6 +35,9 @@
     <link rel="stylesheet" href="assets/css/ui.jqgrid.css"/>
     <link rel="stylesheet" href="assets/css/chosen.css"/>
     <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-timepicker.css" />
+    <link rel="stylesheet" href="assets/css/daterangepicker.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-datetimepicker.css" />
 
     <!-- text fonts -->
     <link rel="stylesheet" href="assets/css/ace-fonts.css"/>
@@ -212,9 +215,10 @@
 
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
-                    <div class="col-xs-4">
-                        <input class="form-control" id="cfsj" name="cgTzjh.cfsj"  value="${cgTzjh.cfsj}"  type="text"/>
+                    <div class="col-xs-4 ">
+                        <input class="form-control month-picker" data-date-format="YYYY-MM"  id="cfsj" name="cgTzjh.cfsj" value="<fmt:formatDate value="${cgTzjh.cfsj}" pattern="yyyy-MM"/>" type="text"/>
                     </div>
+
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">
                         <input class="form-control" id="cfts" name="cgTzjh.cfts"  value="${cgTzjh.cfts}"  type="text"/>
@@ -341,7 +345,9 @@
 
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
+<script src="assets/js/date-time/moment.js"></script>
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>
+<script src="assets/js/date-time/bootstrap-datetimepicker.js"></script>
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
 
@@ -362,6 +368,9 @@
 
 
     $(function () {
+
+        $(".month-picker").datetimepicker({viewMode: "months",format: 'YYYY-MM'});
+
 
         $(".lx2").hide();
 
@@ -532,8 +541,8 @@
     }
 
     function appendCy(){
-        //var $template = $("#template").clone();
-        $("#messages").append($("#template").html());
+        //var $pdf_template = $("#pdf_template").clone();
+        $("#messages").append($("#pdf_template").html());
 
     }
 

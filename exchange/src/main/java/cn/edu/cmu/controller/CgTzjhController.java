@@ -4,7 +4,6 @@ import cn.edu.cmu.domain.CgTzcy;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgjhGb;
 import cn.edu.cmu.framework.util.ExcelUtils;
-import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgTzcyService;
 import cn.edu.cmu.service.CgTzjhService;
@@ -248,7 +247,7 @@ public class CgTzjhController extends BaseController {
         response.setHeader("content-disposition", "attachment;filename="+downFileName);
         ServletOutputStream out = response.getOutputStream();
 
-        String excelTempPath = WebAppContextUtils.REAL_CONTEXT_PATH + "/excel_template/cgjh/cgjh_gl.xls";
+        String excelTempPath = "cgjh/cgjh_gl.xls";
         ExcelUtils.expExcel(list,excelTempPath,out);
     }
 

@@ -112,7 +112,7 @@ public class CgTzjh {
     /**
      * 出访时间(精确到月)
      */
-    private BigDecimal cfsj;
+    private Date cfsj;
 
     /**
      * 出访天数(精确到日)
@@ -161,9 +161,9 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
-    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, BigDecimal cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
+    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzlb = tzlb;
@@ -199,7 +199,7 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     public CgTzjh() {
         super();
@@ -545,7 +545,7 @@ public class CgTzjh {
      * 出访时间(精确到月)
      * @return CFSJ 出访时间(精确到月)
      */
-    public BigDecimal getCfsj() {
+    public Date getCfsj() {
         return cfsj;
     }
 
@@ -553,7 +553,7 @@ public class CgTzjh {
      * 出访时间(精确到月)
      * @param cfsj 出访时间(精确到月)
      */
-    public void setCfsj(BigDecimal cfsj) {
+    public void setCfsj(Date cfsj) {
         this.cfsj = cfsj;
     }
 
@@ -703,7 +703,7 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-10-11
      */
     @Override
     public String toString() {

@@ -51,6 +51,13 @@ public class ExcelUtils {
 
     public static void expExcel(List datas, String path,OutputStream os) throws IOException {
 
+
+        logger.info("导出excel文件，使用用模板：" + path);
+
+
+        path = WebAppContextUtils.REAL_CONTEXT_PATH +"/download_template/excel/"+ path;
+
+
         FileInputStream fis=new FileInputStream(path);
         POIFSFileSystem fs = new POIFSFileSystem(fis);//使用POIFSFileSystem包括下避免同时读，写出错
         HSSFWorkbook workbook = new HSSFWorkbook(fs);

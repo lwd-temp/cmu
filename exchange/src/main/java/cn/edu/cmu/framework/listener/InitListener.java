@@ -13,11 +13,17 @@ public class InitListener implements ServletContextListener{
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        ServletContext application = sce.getServletContext();
+
+        //设置全局application对象
+        WebAppContextUtils.setApplication(application);
 
         logger.info("=======初始化工程上下文  start ....");
         initRootPath(sce);
         logger.info("=======初始化工程上下文  end   ....");
 
+
+        
 
     }
 

@@ -213,7 +213,12 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
                     <div class="col-xs-4">
-                        <input class="form-control" disabled="disabled" id="cfsj" name="cgTzjh.cfsj"  value="${cgTzjh.cfsj}"  type="text"/>
+
+                        <input class="form-control" disabled="disabled" id="cfsj" name="cgTzjh.cfsj"  value="<fmt:formatDate value="${cgTzjh.cfsj}" pattern="yyyy-MM" />" type="text"/>
+
+
+
+
                     </div>
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">

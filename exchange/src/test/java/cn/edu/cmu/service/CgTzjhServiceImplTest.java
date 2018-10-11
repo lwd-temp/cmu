@@ -28,7 +28,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
         CgTzjh CgTzjh = new CgTzjh(
                 CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01",
                 "01","01","01","01","01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01",BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
+                BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
                 BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
         boolean success = service.insert(CgTzjh);
         System.out.println("CgTzjh:"+CgTzjh);
@@ -73,7 +73,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
         CgTzjh CgTzjh = new CgTzjh(keyId, "01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01",BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
+                BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
                 BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
         boolean success = service.insert(CgTzjh);
         System.out.println("保存成功："+success);

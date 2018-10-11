@@ -1,7 +1,6 @@
 package cn.edu.cmu.pdf;
 
 import cn.edu.cmu.framework.pdf.HtmlGenerator;
-import cn.edu.cmu.framework.pdf.PdfGenerator;
 import org.junit.Test;
 
 import java.io.FileOutputStream;
@@ -14,8 +13,8 @@ public class PdfTest {
     public void generatePDF() throws Exception {
 
         Date now = new Date();
-        String time1 = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm").format(now);
-        String time2 = new SimpleDateFormat("yyyy-MM-dd@HH_ss_mm").format(now);
+        String time1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(now);
+        String time2 = new SimpleDateFormat("yyyy-MM-dd@HH_mm_ss").format(now);
         String outputFile = "D:\\"+time2+".pdf";
 
         System.out.println("生成pdf文件："+outputFile);
@@ -30,9 +29,9 @@ public class PdfTest {
 
         variables.put("names", names);
 
-        String htmlStr = HtmlGenerator.generate("template.html", variables);
+        String htmlStr = HtmlGenerator.generate("pdf_template.html", variables);
 
-        PdfGenerator.generatePlus(htmlStr, out);
+        cn.edu.cmu.framework.excel.pdf.PdfGenerator.generatePlus(htmlStr, out);
 
 
     }

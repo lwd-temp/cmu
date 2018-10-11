@@ -24,7 +24,7 @@
       <arg column="FFGZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="CFRW" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CFSJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="CFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="CFTS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="SJYS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="QTYS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -139,8 +139,8 @@
       JSZW, ZW, ZJ, CFGJ1, 
       CFGJ2, CFGJ3, CFGJ4, 
       CFGJ5, FFGZ, TZRS, 
-      CFRW, CFSJ, CFTS, SJYS, 
-      QTYS, YSHJ, RWPJWH, 
+      CFRW, CFSJ, CFTS, 
+      SJYS, QTYS, YSHJ, RWPJWH, 
       RWPFSJ, STATUS, VALID, 
       CREATE_TIME)
     values (#{tzid,jdbcType=VARCHAR}, #{tzh,jdbcType=VARCHAR}, #{tzlb,jdbcType=VARCHAR}, 
@@ -149,8 +149,8 @@
       #{jszw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{zj,jdbcType=VARCHAR}, #{cfgj1,jdbcType=VARCHAR}, 
       #{cfgj2,jdbcType=VARCHAR}, #{cfgj3,jdbcType=VARCHAR}, #{cfgj4,jdbcType=VARCHAR}, 
       #{cfgj5,jdbcType=VARCHAR}, #{ffgz,jdbcType=VARCHAR}, #{tzrs,jdbcType=DECIMAL}, 
-      #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=DECIMAL}, #{cfts,jdbcType=DECIMAL}, #{sjys,jdbcType=DECIMAL}, 
-      #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, #{rwpjwh,jdbcType=VARCHAR}, 
+      #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=TIMESTAMP}, #{cfts,jdbcType=DECIMAL}, 
+      #{sjys,jdbcType=DECIMAL}, #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, #{rwpjwh,jdbcType=VARCHAR}, 
       #{rwpfsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
@@ -316,7 +316,7 @@
         #{cfrw,jdbcType=VARCHAR},
       </if>
       <if test="cfsj != null" >
-        #{cfsj,jdbcType=DECIMAL},
+        #{cfsj,jdbcType=TIMESTAMP},
       </if>
       <if test="cfts != null" >
         #{cfts,jdbcType=DECIMAL},
@@ -420,7 +420,7 @@
         CFRW = #{record.cfrw,jdbcType=VARCHAR},
       </if>
       <if test="record.cfsj != null" >
-        CFSJ = #{record.cfsj,jdbcType=DECIMAL},
+        CFSJ = #{record.cfsj,jdbcType=TIMESTAMP},
       </if>
       <if test="record.cfts != null" >
         CFTS = #{record.cfts,jdbcType=DECIMAL},
@@ -477,7 +477,7 @@
       FFGZ = #{record.ffgz,jdbcType=VARCHAR},
       TZRS = #{record.tzrs,jdbcType=DECIMAL},
       CFRW = #{record.cfrw,jdbcType=VARCHAR},
-      CFSJ = #{record.cfsj,jdbcType=DECIMAL},
+      CFSJ = #{record.cfsj,jdbcType=TIMESTAMP},
       CFTS = #{record.cfts,jdbcType=DECIMAL},
       SJYS = #{record.sjys,jdbcType=DECIMAL},
       QTYS = #{record.qtys,jdbcType=DECIMAL},
@@ -555,7 +555,7 @@
         CFRW = #{cfrw,jdbcType=VARCHAR},
       </if>
       <if test="cfsj != null" >
-        CFSJ = #{cfsj,jdbcType=DECIMAL},
+        CFSJ = #{cfsj,jdbcType=TIMESTAMP},
       </if>
       <if test="cfts != null" >
         CFTS = #{cfts,jdbcType=DECIMAL},
@@ -609,7 +609,7 @@
       FFGZ = #{ffgz,jdbcType=VARCHAR},
       TZRS = #{tzrs,jdbcType=DECIMAL},
       CFRW = #{cfrw,jdbcType=VARCHAR},
-      CFSJ = #{cfsj,jdbcType=DECIMAL},
+      CFSJ = #{cfsj,jdbcType=TIMESTAMP},
       CFTS = #{cfts,jdbcType=DECIMAL},
       SJYS = #{sjys,jdbcType=DECIMAL},
       QTYS = #{qtys,jdbcType=DECIMAL},
