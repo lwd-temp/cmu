@@ -1,6 +1,7 @@
 package cn.edu.cmu.service;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.WbglVO;
@@ -55,7 +56,44 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
         return dao.selectByExample(params);
     }
+    @Override
+    public List shlist(Object... conditions) throws Exception {
+        WbjdSqParams params = new WbjdSqParams();
+        WbjdSqParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.REVIEW);
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            WbjdSq jdsq = (WbjdSq) conditions[0];
 
+            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
+                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+            }
+            if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
+                c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return dao.selectByExample(params);
+    }
+    @Override
+    public List zjlist(Object... conditions) throws Exception {
+        WbjdSqParams params = new WbjdSqParams();
+        WbjdSqParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            WbjdSq jdsq = (WbjdSq) conditions[0];
+
+            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
+                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+            }
+            if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
+                c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return dao.selectByExample(params);
+    }
     @Override
     public boolean saveOrUpdate(WbglVO vo) throws Exception {
         boolean isEdit = false;//是否修改标志
@@ -137,5 +175,17 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
             }
         }
     }
-
+    /**
+     * 审核处理，根据id，更新状态
+     * @param id
+     * @param status
+     * @return
+     */
+    @Override
+    public boolean sh(String id, String status) {
+        WbjdSq domain = (WbjdSq) dao.selectByPrimaryKey(id);
+        domain.setStatus(status);
+        int count  = dao.updateByPrimaryKeySelective(domain);
+        return count>0  ;
+    }
 }
