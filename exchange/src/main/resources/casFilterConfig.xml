@@ -8,7 +8,6 @@
 <!-- 排除被保护的资源  -->
 <notForceAuthUrls>
 
-	<url-pattern>\*</url-pattern>
 	<url-pattern>\.js$</url-pattern>
 	<url-pattern>\.png$</url-pattern>
 	<url-pattern>\.css$</url-pattern>
