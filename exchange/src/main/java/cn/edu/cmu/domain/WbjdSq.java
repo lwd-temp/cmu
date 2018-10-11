@@ -155,7 +155,9 @@ public class WbjdSq {
     private String jdlx;
 
     /**
-     * 状态 01 资料需修改、02 资料合格、03 办结
+     *
+     *
+     * 01 暂存 02提交待审核 03退回 04 审核通过 05办结
      */
     private String status;
 
