@@ -266,7 +266,7 @@
                                 &nbsp; &nbsp; &nbsp;
                                 <button class="btn btn-success btn-sm" id="submitHyjh" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    保存
+                                    提交
                                 </button>
 
                                 &nbsp; &nbsp; &nbsp;

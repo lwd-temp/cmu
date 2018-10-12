@@ -49,7 +49,6 @@ public class DemoController {
         response.setHeader("content-disposition", "attachment;filename=info.pdf");
         ServletOutputStream os = response.getOutputStream();
 
-
         //变量
         Map<String, Object> variables = new HashMap<String, Object>(3);
         List<String> names = new ArrayList<String>();
@@ -57,7 +56,6 @@ public class DemoController {
         names.add("银山1212");
         names.add("Leo1212");
         variables.put("names", names);
-
 
         String template = "demo/template.html";
 

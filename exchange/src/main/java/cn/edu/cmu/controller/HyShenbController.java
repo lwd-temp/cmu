@@ -128,14 +128,18 @@ public class HyShenbController extends BaseController {
      * @throws Exception
      */
     @RequestMapping("/toEdit")
-    public String toEdit(String id,Model model) throws Exception {
+    public String toEdit(String id,String type ,Model model) throws Exception {
 
         HyShenb hysb = hyShenbService.queryById(id);
         List<HySbrymd> sbRymds = hyShenbService.rymcList(id);
 
         model.addAttribute("hysb",hysb);
         model.addAttribute("sbRymds",sbRymds);
-
+        if("show".equals(type)){//查看
+            return  "gjhy/gjhy_sb_show";
+        }else if("sh".equals(type)){//审核查看
+            return  "gjhy/gjhy_sh_show";
+        }
         return "gjhy/gjhy_sb_edit";
     }
     /**
@@ -149,6 +153,21 @@ public class HyShenbController extends BaseController {
     public Map delById(String id) throws Exception {
 
         boolean success = hyShenbService.deleteById(id);
+
+        return super.ajaxStatus(success);
+    }
+
+    /**
+     * 审核更新申报状态
+     * @param shenb
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/sh")
+    @ResponseBody
+    public Map sh(HyShenb shenb) throws Exception {
+
+        boolean success = hyShenbService.updateById(shenb);
 
         return super.ajaxStatus(success);
     }

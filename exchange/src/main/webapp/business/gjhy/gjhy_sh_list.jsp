@@ -59,11 +59,11 @@
         })
 
         //自定义 按钮
-        var navBtns = [];
+        var navBtns = [ ];
 
         var settings = {
-             caption: "已申报国际会议计划列表",
-            url:'hyzj/list',
+           /* caption: "已申报国际会议计划列表",*/
+            url:'hysb/list?status=02',
             colNames:["会议编号","会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"状态","操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
@@ -77,27 +77,27 @@
                     } },
                 {name:'dd',index:'dd',  },
                 {name:'jfly',index:'jfly',  },
-                {name:'writed',index:'writed', formatter:function(status){
+                {name:'status',index:'status', formatter:function(status){
                         var ztText = "";
-                        if("0" == status){
-                            ztText = "未填写";
-                        }else{
-                            ztText = "已填写";
+                        if("01" == status){
+                            ztText = "暂存";
+                        }else if("02" == status){
+                            ztText = "待审核";
+                        }else if("03" == status){
+                            ztText = "已退回";
+                        }else if("04" == status){
+                            ztText = "审核通过";
                         }
                         return ztText;
                     } },
 
                 {name:'sbid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
-                        var status = rowObject.writed;
-                        var sbid = rowObject.sbid;
-                        var zjid = rowObject.zjid;
+                        var status = rowObject.status;
                         var btns = "";
 
-                        if("0" == status ){
-                            btns = "<button class='btn btn-success btn-mini' onclick='addZj(\""+sbid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
-                        }else{
-                            btns = "<button class='btn btn-info btn-mini' onclick='editZj(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-calendar '>编辑</i></button>";
+                        if("02" == status){
+                            btns = "<button class='btn btn-info btn-mini' onclick='hysh(\""+id+"\")' title='审核' ><i class='ace-icon fa fa-eye '>审核</i></button>";
                         }
                         return btns;
                     }
@@ -137,23 +137,14 @@
 
     }
 
-    //填写总结
-    function addZj(sbid){
+    //修改用户
+    function hysh(sbid){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
-            title:'填写会议总结',
-            content:'business/gjhy/gjhy_zj_add.jsp?sbid='+sbid,
+            area: ['1100px', ($(window).height()-10)+"px"],
+            title:'审核会议申报信息',
+            content:'hysb/toEdit?type=sh&id='+sbid,
         });
     }
 
-
-    //编辑总结
-    function editZj(zjid){
-        layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
-            title:'编辑会议总结',
-            content:'hyzj/toEdit?id='+zjid,
-        });
-    }
 
 </script>

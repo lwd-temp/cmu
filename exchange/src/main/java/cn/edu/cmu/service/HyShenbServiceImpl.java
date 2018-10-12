@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
@@ -57,13 +58,16 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             HyShenb hysb = (HyShenb) conditions[0];
 
+            if(StringUtils.isNotEmpty(hysb.getStatus())){//如果存在状态，则按照状态查询
+                c1.andStatusEqualTo(hysb.getStatus());
+                c2.andStatusEqualTo(hysb.getStatus());
+            }
             if(StringUtils.isNotEmpty(hysb.getZbdw())){
                 c1.andZbdwLike("%"+hysb.getZbdw()+"%");
             }
             if(StringUtils.isNotEmpty(hysb.getCbdw())){
 
                 c2.andCbdwLike("%"+hysb.getCbdw()+"%");
-
             }
             super.addOrderBy(params,conditions);
         }
@@ -177,5 +181,10 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
             }
         }
 
+    }
+
+    public static void main(String[] args) {
+        String uuid = UUID.randomUUID().toString().replace("-", "");
+        System.out.println(uuid);
     }
 }

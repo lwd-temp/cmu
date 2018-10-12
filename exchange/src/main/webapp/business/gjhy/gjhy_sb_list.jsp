@@ -108,7 +108,7 @@
                         if("01" == status){
                             ztText = "暂存";
                         }else if("02" == status){
-                            ztText = "已提交";
+                            ztText = "待审核";
                         }else if("03" == status){
                             ztText = "已退回";
                         }else if("04" == status){
@@ -126,7 +126,7 @@
                             btns = "<button class='btn btn-info btn-mini' title='测试' onclick='editHysb(\""+id+"\")' ><i class='ace-icon fa fa-pencil'>编辑</i></button>" +
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delHysb(\""+id+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else{
-                            btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo("+id+")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
+                            btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo(\""+id+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
 
                         }
                         return btns;
@@ -186,7 +186,7 @@
         layer.newpage({
             area: ['1100px', ($(window).height()-10)+"px"],
             title:'查看会议申报信息',
-            content:'business/gjhy/gjhy_sb_show.jsp',
+            content:'hysb/toEdit?type=show&id='+sbid,
         });
     }
 

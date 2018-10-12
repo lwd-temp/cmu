@@ -69,7 +69,7 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
-                            <input type="hidden" name="hysb.sbid" value="${hysb.sbid}"/>
+                            <input type="hidden" name="hysb.sbid" id="sbid" value="${hysb.sbid}"/>
                             <input type="hidden" name="hysb.jhid" value="${hysb.jhid}"/>
                             <input type="hidden" name="hysb.status" id="status" value="${hysb.status}"/>
                             <!-- #section:elements.form -->
@@ -79,11 +79,11 @@
 
                                 <label class="col-xs-2 control-label "> 会议编号: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.hybh" value="${hysb.hybh}" id="hybh" readonly="readonly" placeholder="会议编号保存时自动生成" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.hybh" value="${hysb.hybh}" id="hybh" readonly="readonly" placeholder="会议编号保存时自动生成" class="col-xs-12"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 已在属地公安部门备案 </label>
                                 <div class="col-xs-4">
-                                    <dm:list name="hysb.sfbb" type="radio" value="${hysb.sfbb}" id="sfbb" tabName="t_dm_yn"/>
+                                    <dm:list name="hysb.sfbb" type="radio" value="${hysb.sfbb}" id="sfbb" tabName="t_dm_yn" readonly="readonly" disabled="disabled"/>
                                 </div>
                             </div>
 
@@ -92,11 +92,11 @@
                                 <label class="col-xs-2 control-label "> 会议名称: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.hymc" value="${hysb.hymc}" id="hymc" placeholder="会议名称" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.hymc" value="${hysb.hymc}" id="hymc" placeholder="会议名称" class="col-xs-12"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 会议名称(英文): </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.hymcEn" value="${hysb.hymcEn}" id="hymcEn" placeholder="会议名称（English）" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.hymcEn" value="${hysb.hymcEn}" id="hymcEn" placeholder="会议名称（English）" class="col-xs-12"/>
                                 </div>
 
                             </div>
@@ -105,12 +105,12 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 主办单位: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.zbdw" value="${hysb.zbdw}" id="zbdw" placeholder="主办单位" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.zbdw" value="${hysb.zbdw}" id="zbdw" placeholder="主办单位" class="col-xs-12"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 承办单位: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.cbdw" value="${hysb.cbdw}" id="cbdw" placeholder="承办单位" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.cbdw" value="${hysb.cbdw}" id="cbdw" placeholder="承办单位" class="col-xs-12"/>
                                 </div>
 
                             </div>
@@ -119,13 +119,13 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 举行日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" name="hysb.jxrq" value="<fmt:formatDate value="${hysb.jxrq}" pattern="yyyy-MM-dd"/>" id="jbrq" type="text"
+                                    <input class="form-control date-picker" name="hysb.jxrq" readonly="readonly" disabled="disabled" value="<fmt:formatDate value="${hysb.jxrq}" pattern="yyyy-MM-dd"/>" id="jbrq" type="text"
                                            data-date-format="yyyy-mm-dd"/>
                                 </div>
 
                                 <label class="col-xs-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.jfly" value="${hysb.jfly}" id="jfly" placeholder="经费来源" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.jfly" value="${hysb.jfly}" id="jfly" placeholder="经费来源" class="col-xs-12"/>
                                 </div>
 
                             </div>
@@ -135,7 +135,7 @@
                                 <label class="col-xs-2 control-label "> 地点: </label>
 
                                 <div class="col-xs-10">
-                                    <input type="text" name="hysb.dd" value="${hysb.dd}" id="dd" placeholder="地点" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.dd" value="${hysb.dd}" id="dd" placeholder="地点" class="col-xs-12"/>
                                 </div>
                             </div>
 
@@ -143,18 +143,17 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 负责人姓名: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.fzrxm" value="${hysb.fzrxm}" id="fzrxm" placeholder="负责人姓名" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.fzrxm" value="${hysb.fzrxm}" id="fzrxm" placeholder="负责人姓名" class="col-xs-12"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 负责人电话: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" name="hysb.fzrdh" value="${hysb.fzrdh}" id="fzrdh" placeholder="负责人电话" class="col-xs-12"/>
+                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.fzrdh" value="${hysb.fzrdh}" id="fzrdh" placeholder="负责人电话" class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议类型: </label>
                                 <div class="col-xs-4">
-                                    <dm:list name="hysb.hylx" value="${hysb.hylx}" type="select" id="hylx"
-                                             tabName="t_dm_hylx"/>
+                                    <dm:list name="hysb.hylx" value="${hysb.hylx}" type="select" id="hylx"  tabName="t_dm_hylx" readonly="readonly" disabled="disabled"/>
                                 </div>
                                 <div class="col-xs-6">
 
@@ -163,21 +162,21 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议基本信息: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="hysb.hyjbxx" id="hyjbxx"
+                                    <textarea class="form-control limited" name="hysb.hyjbxx" id="hyjbxx" readonly="readonly" disabled="disabled"
                                               placeholder="会议基本信息" maxlength="500">${hysb.hyjbxx}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议规模: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="hysb.hygm" id="hygm" placeholder="会议规模"
+                                    <textarea class="form-control limited" name="hysb.hygm" id="hygm" placeholder="会议规模" readonly="readonly" disabled="disabled"
                                               maxlength="500">${hysb.hygm}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议背景及必要性: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="hysb.bjjbyx" id="bjjbyx"
+                                    <textarea class="form-control limited" name="hysb.bjjbyx" id="bjjbyx" readonly="readonly" disabled="disabled"
                                               placeholder="会议背景及必要性" maxlength="500">${hysb.bjjbyx}</textarea>
                                 </div>
                             </div>
@@ -200,67 +199,45 @@
                                 </div>
                             </div>
 
-                            <c:choose>
-                                <c:when test="${sbRymds!=null && sbRymds.size()>0}">
-                                    <c:forEach items="${sbRymds}" var="ry">
-                                        <div class="form-group cy">
-                                            <div class="col-xs-2">
-                                                <input type="text" inp="xm" name="chrys[@].xm" value="${ry.xm}" placeholder="姓名" class="col-xs-12"/>
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <input type="text" inp="gj" name="chrys[@].gj" value="${ry.gj}" placeholder="国籍" class="col-xs-12"/>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input type="text" inp="dw" name="chrys[@].dw" value="${ry.dw}" placeholder="单位" class="col-xs-12"/>
-                                            </div>
-                                            <div class="col-xs-3">
-                                                <input type="text" inp="zw" name="chrys[@].zw" value="${ry.zw}" placeholder="职务" class="col-xs-12"/>
-                                            </div>
-                                            <div class="col-xs-2">
-                                                <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                                                <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
-                                            </div>
-                                        </div>
-                                    </c:forEach>
-                                </c:when>
-                                <c:otherwise>
 
+                            <c:if test="${sbRymds!=null && sbRymds.size()>0}">
+                                <c:forEach items="${sbRymds}" var="ry">
                                     <div class="form-group cy">
                                         <div class="col-xs-2">
-                                            <input type="text" inp="xm" name="chrys[@].xm" placeholder="姓名" class="col-xs-12"/>
-                                        </div>
-                                        <div class="col-xs-2">
-                                            <input type="text" inp="gj" name="chrys[@].gj" placeholder="国籍" class="col-xs-12"/>
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="xm" name="chrys[@].xm" value="${ry.xm}"  placeholder="姓名" class="col-xs-12"/>
                                         </div>
                                         <div class="col-xs-3">
-                                            <input type="text" inp="dw" name="chrys[@].dw" placeholder="单位" class="col-xs-12"/>
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="gj" name="chrys[@].gj" value="${ry.gj}" placeholder="国籍" class="col-xs-12"/>
+                                        </div>
+                                        <div class="col-xs-4">
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="dw" name="chrys[@].dw" value="${ry.dw}" placeholder="单位" class="col-xs-12"/>
                                         </div>
                                         <div class="col-xs-3">
-                                            <input type="text" inp="zw" name="chrys[@].zw" placeholder="职务" class="col-xs-12"/>
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="zw" name="chrys[@].zw" value="${ry.zw}" placeholder="职务" class="col-xs-12"/>
                                         </div>
-                                        <div class="col-xs-2">
-                                            <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                                            <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
-                                        </div>
+
                                     </div>
-                                </c:otherwise>
-                            </c:choose>
+                                </c:forEach>
+                            </c:if>
 
 
-                            <div id="btns" class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info btn-sm" id="saveHyjh" type="button">
+
+                            <div class="col-md-offset-2 col-md-9">
+                                &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                                <button class="btn btn-info btn-sm" id="btnPass" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    暂存
+                                    通过
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
-                                <button class="btn btn-success btn-sm" id="submitHyjh" type="button">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    提交
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger btn-sm" id="btnBack" type="button">
+                                    <i class="ace-icon fa fa-backward bigger-110"></i>
+                                    退回
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
-
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-success btn-sm" id="btnClose" type="button">
+                                    <i class="ace-icon fa fa-close bigger-110"></i>
+                                    关闭
+                                </button>
                             </div>
 
                         </form>
@@ -277,16 +254,16 @@
 
     <div class="form-group cy">
         <div class="col-xs-2">
-            <input type="text" inp="xm" name="chrys[@].xm" placeholder="姓名" class="col-xs-12"/>
+            <input type="text" readonly="readonly" disabled="disabled" inp="xm" name="chrys[@].xm" placeholder="姓名" class="col-xs-12"/>
         </div>
         <div class="col-xs-2">
-            <input type="text" inp="gj" name="chrys[@].gj" placeholder="国籍" class="col-xs-12"/>
+            <input type="text" readonly="readonly" disabled="disabled" inp="gj" name="chrys[@].gj" placeholder="国籍" class="col-xs-12"/>
         </div>
         <div class="col-xs-3">
-            <input type="text" inp="dw" name="chrys[@].dw" placeholder="单位" class="col-xs-12"/>
+            <input type="text" readonly="readonly" disabled="disabled" inp="dw" name="chrys[@].dw" placeholder="单位" class="col-xs-12"/>
         </div>
         <div class="col-xs-3">
-            <input type="text" inp="zw" name="chrys[@].zw" placeholder="职务" class="col-xs-12"/>
+            <input type="text" readonly="readonly" disabled="disabled" inp="zw" name="chrys[@].zw" placeholder="职务" class="col-xs-12"/>
         </div>
         <div class="col-xs-2">
             <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i
@@ -322,118 +299,48 @@
 
 
 <script>
-    var validator = null;
 
-    function setFormValid() {
-        validator = $("#form").setValid({
-            //校验规则
-            rules: {
-
-                "hysb.hymc": {required: true},
-                "hysb.sfbb": {required: true},
-                "hysb.hylx": {required: true},
-                "hysb.zbdw": {required: true},
-                "hysb.cbdw": {required: true},
-                "hysb.jxrq": {required: true},
-                "hysb.dd": {required: true},
-                "hysb.jfly": {required: true},
-                "hysb.fzrxm": {required: true},
-                "hysb.fzrdh": {required: true, isphoneNum: true},
-                "hysb.hymcEn": {required: true},
-                "hysb.hyjbxx": {required: true},
-                "hysb.hygm": {required: true},
-                "hysb.bjjbyx": {required: true},
-                "chrys[@].xm": {required: true},
-                "chrys[@].gj": {required: true},
-                "chrys[@].dw": {required: true},
-                "chrys[@].zw": {required: true},
-            }
-        });
-    }
 
     $(function () {
-        setFormValid();
 
-        $("#saveHyjh ,#submitHyjh").click(function () {
 
-            if (!$("#form").valid()) {
-                validator.focusInvalid();
-                return;
-            }
-
-            //将List类型的参数设置下标
-            setRyListIndex();
-            if ($(this).attr('id') == 'saveHyjh') {
-                $("#status").val('01');
-            } else {
-                $("#status").val('02');
-            }
-
-            $.ajax('hysb/save', {
-                data: $("#form").serialize(),
-                success: function (resp) {
-
-                    if (resp && resp.success) {
-                        winAlert("保存计划成功");
-                        parent.refreshTable();
-                        closeLayer();
-                    } else {
-                        winAlert("保存失败");
-                    }
-                }
-            })
-
-        })
+        $("#btnClose").click(function(){
+            closeLayer();
+        });
+        $("#btnPass").click(function(){
+            sh("04");
+        });
+        $("#btnBack").click(function(){
+            sh("03")
+        });
 
 
     });
 
-    //将List类型的参数设置下标
-    function setRyListIndex() {
-        $("form input[inp=xm]").each(function (index, el) {
-            $(el).attr('name', 'chrys[' + index + '].xm');
-        });
-
-        $("form input[inp=gj]").each(function (index, el) {
-            $(el).attr('name', 'chrys[' + index + '].gj');
-        });
-
-        $("form input[inp=dw]").each(function (index, el) {
-            $(el).attr('name', 'chrys[' + index + '].dw');
-        });
-        $("form input[inp=zw]").each(function (index, el) {
-            $(el).attr('name', 'chrys[' + index + '].zw');
-        });
-
-    }
 
 
-    function deleteCy(btn) {
-
-        var size = $("#form .cy").size();
-        if (size <= 1) {
-            parent.layer.alert("请至少录入一个会议成员");
-            return false;
-        }
-
-        var row = $(btn).parent().parent();
-        row.remove();
-
-        setFormValid();
-    }
-
-
-    function appendCy() {
-        $("#btns").before($("#template").html());
-        var cy = $("#btns").prev(".cy");
-        cy.find("input").each(function (index, el) {
-
-            $(el).attr("id", "formEl" + (Math.rnd()));
-            $(el).rules('add', {required: true});
-
+    //审核，03 退回， 04通过
+    function sh(status){
+        $.ajax('hysb/sh',{
+            data: {
+                'sbid':$("#sbid").val(),
+                'status':status
+            },
+            success:function(res){
+                if(res && res.success){
+                    winAlert("处理成功");
+                    parent.refreshTable();
+                    closeLayer();
+                }else{
+                    winAlert("处理失败");
+                }
+            }
         })
-        setFormValid();
+
     }
+
+
+
 
 </script>
 </body>
