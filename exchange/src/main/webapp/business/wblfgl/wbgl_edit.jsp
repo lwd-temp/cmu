@@ -57,21 +57,6 @@
 <body class="no-skin">
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
-        <ul class="nav nav-tabs" id="myTab">
-            <li class="active">
-                <a data-toggle="tab" href="#home">
-                    <i class="green ace-icon fa fa-home bigger-120"></i>
-                    基本信息
-                </a>
-            </li>
-
-            <li>
-                <a data-toggle="tab" id="tzcyinfo" href="#messages">
-                    随行成员信息
-                </a>
-            </li>
-
-        </ul>
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="wbjdSq.lfid" id="lfid" value="${wbjdSq.lfid}" />
@@ -176,53 +161,58 @@
                         <input class="form-control  " name="wbjdSq.tzgj" value="${wbjdSq.tzgj}" type="text"   />
 
                     </div>
-                </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长性别: </label>
-                <div class="col-xs-4">
-                    <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" value="${wbjdSq.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
                 </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 团长性别: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" value="${wbjdSq.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
+                    </div>
 
-                <label class="col-xs-2 control-label "  > 团长出生日期: </label>
-                <div class="col-xs-4">
-                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
-                           type="text" data-date-format="yyyy-mm-dd" />
+                    <label class="col-xs-2 control-label "  > 团长出生日期: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
                 </div>
-            </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长工作单位: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzgzdw" value="${wbjdSq.tzgzdw}" type="text"   />
-                </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 团长工作单位: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzgzdw" value="${wbjdSq.tzgzdw}" type="text"   />
+                    </div>
 
-                <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzw" value="${wbjdSq.tzzw}" type="text"   />
+                    <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzzw" value="${wbjdSq.tzzw}" type="text"   />
+                    </div>
                 </div>
-            </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
-                <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdSq.tzzy" value="${wbjdSq.tzzy}" type="text"   />
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
+                    <div class="col-xs-10">
+                        <input class="form-control  " name="wbjdSq.tzzy" value="${wbjdSq.tzzy}" type="text"   />
+                    </div>
                 </div>
-            </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 主请人姓名: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrxm" value="${wbjdSq.zqrxm}" type="text"   />
-                </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 主请人姓名: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqrxm" value="${wbjdSq.zqrxm}" type="text"   />
+                    </div>
 
-                <label class="col-xs-2 control-label "  > 主请人电话: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrdh" value="${wbjdSq.zqrdh}" type="text"   />
+                    <label class="col-xs-2 control-label "  > 主请人电话: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqrdh" value="${wbjdSq.zqrdh}" type="text"   />
+                    </div>
                 </div>
-            </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrxm" value="${wbjdSq.zqlxrxm}" type="text"   />
-                </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqlxrxm" value="${wbjdSq.zqlxrxm}" type="text"   />
+                    </div>
 
-                <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
+                    <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
+                    </div>
                 </div>
-            </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">
@@ -234,32 +224,29 @@
                         <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
                 </div>
-                <div class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info btn-sm" id="saveForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        暂存
-                    </button>
-                    &nbsp; &nbsp; &nbsp;
-                    <button class="btn btn-danger btn-sm" id="submitForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        提交
-                    </button>
+                <hr/>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        姓名
+                    </div>
+                    <div class="col-xs-3">
+                        国籍
+                    </div>
+                    <div class="col-xs-3">
+                        职务
+                    </div>
+                    <div class="col-xs-2">
+                        操作
+                    </div>
                 </div>
-            </div>
-            <div id="messages" class="tab-pane fade in " style="">
-                <div class="row" style="text-align: center;">
-                    <div class="col-xs-3">姓名</div>
-                    <div class="col-xs-3">国籍</div>
-                    <div class="col-xs-3">职务</div>
-                    <div class="col-xs-2">操作</div>
-                </div>
+
                 <c:choose>
                     <c:when test="${sxryList!=null && sxryList.size()>0}">
                         <c:forEach items="${sxryList}" var="sxr">
-                            <div class="row sxr">
-                                <div class="col-xs-3"><input type="text" inp="xm"    value="${sxr.xm}"   name="sxr[0].xm" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="gj"    value="${sxr.gj}"   name="sxr[0].gj" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="zw"    value="${sxr.zw}"   name="sxr[0].zw" class="col-xs-12"/></div>
+                            <div class="form-group sxr">
+                                <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
                                 <div class="col-xs-2">
                                     <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                     <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -268,10 +255,10 @@
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <div class="row sxr">
-                            <div class="col-xs-3"><input type="text" inp="xm"       name="sxr[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="gj"       name="sxr[0].gj" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"       name="sxr[0].zw" class="col-xs-12"/></div>
+                        <div class="form-group sxr">
+                            <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"     name="sxr[@].zw" class="col-xs-12"/></div>
                             <div class="col-xs-2">
                                 <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                 <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -279,16 +266,27 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
+                <div id="btns" class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        暂存
+                    </button>
+                    &nbsp; &nbsp; &nbsp;
+                    <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        提交
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </form>
 <div id="template" style="display: none">
-    <div class="row sxr" >
-        <div class="col-xs-3"><input type="text" inp="xm"   name="sxr[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="gj"   name="sxr[@].gj" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="zw"   name="sxr[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2">
+    <div class="form-group sxr" >
+        <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
+        <div class="col-xs-2"  >
             <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
             <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
         </div>
@@ -342,7 +340,7 @@
         });
     });
     function setFormValid(){
-        $("#form").setValid({
+        var validator =  $("#form").setValid({
             //校验规则
             rules: {
                 "wbjdSq.dbtmc":{ required:true},
@@ -350,12 +348,16 @@
                 "wbjdSq.lfmd":{ required:true},
                 "wbjdSq.tzxm":{ required:true},
                 "wbjdSq.zqlxrxm":{ required:true},
-                "wbjdSq.zqlxrdh":{ required:true}
+                "wbjdSq.zqlxrdh":{ required:true},
+                "sxr[@].xm":{ required:true},
+                "sxr[@].gj":{ required:true},
+                "sxr[@].zw":{ required:true}
             }
         })
     }
     function saveSq(){
         if(!validateSq()){
+            validator.focusInvalid();
             return;
         }
         calInputNames();
@@ -391,7 +393,7 @@
         });
     }
     function deleteSxr(btn){
-        var size = $("#messages .sxr").size();
+        var size = $("#form .sxr").size();
         if(size<=1){
             parent.layer.alert("请至少录入一个随行成员");
             return false;
@@ -400,7 +402,13 @@
         row.remove();
     }
     function appendSxr(){
-        $("#messages").append($("#template").html());
+        $("#btns").before($("#template").html());
+        var sxr = $("#btns").prev(".sxr");
+        sxr.find("input").each(function(index,el){
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+        })
+        setFormValid();//设置校验规则
     }
     //选择来访目的
     function selectlfmd(select) {
