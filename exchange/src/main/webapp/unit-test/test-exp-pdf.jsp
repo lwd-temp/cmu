@@ -18,21 +18,19 @@
 
     <script>
 
-        $(function(){
+    $(function(){
 
-            $("#exp").click(function(){
+        $("#exp").click(function(){
 
-                //可以先通过ajax 保存信息，然后根据返回的id 到后台查询到信息 混编到html中，使用html生成pdf
-                //此部分代码，写在 保存页面信息（ajax方法）的 success方法中
-               window.open("demo/downloadPdf");
+            //可以先通过ajax 保存信息，然后根据返回的id 到后台查询到信息 混编到html中，使用html生成pdf
+            //此部分代码，写在 保存页面信息（ajax方法）的 success方法中
+            window.open("demo/downloadPdf");
 
-            });
+        });
 
-        })
+    })
 
-
-    </script>
-
+</script>
 
 </head>
 <body>
