@@ -46,21 +46,7 @@
 <body class="no-skin">
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
-        <ul class="nav nav-tabs" id="myTab">
-            <li class="active">
-                <a data-toggle="tab" href="#home">
-                    <i class="green ace-icon fa fa-home bigger-120"></i>
-                    基本信息
-                </a>
-            </li>
 
-            <li>
-                <a data-toggle="tab" id="tzcyinfo" href="#messages">
-                    随行成员信息
-                </a>
-            </li>
-
-        </ul>
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="wbjdSq.lfid" id="lfid" value="${wbjdSq.lfid}" />
@@ -224,57 +210,52 @@
                         <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" disabled="disabled" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-offset-2 col-md-9">
-                        &nbsp; &nbsp; &nbsp;
+                <hr/>
+                <div class="form-group">
+                    <div class="col-xs-3">
+                        姓名
                     </div>
-                    <div class="col-md-offset-2 col-md-9">
-                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                        <button class="btn btn-danger btn-sm" id="btnClose" type="button">
-                            <i class="ace-icon fa fa-close bigger-110"></i>
-                            关闭
-                        </button>
+                    <div class="col-xs-3">
+                        国籍
                     </div>
-                    <div class="col-md-offset-2 col-md-9">
-                        &nbsp; &nbsp; &nbsp;
+                    <div class="col-xs-3">
+                        职务
                     </div>
                 </div>
-            </div>
-            <div id="messages" class="tab-pane fade in " style="">
-                <div class="row" style="text-align: center;">
-                    <div class="col-xs-3">姓名</div>
-                    <div class="col-xs-3">国籍</div>
-                    <div class="col-xs-3">职务</div>
-                </div>
-                <c:choose>
-                    <c:when test="${sxryList!=null && sxryList.size()>0}">
-                        <c:forEach items="${sxryList}" var="sxr">
-                            <div class="row sxr">
-                                <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled"   value="${sxr.xm}"   name="sxr[0].xm" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled"  value="${sxr.gj}"   name="sxr[0].gj" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled"   value="${sxr.zw}"   name="sxr[0].zw" class="col-xs-12"/></div>
-                            </div>
-                        </c:forEach>
-                    </c:when>
-                    <c:otherwise>
-                        <div class="row sxr">
-                            <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled"    name="sxr[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled"    name="sxr[0].gj" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"     name="sxr[0].zw" class="col-xs-12"/></div>
+                    <c:choose>
+                        <c:when test="${sxryList!=null && sxryList.size()>0}">
+                            <c:forEach items="${sxryList}" var="sxr">
+                                <div class="form-group sxr">
+                                    <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                    <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                    <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                                </div>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="form-group sxr">
+                                <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled" placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled" placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"     name="sxr[@].zw" class="col-xs-12"/></div>
 
-                        </div>
-                    </c:otherwise>
-                </c:choose>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                <div  class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        关闭
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </form>
 <div id="template" style="display: none">
-    <div class="row sxr" >
-        <div class="col-xs-3"><input type="text" inp="xm"   name="sxr[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="gj"   name="sxr[@].gj" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="zw"   name="sxr[@].zw" class="col-xs-12"/></div>
-
+    <div class="form-group sxr" >
+        <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled"  placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
     </div>
 </div>
 <script src='assets/js/jquery.js'></script>
