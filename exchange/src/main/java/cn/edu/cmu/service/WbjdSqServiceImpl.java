@@ -22,6 +22,11 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
 
+    @Autowired
+    private WbjdSqMapperExt wbjdSqMapperExt;
+
+    @Autowired
+    private WbjdZjMapper wbjdZjMapper;
 
     @Override
     public List list(WbjdSq WbjdSq) {
@@ -186,6 +191,30 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         WbjdSq domain = (WbjdSq) dao.selectByPrimaryKey(id);
         domain.setStatus(status);
         int count  = dao.updateByPrimaryKeySelective(domain);
+
+        if(status.equals(CmuConstants.TZ_STAUTS.PASS)){
+            //审核通过
+            WbjdZj wbjdZj = new WbjdZj();
+            wbjdZj.setZjid(CmuStringUtil.UUID());
+            wbjdZj.setLfid(domain.getLfid());
+            wbjdZj.setStatus(status);
+            //所有字段
+            wbjdZjMapper.insertSelective(wbjdZj);
+        }
+
         return count>0  ;
+    }
+
+
+
+    @Override
+    public String selectGbExtPdf(String id) throws Exception {
+        return wbjdSqMapperExt.selectGbExtPdf(id);
+    }
+
+
+    @Override
+    public WbjdSq selectSqExtPdf(String id) throws Exception {
+        return wbjdSqMapperExt.selectSqExtPdf(id);
     }
 }

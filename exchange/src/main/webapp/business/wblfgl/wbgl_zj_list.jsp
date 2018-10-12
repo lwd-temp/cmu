@@ -79,20 +79,11 @@
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
-                            case '01':
-                                zt = "暂存";
-                                break;
-                            case '02':
-                                zt = "待审核";
-                                break;
-                            case '03':
-                                zt = "退回";
-                                break;
                             case '04':
-                                zt = "审核通过";
+                                zt = "未办结";
                                 break;
                             case '05':
-                                zt = "办结";
+                                zt = "已办结";
                                 break;
                         }
                         return zt;
@@ -104,6 +95,8 @@
                         if(zt == '04' ){
                             return "<button class='btn btn-info btn-mini' onclick='zjWbgl(\""+cellvalue+"\")' title='总结' ><i class='ace-icon fa fa-pencil '>总结</i></button>"
                             +"&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
+                        }else{
+                            return"<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
                         }
                     }
                 },
@@ -131,23 +124,14 @@
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
             title:'外宾接待申请【总结】',
-            content:'wbjd/zj?id='+lfid,
+            content:'wbzj/zj?id='+lfid,
         });
     }
     function showWbgl(lfid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
-            title:'查看接待情况',
-            content:'wbjd/show?id='+lfid,
+            title:'查看接待情况【总结】',
+            content:'wbzj/show?id='+lfid,
         });
     }
-    //上传总结
-    function zjWbgl(lfid){
-        layer.newpage({
-            area: ['400px', "220px"],
-            title:'上传总结',
-            content:'sys/file/uppage?targetUrl=wbjd/updateUploadId&lfid='+lfid,
-        });
-    }
-
 </script>

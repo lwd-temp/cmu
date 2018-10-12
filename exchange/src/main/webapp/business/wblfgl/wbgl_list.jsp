@@ -106,7 +106,8 @@
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == "02"  || zt == "04"|| zt == "05"){
-                            return "<button class='btn btn-danger btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
+                            return "<button class='btn btn-danger btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>"+
+                                "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='downWbgl(\""+cellvalue+"\")' title='导出pdf' ><i class='ace-icon fa fa-trash-o '>导出pdf</i></button>";
                         }else {
                             return "<button class='btn btn-info btn-mini' title='编辑' onclick='editWbgl(\""+cellvalue+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delWbgl(\""+cellvalue+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
@@ -171,4 +172,7 @@
         })
     }
 
+    function downWbgl(lfid){
+        window.open("wbjdexp/downloadPdf?id="+lfid);
+    }
 </script>
