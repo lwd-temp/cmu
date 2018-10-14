@@ -39,10 +39,19 @@
         </commentGenerator>-->
  
         <!--jdbc的数据库连接-->
-        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+       <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
                         connectionURL="jdbc:oracle:thin:@121.42.51.148:1521:orcl"
                         userId="exchange"
                         password="exchange">
+            &lt;!&ndash; 针对oracle数据库  获取 注释&ndash;&gt;
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>-->
+
+        <!--jdbc的数据库连接-->
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@192.168.199.158:1521:orcl"
+                        userId="ex_pro"
+                        password="SFd!F!ENk$IDJu9g">
             <!-- 针对oracle数据库  获取 注释-->
             <property name="remarksReporting" value="true"></property>
         </jdbcConnection>
@@ -238,16 +247,16 @@
          </table>
         <table tableName="T_WBJD_ZJ" 	domainObjectName="WbjdZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjParams&gt;"/>
-        </table>-->
+        </table>
         <table tableName="T_WBJDZJ_SXRY" 	domainObjectName="WbjdZjSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjSxryParams&gt;"/>
         </table>
-       <!-- <table tableName="T_WBJD_GJ" 	domainObjectName="WbjdGj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="T_WBJD_GJ" 	domainObjectName="WbjdGj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdGjParams&gt;"/>
-        </table>-->
+        </table>
 
 
-         <!--<table tableName="T_WBJD_SXRY" 	domainObjectName="WbjdSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="T_WBJD_SXRY" 	domainObjectName="WbjdSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
          </table>
 
@@ -256,5 +265,51 @@
              <columnOverride column="XMGK" javaType="java.lang.String" jdbcType="VARCHAR" />
              <columnOverride column="XMZZJH" javaType="java.lang.String" jdbcType="VARCHAR" />
          </table>-->
+
+        <!-- 机构-->
+        <table tableName="v_uicm_unit" 	domainObjectName="UnicUnit"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UnicUnitParams&gt;"/>
+        </table>
+
+        <!-- 教职工-->
+        <table tableName="v_jzgjcsjxx" 	domainObjectName="Jzg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.JzgParams&gt;"/>
+        </table>
+
+        <!-- 班级-->
+        <table tableName="v_bjsjxx" 	domainObjectName="Bjsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.BjsjxxParams&gt;"/>
+        </table>
+
+
+        <!-- 本科学生1-->
+        <table tableName="v_bks_xjjbsjxx" 	domainObjectName="BksXjjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.BksXjjbsjxxParams&gt;"/>
+        </table>
+        <!-- 本科学生2-->
+        <table tableName="v_bks_xsjbsjxx" 	domainObjectName="BksXsjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.BksXsjbsjxxParams&gt;"/>
+        </table>
+        <!-- 本科专业-->
+        <table tableName="v_bks_zyxxsjxx" 	domainObjectName="BksZyxxsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.BksZyxxsjxxParams&gt;"/>
+        </table>
+
+
+
+        <!-- 研究生学生1-->
+        <table tableName="v_yjs_xjjbsjxx" 	domainObjectName="YjsXjjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsXjjbsjxxParams&gt;"/>
+        </table>
+        <!-- 研究生学生2-->
+        <table tableName="v_yjs_xsjbsjxx" 	domainObjectName="TjsXsjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.TjsXsjbsjxxParams&gt;"/>
+        </table>
+        <!-- 研究生专业-->
+        <table tableName="v_yjs_zyxxsjxx" 	domainObjectName="YjsZyxxsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsZyxxsjxxParams&gt;"/>
+        </table>
+
+
     </context>
 </generatorConfiguration>

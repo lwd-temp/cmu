@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.BksXjjbsjxxMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.BksXjjbsjxx" >
+    <constructor >
+      <arg column="XH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YXSH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZYM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XKMLM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PYFSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XSLBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YJFX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DSH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HDXLFSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SFXFZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SZNJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="PYCCM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LDFSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XSDQZTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XSCCM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SZBH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XJBH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RXNY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJXSLBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CMU_XSLB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YJBYNYR" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="YWXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+       and valid = 1
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    XH, YXSH, ZYM, XKMLM, PYFSM, XSLBM, YJFX, DSH, HDXLFSM, SFXFZ, SZNJ, PYCCM, LDFSM, 
+    XSDQZTM, XSCCM, SZBH, XJBH, RXNY, GJXSLBM, CMU_XSLB, YJBYNYR, YWXM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.BksXjjbsjxxParams" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from V_BKS_XJJBSJXX
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.BksXjjbsjxxParams" >
+    delete from V_BKS_XJJBSJXX
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.BksXjjbsjxx" >
+    insert into V_BKS_XJJBSJXX (XH, YXSH, ZYM, 
+      XKMLM, PYFSM, XSLBM, 
+      YJFX, DSH, HDXLFSM, 
+      SFXFZ, SZNJ, PYCCM, 
+      LDFSM, XSDQZTM, XSCCM, 
+      SZBH, XJBH, RXNY, GJXSLBM, 
+      CMU_XSLB, YJBYNYR, YWXM
+      )
+    values (#{xh,jdbcType=VARCHAR}, #{yxsh,jdbcType=VARCHAR}, #{zym,jdbcType=VARCHAR}, 
+      #{xkmlm,jdbcType=VARCHAR}, #{pyfsm,jdbcType=VARCHAR}, #{xslbm,jdbcType=VARCHAR}, 
+      #{yjfx,jdbcType=VARCHAR}, #{dsh,jdbcType=VARCHAR}, #{hdxlfsm,jdbcType=VARCHAR}, 
+      #{sfxfz,jdbcType=VARCHAR}, #{sznj,jdbcType=VARCHAR}, #{pyccm,jdbcType=VARCHAR}, 
+      #{ldfsm,jdbcType=VARCHAR}, #{xsdqztm,jdbcType=VARCHAR}, #{xsccm,jdbcType=VARCHAR}, 
+      #{szbh,jdbcType=VARCHAR}, #{xjbh,jdbcType=VARCHAR}, #{rxny,jdbcType=VARCHAR}, #{gjxslbm,jdbcType=VARCHAR}, 
+      #{cmuXslb,jdbcType=VARCHAR}, #{yjbynyr,jdbcType=TIMESTAMP}, #{ywxm,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.BksXjjbsjxx" >
+    insert into V_BKS_XJJBSJXX
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="xh != null" >
+        XH,
+      </if>
+      <if test="yxsh != null" >
+        YXSH,
+      </if>
+      <if test="zym != null" >
+        ZYM,
+      </if>
+      <if test="xkmlm != null" >
+        XKMLM,
+      </if>
+      <if test="pyfsm != null" >
+        PYFSM,
+      </if>
+      <if test="xslbm != null" >
+        XSLBM,
+      </if>
+      <if test="yjfx != null" >
+        YJFX,
+      </if>
+      <if test="dsh != null" >
+        DSH,
+      </if>
+      <if test="hdxlfsm != null" >
+        HDXLFSM,
+      </if>
+      <if test="sfxfz != null" >
+        SFXFZ,
+      </if>
+      <if test="sznj != null" >
+        SZNJ,
+      </if>
+      <if test="pyccm != null" >
+        PYCCM,
+      </if>
+      <if test="ldfsm != null" >
+        LDFSM,
+      </if>
+      <if test="xsdqztm != null" >
+        XSDQZTM,
+      </if>
+      <if test="xsccm != null" >
+        XSCCM,
+      </if>
+      <if test="szbh != null" >
+        SZBH,
+      </if>
+      <if test="xjbh != null" >
+        XJBH,
+      </if>
+      <if test="rxny != null" >
+        RXNY,
+      </if>
+      <if test="gjxslbm != null" >
+        GJXSLBM,
+      </if>
+      <if test="cmuXslb != null" >
+        CMU_XSLB,
+      </if>
+      <if test="yjbynyr != null" >
+        YJBYNYR,
+      </if>
+      <if test="ywxm != null" >
+        YWXM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="xh != null" >
+        #{xh,jdbcType=VARCHAR},
+      </if>
+      <if test="yxsh != null" >
+        #{yxsh,jdbcType=VARCHAR},
+      </if>
+      <if test="zym != null" >
+        #{zym,jdbcType=VARCHAR},
+      </if>
+      <if test="xkmlm != null" >
+        #{xkmlm,jdbcType=VARCHAR},
+      </if>
+      <if test="pyfsm != null" >
+        #{pyfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="xslbm != null" >
+        #{xslbm,jdbcType=VARCHAR},
+      </if>
+      <if test="yjfx != null" >
+        #{yjfx,jdbcType=VARCHAR},
+      </if>
+      <if test="dsh != null" >
+        #{dsh,jdbcType=VARCHAR},
+      </if>
+      <if test="hdxlfsm != null" >
+        #{hdxlfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="sfxfz != null" >
+        #{sfxfz,jdbcType=VARCHAR},
+      </if>
+      <if test="sznj != null" >
+        #{sznj,jdbcType=VARCHAR},
+      </if>
+      <if test="pyccm != null" >
+        #{pyccm,jdbcType=VARCHAR},
+      </if>
+      <if test="ldfsm != null" >
+        #{ldfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="xsdqztm != null" >
+        #{xsdqztm,jdbcType=VARCHAR},
+      </if>
+      <if test="xsccm != null" >
+        #{xsccm,jdbcType=VARCHAR},
+      </if>
+      <if test="szbh != null" >
+        #{szbh,jdbcType=VARCHAR},
+      </if>
+      <if test="xjbh != null" >
+        #{xjbh,jdbcType=VARCHAR},
+      </if>
+      <if test="rxny != null" >
+        #{rxny,jdbcType=VARCHAR},
+      </if>
+      <if test="gjxslbm != null" >
+        #{gjxslbm,jdbcType=VARCHAR},
+      </if>
+      <if test="cmuXslb != null" >
+        #{cmuXslb,jdbcType=VARCHAR},
+      </if>
+      <if test="yjbynyr != null" >
+        #{yjbynyr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ywxm != null" >
+        #{ywxm,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.BksXjjbsjxxParams" resultType="java.lang.Integer" >
+    select count(*) from V_BKS_XJJBSJXX
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update V_BKS_XJJBSJXX
+    <set >
+      <if test="record.xh != null" >
+        XH = #{record.xh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yxsh != null" >
+        YXSH = #{record.yxsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zym != null" >
+        ZYM = #{record.zym,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xkmlm != null" >
+        XKMLM = #{record.xkmlm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pyfsm != null" >
+        PYFSM = #{record.pyfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xslbm != null" >
+        XSLBM = #{record.xslbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yjfx != null" >
+        YJFX = #{record.yjfx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dsh != null" >
+        DSH = #{record.dsh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hdxlfsm != null" >
+        HDXLFSM = #{record.hdxlfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sfxfz != null" >
+        SFXFZ = #{record.sfxfz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sznj != null" >
+        SZNJ = #{record.sznj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pyccm != null" >
+        PYCCM = #{record.pyccm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ldfsm != null" >
+        LDFSM = #{record.ldfsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xsdqztm != null" >
+        XSDQZTM = #{record.xsdqztm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xsccm != null" >
+        XSCCM = #{record.xsccm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.szbh != null" >
+        SZBH = #{record.szbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xjbh != null" >
+        XJBH = #{record.xjbh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rxny != null" >
+        RXNY = #{record.rxny,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gjxslbm != null" >
+        GJXSLBM = #{record.gjxslbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cmuXslb != null" >
+        CMU_XSLB = #{record.cmuXslb,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yjbynyr != null" >
+        YJBYNYR = #{record.yjbynyr,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ywxm != null" >
+        YWXM = #{record.ywxm,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update V_BKS_XJJBSJXX
+    set XH = #{record.xh,jdbcType=VARCHAR},
+      YXSH = #{record.yxsh,jdbcType=VARCHAR},
+      ZYM = #{record.zym,jdbcType=VARCHAR},
+      XKMLM = #{record.xkmlm,jdbcType=VARCHAR},
+      PYFSM = #{record.pyfsm,jdbcType=VARCHAR},
+      XSLBM = #{record.xslbm,jdbcType=VARCHAR},
+      YJFX = #{record.yjfx,jdbcType=VARCHAR},
+      DSH = #{record.dsh,jdbcType=VARCHAR},
+      HDXLFSM = #{record.hdxlfsm,jdbcType=VARCHAR},
+      SFXFZ = #{record.sfxfz,jdbcType=VARCHAR},
+      SZNJ = #{record.sznj,jdbcType=VARCHAR},
+      PYCCM = #{record.pyccm,jdbcType=VARCHAR},
+      LDFSM = #{record.ldfsm,jdbcType=VARCHAR},
+      XSDQZTM = #{record.xsdqztm,jdbcType=VARCHAR},
+      XSCCM = #{record.xsccm,jdbcType=VARCHAR},
+      SZBH = #{record.szbh,jdbcType=VARCHAR},
+      XJBH = #{record.xjbh,jdbcType=VARCHAR},
+      RXNY = #{record.rxny,jdbcType=VARCHAR},
+      GJXSLBM = #{record.gjxslbm,jdbcType=VARCHAR},
+      CMU_XSLB = #{record.cmuXslb,jdbcType=VARCHAR},
+      YJBYNYR = #{record.yjbynyr,jdbcType=TIMESTAMP},
+      YWXM = #{record.ywxm,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
