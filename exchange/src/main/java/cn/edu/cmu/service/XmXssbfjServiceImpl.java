@@ -25,4 +25,9 @@ public class XmXssbfjServiceImpl extends BaseService<XmXssbfj, XmXssbfjParams, X
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

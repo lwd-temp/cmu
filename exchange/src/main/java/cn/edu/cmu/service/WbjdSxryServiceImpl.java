@@ -21,5 +21,10 @@ public class WbjdSxryServiceImpl extends BaseService<WbjdSxry, WbjdSxryParams, W
         return list;
     }
 
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
+
 
 }

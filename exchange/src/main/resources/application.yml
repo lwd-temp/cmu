@@ -3,9 +3,14 @@ sys:
     #DEBUG开关
     switch:
       true
-    #ignoreLogin 是否忽略注释 true、false
-    ignoreLogin:
-      false
+  #ignoreLogin 是否忽略注释 true、false
+  ignoreLogin:
+    switch:
+      true
+    userId:
+      "19981022"
+    userType:
+      "3"
   cache:
     mapperbeans:
       dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper

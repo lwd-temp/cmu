@@ -17,4 +17,9 @@ public class MenuServiceImpl extends BaseService<Menu, MenuParams, MenuMapper> i
     public List list(Menu Menu) {
         return dao.selectByExample(null);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

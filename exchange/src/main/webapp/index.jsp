@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="cn.edu.cmu.framework.CmuConstants" %>
 <%
     String path = request.getContextPath();
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -385,10 +386,11 @@
 						<!-- #section:basics/navbar.user_menu -->
 						<li class="light-blue">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<%--<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />--%>
+                                <i class="fa fa-user fa-2x"></i>
 								<span class="user-info">
 									<small>Welcome,</small>
-									xx老师
+									<%=session.getAttribute(CmuConstants.SESSION.USER_NAME)%>
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -455,9 +457,9 @@
 							<i class="ace-icon fa fa-users"></i>
 						</button>
 
-						<!--<button class="btn btn-danger">
+						<button class="btn btn-danger">
 							<i class="ace-icon fa fa-cogs"></i>
-						</button>-->
+						</button>
 
 						<!-- /section:basics/sidebar.layout.shortcuts -->
 					</div>
@@ -474,14 +476,14 @@
 				</div><!-- /.sidebar-shortcuts -->
 
 				<ul class="nav nav-list menus">
-					<li class="">
+					<%--<li class="">
 						<a href="">
 							<i class="menu-icon fa fa-tachometer"></i>
 							<span class="menu-text"> 功能仪表盘 </span>
 						</a>
 
 
-					</li>
+					</li>--%>
                     <%--<li class=" ">
                         <a href="#" class="dropdown-toggle">
                             <i class="menu-icon fa fa-bar-chart"></i>

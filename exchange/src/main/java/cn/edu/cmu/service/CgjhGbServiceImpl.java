@@ -26,4 +26,9 @@ public class CgjhGbServiceImpl extends BaseService<CgjhGb, CgjhGbParams, CgjhGbM
 
         return list;
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

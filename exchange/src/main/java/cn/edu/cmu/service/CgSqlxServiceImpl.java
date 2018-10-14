@@ -3,7 +3,6 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.CgSqlxMapper;
 import cn.edu.cmu.domain.CgSqlx;
 import cn.edu.cmu.domain.CgSqlxParams;
-import cn.edu.cmu.domain.User;
 import cn.edu.cmu.framework.web.BaseService;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +28,10 @@ public class CgSqlxServiceImpl extends BaseService<CgSqlx, CgSqlxParams, CgSqlxM
     public List list(CgSqlx cgSqlx) {
         CgSqlxParams ex = new CgSqlxParams();
         return dao.selectByExample(ex);
+    }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
     }
 }

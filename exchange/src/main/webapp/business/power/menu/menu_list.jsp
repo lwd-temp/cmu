@@ -10,7 +10,7 @@
 
 <div class="row" >
     <div class="col-xs-3"  style="max-height: 420px;overflow-y: auto;">
-        <ul id="treeDemo" class="ztree"></ul>
+        <ul id="ztree" class="ztree"></ul>
     </div>
 
     <div class="col-xs-9" >
@@ -161,7 +161,7 @@
     function loadMenu(){
         $.ajax('sys/menu/list',{
             success:function(data){
-                zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, data);
+                zTreeObj = $.fn.zTree.init($("#ztree"), setting, data);
                 var nodes = zTreeObj.getNodesByParam("menuId", "0", null);
                 zTreeObj.expandNode(nodes[0], true);
             }

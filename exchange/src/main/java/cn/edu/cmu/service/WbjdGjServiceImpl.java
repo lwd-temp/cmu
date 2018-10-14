@@ -19,4 +19,9 @@ public class WbjdGjServiceImpl extends BaseService<WbjdGj, WbjdGjParams, WbjdGjM
         List list = dao.selectByExample(params);
         return list;
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

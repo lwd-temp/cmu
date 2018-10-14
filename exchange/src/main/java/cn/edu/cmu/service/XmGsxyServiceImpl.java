@@ -25,4 +25,9 @@ public class XmGsxyServiceImpl extends BaseService<XmGsxy, XmGsxyParams, XmGsxyM
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

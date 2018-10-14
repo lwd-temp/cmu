@@ -64,7 +64,7 @@ public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends Ba
     public abstract List list(Domain domain)throws Exception;
 
     @Override
-    public List list(Object... conditions) throws  Exception{ return null;  }
+    public abstract List list(Object... conditions) throws  Exception;
 
     @Override
     public Domain queryById(String keyId)throws Exception {

@@ -25,4 +25,9 @@ public class SjjlZtServiceImpl extends BaseService<SjjlZt, SjjlZtParams, SjjlZtM
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

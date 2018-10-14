@@ -1,9 +1,6 @@
 package cn.edu.cmu.service;
 
-import cn.edu.cmu.dao.CgDqcgjMapper;
 import cn.edu.cmu.dao.CgRwzxqkfkMapper;
-import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.domain.CgDqcgjParams;
 import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.CgRwzxqkfkParams;
 import cn.edu.cmu.framework.web.BaseService;
@@ -38,6 +35,11 @@ public class CgRwzxqkfkServiceImpl extends BaseService<CgRwzxqkfk, CgRwzxqkfkPar
             }
         }*/
         return dao.selectByExample(ex);
+    }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
     }
 
 }

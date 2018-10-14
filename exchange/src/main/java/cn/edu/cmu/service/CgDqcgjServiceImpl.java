@@ -4,7 +4,6 @@ import cn.edu.cmu.dao.CgDqcgjMapper;
 import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgDqcgjParams;
 import cn.edu.cmu.framework.web.BaseService;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +35,11 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
             }
         }*/
         return dao.selectByExample(ex);
+    }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
     }
 
 }

@@ -30,4 +30,9 @@ public class CgTzcyServiceImpl extends BaseService<CgTzcy, CgTzcyParams, CgTzcyM
 
     }
 
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
+
 }

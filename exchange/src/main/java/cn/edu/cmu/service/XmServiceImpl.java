@@ -25,4 +25,9 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

@@ -22,8 +22,8 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
 
-    @Autowired
-    private WbjdSqMapperExt wbjdSqMapperExt;
+//    @Autowired
+//    private WbjdSqMapperExt wbjdSqMapperExt;
 
     @Autowired
     private WbjdZjMapper wbjdZjMapper;
@@ -205,16 +205,26 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         return count>0  ;
     }
 
-
+    @Override
+    public WbjdSq selectSqExtPdf(String id) throws Exception {
+        return null;
+    }
 
     @Override
     public String selectGbExtPdf(String id) throws Exception {
-        return wbjdSqMapperExt.selectGbExtPdf(id);
+        return null;
     }
 
 
-    @Override
-    public WbjdSq selectSqExtPdf(String id) throws Exception {
-        return wbjdSqMapperExt.selectSqExtPdf(id);
-    }
+//
+//    @Override
+//    public String selectGbExtPdf(String id) throws Exception {
+//        return wbjdSqMapperExt.selectGbExtPdf(id);
+//    }
+//
+//
+//    @Override
+//    public WbjdSq selectSqExtPdf(String id) throws Exception {
+//        return wbjdSqMapperExt.selectSqExtPdf(id);
+//    }
 }

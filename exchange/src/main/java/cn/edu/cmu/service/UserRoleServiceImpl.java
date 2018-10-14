@@ -25,4 +25,9 @@ public class UserRoleServiceImpl extends BaseService<UserRole, UserRoleParams, U
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

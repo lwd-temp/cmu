@@ -25,4 +25,9 @@ public class RoleMenuServiceImpl extends BaseService<RoleMenu, RoleMenuParams, R
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

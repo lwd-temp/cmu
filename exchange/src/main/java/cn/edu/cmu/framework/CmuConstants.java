@@ -13,6 +13,29 @@ package cn.edu.cmu.framework;
  */
 public class CmuConstants {
 
+    public interface SESSION{
+        //用户ID
+        public final String USER_ID = "USER_ID";
+         //用户名称
+        public final String USER_NAME = "USER_NAME";
+
+        //用户类型
+        public final String USER_TYPE = "USER_TYPE";
+
+
+        //教职工信息类型
+        public final String USER_TYPE_JZG = "3";
+        //教职工信息具体
+        public final String USER_INFO_JZG = "USER_INFO_JZG";
+
+        //本科生
+        public final String USER_BKS = "USER_BKS";
+        //研究生
+        public final String USER_YJS = "USER_YJS";
+
+    }
+
+
     public interface TZ_STAUTS{
         //待审核
         public final String REVIEW = "02";

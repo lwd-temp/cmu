@@ -35,8 +35,16 @@ public class CmuStringUtil {
      * @return
      */
     public static String REQUEST_EXTENSION_NAME(String path){
+
+        if(StringUtils.isEmpty(path) || path.indexOf(".") == -1){
+            return "";
+        }
+
+
         String ext = "";
         path = path.substring(path.lastIndexOf("/")+1);
+
+
 
         ext = path.substring(path.lastIndexOf(".")+1);
 

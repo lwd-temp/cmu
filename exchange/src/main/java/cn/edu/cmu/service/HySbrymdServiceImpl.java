@@ -25,4 +25,9 @@ public class HySbrymdServiceImpl extends BaseService<HySbrymd, HySbrymdParams, H
         }
         return dao.selectByExample(ex);
     }
+
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
 }

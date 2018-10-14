@@ -26,6 +26,11 @@ public class UploadServiceImpl extends BaseService<Upload, UploadParams, UploadM
         return dao.selectByExample(ex);
     }
 
+    @Override
+    public List list(Object... conditions) throws Exception {
+        return null;
+    }
+
 
     /**
      * 将上传信息保存到数据库中
