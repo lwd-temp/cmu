@@ -280,14 +280,33 @@
         $(function () {
             $(".yjtm").hide();
             $(".qtmd").hide();
+
             setFormValid();//设置校验规则
+
             $("#saveForm").click(function(){
                 $("#status").val("01");//暂存
                 saveSq();
             });
+
             $("#submitForm").click(function(){
                 $("#status").val("02");//提交
-                saveSq();
+                if(!validateSq()){
+                    return;
+                }
+                calInputNames();
+                $.ajax('wbjd/save',{
+                    type:'post',
+                    dataType:'json',
+                    data:$("#form").serialize(),
+                    success:function(res){
+                        if(res && res.success){
+                            parent.refreshTable();
+                            closeLayer();//关闭
+                            winAlert("保存成功");//弹出确认消息
+                            //window.open("wbjdexp/downloadPdf");
+                        }
+                    }
+                });
             });
         });
         function setFormValid(){
@@ -298,8 +317,10 @@
                     "wbjdSq.lfrs":{ required:true},
                     "wbjdSq.lfmd":{ required:true},
                     "wbjdSq.tzxm":{ required:true},
+                    "wbjdSq.jdlx":{ required:true},
                     "wbjdSq.zqlxrxm":{ required:true},
                     "wbjdSq.zqlxrdh":{ required:true},
+                    "cfgbIds":{ required:true},
                     "sxr[@].xm":{ required:true},
                     "sxr[@].gj":{ required:true},
                     "sxr[@].zw":{ required:true}

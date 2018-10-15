@@ -59,30 +59,30 @@
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="hidden" name="wbjdSq.lfid" id="lfid" value="${wbjdSq.lfid}" />
-                <input type="hidden" name="wbjdSq.status" id="status" value="01" />
+                <input type="hidden" name="wbjdZj.zjid" id="zjid" value="${wbjdZj.zjid}" />
+                <input type="hidden" name="wbjdZj.status" id="status" value="${wbjdZj.status}" />
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 代表团名称: </label>
 
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.dbtmc" value="${wbjdSq.dbtmc}"  placeholder=""  class="col-xs-12" />
+                        <input type="text"  name="wbjdZj.dbtmc" value="${wbjdZj.dbtmc}"  placeholder=""  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.lfrs"  value="${wbjdSq.lfrs}"  placeholder=""  class="col-xs-12" />
+                        <input type="text"  name="wbjdZj.lfrs"  value="${wbjdZj.lfrs}"  placeholder=""  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 来访时间: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdSq.lfsj}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" name="wbjdZj.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdZj.lfsj}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-2 control-label " > 停留时间起始: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjStart"
-                               value="<fmt:formatDate value="${wbjdSq.tlsjStart}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" name="wbjdZj.tlsjStart"
+                               value="<fmt:formatDate value="${wbjdZj.tlsjStart}" pattern="yyyy-MM-dd"/>"
                                id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
@@ -91,8 +91,8 @@
                     <label class="col-xs-2 control-label " > 停留时间截止: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjEnd" id="tlsjEnd"
-                               value="<fmt:formatDate value="${wbjdSq.tlsjEnd}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" name="wbjdZj.tlsjEnd" id="tlsjEnd"
+                               value="<fmt:formatDate value="${wbjdZj.tlsjEnd}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-2 control-label "  > 国家: </label>
@@ -103,125 +103,125 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd" id="lfmd" name="wbjdSq.lfmd" value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd" id="lfmd" name="wbjdZj.lfmd" value="${wbjdZj.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.jfly" value="${wbjdSq.jfly}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.jfly" value="${wbjdZj.jfly}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group qtmd">
                     <label class="col-xs-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.lfmdQt" value="${wbjdZj.lfmdQt}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group yjtm" >
                     <label class="col-xs-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yjtm" value="${wbjdSq.yjtm}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.yjtm" value="${wbjdZj.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 邀请信息: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.yqxx" value="${wbjdSq.yqxx}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.yqxx" value="${wbjdZj.yqxx}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 礼品: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.lp" value="${wbjdSq.lp}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.lp" value="${wbjdZj.lp}" type="text"   />
                     </div>
                     <label class="col-xs-2 control-label "  > 数量: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.lpsl" value="${wbjdSq.lpsl}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.lpsl" value="${wbjdZj.lpsl}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 情况记录: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.qkjl" value="${wbjdSq.qkjl}"  type="text"   />
+                        <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdZj.qkjl}"  type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 访问成果: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.fwcg" value="${wbjdSq.fwcg}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.fwcg" value="${wbjdZj.fwcg}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzxm" value="${wbjdSq.tzxm}"  type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzxm" value="${wbjdZj.tzxm}"  type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 团长国籍: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzgj" value="${wbjdSq.tzgj}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzgj" value="${wbjdZj.tzgj}" type="text"   />
 
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长性别: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" value="${wbjdSq.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
+                        <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdZj.tzxb" value="${wbjdZj.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq" value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长工作单位: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzgzdw" value="${wbjdSq.tzgzdw}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzgzdw" value="${wbjdZj.tzgzdw}" type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzzw" value="${wbjdSq.tzzw}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzzw" value="${wbjdZj.tzzw}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.tzzy" value="${wbjdSq.tzzy}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzzy" value="${wbjdZj.tzzy}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请人姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.zqrxm" value="${wbjdSq.zqrxm}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.zqrxm" value="${wbjdZj.zqrxm}" type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 主请人电话: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.zqrdh" value="${wbjdSq.zqrdh}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.zqrdh" value="${wbjdZj.zqrdh}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.zqlxrxm" value="${wbjdSq.zqlxrxm}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.zqlxrxm" value="${wbjdZj.zqlxrxm}" type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.zqlxrdh" value="${wbjdZj.zqlxrdh}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" name="wbjdSq.jdbm" value="${wbjdSq.jdbm}" data-placeholder="请选择接待部门" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" name="wbjdZj.jdbm" value="${wbjdZj.jdbm}" data-placeholder="请选择接待部门" ></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "  > 接待类型: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" name="wbjdZj.jdlx" value="${wbjdZj.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
                 </div>
                 <hr/>
@@ -267,14 +267,14 @@
                     </c:otherwise>
                 </c:choose>
                 <div id="btns" class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
+                    <%--<button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         暂存
                     </button>
-                    &nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;--%>
                     <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
-                        提交
+                        总结
                     </button>
                 </div>
             </div>
@@ -330,12 +330,12 @@
 
 
         setFormValid();//设置校验规则
-        $("#saveForm").click(function(){
-            $("#status").val("01");//暂存
+        /*$("#saveForm").click(function(){
+            $("#status").val("04");//暂存
             saveSq();
-        });
+        });*/
         $("#submitForm").click(function(){
-            $("#status").val("02");//提交
+            $("#status").val("06");//已经总结
             saveSq();
         });
     });
@@ -343,14 +343,12 @@
         var validator =  $("#form").setValid({
             //校验规则
             rules: {
-                "wbjdSq.dbtmc":{ required:true},
-                "wbjdSq.lfrs":{ required:true},
-                "wbjdSq.lfmd":{ required:true},
-                "wbjdSq.tzxm":{ required:true},
-                "wbjdSq.jdlx":{ required:true},
-                "wbjdSq.zqlxrxm":{ required:true},
-                "wbjdSq.zqlxrdh":{ required:true},
-                "cfgbIds":{ required:true},
+                "wbjdZj.dbtmc":{ required:true},
+                "wbjdZj.lfrs":{ required:true},
+                "wbjdZj.lfmd":{ required:true},
+                "wbjdZj.tzxm":{ required:true},
+                "wbjdZj.zqlxrxm":{ required:true},
+                "wbjdZj.zqlxrdh":{ required:true},
                 "sxr[@].xm":{ required:true},
                 "sxr[@].gj":{ required:true},
                 "sxr[@].zw":{ required:true}
@@ -363,7 +361,7 @@
             return;
         }
         calInputNames();
-        $.ajax('wbjd/save',{
+        $.ajax('wbzj/save',{
             type:'post',
             dataType:'json',
             data:$("#form").serialize(),
@@ -385,13 +383,13 @@
     }
     function calInputNames(){
         $('form input[inp=xm]').each(function(index,el){
-            $(el).attr('name','sxr['+index+'].xm');
+            $(el).attr('name','zjsxr['+index+'].xm');
         });
         $('form input[inp=gj]').each(function(index,el){
-            $(el).attr('name','sxr['+index+'].gj');
+            $(el).attr('name','zjsxr['+index+'].gj');
         });
         $('form input[inp=zw]').each(function(index,el){
-            $(el).attr('name','sxr['+index+'].zw');
+            $(el).attr('name','zjsxr['+index+'].zw');
         });
     }
     function deleteSxr(btn){

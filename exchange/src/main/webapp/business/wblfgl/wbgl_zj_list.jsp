@@ -61,7 +61,7 @@
         var navBtns = [ ]
         var settings = {
             caption: "已申请来访接待",
-            url:'wbjd/zjlist',
+            url:'wbzj/list',
             colNames:['代表团名称','来访时间', '来访人数', '来访目的','团长姓名','主请人姓名','状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
@@ -82,14 +82,14 @@
                             case '04':
                                 zt = "未办结";
                                 break;
-                            case '05':
+                            case '06':
                                 zt = "已办结";
                                 break;
                         }
                         return zt;
                     }
                 },
-                {name:'lfid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'zjid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == '04' ){
@@ -120,18 +120,18 @@
         }).trigger("reloadGrid");
     }
     //总结外宾接待申请
-    function zjWbgl(lfid){
+    function zjWbgl(zjid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
             title:'外宾接待申请【总结】',
-            content:'wbzj/zj?id='+lfid,
+            content:'wbzj/toEdit?type=zj&zjid='+zjid,
         });
     }
-    function showWbgl(lfid){
+    function showWbgl(zjid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
             title:'查看接待情况【总结】',
-            content:'wbzj/show?id='+lfid,
+            content:'wbzj/toEdit?zjid='+zjid,
         });
     }
 </script>

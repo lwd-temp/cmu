@@ -46,32 +46,33 @@
 <body class="no-skin">
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
+
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="hidden" name="wbjdSq.lfid" id="lfid" value="${wbjdSq.lfid}" />
-                <input type="hidden" name="wbjdSq.status" id="status" value="01" />
+                <input type="hidden" name="wbjdZj.lfid" id="lfid" value="${wbjdZj.lfid}" />
+                <input type="hidden" name="wbjdZj.status" id="status" value="${wbjdZj.status}" />
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 代表团名称: </label>
 
                     <div class="col-xs-4">
-                        <input type="text"  disabled="disabled" name="wbjdSq.dbtmc" value="${wbjdSq.dbtmc}"  placeholder=""  class="col-xs-12" />
+                        <input type="text"  disabled="disabled" name="wbjdZj.dbtmc" value="${wbjdZj.dbtmc}"  placeholder=""  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  disabled="disabled" name="wbjdSq.lfrs"  value="${wbjdSq.lfrs}"  placeholder=""  class="col-xs-12" />
+                        <input type="text"  disabled="disabled" name="wbjdZj.lfrs"  value="${wbjdZj.lfrs}"  placeholder=""  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 来访时间: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker"  disabled="disabled"  name="wbjdSq.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdSq.lfsj}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker"  disabled="disabled"  name="wbjdZj.lfsj" id="lfsj"  value="<fmt:formatDate value="${wbjdZj.lfsj}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-2 control-label " > 停留时间起始: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker"  disabled="disabled"  name="wbjdSq.tlsjStart"
-                               value="<fmt:formatDate value="${wbjdSq.tlsjStart}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker"  disabled="disabled"  name="wbjdZj.tlsjStart"
+                               value="<fmt:formatDate value="${wbjdZj.tlsjStart}" pattern="yyyy-MM-dd"/>"
                                id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
@@ -80,8 +81,8 @@
                     <label class="col-xs-2 control-label " > 停留时间截止: </label>
 
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" disabled="disabled"   name="wbjdSq.tlsjEnd" id="tlsjEnd"
-                               value="<fmt:formatDate value="${wbjdSq.tlsjEnd}" pattern="yyyy-MM-dd"/>"
+                        <input class="form-control date-picker" disabled="disabled"   name="wbjdZj.tlsjEnd" id="tlsjEnd"
+                               value="<fmt:formatDate value="${wbjdZj.tlsjEnd}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-2 control-label "  > 国家: </label>
@@ -92,122 +93,121 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd"  disabled="disabled"  id="lfmd" name="wbjdSq.lfmd" value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd"  disabled="disabled"  id="lfmd" name="wbjdZj.lfmd" value="${wbjdZj.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  disabled="disabled"  name="wbjdSq.jfly" value="${wbjdSq.jfly}" type="text"   />
+                        <input class="form-control  "  disabled="disabled"  name="wbjdZj.jfly" value="${wbjdZj.jfly}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group qtmd">
                     <label class="col-xs-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " disabled="disabled"   name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}" type="text"   />
+                        <input class="form-control  " disabled="disabled"   name="wbjdZj.lfmdQt" value="${wbjdZj.lfmdQt}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group yjtm" >
                     <label class="col-xs-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  "  disabled="disabled"  name="wbjdSq.yjtm" value="${wbjdSq.yjtm}" type="text"   />
+                        <input class="form-control  "  disabled="disabled"  name="wbjdZj.yjtm" value="${wbjdZj.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 邀请信息: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " disabled="disabled"   name="wbjdSq.yqxx" value="${wbjdSq.yqxx}" type="text"   />
+                        <input class="form-control  " disabled="disabled"   name="wbjdZj.yqxx" value="${wbjdZj.yqxx}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 礼品: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  disabled="disabled"  name="wbjdSq.lp" value="${wbjdSq.lp}" type="text"   />
+                        <input class="form-control  "  disabled="disabled"  name="wbjdZj.lp" value="${wbjdZj.lp}" type="text"   />
                     </div>
                     <label class="col-xs-2 control-label "  > 数量: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " disabled="disabled"  name="wbjdSq.lpsl" value="${wbjdSq.lpsl}" type="text"   />
+                        <input class="form-control  " disabled="disabled"  name="wbjdZj.lpsl" value="${wbjdZj.lpsl}" type="text"   />
                     </div>
                 </div>
-
 
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 情况记录: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.qkjl" disabled="disabled" value="${wbjdSq.qkjl}"  type="text"   />
+                        <input class="form-control  " name="wbjdZj.qkjl" disabled="disabled" value="${wbjdZj.qkjl}"  type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 访问成果: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.fwcg" disabled="disabled" value="${wbjdSq.fwcg}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.fwcg" disabled="disabled" value="${wbjdZj.fwcg}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzxm" disabled="disabled" value="${wbjdSq.tzxm}"  type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzxm" disabled="disabled" value="${wbjdZj.tzxm}"  type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 团长国籍: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzgj" disabled="disabled" value="${wbjdSq.tzgj}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.tzgj" disabled="disabled" value="${wbjdZj.tzgj}" type="text"   />
 
                     </div>
                 </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长性别: </label>
                 <div class="col-xs-4">
-                    <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdSq.tzxb" disabled="disabled" value="${wbjdSq.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
+                    <dm:list tabName="t_dm_xb" id="jdlx" name="wbjdZj.tzxb" disabled="disabled" value="${wbjdZj.tzxb}"   type="radio" data-placeholder="请选接待类型" ></dm:list>
                 </div>
 
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
-                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" disabled="disabled" id="tzcsrq" value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
+                    <input class="form-control date-picker" name="wbjdZj.tzcsrq" disabled="disabled" id="tzcsrq" value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy-MM-dd"/>"
                            type="text" data-date-format="yyyy-mm-dd" />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长工作单位: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzgzdw" disabled="disabled" value="${wbjdSq.tzgzdw}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.tzgzdw" disabled="disabled" value="${wbjdZj.tzgzdw}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 团长职称及职务: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzw" disabled="disabled" value="${wbjdSq.tzzw}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.tzzw" disabled="disabled" value="${wbjdZj.tzzw}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdSq.tzzy" disabled="disabled" value="${wbjdSq.tzzy}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.tzzy" disabled="disabled" value="${wbjdZj.tzzy}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 主请人姓名: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrxm" disabled="disabled" value="${wbjdSq.zqrxm}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.zqrxm" disabled="disabled" value="${wbjdZj.zqrxm}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 主请人电话: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrdh" disabled="disabled" value="${wbjdSq.zqrdh}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.zqrdh" disabled="disabled" value="${wbjdZj.zqrdh}" type="text"   />
                 </div>
             </div> <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrxm" disabled="disabled" value="${wbjdSq.zqlxrxm}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.zqlxrxm" disabled="disabled" value="${wbjdZj.zqlxrxm}" type="text"   />
                 </div>
 
                 <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqlxrdh" disabled="disabled" value="${wbjdSq.zqlxrdh}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.zqlxrdh" disabled="disabled" value="${wbjdZj.zqlxrdh}" type="text"   />
                 </div>
             </div>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" disabled="disabled" name="wbjdSq.jdbm" value="${wbjdSq.jdbm}" data-placeholder="请选择接待部门" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdbm" disabled="disabled" name="wbjdZj.jdbm" value="${wbjdZj.jdbm}" data-placeholder="请选择接待部门" ></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "  > 接待类型: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" disabled="disabled" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
+                        <dm:list tabName="t_dm_wblf_jdlx" id="jdlx" disabled="disabled" name="wbjdZj.jdlx" value="${wbjdZj.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
                 </div>
                 <hr/>
@@ -221,46 +221,33 @@
                     <div class="col-xs-3">
                         职务
                     </div>
-
                 </div>
                     <c:choose>
                         <c:when test="${sxryList!=null && sxryList.size()>0}">
                             <c:forEach items="${sxryList}" var="sxr">
                                 <div class="form-group sxr">
-                                    <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
-                                    <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
-                                    <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled"   value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                                    <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                    <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                    <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
                                 </div>
                             </c:forEach>
                         </c:when>
                         <c:otherwise>
                             <div class="form-group sxr">
-                                <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled"    name="sxr[0].xm" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled"    name="sxr[0].gj" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"     name="sxr[0].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled" placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled" placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"     name="sxr[@].zw" class="col-xs-12"/></div>
+
                             </div>
                         </c:otherwise>
                     </c:choose>
-                <hr/>
-                <div class="col-md-offset-2 col-md-9">
-                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                        <button class="btn btn-info btn-sm" id="btnPass" type="button">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            通过
-                        </button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-danger btn-sm" id="btnBack" type="button">
-                            <i class="ace-icon fa fa-backward bigger-110"></i>
-                            退回
-                        </button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <button class="btn btn-success btn-sm" id="btnClose" type="button">
-                            <i class="ace-icon fa fa-close bigger-110"></i>
-                            关闭
-                        </button>
+                <div  class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        关闭
+                    </button>
                 </div>
             </div>
-
         </div>
     </div>
 </form>
@@ -305,36 +292,11 @@
             $(".yjtm").hide();
             $(".qtmd").hide();
         }
-
         $("#btnClose").click(function(){
-            closeLayer();
-        });
-        $("#btnPass").click(function(){
-            $("#status").val("04");//通过
-            sh();
-        });
-        $("#btnBack").click(function(){//退回
-            $("#status").val("03");//通过
-            sh();
-        });
-    });
-
-    //审核，03 退回， 04通过
-    function sh(){
-        $.ajax('wbjd/sh',{
-            data:$("#form").serialize(),
-            success:function(res){
-                if(res && res.success){
-                    winAlert("处理成功");
-                    parent.refreshTable();
-                    closeLayer();
-                }else{
-                    winAlert("处理失败");
-                }
-            }
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.layer.close(index);
         })
-
-    }
+    });
 </script>
 </body>
 </html>

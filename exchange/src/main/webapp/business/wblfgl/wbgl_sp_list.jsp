@@ -104,8 +104,7 @@
                         if(zt == '02' || zt == '03'){
                             return "<button class='btn btn-info btn-mini' onclick='spWbgl(\""+cellvalue+"\")' title='审核' ><i class='ace-icon fa fa-pencil '>审核</i></button>";
                         }else{
-                            return "<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" +
-                                "<button class='btn btn-danger btn-mini' onclick='gdWbgl(\""+cellvalue+"\")' title='归档' ><i class='ace-icon fa fa-check '>归档</i></button>";
+                            return "<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
                         }
                     }
                 },

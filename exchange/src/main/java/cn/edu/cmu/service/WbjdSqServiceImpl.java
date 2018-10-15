@@ -22,11 +22,14 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
 
-//    @Autowired
-//    private WbjdSqMapperExt wbjdSqMapperExt;
+    @Autowired
+   private WbjdSqMapperExt wbjdSqMapperExt;
 
     @Autowired
     private WbjdZjMapper wbjdZjMapper;
+
+    @Autowired
+    private WbjdZjSxryMapper wbjdZjSxryMapper;
 
     @Override
     public List list(WbjdSq WbjdSq) {
@@ -80,25 +83,7 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
         return dao.selectByExample(params);
     }
-    @Override
-    public List zjlist(Object... conditions) throws Exception {
-        WbjdSqParams params = new WbjdSqParams();
-        WbjdSqParams.Criteria c = params.createCriteria();
-        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
-        if(conditions != null && conditions.length>0 && conditions[0]!=null){
-            WbjdSq jdsq = (WbjdSq) conditions[0];
 
-            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
-                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
-            }
-            if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
-                c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
-            }
-            super.addOrderBy(params,conditions);
-        }
-
-        return dao.selectByExample(params);
-    }
     @Override
     public boolean saveOrUpdate(WbglVO vo) throws Exception {
         boolean isEdit = false;//是否修改标志
@@ -182,49 +167,97 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     }
     /**
      * 审核处理，根据id，更新状态
-     * @param id
-     * @param status
      * @return
      */
     @Override
-    public boolean sh(String id, String status) {
-        WbjdSq domain = (WbjdSq) dao.selectByPrimaryKey(id);
-        domain.setStatus(status);
-        int count  = dao.updateByPrimaryKeySelective(domain);
-
-        if(status.equals(CmuConstants.TZ_STAUTS.PASS)){
-            //审核通过
-            WbjdZj wbjdZj = new WbjdZj();
-            wbjdZj.setZjid(CmuStringUtil.UUID());
-            wbjdZj.setLfid(domain.getLfid());
-            wbjdZj.setStatus(status);
-            //所有字段
-            wbjdZjMapper.insertSelective(wbjdZj);
+    public boolean sh(WbjdSq wbjdSq,List sxryList,List gbDomainList)throws Exception {
+        String zjid = CmuStringUtil.UUID();
+        int count  = dao.updateByPrimaryKeySelective(wbjdSq);
+        //新增到总结表中 ，申请的数据
+        if(wbjdSq.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
+            insertWbjdZj(wbjdSq,zjid);
+            insertWbjdZjSxry(sxryList,zjid);
+            insertWbjdZjGb(gbDomainList,zjid);
         }
 
         return count>0  ;
     }
 
-    @Override
-    public WbjdSq selectSqExtPdf(String id) throws Exception {
-        return null;
+    private void insertWbjdZjGb(List<WbjdGj> cfgbIds, String zjid) {
+        if(!CollectionUtils.isEmpty(cfgbIds)){
+            for (WbjdGj r : cfgbIds) {
+                WbjdGj gb = new WbjdGj();
+                gb.setGjid(CmuStringUtil.UUID());
+                gb.setLfjdgjid(r.getLfjdgjid());
+                gb.setLfid(zjid);
+                wbjdGjMapper.insertSelective(gb);
+            }
+        }
     }
+
+    private void insertWbjdZjSxry(List<WbjdSxry> sxrs ,String zjid){
+        if((!CollectionUtils.isEmpty(sxrs)) ){
+            for (WbjdSxry r : sxrs) {
+                WbjdZjSxry wbjdZjSxry = new WbjdZjSxry();
+                wbjdZjSxry.setGj(r.getGj());
+                wbjdZjSxry.setLfid(zjid);
+                wbjdZjSxry.setRyid(CmuStringUtil.UUID());
+                wbjdZjSxry.setXm(r.getXm());
+                wbjdZjSxry.setZw(r.getZw());
+                wbjdZjSxryMapper.insertSelective(wbjdZjSxry);
+            }
+        }
+    }
+
+    private void insertWbjdZj(WbjdSq wbjdSq,String zjid) {
+        //审核通过 总结表新增一条数据
+        WbjdZj wbjdZj = new WbjdZj();
+        wbjdZj.setZjid(zjid);
+        wbjdZj.setLfid(wbjdSq.getLfid());
+        wbjdZj.setStatus(wbjdSq.getStatus());
+        wbjdZj.setDbtmc(wbjdSq.getDbtmc());
+        wbjdZj.setFwcg(wbjdSq.getFwcg());
+        wbjdZj.setJdbm(wbjdSq.getJdbm());
+        wbjdZj.setJdlx(wbjdSq.getJdlx());
+        wbjdZj.setJfly(wbjdSq.getJfly());
+        wbjdZj.setLfmd(wbjdSq.getLfmd());
+        wbjdZj.setLfmdQt(wbjdSq.getLfmdQt());
+        wbjdZj.setLfrs(wbjdSq.getLfrs());
+        wbjdZj.setLfsj(wbjdSq.getLfsj());
+        wbjdZj.setLp(wbjdSq.getLp());
+        wbjdZj.setLpsl(wbjdSq.getLpsl());
+        wbjdZj.setQkjl(wbjdSq.getQkjl());
+        wbjdZj.setTlsjEnd(wbjdSq.getTlsjEnd());
+        wbjdZj.setTlsjStart(wbjdSq.getTlsjStart());
+        wbjdZj.setTzcsrq(wbjdSq.getTzcsrq());
+        wbjdZj.setTzgj(wbjdSq.getTzgj());
+        wbjdZj.setTzgzdw(wbjdSq.getTzgzdw());
+        wbjdZj.setTzxb(wbjdSq.getTzxb());
+        wbjdZj.setTzxm(wbjdSq.getTzxm());
+        wbjdZj.setTzzw(wbjdSq.getTzzw());
+        wbjdZj.setTzxsly(wbjdSq.getTzxsly());
+        wbjdZj.setTzzy(wbjdSq.getTzzy());
+        wbjdZj.setYjtm(wbjdSq.getYjtm());
+        wbjdZj.setYqcg(wbjdSq.getYqcg());
+        wbjdZj.setYqxx(wbjdSq.getYqxx());
+        wbjdZj.setZqlxrdh(wbjdSq.getZqlxrdh());
+        wbjdZj.setZqlxrxm(wbjdSq.getZqlxrxm());
+        wbjdZj.setZqrdh(wbjdSq.getZqrdh());
+        wbjdZj.setZqrxm(wbjdSq.getZqrxm());
+        //所有字段
+        wbjdZjMapper.insertSelective(wbjdZj);
+    }
+
 
     @Override
     public String selectGbExtPdf(String id) throws Exception {
-        return null;
+        return wbjdSqMapperExt.selectGbExtPdf(id);
     }
 
 
-//
-//    @Override
-//    public String selectGbExtPdf(String id) throws Exception {
-//        return wbjdSqMapperExt.selectGbExtPdf(id);
-//    }
-//
-//
-//    @Override
-//    public WbjdSq selectSqExtPdf(String id) throws Exception {
-//        return wbjdSqMapperExt.selectSqExtPdf(id);
-//    }
+    @Override
+    public WbjdSq selectSqExtPdf(String id) throws Exception {
+        return wbjdSqMapperExt.selectSqExtPdf(id);
+    }
 }
+

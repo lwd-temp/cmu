@@ -71,9 +71,6 @@ public class WbjdSqController extends BaseController {
     public Map save(WbglVO vo) throws Exception {
         logger.info("保存 外宾来访申请 信息 :" + vo);
         boolean success = wbjdSqService.saveOrUpdate(vo);
-        /*Map map = wbjdSqService.saveOrUpdate(vo);
-        boolean success = (boolean) map.get("success");
-        WbjdSq wbjdSq  = (WbjdSq) map.get("WbjdSq");*/
         logger.debug("保存 外宾来访申请 结果 :" + success);
 
         return super.ajaxStatus(success, vo);
@@ -89,6 +86,7 @@ public class WbjdSqController extends BaseController {
     @RequestMapping("/toEdit")
     public String toEdit(String id, Model model) throws Exception {
         WbjdSq wbjdSq = wbjdSqService.queryById(id);
+
         WbjdSxry queryWbjdSxry = new WbjdSxry();
         queryWbjdSxry.setLfid(id);
         List sxryList = wbjdSxryService.list(queryWbjdSxry);
@@ -172,37 +170,22 @@ public class WbjdSqController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/sh")
-    public Map sh(String id, String status) {
-        boolean success = wbjdSqService.sh(id, status);
+    public Map sh(WbglVO vo) throws Exception{
+        WbjdSq wbjdSq = vo.getWbjdSq();
+        String id = wbjdSq.getLfid();
+
+        WbjdSq domain = wbjdSqService.queryById(id);
+        domain.setStatus(wbjdSq.getStatus());
+        WbjdSxry queryWbjdSxry = new WbjdSxry();
+        queryWbjdSxry.setLfid(id);
+        List sxryList = wbjdSxryService.list(queryWbjdSxry);
+
+        WbjdGj queryWbjdGj = new WbjdGj();
+        queryWbjdGj.setLfid(id);
+        List<WbjdGj> gbDomainList = wbjdGjService.list(queryWbjdGj);
+
+        boolean success = wbjdSqService.sh(domain,sxryList,gbDomainList);
         return super.ajaxStatus(success);
-    }
-
-
-    /**
-     * 【总结】分页查询
-     *
-     * @param wbjdSq      查询条件
-     * @param orderCol  排序字段
-     * @param orderType 排序方式 asc desc
-     * @param page      分页对象页号，即想查询第几页
-     * @param rows      分页对象每页行数   默认10
-     * @return
-     * @throws Exception
-     */
-    @RequestMapping("/zjlist")
-    @ResponseBody
-    public Map zjlist(WbjdSq wbjdSq,
-                      String orderCol,
-                      String orderType,
-                      @RequestParam(defaultValue = "1", required = false) Integer page,
-                      @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
-        logger.debug("condition:" + wbjdSq);
-        //开启分页
-        Page<Object> pageInfo = PageHelper.startPage(page, rows);
-        //查询
-        List list = wbjdSqService.zjlist(wbjdSq, orderCol, orderType);//demoList();
-        //返回带【分页】 的表格JSON 信息
-        return super.pagingInfo(pageInfo, list);
     }
 
     /**
