@@ -72,6 +72,7 @@ var initIndex = layer.loading();
     $.ajaxSetup({
         type:'post',
         dataType:'json',
+        traditional: true,
         beforeSend:function(){
              ajaxIndex = layer.loading();
         },

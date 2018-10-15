@@ -94,7 +94,6 @@
                         var cindex = layer.confirm('确定删除？', {
                             btn: ['确定','取消'] //按钮
                         }, function(){
-                            alert('cindex:'+cindex);
                             layer.close(cindex);
                             var index = layer.loading();
                             setTimeout(function(){

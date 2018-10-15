@@ -296,7 +296,6 @@
         </table>-->
 
 
-
         <!-- 研究生学生1-->
        <!-- <table tableName="v_yjs_xjjbsjxx" 	domainObjectName="YjsXjjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsXjjbsjxxParams&gt;"/>
