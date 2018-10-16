@@ -250,12 +250,6 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
 
     @Override
-    public String selectGbExtPdf(String id) throws Exception {
-        return wbjdSqMapperExt.selectGbExtPdf(id);
-    }
-
-
-    @Override
     public WbjdSq selectSqExtPdf(String id) throws Exception {
         return wbjdSqMapperExt.selectSqExtPdf(id);
     }

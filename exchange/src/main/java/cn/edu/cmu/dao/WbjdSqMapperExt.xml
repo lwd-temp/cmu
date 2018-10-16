@@ -15,10 +15,5 @@
         where LFID = #{lfid,jdbcType=VARCHAR}
     </select>
 
-    <select id="selectGbExtPdf" >
-        select
-        wmsys.wm_concat (F_GetTableText('t_dm_gb', 'code', 'name', lfjdgjid))lfjdgjid from t_wbjd_gj
-        where LFID = #{lfid,jdbcType=VARCHAR}
-    </select>
 
 </mapper>

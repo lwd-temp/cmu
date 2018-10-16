@@ -41,13 +41,9 @@ public class WbjdSqExtController {
 
     @RequestMapping("/param1")
     public void param1(String name, Integer age){
-
         logger.info(String.format(" name is %s ",   name));
         logger.info(String.format(" age is %s ",    age));
-
     }
-
-
     @RequestMapping("/param2")
     public void param2(String name, Integer age, Date birthday){
 
@@ -61,6 +57,7 @@ public class WbjdSqExtController {
     @RequestMapping("/downloadPdf")
     public void downloadPdf(HttpServletResponse response,String id) throws Exception {
         response.setHeader("content-disposition", "attachment;filename=INFO.pdf");
+
         ServletOutputStream os = response.getOutputStream();
         //变量
         WbjdSq wbjdSq = wbjdSqService.selectSqExtPdf(id);
@@ -71,9 +68,13 @@ public class WbjdSqExtController {
         List sxryList = wbjdSxryService.list(queryWbjdSxry);
         logger.info(sxryList);
 
-        String gb ="中国，日本"; //wbjdSqService.selectGbExtPdf(id);
+        List<WbjdGj> gblist = wbjdGjService.selectdGjExtPdf(id);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < gblist.size(); i++) {
+            sb.append(gblist.get(i).getLfjdgjid()).append("/");
+        }
+        String gb = sb.toString().substring(0,sb.toString().length()-1);
         logger.info(gb);
-
         //还没有画样式
         String template = "demo/wbglExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(3);
