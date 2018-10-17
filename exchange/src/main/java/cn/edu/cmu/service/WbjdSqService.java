@@ -14,6 +14,5 @@ public interface WbjdSqService extends IBaseService<WbjdSq, WbjdSqParams> {
     public List shlist(Object... conditions) throws Exception;
     public boolean sh(WbjdSq wbjdSq,List sxryList,List gbDomainList) throws Exception;
     public WbjdSq selectSqExtPdf(String id) throws Exception;
-    public String selectGbExtPdf(String id) throws Exception;
 }
 
