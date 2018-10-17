@@ -69,29 +69,54 @@ public class Hz {
     private Date jcsj;
 
     /**
-     * null
+     * 签证或签注时间
      */
     private Date qzsj;
 
     /**
-     * null
+     * 出访时间
      */
     private Date cfsj;
 
     /**
-     * null
+     * 出访目的地
      */
     private String cfmd;
 
     /**
-     * null
+     * 美国多次往返签证号码
+     */
+    private String dcwfqzhmMg;
+
+    /**
+     * 欧洲多次往返签证号码
+     */
+    private String dcwfqzhmOz;
+
+    /**
+     * 加拿大多次往返签证号码
+     */
+    private String dcwfqzhmJnd;
+
+    /**
+     * 其他地区多次往返签证号码
+     */
+    private String dcwfqzhmQt;
+
+    /**
+     * 出访内容
      */
     private String cfnr;
 
     /**
-     * null
+     * 多次签证或签注号码
      */
     private String qzhm;
+
+    /**
+     * 护照、通行证归还时间
+     */
+    private Date ghsj;
 
     /**
      * 护照状态 01 报废（过期）、02 在省签证处、03 在我部、04 借出中、05 调往新单位、06 调至省外
@@ -110,9 +135,9 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
-    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, Date qzsj, Date cfsj, String cfmd, String cfnr, String qzhm, String status, String valid, Date createTime) {
+    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, Date qzsj, Date cfsj, String cfmd, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, Date ghsj, String status, String valid, Date createTime) {
         this.hzid = hzid;
         this.hzhm = hzhm;
         this.xm = xm;
@@ -129,8 +154,13 @@ public class Hz {
         this.qzsj = qzsj;
         this.cfsj = cfsj;
         this.cfmd = cfmd;
+        this.dcwfqzhmMg = dcwfqzhmMg;
+        this.dcwfqzhmOz = dcwfqzhmOz;
+        this.dcwfqzhmJnd = dcwfqzhmJnd;
+        this.dcwfqzhmQt = dcwfqzhmQt;
         this.cfnr = cfnr;
         this.qzhm = qzhm;
+        this.ghsj = ghsj;
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
@@ -138,7 +168,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public Hz() {
         super();
@@ -353,83 +383,163 @@ public class Hz {
     }
 
     /**
-     * null
-     * @return QZSJ null
+     * 签证或签注时间
+     * @return QZSJ 签证或签注时间
      */
     public Date getQzsj() {
         return qzsj;
     }
 
     /**
-     * null
-     * @param qzsj null
+     * 签证或签注时间
+     * @param qzsj 签证或签注时间
      */
     public void setQzsj(Date qzsj) {
         this.qzsj = qzsj;
     }
 
     /**
-     * null
-     * @return CFSJ null
+     * 出访时间
+     * @return CFSJ 出访时间
      */
     public Date getCfsj() {
         return cfsj;
     }
 
     /**
-     * null
-     * @param cfsj null
+     * 出访时间
+     * @param cfsj 出访时间
      */
     public void setCfsj(Date cfsj) {
         this.cfsj = cfsj;
     }
 
     /**
-     * null
-     * @return CFMD null
+     * 出访目的地
+     * @return CFMD 出访目的地
      */
     public String getCfmd() {
         return cfmd;
     }
 
     /**
-     * null
-     * @param cfmd null
+     * 出访目的地
+     * @param cfmd 出访目的地
      */
     public void setCfmd(String cfmd) {
         this.cfmd = cfmd == null ? null : cfmd.trim();
     }
 
     /**
-     * null
-     * @return CFNR null
+     * 美国多次往返签证号码
+     * @return DCWFQZHM_MG 美国多次往返签证号码
+     */
+    public String getDcwfqzhmMg() {
+        return dcwfqzhmMg;
+    }
+
+    /**
+     * 美国多次往返签证号码
+     * @param dcwfqzhmMg 美国多次往返签证号码
+     */
+    public void setDcwfqzhmMg(String dcwfqzhmMg) {
+        this.dcwfqzhmMg = dcwfqzhmMg == null ? null : dcwfqzhmMg.trim();
+    }
+
+    /**
+     * 欧洲多次往返签证号码
+     * @return DCWFQZHM_OZ 欧洲多次往返签证号码
+     */
+    public String getDcwfqzhmOz() {
+        return dcwfqzhmOz;
+    }
+
+    /**
+     * 欧洲多次往返签证号码
+     * @param dcwfqzhmOz 欧洲多次往返签证号码
+     */
+    public void setDcwfqzhmOz(String dcwfqzhmOz) {
+        this.dcwfqzhmOz = dcwfqzhmOz == null ? null : dcwfqzhmOz.trim();
+    }
+
+    /**
+     * 加拿大多次往返签证号码
+     * @return DCWFQZHM_JND 加拿大多次往返签证号码
+     */
+    public String getDcwfqzhmJnd() {
+        return dcwfqzhmJnd;
+    }
+
+    /**
+     * 加拿大多次往返签证号码
+     * @param dcwfqzhmJnd 加拿大多次往返签证号码
+     */
+    public void setDcwfqzhmJnd(String dcwfqzhmJnd) {
+        this.dcwfqzhmJnd = dcwfqzhmJnd == null ? null : dcwfqzhmJnd.trim();
+    }
+
+    /**
+     * 其他地区多次往返签证号码
+     * @return DCWFQZHM_QT 其他地区多次往返签证号码
+     */
+    public String getDcwfqzhmQt() {
+        return dcwfqzhmQt;
+    }
+
+    /**
+     * 其他地区多次往返签证号码
+     * @param dcwfqzhmQt 其他地区多次往返签证号码
+     */
+    public void setDcwfqzhmQt(String dcwfqzhmQt) {
+        this.dcwfqzhmQt = dcwfqzhmQt == null ? null : dcwfqzhmQt.trim();
+    }
+
+    /**
+     * 出访内容
+     * @return CFNR 出访内容
      */
     public String getCfnr() {
         return cfnr;
     }
 
     /**
-     * null
-     * @param cfnr null
+     * 出访内容
+     * @param cfnr 出访内容
      */
     public void setCfnr(String cfnr) {
         this.cfnr = cfnr == null ? null : cfnr.trim();
     }
 
     /**
-     * null
-     * @return QZHM null
+     * 多次签证或签注号码
+     * @return QZHM 多次签证或签注号码
      */
     public String getQzhm() {
         return qzhm;
     }
 
     /**
-     * null
-     * @param qzhm null
+     * 多次签证或签注号码
+     * @param qzhm 多次签证或签注号码
      */
     public void setQzhm(String qzhm) {
         this.qzhm = qzhm == null ? null : qzhm.trim();
+    }
+
+    /**
+     * 护照、通行证归还时间
+     * @return GHSJ 护照、通行证归还时间
+     */
+    public Date getGhsj() {
+        return ghsj;
+    }
+
+    /**
+     * 护照、通行证归还时间
+     * @param ghsj 护照、通行证归还时间
+     */
+    public void setGhsj(Date ghsj) {
+        this.ghsj = ghsj;
     }
 
     /**
@@ -482,7 +592,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     @Override
     public String toString() {
@@ -506,8 +616,13 @@ public class Hz {
         sb.append(", qzsj=").append(qzsj);
         sb.append(", cfsj=").append(cfsj);
         sb.append(", cfmd=").append(cfmd);
+        sb.append(", dcwfqzhmMg=").append(dcwfqzhmMg);
+        sb.append(", dcwfqzhmOz=").append(dcwfqzhmOz);
+        sb.append(", dcwfqzhmJnd=").append(dcwfqzhmJnd);
+        sb.append(", dcwfqzhmQt=").append(dcwfqzhmQt);
         sb.append(", cfnr=").append(cfnr);
         sb.append(", qzhm=").append(qzhm);
+        sb.append(", ghsj=").append(ghsj);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

@@ -114,15 +114,50 @@
                                     <input class="form-control date-picker" id="id-date-picker-8"  name="jcsj"  value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
+                                <label class="col-xs-2 control-label "  > 归还时间:</label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="id-date-picker-9"  name="ghsj"  value=""
+                                           type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
                             </div>
+
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 证件类型   : </label>
-                                <dm:list tabName="t_dm_tzlb" type="select" id="hzlx"  name="hzlx"   ></dm:list>
-                            </div>
-                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <dm:list tabName="t_dm_tzlb" type="select" id="hzlx"  name="hzlx"   ></dm:list>
+                                </div>
                                 <label class="col-xs-2 control-label "  > 护照状态: </label>
-                                <dm:list tabName="t_dm_hzzt" type="select" id="status"  name="status"   ></dm:list>
+                                <div class="col-xs-4">
+                                    <dm:list tabName="t_dm_hzzt" type="select" id="status"  name="status"   ></dm:list>
+                                </div>
                             </div>
+
+
+                             <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 美国多次往返签证号码   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dcwfqzhmMg"  value=""    class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 欧洲多次往返签证号码: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dcwfqzhmOz"  value=""    class="col-xs-12" />
+                                </div>
+                            </div>
+
+                             <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 加拿大多次往返签证号码   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dcwfqzhmJnd"  value=""    class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 其他地区多次往返签证号码: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dcwfqzhmQt"  value=""    class="col-xs-12" />
+                                </div>
+                            </div>
+
+
+
+
                             <div class=" form-actions">
                                 <div class="col-md-offset-3 col-md-9">
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">

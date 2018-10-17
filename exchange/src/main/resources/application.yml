@@ -6,7 +6,7 @@ sys:
   #ignoreLogin 是否忽略注释 true、false
   ignoreLogin:
     switch:
-      false
+      true
     userId:
       "19981022"
     userType:

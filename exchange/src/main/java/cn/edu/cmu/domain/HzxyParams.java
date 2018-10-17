@@ -22,7 +22,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public HzxyParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HzxyParams {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HzxyParams {
     }
 
     /**
-     * T_HZXY 2018-10-05
+     * T_HZXY 2018-10-17
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -701,6 +701,76 @@ public class HzxyParams {
             return (Criteria) this;
         }
 
+        public Criteria andMemoIsNull() {
+            addCriterion("MEMO is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoIsNotNull() {
+            addCriterion("MEMO is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoEqualTo(String value) {
+            addCriterion("MEMO =", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoNotEqualTo(String value) {
+            addCriterion("MEMO <>", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoGreaterThan(String value) {
+            addCriterion("MEMO >", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoGreaterThanOrEqualTo(String value) {
+            addCriterion("MEMO >=", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoLessThan(String value) {
+            addCriterion("MEMO <", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoLessThanOrEqualTo(String value) {
+            addCriterion("MEMO <=", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoLike(String value) {
+            addCriterion("MEMO like", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoNotLike(String value) {
+            addCriterion("MEMO not like", value, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoIn(List<String> values) {
+            addCriterion("MEMO in", values, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoNotIn(List<String> values) {
+            addCriterion("MEMO not in", values, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoBetween(String value1, String value2) {
+            addCriterion("MEMO between", value1, value2, "memo");
+            return (Criteria) this;
+        }
+
+        public Criteria andMemoNotBetween(String value1, String value2) {
+            addCriterion("MEMO not between", value1, value2, "memo");
+            return (Criteria) this;
+        }
+
         public Criteria andValidIsNull() {
             addCriterion("VALID is null");
             return (Criteria) this;
@@ -843,7 +913,7 @@ public class HzxyParams {
     }
 
     /**
-     * T_HZXY 2018-10-05
+     * T_HZXY 2018-10-17
      */
     public static class Criterion {
         private String condition;
