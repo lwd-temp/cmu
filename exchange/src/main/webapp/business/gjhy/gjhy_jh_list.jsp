@@ -10,13 +10,18 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="condition"> 主办单位或承办单位: </label>
-
-            <div class="col-sm-5">
-                <input type="text" id="condition" placeholder="请输入主办单位或承办单位" class="col-xs-12" />
-            </div>
+            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 会议编号: </label>
 
             <div class="col-sm-3">
+                <input type="text" id="condition1" placeholder="请输入会议编号" class="col-xs-12" />
+            </div>
+            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 主办单位或承办单位: </label>
+
+            <div class="col-sm-3">
+                <input type="text" id="condition2" placeholder="请输入主办单位或承办单位" class="col-xs-12" />
+            </div>
+
+            <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -29,9 +34,6 @@
     <table id="grid-table"></table>
 
 </div>
-<script type="text/javascript">
-    var $path_base = "..";//in Ace demo this will be used for editurl parameter
-</script>
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
@@ -77,10 +79,11 @@
             caption: "国际会议计划管理",
             /*data: grid_data,*/
             url:'hyjh/list',
-            colNames:["会议名称","主办单位","承办单位","举行日期3","地点","经费来源" ,"操作"],
+            colNames:["会议编号","会议名称","主办单位","承办单位","举行日期3","地点","经费来源" ,"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
+                {name:'hybh',index:'hybh',  },
                 {name:'hymc',index:'hymc',  },
                 {name:'zbdw',index:'zbdw',  },
                 {name:'cbdw',index:'cbdw',  },
@@ -123,8 +126,9 @@
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
-                'zbdw':$("#condition").val(),
-                'cbdw':$("#condition").val()
+                'hybh':$("#condition1").val(),
+                'zbdw':$("#condition2").val(),
+                'cbdw':$("#condition2").val()
             },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");

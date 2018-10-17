@@ -64,44 +64,51 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
+                            <input type="hidden" name="zjid" value="${hyzj.zjid}"/>
+                            <input type="hidden" name="sbid" value="${hyzj.sbid}"/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 基本信息: </label>
 
                                 <div class="col-xs-10">
-                                    <input type="text"  name="username"   placeholder="基本信息"  class="col-xs-12" />
+                                    <input type="text" readonly="readonly" disabled="disabled"  name="jbxx"  value="${hyzj.jbxx}"  placeholder="基本信息"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 会议批件文号: </label>
                                 <div class="col-xs-10">
-                                    <input type="text"  name="username"   placeholder="会议批件文号"  class="col-xs-12" />
+                                    <input type="text" readonly="readonly" disabled="disabled"  name="pjwh" value="${hyzj.pjwh}"    placeholder="会议批件文号"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 会议具体情况介绍: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" id="form-field-10" maxlength="300" placeholder="会议具体情况介绍"></textarea>
+                                    <textarea class="form-control limited" name="jtqkjs"   id="form-field-10" maxlength="300" placeholder="会议具体情况介绍" readonly="readonly" disabled="disabled">${hyzj.jtqkjs}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 会议产出情况介绍: </label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control limited" name="ccqkjs"    id="form-field-2" maxlength="300" placeholder="会议具体情况介绍" readonly="readonly" disabled="disabled">${hyzj.ccqkjs}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 会议申办主办过程中的经验与问题: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" id="form-field-12" maxlength="300" placeholder="会议申办主办过程中的经验与问题"></textarea>
+                                    <textarea class="form-control limited" id="form-field-12"  name="jyywt"  maxlength="300" placeholder="会议申办主办过程中的经验与问题" readonly="readonly" disabled="disabled">${hyzj.jyywt}</textarea>
                                 </div>
                             </div>
 
                             <div class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-info btn-sm" type="button">
+                                <button class="btn btn-info btn-sm" id="btnClose" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    保存
+                                   关闭
                                 </button>
 
                                 &nbsp; &nbsp; &nbsp;
-
                             </div>
 
                         </form>
@@ -128,42 +135,28 @@
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
+<!-- jqueryValidate验证框架-->
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
 
+<!--弹出层 -->
+<script src="assets/js/layer/layer.js"></script>
+
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
 
 <script>
 
 
 
     $(function(){
+        $("#btnClose").click(function(){
 
+            closeLayer();
 
-        //日期选择器
-        $('.date-picker').datepicker({
-            autoclose: true,
-            todayHighlight: true
         });
-
-
-        //选择录入框
-        $('input.typeahead').typeahead({
-            hint: true,
-            highlight: true,
-            minLength: 1
-        }, {
-            name: 'states',
-            displayKey: 'value',
-            source: substringMatcher(names),
-            limit: 10
-        });
-
-
-
-        $('.chosen-select').chosen({allow_single_deselect:true});
 
     });
-
-
-
 
 
 </script>

@@ -44,13 +44,16 @@ public class HyZjServiceImpl extends BaseService<HyZj, HyZjParams, HyZjMapper> i
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             HyShenb hysb = (HyShenb) conditions[0];
 
+            if(StringUtils.isNotEmpty(hysb.getHybh())){
+                c1.andHybhLike("%"+hysb.getHybh()+"%");
+                c2.andHybhLike("%"+hysb.getHybh()+"%");
+            }
+
             if(StringUtils.isNotEmpty(hysb.getZbdw())){
                 c1.andZbdwLike("%"+hysb.getZbdw()+"%");
             }
             if(StringUtils.isNotEmpty(hysb.getCbdw())){
-
                 c2.andCbdwLike("%"+hysb.getCbdw()+"%");
-
             }
             super.addOrderBy(params,conditions);
         }

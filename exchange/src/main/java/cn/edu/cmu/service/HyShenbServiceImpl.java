@@ -62,6 +62,10 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
                 c1.andStatusEqualTo(hysb.getStatus());
                 c2.andStatusEqualTo(hysb.getStatus());
             }
+            if(StringUtils.isNotEmpty(hysb.getHybh())){
+                c1.andHybhLike("%"+hysb.getHybh()+"%");
+                c2.andHybhLike("%"+hysb.getHybh()+"%");
+            }
             if(StringUtils.isNotEmpty(hysb.getZbdw())){
                 c1.andZbdwLike("%"+hysb.getZbdw()+"%");
             }

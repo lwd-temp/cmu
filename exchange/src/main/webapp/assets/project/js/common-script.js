@@ -242,6 +242,9 @@ $(function(){
     var dmcache = {};
 
     dmcache.getCode = function(table,paramCode){
+        if(!paramCode || paramCode =='null'){
+            return '';
+        }
         var data = this.data;
         var name = '';
         if(data){

@@ -61,7 +61,10 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
 
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             HyJh hyjh = (HyJh) conditions[0];
-
+            if(StringUtils.isNotEmpty(hyjh.getHybh())){
+                c1.andHybhLike("%"+hyjh.getHybh()+"%");
+                c2.andHybhLike("%"+hyjh.getHybh()+"%");
+            }
             if(StringUtils.isNotEmpty(hyjh.getZbdw())){
                 c1.andZbdwLike("%"+hyjh.getZbdw()+"%");
             }
