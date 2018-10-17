@@ -34,6 +34,11 @@ public class Menu {
     private String menuStyle;
 
     /**
+     * 排序
+     */
+    private Integer sort;
+
+    /**
      * 备注
      */
     private String memo;
@@ -50,15 +55,16 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
-    public Menu(String menuId, String menuName, String parentId, String url, String menuIcon, String menuStyle, String memo, String valid, Date createTime) {
+    public Menu(String menuId, String menuName, String parentId, String url, String menuIcon, String menuStyle, Integer sort, String memo, String valid, Date createTime) {
         this.menuId = menuId;
         this.menuName = menuName;
         this.parentId = parentId;
         this.url = url;
         this.menuIcon = menuIcon;
         this.menuStyle = menuStyle;
+        this.sort = sort;
         this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
@@ -66,7 +72,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public Menu() {
         super();
@@ -169,6 +175,22 @@ public class Menu {
     }
 
     /**
+     * 排序
+     * @return SORT 排序
+     */
+    public Integer getSort() {
+        return sort;
+    }
+
+    /**
+     * 排序
+     * @param sort 排序
+     */
+    public void setSort(Integer sort) {
+        this.sort = sort;
+    }
+
+    /**
      * 备注
      * @return MEMO 备注
      */
@@ -218,7 +240,7 @@ public class Menu {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     @Override
     public String toString() {
@@ -232,6 +254,7 @@ public class Menu {
         sb.append(", url=").append(url);
         sb.append(", menuIcon=").append(menuIcon);
         sb.append(", menuStyle=").append(menuStyle);
+        sb.append(", sort=").append(sort);
         sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

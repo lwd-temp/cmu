@@ -82,11 +82,20 @@
                     <input type="text"  name="menuIcon" id="menuIcon"     class="col-xs-10" />
                 </div>
 
-            </div>  <div class="form-group">
+            </div>
+            <div class="form-group">
                 <label class="col-xs-2 control-label "  > 自定义样式: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="menuStyle" id="menuStyle"      class="col-xs-10" />
+                </div>
+
+            </div>
+            <div class="form-group">
+                <label class="col-xs-2 control-label "  > 排序: </label>
+
+                <div class="col-xs-10">
+                    <input type="text"  name="sort" id="sort"      class="col-xs-10" />
                 </div>
 
             </div>
@@ -151,6 +160,7 @@
                 $("#menuIcon").val(node.menuIcon);
                 $("#menuStyle").val(node.menuStyle);
                 $("#memo").val(node.memo);
+                $("#sort").val(node.sort);
 
             }
         }
