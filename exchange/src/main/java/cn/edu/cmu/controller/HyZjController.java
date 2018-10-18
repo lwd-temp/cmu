@@ -26,9 +26,6 @@ public class HyZjController extends BaseController {
     HyZjService hyZjService;
 
 
-
-
-
     /**
      * 分页查询
      * @param hyShenb 查询条件
@@ -102,14 +99,15 @@ public class HyZjController extends BaseController {
      * @throws Exception
      */
     @RequestMapping("/toEdit")
-    public String toEdit(String id, Model model) throws Exception {
+    public String toEdit(String id, String type,Model model) throws Exception {
 
         HyZj hyzj = hyZjService.queryById(id);
 
         model.addAttribute("hyzj",hyzj);
-
+        if("show".equals(type)){
+            return "gjhy/gjhy_zj_show";
+        }
         return "gjhy/gjhy_zj_edit";
     }
-
 
 }

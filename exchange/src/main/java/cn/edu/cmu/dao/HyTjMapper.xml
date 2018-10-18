@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.HyTjMapper">
+
+    <select id="selectList" resultType="cn.edu.cmu.vo.HytjVo" parameterType="hashMap">
+
+        select * from (
+            select jh.jhid jhid,
+                sb.sbid sbid,
+                zj.zjid zjid,
+                jh.hybh hybh,
+                decode(sb.hymc, null, jh.hymc, sb.hymc) hymc,
+                decode(sb.jxrq, null, jh.jxrq, sb.jxrq) jxrq,
+                decode(sb.dd, null, jh.dd, sb.dd) dd,
+                decode(sb.jfly, null, jh.jfly, sb.jfly) jfly,
+                decode(sb.hylx, null, jh.hylx, sb.hylx) hylx,
+
+                decode(sb.sbid, null, '0', '1') sfzxjh, /*是否执行计划*/
+                decode(zj.zjid, null, '0', '1') sfzj /*是否总结*/
+
+                from t_hy_jh jh
+                left join t_hy_shenb sb
+                on jh.jhid = sb.jhid
+                left join t_hy_zj zj
+                on sb.sbid = zj.sbid
+        )
+        <where>
+            <if test="param!=null">
+                <if test="param.hybh!=null and param.hybh != '' ">
+                    <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
+                    and hybh like   #{hybhLike,jdbcType=VARCHAR}
+                </if>
+                <if test="param.hymc!=null and param.hymc != '' ">
+                    <bind name="hymcLike" value="'%' + param.hymc + '%'"/>
+                    and hymc like   #{hymcLike,jdbcType=VARCHAR}
+                </if>
+                <if test="param.hylx!=null and param.hylx != '' ">
+                    and hylx = #{param.hylx,jdbcType=VARCHAR}
+                </if>
+            </if>
+        </where>
+
+        order by ${orderCol} ${orderType}
+    </select>
+</mapper>

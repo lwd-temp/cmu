@@ -9,6 +9,7 @@
       <arg column="URL" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="MENU_ICON" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="MENU_STYLE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SORT" jdbcType="DECIMAL" javaType="java.lang.Integer" />
       <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -74,7 +75,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MENU_ID, MENU_NAME, PARENT_ID, URL, MENU_ICON, MENU_STYLE, MEMO, VALID, CREATE_TIME
+    MENU_ID, MENU_NAME, PARENT_ID, URL, MENU_ICON, MENU_STYLE, SORT, MEMO, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.MenuParams" >
     select
@@ -111,12 +112,12 @@
   <insert id="insert" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU (MENU_ID, MENU_NAME, PARENT_ID, 
       URL, MENU_ICON, MENU_STYLE, 
-      MEMO, VALID, CREATE_TIME
-      )
+      SORT, MEMO, VALID, 
+      CREATE_TIME)
     values (#{menuId,jdbcType=VARCHAR}, #{menuName,jdbcType=VARCHAR}, #{parentId,jdbcType=VARCHAR}, 
       #{url,jdbcType=VARCHAR}, #{menuIcon,jdbcType=VARCHAR}, #{menuStyle,jdbcType=VARCHAR}, 
-      #{memo,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{sort,jdbcType=DECIMAL}, #{memo,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Menu" >
     insert into T_SYS_MENU
@@ -138,6 +139,9 @@
       </if>
       <if test="menuStyle != null" >
         MENU_STYLE,
+      </if>
+      <if test="sort != null" >
+        SORT,
       </if>
       <if test="memo != null" >
         MEMO,
@@ -167,6 +171,9 @@
       </if>
       <if test="menuStyle != null" >
         #{menuStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=DECIMAL},
       </if>
       <if test="memo != null" >
         #{memo,jdbcType=VARCHAR},
@@ -206,6 +213,9 @@
       <if test="record.menuStyle != null" >
         MENU_STYLE = #{record.menuStyle,jdbcType=VARCHAR},
       </if>
+      <if test="record.sort != null" >
+        SORT = #{record.sort,jdbcType=DECIMAL},
+      </if>
       <if test="record.memo != null" >
         MEMO = #{record.memo,jdbcType=VARCHAR},
       </if>
@@ -228,6 +238,7 @@
       URL = #{record.url,jdbcType=VARCHAR},
       MENU_ICON = #{record.menuIcon,jdbcType=VARCHAR},
       MENU_STYLE = #{record.menuStyle,jdbcType=VARCHAR},
+      SORT = #{record.sort,jdbcType=DECIMAL},
       MEMO = #{record.memo,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -253,6 +264,9 @@
       <if test="menuStyle != null" >
         MENU_STYLE = #{menuStyle,jdbcType=VARCHAR},
       </if>
+      <if test="sort != null" >
+        SORT = #{sort,jdbcType=DECIMAL},
+      </if>
       <if test="memo != null" >
         MEMO = #{memo,jdbcType=VARCHAR},
       </if>
@@ -272,6 +286,7 @@
       URL = #{url,jdbcType=VARCHAR},
       MENU_ICON = #{menuIcon,jdbcType=VARCHAR},
       MENU_STYLE = #{menuStyle,jdbcType=VARCHAR},
+      SORT = #{sort,jdbcType=DECIMAL},
       MEMO = #{memo,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}

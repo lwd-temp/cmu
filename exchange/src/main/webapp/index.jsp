@@ -823,7 +823,7 @@
 							</li>
 
 							<li>
-								<a href="#" id="breadcrumb">学生交流项目管理</a>
+								<a href="#" id="breadcrumb"></a>
 							</li>
 							<%--<li class="active">项目设定</li>--%>
 						</ul><!-- /.breadcrumb -->

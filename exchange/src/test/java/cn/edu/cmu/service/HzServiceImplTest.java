@@ -27,8 +27,7 @@ public class HzServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        Hz hz = new Hz(CmuStringUtil.UUID(), "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
-                Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
+        Hz hz = null;//new Hz(CmuStringUtil.UUID(), "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new  Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
 
         boolean success = service.insert(hz);
         System.out.println("Hz:"+hz);
@@ -71,8 +70,7 @@ public class HzServiceImplTest extends SpringIOC {
     @Test
     public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
-        Hz hz = new Hz(keyId, "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new
-                Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
+        Hz hz = null;//new Hz(keyId, "hzhm" , "xm", "gender", "gj", new Date(), "csdd", new  Date(),"qfdd", new Date(), "fzjg","hzlx",new Date(), new Date(),new  Date(),"cfmd","cfnr","qzhm","status",null, null);
         boolean success = service.insert(hz);
         System.out.println("保存成功："+success);
         Hz queryHz = service.queryById(keyId);

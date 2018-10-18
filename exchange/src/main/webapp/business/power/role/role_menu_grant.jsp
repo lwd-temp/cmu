@@ -96,22 +96,27 @@
             success:function(data){
                 zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, data);
                 var nodes = zTreeObj.getNodesByParam("menuId", "0", null);
-                treeObj.expandNode(nodes[0], true);
+                zTreeObj.expandNode(nodes[0], true);
+
+
+                $(roleMenuArray).each(function(){
+                    var roleMenu = this;
+
+                    var nodes = zTreeObj.getNodesByParam("menuId", roleMenu.menuId, null);
+                    $(nodes).each(function(){
+                        var node = this;
+                        zTreeObj.checkNode(node, true, false);
+                    });
+                });
+
+
             }
         });
 
         //zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
 
 
-        $(roleMenuArray).each(function(){
-            var roleMenu = this;
 
-            var nodes = zTreeObj.getNodesByParam("menuId", roleMenu.menuId, null);
-            $(nodes).each(function(){
-                var node = this;
-                zTreeObj.checkNode(node, true, false);
-            });
-        });
 
 
 

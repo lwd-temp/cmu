@@ -111,7 +111,7 @@ $(function () {
             todayHighlight: true
         });
     } catch (e) {
-        console.error(e.message);
+        console.error("缺少日期控件...");
     }
 
 
@@ -119,7 +119,7 @@ $(function () {
         //下拉选
         $('.chosen-select').chosen({allow_single_deselect: true});
     } catch (e) {
-        console.error(e.message);
+        console.error("下拉选处理失败");
     }
 
     try {

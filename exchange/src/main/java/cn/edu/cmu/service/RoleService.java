@@ -13,5 +13,8 @@ public interface RoleService extends IBaseService<Role, RoleParams> {
     public List<RoleMenu> getRoleMenuIds(String roleId) throws  Exception;
 
     public boolean grantMenuUpdate(String roleId,String[] menuIds);
+
+    public List<String> selectUserRoles(String userId);
+
 }
 

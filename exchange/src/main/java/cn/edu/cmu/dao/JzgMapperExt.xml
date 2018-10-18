@@ -12,15 +12,15 @@
     from V_JZGJCSJXX
 
     <where>
-        <if test="jzg!=null and jzg.xm != null" >
+        <if test="jzg!=null and jzg.xm != null and jzg.xm != ''" >
           and xm like concat(concat('%',#{jzg.xm}),'%')
         </if>
 
-        <if test="jzg!=null and jzg.gh != null" >
+        <if test="jzg!=null and jzg.gh != null and jzg.gh != ''" >
             and gh like concat(concat('%',#{jzg.gh}),'%')
         </if>
 
-        <if test="jzg!=null and jzg.dwh != null" >
+        <if test="jzg!=null and jzg.dwh != null and jzg.dwh != ''" >
             and (
                 dwh  in (select unit_id from v_uicm_unit start with unit_id = #{jzg.dwh} connect by prior unit_id = belong_unit)
                 or

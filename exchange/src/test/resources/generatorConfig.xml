@@ -202,17 +202,17 @@
             <columnOverride column="JTQKJS" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="CCQKJS" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="JYYWT" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>
+        </table>-->
         <table tableName="T_HZ" 	domainObjectName="Hz"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzParams&gt;"/>
         </table>
-        <table tableName="T_HZ_YW" 	domainObjectName="HyYw"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_HZ_YW" 	domainObjectName="HyYw"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyYwParams&gt;"/>
-        </table>
+        </table>-->
         <table tableName="T_HZXY" 	domainObjectName="Hzxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzxyParams&gt;"/>
         </table>
-       <table tableName="T_HZXY_GB" 	domainObjectName="HzxyGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+       <!--<table tableName="T_HZXY_GB" 	domainObjectName="HzxyGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzxyGbParams&gt;"/>
         </table>
          <table tableName="T_HZXY_QZR" 	domainObjectName="HzxyQzr"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -220,28 +220,28 @@
          </table>
          <table tableName="T_SJJL_ZT" 	domainObjectName="SjjlZt"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.SjjlZtParams&gt;"/>
-         </table>
+         </table>-->
          <table tableName="T_SYS_MENU" 	domainObjectName="Menu"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MenuParams&gt;"/>
          </table>
-         <table tableName="T_SYS_ROLE" 	domainObjectName="Role"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.RoleParams&gt;"/>
-         </table>
-         <table tableName="T_SYS_ROLE_MENU" 	domainObjectName="RoleMenu"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.RoleMenuParams&gt;"/>
-         </table>
-         <table tableName="T_SYS_UPLOAD" 	domainObjectName="Upload"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UploadParams&gt;"/>
-         </table>
-         <table tableName="T_SYS_USER" 	domainObjectName="User"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UserParams&gt;"/>
-         </table>
-         <table tableName="T_SYS_USER_ROLE" 	domainObjectName="UserRole"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UserRoleParams&gt;"/>
-         </table>
-          <table tableName="T_SYS_MAXCODE" 	domainObjectName="MaxCode"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MaxCodeParams&gt;"/>
-        </table>-->
+        <!--<table tableName="T_SYS_ROLE" 	domainObjectName="Role"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.RoleParams&gt;"/>
+        </table>
+        <table tableName="T_SYS_ROLE_MENU" 	domainObjectName="RoleMenu"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.RoleMenuParams&gt;"/>
+        </table>
+        <table tableName="T_SYS_UPLOAD" 	domainObjectName="Upload"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UploadParams&gt;"/>
+        </table>
+        <table tableName="T_SYS_USER" 	domainObjectName="User"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UserParams&gt;"/>
+        </table>
+        <table tableName="T_SYS_USER_ROLE" 	domainObjectName="UserRole"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UserRoleParams&gt;"/>
+        </table>
+         <table tableName="T_SYS_MAXCODE" 	domainObjectName="MaxCode"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+           <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MaxCodeParams&gt;"/>
+       </table>-->
         <!-- <table tableName="T_WBJD_SQ" 	domainObjectName="WbjdSq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSqParams&gt;"/>
          </table>
@@ -296,7 +296,6 @@
         </table>-->
 
 
-
         <!-- 研究生学生1-->
        <!-- <table tableName="v_yjs_xjjbsjxx" 	domainObjectName="YjsXjjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsXjjbsjxxParams&gt;"/>
@@ -306,9 +305,9 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.TjsXsjbsjxxParams&gt;"/>
         </table>-->
         <!-- 研究生专业-->
-        <table tableName="v_yjs_zyxxsjxx" 	domainObjectName="YjsZyxxsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+       <!-- <table tableName="v_yjs_zyxxsjxx" 	domainObjectName="YjsZyxxsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsZyxxsjxxParams&gt;"/>
-        </table>
+        </table>-->
 
 
     </context>

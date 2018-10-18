@@ -29,11 +29,12 @@ public class RoleController extends BaseController {
 
     /**
      * 分页查询
-     * @param role 查询条件
-     * @param orderCol 排序字段
+     *
+     * @param role      查询条件
+     * @param orderCol  排序字段
      * @param orderType 排序方式 asc desc
-     * @param page   分页对象页号，即想查询第几页
-     * @param rows   分页对象每页行数   默认10
+     * @param page      分页对象页号，即想查询第几页
+     * @param rows      分页对象每页行数   默认10
      * @return
      * @throws Exception
      */
@@ -42,70 +43,74 @@ public class RoleController extends BaseController {
     public Map list(Role role,
                     String orderCol,
                     String orderType,
-                    @RequestParam(defaultValue = "1",required = false )Integer  page,
-                    @RequestParam(defaultValue = "10",required = false) Integer rows  ) throws Exception {
+                    @RequestParam(defaultValue = "1", required = false) Integer page,
+                    @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
 
-        logger.debug("condition:"+role);
+        logger.debug("condition:" + role);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
-        List list = roleService.list(role,orderCol,orderType);//demoList();
+        List list = roleService.list(role, orderCol, orderType);//demoList();
 
         //返回带【分页】 的表格JSON 信息
-        return super.pagingInfo(pageInfo,list);
+        return super.pagingInfo(pageInfo, list);
     }
 
 
     /**
      * 如果对象存在key 则说明是修改，否则是新增
+     *
      * @param role
      * @return
      * @throws Exception
      */
     @RequestMapping("/save")
     @ResponseBody
-    public Map add(Role role ) throws Exception {
+    public Map add(Role role) throws Exception {
         boolean isEdit = false;//是否修改标志
-        if(StringUtil.isEmpty(role.getRoleId())){
+        if (StringUtil.isEmpty(role.getRoleId())) {
             String keyId = CmuStringUtil.UUID();
             role.setRoleId(keyId);
-        }else{//如果存在id则说明是修改
+        } else {//如果存在id则说明是修改
             isEdit = true;
         }
 
-        logger.debug("待保存的 role:"+role);
-        boolean success =false;
-        if(isEdit){
+        logger.debug("待保存的 role:" + role);
+        boolean success = false;
+        if (isEdit) {
             success = roleService.updateById(role);
-        }else{
+        } else {
             success = roleService.insert(role);
         }
 
-        logger.debug("保存 user 结果 :"+success);
+        logger.debug("保存 user 结果 :" + success);
 
         //返回带【分页】 的表格JSON 信息
-        return super.ajaxStatus(success,role);
+        return super.ajaxStatus(success, role);
     }
 
 
     /**
      * 跳转到修改页面
+     *
      * @param id
      * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping("/toEdit")
-    public String toEdit(String id,Model model) throws Exception {
+    public String toEdit(String id, Model model) throws Exception {
 
         Role role = roleService.queryById(id);
 
-        model.addAttribute("role",role);
+        model.addAttribute("role", role);
 
         return "power/role/role_edit";
     }
+
     /**
      * 根据id删除角色
+     *
      * @param id
      * @return
      * @throws Exception
@@ -122,18 +127,19 @@ public class RoleController extends BaseController {
 
     /**
      * 跳转到授权页面
+     *
      * @param id
      * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping("/toGrant")
-    public String toGrant(String id,Model model) throws Exception {
+    public String toGrant(String id, Model model) throws Exception {
 
         List<RoleMenu> rms = roleService.getRoleMenuIds(id);
         String roleMenuArray = JSON.toJSONString(rms);
-        model.addAttribute("roleMenuArray",roleMenuArray);
-        model.addAttribute("roleId",id);
+        model.addAttribute("roleMenuArray", roleMenuArray);
+        model.addAttribute("roleId", id);
 
         return "power/role/role_menu_grant";
     }
@@ -141,17 +147,34 @@ public class RoleController extends BaseController {
 
     /**
      * 给角色授权菜单
+     *
      * @param ids
      * @return
      * @throws Exception
      */
     @RequestMapping("/grantMenu")
     @ResponseBody
-    public Map grantMenu(String roleId,String[] ids) throws Exception {
+    public Map grantMenu(String roleId, String[] ids) throws Exception {
 
-       boolean success = roleService.grantMenuUpdate(roleId,ids);
+        boolean success = roleService.grantMenuUpdate(roleId, ids);
 
-       return super.ajaxStatus(success);
+        return super.ajaxStatus(success);
     }
+
+
+    /**
+     * 根据用户id获取用户授权的角色id
+     * @param userId
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/listUserRoles")
+    @ResponseBody
+    public List listUserRoles(String userId) throws Exception {
+
+        return roleService.selectUserRoles(userId);
+
+    }
+
 
 }

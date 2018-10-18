@@ -44,6 +44,11 @@ public class Hzxy {
     private String qzrzw;
 
     /**
+     * 备注
+     */
+    private String memo;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -55,9 +60,9 @@ public class Hzxy {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
-    public Hzxy(String xyid, String xymc, String hzfmc, Date qdrq, Date sxrq, String uploadId, String qzr, String qzrzw, String valid, Date createTime) {
+    public Hzxy(String xyid, String xymc, String hzfmc, Date qdrq, Date sxrq, String uploadId, String qzr, String qzrzw, String memo, String valid, Date createTime) {
         this.xyid = xyid;
         this.xymc = xymc;
         this.hzfmc = hzfmc;
@@ -66,13 +71,14 @@ public class Hzxy {
         this.uploadId = uploadId;
         this.qzr = qzr;
         this.qzrzw = qzrzw;
+        this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     public Hzxy() {
         super();
@@ -207,6 +213,22 @@ public class Hzxy {
     }
 
     /**
+     * 备注
+     * @return MEMO 备注
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * 备注
+     * @param memo 备注
+     */
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -240,7 +262,7 @@ public class Hzxy {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-10-17
      */
     @Override
     public String toString() {
@@ -256,6 +278,7 @@ public class Hzxy {
         sb.append(", uploadId=").append(uploadId);
         sb.append(", qzr=").append(qzr);
         sb.append(", qzrzw=").append(qzrzw);
+        sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

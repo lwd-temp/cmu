@@ -91,6 +91,12 @@
                                      <textarea class="form-control limited" name="hzxy.qzrzw"   placeholder="签字人职务"  maxlength="300"></textarea>
                                  </div>
                              </div>
+                             <div class="form-group">
+                                 <label class="col-xs-2 control-label "  > 备注: </label>
+                                 <div class="col-xs-10">
+                                     <textarea class="form-control limited" name="hzxy.memo"   placeholder="备注"  maxlength="300"></textarea>
+                                 </div>
+                             </div>
 
                             <div class="col-md-offset-3 col-md-9">
                                 <button class="btn btn-info btn-sm" id="btn-submit"  type="button">

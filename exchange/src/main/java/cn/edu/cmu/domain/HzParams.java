@@ -22,7 +22,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public HzParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-17
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2018-09-22
+     * T_HZ 2018-10-17
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1221,6 +1221,286 @@ public class HzParams {
             return (Criteria) this;
         }
 
+        public Criteria andDcwfqzhmMgIsNull() {
+            addCriterion("DCWFQZHM_MG is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgIsNotNull() {
+            addCriterion("DCWFQZHM_MG is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgEqualTo(String value) {
+            addCriterion("DCWFQZHM_MG =", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgNotEqualTo(String value) {
+            addCriterion("DCWFQZHM_MG <>", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgGreaterThan(String value) {
+            addCriterion("DCWFQZHM_MG >", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgGreaterThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_MG >=", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgLessThan(String value) {
+            addCriterion("DCWFQZHM_MG <", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgLessThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_MG <=", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgLike(String value) {
+            addCriterion("DCWFQZHM_MG like", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgNotLike(String value) {
+            addCriterion("DCWFQZHM_MG not like", value, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgIn(List<String> values) {
+            addCriterion("DCWFQZHM_MG in", values, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgNotIn(List<String> values) {
+            addCriterion("DCWFQZHM_MG not in", values, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_MG between", value1, value2, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmMgNotBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_MG not between", value1, value2, "dcwfqzhmMg");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzIsNull() {
+            addCriterion("DCWFQZHM_OZ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzIsNotNull() {
+            addCriterion("DCWFQZHM_OZ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzEqualTo(String value) {
+            addCriterion("DCWFQZHM_OZ =", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzNotEqualTo(String value) {
+            addCriterion("DCWFQZHM_OZ <>", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzGreaterThan(String value) {
+            addCriterion("DCWFQZHM_OZ >", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzGreaterThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_OZ >=", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzLessThan(String value) {
+            addCriterion("DCWFQZHM_OZ <", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzLessThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_OZ <=", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzLike(String value) {
+            addCriterion("DCWFQZHM_OZ like", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzNotLike(String value) {
+            addCriterion("DCWFQZHM_OZ not like", value, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzIn(List<String> values) {
+            addCriterion("DCWFQZHM_OZ in", values, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzNotIn(List<String> values) {
+            addCriterion("DCWFQZHM_OZ not in", values, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_OZ between", value1, value2, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmOzNotBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_OZ not between", value1, value2, "dcwfqzhmOz");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndIsNull() {
+            addCriterion("DCWFQZHM_JND is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndIsNotNull() {
+            addCriterion("DCWFQZHM_JND is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndEqualTo(String value) {
+            addCriterion("DCWFQZHM_JND =", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndNotEqualTo(String value) {
+            addCriterion("DCWFQZHM_JND <>", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndGreaterThan(String value) {
+            addCriterion("DCWFQZHM_JND >", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndGreaterThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_JND >=", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndLessThan(String value) {
+            addCriterion("DCWFQZHM_JND <", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndLessThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_JND <=", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndLike(String value) {
+            addCriterion("DCWFQZHM_JND like", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndNotLike(String value) {
+            addCriterion("DCWFQZHM_JND not like", value, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndIn(List<String> values) {
+            addCriterion("DCWFQZHM_JND in", values, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndNotIn(List<String> values) {
+            addCriterion("DCWFQZHM_JND not in", values, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_JND between", value1, value2, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmJndNotBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_JND not between", value1, value2, "dcwfqzhmJnd");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtIsNull() {
+            addCriterion("DCWFQZHM_QT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtIsNotNull() {
+            addCriterion("DCWFQZHM_QT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtEqualTo(String value) {
+            addCriterion("DCWFQZHM_QT =", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtNotEqualTo(String value) {
+            addCriterion("DCWFQZHM_QT <>", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtGreaterThan(String value) {
+            addCriterion("DCWFQZHM_QT >", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtGreaterThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_QT >=", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtLessThan(String value) {
+            addCriterion("DCWFQZHM_QT <", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtLessThanOrEqualTo(String value) {
+            addCriterion("DCWFQZHM_QT <=", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtLike(String value) {
+            addCriterion("DCWFQZHM_QT like", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtNotLike(String value) {
+            addCriterion("DCWFQZHM_QT not like", value, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtIn(List<String> values) {
+            addCriterion("DCWFQZHM_QT in", values, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtNotIn(List<String> values) {
+            addCriterion("DCWFQZHM_QT not in", values, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_QT between", value1, value2, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
+        public Criteria andDcwfqzhmQtNotBetween(String value1, String value2) {
+            addCriterion("DCWFQZHM_QT not between", value1, value2, "dcwfqzhmQt");
+            return (Criteria) this;
+        }
+
         public Criteria andCfnrIsNull() {
             addCriterion("CFNR is null");
             return (Criteria) this;
@@ -1358,6 +1638,66 @@ public class HzParams {
 
         public Criteria andQzhmNotBetween(String value1, String value2) {
             addCriterion("QZHM not between", value1, value2, "qzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjIsNull() {
+            addCriterion("GHSJ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjIsNotNull() {
+            addCriterion("GHSJ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjEqualTo(Date value) {
+            addCriterion("GHSJ =", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjNotEqualTo(Date value) {
+            addCriterion("GHSJ <>", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjGreaterThan(Date value) {
+            addCriterion("GHSJ >", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjGreaterThanOrEqualTo(Date value) {
+            addCriterion("GHSJ >=", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjLessThan(Date value) {
+            addCriterion("GHSJ <", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjLessThanOrEqualTo(Date value) {
+            addCriterion("GHSJ <=", value, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjIn(List<Date> values) {
+            addCriterion("GHSJ in", values, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjNotIn(List<Date> values) {
+            addCriterion("GHSJ not in", values, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjBetween(Date value1, Date value2) {
+            addCriterion("GHSJ between", value1, value2, "ghsj");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhsjNotBetween(Date value1, Date value2) {
+            addCriterion("GHSJ not between", value1, value2, "ghsj");
             return (Criteria) this;
         }
 
@@ -1573,7 +1913,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2018-09-22
+     * T_HZ 2018-10-17
      */
     public static class Criterion {
         private String condition;

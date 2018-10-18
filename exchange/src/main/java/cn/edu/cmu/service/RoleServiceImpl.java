@@ -1,5 +1,6 @@
 package cn.edu.cmu.service;
 
+import cn.edu.cmu.dao.PowerMapper;
 import cn.edu.cmu.dao.RoleMapper;
 import cn.edu.cmu.dao.RoleMenuMapper;
 import cn.edu.cmu.domain.Role;
@@ -20,14 +21,16 @@ public class RoleServiceImpl extends BaseService<Role, RoleParams, RoleMapper> i
 
     @Autowired
     private RoleMenuMapper roleMenuMapper;
+    @Autowired
+    private PowerMapper powerMapper;
 
     @Override
     public List list(Role Role) {
         RoleParams ex = new RoleParams();
-        if(Role != null){
+        if (Role != null) {
             RoleParams.Criteria c = ex.createCriteria();
-            if(StringUtils.isNotEmpty(Role.getRoleName())){
-                c.andRoleNameLike("%"+Role.getRoleName()+"%");
+            if (StringUtils.isNotEmpty(Role.getRoleName())) {
+                c.andRoleNameLike("%" + Role.getRoleName() + "%");
             }
         }
         return dao.selectByExample(ex);
@@ -38,13 +41,13 @@ public class RoleServiceImpl extends BaseService<Role, RoleParams, RoleMapper> i
     public List list(Object... conditions) throws Exception {
         RoleParams params = new RoleParams();
         RoleParams.Criteria c = params.createCriteria();
-        if(conditions != null && conditions.length>0 && conditions[0] != null){
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             Role role = (Role) conditions[0];
 
-            if(StringUtils.isNotEmpty(role.getRoleName())){
-                c.andRoleNameLike("%"+role.getRoleName()+"%");
+            if (StringUtils.isNotEmpty(role.getRoleName())) {
+                c.andRoleNameLike("%" + role.getRoleName() + "%");
             }
-            super.addOrderBy(params,conditions);
+            super.addOrderBy(params, conditions);
         }
 
         return dao.selectByExample(params);
@@ -60,19 +63,23 @@ public class RoleServiceImpl extends BaseService<Role, RoleParams, RoleMapper> i
     }
 
     @Override
-    public boolean grantMenuUpdate(String roleId,String[] menuIds) {
+    public boolean grantMenuUpdate(String roleId, String[] menuIds) {
 
         RoleMenuParams params = new RoleMenuParams();
         params.createCriteria().andRoleIdEqualTo(roleId);
         int delCount = roleMenuMapper.deleteByExample(params);
         int count = 0;
-        for(String menuId : menuIds){
-            RoleMenu rm = new RoleMenu(roleId,menuId ,null,null);
+        for (String menuId : menuIds) {
+            RoleMenu rm = new RoleMenu(roleId, menuId, null, null);
             count += roleMenuMapper.insertSelective(rm);
         }
 
 
-
         return count == menuIds.length;
+    }
+
+    @Override
+    public List<String> selectUserRoles(String userId) {
+        return powerMapper.selectUserRoles(userId);
     }
 }

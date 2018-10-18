@@ -38,19 +38,22 @@ public class HyZjServiceImpl extends BaseService<HyZj, HyZjParams, HyZjMapper> i
         HyShenbParams params = new HyShenbParams();
         HyShenbParams.Criteria c1 = params.createCriteria();
         HyShenbParams.Criteria c2= params.or();
-        c1.andStatusEqualTo("01");//并且通过才查询
+        c1.andStatusEqualTo("04");//并且通过才查询
         c2.andStatusEqualTo("04");//通过审核的会议申请
 
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             HyShenb hysb = (HyShenb) conditions[0];
 
+            if(StringUtils.isNotEmpty(hysb.getHybh())){
+                c1.andHybhLike("%"+hysb.getHybh()+"%");
+                c2.andHybhLike("%"+hysb.getHybh()+"%");
+            }
+
             if(StringUtils.isNotEmpty(hysb.getZbdw())){
                 c1.andZbdwLike("%"+hysb.getZbdw()+"%");
             }
             if(StringUtils.isNotEmpty(hysb.getCbdw())){
-
                 c2.andCbdwLike("%"+hysb.getCbdw()+"%");
-
             }
             super.addOrderBy(params,conditions);
         }

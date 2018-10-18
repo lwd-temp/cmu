@@ -72,6 +72,7 @@ var initIndex = layer.loading();
     $.ajaxSetup({
         type:'post',
         dataType:'json',
+        traditional: true,
         beforeSend:function(){
              ajaxIndex = layer.loading();
         },
@@ -241,6 +242,9 @@ $(function(){
     var dmcache = {};
 
     dmcache.getCode = function(table,paramCode){
+        if(!paramCode || paramCode =='null'){
+            return '';
+        }
         var data = this.data;
         var name = '';
         if(data){

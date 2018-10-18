@@ -15,7 +15,9 @@ public class MenuServiceImpl extends BaseService<Menu, MenuParams, MenuMapper> i
 
     @Override
     public List list(Menu Menu) {
-        return dao.selectByExample(null);
+        MenuParams param = new MenuParams();
+        param.setOrderByClause(" sort asc ");
+        return dao.selectByExample(param);
     }
 
     @Override

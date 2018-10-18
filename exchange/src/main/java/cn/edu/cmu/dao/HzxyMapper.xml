@@ -11,6 +11,7 @@
       <arg column="UPLOAD_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="QZR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="QZRZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -75,7 +76,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    XYID, XYMC, HZFMC, QDRQ, SXRQ, UPLOAD_ID, QZR, QZRZW, VALID, CREATE_TIME
+    XYID, XYMC, HZFMC, QDRQ, SXRQ, UPLOAD_ID, QZR, QZRZW, MEMO, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyParams" >
     select
@@ -112,11 +113,11 @@
   <insert id="insert" parameterType="cn.edu.cmu.domain.Hzxy" >
     insert into T_HZXY (XYID, XYMC, HZFMC, 
       QDRQ, SXRQ, UPLOAD_ID, 
-      QZR, QZRZW, VALID, 
+      QZR, QZRZW, MEMO, VALID, 
       CREATE_TIME)
     values (#{xyid,jdbcType=VARCHAR}, #{xymc,jdbcType=VARCHAR}, #{hzfmc,jdbcType=VARCHAR}, 
       #{qdrq,jdbcType=TIMESTAMP}, #{sxrq,jdbcType=TIMESTAMP}, #{uploadId,jdbcType=VARCHAR}, 
-      #{qzr,jdbcType=VARCHAR}, #{qzrzw,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{qzr,jdbcType=VARCHAR}, #{qzrzw,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Hzxy" >
@@ -145,6 +146,9 @@
       </if>
       <if test="qzrzw != null" >
         QZRZW,
+      </if>
+      <if test="memo != null" >
+        MEMO,
       </if>
       <if test="valid != null" >
         VALID,
@@ -177,6 +181,9 @@
       </if>
       <if test="qzrzw != null" >
         #{qzrzw,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -219,6 +226,9 @@
       <if test="record.qzrzw != null" >
         QZRZW = #{record.qzrzw,jdbcType=VARCHAR},
       </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
       </if>
@@ -240,6 +250,7 @@
       UPLOAD_ID = #{record.uploadId,jdbcType=VARCHAR},
       QZR = #{record.qzr,jdbcType=VARCHAR},
       QZRZW = #{record.qzrzw,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -270,6 +281,9 @@
       <if test="qzrzw != null" >
         QZRZW = #{qzrzw,jdbcType=VARCHAR},
       </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
       </if>
@@ -288,6 +302,7 @@
       UPLOAD_ID = #{uploadId,jdbcType=VARCHAR},
       QZR = #{qzr,jdbcType=VARCHAR},
       QZRZW = #{qzrzw,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where XYID = #{xyid,jdbcType=VARCHAR}

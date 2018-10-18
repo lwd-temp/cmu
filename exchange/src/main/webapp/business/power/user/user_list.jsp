@@ -114,9 +114,6 @@
         $.ajax('sys/unit/list',{
             success:function(data){
                 $(data).each(function(index,ele){
-                    if(index<3){
-                        return true;
-                    }
                     ele.isParent = true;
                 })
                 zTreeObj = $.fn.zTree.init($("#ztree"), setting, data);
@@ -166,8 +163,8 @@
                 {name: 'gh', index: 'gh'},
                 {name: 'xm', index: 'xm'},
                 {name: 'gh', index: '',formatter:function(gh){
-                    return "<button onclick='alert(\""+gh+"\")'></button>";
-                }},
+                        return "<button class='btn btn-info btn-mini' title='管理权限' onclick='grantRole(\""+gh+"\")' ><i class='ace-icon fa fa-pencil '>授权</i></button>";
+                    }},
 
             ]
 
@@ -200,16 +197,12 @@
 
 
     //修改用户
-    function editUser(userId) {
+    function grantRole(gh) {
         layer.newpage({
-            area: ['600px', '290px'],
-            title: '修改用户',
-            content: 'business/power/user/user_edit.jsp',
+            area: ['800px', ($(window).height()-50)+"px"],
+            title: '给用户授权',
+            content: 'business/power/user/user_grant.jsp?gh='+gh,
         });
     }
 
-    //删除用户
-    function delUser(userId) {
-        $(grid_selector).delGridRow(userId);
-    }
 </script>

@@ -27,7 +27,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save()throws Exception {
-        Hzxy hzxy = new Hzxy(CmuStringUtil.UUID(),"01", "01",new Date(),new Date(), "01","01","01",null,null);
+        Hzxy hzxy = null;//new Hzxy(CmuStringUtil.UUID(),"01", "01",new Date(),new Date(), "01","01","01",null,null);
         boolean success = service.insert(hzxy);
         System.out.println("Hzxy:"+hzxy);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class HzxyServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
-        Hzxy hzxy = new Hzxy(keyId,"01", "01",new Date(),new Date(), "01","01","01",null,null);
+        Hzxy hzxy = null;//new Hzxy(keyId,"01", "01",new Date(),new Date(), "01","01","01",null,null);
         boolean success = service.insert(hzxy);
         System.out.println("保存成功："+success);
         Hzxy queryHzxy = service.queryById(keyId);

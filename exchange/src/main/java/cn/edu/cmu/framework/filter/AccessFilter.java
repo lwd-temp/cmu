@@ -72,7 +72,7 @@ public class AccessFilter implements Filter {
         String ext = CmuStringUtil.REQUEST_EXTENSION_NAME(uri);
 
         logger.debug("Access URI is : " + uri);
-        logger.debug("Access ext is : " + ext);
+        //logger.debug("Access ext is : " + ext);
 
         //禁用浏览器缓存
         noCache((HttpServletResponse) servletResponse);

@@ -22,7 +22,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public MenuParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class MenuParams {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-10-17
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class MenuParams {
     }
 
     /**
-     * T_SYS_MENU 2018-10-04
+     * T_SYS_MENU 2018-10-17
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -581,6 +581,66 @@ public class MenuParams {
             return (Criteria) this;
         }
 
+        public Criteria andSortIsNull() {
+            addCriterion("SORT is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIsNotNull() {
+            addCriterion("SORT is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortEqualTo(Integer value) {
+            addCriterion("SORT =", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotEqualTo(Integer value) {
+            addCriterion("SORT <>", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThan(Integer value) {
+            addCriterion("SORT >", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortGreaterThanOrEqualTo(Integer value) {
+            addCriterion("SORT >=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThan(Integer value) {
+            addCriterion("SORT <", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortLessThanOrEqualTo(Integer value) {
+            addCriterion("SORT <=", value, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortIn(List<Integer> values) {
+            addCriterion("SORT in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotIn(List<Integer> values) {
+            addCriterion("SORT not in", values, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortBetween(Integer value1, Integer value2) {
+            addCriterion("SORT between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
+        public Criteria andSortNotBetween(Integer value1, Integer value2) {
+            addCriterion("SORT not between", value1, value2, "sort");
+            return (Criteria) this;
+        }
+
         public Criteria andMemoIsNull() {
             addCriterion("MEMO is null");
             return (Criteria) this;
@@ -793,7 +853,7 @@ public class MenuParams {
     }
 
     /**
-     * T_SYS_MENU 2018-10-04
+     * T_SYS_MENU 2018-10-17
      */
     public static class Criterion {
         private String condition;
