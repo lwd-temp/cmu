@@ -196,6 +196,7 @@ public class CgDqcgj {
 
     /**
      * 状态 暂存、已提交；提交后不能修改
+     * 01 暂存 02提交待审核 03退回 资料需修改04 审核通过资料合格 05办结
      */
     private String status;
 
@@ -219,7 +220,7 @@ public class CgDqcgj {
      */
     private Date shrq;
 
-    /**
+    /**sqlx
      * 归档文件id 此id为上传文件表的id
      */
     private String gdwjid;

@@ -48,9 +48,9 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', ($(window).height()-20)+"px"],
+                        area: ['1000px', ($(window).height()-40)+"px"],
                         title:'申请短期出国',
-                        content:'business/cggl/cggl_add.jsp',
+                        content:'cggl/add',
                     });
                 }
             }
@@ -62,21 +62,42 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'name',index:'name',  },
-                {name:'gender',index:'gender', formatter:function(gender,options,rowObject){
-                    return dmcache.getCode('t_dm_xb',gender);
+                {name:'xm',index:'xm' },
+                {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
+                    return dmcache.getCode('t_dm_xb',xb);
                 }},
-                {name:'ejdw',index:'ejdw',  },
+                {name:'ssejdw',index:'ssejdw',  },
                 {name:'cfgj',index:'cfgj',  },
-                {name:'zt',index:'zt',  },
+                {name:'status',index:'status', formatter:function(status,options,rowObject) {
+                        switch (status) {
+                            case '01':
+                                zt = "暂存";
+                                break;
+                            case '02':
+                                zt = "待审核";
+                                break;
+                            case '03':
+                                zt = "退回";
+                                break;
+                            case '04':
+                                zt = "审核通过";
+                                break;
+                            case '05':
+                                zt = "办结";
+                                break;
+                        }
+                        return zt;
+                    }
+                },
                 {name:'cgid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
-                        if(zt == '02'||zt == '03'){
+                        if(zt == '01'){
                             return  "<button class='btn btn-info btn-mini' title='编辑' onclick='editCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-pencil '>编辑</i></button>"+
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除'  onclick='delCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else{
-                            return  "<button class='btn btn-warning btn-mini' title='查看' onclick='showCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>查看</i></button>";
+                            return  "<button class='btn btn-warning btn-mini' title='查看' onclick='showCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>查看</i></button>"+
+                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='导出pdf' onclick='downCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>导出pdf</i></button>";
 
                         }
                     }
@@ -101,19 +122,13 @@
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }
-    function refreshTable(){
-        $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
-            page:1
-        }).trigger("reloadGrid");
-    }
+
     //修改
     function editCgsq(cgid){
         layer.newpage({
             area: ['1000px', ($(window).height()-20)+"px"],
             title:'编辑出国申请',
-            content:'business/cggl/cggl_edit.jsp',
+            content:'cggl/toEdit?id='+cgid,
         });
     }
     //查看
@@ -121,7 +136,7 @@
         layer.newpage({
             area: ['1000px', ($(window).height()-20)+"px"],
             title:'编辑出国申请',
-            content:'business/cggl/cggl_show.jsp',
+            content:'cggl/show?id='+cgid,
         });
     }
     //删除
@@ -140,5 +155,8 @@
                 }
             })
         })
+    }
+    function downCgsq(cgid){
+        window.open("cgglexp/downloadPdf?id="+cgid);
     }
 </script>

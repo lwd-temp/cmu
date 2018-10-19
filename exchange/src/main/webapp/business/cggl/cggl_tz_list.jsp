@@ -13,6 +13,8 @@
         <script src="<%=basePath%>assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
         <script src="<%=basePath%>assets/js/layer/layer.js"></script>
         <script src="<%=basePath%>assets/project/js/common-script.js"></script>
+        <script src="<%=basePath%>assets/js/jqvalidate/jquery.validate.min.js"></script>
+        <script src="<%=basePath%>assets/js/jqvalidate/messages_zh.js"></script>
         <link rel="stylesheet" href="<%=basePath%>assets/css/bootstrap.css" />
         <link rel="stylesheet" href="<%=basePath%>assets/css/font-awesome.css" />
         <link rel="stylesheet" href="<%=basePath%>assets/css/jquery-ui.css" />
@@ -77,9 +79,10 @@
         var settings = {
             caption: "出访计划管理",
             url:'cgjh/list',
-            colNames:['团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态"],
+            colNames:['tzid','团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态"],
             pager:pager_selector,
             colModel:[
+                {name:'tzid',index:'tzid', },
                 {name:'tzh',index:'tzh',  },
                 {name:'tzlb',index:'tzlb', formatter:function(tzlb,options,rowObject){
                         return dmcache.getCode('t_dm_tzlb',tzlb);
@@ -118,7 +121,17 @@
         });
 
         $("#xzquery").click(function(){
-            alert('选中信息')
+            var grid = $('#grid-table');
+            var rowKey = grid.getGridParam("selrow");
+            if(rowKey!=null){
+                var date = grid.jqGrid("getRowData", rowKey);
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                parent.setRel(date.tzid);
+                parent.setRelName(date.tzh);
+            }else{
+                alert('请选中一个团组')
+            }
         });
     });
     function refreshTable(){

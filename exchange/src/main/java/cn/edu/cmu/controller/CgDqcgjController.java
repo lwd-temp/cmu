@@ -1,23 +1,34 @@
 package cn.edu.cmu.controller;
-import cn.edu.cmu.domain.*;
+import cn.edu.cmu.domain.CgDqcgj;
+import cn.edu.cmu.domain.CgTzjh;
+import cn.edu.cmu.domain.Jzg;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjService;
+import cn.edu.cmu.service.CgTzjhService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
+
 @Controller
 @RequestMapping("/cggl")
 public class CgDqcgjController extends BaseController {
 
     @Autowired
     CgDqcgjService cgDqcgjService;
+
+    @Autowired
+    CgTzjhService cgTzjhService;
+
+
     /**
      * 分页查询
      *
@@ -63,21 +74,74 @@ public class CgDqcgjController extends BaseController {
     @ResponseBody
     public Map save(CgDqcgj cgDqcgj) throws Exception {
         logger.info("保存 短期出国申请 信息 :" + cgDqcgj);
-        boolean success = cgDqcgjService.insert(cgDqcgj);
+        boolean success = cgDqcgjService.saveOrUpdate(cgDqcgj);
         logger.debug("保存 短期出国申请 结果 :" + success);
         return super.ajaxStatus(success, cgDqcgj);
     }
 
     /**
      * 跳转到查询团组列表
-     * @param model
      * @return
      * @throws Exception
      */
     @RequestMapping("/selectTzList")
-    public String selectTzList(Model model) throws Exception {
-        /*List tzList = cgDqcgjService.selectTz();
-        model.addAttribute("tzList", tzList);*/
+    public String selectTzList() throws Exception {
         return "cggl/cggl_tz_list";
     }
+    /**
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/add")
+    public String add(Model model, HttpSession session) throws Exception {
+        Jzg jzg = (Jzg)session.getAttribute(CmuConstants.SESSION.USER_INFO_JZG);
+        model.addAttribute("jzg", jzg);
+        return "cggl/cggl_add";
+    }
+
+    /**
+     * 跳转到修改页面
+     *
+     * @param id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toEdit")
+    public String toEdit(String id, Model model) throws Exception {
+        CgDqcgj cgDqcgj = cgDqcgjService.queryById(id);
+
+        String tzid = cgDqcgj.getTzid();
+        CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
+        String tzname = cgTzjh.getTzh();
+
+        logger.info(cgDqcgj);
+        model.addAttribute("tzname", tzname);
+        model.addAttribute("cgdqcgj", cgDqcgj);
+        return "cggl/cggl_edit";
+    }
+
+    /**
+     * @param id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/show")
+    public String show(String id, Model model) throws Exception {
+        CgDqcgj cgDqcgj = cgDqcgjService.queryById(id);
+
+        String tzid = cgDqcgj.getTzid();
+        CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
+        String tzname = cgTzjh.getTzh();
+
+        logger.info(cgDqcgj);
+        model.addAttribute("tzname", tzname);
+        model.addAttribute("cgdqcgj", cgDqcgj);
+        return "cggl/cggl_show";
+    }
+
+
+
 }

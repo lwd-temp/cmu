@@ -21,6 +21,6 @@ import cn.edu.cmu.framework.web.IBaseService;
  *
  */
 public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
-
+    public boolean saveOrUpdate(CgDqcgj cgDqcgj) throws Exception;
 }
 
