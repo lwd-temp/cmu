@@ -48,7 +48,7 @@
         </jdbcConnection>
 
         <!--jdbc的数据库连接-->
-       <!-- <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
                         connectionURL="jdbc:oracle:thin:@192.168.199.158:1521:orcl"
                         userId="ex_pro"
                         password="SFd!F!ENk$IDJu9g">
@@ -133,9 +133,9 @@
         <table tableName="T_DM_CFMD" 	domainObjectName="DmCfmd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCfmdParams&gt;"/>
         </table>-->
-        <table tableName="T_DM_CGSQLX" 	domainObjectName="DmCgSqlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_DM_CGSQLX" 	domainObjectName="DmCgSqlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCgSqlxParams&gt;"/>
-        </table>
+        </table>-->
         <!--<table tableName="T_DM_CGSPJG" 	domainObjectName="DmCgspjg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCgspjgParams&gt;"/>
         </table>
@@ -274,9 +274,9 @@
         </table>-->
 
         <!-- 教职工-->
-       <!-- <table tableName="v_jzgjcsjxx" 	domainObjectName="Jzg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="v_jzgjcsjxx" 	domainObjectName="Jzg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.JzgParams&gt;"/>
-        </table>-->
+        </table>
 
         <!-- 班级-->
        <!-- <table tableName="v_bjsjxx" 	domainObjectName="Bjsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >

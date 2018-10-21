@@ -309,10 +309,45 @@ public class Jzg {
     private String ejdwh;
 
     /**
-     *
-     * @mbggenerated 2018-10-14
+     * null
      */
-    public Jzg(String gh, String dwh, String xm, String xmpy, String cym, String xbm, String csrq, String csdm, String jg, String mzm, String gjdqm, String sfzjlxm, String sfzjh, String sfzjyxq, String hyzkm, String gatqwm, String jkzkm, String xyzjm, String xxm, String zgxlm, String whcdm, String cjgzny, String lxrq, String qxrq, String cjny, String bzlbm, String jzglbm, String rkzkm, String dabh, String dqztm, String sfjtsyz, String sfwp, String sfzxxyeyjzg, String xyjgm, String ywxm, String xqh, String tc, String xklbm, String yjxkm, String ejxkm, String yjfx, String zzmmm, String dqzcm1, String dqzwm, String dqzwjbm, String zgxwm, String bzlxm, String xgsj, String rylxdm, String dqzcm2, String zcjb, String zyjszwZc1, String zyjszwZc2, String zyjszwZcjb, Date zyjszwPrsj, String xzzwMc, String xzzwJb, Date xzzwKssj, String glgwLx, String glgwJb, String ejdwh) {
+    private String yzbm;
+
+    /**
+     * null
+     */
+    private String txdz;
+
+    /**
+     * null
+     */
+    private String dh;
+
+    /**
+     * null
+     */
+    private String yddh;
+
+    /**
+     * null
+     */
+    private String czdh;
+
+    /**
+     * null
+     */
+    private String dzxx;
+
+    /**
+     * null
+     */
+    private String jstxh;
+
+    /**
+     *
+     * @mbggenerated 2018-10-21
+     */
+    public Jzg(String gh, String dwh, String xm, String xmpy, String cym, String xbm, String csrq, String csdm, String jg, String mzm, String gjdqm, String sfzjlxm, String sfzjh, String sfzjyxq, String hyzkm, String gatqwm, String jkzkm, String xyzjm, String xxm, String zgxlm, String whcdm, String cjgzny, String lxrq, String qxrq, String cjny, String bzlbm, String jzglbm, String rkzkm, String dabh, String dqztm, String sfjtsyz, String sfwp, String sfzxxyeyjzg, String xyjgm, String ywxm, String xqh, String tc, String xklbm, String yjxkm, String ejxkm, String yjfx, String zzmmm, String dqzcm1, String dqzwm, String dqzwjbm, String zgxwm, String bzlxm, String xgsj, String rylxdm, String dqzcm2, String zcjb, String zyjszwZc1, String zyjszwZc2, String zyjszwZcjb, Date zyjszwPrsj, String xzzwMc, String xzzwJb, Date xzzwKssj, String glgwLx, String glgwJb, String ejdwh, String yzbm, String txdz, String dh, String yddh, String czdh, String dzxx, String jstxh) {
         this.gh = gh;
         this.dwh = dwh;
         this.xm = xm;
@@ -374,11 +409,18 @@ public class Jzg {
         this.glgwLx = glgwLx;
         this.glgwJb = glgwJb;
         this.ejdwh = ejdwh;
+        this.yzbm = yzbm;
+        this.txdz = txdz;
+        this.dh = dh;
+        this.yddh = yddh;
+        this.czdh = czdh;
+        this.dzxx = dzxx;
+        this.jstxh = jstxh;
     }
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-21
      */
     public Jzg() {
         super();
@@ -1361,8 +1403,120 @@ public class Jzg {
     }
 
     /**
+     * null
+     * @return YZBM null
+     */
+    public String getYzbm() {
+        return yzbm;
+    }
+
+    /**
+     * null
+     * @param yzbm null
+     */
+    public void setYzbm(String yzbm) {
+        this.yzbm = yzbm == null ? null : yzbm.trim();
+    }
+
+    /**
+     * null
+     * @return TXDZ null
+     */
+    public String getTxdz() {
+        return txdz;
+    }
+
+    /**
+     * null
+     * @param txdz null
+     */
+    public void setTxdz(String txdz) {
+        this.txdz = txdz == null ? null : txdz.trim();
+    }
+
+    /**
+     * null
+     * @return DH null
+     */
+    public String getDh() {
+        return dh;
+    }
+
+    /**
+     * null
+     * @param dh null
+     */
+    public void setDh(String dh) {
+        this.dh = dh == null ? null : dh.trim();
+    }
+
+    /**
+     * null
+     * @return YDDH null
+     */
+    public String getYddh() {
+        return yddh;
+    }
+
+    /**
+     * null
+     * @param yddh null
+     */
+    public void setYddh(String yddh) {
+        this.yddh = yddh == null ? null : yddh.trim();
+    }
+
+    /**
+     * null
+     * @return CZDH null
+     */
+    public String getCzdh() {
+        return czdh;
+    }
+
+    /**
+     * null
+     * @param czdh null
+     */
+    public void setCzdh(String czdh) {
+        this.czdh = czdh == null ? null : czdh.trim();
+    }
+
+    /**
+     * null
+     * @return DZXX null
+     */
+    public String getDzxx() {
+        return dzxx;
+    }
+
+    /**
+     * null
+     * @param dzxx null
+     */
+    public void setDzxx(String dzxx) {
+        this.dzxx = dzxx == null ? null : dzxx.trim();
+    }
+
+    /**
+     * null
+     * @return JSTXH null
+     */
+    public String getJstxh() {
+        return jstxh;
+    }
+
+    /**
+     * null
+     * @param jstxh null
+     */
+    public void setJstxh(String jstxh) {
+        this.jstxh = jstxh == null ? null : jstxh.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-21
      */
     @Override
     public String toString() {
@@ -1431,6 +1585,13 @@ public class Jzg {
         sb.append(", glgwLx=").append(glgwLx);
         sb.append(", glgwJb=").append(glgwJb);
         sb.append(", ejdwh=").append(ejdwh);
+        sb.append(", yzbm=").append(yzbm);
+        sb.append(", txdz=").append(txdz);
+        sb.append(", dh=").append(dh);
+        sb.append(", yddh=").append(yddh);
+        sb.append(", czdh=").append(czdh);
+        sb.append(", dzxx=").append(dzxx);
+        sb.append(", jstxh=").append(jstxh);
         sb.append("]");
         return sb.toString();
     }

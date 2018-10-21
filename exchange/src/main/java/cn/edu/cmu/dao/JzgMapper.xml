@@ -64,6 +64,13 @@
       <arg column="GLGW_LX" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GLGW_JB" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="EJDWH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YZBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TXDZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YDDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CZDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DZXX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JSTXH" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -130,7 +137,7 @@
     JZGLBM, RKZKM, DABH, DQZTM, SFJTSYZ, SFWP, SFZXXYEYJZG, XYJGM, YWXM, XQH, TC, XKLBM, 
     YJXKM, EJXKM, YJFX, ZZMMM, DQZCM1, DQZWM, DQZWJBM, ZGXWM, BZLXM, XGSJ, RYLXDM, DQZCM2, 
     ZCJB, ZYJSZW_ZC1, ZYJSZW_ZC2, ZYJSZW_ZCJB, ZYJSZW_PRSJ, XZZW_MC, XZZW_JB, XZZW_KSSJ, 
-    GLGW_LX, GLGW_JB, EJDWH
+    GLGW_LX, GLGW_JB, EJDWH, YZBM, TXDZ, DH, YDDH, CZDH, DZXX, JSTXH
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.JzgParams" >
     select
@@ -173,7 +180,9 @@
       ZYJSZW_ZC1, ZYJSZW_ZC2, ZYJSZW_ZCJB, 
       ZYJSZW_PRSJ, XZZW_MC, XZZW_JB, 
       XZZW_KSSJ, GLGW_LX, GLGW_JB, 
-      EJDWH)
+      EJDWH, YZBM, TXDZ, 
+      DH, YDDH, CZDH, DZXX, 
+      JSTXH)
     values (#{gh,jdbcType=VARCHAR}, #{dwh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{xmpy,jdbcType=VARCHAR}, #{cym,jdbcType=VARCHAR}, #{xbm,jdbcType=VARCHAR}, #{csrq,jdbcType=VARCHAR}, 
       #{csdm,jdbcType=VARCHAR}, #{jg,jdbcType=VARCHAR}, #{mzm,jdbcType=VARCHAR}, #{gjdqm,jdbcType=VARCHAR}, 
@@ -193,7 +202,9 @@
       #{zyjszwZc1,jdbcType=VARCHAR}, #{zyjszwZc2,jdbcType=VARCHAR}, #{zyjszwZcjb,jdbcType=VARCHAR}, 
       #{zyjszwPrsj,jdbcType=TIMESTAMP}, #{xzzwMc,jdbcType=VARCHAR}, #{xzzwJb,jdbcType=VARCHAR}, 
       #{xzzwKssj,jdbcType=TIMESTAMP}, #{glgwLx,jdbcType=VARCHAR}, #{glgwJb,jdbcType=VARCHAR}, 
-      #{ejdwh,jdbcType=VARCHAR})
+      #{ejdwh,jdbcType=VARCHAR}, #{yzbm,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR}, 
+      #{dh,jdbcType=VARCHAR}, #{yddh,jdbcType=VARCHAR}, #{czdh,jdbcType=VARCHAR}, #{dzxx,jdbcType=VARCHAR}, 
+      #{jstxh,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Jzg" >
     insert into V_JZGJCSJXX
@@ -381,6 +392,27 @@
       <if test="ejdwh != null" >
         EJDWH,
       </if>
+      <if test="yzbm != null" >
+        YZBM,
+      </if>
+      <if test="txdz != null" >
+        TXDZ,
+      </if>
+      <if test="dh != null" >
+        DH,
+      </if>
+      <if test="yddh != null" >
+        YDDH,
+      </if>
+      <if test="czdh != null" >
+        CZDH,
+      </if>
+      <if test="dzxx != null" >
+        DZXX,
+      </if>
+      <if test="jstxh != null" >
+        JSTXH,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="gh != null" >
@@ -565,6 +597,27 @@
       </if>
       <if test="ejdwh != null" >
         #{ejdwh,jdbcType=VARCHAR},
+      </if>
+      <if test="yzbm != null" >
+        #{yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="txdz != null" >
+        #{txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="dh != null" >
+        #{dh,jdbcType=VARCHAR},
+      </if>
+      <if test="yddh != null" >
+        #{yddh,jdbcType=VARCHAR},
+      </if>
+      <if test="czdh != null" >
+        #{czdh,jdbcType=VARCHAR},
+      </if>
+      <if test="dzxx != null" >
+        #{dzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="jstxh != null" >
+        #{jstxh,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -760,6 +813,27 @@
       <if test="record.ejdwh != null" >
         EJDWH = #{record.ejdwh,jdbcType=VARCHAR},
       </if>
+      <if test="record.yzbm != null" >
+        YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.txdz != null" >
+        TXDZ = #{record.txdz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dh != null" >
+        DH = #{record.dh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yddh != null" >
+        YDDH = #{record.yddh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.czdh != null" >
+        CZDH = #{record.czdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dzxx != null" >
+        DZXX = #{record.dzxx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jstxh != null" >
+        JSTXH = #{record.jstxh,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -827,7 +901,14 @@
       XZZW_KSSJ = #{record.xzzwKssj,jdbcType=TIMESTAMP},
       GLGW_LX = #{record.glgwLx,jdbcType=VARCHAR},
       GLGW_JB = #{record.glgwJb,jdbcType=VARCHAR},
-      EJDWH = #{record.ejdwh,jdbcType=VARCHAR}
+      EJDWH = #{record.ejdwh,jdbcType=VARCHAR},
+      YZBM = #{record.yzbm,jdbcType=VARCHAR},
+      TXDZ = #{record.txdz,jdbcType=VARCHAR},
+      DH = #{record.dh,jdbcType=VARCHAR},
+      YDDH = #{record.yddh,jdbcType=VARCHAR},
+      CZDH = #{record.czdh,jdbcType=VARCHAR},
+      DZXX = #{record.dzxx,jdbcType=VARCHAR},
+      JSTXH = #{record.jstxh,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
