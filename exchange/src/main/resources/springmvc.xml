@@ -61,12 +61,12 @@
     </bean>
 
 
-    <bean id="dataSource_back" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+   <!-- <bean id="dataSource_back" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driver}"></property>
         <property name="jdbcUrl" value="${jdbc.url}"></property>
         <property name="user" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
-    </bean>
+    </bean>-->
 
 
     <!--配置数据源 druid-->

@@ -114,10 +114,9 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgRwzxqkfkParams&gt;"/>
             <columnOverride column="RWZXQK" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="RWWWCNR" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>
-        <table tableName="T_CG_SQLX" 	domainObjectName="CgSqlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgSqlxParams&gt;"/>
-        </table>
+        </table>-->
+
+        <!--
         <table tableName="T_CG_TZCY" 	domainObjectName="CgTzcy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgTzcyParams&gt;"/>
         </table>
@@ -133,8 +132,11 @@
         </table>
         <table tableName="T_DM_CFMD" 	domainObjectName="DmCfmd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCfmdParams&gt;"/>
+        </table>-->
+        <table tableName="T_DM_CGSQLX" 	domainObjectName="DmCgSqlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCgSqlxParams&gt;"/>
         </table>
-        <table tableName="T_DM_CGSPJG" 	domainObjectName="DmCgspjg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_DM_CGSPJG" 	domainObjectName="DmCgspjg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmCgspjgParams&gt;"/>
         </table>
         <table tableName="T_DM_HZZT" 	domainObjectName="DmHzzt"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -203,15 +205,15 @@
             <columnOverride column="CCQKJS" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="JYYWT" javaType="java.lang.String" jdbcType="VARCHAR" />
         </table>-->
-        <table tableName="T_HZ" 	domainObjectName="Hz"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_HZ" 	domainObjectName="Hz"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzParams&gt;"/>
-        </table>
+        </table>-->
         <!--<table tableName="T_HZ_YW" 	domainObjectName="HyYw"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyYwParams&gt;"/>
         </table>-->
-        <table tableName="T_HZXY" 	domainObjectName="Hzxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+       <!-- <table tableName="T_HZXY" 	domainObjectName="Hzxy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzxyParams&gt;"/>
-        </table>
+        </table>-->
        <!--<table tableName="T_HZXY_GB" 	domainObjectName="HzxyGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HzxyGbParams&gt;"/>
         </table>
@@ -221,9 +223,9 @@
          <table tableName="T_SJJL_ZT" 	domainObjectName="SjjlZt"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.SjjlZtParams&gt;"/>
          </table>-->
-         <table tableName="T_SYS_MENU" 	domainObjectName="Menu"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!-- <table tableName="T_SYS_MENU" 	domainObjectName="Menu"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MenuParams&gt;"/>
-         </table>
+         </table>-->
         <!--<table tableName="T_SYS_ROLE" 	domainObjectName="Role"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.RoleParams&gt;"/>
         </table>
