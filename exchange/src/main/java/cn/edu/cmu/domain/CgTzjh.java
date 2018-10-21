@@ -15,6 +15,11 @@ public class CgTzjh {
     private String tzh;
 
     /**
+     * 团组名称
+     */
+    private String tzmc;
+
+    /**
      * 团组类别：01 因公出国(赴港澳)行政类出访、02 因公出国(赴港澳)学术交流合作、03 因公出国(境)教学科研人员出国
      */
     private String tzlb;
@@ -145,7 +150,7 @@ public class CgTzjh {
     private Date rwpfsj;
 
     /**
-     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     * 任务状态
      */
     private String status;
 
@@ -161,11 +166,12 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
-    public CgTzjh(String tzid, String tzh, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
+    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
         this.tzid = tzid;
         this.tzh = tzh;
+        this.tzmc = tzmc;
         this.tzlb = tzlb;
         this.jhlx = jhlx;
         this.cfdw = cfdw;
@@ -199,7 +205,7 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public CgTzjh() {
         super();
@@ -235,6 +241,22 @@ public class CgTzjh {
      */
     public void setTzh(String tzh) {
         this.tzh = tzh == null ? null : tzh.trim();
+    }
+
+    /**
+     * 团组名称
+     * @return TZMC 团组名称
+     */
+    public String getTzmc() {
+        return tzmc;
+    }
+
+    /**
+     * 团组名称
+     * @param tzmc 团组名称
+     */
+    public void setTzmc(String tzmc) {
+        this.tzmc = tzmc == null ? null : tzmc.trim();
     }
 
     /**
@@ -654,16 +676,16 @@ public class CgTzjh {
     }
 
     /**
-     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
-     * @return STATUS 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     * 任务状态
+     * @return STATUS 任务状态
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     * 任务状态01暂存，02提交待审批，03 退回，04审批通过
-     * @param status 任务状态01暂存，02提交待审批，03 退回，04审批通过
+     * 任务状态
+     * @param status 任务状态
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
@@ -703,7 +725,7 @@ public class CgTzjh {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     @Override
     public String toString() {
@@ -713,6 +735,7 @@ public class CgTzjh {
         sb.append("Hash = ").append(hashCode());
         sb.append(", tzid=").append(tzid);
         sb.append(", tzh=").append(tzh);
+        sb.append(", tzmc=").append(tzmc);
         sb.append(", tzlb=").append(tzlb);
         sb.append(", jhlx=").append(jhlx);
         sb.append(", cfdw=").append(cfdw);

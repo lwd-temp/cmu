@@ -23,7 +23,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public CgTzjhParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-10-11
+     * @mbggenerated 2018-10-21
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-10-11
+     * T_CG_TZJH 2018-10-21
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -299,6 +299,76 @@ public class CgTzjhParams {
 
         public Criteria andTzhNotBetween(String value1, String value2) {
             addCriterion("TZH not between", value1, value2, "tzh");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcIsNull() {
+            addCriterion("TZMC is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcIsNotNull() {
+            addCriterion("TZMC is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcEqualTo(String value) {
+            addCriterion("TZMC =", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcNotEqualTo(String value) {
+            addCriterion("TZMC <>", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcGreaterThan(String value) {
+            addCriterion("TZMC >", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcGreaterThanOrEqualTo(String value) {
+            addCriterion("TZMC >=", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcLessThan(String value) {
+            addCriterion("TZMC <", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcLessThanOrEqualTo(String value) {
+            addCriterion("TZMC <=", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcLike(String value) {
+            addCriterion("TZMC like", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcNotLike(String value) {
+            addCriterion("TZMC not like", value, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcIn(List<String> values) {
+            addCriterion("TZMC in", values, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcNotIn(List<String> values) {
+            addCriterion("TZMC not in", values, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcBetween(String value1, String value2) {
+            addCriterion("TZMC between", value1, value2, "tzmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andTzmcNotBetween(String value1, String value2) {
+            addCriterion("TZMC not between", value1, value2, "tzmc");
             return (Criteria) this;
         }
 
@@ -2264,7 +2334,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-10-11
+     * T_CG_TZJH 2018-10-21
      */
     public static class Criterion {
         private String condition;

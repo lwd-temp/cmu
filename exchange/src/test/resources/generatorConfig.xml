@@ -119,11 +119,11 @@
         <!--
         <table tableName="T_CG_TZCY" 	domainObjectName="CgTzcy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgTzcyParams&gt;"/>
-        </table>
+        </table>-->
         <table tableName="T_CG_TZJH" 	domainObjectName="CgTzjh"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgTzjhParams&gt;"/>
         </table>
-        <table tableName="T_CG_CGJH_GB" 	domainObjectName="CgjhGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_CG_CGJH_GB" 	domainObjectName="CgjhGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgjhGbParams&gt;"/>
         </table>
 
@@ -274,9 +274,9 @@
         </table>-->
 
         <!-- 教职工-->
-        <table tableName="v_jzgjcsjxx" 	domainObjectName="Jzg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="v_jzgjcsjxx" 	domainObjectName="Jzg"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.JzgParams&gt;"/>
-        </table>
+        </table>-->
 
         <!-- 班级-->
        <!-- <table tableName="v_bjsjxx" 	domainObjectName="Bjsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >

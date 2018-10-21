@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -25,11 +24,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception {
-        CgTzjh CgTzjh = new CgTzjh(
-                CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01",
-                "01","01","01","01","01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
-                BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
+        CgTzjh CgTzjh = null;//new CgTzjh( CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01", "01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,   BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
         boolean success = service.insert(CgTzjh);
         System.out.println("CgTzjh:"+CgTzjh);
         System.out.println("success:"+success);
@@ -72,9 +67,7 @@ public class CgTzjhServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
-        CgTzjh CgTzjh = new CgTzjh(keyId, "01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,
-                BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
+        CgTzjh CgTzjh = null;//new CgTzjh(keyId, "01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01","01",BigDecimal.valueOf(1.34), "01",new Date(),BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) ,BigDecimal.valueOf(1.34) , "01",new Date(),"01", null, null);
         boolean success = service.insert(CgTzjh);
         System.out.println("保存成功："+success);
         CgTzjh queryCgTzjh = service.queryById(keyId);
