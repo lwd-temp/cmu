@@ -14,8 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -55,26 +56,30 @@ public class WbjdSqExtController {
     }
 
     @RequestMapping("/downloadPdf")
-    public void downloadPdf(HttpServletResponse response,String id) throws Exception {
-        response.setHeader("content-disposition", "attachment;filename=INFO.pdf");
-
+    public void downloadPdf(HttpServletResponse response, HttpServletRequest request, String id) throws Exception {
+        response.reset();
+        response.setContentType("application/x-msdownload");
+        response.setHeader("Content-Type", "application/octet-stream");
+        String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
+        String fileName = "外宾来访管理.pdf";
+        if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
+            fileName = URLEncoder.encode(fileName, "UTF-8");
+        } else {  //其他浏览器
+            fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
+        }
+        response.setHeader("content-disposition", "attachment;filename=" + fileName);
         ServletOutputStream os = response.getOutputStream();
         //变量
         WbjdSq wbjdSq = wbjdSqService.selectSqExtPdf(id);
-        logger.info(wbjdSq);
-
         WbjdSxry queryWbjdSxry = new WbjdSxry();
         queryWbjdSxry.setLfid(id);
         List sxryList = wbjdSxryService.list(queryWbjdSxry);
-        logger.info(sxryList);
-
         List<WbjdGj> gblist = wbjdGjService.selectdGjExtPdf(id);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < gblist.size(); i++) {
             sb.append(gblist.get(i).getLfjdgjid()).append("/");
         }
         String gb = sb.toString().substring(0,sb.toString().length()-1);
-        logger.info(gb);
         //还没有画样式
         String template = "demo/wbglExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(3);
