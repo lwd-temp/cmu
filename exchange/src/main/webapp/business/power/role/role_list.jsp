@@ -52,8 +52,6 @@
 
 
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -95,14 +93,7 @@
                             btn: ['确定','取消'] //按钮
                         }, function(){
                             layer.close(cindex);
-                            var index = layer.loading();
-                            setTimeout(function(){
-                                $(ids).each(function(index,id){
-                                    $(grid_selector).jqGrid('delRowData',id);
-                                });
-                                layer.close(index);
-                            },1500);
-
+                            delMulRoles(ids);
                         });
                     }else{
                         layer.alert("请选择要删除的数据",{icon:3})
@@ -115,11 +106,11 @@
         var settings = {
             caption: "角色管理",
             url:'sys/role/list',
-            colNames:[/*'ID',*/'角色名称', '创建时间', "操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"],
+            colNames:['ID','角色名称', '创建时间', "操作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                /*{name:'roleId',index:'roleId',  },*/
+                {name:'roleId',index:'roleId', key:true,hidden:true },
                 {name:'roleName',index:'roleName',  },
                 {name:'createTime',index:'createTime', formatter:function(time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
@@ -194,5 +185,20 @@
             })
         })
         //$(grid_selector).delGridRow(roleId);
+    }
+
+
+    function delMulRoles(ids){
+        $.ajax('sys/role/delMulti',{
+            data:{ids:ids},
+            success:function(res){
+                if(res && res.success){
+                    layer.alert("删除成功");
+                    refreshTable();
+                }else{
+                    layer.alert("删除失败")
+                }
+            }
+        })
     }
 </script>

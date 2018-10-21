@@ -69,12 +69,7 @@
                         }, function(){
                             layer.close(cindex);
                             var index = layer.loading();
-                            setTimeout(function(){
-                                $(ids).each(function(index,id){
-                                    $(grid_selector).jqGrid('delRowData',id);
-                                });
-                                layer.close(index);
-                            },1500);
+                            delMulRoles(ids);
                         });
                     }else{
                         layer.alert("请选择要删除的数据",{icon:3})
@@ -87,10 +82,11 @@
         var settings = {
             caption: "协议管理",
             url: 'jlxy/list',
-            colNames:['协议名称','签订日期','失效日期','电子协议','操作'],
+            colNames:['ID','协议名称','签订日期','失效日期','电子协议','操作'],
             navBtns:navBtns,
             pager:pager_selector,
             colModel:[
+                {name:'xyid',index:'xyid',key:true,hidden:true},
                 {name:'xymc',index:'xymc'},
                 {name:'qdrq',index:'qdrq',formatter:function(qdrq, options, rowObject){
                         return new Date(qdrq).getYmd("yyyy-MM-dd");
@@ -178,5 +174,28 @@
                 }
             })
         })
+    }
+
+
+    function delMulRoles(ids){
+        $.ajax('jlxy/delMulti',{
+            data:{ids:ids},
+            success:function(res){
+                if(res && res.success){
+                    layer.alert("删除成功");
+                    refreshTable();
+                }else{
+                    layer.alert("删除失败")
+                }
+            }
+        })
+    }
+
+
+    /**
+     * 上传协议成功后刷新页面
+     */
+    function uploadCall(){
+        refreshTable();
     }
 </script>

@@ -124,6 +124,22 @@ public class RoleController extends BaseController {
         return super.ajaxStatus(success);
     }
 
+    /**
+     * 根据id删除角色
+     *
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/delMulti")
+    @ResponseBody
+    public Map delMulti(String[] ids) throws Exception {
+
+        boolean success = roleService.deleteMulti(ids);
+
+        return super.ajaxStatus(success);
+    }
+
 
     /**
      * 跳转到授权页面

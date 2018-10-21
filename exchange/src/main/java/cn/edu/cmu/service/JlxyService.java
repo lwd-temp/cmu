@@ -10,5 +10,7 @@ public interface JlxyService extends IBaseService<Hzxy, HzxyParams> {
 
     public boolean updateSave(HzxyVo hzxyVo);
     public boolean insertSave(HzxyVo hzxyVo);
+
+    boolean deleteMulti(String[] ids) throws Exception;
 }
 

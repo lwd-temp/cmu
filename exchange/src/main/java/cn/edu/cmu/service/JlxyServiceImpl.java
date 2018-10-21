@@ -11,6 +11,7 @@ import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.HzxyVo;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,7 +60,25 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
         return count>0;
     }
 
+    /**
+     * 删除多条
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public boolean deleteMulti(String[] ids) throws Exception {
 
+        if(ArrayUtils.isNotEmpty(ids)){
+            for (String id : ids) {
+                deleteById(id);
+            }
+            return true;
+        }
+
+
+        return false;
+    }
 
 
     @Override

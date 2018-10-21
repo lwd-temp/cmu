@@ -1,40 +1,43 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <%
         String path = request.getContextPath();
         String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     %>
     <base href="<%=basePath%>">
-        <script src='<%=basePath%>assets/js/jquery.js'></script>
-        <script src="<%=basePath%>assets/js/bootstrap.js"></script>
-        <script src="<%=basePath%>assets/js/jqGrid/jquery.jqGrid.js"></script>
-        <script src="<%=basePath%>assets/js/dataTables/jquery.dataTables.js"></script>
-        <script src="<%=basePath%>assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
-        <script src="<%=basePath%>assets/js/layer/layer.js"></script>
-        <script src="<%=basePath%>assets/project/js/common-script.js"></script>
-        <script src="<%=basePath%>assets/js/jqvalidate/jquery.validate.min.js"></script>
-        <script src="<%=basePath%>assets/js/jqvalidate/messages_zh.js"></script>
-        <link rel="stylesheet" href="<%=basePath%>assets/css/bootstrap.css" />
-        <link rel="stylesheet" href="<%=basePath%>assets/css/font-awesome.css" />
-        <link rel="stylesheet" href="<%=basePath%>assets/css/jquery-ui.css" />
-        <link rel="stylesheet" href="<%=basePath%>assets/css/ui.jqgrid.css" />
-        <link rel="stylesheet" href="<%=basePath%>assets/css/ace-fonts.css" />
-        <link rel="stylesheet" href="<%=basePath%>assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+        <script src='assets/js/jquery.js'></script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
+        <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+        <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
+        <script src="assets/js/layer/layer.js"></script>
+        <script src="assets/project/js/common-script.js"></script>
+        <script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+        <script src="assets/js/jqvalidate/messages_zh.js"></script>
+        <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/css/font-awesome.css" />
+        <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+        <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+        <link rel="stylesheet" href="assets/css/ace-fonts.css" />
+        <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
         <!--[if lte IE 9]>
-        <link rel="stylesheet" href="<%=basePath%>assets/css/ace-part2.css" class="ace-main-stylesheet"/>
+        <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet"/>
         <![endif]-->
         <!--[if lte IE 9]>
-        <link rel="stylesheet" href="<%=basePath%>assets/css/ace-ie.css"/>
+        <link rel="stylesheet" href="assets/css/ace-ie.css"/>
         <![endif]-->
         <!--[if lte IE 8]>
-        <script src="<%=basePath%>assets/js/html5shiv.js"></script>
-        <script src="<%=basePath%>assets/js/respond.js"></script>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.js"></script>
         <![endif]-->
-</html>
+
+        <script src="assets/project/js/common-window.js"></script>
 </head>
-<div >
-    <form class="form-horizontal" role="form">
+    <body>
+    <div >
+        <form class="form-horizontal" role="form">
         <div class="form-group">
             <label class="col-sm-2 control-label no-padding-right" for="condition1"> 团组号: </label>
             <div class="col-sm-3">
@@ -59,12 +62,13 @@
 </div>
 
 
+
 <script type="text/javascript">
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
+
+
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         $(window).on('resize.jqGrid', function () {
             $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
@@ -82,7 +86,7 @@
             colNames:['tzid','团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态"],
             pager:pager_selector,
             colModel:[
-                {name:'tzid',index:'tzid', },
+                {name:'tzid',index:'tzid', key:true,hidden:true } , //hidden,表示不用显示在页面
                 {name:'tzh',index:'tzh',  },
                 {name:'tzlb',index:'tzlb', formatter:function(tzlb,options,rowObject){
                         return dmcache.getCode('t_dm_tzlb',tzlb);
@@ -124,16 +128,17 @@
             var grid = $('#grid-table');
             var rowKey = grid.getGridParam("selrow");
             if(rowKey!=null){
-                var date = grid.jqGrid("getRowData", rowKey);
-                var index = parent.layer.getFrameIndex(window.name);
-                parent.layer.close(index);
-                parent.setRel(date.tzid);
-                parent.setRelName(date.tzh);
+                selectData = grid.jqGrid("getRowData", rowKey);
+                callback(selectData);
+                closeLayer();
             }else{
                 alert('请选中一个团组')
             }
         });
     });
+
+
+
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
@@ -144,3 +149,5 @@
         }).trigger("reloadGrid");
     }
 </script>
+    </body>
+</html>

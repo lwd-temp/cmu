@@ -22,5 +22,6 @@ import cn.edu.cmu.framework.web.IBaseService;
  */
 public interface ContactService extends IBaseService<Contact, ContactParams> {
 
+    boolean deleteMulti(String[] ids) throws Exception;
 }
 

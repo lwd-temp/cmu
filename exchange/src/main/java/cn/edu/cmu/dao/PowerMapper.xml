@@ -12,8 +12,22 @@
     </select>
 
 
+    <!-- 查询用户权限菜单-->
+    <select id="selectUserMenu" parameterType="java.lang.String" resultMap="cn.edu.cmu.dao.MenuMapper.BaseResultMap">
+        select distinct *
+          from t_sys_menu
+         where valid='1'
+              and menu_id in (select role_menu.menu_id
+                             from t_sys_role_menu role_menu
+                            inner join t_sys_user_role user_role
 
+                               on role_menu.role_id = user_role.role_id
+                                inner join t_sys_role role
+                               on role.role_id = user_role.role_id and role.valid = '1'
 
+                            where user_role.user_id = #{userId})
+         order by sort
+    </select>
 
 
 

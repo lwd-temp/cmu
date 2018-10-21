@@ -1,5 +1,7 @@
 package cn.edu.cmu.dao;
 
+import cn.edu.cmu.domain.Menu;
+
 import java.util.List;
 
 /**
@@ -13,5 +15,6 @@ public interface PowerMapper {
     
     List<String> selectUserRoles(String userId);
 
+    List<Menu> selectUserMenu(String userId);
 
 }

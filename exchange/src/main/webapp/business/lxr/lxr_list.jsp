@@ -41,8 +41,6 @@
 
 
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -84,13 +82,7 @@
                             btn: ['确定','取消'] //按钮
                         }, function(){
                             layer.close(cindex);
-                            var index = layer.loading();
-                            setTimeout(function(){
-                                $(ids).each(function(index,id){
-                                    $(grid_selector).jqGrid('delRowData',id);
-                                });
-                                layer.close(index);
-                            },1500);
+                            delMulRoles(ids);
 
                         });
                     }else{
@@ -105,10 +97,11 @@
             caption: "联系人管理",
             /*data: grid_data,*/
             url:'lxr/list',
-            colNames:['姓名','性别', '国籍', '专业领域','关联项目',"操作"],
+            colNames:["ID",'姓名','性别', '国籍', '专业领域','关联项目',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
+                {name:'lxrId',index:'lxrId',  key:true,hidden:true},
                 {name:'name',index:'name',  },
                 {name:'gender',index:'gender', formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);//从缓存中获取代码对应的名称
@@ -175,6 +168,20 @@
                     }
                 }
             })
+        })
+    }
+
+    function delMulRoles(ids){
+        $.ajax('lxr/delMulti',{
+            data:{ids:ids},
+            success:function(res){
+                if(res && res.success){
+                    layer.alert("删除成功");
+                    refreshTable();
+                }else{
+                    layer.alert("删除失败")
+                }
+            }
         })
     }
 

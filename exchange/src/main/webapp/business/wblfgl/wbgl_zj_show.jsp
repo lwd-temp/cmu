@@ -212,35 +212,26 @@
                 </div>
                 <hr/>
                 <div class="form-group">
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         姓名
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         国籍
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         职务
                     </div>
                 </div>
-                    <c:choose>
-                        <c:when test="${sxryList!=null && sxryList.size()>0}">
-                            <c:forEach items="${sxryList}" var="sxr">
-                                <div class="form-group sxr">
-                                    <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
-                                    <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
-                                    <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
-                                </div>
-                            </c:forEach>
-                        </c:when>
-                        <c:otherwise>
-                            <div class="form-group sxr">
-                                <div class="col-xs-3"><input type="text" inp="xm"   disabled="disabled" placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="gj"   disabled="disabled" placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"     name="sxr[@].zw" class="col-xs-12"/></div>
 
+                    <c:if test="${sxryList!=null && sxryList.size()>0}">
+                        <c:forEach items="${sxryList}" var="sxr">
+                            <div class="form-group sxr">
+                                <div class="col-xs-4"><input type="text" inp="xm" disabled="disabled" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                <div class="col-xs-4"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                <div class="col-xs-4"><input type="text" inp="zw"  disabled="disabled" placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
                             </div>
-                        </c:otherwise>
-                    </c:choose>
+                        </c:forEach>
+                    </c:if>
                 <div  class="col-md-offset-3 col-md-9">
                     <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>

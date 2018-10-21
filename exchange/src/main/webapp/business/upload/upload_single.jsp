@@ -186,6 +186,9 @@
             success: function (ret) {
                 if(ret && ret.success){
                     closeLayer();
+                    if('uploadCall' in parent.window){
+                        parent.window.uploadCall();
+                    }
                     winAlert("上传成功...");
                 }else{
                     parent.layer.alert("上传失败 :"+ret.msg);

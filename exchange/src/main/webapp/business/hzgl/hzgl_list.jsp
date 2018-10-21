@@ -21,8 +21,6 @@
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         $(window).on('resize.jqGrid', function () {
             $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
@@ -75,7 +73,7 @@
         var settings = {
             caption: "护照管理",
             url: 'hzgl/list',
-            colNames:['姓名','性别','状态','操作'],
+            colNames:['姓名','性别','护照号码','出生日期','状态','操作'],
             navBtns:navBtns,
             pager:pager_selector,
             colModel:[
@@ -83,6 +81,10 @@
                 {name:'gender',index:'gender', formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);
                     } },
+                {name:'hzhm',index:'hzhm'},
+                {name:'birthday',index:'birthday',formatter:function(birthday){
+                        return new Date(birthday).getYmd("yyyy年MM月dd日")
+                    }},
                 {name:'status',index:'status', formatter:function(status){
                         return dmcache.getCode("t_dm_hzzt",status);
                     } },

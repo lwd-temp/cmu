@@ -127,7 +127,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label "  > 出访团组   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  id="tzname" onclick="clicktzid()" class="col-xs-12" />
+                            <input type="text"  id="tzh" onclick="clicktzid()" class="col-xs-12" />
                             <input type="text"  name="tzid"  id="tzid"  hidden="hidden"/>
                         </div>
                         <label class="col-xs-2 control-label "  > 出访开始日期 </label>
@@ -370,15 +370,27 @@
     }
 
     function clicktzid() {
-        layer.open({
+
+        var index = parent.layer.open({
             type: 2,
-            area: ['950px', ($(window).height()-200)+"px"],
+            area: ['1000px', ($(parent).height()-10)+"px"],
             maxmin: true,
             content:'cggl/selectTzList',
+            success:function(layero, index){
+
+                var fraWinName = layero.find('iframe')[0]['name'];
+                //设置打开窗口的回调函数,及调用此函数接受参数
+                parent.frames[fraWinName].callback = function(tzjh){
+
+                    $("#tzid").val(tzjh.tzid);
+                    $("#tzh").val(tzjh.tzh);
+                    // $("#tzmc").val(tzjh.tzmc);  在加一个团组名称字段
+                };
+            },
         });
 
     }
-    function setRel(rel){
+    /*function setRel(rel){
         $("#tzid").val(rel);
         this.rel=rel;
     }
@@ -391,7 +403,7 @@
     }
     function getRelName(){
         return relname;
-    }
+    }*/
 </script>
 </body>
 </html>

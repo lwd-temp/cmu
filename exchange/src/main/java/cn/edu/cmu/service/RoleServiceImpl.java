@@ -8,6 +8,7 @@ import cn.edu.cmu.domain.RoleMenu;
 import cn.edu.cmu.domain.RoleMenuParams;
 import cn.edu.cmu.domain.RoleParams;
 import cn.edu.cmu.framework.web.BaseService;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -81,5 +82,20 @@ public class RoleServiceImpl extends BaseService<Role, RoleParams, RoleMapper> i
     @Override
     public List<String> selectUserRoles(String userId) {
         return powerMapper.selectUserRoles(userId);
+    }
+
+    @Override
+    public boolean deleteMulti(String[] ids) throws Exception {
+
+
+        if(ArrayUtils.isNotEmpty(ids)){
+            for (String id : ids) {
+               deleteById(id);
+            }
+            return true;
+        }
+
+
+        return false;
     }
 }

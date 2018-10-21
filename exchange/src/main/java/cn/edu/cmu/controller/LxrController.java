@@ -117,6 +117,19 @@ public class LxrController extends BaseController {
         return super.ajaxStatus(success);
     }
 
+    /**
+     * 删除多条
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/delMulti")
+    @ResponseBody
+    public Map delMulti(String[] ids) throws Exception {
 
+        boolean success = contactService.deleteMulti(ids);
+
+        return super.ajaxStatus(success);
+    }
 
 }

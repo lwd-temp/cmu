@@ -1,7 +1,9 @@
 package cn.edu.cmu.controller;
 
 import cn.edu.cmu.domain.Menu;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.YmlUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.MenuService;
 import com.github.pagehelper.StringUtil;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
 
@@ -89,9 +92,20 @@ public class MenuController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/umenu_list")
-    public List umenuList() throws Exception {
+    public List umenuList(HttpSession session) throws Exception {
 
-        List list = menuService.list(new Menu());
+        List list = null;
+
+
+        boolean debug = Boolean.valueOf((Boolean) YmlUtils.getProperty("sys.debug.switch"));
+        String uName = (String) session.getAttribute(CmuConstants.SESSION.USER_NAME);
+        if(debug){
+            logger.info("debug模式，加载用户【"+uName+"】的菜单权限");
+            list = menuService.list(new Menu());
+        }else{
+            list = menuService.userMenuList(session);
+            logger.info("查询用户【"+uName+"】菜单权限，菜单条数："+list.size());
+        }
 
         return list;
     }

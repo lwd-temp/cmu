@@ -142,7 +142,20 @@ public class JlxyController extends BaseController {
     }
 
 
+    /**
+     * 删除多条
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/delMulti")
+    @ResponseBody
+    public Map delMulti(String[] ids) throws Exception {
 
+        boolean success = jlxyService.deleteMulti(ids);
+
+        return super.ajaxStatus(success);
+    }
 
 
 

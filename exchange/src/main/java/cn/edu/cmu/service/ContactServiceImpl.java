@@ -4,6 +4,7 @@ import cn.edu.cmu.dao.ContactMapper;
 import cn.edu.cmu.domain.Contact;
 import cn.edu.cmu.domain.ContactParams;
 import cn.edu.cmu.framework.web.BaseService;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +54,19 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
         }
 
         return dao.selectByExample(params);
+    }
+
+    @Override
+    public boolean deleteMulti(String[] ids) throws Exception {
+
+        if(ArrayUtils.isNotEmpty(ids)){
+            for (String id : ids) {
+                deleteById(id);
+            }
+            return true;
+        }
+
+
+        return false;
     }
 }

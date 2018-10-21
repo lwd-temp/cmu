@@ -2,7 +2,7 @@ sys:
   debug:
     #DEBUG开关
     switch:
-      true
+      false
   #ignoreLogin 是否忽略注释 true、false
   ignoreLogin:
     switch:

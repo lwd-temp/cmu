@@ -16,5 +16,6 @@ public interface RoleService extends IBaseService<Role, RoleParams> {
 
     public List<String> selectUserRoles(String userId);
 
+    boolean deleteMulti(String[] ids) throws Exception;
 }
 
