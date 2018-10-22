@@ -6,6 +6,7 @@ import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
+import cn.edu.cmu.service.JzgService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +30,8 @@ public class CgDqcgjController extends BaseController {
     @Autowired
     CgTzjhService cgTzjhService;
 
+    @Autowired
+    JzgService jzgService;
 
     /**
      * 分页查询
@@ -96,6 +100,10 @@ public class CgDqcgjController extends BaseController {
     @RequestMapping("/add")
     public String add(Model model, HttpSession session) throws Exception {
         Jzg jzg = (Jzg)session.getAttribute(CmuConstants.SESSION.USER_INFO_JZG);
+        String ejdwid = jzg.getEjdwh();
+        //String ejdwmc = jzgService.selectEjdwmc(ejdwid);
+        //String name = (String) ejdwmc.get("name");
+        model.addAttribute("ssejdwMc", ejdwid);
         model.addAttribute("jzg", jzg);
         return "cggl/cggl_add";
     }
@@ -114,10 +122,11 @@ public class CgDqcgjController extends BaseController {
 
         String tzid = cgDqcgj.getTzid();
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzname = cgTzjh.getTzh();
-
+        String tzh = cgTzjh.getTzh();
+        String tzmc = cgTzjh.getTzmc();
         logger.info(cgDqcgj);
-        model.addAttribute("tzname", tzname);
+        model.addAttribute("tzh", tzh);
+        model.addAttribute("tzmc", tzmc);
         model.addAttribute("cgdqcgj", cgDqcgj);
         return "cggl/cggl_edit";
     }
@@ -134,10 +143,11 @@ public class CgDqcgjController extends BaseController {
 
         String tzid = cgDqcgj.getTzid();
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzname = cgTzjh.getTzh();
-
+        String tzh = cgTzjh.getTzh();
+        String tzmc = cgTzjh.getTzmc();
         logger.info(cgDqcgj);
-        model.addAttribute("tzname", tzname);
+        model.addAttribute("tzh", tzh);
+        model.addAttribute("tzmc", tzmc);
         model.addAttribute("cgdqcgj", cgDqcgj);
         return "cggl/cggl_show";
     }

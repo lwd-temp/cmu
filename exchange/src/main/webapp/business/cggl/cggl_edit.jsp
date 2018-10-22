@@ -85,23 +85,24 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 所属二级单位   : </label>
+                    <label class="col-xs-2 control-label "  > 所属二级单位: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="ssejdw"  id="ssejdw" value="${cgdqcgj.ssejdw}"  readonly="readonly"     class="col-xs-12" />
+                        <input type="hidden" name="ssejdw"  value="${cgdqcgj.ssejdw}" />
+                        <input type="text" id="ssejdw" value="${ssejdwMc}"  readonly="readonly"  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label "  > 科室: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="ks"  id="ks"   readonly="readonly"   value="${cgdqcgj.ks}"   class="col-xs-12" />
+                        <input type="text"  name="ks"  id="ks"  value="${cgdqcgj.ks}"   class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 职务   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="zw"   id="zw" readonly="readonly"    value="${cgdqcgj.zw}"  class="col-xs-12" />
+                        <input type="text"  name="zw"   id="zw"     value="${cgdqcgj.zw}"  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label "  > 职称: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="zc"   id="zc" readonly="readonly"   value="${cgdqcgj.zc}"   class="col-xs-12" />
+                        <input type="text"  name="zc"   id="zc"     value="${cgdqcgj.zc}"   class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -126,27 +127,35 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 出访团组   : </label>
+                    <label class="col-xs-2 control-label "  > 出访团组号   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  id="tzname" onclick="clicktzid()" value="${tzname}"  class="col-xs-12" />
-                        <input type="text"  name="tzid"   id="tzid"  value="${cgdqcgj.tzid}"  hidden="hidden"/>
+                        <input type="hidden"  name="tzid"   id="tzid"  value="${cgdqcgj.tzid}" />
+                        <input type="text"  id="tzh" onclick="clicktzid()" value="${tzh}"  class="col-xs-12" />
+
                     </div>
+                    <label class="col-xs-2 control-label "  > 出访团组名称   : </label>
+                    <div class="col-xs-4">
+                        <input type="text"  id="tzmc" onclick="clicktzid()" value="${tzmc}"  class="col-xs-12" />
+                    </div>
+
+                </div>
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 出访开始日期 </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="cfksrq"
                                value="<fmt:formatDate value="${cgdqcgj.cfksrq}" pattern="yyyy-MM-dd"/>"
                                id="cfksrq" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                </div>
-                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 出访结束日期   : </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="cfjsrq"
                                value="<fmt:formatDate value="${cgdqcgj.cfjsrq}" pattern="yyyy-MM-dd"/>"
                                id="cfjsrq" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 出访目的: </label>
-                    <div class="col-xs-4">
+                    <div class="col-xs-10">
                         <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd_Qt" data-placeholder="请选择出访目的"
                                  value="${cgdqcgj.cfmd}" onchange="selectcfmd(this)"></dm:list>
                     </div>
@@ -280,8 +289,6 @@
 <script src="assets/project/js/common-window.js"></script>
 
 <script>
-    var rel="";
-    var relname="";
     $(function () {
         var cfmd =  $("#cfmd_Qt").val();
         if (cfmd == '99') {
@@ -321,7 +328,7 @@
             //校验规则
             rules: {
                 "cfmd":{ required:true},
-                /*"cglx":{ required:true},*/
+                "cglx":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},
                 "yqrDw":{ required:true},
@@ -385,27 +392,21 @@
     }
 
     function clicktzid() {
-        layer.open({
+        var index = parent.layer.open({
             type: 2,
-            area: ['950px', ($(window).height()-200)+"px"],
+            area: ['1000px', ($(parent).height()-10)+"px"],
             maxmin: true,
             content:'cggl/selectTzList',
+            success:function(layero, index){
+                var fraWinName = layero.find('iframe')[0]['name'];
+                //设置打开窗口的回调函数,及调用此函数接受参数
+                parent.frames[fraWinName].callback = function(tzjh){
+                    $("#tzid").val(tzjh.tzid);
+                    $("#tzh").val(tzjh.tzh);
+                    $("#tzmc").val(tzjh.tzmc);
+                };
+            },
         });
-
-    }
-    function setRel(rel){
-        $("#tzid").val(rel);
-        this.rel=rel;
-    }
-    function getRel(){
-        return rel;
-    }
-    function setRelName(relname){
-        $("#tzname").val(relname);
-        this.relname=relname;
-    }
-    function getRelName(){
-        return relname;
     }
 </script>
 </body>

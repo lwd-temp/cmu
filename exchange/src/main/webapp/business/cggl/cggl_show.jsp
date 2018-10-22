@@ -273,7 +273,6 @@
 <script>
     $(function () {
         var cfmd = $("#cfmd_Qt").val();
-        alert(cfmd)
         if (cfmd == '99') {
             $("#cfmdQt").show();
         } else {

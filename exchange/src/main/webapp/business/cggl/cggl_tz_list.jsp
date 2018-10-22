@@ -83,7 +83,7 @@
         var settings = {
             caption: "出访计划管理",
             url:'cgjh/list',
-            colNames:['tzid','团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态"],
+            colNames:['tzid','团组号','团组类别', '团组负责人姓名', '团组级别','团组名称',"状态"],
             pager:pager_selector,
             colModel:[
                 {name:'tzid',index:'tzid', key:true,hidden:true } , //hidden,表示不用显示在页面
@@ -95,7 +95,7 @@
                 {name:'tzjb',index:'tzjb', formatter:function(tzjb,options,rowObject){
                         return dmcache.getCode('t_dm_tzjb',tzjb);
                     }   },
-                {name:'cfts',index:'cfts',  },
+                {name:'tzmc',index:'tzmc',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                             var zt = "未知";
                             switch (status) {
