@@ -100,39 +100,30 @@
                     <div class="col-xs-4">
                         <input type="text" id="tzh" readonly="readonly" placeholder="保存后自动生成" class="col-xs-12"/>
                     </div>
-                    <label class="col-xs-2 control-label "> 团组类别: </label>
+
+                    <label class="col-xs-2 control-label "> 团组名称: </label>
+
                     <div class="col-xs-4">
-
-
-                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
-
+                        <input type="text" id="tzmc" name="cgTzjh.tzmc" placeholder="团组名称" class="col-xs-12"/>
                     </div>
-
-
                 </div>
 
 
                 <div class="form-group">
+                    <label class="col-xs-2 control-label "> 团组类别: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
+                    </div>
                     <label class="col-xs-2 control-label "> 计划类型: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="T_DM_JHLX" id="jhlx" name="cgTzjh.jhlx"  data-placeholder="请选择计划类型" ></dm:list>
-
                     </div>
-                    <label class="col-xs-2 control-label "> 出访单位: </label>
-
-                    <div class="col-xs-4">
-                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="中国医科大学" class="col-xs-12"/>
-                    </div>
-
                 </div>
-
-
                 <div class="form-group">
+
                     <label class="col-xs-2 control-label "> 团组级别: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="T_DM_TZJB" id="tzjb" name="cgTzjh.tzjb"  data-placeholder="请选择团组级别" ></dm:list>
-
-
                     </div>
                     <label class="col-xs-2 control-label "> 自主或参加双跨: </label>
                     <div class="col-xs-4">
@@ -206,8 +197,13 @@
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访任务: </label>
-                    <div class="col-xs-10">
+                    <div class="col-xs-4">
                         <input class="form-control " name="cgTzjh.cfrw" id="cfrw" value="" type="text"/>
+                    </div>
+                    <label class="col-xs-2 control-label "> 出访单位: </label>
+
+                    <div class="col-xs-4">
+                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="中国医科大学" class="col-xs-12"/>
                     </div>
 
                 </div>
@@ -396,6 +392,7 @@
             //校验规则
             rules: {
                 "cgTzjh.tzlb":{ required:true},
+                "cgTzjh.tzmc":{ required:true},
                 "cgTzjh.jhlx":{ required:true},
                 "cgTzjh.cfdw":{ required:true},
                 "cgTzjh.tzjb":{ required:true},

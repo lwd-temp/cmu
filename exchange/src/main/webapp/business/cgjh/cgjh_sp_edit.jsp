@@ -98,28 +98,29 @@
                     <div class="col-xs-4">
                         <input type="text" id="tzh" readonly="readonly" value="${cgTzjh.tzh}" placeholder="保存后自动生成" class="col-xs-12"/>
                     </div>
+
+                    <label class="col-xs-2 control-label "> 团组名称: </label>
+
+                    <div class="col-xs-4">
+                        <input type="text" id="tzmc" readonly="readonly" value="${cgTzjh.tzmc}"  class="col-xs-12"/>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组类别: </label>
                     <div class="col-xs-4">
 
                         <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb" value="${cgTzjh.tzlb}"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
 
                     </div>
-
-
-                </div>
-
-
-                <div class="form-group">
                     <label class="col-xs-2 control-label "> 计划类型: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="T_DM_JHLX" id="jhlx" name="cgTzjh.jhlx" value="${cgTzjh.jhlx}" data-placeholder="请选择计划类型" ></dm:list>
 
                     </div>
-                    <label class="col-xs-2 control-label "> 出访单位: </label>
 
-                    <div class="col-xs-4">
-                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="${cgTzjh.cfdw}" value="中国医科大学" class="col-xs-12"/>
-                    </div>
 
                 </div>
 
@@ -203,10 +204,14 @@
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访任务: </label>
-                    <div class="col-xs-10">
+                    <div class="col-xs-4">
                         <input class="form-control " name="cgTzjh.cfrw" id="cfrw"  value="${cgTzjh.cfrw}" type="text"/>
                     </div>
+                    <label class="col-xs-2 control-label "> 出访单位: </label>
 
+                    <div class="col-xs-4">
+                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="${cgTzjh.cfdw}" value="中国医科大学" class="col-xs-12"/>
+                    </div>
                 </div>
 
 
@@ -420,6 +425,7 @@
             //校验规则
             rules: {
                 "cgTzjh.tzlb":{ required:true},
+                "cgTzjh.tzmc":{ required:true},
                 "cgTzjh.jhlx":{ required:true},
                 "cgTzjh.cfdw":{ required:true},
                 "cgTzjh.tzjb":{ required:true},
