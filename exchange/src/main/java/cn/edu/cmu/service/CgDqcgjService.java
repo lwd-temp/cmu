@@ -15,6 +15,8 @@ import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgDqcgjParams;
 import cn.edu.cmu.framework.web.IBaseService;
 
+import java.util.List;
+
 /**
  * 用户操作的 业务的抽象
  * @author jshand
@@ -22,5 +24,13 @@ import cn.edu.cmu.framework.web.IBaseService;
  */
 public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
     public boolean saveOrUpdate(CgDqcgj cgDqcgj) throws Exception;
+
+    public String selectXb(String xb);
+
+    public String selectCglx(String cglx);
+
+    public String selectCfmd(String cfmd);
+
+    public List shlist(Object... conditions)throws Exception;
 }
 

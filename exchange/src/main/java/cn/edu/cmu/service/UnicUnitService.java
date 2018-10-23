@@ -14,4 +14,5 @@ import cn.edu.cmu.framework.web.IBaseService;
 public interface UnicUnitService  extends IBaseService<UnicUnit, UnicUnitParams> {
 
 
+    public  UnicUnit queryMcById(String ejdwid);
 }

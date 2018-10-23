@@ -2,8 +2,11 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.CgDqcgjMapper;
 import cn.edu.cmu.dao.CgTzjhMapper;
+import cn.edu.cmu.dao.DmXbMapper;
 import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgDqcgjParams;
+import cn.edu.cmu.domain.DmXb;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
 import com.github.pagehelper.StringUtil;
@@ -36,6 +39,8 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
     @Autowired
     private CgTzjhMapper cgTzjhMapper;
 
+    @Autowired
+    private DmXbMapper dmXbMapper;
 
 
     @Override
@@ -80,5 +85,41 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
             dao.insertSelective(cgDqcgj);
         }
         return true;
+    }
+
+    @Override
+    public String selectXb(String xb) {
+        DmXb dmXb = (DmXb) dmXbMapper.selectByPrimaryKey(xb);
+        return dmXb.getName();
+    }
+
+    @Override
+    public String selectCglx(String cglx) {
+        return null;
+    }
+
+    @Override
+    public String selectCfmd(String cfmd) {
+        return null;
+    }
+
+
+
+    @Override
+    public List shlist(Object... conditions) throws Exception{
+        CgDqcgjParams params = new CgDqcgjParams();
+        CgDqcgjParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.REVIEW);
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            CgDqcgj cgDqcgj= (CgDqcgj) conditions[0];
+            if(StringUtils.isNotEmpty(cgDqcgj.getCfgj())){
+                c.andCfgjLike("%"+cgDqcgj.getCfgj()+"%");
+            }
+            if(StringUtils.isNotEmpty(cgDqcgj.getXm())){
+                c.andXmLike("%"+cgDqcgj.getXm()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+        return dao.selectByExample(params);
     }
 }

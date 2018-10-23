@@ -63,8 +63,8 @@
                         <label class="col-xs-2 control-label"  > 出生日期 : </label>
                         <div class="col-xs-4">
 
-                            <input class="form-control date-picker" name="csrq" id="csrq"
-                                   value="${jzg.csrq}"
+                            <input class="form-control" name="csrq" id="csrq"
+                                   value="${jzg.csrq}" readonly="readonly"
                                    type="text" data-date-format="yyyy-mm-dd" />
 
                         </div>
@@ -87,7 +87,7 @@
                         <label class="col-xs-2 control-label"  > 所属二级单位   : </label>
                         <div class="col-xs-4">
                             <input type="hidden" name="ssejdw"  value="${jzg.ejdwh}" />
-                            <input type="text" id="ssejdw" value="${ssejdwMc}"  readonly="readonly"  class="col-xs-12" />
+                            <input type="text"   value="${ssejdwMc}"  readonly="readonly"  class="col-xs-12" />
                         </div>
                         <label class="col-xs-2 control-label"  > 科室: </label>
                         <div class="col-xs-4">
@@ -107,11 +107,11 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 联系电话   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yddh" id="yddh" value="${jzg.yddh}"  class="col-xs-12" />
+                            <input type="text"  name="lxdh" id="yddh" value="${jzg.yddh}"  class="col-xs-12" />
                         </div>
                         <label class="col-xs-2 control-label "  > 邮箱: </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="dzxx" id="dzxx" value="${jzg.dzxx}"   class="col-xs-12" />
+                            <input type="text"  name="email" id="dzxx" value="${jzg.dzxx}"   class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -129,12 +129,12 @@
                         <label class="col-xs-2 control-label"  > 出访团组号   : </label>
                         <div class="col-xs-4">
                             <input type="hidden"  name="tzid"  id="tzid"  />
-                            <input type="text"  id="tzh" onclick="clicktzid()" class="col-xs-12" />
+                            <input type="text"  id="tzh" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 出访团组名称   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  id="tzmc" onclick="clicktzid()" class="col-xs-12" />
+                            <input type="text"  id="tzmc" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -152,7 +152,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 出访目的: </label>
                         <div class="col-xs-10">
-                            <dm:list tabName="t_dm_cfmd"  name="cfmd"  data-placeholder="请选择出访目的"  onchange="selectcfmd(this)"></dm:list>
+                            <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" data-placeholder="请选择出访目的"  onchange="selectcfmd(this)"></dm:list>
                         </div>
                     </div>
                     <div class="form-group" id="cfmdQt">
@@ -228,13 +228,13 @@
                         </div>
                     </div>
 
-                    <div class="form-group" id="jfysmx">
+                    <div class="form-group jfysmx">
                         <label class="col-xs-2 control-label"> 经费预算明细  : </label>
                         <div class="col-xs-10">
                             <textarea class="form-control" name="jfysmx"  maxlength="300"></textarea>
                         </div>
                     </div>
-                    <div class="form-group" id="jfyshj">
+                    <div class="form-group jfyshj">
                         <label class="col-xs-2 control-label"> 预算合计  : </label>
                         <div class="col-xs-10">
                             <input type="text"  name="jfyshj"  class="col-xs-12" />
@@ -286,7 +286,12 @@
 <script>
 
     $(function () {
-        $('#cfmdQt').hide();
+        var cfmd =  $("#cfmd").val();
+        if (cfmd == '99') {
+            $("#cfmdQt").show();
+        }else{
+            $("#cfmdQt").hide();
+        }
 
         setFormValid();//设置校验规则
 
@@ -356,14 +361,15 @@
     //选择出国类型
     function selectcglx(select) {
         var cglx = $(select).val();
-        if (cglx == '99') {//因私短期出国
-            $("#jfysmx").hide();
-            $("#jfyshj").hide();
+        if (cglx == '01') {//因私短期出国
+            $(".jfysmx").hide();
+            $(".jfyshj").hide();
         }else{
-            $("#jfysmx").show();
-            $("#jfyshj").show();
+            $(".jfysmx").show();
+            $(".jfyshj").show();
         }
     }
+
     //选择出访目的
     function selectcfmd(select) {
         var cfmd = $(select).val();

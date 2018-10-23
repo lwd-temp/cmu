@@ -157,6 +157,10 @@
         })
     }
     function downCgsq(cgid){
-        window.open("cgglexp/downloadPdf?id="+cgid);
+        layer.newpage({
+            area: ['600px', ($(window).height()-600)+"px"],
+            title:'填写申请信息',
+            content:'cggl/sqbsm?cgid='+cgid,
+        });
     }
 </script>
