@@ -20,12 +20,12 @@ public class Xm {
     private String xmzm;
 
     /**
-     * null
+     * 关联项目名称id
      */
     private String glxmmcid;
 
     /**
-     * null
+     * 项目名称
      */
     private String xmmc;
 
@@ -110,6 +110,11 @@ public class Xm {
     private String xmnjxz;
 
     /**
+     * 语言要求
+     */
+    private String yyyq;
+
+    /**
      * 项目专业限制
      */
     private String xmzyxz;
@@ -136,9 +141,9 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-23
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String jlmbgj, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String xmzyxz, String operatorCode, String status, String valid, Date createTime) {
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String jlmbgj, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String yyyq, String xmzyxz, String operatorCode, String status, String valid, Date createTime) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -160,6 +165,7 @@ public class Xm {
         this.sfxzrs = sfxzrs;
         this.jhrs = jhrs;
         this.xmnjxz = xmnjxz;
+        this.yyyq = yyyq;
         this.xmzyxz = xmzyxz;
         this.operatorCode = operatorCode;
         this.status = status;
@@ -169,7 +175,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-23
      */
     public Xm() {
         super();
@@ -224,32 +230,32 @@ public class Xm {
     }
 
     /**
-     * null
-     * @return GLXMMCID null
+     * 关联项目名称id
+     * @return GLXMMCID 关联项目名称id
      */
     public String getGlxmmcid() {
         return glxmmcid;
     }
 
     /**
-     * null
-     * @param glxmmcid null
+     * 关联项目名称id
+     * @param glxmmcid 关联项目名称id
      */
     public void setGlxmmcid(String glxmmcid) {
         this.glxmmcid = glxmmcid == null ? null : glxmmcid.trim();
     }
 
     /**
-     * null
-     * @return XMMC null
+     * 项目名称
+     * @return XMMC 项目名称
      */
     public String getXmmc() {
         return xmmc;
     }
 
     /**
-     * null
-     * @param xmmc null
+     * 项目名称
+     * @param xmmc 项目名称
      */
     public void setXmmc(String xmmc) {
         this.xmmc = xmmc == null ? null : xmmc.trim();
@@ -512,6 +518,22 @@ public class Xm {
     }
 
     /**
+     * 语言要求
+     * @return YYYQ 语言要求
+     */
+    public String getYyyq() {
+        return yyyq;
+    }
+
+    /**
+     * 语言要求
+     * @param yyyq 语言要求
+     */
+    public void setYyyq(String yyyq) {
+        this.yyyq = yyyq == null ? null : yyyq.trim();
+    }
+
+    /**
      * 项目专业限制
      * @return XMZYXZ 项目专业限制
      */
@@ -593,7 +615,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-23
      */
     @Override
     public String toString() {
@@ -622,6 +644,7 @@ public class Xm {
         sb.append(", sfxzrs=").append(sfxzrs);
         sb.append(", jhrs=").append(jhrs);
         sb.append(", xmnjxz=").append(xmnjxz);
+        sb.append(", yyyq=").append(yyyq);
         sb.append(", xmzyxz=").append(xmzyxz);
         sb.append(", operatorCode=").append(operatorCode);
         sb.append(", status=").append(status);

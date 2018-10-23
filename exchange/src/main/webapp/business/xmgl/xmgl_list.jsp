@@ -35,17 +35,6 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-            {id:"1",	xmzm:"项目总名1",kssj:"2017-02-01",	jssj:"2018-12-08",	cc:"本科",  jfly:'2017-01-01'},
-            {id:"2",	xmzm:"项目总名2",kssj:"2017-03-01",	jssj:"2018-11-08",	cc:"硕士",  jfly:'2016-01-01'},
-            {id:"3",	xmzm:"项目总名3",kssj:"2017-04-01",	jssj:"2018-10-08",	cc:"博士",  jfly:'2015-01-01'},
-            {id:"4",	xmzm:"项目总名4",kssj:"2017-05-01",	jssj:"2018-09-08",	cc:"本科",  jfly:'2014-01-01'},
-            {id:"5",	xmzm:"项目总名5",kssj:"2017-06-01",	jssj:"2018-08-08",	cc:"博士",  jfly:'2013-01-01'},
-            {id:"6",	xmzm:"项目总名6",kssj:"2017-07-01",	jssj:"2018-07-08",	cc:"本科",  jfly:'2012-01-01'},
-            {id:"7",	xmzm:"项目总名7",kssj:"2017-08-01",	jssj:"2018-06-08",	cc:"博士",  jfly:'2011-01-01'},
-            {id:"8",	xmzm:"项目总名8",kssj:"2017-09-01",	jssj:"2018-05-08",	cc:"本科",  jfly:'2010-01-01'},
-        ];
 
 
     var grid_selector = "#grid-table";
@@ -53,8 +42,6 @@
 
 
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -89,16 +76,25 @@
 
         var settings = {
             caption: "项目管理",
-            data: grid_data,
+           /* data: grid_data,*/
+            url:'xm/list',
             colNames:['项目名称','开始时间', '结束时间', '层次','经费来源',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmzm',index:'xmzm',  },
-                {name:'kssj',index:'kssj',  },
-                {name:'jssj',index:'jssj',  },
-                {name:'cc',index:'cc',  },
-                {name:'jfly',index:'jfly',  },
+                {name:'xmmc',index:'xmmc',  },
+                {name:'xmkssj',index:'xmkssj', formatter:function( time){
+                    return new Date(time).getYmd("yyyy年MM月dd日")
+                    } },
+                {name:'smjssj',index:'smjssj', formatter:function( time){
+                        return new Date(time).getYmd("yyyy年MM月dd日")
+                    }   },
+                {name:'xmcc',index:'xmcc',formatter:function(xmccdm){
+                        return dmcache.getCode('T_DM_XMCC',xmccdm);
+                    }  },
+                {name:'jfly',index:'jfly', formatter:function(jfly){
+                        return dmcache.getCode('T_DM_JFLY',jfly);
+                    }  },
 
                 {name:'id',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
@@ -135,8 +131,10 @@
     function refreshTable(){
 
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{
+                'xmmc':$("#condition").val(),//项目名称
+                'xmzm':$("#condition").val() //项目总名
+            },
             page:1
         }).trigger("reloadGrid");
     }

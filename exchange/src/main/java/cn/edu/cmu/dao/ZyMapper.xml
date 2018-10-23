@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.ZyMapper" >
+
+
+
+
+    <select id="selectZyList" resultType="java.lang.String" >
+        select distinct  zymc from (
+            select bkszy.zymc zymc from v_bks_zyxxsjxx bkszy
+            union all
+            select yjszy.zymc zymc from v_yjs_zyxxsjxx yjszy
+        )
+    </select>
+
+
+
+
+
+
+</mapper>

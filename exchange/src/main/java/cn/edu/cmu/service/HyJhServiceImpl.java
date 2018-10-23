@@ -17,7 +17,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.List;
 
 /*
@@ -102,7 +101,7 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
             count = dao.updateByPrimaryKeySelective(hyjh);
         }else{
             //新增需要生成会议编号
-            String hybh = DateUtils.getYear() + "909" + MaxNumUtils.getMaxNum("hyjh", (long) Calendar.getInstance().get(Calendar.YEAR), 3);
+            String hybh = DateUtils.getYear() + "909" + MaxNumUtils.getMaxNum("hyjh", DateUtils.getYear(), 3);
             hyjh.setHybh(hybh);
             count = dao.insertSelective(hyjh);
         }

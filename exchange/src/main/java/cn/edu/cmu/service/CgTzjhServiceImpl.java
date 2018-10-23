@@ -115,7 +115,7 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
 
         }else{  //添加
             //新增时需要生成团组号 2018-01-000001   ---> 201801000001
-            String tzh = String.valueOf(DateUtils.getYear())+cgTzjh.getTzlb()+MaxNumUtils.getMaxNum("tzh",2018L,6);
+            String tzh = String.valueOf(DateUtils.getYear())+cgTzjh.getTzlb()+MaxNumUtils.getMaxNum("tzh",DateUtils.getYear(),6);
             cgTzjh.setTzh(tzh);
 
             dao.insertSelective(cgTzjh);

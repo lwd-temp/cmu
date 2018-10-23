@@ -25,6 +25,37 @@ function winAlert(msg, setting) {
     parent.layer.alert(msg, setting);
 }
 
+/**
+ * 选择录入框匹配模式
+ * @param strs
+ * @returns {findMatches}
+ */
+function substringMatcher(strs) {
+    return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        // an array that will be populated with substring matches
+        matches = [];
+
+        // regex used to determine if a string contains the substring `q`
+        substrRegex = new RegExp(q, 'i');
+
+        // iterate through the pool of strings and for any string that
+        // contains the substring `q`, add it to the `matches` array
+        $.each(strs, function(i, str) {
+            if (substrRegex.test(str)) {
+                // the typeahead jQuery plugin expects suggestions to a
+                // JavaScript object, refer to typeahead docs for more info
+                matches.push({ value: str });
+            }
+        });
+
+        cb(matches);
+    }
+}
+
+
+
 var ajaxIndex;
 
 $.ajaxSetup({
@@ -70,6 +101,44 @@ $.fn.extend({
         }
         $.extend(settings, options);
         return $(form).validate(settings);
+    },
+
+
+    inputSelect:function(values){
+        var that = this;
+
+        if( typeof(values) =='object' && values instanceof Array ) {
+            $(that).typeahead({
+                hint: true,
+                highlight: true,
+                minLength: 1
+            }, {
+                name: 'states',
+                displayKey: 'value',
+                source: substringMatcher(values),
+                limit: 10
+            });
+        }else if( typeof(values) == 'string'){
+            var url = values;
+            $.ajax(url,{
+                success:function(resp){
+                    if(resp && resp.success){
+                        values = resp.data;
+                        $(that).typeahead({
+                            hint: true,
+                            highlight: true,
+                            minLength: 1
+                        }, {
+                            name: 'states',
+                            displayKey: 'value',
+                            source: substringMatcher(values),
+                            limit: 10
+                        });
+                    }
+                }
+            })
+        }
+
     }
 
 })
@@ -117,7 +186,12 @@ $(function () {
 
     try {
         //下拉选
-        $('.chosen-select').chosen({allow_single_deselect: true});
+        $('.chosen-select').chosen({
+            allow_single_deselect: true,
+            no_results_text: "未找到",
+            placeholder_text : "请选择",
+            search_contains: true,
+        });
     } catch (e) {
         console.error("下拉选处理失败");
     }

@@ -17,7 +17,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Calendar;
 import java.util.List;
 import java.util.UUID;
 
@@ -163,7 +162,7 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         //新增需要生成会议编号
         BeanUtils.copyProperties(hyjh,hysb);
 
-        String hybh = DateUtils.getYear() + "909" + MaxNumUtils.getMaxNum("hyjh", (long) Calendar.getInstance().get(Calendar.YEAR), 3);
+        String hybh = DateUtils.getYear() + "909" + MaxNumUtils.getMaxNum("hyjh",  DateUtils.getYear(), 3);
         hyjh.setHybh(hybh);
         hyjh.setJhid    (CmuStringUtil.UUID());
 
