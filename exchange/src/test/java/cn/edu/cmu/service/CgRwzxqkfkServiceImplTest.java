@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.List;
 
 
@@ -26,9 +24,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception {
-        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(CmuStringUtil.UUID(), "02","02","02","02",
-                "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
-                "02","02","02","02","02","02","01",null,null);
+        CgRwzxqkfk cgRwzxqkfk = null;//new CgRwzxqkfk(CmuStringUtil.UUID(), "02","02","02","02", "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(), "02","02","02","02","02","02","01",null,null);
         boolean success = service.insert(cgRwzxqkfk);
         System.out.println("cgRwzxqkfk:"+cgRwzxqkfk);
         System.out.println("success:"+success);
@@ -72,9 +68,7 @@ public class CgRwzxqkfkServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
-        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk(keyId, "02","02","02","02",
-                "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(),
-                "02","02","02","02","02","02","01",null,null);
+        CgRwzxqkfk cgRwzxqkfk = null;//new CgRwzxqkfk(keyId, "02","02","02","02", "02", BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34),BigDecimal.valueOf(1.34), new Date(),new  Date(), "02","02","02","02","02","02","01",null,null);
         boolean success = service.insert(cgRwzxqkfk);
         System.out.println("保存成功：" + success);
         CgRwzxqkfk queryCgRwzxqkfk = service.queryById(keyId);
