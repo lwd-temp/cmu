@@ -23,7 +23,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public CgRwzxqkfkParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgRwzxqkfkParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgRwzxqkfkParams {
     }
 
     /**
-     * T_CG_RWZXQKFK 2018-09-22
+     * T_CG_RWZXQKFK 2018-10-24
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -442,6 +442,76 @@ public class CgRwzxqkfkParams {
             return (Criteria) this;
         }
 
+        public Criteria andXbIsNull() {
+            addCriterion("XB is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbIsNotNull() {
+            addCriterion("XB is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbEqualTo(String value) {
+            addCriterion("XB =", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbNotEqualTo(String value) {
+            addCriterion("XB <>", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbGreaterThan(String value) {
+            addCriterion("XB >", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbGreaterThanOrEqualTo(String value) {
+            addCriterion("XB >=", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbLessThan(String value) {
+            addCriterion("XB <", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbLessThanOrEqualTo(String value) {
+            addCriterion("XB <=", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbLike(String value) {
+            addCriterion("XB like", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbNotLike(String value) {
+            addCriterion("XB not like", value, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbIn(List<String> values) {
+            addCriterion("XB in", values, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbNotIn(List<String> values) {
+            addCriterion("XB not in", values, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbBetween(String value1, String value2) {
+            addCriterion("XB between", value1, value2, "xb");
+            return (Criteria) this;
+        }
+
+        public Criteria andXbNotBetween(String value1, String value2) {
+            addCriterion("XB not between", value1, value2, "xb");
+            return (Criteria) this;
+        }
+
         public Criteria andTzzdwIsNull() {
             addCriterion("TZZDW is null");
             return (Criteria) this;
@@ -579,6 +649,76 @@ public class CgRwzxqkfkParams {
 
         public Criteria andTzzwNotBetween(String value1, String value2) {
             addCriterion("TZZW not between", value1, value2, "tzzw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwIsNull() {
+            addCriterion("SSEJDW is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwIsNotNull() {
+            addCriterion("SSEJDW is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwEqualTo(String value) {
+            addCriterion("SSEJDW =", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwNotEqualTo(String value) {
+            addCriterion("SSEJDW <>", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwGreaterThan(String value) {
+            addCriterion("SSEJDW >", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwGreaterThanOrEqualTo(String value) {
+            addCriterion("SSEJDW >=", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwLessThan(String value) {
+            addCriterion("SSEJDW <", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwLessThanOrEqualTo(String value) {
+            addCriterion("SSEJDW <=", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwLike(String value) {
+            addCriterion("SSEJDW like", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwNotLike(String value) {
+            addCriterion("SSEJDW not like", value, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwIn(List<String> values) {
+            addCriterion("SSEJDW in", values, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwNotIn(List<String> values) {
+            addCriterion("SSEJDW not in", values, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwBetween(String value1, String value2) {
+            addCriterion("SSEJDW between", value1, value2, "ssejdw");
+            return (Criteria) this;
+        }
+
+        public Criteria andSsejdwNotBetween(String value1, String value2) {
+            addCriterion("SSEJDW not between", value1, value2, "ssejdw");
             return (Criteria) this;
         }
 
@@ -1432,6 +1572,76 @@ public class CgRwzxqkfkParams {
             return (Criteria) this;
         }
 
+        public Criteria andStatusIsNull() {
+            addCriterion("STATUS is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIsNotNull() {
+            addCriterion("STATUS is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusEqualTo(String value) {
+            addCriterion("STATUS =", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotEqualTo(String value) {
+            addCriterion("STATUS <>", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThan(String value) {
+            addCriterion("STATUS >", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusGreaterThanOrEqualTo(String value) {
+            addCriterion("STATUS >=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThan(String value) {
+            addCriterion("STATUS <", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLessThanOrEqualTo(String value) {
+            addCriterion("STATUS <=", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusLike(String value) {
+            addCriterion("STATUS like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotLike(String value) {
+            addCriterion("STATUS not like", value, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusIn(List<String> values) {
+            addCriterion("STATUS in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotIn(List<String> values) {
+            addCriterion("STATUS not in", values, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusBetween(String value1, String value2) {
+            addCriterion("STATUS between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
+        public Criteria andStatusNotBetween(String value1, String value2) {
+            addCriterion("STATUS not between", value1, value2, "status");
+            return (Criteria) this;
+        }
+
         public Criteria andValidIsNull() {
             addCriterion("VALID is null");
             return (Criteria) this;
@@ -1574,7 +1784,7 @@ public class CgRwzxqkfkParams {
     }
 
     /**
-     * T_CG_RWZXQKFK 2018-09-22
+     * T_CG_RWZXQKFK 2018-10-24
      */
     public static class Criterion {
         private String condition;

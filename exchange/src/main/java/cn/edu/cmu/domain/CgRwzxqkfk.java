@@ -25,6 +25,11 @@ public class CgRwzxqkfk {
     private String tzxm;
 
     /**
+     * null
+     */
+    private String xb;
+
+    /**
      * 团长单位
      */
     private String tzzdw;
@@ -33,6 +38,11 @@ public class CgRwzxqkfk {
      * 团长职务
      */
     private String tzzw;
+
+    /**
+     * null
+     */
+    private String ssejdw;
 
     /**
      * 批准出访人数
@@ -100,6 +110,11 @@ public class CgRwzxqkfk {
     private String cgid;
 
     /**
+     * null
+     */
+    private String status;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -111,15 +126,17 @@ public class CgRwzxqkfk {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
-    public CgRwzxqkfk(String rwfkId, String tzdw, String cfgjdq, String tzxm, String tzzdw, String tzzw, BigDecimal pzcfrw, BigDecimal pzcfts, BigDecimal sjcfrs, BigDecimal sjcfts, Date cjsj, Date rjsj, String rwpjwh, String cfbt, String rwzxqk, String rwwwcnr, String tbr, String tbrDh, String cgid, String valid, Date createTime) {
+    public CgRwzxqkfk(String rwfkId, String tzdw, String cfgjdq, String tzxm, String xb, String tzzdw, String tzzw, String ssejdw, BigDecimal pzcfrw, BigDecimal pzcfts, BigDecimal sjcfrs, BigDecimal sjcfts, Date cjsj, Date rjsj, String rwpjwh, String cfbt, String rwzxqk, String rwwwcnr, String tbr, String tbrDh, String cgid, String status, String valid, Date createTime) {
         this.rwfkId = rwfkId;
         this.tzdw = tzdw;
         this.cfgjdq = cfgjdq;
         this.tzxm = tzxm;
+        this.xb = xb;
         this.tzzdw = tzzdw;
         this.tzzw = tzzw;
+        this.ssejdw = ssejdw;
         this.pzcfrw = pzcfrw;
         this.pzcfts = pzcfts;
         this.sjcfrs = sjcfrs;
@@ -133,13 +150,14 @@ public class CgRwzxqkfk {
         this.tbr = tbr;
         this.tbrDh = tbrDh;
         this.cgid = cgid;
+        this.status = status;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     public CgRwzxqkfk() {
         super();
@@ -210,6 +228,22 @@ public class CgRwzxqkfk {
     }
 
     /**
+     * null
+     * @return XB null
+     */
+    public String getXb() {
+        return xb;
+    }
+
+    /**
+     * null
+     * @param xb null
+     */
+    public void setXb(String xb) {
+        this.xb = xb == null ? null : xb.trim();
+    }
+
+    /**
      * 团长单位
      * @return TZZDW 团长单位
      */
@@ -239,6 +273,22 @@ public class CgRwzxqkfk {
      */
     public void setTzzw(String tzzw) {
         this.tzzw = tzzw == null ? null : tzzw.trim();
+    }
+
+    /**
+     * null
+     * @return SSEJDW null
+     */
+    public String getSsejdw() {
+        return ssejdw;
+    }
+
+    /**
+     * null
+     * @param ssejdw null
+     */
+    public void setSsejdw(String ssejdw) {
+        this.ssejdw = ssejdw == null ? null : ssejdw.trim();
     }
 
     /**
@@ -450,6 +500,22 @@ public class CgRwzxqkfk {
     }
 
     /**
+     * null
+     * @return STATUS null
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * null
+     * @param status null
+     */
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -483,7 +549,7 @@ public class CgRwzxqkfk {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-24
      */
     @Override
     public String toString() {
@@ -495,8 +561,10 @@ public class CgRwzxqkfk {
         sb.append(", tzdw=").append(tzdw);
         sb.append(", cfgjdq=").append(cfgjdq);
         sb.append(", tzxm=").append(tzxm);
+        sb.append(", xb=").append(xb);
         sb.append(", tzzdw=").append(tzzdw);
         sb.append(", tzzw=").append(tzzw);
+        sb.append(", ssejdw=").append(ssejdw);
         sb.append(", pzcfrw=").append(pzcfrw);
         sb.append(", pzcfts=").append(pzcfts);
         sb.append(", sjcfrs=").append(sjcfrs);
@@ -510,6 +578,7 @@ public class CgRwzxqkfk {
         sb.append(", tbr=").append(tbr);
         sb.append(", tbrDh=").append(tbrDh);
         sb.append(", cgid=").append(cgid);
+        sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

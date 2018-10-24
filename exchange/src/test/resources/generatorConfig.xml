@@ -109,12 +109,12 @@
         </table>
         <table tableName="T_CG_DQCGJ" 	domainObjectName="CgDqcgj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgDqcgjParams&gt;"/>
-        </table>
+        </table>-->
         <table tableName="T_CG_RWZXQKFK" 	domainObjectName="CgRwzxqkfk"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgRwzxqkfkParams&gt;"/>
             <columnOverride column="RWZXQK" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="RWWWCNR" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>-->
+        </table>
 
         <!--
         <table tableName="T_CG_TZCY" 	domainObjectName="CgTzcy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -262,11 +262,11 @@
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
          </table>
         -->
-         <table tableName="T_XM" 	domainObjectName="Xm"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!-- <table tableName="T_XM" 	domainObjectName="Xm"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmParams&gt;"/>
              <columnOverride column="XMGK" javaType="java.lang.String" jdbcType="VARCHAR" />
              <columnOverride column="XMZZJH" javaType="java.lang.String" jdbcType="VARCHAR" />
-         </table>
+         </table>-->
 
         <!-- 机构-->
       <!--  <table tableName="v_uicm_unit" 	domainObjectName="UnicUnit"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >

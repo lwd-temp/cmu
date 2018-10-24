@@ -7,8 +7,10 @@
       <arg column="TZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CFGJDQ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XB" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SSEJDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="PZCFRW" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="PZCFTS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="SJCFRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -22,6 +24,7 @@
       <arg column="TBR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TBR_DH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -86,8 +89,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    RWFK_ID, TZDW, CFGJDQ, TZXM, TZZDW, TZZW, PZCFRW, PZCFTS, SJCFRS, SJCFTS, CJSJ, RJSJ, 
-    RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID, VALID, CREATE_TIME
+    RWFK_ID, TZDW, CFGJDQ, TZXM, XB, TZZDW, TZZW, SSEJDW, PZCFRW, PZCFTS, SJCFRS, SJCFTS, 
+    CJSJ, RJSJ, RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" >
     select
@@ -123,21 +126,21 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.CgRwzxqkfk" >
     insert into T_CG_RWZXQKFK (RWFK_ID, TZDW, CFGJDQ, 
-      TZXM, TZZDW, TZZW, 
-      PZCFRW, PZCFTS, SJCFRS, 
-      SJCFTS, CJSJ, RJSJ, 
-      RWPJWH, CFBT, RWZXQK, 
-      RWWWCNR, TBR, TBR_DH, 
-      CGID, VALID, CREATE_TIME
-      )
+      TZXM, XB, TZZDW, TZZW, 
+      SSEJDW, PZCFRW, PZCFTS, 
+      SJCFRS, SJCFTS, CJSJ, 
+      RJSJ, RWPJWH, CFBT, 
+      RWZXQK, RWWWCNR, TBR, 
+      TBR_DH, CGID, STATUS, 
+      VALID, CREATE_TIME)
     values (#{rwfkId,jdbcType=VARCHAR}, #{tzdw,jdbcType=VARCHAR}, #{cfgjdq,jdbcType=VARCHAR}, 
-      #{tzxm,jdbcType=VARCHAR}, #{tzzdw,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, 
-      #{pzcfrw,jdbcType=DECIMAL}, #{pzcfts,jdbcType=DECIMAL}, #{sjcfrs,jdbcType=DECIMAL}, 
-      #{sjcfts,jdbcType=DECIMAL}, #{cjsj,jdbcType=TIMESTAMP}, #{rjsj,jdbcType=TIMESTAMP}, 
-      #{rwpjwh,jdbcType=VARCHAR}, #{cfbt,jdbcType=VARCHAR}, #{rwzxqk,jdbcType=VARCHAR}, 
-      #{rwwwcnr,jdbcType=VARCHAR}, #{tbr,jdbcType=VARCHAR}, #{tbrDh,jdbcType=VARCHAR}, 
-      #{cgid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{tzxm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{tzzdw,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, 
+      #{ssejdw,jdbcType=VARCHAR}, #{pzcfrw,jdbcType=DECIMAL}, #{pzcfts,jdbcType=DECIMAL}, 
+      #{sjcfrs,jdbcType=DECIMAL}, #{sjcfts,jdbcType=DECIMAL}, #{cjsj,jdbcType=TIMESTAMP}, 
+      #{rjsj,jdbcType=TIMESTAMP}, #{rwpjwh,jdbcType=VARCHAR}, #{cfbt,jdbcType=VARCHAR}, 
+      #{rwzxqk,jdbcType=VARCHAR}, #{rwwwcnr,jdbcType=VARCHAR}, #{tbr,jdbcType=VARCHAR}, 
+      #{tbrDh,jdbcType=VARCHAR}, #{cgid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgRwzxqkfk" >
     insert into T_CG_RWZXQKFK
@@ -154,11 +157,17 @@
       <if test="tzxm != null" >
         TZXM,
       </if>
+      <if test="xb != null" >
+        XB,
+      </if>
       <if test="tzzdw != null" >
         TZZDW,
       </if>
       <if test="tzzw != null" >
         TZZW,
+      </if>
+      <if test="ssejdw != null" >
+        SSEJDW,
       </if>
       <if test="pzcfrw != null" >
         PZCFRW,
@@ -199,6 +208,9 @@
       <if test="cgid != null" >
         CGID,
       </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
       <if test="valid != null" >
         VALID,
       </if>
@@ -219,11 +231,17 @@
       <if test="tzxm != null" >
         #{tzxm,jdbcType=VARCHAR},
       </if>
+      <if test="xb != null" >
+        #{xb,jdbcType=VARCHAR},
+      </if>
       <if test="tzzdw != null" >
         #{tzzdw,jdbcType=VARCHAR},
       </if>
       <if test="tzzw != null" >
         #{tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="ssejdw != null" >
+        #{ssejdw,jdbcType=VARCHAR},
       </if>
       <if test="pzcfrw != null" >
         #{pzcfrw,jdbcType=DECIMAL},
@@ -264,6 +282,9 @@
       <if test="cgid != null" >
         #{cgid,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
       </if>
@@ -293,11 +314,17 @@
       <if test="record.tzxm != null" >
         TZXM = #{record.tzxm,jdbcType=VARCHAR},
       </if>
+      <if test="record.xb != null" >
+        XB = #{record.xb,jdbcType=VARCHAR},
+      </if>
       <if test="record.tzzdw != null" >
         TZZDW = #{record.tzzdw,jdbcType=VARCHAR},
       </if>
       <if test="record.tzzw != null" >
         TZZW = #{record.tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ssejdw != null" >
+        SSEJDW = #{record.ssejdw,jdbcType=VARCHAR},
       </if>
       <if test="record.pzcfrw != null" >
         PZCFRW = #{record.pzcfrw,jdbcType=DECIMAL},
@@ -338,6 +365,9 @@
       <if test="record.cgid != null" >
         CGID = #{record.cgid,jdbcType=VARCHAR},
       </if>
+      <if test="record.status != null" >
+        STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
       </if>
@@ -355,8 +385,10 @@
       TZDW = #{record.tzdw,jdbcType=VARCHAR},
       CFGJDQ = #{record.cfgjdq,jdbcType=VARCHAR},
       TZXM = #{record.tzxm,jdbcType=VARCHAR},
+      XB = #{record.xb,jdbcType=VARCHAR},
       TZZDW = #{record.tzzdw,jdbcType=VARCHAR},
       TZZW = #{record.tzzw,jdbcType=VARCHAR},
+      SSEJDW = #{record.ssejdw,jdbcType=VARCHAR},
       PZCFRW = #{record.pzcfrw,jdbcType=DECIMAL},
       PZCFTS = #{record.pzcfts,jdbcType=DECIMAL},
       SJCFRS = #{record.sjcfrs,jdbcType=DECIMAL},
@@ -370,6 +402,7 @@
       TBR = #{record.tbr,jdbcType=VARCHAR},
       TBR_DH = #{record.tbrDh,jdbcType=VARCHAR},
       CGID = #{record.cgid,jdbcType=VARCHAR},
+      STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -388,11 +421,17 @@
       <if test="tzxm != null" >
         TZXM = #{tzxm,jdbcType=VARCHAR},
       </if>
+      <if test="xb != null" >
+        XB = #{xb,jdbcType=VARCHAR},
+      </if>
       <if test="tzzdw != null" >
         TZZDW = #{tzzdw,jdbcType=VARCHAR},
       </if>
       <if test="tzzw != null" >
         TZZW = #{tzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="ssejdw != null" >
+        SSEJDW = #{ssejdw,jdbcType=VARCHAR},
       </if>
       <if test="pzcfrw != null" >
         PZCFRW = #{pzcfrw,jdbcType=DECIMAL},
@@ -433,6 +472,9 @@
       <if test="cgid != null" >
         CGID = #{cgid,jdbcType=VARCHAR},
       </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
       </if>
@@ -447,8 +489,10 @@
     set TZDW = #{tzdw,jdbcType=VARCHAR},
       CFGJDQ = #{cfgjdq,jdbcType=VARCHAR},
       TZXM = #{tzxm,jdbcType=VARCHAR},
+      XB = #{xb,jdbcType=VARCHAR},
       TZZDW = #{tzzdw,jdbcType=VARCHAR},
       TZZW = #{tzzw,jdbcType=VARCHAR},
+      SSEJDW = #{ssejdw,jdbcType=VARCHAR},
       PZCFRW = #{pzcfrw,jdbcType=DECIMAL},
       PZCFTS = #{pzcfts,jdbcType=DECIMAL},
       SJCFRS = #{sjcfrs,jdbcType=DECIMAL},
@@ -462,6 +506,7 @@
       TBR = #{tbr,jdbcType=VARCHAR},
       TBR_DH = #{tbrDh,jdbcType=VARCHAR},
       CGID = #{cgid,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where RWFK_ID = #{rwfkId,jdbcType=VARCHAR}
