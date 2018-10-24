@@ -22,17 +22,20 @@ public abstract class BasetTag extends TagSupport  implements DynamicAttributes 
 
     protected PageContext pageContext;
     protected JspWriter out;
-    protected Map dynamicAttribute = new HashMap<String,String>();
-    protected StringBuffer daValue = new StringBuffer();
+    protected Map dynamicAttribute ;
+    protected StringBuffer daValue ;
     @Override
     public void setPageContext(PageContext pageContext) {
         this.pageContext=pageContext;
         out = pageContext.getOut();
+        dynamicAttribute = new HashMap<String,String>();
+        daValue = new StringBuffer();
     }
 
     @Override
     public  int doStartTag() throws JspException{
         try {
+            System.out.println("daValue : "+daValue);
             tagHeader();
             tagContent();
             tagEnd();
@@ -66,7 +69,6 @@ public abstract class BasetTag extends TagSupport  implements DynamicAttributes 
         dynamicAttribute.put(localName,value.toString());
         daValue.append(String.format(" %s='%s'",localName,value.toString()));
     }
-
 
 
 }
