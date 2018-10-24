@@ -1,10 +1,11 @@
 package cn.edu.cmu.service;
-
 import cn.edu.cmu.dao.CgDqcgjMapper;
+import cn.edu.cmu.dao.CgRwzxqkfkMapper;
 import cn.edu.cmu.dao.CgTzjhMapper;
 import cn.edu.cmu.dao.DmXbMapper;
 import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgDqcgjParams;
+import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.DmXb;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
@@ -13,22 +14,7 @@ import com.github.pagehelper.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
-
-/*
-*
- * <p><b>Project:</b>  		《ssm-0726》</p>
- * <p><b>Title:</b>   		UserServiceImpl</p>
- * <p><b>Description:</b> 	Description  </p>
- * <p><b>Company:</b>		www.neusoft.com.cn </p>
- * <p><b>Site:</b>			http://314649444.iteye.com/  </p>
- *
- * @date 2018-7-26   下午2:04:03
- * @author 东软，张金山
-*/
-
 
 @Service
 public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDqcgjMapper> implements CgDqcgjService {
@@ -42,6 +28,8 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
     @Autowired
     private DmXbMapper dmXbMapper;
 
+    @Autowired
+    private CgRwzxqkfkMapper cgRwzxqkfkMapper;
 
     @Override
     public List list(CgDqcgj cgDqcgj) {
@@ -54,6 +42,7 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
         }
         return dao.selectByExample(ex);
     }
+
 
     @Override
     public List list(Object... conditions) throws Exception {
@@ -121,5 +110,26 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
             super.addOrderBy(params,conditions);
         }
         return dao.selectByExample(params);
+    }
+
+    @Override
+    public boolean shSave(CgDqcgj cgDqcgj) {
+        dao.updateByPrimaryKeySelective(cgDqcgj);
+        if(cgDqcgj.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
+            CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
+            String keyId = CmuStringUtil.UUID();
+
+            cgRwzxqkfk.setRwfkId(keyId);
+            cgRwzxqkfk.setTzdw("中国医科大学");//出访单位
+            cgRwzxqkfk.setTzzw(cgDqcgj.getZw());//团长职务
+            cgRwzxqkfk.setCgid(cgDqcgj.getCgid());//Cgid
+            cgRwzxqkfk.setTzxm(cgDqcgj.getXm());//团长姓名
+            cgRwzxqkfk.setSsejdw(cgDqcgj.getSsejdw());//二级单位
+            cgRwzxqkfk.setXb(cgDqcgj.getXb());//性别
+            cgRwzxqkfk.setCfgjdq(cgDqcgj.getCfgj());//出访国家
+
+            cgRwzxqkfkMapper.insertSelective(cgRwzxqkfk);
+        }
+        return true;
     }
 }

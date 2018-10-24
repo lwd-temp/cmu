@@ -81,7 +81,7 @@ public class WbjdSqExtController {
         }
         String gb = sb.toString().substring(0,sb.toString().length()-1);
         //还没有画样式
-        String template = "demo/wbglExtTemplate.html";
+        String template = "wbgl/wbglExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(3);
         variables.put("wbjdSq", wbjdSq);
         variables.put("sxryList", sxryList);

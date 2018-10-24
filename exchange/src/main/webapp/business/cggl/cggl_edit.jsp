@@ -130,12 +130,12 @@
                     <label class="col-xs-2 control-label"  > 出访团组号   : </label>
                     <div class="col-xs-4">
                         <input type="hidden"  name="tzid"  id="tzid"   value="${cgdqcgj.tzid}"/>
-                        <input type="text"  id="tzh" value="${tzh}" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
+                        <input type="text"  id="tzh" value="${tzh}" name="tzh" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label"  > 出访团组名称   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  id="tzmc" value="${tzmc}" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
+                        <input type="text"  id="tzmc" value="${tzmc}" name="tzmc" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -246,7 +246,17 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 申请人其他社会任职  : </label>
                     <div class="col-xs-10">
-                        <textarea class="form-control limited" name="qtshrz"   maxlength="300">${cgdqcgj.jfysmx}</textarea>
+                        <textarea class="form-control limited" name="qtshrz"   maxlength="300">${cgdqcgj.qtshrz}</textarea>
+                    </div>
+                </div>
+                <div class="form-group shjg">
+                    <label class="col-xs-2 control-label"  > 审核结果  : </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_cgspjg" readonly="readonly" value="${cgdqcgj.shjg}"  id="shjg"  ></dm:list>
+                    </div>
+                    <label class="col-xs-2 control-label"  > 审核意见  : </label>
+                    <div class="col-xs-4">
+                        <input type="text"    readonly="readonly" value="${cgdqcgj.shyj}" class="col-xs-12" />
                     </div>
                 </div>
                 <div id="btns" class="col-md-offset-3 col-md-9">
@@ -289,8 +299,15 @@
 <script>
 
     $(function () {
+
+        var shjg = $("#status").val();
+        if(shjg == '03'){
+            $(".shjg").show();
+        }else{
+            $(".shjg").hide();
+        }
+
         var cfmd =  $("#cfmd").val();
-        alert(cfmd)
         if (cfmd == '99') {
             $("#cfmdQt").show();
         }else{
@@ -298,7 +315,6 @@
         }
 
         var cglx =  $("#cglx").val();
-        alert(cglx)
         if (cglx == '01') {//因私短期出国
             $(".jfysmx").hide();
             $(".jfyshj").hide();
@@ -332,6 +348,8 @@
             //校验规则
             rules: {
                 "cfmd":{ required:true},
+                "tzh":{ required:true},
+                "tzmc":{ required:true},
                 "cglx":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},
@@ -375,9 +393,8 @@
     }
 
     //选择出国类型
-    function selectcglx(select) {
-        var cglx = $(select).val();
-        alert('selectcglx'+cglx)
+    function selectcglx(cglx) {
+        var cglx = $(cglx).val();
         if (cglx == '01') {//因私短期出国
             $(".jfysmx").hide();
             $(".jfyshj").hide();
@@ -388,9 +405,8 @@
     }
 
     //选择出访目的
-    function selectcfmd(select) {
-        var cfmd = $(select).val();
-        alert('selectcfmd'+cfmd)
+    function selectcfmd(cfmd) {
+        var cfmd = $(cfmd).val();
         //选择其他需要填写
         if (cfmd == '99') {
             $("#cfmdQt").show();

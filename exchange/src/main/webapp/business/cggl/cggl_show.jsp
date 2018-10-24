@@ -246,7 +246,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 申请人其他社会任职  : </label>
                     <div class="col-xs-10">
-                        <textarea class="form-control limited" name="qtshrz"  readonly="readonly"   maxlength="300">${cgdqcgj.jfysmx}</textarea>
+                        <textarea class="form-control limited" name="qtshrz"  readonly="readonly"   maxlength="300">${cgdqcgj.qtshrz}</textarea>
                     </div>
                 </div>
                 <div id="btnClose" class="col-md-offset-3 col-md-9">

@@ -246,7 +246,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 申请人其他社会任职  : </label>
                     <div class="col-xs-10">
-                        <textarea class="form-control limited" name="qtshrz"  readonly="readonly"   maxlength="300">${cgdqcgj.jfysmx}</textarea>
+                        <textarea class="form-control limited" name="qtshrz"  readonly="readonly"   maxlength="300">${cgdqcgj.qtshrz}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
@@ -260,7 +260,7 @@
                     </div>
                 </div>
                 <div class="col-md-offset-2 col-md-9">
-                    &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                    &nbsp; &nbsp; &nbsp;
                     <button class="btn btn-info btn-sm" id="btnPass" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         通过
@@ -275,7 +275,9 @@
                         <i class="ace-icon fa fa-close bigger-110"></i>
                         关闭
                     </button>
+
                 </div>
+                &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
             </div>
         </div>
     </div>
@@ -304,6 +306,9 @@
 <script>
 
     $(function () {
+
+
+
         var cfmd =  $("#cfmd").val();
         if (cfmd == '99') {
             $("#cfmdQt").show();
@@ -322,12 +327,12 @@
         $("#btnClose").click(function(){
             closeLayer();
         });
-        /*$("#btnPass").click(function(){
-            $("#status").val("04");//通过
+        $("#btnPass").click(function(){//通过
+            $("#status").val("04");
             sh();
-        });*/
+        });
         $("#btnBack").click(function(){//退回
-            $("#status").val("03");//通过
+            $("#status").val("03");
             sh();
         });
     });

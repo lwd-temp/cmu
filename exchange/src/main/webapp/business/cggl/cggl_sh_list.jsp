@@ -46,25 +46,11 @@
                 }, 0);
             }
         })
-        //自定义 按钮
-        var navBtns = [
-            {
-                caption:"出国申请",
-                buttonicon:"ace-icon fa fa-plus orange",
-                onClickButton: function(){
-                    layer.newpage({
-                        area: ['1000px', ($(window).height()-40)+"px"],
-                        title:'申请短期出国',
-                        content:'cggl/add',
-                    });
-                }
-            }
-        ]
+
         var settings = {
             caption: "出国审批",
             url:'cggl/shlist',
             colNames:['姓名','性别', '所属二级单位', '出访国家','状态',"操作"],
-            navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'xm',index:'xm' },
@@ -134,11 +120,9 @@
     //归档
     function gdCgsq(cgid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+"px"],
-            title:'归档出国申请',
-            content:'cggl/show?id='+cgid,
+            area: ['400px', "220px"],
+            title:'上传归档',
+            content:'sys/file/uppage?targetUrl=cggl/updateUploadId&cgid='+cgid,
         });
     }
-
-
 </script>

@@ -225,4 +225,32 @@ public class CgDqcgjController extends BaseController {
         model.addAttribute("cgdqcgj", cgDqcgj);
         return "cggl/cggl_sh";
     }
+
+    /**
+     * @param cgDqcgj
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/shSave")
+    @ResponseBody
+    public Map shSave(CgDqcgj cgDqcgj) throws Exception {
+        logger.info("保存 短期出国申请 信息 :" + cgDqcgj);
+        boolean success = cgDqcgjService.shSave(cgDqcgj);
+        logger.debug("保存 短期出国申请 结果 :" + success);
+        return super.ajaxStatus(success, cgDqcgj);
+    }
+    /**
+     * 上传文件成功后更新短期出国申请中 归档id
+     * @param fileId
+     * @param cgid
+     */
+    @ResponseBody
+    @RequestMapping("/updateUploadId")
+    public Map updateUploadId(String fileId, String cgid) throws Exception {
+
+        CgDqcgj cgDqcgj = cgDqcgjService.queryById(cgid);
+        cgDqcgj.setGdwjid(fileId);
+        boolean success = cgDqcgjService.updateById(cgDqcgj);
+        return super.ajaxStatus(success);
+    }
 }

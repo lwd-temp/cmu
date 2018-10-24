@@ -76,7 +76,7 @@ public class CgDqcgjExtController {
         //cgDqcgj.setCfmd(cfmd);
 
         //返回值
-        String template = "demo/cgdqcgjExtTemplate.html";
+        String template = "cgdqcgj/cgdqcgjExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(5);
         variables.put("tzh", tzh);
         variables.put("tzmc", tzmc);

@@ -66,7 +66,7 @@
                 {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
                     return dmcache.getCode('t_dm_xb',xb);
                 }},
-                {name:'ssejdw',index:'ssejdw',  },
+                {name:'ssejdw',index:'ssejdw', hidden:true },
                 {name:'cfgj',index:'cfgj',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject) {
                         switch (status) {
@@ -92,10 +92,10 @@
                 {name:'cgid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
-                        if(zt == '01'){
+                        if(zt == '01'||zt == '03'){
                             return  "<button class='btn btn-info btn-mini' title='编辑' onclick='editCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-pencil '>编辑</i></button>"+
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除'  onclick='delCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-trash-o '>删除</i></button>";
-                        }else{
+                        }else {
                             return  "<button class='btn btn-warning btn-mini' title='查看' onclick='showCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>查看</i></button>"+
                             "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='导出pdf' onclick='downCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>导出pdf</i></button>";
 

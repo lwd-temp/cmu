@@ -316,6 +316,8 @@
             //校验规则
             rules: {
                 "cfmd":{ required:true},
+                "tzh":{ required:true},
+                "tzmc":{ required:true},
                 "cglx":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},

@@ -32,5 +32,8 @@ public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
     public String selectCfmd(String cfmd);
 
     public List shlist(Object... conditions)throws Exception;
+
+    public boolean shSave(CgDqcgj cgDqcgj);
+
 }
 
