@@ -1,39 +1,112 @@
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <style>
-            h1 {
-                text-align: center;
-            }
-            table {
-                width: 100%;
-                border: 1px;
-            }
-            td {
-                border: black dotted 1px;
-            }
-        </style>
-    </head>
-    <body>
-        <table>
-            <tr>
-                <td style="width:25%">cgdqcgj</td>
-                <td style="width:25%"colspan="2">${cgDqcgj}</td>
-                <td style="width:25%">二级单位</td>
-                <td style="width:25%" colspan="2">${ssejdwMc}</td>
-            </tr>
-            <tr>
-                <td style="width:25%">团组号</td>
-                <td style="width:25%"colspan="2">${tzh}</td>
-                <td style="width:25%">团组名称</td>
-                <td style="width:25%" colspan="2">${tzmc}</td>
-            </tr>
-            <tr>
-                <td style="width:25%">申请填报信息</td>
-                <td style="width:25%"colspan="2">${sqbsm}</td>
-                <td style="width:25%">性别</td>
-                <td style="width:25%"colspan="2">${cgDqcgj.xb}</td>
-            </tr>
-        </table>
-    </body>
+<head>
+    <meta charset="UTF-8" />
+    <style type="text/css">
+        h1 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border: 1px;
+        }
+        td {
+            border: black dotted 1px;
+        }
+    </style>
+</head>
+<body >
+
+<h1>
+    中国医科大学在职人员因公短期出国（境）申请表
+</h1>
+
+<div>填表日期：  &nbsp;&nbsp;&nbsp;年  &nbsp;&nbsp;&nbsp;月  &nbsp;&nbsp;&nbsp;日</div>
+<br/>注：1：此表正反面打印，此表填写范围：全校（含各临床学院）在职人员出国（境）90天以内（不含90天）
+办理因公出国手续的出访人员。
+<br/>&nbsp;&nbsp;2：相关人员还应提供《中国医科大学干部请假单》复印件（在学校党政办公室网页下载，具体要求请咨询党
+政办公室信息科）以相关材料。
+<table border="2" align="center" cellspacing="0" height="950px" width="40%">
+    <tr align="center">
+        <td align="left">姓名：${cgDqcgj.xm}</td>
+        <td align="left" width="200px">年龄：${cgDqcgj.xb}</td>
+        <td align="left">出生日期：${csrq}</td>
+    </tr>
+    <tr align="center">
+        <td colspan="2" align="left">出生地：${cgDqcgj.csd}</td>
+        <td align="left">户籍所在地：${cgDqcgj.hjszd}</td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left">身份证号：${cgDqcgj.sfzh}</td>
+    </tr>
+    <tr align="center">
+        <td colspan="2" align="left">二级所属单位：${ssejdwMc}</td>
+        <td align="left">科室：${cgDqcgj.ks}</td>
+    </tr>
+    <tr align="center">
+        <td colspan="2" align="left">职务：${cgDqcgj.zw}</td>
+        <td align="left">职称：${cgDqcgj.zc} </td>
+    </tr>
+    <tr align="center">
+        <td colspan="2" align="left">联系电话：${cgDqcgj.lxdh}</td>
+        <td align="left">邮箱：${cgDqcgj.email} </td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left">出访国家（地区）：${cgDqcgj.cfgj} </td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left">入境城市（地区）：${cgDqcgj.rjcs} </td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left">出访日期：${cfjsrq}至${cfksrq}
+            <br/>注意：离境日期和入境日期都要算在内
+        </td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left" >出访目的：${cgDqcgj.cfmd}<br/>
+            <br/>
+            其他：${cgDqcgj.cfmdQt}
+        </td>
+    </tr>
+    <tr align="center">
+        <td colspan="3" align="left" valign="top">
+            邀请人信息：
+            <br/>
+            英文
+            <br/>&nbsp;&nbsp;&nbsp;姓名：${cgDqcgj.yqrXm}
+            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZw}
+            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDw}
+            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdz}
+            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDh}
+            <br/>
+            中文
+            <br/>&nbsp;&nbsp;&nbsp;邀请人姓名：${cgDqcgj.yqrXmEn}
+            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZwEn}
+            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDwEn}
+            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdzEn}
+            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDhEn}
+        </td>
+    </tr>
+    <tr align="left">
+        <td colspan="3" >
+            经费来源：
+            <br/>
+
+        </td>
+    </tr>
+    <tr align="left">
+        <td colspan="3" >
+            经费预算（按以下样例填写，标准请参见辽财行[2014]71号文件）：<br/>
+            ${cgDqcgj.jfysmx}
+            <br/>&nbsp;&nbsp;&nbsp;国际旅费：
+            <br/>&nbsp;&nbsp;&nbsp;住宿费：
+            <br/>&nbsp;&nbsp;&nbsp;伙食费：
+            <br/>&nbsp;&nbsp;&nbsp;公杂费：
+            <br/>&nbsp;&nbsp;&nbsp;其他：
+            <br/>&nbsp;&nbsp;&nbsp;合计：${cgDqcgj.jfyshj}<br/>
+            <br/>
+            [样例以出访英国伦敦为样例]
+        </td>
+    </tr>
+</table>
+</body>
 </html>

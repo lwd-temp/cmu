@@ -15,6 +15,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +31,8 @@ public class CgDqcgjExtController {
     UnicUnitService unicUnitService;
     @Autowired
     CgTzjhService cgTzjhService;
+
+
 
 
     @RequestMapping("/downloadPdf")
@@ -67,17 +71,26 @@ public class CgDqcgjExtController {
         //性别
         String xb = cgDqcgjService.selectXb(cgDqcgj.getXb());
         //出访类型
-        //String cglx = cgDqcgjService.selectCglx(cgDqcgj.getCglx());
+        String cglx = cgDqcgjService.selectCglx(cgDqcgj.getCglx());
         //出访目的
-        //String cfmd = cgDqcgjService.selectCfmd(cgDqcgj.getCfmd());
+        String cfmd = cgDqcgjService.selectCfmd(cgDqcgj.getCfmd());
 
         cgDqcgj.setXb(xb);
-        //cgDqcgj.setCglx(cglx);
-        //cgDqcgj.setCfmd(cfmd);
+        cgDqcgj.setCglx(cglx);
+        cgDqcgj.setCfmd(cfmd);
+
+        String csrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCsrq()).toString();
+        String cfjsrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfjsrq()).toString();
+        String cfksrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfksrq()).toString();
 
         //返回值
         String template = "cgdqcgj/cgdqcgjExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(5);
+
+
+        variables.put("csrq", csrq);
+        variables.put("cfjsrq", cfjsrq);
+        variables.put("cfksrq", cfksrq);
         variables.put("tzh", tzh);
         variables.put("tzmc", tzmc);
         variables.put("ssejdwMc", ssejdwMc);

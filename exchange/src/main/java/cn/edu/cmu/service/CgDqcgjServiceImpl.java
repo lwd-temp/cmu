@@ -1,12 +1,6 @@
 package cn.edu.cmu.service;
-import cn.edu.cmu.dao.CgDqcgjMapper;
-import cn.edu.cmu.dao.CgRwzxqkfkMapper;
-import cn.edu.cmu.dao.CgTzjhMapper;
-import cn.edu.cmu.dao.DmXbMapper;
-import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.domain.CgDqcgjParams;
-import cn.edu.cmu.domain.CgRwzxqkfk;
-import cn.edu.cmu.domain.DmXb;
+import cn.edu.cmu.dao.*;
+import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
@@ -27,6 +21,12 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
 
     @Autowired
     private DmXbMapper dmXbMapper;
+
+    @Autowired
+    private DmCfmdMapper dmCfmdMapper;
+
+    @Autowired
+    private DmCgSqlxMapper dmCgSqlxMapper;
 
     @Autowired
     private CgRwzxqkfkMapper cgRwzxqkfkMapper;
@@ -84,12 +84,14 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
 
     @Override
     public String selectCglx(String cglx) {
-        return null;
+        DmCgSqlx dmCgSqlx = (DmCgSqlx) dmCgSqlxMapper.selectByPrimaryKey(cglx);
+        return dmCgSqlx.getName();
     }
 
     @Override
     public String selectCfmd(String cfmd) {
-        return null;
+        DmCfmd dmCfmd = (DmCfmd) dmCfmdMapper.selectByPrimaryKey(cfmd);
+        return dmCfmd.getName();
     }
 
 
