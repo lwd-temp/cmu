@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -170,10 +171,10 @@
                         <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" value="${cgdqcgj.cfmd}" data-placeholder="请选择出访目的"  onchange="selectcfmd(this)"></dm:list>
                     </div>
                 </div>
-                <div class="form-group" id="cfmdQt">
+                <div class="form-group cfmdqt" >
                     <label class="col-xs-2 control-label"  > 出访目的—其他: </label>
                     <div class="col-xs-10">
-                        <input type="text"  name="cfmdQt" value="${cgdqcgj.cfmdQt}"     class="col-xs-12" />
+                        <input type="text"  name="cfmdQt" value="${cgdqcgj.cfmdQt}"   id="cfmdqt"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -246,13 +247,13 @@
                 <div class="form-group jfysmx">
                     <label class="col-xs-2 control-label"> 经费预算明细  : </label>
                     <div class="col-xs-10">
-                        <textarea class="form-control" name="jfysmx"  maxlength="300">${cgdqcgj.jfysmx}</textarea>
+                        <textarea class="form-control" name="jfysmx" id="jfysmx" maxlength="300">${cgdqcgj.jfysmx}</textarea>
                     </div>
                 </div>
                 <div class="form-group jfyshj">
                     <label class="col-xs-2 control-label"> 预算合计  : </label>
                     <div class="col-xs-10">
-                        <input type="text"  name="jfyshj"  value="${cgdqcgj.jfyshj}" class="col-xs-12" />
+                        <input type="text"  name="jfyshj" id="jfyshj" value="${cgdqcgj.jfyshj}" class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -324,9 +325,9 @@
 
         var cfmd =  $("#cfmd").val();
         if (cfmd == '99') {
-            $("#cfmdQt").show();
+            $(".cfmdqt").show();
         }else{
-            $("#cfmdQt").hide();
+            $(".cfmdqt").hide();
         }
 
         var cglx =  $("#cglx").val();
@@ -344,6 +345,16 @@
 
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
+            var cfmd =  $("#cfmd").val();
+            var cglx =  $("#cglx").val();
+
+            if(cfmd != '99'){
+                $("#cfmdqt").val('');
+            }
+            if(cglx == '01'){
+                $("#jfysmx").val('');
+                $("#jfyshj").val(0);
+            }
             if(!validateSq()){
                 return;
             }
@@ -352,6 +363,15 @@
 
         $("#submitForm").click(function(){
             $("#status").val("02");//提交
+            var cfmd =  $("#cfmd").val();
+            var cglx =  $("#cglx").val();
+            if(cfmd != '99'){
+                $("#cfmdqt").val('');
+            }
+            if(cglx == '01'){
+                $("#jfysmx").val('');
+                $("#jfyshj").val(0);
+            }
             if(!validateSq()){
                 return;
             }
@@ -363,10 +383,10 @@
             //校验规则
             rules: {
                 "cfmd":{ required:true},
+                "nncfcs":{digits:true},
+                "jfyshj":{number:true},
                 "tzh":{ required:true},
                 "tzmc":{ required:true},
-                "nncfcs":{required:true,digits:true},
-                "jfyshj":{required:true,number:true},
                 "cglx":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},
@@ -425,9 +445,9 @@
         var cfmd = $(cfmd).val();
         //选择其他需要填写
         if (cfmd == '99') {
-            $("#cfmdQt").show();
+            $(".cfmdqt").show();
         }else{
-            $("#cfmdQt").hide();
+            $(".cfmdqt").hide();
         }
     }
 

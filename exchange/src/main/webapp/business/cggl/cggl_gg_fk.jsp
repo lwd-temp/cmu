@@ -68,7 +68,7 @@
                     </div>
                     <label class="col-xs-2 control-label "  > 团长单位及职务: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="tzzdw"  value="${cgRwzxqkfk.tzzdw}" readonly="readonly"     class="col-xs-12" />
+                        <input type="text"  name="tzzw"  value="${cgRwzxqkfk.tzzw}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -148,25 +148,23 @@
 </form>
 
 <script src='assets/js/jquery.js'></script>
-<!-- jqueryValidate验证框架-->
-<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
-<script src="assets/js/jqvalidate/messages_zh.js"></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
+<script src="assets/js/date-time/moment.js"></script>
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>
+<script src="assets/js/date-time/bootstrap-datetimepicker.js"></script>
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
 <!-- jqueryValidate验证框架-->
-<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/jquery.validate.js"></script>
 <script src="assets/js/jqvalidate/messages_zh.js"></script>
 <!--弹出层 -->
 <script src="assets/js/layer/layer.js"></script>
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
-
 <script>
 
     $(function () {
@@ -189,11 +187,13 @@
         });
     });
     function setFormValid(){
-        var validator =  $("#form").setValid({
+       $("#form").setValid({
             //校验规则
             rules: {
-                "sjcfrs":{ required:true},
-                "sjcfts":{ required:true}
+                "sjcfrs":{ required:true,digits:true},
+                "sjcfts":{ required:true,digits:true},
+                "pzcfrw":{digits:true},
+                "pzcfts":{digits:true}
             }
         })
     }
@@ -218,7 +218,6 @@
     //校验整个计划
     function validateSq(){
         if(!$("#form").valid()){
-            validator.focusInvalid();
             return false;
         }
         return true;

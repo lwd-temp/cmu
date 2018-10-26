@@ -57,7 +57,7 @@
                 {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
-                {name:'ssejdw',index:'ssejdw',  },
+                {name:'ssejdw',index:'ssejdw', },
                 {name:'cfgj',index:'cfgj',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject) {
                         switch (status) {

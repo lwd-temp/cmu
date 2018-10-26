@@ -7,5 +7,5 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface JzgMapperExt extends BaseMapper<JzgParams> {
-	public List selectList(HashMap map);
+    public List selectList(HashMap map);
 }

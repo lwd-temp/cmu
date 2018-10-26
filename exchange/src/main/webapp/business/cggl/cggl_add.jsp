@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -141,12 +142,12 @@
                         <label class="col-xs-2 control-label"  > 出访团组号   : </label>
                         <div class="col-xs-4">
                             <input type="hidden"  name="tzid"  id="tzid"  />
-                            <input type="text"  id="tzh" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
+                            <input type="text" name="tzh" id="tzh" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 出访团组名称   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  id="tzmc" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
+                            <input type="text" name="tzmc" id="tzmc" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -167,10 +168,10 @@
                             <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" data-placeholder="请选择出访目的"  onchange="selectcfmd(this)"></dm:list>
                         </div>
                     </div>
-                    <div class="form-group" id="cfmdQt">
+                    <div class="form-group cfmdqt" >
                         <label class="col-xs-2 control-label"  > 出访目的—其他: </label>
                         <div class="col-xs-10">
-                            <input type="text"  name="cfmdQt"      class="col-xs-12" />
+                            <input type="text"  name="cfmdQt"  id="cfmdqt"    class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -232,7 +233,7 @@
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 申请类别  : </label>
                         <div class="col-xs-4">
-                            <dm:list tabName="t_dm_cgsqlx"  name="cglx"  data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>
+                            <dm:list tabName="t_dm_cgsqlx"  name="cglx"  id="cglx" data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>
                         </div>
                         <label class="col-xs-2 control-label"  > 年内出访次数  : </label>
                         <div class="col-xs-4">
@@ -243,13 +244,13 @@
                     <div class="form-group jfysmx">
                         <label class="col-xs-2 control-label"> 经费预算明细  : </label>
                         <div class="col-xs-10">
-                            <textarea class="form-control" name="jfysmx"  maxlength="300"></textarea>
+                            <textarea class="form-control" name="jfysmx" id="jfysmx" maxlength="300"></textarea>
                         </div>
                     </div>
                     <div class="form-group jfyshj">
                         <label class="col-xs-2 control-label"> 预算合计  : </label>
                         <div class="col-xs-10">
-                            <input type="text"  name="jfyshj"  class="col-xs-12" />
+                            <input type="text"  name="jfyshj" id="jfyshj" class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -302,15 +303,25 @@
     $(function () {
         var cfmd =  $("#cfmd").val();
         if (cfmd == '99') {
-            $("#cfmdQt").show();
+            $(".cfmdqt").show();
         }else{
-            $("#cfmdQt").hide();
+            $(".cfmdqt").hide();
         }
 
         setFormValid();//设置校验规则
 
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
+            var cfmd =  $("#cfmd").val();
+            var cglx =  $("#cglx").val();
+            if(cfmd != '99'){
+                $("#cfmdqt").val('');
+            }
+            if(cglx == '01'){
+                $("#jfysmx").val('');
+                $("#jfyshj").val(0);
+            }
+
             if(!validateSq()){
                 return;
             }
@@ -319,6 +330,15 @@
 
         $("#submitForm").click(function(){
             $("#status").val("02");//提交
+            var cfmd =  $("#cfmd").val();
+            var cglx =  $("#cglx").val();
+            if(cfmd != '99'){
+                $("#cfmdqt").val('');
+            }
+            if(cglx == '01'){
+                $("#jfysmx").val('');
+                $("#jfyshj").val(0);
+            }
             if(!validateSq()){
                 return;
             }
@@ -330,8 +350,8 @@
             //校验规则
             rules: {
                 "cfmd":{ required:true},
-                "nncfcs":{required:true,digits:true},
-                "jfyshj":{required:true,number:true},
+                "nncfcs":{digits:true},
+                "jfyshj":{number:true},
                 "tzh":{ required:true},
                 "tzmc":{ required:true},
                 "cglx":{ required:true},
@@ -393,9 +413,9 @@
         var cfmd = $(select).val();
         //选择其他需要填写
         if (cfmd == '99') {
-            $("#cfmdQt").show();
+            $(".cfmdqt").show();
         }else{
-            $("#cfmdQt").hide();
+            $(".cfmdqt").hide();
         }
     }
 
