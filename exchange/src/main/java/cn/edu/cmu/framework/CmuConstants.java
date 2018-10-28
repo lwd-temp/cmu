@@ -22,11 +22,19 @@ public class CmuConstants {
         //用户类型
         public final String USER_TYPE = "USER_TYPE";
 
-
+        //本科生
+        public final String USER_TYPE_BKS = "1";
+        //研究生生
+        public final String USER_TYPE_YJS = "2";
         //教职工信息类型
         public final String USER_TYPE_JZG = "3";
+
         //教职工信息具体
         public final String USER_INFO_JZG = "USER_INFO_JZG";
+        //教职工信息具体
+        public final String USER_INFO_BKS = "USER_INFO_BKS";
+        //教职工信息具体
+        public final String USER_INFO_YJS = "USER_INFO_YJS";
 
         //本科生
         public final String USER_BKS = "USER_BKS";

@@ -14,7 +14,7 @@ import java.util.Map;
  * @Project cmu
  * @Version 1.0
  */
-public class CodeTag extends  BasetTag {
+public class CodeTag extends  BaseTag {
 
     public String tabName = "";
     public String name = "";

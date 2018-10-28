@@ -1,6 +1,6 @@
 package cn.edu.cmu.domain;
 
-public class TjsXsjbsjxx {
+public class YjsXsjbsjxx {
     /**
      * null
      */
@@ -118,9 +118,9 @@ public class TjsXsjbsjxx {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
-    public TjsXsjbsjxx(String xh, String xm, String xmpy, String cym, String xbm, String csrq, String csdm, String jg, String mzm, String gjdqm, String sfzjlxm, String sfzjh, String hyzkm, String gatqwm, String zzmmm, String jkzkm, String xyzjm, String xxm, String sfzjyxq, String sflxs, String ywxm, String sfdszn, String sfzzry) {
+    public YjsXsjbsjxx(String xh, String xm, String xmpy, String cym, String xbm, String csrq, String csdm, String jg, String mzm, String gjdqm, String sfzjlxm, String sfzjh, String hyzkm, String gatqwm, String zzmmm, String jkzkm, String xyzjm, String xxm, String sfzjyxq, String sflxs, String ywxm, String sfdszn, String sfzzry) {
         this.xh = xh;
         this.xm = xm;
         this.xmpy = xmpy;
@@ -148,9 +148,9 @@ public class TjsXsjbsjxx {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
-    public TjsXsjbsjxx() {
+    public YjsXsjbsjxx() {
         super();
     }
 
@@ -524,7 +524,7 @@ public class TjsXsjbsjxx {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     @Override
     public String toString() {

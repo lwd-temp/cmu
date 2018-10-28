@@ -22,7 +22,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public ForeignTeacherParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class ForeignTeacherParams {
     }
 
     /**
-     * T_FOREIGN_TEACHER 2018-09-22
+     * T_FOREIGN_TEACHER 2018-10-28
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1071,73 +1071,73 @@ public class ForeignTeacherParams {
             return (Criteria) this;
         }
 
-        public Criteria andZtIsNull() {
-            addCriterion("ZT is null");
+        public Criteria andMemoIsNull() {
+            addCriterion("MEMO is null");
             return (Criteria) this;
         }
 
-        public Criteria andZtIsNotNull() {
-            addCriterion("ZT is not null");
+        public Criteria andMemoIsNotNull() {
+            addCriterion("MEMO is not null");
             return (Criteria) this;
         }
 
-        public Criteria andZtEqualTo(String value) {
-            addCriterion("ZT =", value, "zt");
+        public Criteria andMemoEqualTo(String value) {
+            addCriterion("MEMO =", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotEqualTo(String value) {
-            addCriterion("ZT <>", value, "zt");
+        public Criteria andMemoNotEqualTo(String value) {
+            addCriterion("MEMO <>", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtGreaterThan(String value) {
-            addCriterion("ZT >", value, "zt");
+        public Criteria andMemoGreaterThan(String value) {
+            addCriterion("MEMO >", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtGreaterThanOrEqualTo(String value) {
-            addCriterion("ZT >=", value, "zt");
+        public Criteria andMemoGreaterThanOrEqualTo(String value) {
+            addCriterion("MEMO >=", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtLessThan(String value) {
-            addCriterion("ZT <", value, "zt");
+        public Criteria andMemoLessThan(String value) {
+            addCriterion("MEMO <", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtLessThanOrEqualTo(String value) {
-            addCriterion("ZT <=", value, "zt");
+        public Criteria andMemoLessThanOrEqualTo(String value) {
+            addCriterion("MEMO <=", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtLike(String value) {
-            addCriterion("ZT like", value, "zt");
+        public Criteria andMemoLike(String value) {
+            addCriterion("MEMO like", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotLike(String value) {
-            addCriterion("ZT not like", value, "zt");
+        public Criteria andMemoNotLike(String value) {
+            addCriterion("MEMO not like", value, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtIn(List<String> values) {
-            addCriterion("ZT in", values, "zt");
+        public Criteria andMemoIn(List<String> values) {
+            addCriterion("MEMO in", values, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotIn(List<String> values) {
-            addCriterion("ZT not in", values, "zt");
+        public Criteria andMemoNotIn(List<String> values) {
+            addCriterion("MEMO not in", values, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtBetween(String value1, String value2) {
-            addCriterion("ZT between", value1, value2, "zt");
+        public Criteria andMemoBetween(String value1, String value2) {
+            addCriterion("MEMO between", value1, value2, "memo");
             return (Criteria) this;
         }
 
-        public Criteria andZtNotBetween(String value1, String value2) {
-            addCriterion("ZT not between", value1, value2, "zt");
+        public Criteria andMemoNotBetween(String value1, String value2) {
+            addCriterion("MEMO not between", value1, value2, "memo");
             return (Criteria) this;
         }
 
@@ -1283,7 +1283,7 @@ public class ForeignTeacherParams {
     }
 
     /**
-     * T_FOREIGN_TEACHER 2018-09-22
+     * T_FOREIGN_TEACHER 2018-10-28
      */
     public static class Criterion {
         private String condition;

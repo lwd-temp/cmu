@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,82 +59,84 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
-                        <form class="form-horizontal" role="form">
+                        <form class="form-horizontal" id="form" role="form">
+                             <input type="hidden" name="tid" id="tid" value="${teacher.tid}"/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 姓名: </label>
+                                <label class="col-xs-2 control-label "  > 外籍姓名: </label>
 
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder="姓名"  class="col-xs-12" />
+                                    <input type="text"  name="name" id="name"  value="${teacher.name}" placeholder="姓名"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 性别: </label>
 
                                 <div class="col-xs-4">
-                                    <input name="form-field-radio"    type="radio" class="ace"  checked/>  <span class="lbl"> 男</span>
-                                    <input name="form-field-radio"   type="radio"  class="ace" />  <span class="lbl"> 女</span>
+
+                                    <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender" value="${teacher.gender}" ></dm:list>
+
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder="国籍"  class="col-xs-12" />
+                                    <input type="text"  name="gj" id="gj" value="${teacher.gj}"  placeholder="国籍"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 语种: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="language"  id="language" value="${teacher.language}"  placeholder="语种"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 工作单位: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="gzdw" id="gzdw" value="${teacher.gzdw}"  placeholder="工作单位"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 职务职称: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="zwzc"   id="zwzc" value="${teacher.zwzc}"  placeholder="职务职称"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 专业领域: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="zyly" id="zyly" value="${teacher.zyly}"  placeholder="专业领域"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 关联项目: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="glxm"   id="glxm" value="${teacher.glxm}"  placeholder="关联项目"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 邮箱: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="email" id="email" value="${teacher.email}"  placeholder="邮箱"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 传真: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="cz"   id="cz" value="${teacher.cz}"  placeholder="传真"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 工作电话: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username" id="" value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="phone" id="phone" value="${teacher.phone}"  placeholder="工作电话"  class="col-xs-12" />
                                 </div>
 
                                 <label class="col-xs-2 control-label " > 通信地址: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="username"   value="" placeholder=""  class="col-xs-12" />
+                                    <input type="text"  name="txdz" id="txdz"  value="${teacher.txdz}"  placeholder="通信地址"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 备注: </label>
                                 <div class="col-xs-10">
-                                    <input type="text"  name="username" id="" value="" placeholder="备注"  class="col-xs-12" />
+                                    <input type="text"  name="memo" id="memo" value="${teacher.memo}"  placeholder="备注"  class="col-xs-12" />
                                 </div>
 
                             </div>
@@ -141,10 +145,8 @@
                                 <div class="col-md-offset-3 col-md-9">
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
-                                        修改
+                                        保存
                                     </button>
-
-
                                 </div>
                             </div>
 
@@ -179,23 +181,77 @@
 <script src="assets/js/jquery.maskedinput.js"></script>
 <script src="assets/js/bootstrap-tag.js"></script>
 <!-- ace scripts -->
+
+<!-- jqueryValidate验证框架-->
+<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/messages_zh.js"></script>
+<!--弹出层 -->
+<script src="assets/js/layer/layer.js"></script>
+
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
+
+
 <script>
-    var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
+
 
     $(function(){
-        $("#btn-submit").click(function(){
-            var par = parent;
-            parent.layer.close(index);
-            parent.clearTable();
-            parent.layer.alert('点击修改按钮，修改完成后提示成功，并刷新联系人列表', {icon: 6});
-            setTimeout(function(){
-                par.refreshTable();
 
-            },900);
+        var validator = $("#form").setValid({
+            //校验规则
+            rules: {
+                "tid":  "required",
+                "name": "required",
+                "gender":"required",
+                "language":"required",
+                "gzdw":"required",
+                "zyly":"required",
+                "email":{
+                    required:true,
+                    email:true
+                },
+                "phone":{
+                    required:true,
+                    isphoneNum:true
+                },
+                "zwzc":"required",
+                "glxm":"required",
+                "cz":"required",
+                "txdz":"required",
+                "gj":"required",
+                "memo":{
+                    maxlength:500
+                },
 
+
+            }
         });
 
+
+        $("#btn-submit").click(function(){
+
+            if(!$("#form").valid()){
+                validator.focusInvalid();
+                return;
+            }
+
+            $.ajax('wjjs/save',{
+                type:'post',
+                dataType:'json',
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        parent.refreshTable();
+                        closeLayer();//关闭
+                        winAlert("保存成功");//弹出确认消息
+                    }
+                }
+            });
+        });
     })
+
+
+
 
 </script>
 </body>

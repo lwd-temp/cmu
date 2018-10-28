@@ -13,7 +13,7 @@
             <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 外籍教师姓名: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="外籍教师姓名" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="外籍教师姓名" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -35,23 +35,6 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">   
-    var grid_data = 
-        [
-            {id:"1",	name:"教师1",gender:"男",	gj:"新加坡",		zyly:"内科",  glxm:'项目1'},
-            {id:"2",	name:"教师12",gender:"男",	gj:"日本",	zyly:"骨科",  glxm:'项目1'},
-            {id:"3",	name:"教师13",gender:"男",	gj:"日本",	zyly:"心脏",  glxm:'项目2'},
-            {id:"4",	name:"教师14",gender:"女",	gj:"日本",	zyly:"神内",  glxm:'项目3'},
-            {id:"5",	name:"教师15",gender:"男",	gj:"美国",	zyly:"血液科",  glxm:'项目1'},
-            {id:"6",	name:"教师16",gender:"女",	gj:"新加坡",	zyly:"介入超声科",  glxm:'项目4'},
-            {id:"7",	name:"教师17",gender:"男",	gj:"新加坡",	zyly:"血液科",  glxm:'项目5'},
-            {id:"8",	name:"教师18",gender:"男",	gj:"新加坡",	zyly:"血液科",  glxm:'项目6'},
-            {id:"9",	name:"教师19",gender:"女",	gj:"新加坡",	zyly:"血液科",  glxm:'项目7'},
-            {id:"10",	name:"教师20",gender:"男",	gj:"新加坡",	zyly:"血液科",  glxm:'项目8'},
-            {id:"11",	name:"教师21",gender:"男",	gj:"新加坡",	zyly:"血液科",  glxm:'项目9'},
-            {id:"12",	name:"教师22",gender:"女",	gj:"新加坡",	zyly:"介入超声科",  glxm:'项目10'},
-            {id:"13",	name:"教师23",gender:"女",	gj:"新加坡",	zyly:"血液科",  glxm:'项目11'},
-            {id:"14",	name:"教师24",gender:"男",	gj:"新加坡",	zyly:"介入超声科",  glxm:'项目12'},
-        ];
 
 
     var grid_selector = "#grid-table";
@@ -59,8 +42,6 @@
 
 
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -102,13 +83,7 @@
                             btn: ['确定','取消'] //按钮
                         }, function(){
                             layer.close(cindex);
-                            var index = layer.loading();
-                            setTimeout(function(){
-                                $(ids).each(function(index,id){
-                                    $(grid_selector).jqGrid('delRowData',id);
-                                });
-                                layer.close(index);
-                            },1500);
+                            delMulTeachers(ids);
 
                         });
                     }else{
@@ -121,22 +96,28 @@
 
         var settings = {
             caption: "教师管理",
-            data: grid_data,
-            colNames:['姓名','性别', '国籍', '专业领域','关联项目',"操作"],
+           /* data: grid_data,*/
+            url:'wjjs/list',
+            colNames:['ID','姓名','性别','语言', '国籍', '专业领域','关联项目',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
+                {name:'tid',index:'tid', key:true,hidden:true  },
                 {name:'name',index:'name',  },
-                {name:'gender',index:'gender',  },
+                {name:'gender',index:'gender',
+                    formatter:function(gender){
+                        return dmcache.getCode('t_dm_xb',gender);
+                    }
+                },
+                {name:'language',index:'language',  },
                 {name:'gj',index:'gj',  },
                 {name:'zyly',index:'zyly',  },
                 {name:'glxm',index:'glxm',  },
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        var glxm = rowObject.glxm;
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editjsgl(\"+cellvalue+\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='查看' onclick='deljsgl(\"+cellvalue+\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                {name:'tid',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(tid, options, rowObject){
+                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editjsgl(\""+tid+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='删除' onclick='deljsgl(\""+tid+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
                     }
                 },
             ]
@@ -149,41 +130,63 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
-
+            refreshTable();
         });
 
     });
+
 
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }
 
     function refreshTable(){
-
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{'name':$("#condition").val()},//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
     }
 
     //修改用户
-    function editjsgl(sqid){
+    function editjsgl(tid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
             title:'编辑教师',
-            content:'business/jsgl/jsgl_edit.jsp',
+            content:'wjjs/toEdit?id='+tid
         });
     }
 
-    function deljsgl(sqid){
-        $(grid_selector).delGridRow(sqid);
+
+    function deljsgl(lxrId){
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+
+            $.ajax('wjjs/delById',{
+                data:{id:lxrId},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("删除成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("删除失败")
+                    }
+                }
+            })
+        })
     }
 
+    function delMulTeachers(ids){
+        $.ajax('wjjs/delMulti',{
+            data:{ids:ids},
+            success:function(res){
+                if(res && res.success){
+                    layer.alert("删除成功");
+                    refreshTable();
+                }else{
+                    layer.alert("删除失败")
+                }
+            }
+        })
+    }
 
 </script>

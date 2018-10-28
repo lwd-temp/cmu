@@ -224,12 +224,13 @@
                                 </div>
                                 <div class="col-xs-3">
                                     <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                                    <button class='btn btn-info btn-mini btnStuAdd' ><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                                    <button class='btn  btn-info btn-mini btnStuAdd' type="button" ><i class='ace-icon fa fa-plus '>添加</i>  </button>
                                 </div>
                             </div>
 
 
                             <div class="col-md-offset-3 col-md-9">
+
                                 <button class="btn btn-info btn-sm"  id="btnSave" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                    暂存
@@ -269,7 +270,8 @@
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
 <!-- jqueryValidate验证框架-->
-<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
+<script src="assets/js/jqvalidate/jquery.validate.js"></script>
+<%--<script src="assets/js/jqvalidate/jquery.validate.min.js"></script>--%>
 <script src="assets/js/jqvalidate/messages_zh.js"></script>
 <script src="assets/js/layer/layer.js"></script>
 <script src="assets/project/js/common-window.js"></script>
@@ -283,6 +285,7 @@
 
         //添加校验
         var validator = $("#form").setValid({
+            ignore: ".ignore",
             //校验规则
             rules: {
                 'xm.xmlx':'required',
@@ -319,6 +322,7 @@
         // initStus();
 
         $("#btnSave,#btnDeploy").click(function(){
+            alert('abcdef');
             if(!$("#form").valid()){
                 validator.focusInvalid();
                 return;

@@ -1,8 +1,9 @@
 package cn.edu.cmu.framework.filter;
 
+import cn.edu.cmu.dao.BksXsjbsjxxMapper;
 import cn.edu.cmu.dao.JzgMapper;
-import cn.edu.cmu.domain.Jzg;
-import cn.edu.cmu.domain.JzgParams;
+import cn.edu.cmu.dao.YjsXsjbsjxxMapper;
+import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
@@ -132,13 +133,69 @@ public class AccessFilter implements Filter {
             queryJzgBody(loginUserType, sessionUserId,session);
         }
         //本科生
-
+        if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_BKS)) {
+            queryBksBody(loginUserType, sessionUserId,session);
+        }
 
 
         //研究生
+        if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_YJS)) {
+            queryYjsBody(loginUserType, sessionUserId,session);
+        }
+    }
+
+    /**
+     * 查询研究生
+     * @param loginUserType
+     * @param sessionUserId
+     * @param session
+     * @throws Exception
+     */
+    private void queryYjsBody(String loginUserType, String sessionUserId, HttpSession session) throws Exception {
+        YjsXsjbsjxxMapper yjsDao = WebAppContextUtils.getBean(YjsXsjbsjxxMapper.class);
+        YjsXsjbsjxxParams params = new YjsXsjbsjxxParams();
+        params.createCriteria().andXhEqualTo(sessionUserId);
+
+        List list = yjsDao.selectByExample(params);
+        if(CollectionUtils.isEmpty(list)){
+            throw new Exception("根据学号["+sessionUserId+"]，未查询到研究生信息..");
+        }
+        YjsXsjbsjxx yjs = (YjsXsjbsjxx) list.get(0);
+        session.setAttribute(CmuConstants.SESSION.USER_INFO_YJS, yjs);
+        session.setAttribute(CmuConstants.SESSION.USER_NAME, yjs.getXm());
+
+    }
+
+    /**
+     * 查询本科生
+     * @param loginUserType
+     * @param sessionUserId
+     * @param session
+     * @throws Exception
+     */
+    private void queryBksBody(String loginUserType, String sessionUserId, HttpSession session) throws Exception {
+        BksXsjbsjxxMapper bksDao = WebAppContextUtils.getBean(BksXsjbsjxxMapper.class);
+        BksXsjbsjxxParams params = new BksXsjbsjxxParams();
+        params.createCriteria().andXhEqualTo(sessionUserId);
+
+        List list = bksDao.selectByExample(params);
+        if(CollectionUtils.isEmpty(list)){
+            throw new Exception("根据学号["+sessionUserId+"]，未查询到本科生信息..");
+        }
+        BksXsjbsjxx bks = (BksXsjbsjxx) list.get(0);
+        session.setAttribute(CmuConstants.SESSION.USER_INFO_JZG, bks);
+        session.setAttribute(CmuConstants.SESSION.USER_NAME, bks.getXm());
+
     }
 
 
+    /**
+     * 查询教职工
+     * @param loginUserType
+     * @param sessionUserId
+     * @param session
+     * @throws Exception
+     */
     private void queryJzgBody(String loginUserType, String sessionUserId, HttpSession session) throws Exception {
         JzgMapper jzgDao = WebAppContextUtils.getBean(JzgMapper.class);
 

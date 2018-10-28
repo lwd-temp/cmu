@@ -39,22 +39,22 @@
         </commentGenerator>-->
  
         <!--jdbc的数据库连接-->
-        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
                         connectionURL="jdbc:oracle:thin:@121.42.51.148:1521:orcl"
                         userId="exchange"
                         password="exchange">
-            <!-- 针对oracle数据库  获取 注释-->
-            <property name="remarksReporting" value="true"></property>
-        </jdbcConnection>
-
-        <!--jdbc的数据库连接-->
-        <!--<jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-                        connectionURL="jdbc:oracle:thin:@192.168.199.158:1521:orcl"
-                        userId="ex_pro"
-                        password="SFd!F!ENk$IDJu9g">
             &lt;!&ndash; 针对oracle数据库  获取 注释&ndash;&gt;
             <property name="remarksReporting" value="true"></property>
         </jdbcConnection>-->
+
+        <!--jdbc的数据库连接-->
+        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
+                        connectionURL="jdbc:oracle:thin:@192.168.199.158:1521:orcl"
+                        userId="ex_pro"
+                        password="SFd!F!ENk$IDJu9g">
+            <!-- 针对oracle数据库  获取 注释-->
+            <property name="remarksReporting" value="true"></property>
+        </jdbcConnection>
  
         <!--非必须，类型处理器，在数据库类型和java类型之间的转换控制-->
         <javaTypeResolver>
@@ -110,11 +110,11 @@
         <table tableName="T_CG_DQCGJ" 	domainObjectName="CgDqcgj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgDqcgjParams&gt;"/>
         </table>-->
-        <table tableName="T_CG_RWZXQKFK" 	domainObjectName="CgRwzxqkfk"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+       <!-- <table tableName="T_CG_RWZXQKFK" 	domainObjectName="CgRwzxqkfk"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgRwzxqkfkParams&gt;"/>
             <columnOverride column="RWZXQK" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="RWWWCNR" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>
+        </table>-->
 
         <!--
         <table tableName="T_CG_TZCY" 	domainObjectName="CgTzcy"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -183,11 +183,11 @@
         </table>
         <table tableName="T_DM_GB" 	domainObjectName="DmGb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmGbParams&gt;"/>
-        </table>
-      <table tableName="T_FOREIGN_TEACHER" 	domainObjectName="ForeignTeacher"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>-->
+        <!--<table tableName="T_FOREIGN_TEACHER" 	domainObjectName="ForeignTeacher"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.ForeignTeacherParams&gt;"/>
-        </table>
-        <table tableName="T_HY_JH" 	domainObjectName="HyJh"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        </table>-->
+        <!--<table tableName="T_HY_JH" 	domainObjectName="HyJh"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyJhParams&gt;"/>
         </table>
        <table tableName="T_HY_RYMD" 	domainObjectName="HyRymd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -262,11 +262,7 @@
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
          </table>
         -->
-        <!-- <table tableName="T_XM" 	domainObjectName="Xm"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmParams&gt;"/>
-             <columnOverride column="XMGK" javaType="java.lang.String" jdbcType="VARCHAR" />
-             <columnOverride column="XMZZJH" javaType="java.lang.String" jdbcType="VARCHAR" />
-         </table>-->
+
 
         <!-- 机构-->
       <!--  <table tableName="v_uicm_unit" 	domainObjectName="UnicUnit"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
@@ -303,9 +299,9 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsXjjbsjxxParams&gt;"/>
         </table>-->
         <!-- 研究生学生2-->
-        <!--<table tableName="v_yjs_xsjbsjxx" 	domainObjectName="TjsXsjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.TjsXsjbsjxxParams&gt;"/>
-        </table>-->
+        <table tableName="v_yjs_xsjbsjxx" 	domainObjectName="YjsXsjbsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsXsjbsjxxParams&gt;"/>
+        </table>
         <!-- 研究生专业-->
        <!-- <table tableName="v_yjs_zyxxsjxx" 	domainObjectName="YjsZyxxsjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsZyxxsjxxParams&gt;"/>

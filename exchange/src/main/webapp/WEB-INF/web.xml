@@ -31,21 +31,21 @@
 
     <filter-mapping>
         <filter-name>CASAuthenticationFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>/*</url-pattern>
+        <!--<url-pattern>/sso-debug</url-pattern>-->
     </filter-mapping>
     <!-- 该过滤器负责对Ticket的校验工作，必须启用它 -->
     <filter-mapping>
         <filter-name>CASValidationFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>/*</url-pattern>
+        <!--<url-pattern>/sso-debug</url-pattern>-->
     </filter-mapping>
 
     <!-- 该过滤器负责实现HttpServletRequest恳求的包裹， 比如容许开辟者经由过程HttpServletRequest的getRemoteUser()办法获得SSO登录用户的登录名，可选设备。-->
     <filter-mapping>
         <filter-name>CASHttpServletRequestWrapperFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>/*</url-pattern>
+        <!--<url-pattern>/sso-debug</url-pattern>-->
     </filter-mapping>
 
 

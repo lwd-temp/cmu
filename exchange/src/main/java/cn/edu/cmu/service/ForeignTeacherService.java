@@ -22,5 +22,6 @@ import cn.edu.cmu.framework.web.IBaseService;
  */
 public interface ForeignTeacherService extends IBaseService<ForeignTeacher, ForeignTeacherParams> {
 
+    boolean deleteMulti(String[] ids) throws Exception;
 }
 

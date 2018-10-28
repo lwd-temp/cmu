@@ -3,7 +3,7 @@ package cn.edu.cmu.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TjsXsjbsjxxParams {
+public class YjsXsjbsjxxParams {
     /**
      * V_YJS_XSJBSJXX
      */
@@ -21,15 +21,15 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
-    public TjsXsjbsjxxParams() {
+    public YjsXsjbsjxxParams() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -37,7 +37,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -45,7 +45,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -53,7 +53,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public boolean isDistinct() {
         return distinct;
@@ -61,7 +61,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -69,7 +69,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -77,7 +77,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -87,7 +87,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -99,7 +99,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -108,7 +108,7 @@ public class TjsXsjbsjxxParams {
 
     /**
      *
-     * @mbggenerated 2018-10-14
+     * @mbggenerated 2018-10-28
      */
     public void clear() {
         oredCriteria.clear();
@@ -117,7 +117,7 @@ public class TjsXsjbsjxxParams {
     }
 
     /**
-     * V_YJS_XSJBSJXX 2018-10-14
+     * V_YJS_XSJBSJXX 2018-10-28
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1782,7 +1782,7 @@ public class TjsXsjbsjxxParams {
     }
 
     /**
-     * V_YJS_XSJBSJXX 2018-10-14
+     * V_YJS_XSJBSJXX 2018-10-28
      */
     public static class Criterion {
         private String condition;

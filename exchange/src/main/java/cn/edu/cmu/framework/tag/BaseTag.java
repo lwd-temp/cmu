@@ -16,7 +16,7 @@ import java.util.Map;
  * @Project cmu
  * @Version 1.0
  */
-public abstract class BasetTag extends TagSupport  implements DynamicAttributes {
+public abstract class BaseTag extends TagSupport  implements DynamicAttributes {
 
 
 
@@ -35,7 +35,7 @@ public abstract class BasetTag extends TagSupport  implements DynamicAttributes 
     @Override
     public  int doStartTag() throws JspException{
         try {
-            System.out.println("daValue : "+daValue);
+            //System.out.println("daValue : "+daValue);
             tagHeader();
             tagContent();
             tagEnd();

@@ -19,47 +19,47 @@ public class ForeignTeacher {
     private String gender;
 
     /**
-     * null
+     * 语种
      */
     private String language;
 
     /**
-     * null
+     * 工作单位
      */
     private String gzdw;
 
     /**
-     * null
+     * 专业领域
      */
     private String zyly;
 
     /**
-     * null
+     * 邮箱
      */
     private String email;
 
     /**
-     * null
+     * 工作电话
      */
     private String phone;
 
     /**
-     * null
+     * 职务职称
      */
     private String zwzc;
 
     /**
-     * null
+     * 关联项目
      */
     private String glxm;
 
     /**
-     * null
+     * 传真
      */
     private String cz;
 
     /**
-     * null
+     * 通信地址
      */
     private String txdz;
 
@@ -69,9 +69,9 @@ public class ForeignTeacher {
     private String gj;
 
     /**
-     * 状态
+     * 备注
      */
-    private String zt;
+    private String memo;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -85,9 +85,9 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
-    public ForeignTeacher(String tid, String name, String gender, String language, String gzdw, String zyly, String email, String phone, String zwzc, String glxm, String cz, String txdz, String gj, String zt, String valid, Date createTime) {
+    public ForeignTeacher(String tid, String name, String gender, String language, String gzdw, String zyly, String email, String phone, String zwzc, String glxm, String cz, String txdz, String gj, String memo, String valid, Date createTime) {
         this.tid = tid;
         this.name = name;
         this.gender = gender;
@@ -101,14 +101,14 @@ public class ForeignTeacher {
         this.cz = cz;
         this.txdz = txdz;
         this.gj = gj;
-        this.zt = zt;
+        this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     public ForeignTeacher() {
         super();
@@ -163,144 +163,144 @@ public class ForeignTeacher {
     }
 
     /**
-     * null
-     * @return LANGUAGE null
+     * 语种
+     * @return LANGUAGE 语种
      */
     public String getLanguage() {
         return language;
     }
 
     /**
-     * null
-     * @param language null
+     * 语种
+     * @param language 语种
      */
     public void setLanguage(String language) {
         this.language = language == null ? null : language.trim();
     }
 
     /**
-     * null
-     * @return GZDW null
+     * 工作单位
+     * @return GZDW 工作单位
      */
     public String getGzdw() {
         return gzdw;
     }
 
     /**
-     * null
-     * @param gzdw null
+     * 工作单位
+     * @param gzdw 工作单位
      */
     public void setGzdw(String gzdw) {
         this.gzdw = gzdw == null ? null : gzdw.trim();
     }
 
     /**
-     * null
-     * @return ZYLY null
+     * 专业领域
+     * @return ZYLY 专业领域
      */
     public String getZyly() {
         return zyly;
     }
 
     /**
-     * null
-     * @param zyly null
+     * 专业领域
+     * @param zyly 专业领域
      */
     public void setZyly(String zyly) {
         this.zyly = zyly == null ? null : zyly.trim();
     }
 
     /**
-     * null
-     * @return EMAIL null
+     * 邮箱
+     * @return EMAIL 邮箱
      */
     public String getEmail() {
         return email;
     }
 
     /**
-     * null
-     * @param email null
+     * 邮箱
+     * @param email 邮箱
      */
     public void setEmail(String email) {
         this.email = email == null ? null : email.trim();
     }
 
     /**
-     * null
-     * @return PHONE null
+     * 工作电话
+     * @return PHONE 工作电话
      */
     public String getPhone() {
         return phone;
     }
 
     /**
-     * null
-     * @param phone null
+     * 工作电话
+     * @param phone 工作电话
      */
     public void setPhone(String phone) {
         this.phone = phone == null ? null : phone.trim();
     }
 
     /**
-     * null
-     * @return ZWZC null
+     * 职务职称
+     * @return ZWZC 职务职称
      */
     public String getZwzc() {
         return zwzc;
     }
 
     /**
-     * null
-     * @param zwzc null
+     * 职务职称
+     * @param zwzc 职务职称
      */
     public void setZwzc(String zwzc) {
         this.zwzc = zwzc == null ? null : zwzc.trim();
     }
 
     /**
-     * null
-     * @return GLXM null
+     * 关联项目
+     * @return GLXM 关联项目
      */
     public String getGlxm() {
         return glxm;
     }
 
     /**
-     * null
-     * @param glxm null
+     * 关联项目
+     * @param glxm 关联项目
      */
     public void setGlxm(String glxm) {
         this.glxm = glxm == null ? null : glxm.trim();
     }
 
     /**
-     * null
-     * @return CZ null
+     * 传真
+     * @return CZ 传真
      */
     public String getCz() {
         return cz;
     }
 
     /**
-     * null
-     * @param cz null
+     * 传真
+     * @param cz 传真
      */
     public void setCz(String cz) {
         this.cz = cz == null ? null : cz.trim();
     }
 
     /**
-     * null
-     * @return TXDZ null
+     * 通信地址
+     * @return TXDZ 通信地址
      */
     public String getTxdz() {
         return txdz;
     }
 
     /**
-     * null
-     * @param txdz null
+     * 通信地址
+     * @param txdz 通信地址
      */
     public void setTxdz(String txdz) {
         this.txdz = txdz == null ? null : txdz.trim();
@@ -323,19 +323,19 @@ public class ForeignTeacher {
     }
 
     /**
-     * 状态
-     * @return ZT 状态
+     * 备注
+     * @return MEMO 备注
      */
-    public String getZt() {
-        return zt;
+    public String getMemo() {
+        return memo;
     }
 
     /**
-     * 状态
-     * @param zt 状态
+     * 备注
+     * @param memo 备注
      */
-    public void setZt(String zt) {
-        this.zt = zt == null ? null : zt.trim();
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
     }
 
     /**
@@ -372,7 +372,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-10-28
      */
     @Override
     public String toString() {
@@ -393,7 +393,7 @@ public class ForeignTeacher {
         sb.append(", cz=").append(cz);
         sb.append(", txdz=").append(txdz);
         sb.append(", gj=").append(gj);
-        sb.append(", zt=").append(zt);
+        sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

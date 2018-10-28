@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.edu.cmu.dao.TjsXsjbsjxxMapper" >
-  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.TjsXsjbsjxx" >
+<mapper namespace="cn.edu.cmu.dao.YjsXsjbsjxxMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.YjsXsjbsjxx" >
     <constructor >
       <arg column="XH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -55,7 +55,6 @@
           </trim>
         </if>
       </foreach>
-       and valid = 1
     </where>
   </sql>
   <sql id="Update_By_Example_Where_Clause" >
@@ -91,7 +90,7 @@
     XH, XM, XMPY, CYM, XBM, CSRQ, CSDM, JG, MZM, GJDQM, SFZJLXM, SFZJH, HYZKM, GATQWM, 
     ZZMMM, JKZKM, XYZJM, XXM, SFZJYXQ, SFLXS, YWXM, SFDSZN, SFZZRY
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.TjsXsjbsjxxParams" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.YjsXsjbsjxxParams" >
     select
     <if test="distinct" >
       distinct
@@ -106,13 +105,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.TjsXsjbsjxxParams" >
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.YjsXsjbsjxxParams" >
     delete from V_YJS_XSJBSJXX
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="cn.edu.cmu.domain.TjsXsjbsjxx" >
+  <insert id="insert" parameterType="cn.edu.cmu.domain.YjsXsjbsjxx" >
     insert into V_YJS_XSJBSJXX (XH, XM, XMPY, 
       CYM, XBM, CSRQ, CSDM, 
       JG, MZM, GJDQM, SFZJLXM, 
@@ -130,7 +129,7 @@
       #{ywxm,jdbcType=VARCHAR}, #{sfdszn,jdbcType=VARCHAR}, #{sfzzry,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.TjsXsjbsjxx" >
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.YjsXsjbsjxx" >
     insert into V_YJS_XSJBSJXX
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="xh != null" >
@@ -275,7 +274,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.edu.cmu.domain.TjsXsjbsjxxParams" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.YjsXsjbsjxxParams" resultType="java.lang.Integer" >
     select count(*) from V_YJS_XSJBSJXX
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
