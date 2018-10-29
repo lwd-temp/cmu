@@ -95,7 +95,7 @@
                                value="<fmt:formatDate value="${wbjdSq.tlsjEnd}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 国家: </label>
+                    <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbCodeList}" id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
                     </div>
@@ -191,7 +191,7 @@
                         <input class="form-control  " name="wbjdSq.tzzy" value="${wbjdSq.tzzy}" type="text"   />
                     </div>
                 </div>
-                <div class="form-group ">
+                <%--<div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请人姓名: </label>
                     <div class="col-xs-4">
                         <input class="form-control  " name="wbjdSq.zqrxm" value="${wbjdSq.zqrxm}" type="text"   />
@@ -201,7 +201,7 @@
                     <div class="col-xs-4">
                         <input class="form-control  " name="wbjdSq.zqrdh" value="${wbjdSq.zqrdh}" type="text"   />
                     </div>
-                </div>
+                </div>--%>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                     <div class="col-xs-4">

@@ -22,7 +22,12 @@ public class WbjdSq {
     /**
      * 来访时间
      */
-    private Date lfsj;
+    private Date lfsjStart;
+
+    /**
+     * 来访时间止
+     */
+    private Date lfsjEnd;
 
     /**
      * 停留时间（时间开始）
@@ -105,6 +110,11 @@ public class WbjdSq {
     private String tzgzdw;
 
     /**
+     * 团长职称
+     */
+    private String tzzc;
+
+    /**
      * 团长职务
      */
     private String tzzw;
@@ -150,16 +160,39 @@ public class WbjdSq {
     private String jdbm;
 
     /**
+     * 是否邀请校领导
+     */
+    private String ynYqxld;
+
+    /**
+     * 是否获学院同意
+     */
+    private String ynXyty;
+
+    /**
+     * 是否报备所属公安部门
+     */
+    private String ynBbssgabm;
+
+    /**
+     * 是否报备所属宣传部门
+     */
+    private String ynBbssxcbm;
+
+    /**
      * 接待类型   01 校级接待、02 院级接待
      */
     private String jdlx;
 
     /**
-     *
-     *
-     * 01 暂存 02提交待审核 03退回 04 审核通过 05办结
+     * 状态 01 资料需修改、02 资料合格、03 办结
      */
     private String status;
+
+    /**
+     * 备注
+     */
+    private String memo;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -173,13 +206,14 @@ public class WbjdSq {
 
     /**
      *
-     * @mbggenerated 2018-10-08
+     * @mbggenerated 2018-10-28
      */
-    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, Date lfsj, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String jdlx, String status, String valid, Date createTime) {
+    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzc, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String jdlx, String status, String memo, String valid, Date createTime) {
         this.lfid = lfid;
         this.dbtmc = dbtmc;
         this.lfrs = lfrs;
-        this.lfsj = lfsj;
+        this.lfsjStart = lfsjStart;
+        this.lfsjEnd = lfsjEnd;
         this.tlsjStart = tlsjStart;
         this.tlsjEnd = tlsjEnd;
         this.lfmd = lfmd;
@@ -196,6 +230,7 @@ public class WbjdSq {
         this.tzxb = tzxb;
         this.tzcsrq = tzcsrq;
         this.tzgzdw = tzgzdw;
+        this.tzzc = tzzc;
         this.tzzw = tzzw;
         this.tzzy = tzzy;
         this.tzxsly = tzxsly;
@@ -205,15 +240,20 @@ public class WbjdSq {
         this.zqlxrxm = zqlxrxm;
         this.zqlxrdh = zqlxrdh;
         this.jdbm = jdbm;
+        this.ynYqxld = ynYqxld;
+        this.ynXyty = ynXyty;
+        this.ynBbssgabm = ynBbssgabm;
+        this.ynBbssxcbm = ynBbssxcbm;
         this.jdlx = jdlx;
         this.status = status;
+        this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-10-08
+     * @mbggenerated 2018-10-28
      */
     public WbjdSq() {
         super();
@@ -269,18 +309,34 @@ public class WbjdSq {
 
     /**
      * 来访时间
-     * @return LFSJ 来访时间
+     * @return LFSJ_START 来访时间
      */
-    public Date getLfsj() {
-        return lfsj;
+    public Date getLfsjStart() {
+        return lfsjStart;
     }
 
     /**
      * 来访时间
-     * @param lfsj 来访时间
+     * @param lfsjStart 来访时间
      */
-    public void setLfsj(Date lfsj) {
-        this.lfsj = lfsj;
+    public void setLfsjStart(Date lfsjStart) {
+        this.lfsjStart = lfsjStart;
+    }
+
+    /**
+     * 来访时间止
+     * @return LFSJ_END 来访时间止
+     */
+    public Date getLfsjEnd() {
+        return lfsjEnd;
+    }
+
+    /**
+     * 来访时间止
+     * @param lfsjEnd 来访时间止
+     */
+    public void setLfsjEnd(Date lfsjEnd) {
+        this.lfsjEnd = lfsjEnd;
     }
 
     /**
@@ -540,6 +596,22 @@ public class WbjdSq {
     }
 
     /**
+     * 团长职称
+     * @return TZZC 团长职称
+     */
+    public String getTzzc() {
+        return tzzc;
+    }
+
+    /**
+     * 团长职称
+     * @param tzzc 团长职称
+     */
+    public void setTzzc(String tzzc) {
+        this.tzzc = tzzc == null ? null : tzzc.trim();
+    }
+
+    /**
      * 团长职务
      * @return TZZW 团长职务
      */
@@ -684,6 +756,70 @@ public class WbjdSq {
     }
 
     /**
+     * 是否邀请校领导
+     * @return YN_YQXLD 是否邀请校领导
+     */
+    public String getYnYqxld() {
+        return ynYqxld;
+    }
+
+    /**
+     * 是否邀请校领导
+     * @param ynYqxld 是否邀请校领导
+     */
+    public void setYnYqxld(String ynYqxld) {
+        this.ynYqxld = ynYqxld == null ? null : ynYqxld.trim();
+    }
+
+    /**
+     * 是否获学院同意
+     * @return YN_XYTY 是否获学院同意
+     */
+    public String getYnXyty() {
+        return ynXyty;
+    }
+
+    /**
+     * 是否获学院同意
+     * @param ynXyty 是否获学院同意
+     */
+    public void setYnXyty(String ynXyty) {
+        this.ynXyty = ynXyty == null ? null : ynXyty.trim();
+    }
+
+    /**
+     * 是否报备所属公安部门
+     * @return YN_BBSSGABM 是否报备所属公安部门
+     */
+    public String getYnBbssgabm() {
+        return ynBbssgabm;
+    }
+
+    /**
+     * 是否报备所属公安部门
+     * @param ynBbssgabm 是否报备所属公安部门
+     */
+    public void setYnBbssgabm(String ynBbssgabm) {
+        this.ynBbssgabm = ynBbssgabm == null ? null : ynBbssgabm.trim();
+    }
+
+    /**
+     * 是否报备所属宣传部门
+     * @return YN_BBSSXCBM 是否报备所属宣传部门
+     */
+    public String getYnBbssxcbm() {
+        return ynBbssxcbm;
+    }
+
+    /**
+     * 是否报备所属宣传部门
+     * @param ynBbssxcbm 是否报备所属宣传部门
+     */
+    public void setYnBbssxcbm(String ynBbssxcbm) {
+        this.ynBbssxcbm = ynBbssxcbm == null ? null : ynBbssxcbm.trim();
+    }
+
+    /**
      * 接待类型   01 校级接待、02 院级接待
      * @return JDLX 接待类型   01 校级接待、02 院级接待
      */
@@ -713,6 +849,22 @@ public class WbjdSq {
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
+    }
+
+    /**
+     * 备注
+     * @return MEMO 备注
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * 备注
+     * @param memo 备注
+     */
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
     }
 
     /**
@@ -749,7 +901,7 @@ public class WbjdSq {
 
     /**
      *
-     * @mbggenerated 2018-10-08
+     * @mbggenerated 2018-10-28
      */
     @Override
     public String toString() {
@@ -760,7 +912,8 @@ public class WbjdSq {
         sb.append(", lfid=").append(lfid);
         sb.append(", dbtmc=").append(dbtmc);
         sb.append(", lfrs=").append(lfrs);
-        sb.append(", lfsj=").append(lfsj);
+        sb.append(", lfsjStart=").append(lfsjStart);
+        sb.append(", lfsjEnd=").append(lfsjEnd);
         sb.append(", tlsjStart=").append(tlsjStart);
         sb.append(", tlsjEnd=").append(tlsjEnd);
         sb.append(", lfmd=").append(lfmd);
@@ -777,6 +930,7 @@ public class WbjdSq {
         sb.append(", tzxb=").append(tzxb);
         sb.append(", tzcsrq=").append(tzcsrq);
         sb.append(", tzgzdw=").append(tzgzdw);
+        sb.append(", tzzc=").append(tzzc);
         sb.append(", tzzw=").append(tzzw);
         sb.append(", tzzy=").append(tzzy);
         sb.append(", tzxsly=").append(tzxsly);
@@ -786,8 +940,13 @@ public class WbjdSq {
         sb.append(", zqlxrxm=").append(zqlxrxm);
         sb.append(", zqlxrdh=").append(zqlxrdh);
         sb.append(", jdbm=").append(jdbm);
+        sb.append(", ynYqxld=").append(ynYqxld);
+        sb.append(", ynXyty=").append(ynXyty);
+        sb.append(", ynBbssgabm=").append(ynBbssgabm);
+        sb.append(", ynBbssxcbm=").append(ynBbssxcbm);
         sb.append(", jdlx=").append(jdlx);
         sb.append(", status=").append(status);
+        sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

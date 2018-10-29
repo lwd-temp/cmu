@@ -6,7 +6,8 @@
       <idArg column="LFID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DBTMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="LFRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="LFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LFSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LFSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="TLSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="TLSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="LFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -23,6 +24,7 @@
       <arg column="TZXB" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZCSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="TZGZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZZC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZZY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="TZXSLY" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -32,8 +34,13 @@
       <arg column="ZQLXRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZQLXRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JDBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_YQXLD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_XYTY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_BBSSGABM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_BBSSXCBM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JDLX" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -98,9 +105,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    LFID, DBTMC, LFRS, LFSJ, TLSJ_START, TLSJ_END, LFMD, LFMD_QT, YJTM, YQXX, JFLY, LP, 
-    LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, TZZY, TZXSLY, YQCG, ZQRXM, 
-    ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS, VALID, CREATE_TIME
+    LFID, DBTMC, LFRS, LFSJ_START, LFSJ_END, TLSJ_START, TLSJ_END, LFMD, LFMD_QT, YJTM, 
+    YQXX, JFLY, LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZC, TZZW, TZZY, 
+    TZXSLY, YQCG, ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, YN_YQXLD, YN_XYTY, YN_BBSSGABM, 
+    YN_BBSSXCBM, JDLX, STATUS, MEMO, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSqParams" >
     select
@@ -136,27 +144,31 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.WbjdSq" >
     insert into T_WBJD_SQ (LFID, DBTMC, LFRS, 
-      LFSJ, TLSJ_START, TLSJ_END, 
-      LFMD, LFMD_QT, YJTM, 
-      YQXX, JFLY, LP, LPSL, 
-      QKJL, FWCG, TZXM, TZGJ, 
-      TZXB, TZCSRQ, TZGZDW, 
-      TZZW, TZZY, TZXSLY, 
-      YQCG, ZQRXM, ZQRDH, 
-      ZQLXRXM, ZQLXRDH, JDBM, 
-      JDLX, STATUS, VALID, 
-      CREATE_TIME)
+      LFSJ_START, LFSJ_END, TLSJ_START, 
+      TLSJ_END, LFMD, LFMD_QT, 
+      YJTM, YQXX, JFLY, LP, 
+      LPSL, QKJL, FWCG, TZXM, 
+      TZGJ, TZXB, TZCSRQ, 
+      TZGZDW, TZZC, TZZW, 
+      TZZY, TZXSLY, YQCG, 
+      ZQRXM, ZQRDH, ZQLXRXM, 
+      ZQLXRDH, JDBM, YN_YQXLD, 
+      YN_XYTY, YN_BBSSGABM, YN_BBSSXCBM, 
+      JDLX, STATUS, MEMO, 
+      VALID, CREATE_TIME)
     values (#{lfid,jdbcType=VARCHAR}, #{dbtmc,jdbcType=VARCHAR}, #{lfrs,jdbcType=DECIMAL}, 
-      #{lfsj,jdbcType=TIMESTAMP}, #{tlsjStart,jdbcType=TIMESTAMP}, #{tlsjEnd,jdbcType=TIMESTAMP}, 
-      #{lfmd,jdbcType=VARCHAR}, #{lfmdQt,jdbcType=VARCHAR}, #{yjtm,jdbcType=VARCHAR}, 
-      #{yqxx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{lp,jdbcType=VARCHAR}, #{lpsl,jdbcType=DECIMAL}, 
-      #{qkjl,jdbcType=VARCHAR}, #{fwcg,jdbcType=VARCHAR}, #{tzxm,jdbcType=VARCHAR}, #{tzgj,jdbcType=VARCHAR}, 
-      #{tzxb,jdbcType=VARCHAR}, #{tzcsrq,jdbcType=TIMESTAMP}, #{tzgzdw,jdbcType=VARCHAR}, 
-      #{tzzw,jdbcType=VARCHAR}, #{tzzy,jdbcType=VARCHAR}, #{tzxsly,jdbcType=VARCHAR}, 
-      #{yqcg,jdbcType=VARCHAR}, #{zqrxm,jdbcType=VARCHAR}, #{zqrdh,jdbcType=VARCHAR}, 
-      #{zqlxrxm,jdbcType=VARCHAR}, #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, 
-      #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{lfsjStart,jdbcType=TIMESTAMP}, #{lfsjEnd,jdbcType=TIMESTAMP}, #{tlsjStart,jdbcType=TIMESTAMP}, 
+      #{tlsjEnd,jdbcType=TIMESTAMP}, #{lfmd,jdbcType=VARCHAR}, #{lfmdQt,jdbcType=VARCHAR}, 
+      #{yjtm,jdbcType=VARCHAR}, #{yqxx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{lp,jdbcType=VARCHAR}, 
+      #{lpsl,jdbcType=DECIMAL}, #{qkjl,jdbcType=VARCHAR}, #{fwcg,jdbcType=VARCHAR}, #{tzxm,jdbcType=VARCHAR}, 
+      #{tzgj,jdbcType=VARCHAR}, #{tzxb,jdbcType=VARCHAR}, #{tzcsrq,jdbcType=TIMESTAMP}, 
+      #{tzgzdw,jdbcType=VARCHAR}, #{tzzc,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, 
+      #{tzzy,jdbcType=VARCHAR}, #{tzxsly,jdbcType=VARCHAR}, #{yqcg,jdbcType=VARCHAR}, 
+      #{zqrxm,jdbcType=VARCHAR}, #{zqrdh,jdbcType=VARCHAR}, #{zqlxrxm,jdbcType=VARCHAR}, 
+      #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, #{ynYqxld,jdbcType=VARCHAR}, 
+      #{ynXyty,jdbcType=VARCHAR}, #{ynBbssgabm,jdbcType=VARCHAR}, #{ynBbssxcbm,jdbcType=VARCHAR}, 
+      #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdSq" >
     insert into T_WBJD_SQ
@@ -170,8 +182,11 @@
       <if test="lfrs != null" >
         LFRS,
       </if>
-      <if test="lfsj != null" >
-        LFSJ,
+      <if test="lfsjStart != null" >
+        LFSJ_START,
+      </if>
+      <if test="lfsjEnd != null" >
+        LFSJ_END,
       </if>
       <if test="tlsjStart != null" >
         TLSJ_START,
@@ -221,6 +236,9 @@
       <if test="tzgzdw != null" >
         TZGZDW,
       </if>
+      <if test="tzzc != null" >
+        TZZC,
+      </if>
       <if test="tzzw != null" >
         TZZW,
       </if>
@@ -248,11 +266,26 @@
       <if test="jdbm != null" >
         JDBM,
       </if>
+      <if test="ynYqxld != null" >
+        YN_YQXLD,
+      </if>
+      <if test="ynXyty != null" >
+        YN_XYTY,
+      </if>
+      <if test="ynBbssgabm != null" >
+        YN_BBSSGABM,
+      </if>
+      <if test="ynBbssxcbm != null" >
+        YN_BBSSXCBM,
+      </if>
       <if test="jdlx != null" >
         JDLX,
       </if>
       <if test="status != null" >
         STATUS,
+      </if>
+      <if test="memo != null" >
+        MEMO,
       </if>
       <if test="valid != null" >
         VALID,
@@ -271,8 +304,11 @@
       <if test="lfrs != null" >
         #{lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="lfsj != null" >
-        #{lfsj,jdbcType=TIMESTAMP},
+      <if test="lfsjStart != null" >
+        #{lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfsjEnd != null" >
+        #{lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="tlsjStart != null" >
         #{tlsjStart,jdbcType=TIMESTAMP},
@@ -322,6 +358,9 @@
       <if test="tzgzdw != null" >
         #{tzgzdw,jdbcType=VARCHAR},
       </if>
+      <if test="tzzc != null" >
+        #{tzzc,jdbcType=VARCHAR},
+      </if>
       <if test="tzzw != null" >
         #{tzzw,jdbcType=VARCHAR},
       </if>
@@ -349,11 +388,26 @@
       <if test="jdbm != null" >
         #{jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="ynYqxld != null" >
+        #{ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="ynXyty != null" >
+        #{ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssgabm != null" >
+        #{ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssxcbm != null" >
+        #{ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
       <if test="jdlx != null" >
         #{jdlx,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -381,8 +435,11 @@
       <if test="record.lfrs != null" >
         LFRS = #{record.lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="record.lfsj != null" >
-        LFSJ = #{record.lfsj,jdbcType=TIMESTAMP},
+      <if test="record.lfsjStart != null" >
+        LFSJ_START = #{record.lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lfsjEnd != null" >
+        LFSJ_END = #{record.lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="record.tlsjStart != null" >
         TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
@@ -432,6 +489,9 @@
       <if test="record.tzgzdw != null" >
         TZGZDW = #{record.tzgzdw,jdbcType=VARCHAR},
       </if>
+      <if test="record.tzzc != null" >
+        TZZC = #{record.tzzc,jdbcType=VARCHAR},
+      </if>
       <if test="record.tzzw != null" >
         TZZW = #{record.tzzw,jdbcType=VARCHAR},
       </if>
@@ -459,11 +519,26 @@
       <if test="record.jdbm != null" >
         JDBM = #{record.jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="record.ynYqxld != null" >
+        YN_YQXLD = #{record.ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynXyty != null" >
+        YN_XYTY = #{record.ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynBbssgabm != null" >
+        YN_BBSSGABM = #{record.ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynBbssxcbm != null" >
+        YN_BBSSXCBM = #{record.ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
       <if test="record.jdlx != null" >
         JDLX = #{record.jdlx,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -481,7 +556,8 @@
     set LFID = #{record.lfid,jdbcType=VARCHAR},
       DBTMC = #{record.dbtmc,jdbcType=VARCHAR},
       LFRS = #{record.lfrs,jdbcType=DECIMAL},
-      LFSJ = #{record.lfsj,jdbcType=TIMESTAMP},
+      LFSJ_START = #{record.lfsjStart,jdbcType=TIMESTAMP},
+      LFSJ_END = #{record.lfsjEnd,jdbcType=TIMESTAMP},
       TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
       TLSJ_END = #{record.tlsjEnd,jdbcType=TIMESTAMP},
       LFMD = #{record.lfmd,jdbcType=VARCHAR},
@@ -498,6 +574,7 @@
       TZXB = #{record.tzxb,jdbcType=VARCHAR},
       TZCSRQ = #{record.tzcsrq,jdbcType=TIMESTAMP},
       TZGZDW = #{record.tzgzdw,jdbcType=VARCHAR},
+      TZZC = #{record.tzzc,jdbcType=VARCHAR},
       TZZW = #{record.tzzw,jdbcType=VARCHAR},
       TZZY = #{record.tzzy,jdbcType=VARCHAR},
       TZXSLY = #{record.tzxsly,jdbcType=VARCHAR},
@@ -507,8 +584,13 @@
       ZQLXRXM = #{record.zqlxrxm,jdbcType=VARCHAR},
       ZQLXRDH = #{record.zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{record.jdbm,jdbcType=VARCHAR},
+      YN_YQXLD = #{record.ynYqxld,jdbcType=VARCHAR},
+      YN_XYTY = #{record.ynXyty,jdbcType=VARCHAR},
+      YN_BBSSGABM = #{record.ynBbssgabm,jdbcType=VARCHAR},
+      YN_BBSSXCBM = #{record.ynBbssxcbm,jdbcType=VARCHAR},
       JDLX = #{record.jdlx,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -524,8 +606,11 @@
       <if test="lfrs != null" >
         LFRS = #{lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="lfsj != null" >
-        LFSJ = #{lfsj,jdbcType=TIMESTAMP},
+      <if test="lfsjStart != null" >
+        LFSJ_START = #{lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfsjEnd != null" >
+        LFSJ_END = #{lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="tlsjStart != null" >
         TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
@@ -575,6 +660,9 @@
       <if test="tzgzdw != null" >
         TZGZDW = #{tzgzdw,jdbcType=VARCHAR},
       </if>
+      <if test="tzzc != null" >
+        TZZC = #{tzzc,jdbcType=VARCHAR},
+      </if>
       <if test="tzzw != null" >
         TZZW = #{tzzw,jdbcType=VARCHAR},
       </if>
@@ -602,11 +690,26 @@
       <if test="jdbm != null" >
         JDBM = #{jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="ynYqxld != null" >
+        YN_YQXLD = #{ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="ynXyty != null" >
+        YN_XYTY = #{ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssgabm != null" >
+        YN_BBSSGABM = #{ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssxcbm != null" >
+        YN_BBSSXCBM = #{ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
       <if test="jdlx != null" >
         JDLX = #{jdlx,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
@@ -621,7 +724,8 @@
     update T_WBJD_SQ
     set DBTMC = #{dbtmc,jdbcType=VARCHAR},
       LFRS = #{lfrs,jdbcType=DECIMAL},
-      LFSJ = #{lfsj,jdbcType=TIMESTAMP},
+      LFSJ_START = #{lfsjStart,jdbcType=TIMESTAMP},
+      LFSJ_END = #{lfsjEnd,jdbcType=TIMESTAMP},
       TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
       TLSJ_END = #{tlsjEnd,jdbcType=TIMESTAMP},
       LFMD = #{lfmd,jdbcType=VARCHAR},
@@ -638,6 +742,7 @@
       TZXB = #{tzxb,jdbcType=VARCHAR},
       TZCSRQ = #{tzcsrq,jdbcType=TIMESTAMP},
       TZGZDW = #{tzgzdw,jdbcType=VARCHAR},
+      TZZC = #{tzzc,jdbcType=VARCHAR},
       TZZW = #{tzzw,jdbcType=VARCHAR},
       TZZY = #{tzzy,jdbcType=VARCHAR},
       TZXSLY = #{tzxsly,jdbcType=VARCHAR},
@@ -647,8 +752,13 @@
       ZQLXRXM = #{zqlxrxm,jdbcType=VARCHAR},
       ZQLXRDH = #{zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{jdbm,jdbcType=VARCHAR},
+      YN_YQXLD = #{ynYqxld,jdbcType=VARCHAR},
+      YN_XYTY = #{ynXyty,jdbcType=VARCHAR},
+      YN_BBSSGABM = #{ynBbssgabm,jdbcType=VARCHAR},
+      YN_BBSSXCBM = #{ynBbssxcbm,jdbcType=VARCHAR},
       JDLX = #{jdlx,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where LFID = #{lfid,jdbcType=VARCHAR}

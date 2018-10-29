@@ -211,7 +211,7 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
     private void insertWbjdZj(WbjdSq wbjdSq,String zjid) {
         //审核通过 总结表新增一条数据
-        WbjdZj wbjdZj = new WbjdZj();
+        /*WbjdZj wbjdZj = new WbjdZj();
         wbjdZj.setZjid(zjid);
         wbjdZj.setLfid(wbjdSq.getLfid());
         wbjdZj.setStatus(wbjdSq.getStatus());
@@ -243,9 +243,9 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         wbjdZj.setZqlxrdh(wbjdSq.getZqlxrdh());
         wbjdZj.setZqlxrxm(wbjdSq.getZqlxrxm());
         wbjdZj.setZqrdh(wbjdSq.getZqrdh());
-        wbjdZj.setZqrxm(wbjdSq.getZqrxm());
+        wbjdZj.setZqrxm(wbjdSq.getZqrxm());*//*
         //所有字段
-        wbjdZjMapper.insertSelective(wbjdZj);
+        wbjdZjMapper.insertSelective(wbjdZj);*/
     }
 
 
