@@ -7,7 +7,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +27,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        WbjdSq wbjdSq = new WbjdSq(CmuStringUtil.UUID(), "01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01", "01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);
+        WbjdSq wbjdSq = null;//new WbjdSq(CmuStringUtil.UUID(), "01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01", "01","01","01","01","01",BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);
         boolean success = service.insert(wbjdSq);
         System.out.println("WbjdSq:"+wbjdSq);
         System.out.println("success:"+success);
@@ -71,8 +69,7 @@ public class WbjdSqServiceImplTest extends SpringIOC {
     @Test
     public void deleteById()throws Exception {
         String keyId = CmuStringUtil.UUID();
-        WbjdSq wbjdSq = new WbjdSq(keyId ,"01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01", "01","01","01","01","01",
-                BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);
+        WbjdSq wbjdSq = null;//new WbjdSq(keyId ,"01", BigDecimal.valueOf(1.34),new  Date(),new  Date(),new  Date(), "01", "01","01","01","01","01",BigDecimal.valueOf(1.34), "01","01","01","01","01",new  Date(),"01","01","01","01","01","01","01","01","01","01" ,"01","01", null,null);
         boolean success = service.insert(wbjdSq);
         System.out.println("保存成功："+success);
         WbjdSq queryWbjdSq = service.queryById(keyId);
