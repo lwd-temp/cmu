@@ -70,7 +70,7 @@
                     </div>
                     <label class="col-xs-2 control-label"  > 性别: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_xb"  name="xb" id="xb" value="${cgdqcgj.xb}" type="radio" readonly="readonly"  ></dm:list>
+                        <dm:list tabName="t_dm_xb"  name="xb" id="xb" value="${cgdqcgj.xb}" type="radio"   ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">

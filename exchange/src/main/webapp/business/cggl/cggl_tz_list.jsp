@@ -126,11 +126,15 @@
 
         $("#xzquery").click(function(){
             var grid = $('#grid-table');
-            var rowKey = grid.getGridParam("selrow");
+            var rowKey = grid.getGridParam("selarrrow");
             if(rowKey!=null){
-                selectData = grid.jqGrid("getRowData", rowKey);
-                callback(selectData);
-                closeLayer();
+                if(rowKey.length=='1'){
+                    selectData = grid.jqGrid("getRowData", rowKey);
+                    callback(selectData);
+                    closeLayer();
+                }else{
+                    alert('请选中一个团组')
+                }
             }else{
                 alert('请选中一个团组')
             }

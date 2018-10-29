@@ -48,6 +48,13 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="wbjdSq.status" id="status" value="01" />
 
+
+                <input type="hidden"   id="ynYqxld_value" />
+                <input type="hidden"   id="ynXyty_value"   />
+                <input type="hidden"   id="ynBbssgabm_value"  />
+                <input type="hidden"   id="ynBbssxcbm_value"  />
+
+
                 <div class="form-group ">
 
                     <label class="col-xs-2 control-label "  > 接待类型: </label>
@@ -81,43 +88,23 @@
                         <input class="form-control date-picker" name="wbjdSq.lfsjStart" value="" id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 来访时间始: </label>
+                    <label class="col-xs-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="wbjdSq.lfsjEnd" value="" id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
-
-                    <%--<label class="col-xs-2 control-label " > 停留时间起始: </label>
-
-                    <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjStart" id="tlsjStart" value="" type="text" data-date-format="yyyy-mm-dd" />
-                    </div>--%>
-
                 </div>
 
                 <div class="form-group">
-                   <%-- <label class="col-xs-2 control-label " > 停留时间截止: </label>
-
-                    <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.tlsjEnd" id="tlsjEnd" value="" type="text" data-date-format="yyyy-mm-dd" />
-                    </div>--%>
 
                        <label class="col-xs-2 control-label " > 来访目的: </label>
                        <div class="col-xs-4">
                            <dm:list tabName="t_dm_lfmd"  name="wbjdSq.lfmd"  data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
                        </div>
 
-
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
-                    </div>
-                </div>
-                <div class="form-group">
-
-                    <label class="col-xs-2 control-label "  > 经费来源: </label>
-                    <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.jfly" value="" type="text"   />
                     </div>
                 </div>
                 <div class="form-group qtmd">
@@ -132,13 +119,39 @@
                         <input class="form-control  " name="wbjdSq.yjtm" value="" type="text"   />
                     </div>
                 </div>
-                <div class="form-group "  >
+                <div class="form-group">
+
+                    <label class="col-xs-2 control-label "  > 经费来源: </label>
+                    <div class="col-xs-10">
+                        <input class="form-control  " name="wbjdSq.jfly" value="" type="text"   />
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 是否邀请校领导: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.tzxb" type="radio" data-placeholder="请选接团长性别" ></dm:list>
-
-                        <%--<input class="form-control  " name="wbjdSq.yqxx" value="" type="text"   />--%>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynYqxld" type="radio" onclick="getRadio(this)" data-placeholder="请选是否邀请校领导" ></dm:list>
                     </div>
+                    <label class="col-xs-2 control-label "  > 是否获学院同意: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynXyty"  type="radio" onclick="getRadio(this)" data-placeholder="请选是否获学院同意" ></dm:list>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm"   type="radio" onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                    </div>
+                    <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm"   type="radio" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                    </div>
+                </div>
+                <div class="form-group "  >
+                    <label class="col-xs-2 control-label "  > 备注: </label>
+                    <div class="col-xs-10">
+                        <input class="form-control"  id="memo" name="wbjdSq.memo" value="" readonly=readonly type="text"  style="height: 70px;" />
+                    </div>
+                </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 礼品: </label>
@@ -167,54 +180,55 @@
                     <div class="col-xs-4">
                         <input class="form-control  " name="wbjdSq.tzxm" value="" type="text"   />
                     </div>
-
                     <label class="col-xs-2 control-label "  > 团长国籍: </label>
                     <div class="col-xs-4">
                         <input class="form-control  " name="wbjdSq.tzgj" value="" type="text"   />
 
                     </div>
-                </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长性别: </label>
-                <div class="col-xs-4">
-                    <dm:list tabName="t_dm_xb"  name="wbjdSq.tzxb" type="radio" data-placeholder="请选接团长性别" ></dm:list>
                 </div>
 
-                <label class="col-xs-2 control-label "  > 团长出生日期: </label>
-                <div class="col-xs-4">
-                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="" type="text" data-date-format="yyyy-mm-dd" />
-                </div>
-            </div> <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长工作单位: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzgzdw" value="" type="text"   />
-                </div>
-
-                <label class="col-xs-2 control-label "  > 团长职称: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzc" value="" type="text"   />
-                </div>
-            </div>
                 <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzy" value="" type="text"   />
-                </div>
-                <label class="col-xs-2 control-label "  > 团长职务: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.tzzw" value="" type="text"   />
-                </div>
-            </div>
-                <%--<div class="form-group ">
-                <label class="col-xs-2 control-label "  > 主请人姓名: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrxm" value="" type="text"   />
-                </div>
+                    <label class="col-xs-2 control-label "  > 团长性别: </label>
+                    <div class="col-xs-4">
+                        <dm:list tabName="t_dm_xb"  name="wbjdSq.tzxb" type="radio" data-placeholder="请选接团长性别" ></dm:list>
+                    </div>
 
-                <label class="col-xs-2 control-label "  > 主请人电话: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdSq.zqrdh" value="" type="text"   />
-                </div>--%>
-            </div>
+                    <label class="col-xs-2 control-label "  > 团长出生日期: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="" type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 团长工作单位: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzgzdw" value="" type="text"   />
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 团长职称: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzzc" value="" type="text"   />
+                    </div>
+                </div>
+                <div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzzy" value="" type="text"   />
+                    </div>
+                    <label class="col-xs-2 control-label "  > 团长职务: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.tzzw" value="" type="text"   />
+                    </div>
+                </div>
+                    <%--<div class="form-group ">
+                    <label class="col-xs-2 control-label "  > 主请人姓名: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqrxm" value="" type="text"   />
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 主请人电话: </label>
+                    <div class="col-xs-4">
+                        <input class="form-control  " name="wbjdSq.zqrdh" value="" type="text"   />
+                    </div>--%>
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                     <div class="col-xs-4">
@@ -270,6 +284,7 @@
                         提交
                     </button>
                 </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
@@ -310,8 +325,6 @@
 
             setFormValid();//设置校验规则
 
-
-
             $("#jdlx").change(function(){
                 var $select = $(this);
                 if($select.val() == '01'){//校级
@@ -351,12 +364,8 @@
 
                     $("#zqlxrdh").removeAttr("disabled");
                     $("#zqlxrdh").removeAttr("readonly");
-
-
                 }
-
             })
-
 
             $("#saveForm").click(function(){
                 $("#status").val("01");//暂存
@@ -479,6 +488,50 @@
                 $(".yjtm").hide();
                 $(".qtmd").hide();
             }
+        }
+
+
+
+        function getRadio(rad){
+            var val = $(rad).val(); // y n
+            switch ($(rad).attr('name')) {
+                case "wbjdSq.ynYqxld"://是否邀请校领导
+                    if(val == 'Y'){
+                        $("#ynYqxld_value").val("是否邀请校领导:是");
+                    }else{
+                        $("#ynYqxld_value").val("是否邀请校领导:否");
+                    }
+                    break;
+                case "wbjdSq.ynXyty"://是否获学院同意
+                    if(val == 'Y'){
+                        $("#ynXyty_value").val("是否获学院同意:是");
+                    }else{
+                        $("#ynXyty_value").val("是否获学院同意:否");
+                    }
+                    break;
+                case "wbjdSq.ynBbssgabm"://是否报备所属公安部门
+                    if(val == 'Y'){
+                        $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+                    }else{
+                        $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+                    }
+                    break;
+                case "wbjdSq.ynBbssxcbm"://是否报备所属宣传部门
+                    if(val == 'Y'){
+                        $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+                    }else{
+                        $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+                    }
+                    break;
+                default:
+                    break;
+            }
+
+            var ynYqxld_value = $("#ynYqxld_value").val();
+            var ynXyty_value  = $("#ynXyty_value").val();
+            var ynBbssgabm_value = $("#ynBbssgabm_value").val();
+            var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
+            $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
         }
     </script>
 </body>

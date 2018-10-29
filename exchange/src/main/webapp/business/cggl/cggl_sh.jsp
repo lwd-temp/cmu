@@ -57,7 +57,7 @@
                     </div>
                     <label class="col-xs-2 control-label"  > 性别: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_xb"  name="xb" id="xb" value="${cgdqcgj.xb}" type="radio" readonly="readonly"  ></dm:list>
+                        <dm:list tabName="t_dm_xb"  name="xb" id="xb" value="${cgdqcgj.xb}" type="radio" disabled="disabled"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
@@ -155,7 +155,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 出访目的: </label>
                     <div class="col-xs-10">
-                        <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" value="${cgdqcgj.cfmd}" readonly="readonly"   data-placeholder="请选择出访目的"   ></dm:list>
+                        <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" value="${cgdqcgj.cfmd}" disabled="disabled"   data-placeholder="请选择出访目的"   ></dm:list>
                     </div>
                 </div>
                 <div class="form-group" id="cfmdQt">
@@ -223,7 +223,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 申请类别  : </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_cgsqlx"  name="cglx" id="cglx" value="${cgdqcgj.cglx}" readonly="readonly"   data-placeholder="请选择申请类别"  ></dm:list>
+                        <dm:list tabName="t_dm_cgsqlx"  name="cglx" id="cglx" value="${cgdqcgj.cglx}" disabled="disabled"   data-placeholder="请选择申请类别"  ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label"  > 年内出访次数  : </label>
                     <div class="col-xs-4">

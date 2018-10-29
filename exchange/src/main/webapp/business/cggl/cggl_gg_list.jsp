@@ -48,7 +48,7 @@
             pager:pager_selector,
             colModel:[
                 {name:'tzxm',index:'tzxm' },
-                {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
+                {name:'xb',index:'xb',hidden:true,  formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
                 {name:'ssejdw',index:'ssejdw', hidden:true },

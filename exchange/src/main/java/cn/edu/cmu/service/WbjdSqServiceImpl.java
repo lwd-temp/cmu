@@ -88,37 +88,39 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     public boolean saveOrUpdate(WbglVO vo) throws Exception {
         boolean isEdit = false;//是否修改标志
 
-        WbjdSq WbjdSq = vo.getWbjdSq();
+        WbjdSq wbjdSq = new  WbjdSq();
+        wbjdSq = vo.getWbjdSq();
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdSxry> sxr = vo.getSxr();
-        if(StringUtil.isEmpty(WbjdSq.getLfid())){
+        if(StringUtil.isEmpty(wbjdSq.getLfid())){
             String keyId = CmuStringUtil.UUID();
-            WbjdSq.setLfid(keyId);
+            wbjdSq.setLfid(keyId);
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
         //无论新增，还是修改，需要再成员表中维护主外键关系
         if((!CollectionUtils.isEmpty(sxr)) ){
             for (WbjdSxry r : sxr) {
-                r.setLfid(WbjdSq.getLfid());//设置外键团组计划id
+                r.setLfid(wbjdSq.getLfid());//设置外键团组计划id
             }
         }
         if(isEdit){ //修改
-            dao.updateByPrimaryKeySelective(WbjdSq);
+            dao.updateByPrimaryKeySelective(wbjdSq);
             //从表先删后查
-            deleteSxr(WbjdSq);
+            deleteSxr(wbjdSq);
             //删完后添加从表数据
             insertSxr(sxr);
             //国别先删除后插入
-            deleteGb(WbjdSq);
+            deleteGb(wbjdSq);
             //删完后添加从表国别数据
-            insertGb(WbjdSq,cfgbIds);
+            insertGb(wbjdSq,cfgbIds);
 
         }else{ //添加
-            System.out.println(WbjdSq);
-            dao.insertSelective(WbjdSq);
+            System.out.println(wbjdSq);
+
+            dao.insertSelective(wbjdSq);
             insertSxr(sxr);
-            insertGb(WbjdSq,cfgbIds);
+            insertGb(wbjdSq,cfgbIds);
         }
         return true;
     }

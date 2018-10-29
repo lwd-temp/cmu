@@ -62,19 +62,22 @@
         var settings = {
             caption: "已申请来访接待",
             url:'wbjd/shlist',
-            colNames:['代表团名称','来访时间', '来访人数', '来访目的','团长姓名','主请人姓名','状态',"操作"],
+            colNames:['代表团名称','来访时间起','来访时间止', '来访人数', '来访目的','团长姓名','主请联系人姓名','状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'dbtmc',index:'dbtmc',  },
-                {name:'lfsj',index:'lfsj',formatter:function(lfsj, options, rowObject){
-                        return new Date(lfsj).getYmd("yyyy-MM-dd");
+                {name:'lfsjStart',index:'lfsjStart',formatter:function(lfsjStart, options, rowObject){
+                        return new Date(lfsjStart).getYmd("yyyy-MM-dd");
+                    }},
+                {name:'lfsjEnd',index:'lfsjEnd',formatter:function(lfsjEnd, options, rowObject){
+                        return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
                     }},
                 {name:'lfrs',index:'lfrs',  },
                 {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                         return dmcache.getCode('t_dm_lfmd',lfmd);
                     }},
-                {name:'tzxm',index:'tzxm',  },
+                {name:'zqlxrxm',index:'zqlxrxm',  },
                 {name:'zqrxm',index:'zqrxm',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                         var zt = "未知";
@@ -130,14 +133,14 @@
     //审批外宾接待申请
     function spWbgl(lfid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'外宾接待申请【审批】',
             content:'wbjd/show?type=sh&id='+lfid,
         });
     }
     function showWbgl(lfid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'查看接待情况',
             content:'wbjd/show?id='+lfid,
         });
