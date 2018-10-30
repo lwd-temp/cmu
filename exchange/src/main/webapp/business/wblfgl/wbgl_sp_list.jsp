@@ -77,7 +77,7 @@
                 {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                         return dmcache.getCode('t_dm_lfmd',lfmd);
                     }},
-                {name:'zqlxrxm',index:'zqlxrxm',  },
+                {name:'tzxm',index:'tzxm',  },
                 {name:'zqrxm',index:'zqrxm',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                         var zt = "未知";

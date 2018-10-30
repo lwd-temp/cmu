@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.WbjdZjMapperExt" >
+
+    <resultMap id="BaseResultMap" type="cn.edu.cmu.vo.WbjdZjVo" >
+        <constructor >
+            <idArg column="LFID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="DBTMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="LFRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="LFSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="LFSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="TLSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="TLSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="LFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="LFMD_QT" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YJTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YQXX" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="LP" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="LPSL" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="QKJL" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="FWCG" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZXB" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZCSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="TZGZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZZC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZZY" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="TZXSLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YQCG" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="ZQRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="ZQRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="ZQLXRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="ZQLXRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JDBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YN_YQXLD" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YN_XYTY" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YN_BBSSGABM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YN_BBSSXCBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JDLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="ZJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="WRITED" jdbcType="VARCHAR" javaType="java.lang.String" />
+        </constructor>
+    </resultMap>
+
+
+    <select id="selectZjByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSqParams" >
+        select
+        zj.zjid zjid ,
+        decode(zj.zjid,null,'0','1') writed,
+        lfid, dbtmc, lfrs, lfsj_start, lfsj_end, tlsj_start, tlsj_end, lfmd, lfmd_qt, yjtm, yqxx,
+        jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj, tzxb, tzcsrq, tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg,
+        zqrxm, zqrdh, zqlxrxm, zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm, jdlx, status,
+        memo, valid, create_time,''
+        from t_wbjd_sq
+        left join (select zjid ,lfid zjlfid  from t_wbjd_zj ) zj on lfid = zj.zjlfid
+        <if test="_parameter != null" >
+            <include refid="cn.edu.cmu.dao.WbjdSqMapper.Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+</mapper>

@@ -96,13 +96,14 @@
                     <label class="col-xs-2 control-label "  > 来访时间起: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="wbjdZj.lfsj"
-                               value="${wbjdZj.lfsj}" id="lfsj" type="text" data-date-format="yyyy-mm-dd" />
+                               value="<fmt:formatDate value="${wbjdZj.lfsj}" pattern="yyyy-MM-dd"/>"
+                               id="lfsj" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="wbjdZj.tlsjEnd"
-                               value="" id="tlsjEnd" type="text" data-date-format="yyyy-mm-dd" />
+                               value="<fmt:formatDate value="${wbjdZj.tlsjEnd}" pattern="yyyy-MM-dd"/>" id="tlsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                 </div>
@@ -208,7 +209,7 @@
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
                     <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq"
-                           value="" type="text" data-date-format="yyyy-mm-dd" />
+                           value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy-MM-dd"/>"  type="text" data-date-format="yyyy-mm-dd" />
                 </div>
             </div>
             <div class="form-group ">
@@ -276,13 +277,16 @@
                 </div>
             </div>
 
-            <div class="col-md-offset-3 col-md-9">
-                <button class="btn btn-info btn-sm" id="btnClose" type="button">
+            <div id="btns" class="col-md-offset-3 col-md-9">
+                <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>
-                    关闭
+                    暂存
                 </button>
-
                 &nbsp; &nbsp; &nbsp;
+                <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
+                    <i class="ace-icon fa fa-check bigger-110"></i>
+                    提交
+                </button>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
@@ -335,13 +339,192 @@
             $(".qtmd").hide();
         }
 
-        $("#btnClose").click(function(){
+        setFormValid();//设置校验规则
 
-            closeLayer();
+        $("#jdlx").change(function(){
+            var $select = $(this);
+            if($select.val() == '01'){//校级
 
+                $("#lp").removeAttr("disabled");
+                $("#lp").removeAttr("readonly");
+                $("#lpsl").removeAttr("disabled");
+                $("#lpsl").removeAttr("readonly");
+
+                $("#jdbm").val("");
+                $("#jdbm").attr("disabled","disabled");
+                $("#jdbm").attr("readonly","readonly");
+
+                $("#zqlxrxm").val("");
+                $("#zqlxrxm").attr("disabled","disabled");
+                $("#zqlxrxm").attr("readonly","readonly");
+
+                $("#zqlxrdh").val("");
+                $("#zqlxrdh").attr("disabled","disabled");
+                $("#zqlxrdh").attr("readonly","readonly");
+
+            }else if($select.val() == '02'){//院级
+
+                $("#lp").val("");
+                $("#lp").attr("disabled","disabled");
+                $("#lp").attr("readonly","readonly");
+                $("#lpsl").val("");
+                $("#lpsl").attr("disabled","disabled");
+                $("#lpsl").attr("readonly","readonly");
+
+
+                $("#jdbm").removeAttr("disabled");
+                $("#jdbm").removeAttr("readonly");
+
+                $("#zqlxrxm").removeAttr("disabled");
+                $("#zqlxrxm").removeAttr("readonly");
+
+                $("#zqlxrdh").removeAttr("disabled");
+                $("#zqlxrdh").removeAttr("readonly");
+            }
+        })
+
+
+        setFormValid();//设置校验规则
+        $("#saveForm").click(function(){
+            $("#status").val("01");//暂存
+            saveSq();
+        });
+        $("#submitForm").click(function(){
+            $("#status").val("02");//提交
+            saveSq();
         });
     });
 
+    function setFormValid(){
+        $("#form").setValid({
+            //校验规则
+            rules: {
+                "wbjdZj.dbtmc":{ required:true},
+                "wbjdZj.lfrs":{ required:true},
+                "wbjdZj.lfmd":{ required:true},
+                "wbjdZj.tzxm":{ required:true},
+                "wbjdZj.jdlx":{ required:true},
+                "wbjdZj.zqlxrxm":{ required:true},
+                "wbjdZj.zqlxrdh":{ required:true},
+                "cfgbIds":{ required:true},
+                "sxr[@].xm":{ required:true},
+                "sxr[@].gj":{ required:true},
+                "sxr[@].zw":{ required:true}
+            }
+        })
+    }
+    function saveSq(){
+        if(!validateSq()){
+            return;
+        }
+        calInputNames();
+        $.ajax('wbzj/save',{
+            type:'post',
+            dataType:'json',
+            data:$("#form").serialize(),
+            success:function(res){
+                if(res && res.success){
+                    parent.refreshTable();
+                    closeLayer();//关闭
+                    winAlert("保存成功");//弹出确认消息
+                }
+            }
+        });
+    }
+    //校验整个计划
+    function validateSq(){
+        if(!$("#form").valid()){
+            return false;
+        }
+        return true;
+    }
+    function calInputNames(){
+        $('form input[inp=xm]').each(function(index,el){
+            $(el).attr('name','zjsxr['+index+'].xm');
+        });
+        $('form input[inp=gj]').each(function(index,el){
+            $(el).attr('name','zjsxr['+index+'].gj');
+        });
+        $('form input[inp=zw]').each(function(index,el){
+            $(el).attr('name','zjsxr['+index+'].zw');
+        });
+    }
+    function deleteSxr(btn){
+        var size = $("#form .sxr").size();
+        if(size<=1){
+            parent.layer.alert("请至少录入一个随行成员");
+            return false;
+        }
+        var row = $(btn).parent().parent();
+        row.remove();
+    }
+    function appendSxr(){
+        $("#btns").before($("#template").html());
+        var sxr = $("#btns").prev(".sxr");
+        sxr.find("input").each(function(index,el){
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+        })
+        setFormValid();//设置校验规则
+    }
+    //选择来访目的
+    function selectlfmd(select) {
+        var md = $(select).val();
+        //学术讲座 -- 演讲题目
+        if (md == '03') {
+            $(".yjtm").show();
+            $(".qtmd").hide();
+        }
+        if (md == '99') {
+            $(".qtmd").show();
+            $(".yjtm").hide();
+        }
+        if (md == '01'||md == '02'||md == '04') {
+            $(".yjtm").hide();
+            $(".qtmd").hide();
+        }
+    }
+    function getRadio(rad){
+        var val = $(rad).val(); // y n
+        switch ($(rad).attr('name')) {
+            case "wbjdZj.ynYqxld"://是否邀请校领导
+                if(val == 'Y'){
+                    $("#ynYqxld_value").val("是否邀请校领导:是");
+                }else{
+                    $("#ynYqxld_value").val("是否邀请校领导:否");
+                }
+                break;
+            case "wbjdZj.ynXyty"://是否获学院同意
+                if(val == 'Y'){
+                    $("#ynXyty_value").val("是否获学院同意:是");
+                }else{
+                    $("#ynXyty_value").val("是否获学院同意:否");
+                }
+                break;
+            case "wbjdZj.ynBbssgabm"://是否报备所属公安部门
+                if(val == 'Y'){
+                    $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+                }else{
+                    $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+                }
+                break;
+            case "wbjdZj.ynBbssxcbm"://是否报备所属宣传部门
+                if(val == 'Y'){
+                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+                }else{
+                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+                }
+                break;
+            default:
+                break;
+        }
+
+        var ynYqxld_value = $("#ynYqxld_value").val();
+        var ynXyty_value  = $("#ynXyty_value").val();
+        var ynBbssgabm_value = $("#ynBbssgabm_value").val();
+        var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
+        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+    }
 </script>
 </body>
 </html>

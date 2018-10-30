@@ -1,10 +1,9 @@
 package cn.edu.cmu.service;
-
 import cn.edu.cmu.dao.WbjdGjMapper;
 import cn.edu.cmu.dao.WbjdZjMapper;
+import cn.edu.cmu.dao.WbjdZjMapperExt;
 import cn.edu.cmu.dao.WbjdZjSxryMapper;
 import cn.edu.cmu.domain.*;
-import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.WbglVO;
@@ -14,7 +13,6 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 
@@ -23,25 +21,37 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 
     @Autowired
     private WbjdZjSxryMapper wbjdZjSxryMapper;
+
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
+    @Autowired
+    private WbjdZjMapperExt wbjdZjMapperExt;
+
 
     @Override
     public List list(Object... conditions) throws Exception {
-        WbjdZjParams params = new WbjdZjParams();
-        WbjdZjParams.Criteria c = params.createCriteria();
+        WbjdSqParams params = new WbjdSqParams();
+        WbjdSqParams.Criteria c1 = params.createCriteria();
+        WbjdSqParams.Criteria c2 = params.or();
+
+        c1.andStatusEqualTo("04");//并且通过才查询
+        c2.andStatusEqualTo("04");//通过审核的会议申请
+
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
-            WbjdZj jdsq = (WbjdZj) conditions[0];
+            WbjdSq jdsq = (WbjdSq) conditions[0];
             if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
-                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+                c1.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+                c2.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
             }
             if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
-                c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
+                c1.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
+                c2.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
             }
             super.addOrderBy(params,conditions);
         }
-        return dao.selectByExample(params);
+        return wbjdZjMapperExt.selectZjByExample(params);
     }
+
 
     @Override
     public List list(WbjdZj wbjdZj) throws Exception {
@@ -58,13 +68,21 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
         return dao.selectByExample(ex);
     }
 
+
+
     @Override
-    public boolean update(WbglVO vo) throws Exception {
+    public boolean saveOrupdate(WbglVO vo) throws Exception {
         WbjdZj wbjdZj = vo.getWbjdZj();
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdZjSxry> sxr = vo.getZjsxr();
-
-        dao.updateByPrimaryKeySelective(wbjdZj);
+        boolean isEdit = false;//是否修改标志
+        if(StringUtil.isEmpty(wbjdZj.getZjid())){
+            String keyId = CmuStringUtil.UUID();
+            wbjdZj.setZjid(keyId);
+            dao.insertSelective(wbjdZj);
+        }else{
+            dao.updateByPrimaryKeySelective(wbjdZj);
+        }
         String zjid = wbjdZj.getZjid();
         //删除随行人
         deleteSxr(zjid);

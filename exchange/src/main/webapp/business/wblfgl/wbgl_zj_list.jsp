@@ -62,42 +62,45 @@
         var settings = {
             caption: "已申请来访接待",
             url:'wbzj/list',
-            colNames:['代表团名称','来访时间', '来访人数', '来访目的','团长姓名','主请人姓名','状态',"操作"],
+            colNames:['代表团名称','来访时间起','来访时间止', '来访人数', '来访目的','团长姓名','主请联系人姓名','状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'dbtmc',index:'dbtmc',  },
-                {name:'lfsj',index:'lfsj',formatter:function(lfsj, options, rowObject){
-                        return new Date(lfsj).getYmd("yyyy-MM-dd");
+                {name:'lfsjStart',index:'lfsjStart',formatter:function(lfsjStart, options, rowObject){
+                        return new Date(lfsjStart).getYmd("yyyy-MM-dd");
+                    }},
+                {name:'lfsjEnd',index:'lfsjEnd',formatter:function(lfsjEnd, options, rowObject){
+                        return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
                     }},
                 {name:'lfrs',index:'lfrs',  },
                 {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                         return dmcache.getCode('t_dm_lfmd',lfmd);
                     }},
                 {name:'tzxm',index:'tzxm',  },
-                {name:'zqrxm',index:'zqrxm',  },
-                {name:'status',index:'status', formatter:function(status,options,rowObject){
-                        var zt = "未知";
-                        switch (status) {
-                            case '04':
-                                zt = "未办结";
-                                break;
-                            case '06':
-                                zt = "已办结";
-                                break;
-                        }
-                        return zt;
-                    }
-                },
-                {name:'zjid',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        var zt = rowObject.status;
-                        if(zt == '04' ){
-                            return "<button class='btn btn-info btn-mini' onclick='zjWbgl(\""+cellvalue+"\")' title='总结' ><i class='ace-icon fa fa-pencil '>总结</i></button>"
-                            +"&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
+                {name:'zqlxrxm',index:'zqlxrxm',  },
+                {name:'writed',index:'writed', formatter:function(status){
+                        var ztText = "";
+                        if("0" == status){
+                            ztText = "未填写";
                         }else{
-                            return"<button class='btn btn-info btn-mini' onclick='showWbgl(\""+cellvalue+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
+                            ztText = "已填写";
                         }
+                        return ztText;
+                    } },
+                {name:'lfid',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(cellvalue, options, rowObject){
+                        var status = rowObject.writed;
+                        var lfid = rowObject.lfid;
+                        var zjid = rowObject.zjid;
+                        var btns = "";
+                        var zt = rowObject.status;
+                        if("0" == status ){
+                            btns = "<button class='btn btn-success btn-mini' onclick='zjWbgl(\""+lfid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
+                        }else{
+                            btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-calendar '>编辑</i></button>";
+                        }
+                        return btns;
                     }
                 },
             ]
@@ -120,17 +123,17 @@
         }).trigger("reloadGrid");
     }
     //总结外宾接待申请
-    function zjWbgl(zjid){
+    function zjWbgl(lfid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
-            title:'外宾接待申请【总结】',
-            content:'wbzj/toEdit?type=zj&zjid='+zjid,
+            title:'外宾接待【总结】',
+            content:'business/wblfgl/wbgl_zj_add.jsp?lfid='+lfid,
         });
     }
-    function showWbgl(zjid){
+    function editWbgl(zjid){
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
-            title:'查看接待情况【总结】',
+            title:'外宾接待【总结】',
             content:'wbzj/toEdit?zjid='+zjid,
         });
     }

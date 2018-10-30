@@ -5,6 +5,7 @@ import cn.edu.cmu.service.WbjdGjService;
 import cn.edu.cmu.service.WbjdZjService;
 import cn.edu.cmu.service.WbjdZjSxryService;
 import cn.edu.cmu.vo.WbglVO;
+import cn.edu.cmu.vo.WbjdZjVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class WbjdZjController extends BaseController {
 
     /**
      * 分页查询
-     * @param WbjdZj      查询条件
+     * @param WbjdSq      查询条件
      * @param orderCol  排序字段
      * @param orderType 排序方式 asc desc
      * @param page      分页对象页号，即想查询第几页
@@ -43,16 +44,18 @@ public class WbjdZjController extends BaseController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public Map zjlist(WbjdZj WbjdZj,
-                    String orderCol,
-                    String orderType,
-                    @RequestParam(defaultValue = "1", required = false) Integer page,
-                    @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
-        logger.debug("condition:" + WbjdZj);
+    public Map zjlist(WbjdZjVo WbjdSq,
+                      String orderCol,
+                      String orderType,
+                      @RequestParam(defaultValue = "1", required = false) Integer page,
+                      @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
+        logger.debug("condition:" + WbjdSq);
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
-        List list = wbjdZjService.list(WbjdZj, orderCol, orderType);
+        List list = wbjdZjService.list(WbjdSq, orderCol, orderType);
         return super.pagingInfo(pageInfo, list);
     }
+
+
     /**
      * 跳转到修改页面
      *
@@ -79,11 +82,12 @@ public class WbjdZjController extends BaseController {
         model.addAttribute("wbjdZj", wbjdZj);
         model.addAttribute("sxryList", sxryList);
         model.addAttribute("gbCodeList", gbCodeList);
-        if ("zj".equals(type)) {
-            return "wblfgl/wbgl_zj";
+        if ("show".equals(type)) {
+            return "wblfgl/wbgl_zj_show";
         }
-        return "wblfgl/wbgl_zj_show";
+        return "wblfgl/wbgl_zj_edit";
     }
+
     /**
      * 根据id删除
      * @param id
@@ -107,7 +111,7 @@ public class WbjdZjController extends BaseController {
     @ResponseBody
     public Map save(WbglVO vo) throws Exception {
         logger.info("保存 外宾来访申请【总结】 信息 :" + vo);
-        boolean success = wbjdZjService.update(vo);
+        boolean success = wbjdZjService.saveOrupdate(vo);
         logger.debug("保存 外宾来访申请 【总结】结果 :" + success);
         return super.ajaxStatus(success, vo);
     }
