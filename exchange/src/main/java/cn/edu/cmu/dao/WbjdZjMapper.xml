@@ -7,7 +7,8 @@
       <arg column="LFID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DBTMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="LFRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="LFSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LFSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="LFSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="TLSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="TLSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="LFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -33,10 +34,16 @@
       <arg column="ZQLXRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZQLXRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JDBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_YQXLD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_XYTY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_BBSSGABM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YN_BBSSXCBM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JDLX" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="GDID" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -99,9 +106,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ZJID, LFID, DBTMC, LFRS, LFSJ, TLSJ_START, TLSJ_END, LFMD, YJTM, LFMD_QT, YQXX, JFLY, 
-    LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, TZZY, TZXSLY, YQCG, 
-    ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, JDLX, STATUS, VALID, CREATE_TIME
+    ZJID, LFID, DBTMC, LFRS, LFSJ_START, LFSJ_END, TLSJ_START, TLSJ_END, LFMD, YJTM, 
+    LFMD_QT, YQXX, JFLY, LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZW, 
+    TZZY, TZXSLY, YQCG, ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, YN_YQXLD, YN_XYTY, YN_BBSSGABM, 
+    YN_BBSSXCBM, MEMO, JDLX, STATUS, VALID, CREATE_TIME, GDID
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdZjParams" >
     select
@@ -137,27 +145,33 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.WbjdZj" >
     insert into T_WBJD_ZJ (ZJID, LFID, DBTMC, 
-      LFRS, LFSJ, TLSJ_START, 
-      TLSJ_END, LFMD, YJTM, 
-      LFMD_QT, YQXX, JFLY, 
-      LP, LPSL, QKJL, FWCG, 
-      TZXM, TZGJ, TZXB, TZCSRQ, 
-      TZGZDW, TZZW, TZZY, 
-      TZXSLY, YQCG, ZQRXM, 
-      ZQRDH, ZQLXRXM, ZQLXRDH, 
-      JDBM, JDLX, STATUS, 
-      VALID, CREATE_TIME)
+      LFRS, LFSJ_START, LFSJ_END, 
+      TLSJ_START, TLSJ_END, LFMD, 
+      YJTM, LFMD_QT, YQXX, 
+      JFLY, LP, LPSL, QKJL, 
+      FWCG, TZXM, TZGJ, TZXB, 
+      TZCSRQ, TZGZDW, TZZW, 
+      TZZY, TZXSLY, YQCG, 
+      ZQRXM, ZQRDH, ZQLXRXM, 
+      ZQLXRDH, JDBM, YN_YQXLD, 
+      YN_XYTY, YN_BBSSGABM, YN_BBSSXCBM, 
+      MEMO, JDLX, STATUS, 
+      VALID, CREATE_TIME, GDID
+      )
     values (#{zjid,jdbcType=VARCHAR}, #{lfid,jdbcType=VARCHAR}, #{dbtmc,jdbcType=VARCHAR}, 
-      #{lfrs,jdbcType=DECIMAL}, #{lfsj,jdbcType=TIMESTAMP}, #{tlsjStart,jdbcType=TIMESTAMP}, 
-      #{tlsjEnd,jdbcType=TIMESTAMP}, #{lfmd,jdbcType=VARCHAR}, #{yjtm,jdbcType=VARCHAR}, 
-      #{lfmdQt,jdbcType=VARCHAR}, #{yqxx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, 
-      #{lp,jdbcType=VARCHAR}, #{lpsl,jdbcType=DECIMAL}, #{qkjl,jdbcType=VARCHAR}, #{fwcg,jdbcType=VARCHAR}, 
-      #{tzxm,jdbcType=VARCHAR}, #{tzgj,jdbcType=VARCHAR}, #{tzxb,jdbcType=VARCHAR}, #{tzcsrq,jdbcType=TIMESTAMP}, 
-      #{tzgzdw,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, #{tzzy,jdbcType=VARCHAR}, 
-      #{tzxsly,jdbcType=VARCHAR}, #{yqcg,jdbcType=VARCHAR}, #{zqrxm,jdbcType=VARCHAR}, 
-      #{zqrdh,jdbcType=VARCHAR}, #{zqlxrxm,jdbcType=VARCHAR}, #{zqlxrdh,jdbcType=VARCHAR}, 
-      #{jdbm,jdbcType=VARCHAR}, #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{lfrs,jdbcType=DECIMAL}, #{lfsjStart,jdbcType=TIMESTAMP}, #{lfsjEnd,jdbcType=TIMESTAMP}, 
+      #{tlsjStart,jdbcType=TIMESTAMP}, #{tlsjEnd,jdbcType=TIMESTAMP}, #{lfmd,jdbcType=VARCHAR}, 
+      #{yjtm,jdbcType=VARCHAR}, #{lfmdQt,jdbcType=VARCHAR}, #{yqxx,jdbcType=VARCHAR}, 
+      #{jfly,jdbcType=VARCHAR}, #{lp,jdbcType=VARCHAR}, #{lpsl,jdbcType=DECIMAL}, #{qkjl,jdbcType=VARCHAR}, 
+      #{fwcg,jdbcType=VARCHAR}, #{tzxm,jdbcType=VARCHAR}, #{tzgj,jdbcType=VARCHAR}, #{tzxb,jdbcType=VARCHAR}, 
+      #{tzcsrq,jdbcType=TIMESTAMP}, #{tzgzdw,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, 
+      #{tzzy,jdbcType=VARCHAR}, #{tzxsly,jdbcType=VARCHAR}, #{yqcg,jdbcType=VARCHAR}, 
+      #{zqrxm,jdbcType=VARCHAR}, #{zqrdh,jdbcType=VARCHAR}, #{zqlxrxm,jdbcType=VARCHAR}, 
+      #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, #{ynYqxld,jdbcType=VARCHAR}, 
+      #{ynXyty,jdbcType=VARCHAR}, #{ynBbssgabm,jdbcType=VARCHAR}, #{ynBbssxcbm,jdbcType=VARCHAR}, 
+      #{memo,jdbcType=VARCHAR}, #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{gdid,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdZj" >
     insert into T_WBJD_ZJ
@@ -174,8 +188,11 @@
       <if test="lfrs != null" >
         LFRS,
       </if>
-      <if test="lfsj != null" >
-        LFSJ,
+      <if test="lfsjStart != null" >
+        LFSJ_START,
+      </if>
+      <if test="lfsjEnd != null" >
+        LFSJ_END,
       </if>
       <if test="tlsjStart != null" >
         TLSJ_START,
@@ -252,6 +269,21 @@
       <if test="jdbm != null" >
         JDBM,
       </if>
+      <if test="ynYqxld != null" >
+        YN_YQXLD,
+      </if>
+      <if test="ynXyty != null" >
+        YN_XYTY,
+      </if>
+      <if test="ynBbssgabm != null" >
+        YN_BBSSGABM,
+      </if>
+      <if test="ynBbssxcbm != null" >
+        YN_BBSSXCBM,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
       <if test="jdlx != null" >
         JDLX,
       </if>
@@ -263,6 +295,9 @@
       </if>
       <if test="createTime != null" >
         CREATE_TIME,
+      </if>
+      <if test="gdid != null" >
+        GDID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -278,8 +313,11 @@
       <if test="lfrs != null" >
         #{lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="lfsj != null" >
-        #{lfsj,jdbcType=TIMESTAMP},
+      <if test="lfsjStart != null" >
+        #{lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfsjEnd != null" >
+        #{lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="tlsjStart != null" >
         #{tlsjStart,jdbcType=TIMESTAMP},
@@ -356,6 +394,21 @@
       <if test="jdbm != null" >
         #{jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="ynYqxld != null" >
+        #{ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="ynXyty != null" >
+        #{ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssgabm != null" >
+        #{ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssxcbm != null" >
+        #{ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
       <if test="jdlx != null" >
         #{jdlx,jdbcType=VARCHAR},
       </if>
@@ -367,6 +420,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gdid != null" >
+        #{gdid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -391,8 +447,11 @@
       <if test="record.lfrs != null" >
         LFRS = #{record.lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="record.lfsj != null" >
-        LFSJ = #{record.lfsj,jdbcType=TIMESTAMP},
+      <if test="record.lfsjStart != null" >
+        LFSJ_START = #{record.lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.lfsjEnd != null" >
+        LFSJ_END = #{record.lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="record.tlsjStart != null" >
         TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
@@ -469,6 +528,21 @@
       <if test="record.jdbm != null" >
         JDBM = #{record.jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="record.ynYqxld != null" >
+        YN_YQXLD = #{record.ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynXyty != null" >
+        YN_XYTY = #{record.ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynBbssgabm != null" >
+        YN_BBSSGABM = #{record.ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ynBbssxcbm != null" >
+        YN_BBSSXCBM = #{record.ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memo != null" >
+        MEMO = #{record.memo,jdbcType=VARCHAR},
+      </if>
       <if test="record.jdlx != null" >
         JDLX = #{record.jdlx,jdbcType=VARCHAR},
       </if>
@@ -481,6 +555,9 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.gdid != null" >
+        GDID = #{record.gdid,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -492,7 +569,8 @@
       LFID = #{record.lfid,jdbcType=VARCHAR},
       DBTMC = #{record.dbtmc,jdbcType=VARCHAR},
       LFRS = #{record.lfrs,jdbcType=DECIMAL},
-      LFSJ = #{record.lfsj,jdbcType=TIMESTAMP},
+      LFSJ_START = #{record.lfsjStart,jdbcType=TIMESTAMP},
+      LFSJ_END = #{record.lfsjEnd,jdbcType=TIMESTAMP},
       TLSJ_START = #{record.tlsjStart,jdbcType=TIMESTAMP},
       TLSJ_END = #{record.tlsjEnd,jdbcType=TIMESTAMP},
       LFMD = #{record.lfmd,jdbcType=VARCHAR},
@@ -518,10 +596,16 @@
       ZQLXRXM = #{record.zqlxrxm,jdbcType=VARCHAR},
       ZQLXRDH = #{record.zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{record.jdbm,jdbcType=VARCHAR},
+      YN_YQXLD = #{record.ynYqxld,jdbcType=VARCHAR},
+      YN_XYTY = #{record.ynXyty,jdbcType=VARCHAR},
+      YN_BBSSGABM = #{record.ynBbssgabm,jdbcType=VARCHAR},
+      YN_BBSSXCBM = #{record.ynBbssxcbm,jdbcType=VARCHAR},
+      MEMO = #{record.memo,jdbcType=VARCHAR},
       JDLX = #{record.jdlx,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      GDID = #{record.gdid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -538,8 +622,11 @@
       <if test="lfrs != null" >
         LFRS = #{lfrs,jdbcType=DECIMAL},
       </if>
-      <if test="lfsj != null" >
-        LFSJ = #{lfsj,jdbcType=TIMESTAMP},
+      <if test="lfsjStart != null" >
+        LFSJ_START = #{lfsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lfsjEnd != null" >
+        LFSJ_END = #{lfsjEnd,jdbcType=TIMESTAMP},
       </if>
       <if test="tlsjStart != null" >
         TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
@@ -616,6 +703,21 @@
       <if test="jdbm != null" >
         JDBM = #{jdbm,jdbcType=VARCHAR},
       </if>
+      <if test="ynYqxld != null" >
+        YN_YQXLD = #{ynYqxld,jdbcType=VARCHAR},
+      </if>
+      <if test="ynXyty != null" >
+        YN_XYTY = #{ynXyty,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssgabm != null" >
+        YN_BBSSGABM = #{ynBbssgabm,jdbcType=VARCHAR},
+      </if>
+      <if test="ynBbssxcbm != null" >
+        YN_BBSSXCBM = #{ynBbssxcbm,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
       <if test="jdlx != null" >
         JDLX = #{jdlx,jdbcType=VARCHAR},
       </if>
@@ -628,6 +730,9 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="gdid != null" >
+        GDID = #{gdid,jdbcType=VARCHAR},
+      </if>
     </set>
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
@@ -636,7 +741,8 @@
     set LFID = #{lfid,jdbcType=VARCHAR},
       DBTMC = #{dbtmc,jdbcType=VARCHAR},
       LFRS = #{lfrs,jdbcType=DECIMAL},
-      LFSJ = #{lfsj,jdbcType=TIMESTAMP},
+      LFSJ_START = #{lfsjStart,jdbcType=TIMESTAMP},
+      LFSJ_END = #{lfsjEnd,jdbcType=TIMESTAMP},
       TLSJ_START = #{tlsjStart,jdbcType=TIMESTAMP},
       TLSJ_END = #{tlsjEnd,jdbcType=TIMESTAMP},
       LFMD = #{lfmd,jdbcType=VARCHAR},
@@ -662,10 +768,16 @@
       ZQLXRXM = #{zqlxrxm,jdbcType=VARCHAR},
       ZQLXRDH = #{zqlxrdh,jdbcType=VARCHAR},
       JDBM = #{jdbm,jdbcType=VARCHAR},
+      YN_YQXLD = #{ynYqxld,jdbcType=VARCHAR},
+      YN_XYTY = #{ynXyty,jdbcType=VARCHAR},
+      YN_BBSSGABM = #{ynBbssgabm,jdbcType=VARCHAR},
+      YN_BBSSXCBM = #{ynBbssxcbm,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR},
       JDLX = #{jdlx,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      GDID = #{gdid,jdbcType=VARCHAR}
     where ZJID = #{zjid,jdbcType=VARCHAR}
   </update>
 </mapper>

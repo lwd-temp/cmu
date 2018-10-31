@@ -27,7 +27,12 @@ public class WbjdZj {
     /**
      * 来访时间
      */
-    private Date lfsj;
+    private Date lfsjStart;
+
+    /**
+     * 来访时间止
+     */
+    private Date lfsjEnd;
 
     /**
      * 停留时间（时间开始）
@@ -155,6 +160,31 @@ public class WbjdZj {
     private String jdbm;
 
     /**
+     * 是否邀请校领导
+     */
+    private String ynYqxld;
+
+    /**
+     * 是否获学院同意
+     */
+    private String ynXyty;
+
+    /**
+     * 是否报备所属公安部门
+     */
+    private String ynBbssgabm;
+
+    /**
+     * 是否报备所属宣传部门
+     */
+    private String ynBbssxcbm;
+
+    /**
+     * 备注
+     */
+    private String memo;
+
+    /**
      * 接待类型   01 校级接待、02 院级接待
      */
     private String jdlx;
@@ -175,15 +205,21 @@ public class WbjdZj {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-10-08
+     * null
      */
-    public WbjdZj(String zjid, String lfid, String dbtmc, BigDecimal lfrs, Date lfsj, Date tlsjStart, Date tlsjEnd, String lfmd, String yjtm, String lfmdQt, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String jdlx, String status, String valid, Date createTime) {
+    private String gdid;
+
+    /**
+     *
+     * @mbggenerated 2018-10-31
+     */
+    public WbjdZj(String zjid, String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String yjtm, String lfmdQt, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String memo, String jdlx, String status, String valid, Date createTime, String gdid) {
         this.zjid = zjid;
         this.lfid = lfid;
         this.dbtmc = dbtmc;
         this.lfrs = lfrs;
-        this.lfsj = lfsj;
+        this.lfsjStart = lfsjStart;
+        this.lfsjEnd = lfsjEnd;
         this.tlsjStart = tlsjStart;
         this.tlsjEnd = tlsjEnd;
         this.lfmd = lfmd;
@@ -209,15 +245,21 @@ public class WbjdZj {
         this.zqlxrxm = zqlxrxm;
         this.zqlxrdh = zqlxrdh;
         this.jdbm = jdbm;
+        this.ynYqxld = ynYqxld;
+        this.ynXyty = ynXyty;
+        this.ynBbssgabm = ynBbssgabm;
+        this.ynBbssxcbm = ynBbssxcbm;
+        this.memo = memo;
         this.jdlx = jdlx;
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
+        this.gdid = gdid;
     }
 
     /**
      *
-     * @mbggenerated 2018-10-08
+     * @mbggenerated 2018-10-31
      */
     public WbjdZj() {
         super();
@@ -289,18 +331,34 @@ public class WbjdZj {
 
     /**
      * 来访时间
-     * @return LFSJ 来访时间
+     * @return LFSJ_START 来访时间
      */
-    public Date getLfsj() {
-        return lfsj;
+    public Date getLfsjStart() {
+        return lfsjStart;
     }
 
     /**
      * 来访时间
-     * @param lfsj 来访时间
+     * @param lfsjStart 来访时间
      */
-    public void setLfsj(Date lfsj) {
-        this.lfsj = lfsj;
+    public void setLfsjStart(Date lfsjStart) {
+        this.lfsjStart = lfsjStart;
+    }
+
+    /**
+     * 来访时间止
+     * @return LFSJ_END 来访时间止
+     */
+    public Date getLfsjEnd() {
+        return lfsjEnd;
+    }
+
+    /**
+     * 来访时间止
+     * @param lfsjEnd 来访时间止
+     */
+    public void setLfsjEnd(Date lfsjEnd) {
+        this.lfsjEnd = lfsjEnd;
     }
 
     /**
@@ -704,6 +762,86 @@ public class WbjdZj {
     }
 
     /**
+     * 是否邀请校领导
+     * @return YN_YQXLD 是否邀请校领导
+     */
+    public String getYnYqxld() {
+        return ynYqxld;
+    }
+
+    /**
+     * 是否邀请校领导
+     * @param ynYqxld 是否邀请校领导
+     */
+    public void setYnYqxld(String ynYqxld) {
+        this.ynYqxld = ynYqxld == null ? null : ynYqxld.trim();
+    }
+
+    /**
+     * 是否获学院同意
+     * @return YN_XYTY 是否获学院同意
+     */
+    public String getYnXyty() {
+        return ynXyty;
+    }
+
+    /**
+     * 是否获学院同意
+     * @param ynXyty 是否获学院同意
+     */
+    public void setYnXyty(String ynXyty) {
+        this.ynXyty = ynXyty == null ? null : ynXyty.trim();
+    }
+
+    /**
+     * 是否报备所属公安部门
+     * @return YN_BBSSGABM 是否报备所属公安部门
+     */
+    public String getYnBbssgabm() {
+        return ynBbssgabm;
+    }
+
+    /**
+     * 是否报备所属公安部门
+     * @param ynBbssgabm 是否报备所属公安部门
+     */
+    public void setYnBbssgabm(String ynBbssgabm) {
+        this.ynBbssgabm = ynBbssgabm == null ? null : ynBbssgabm.trim();
+    }
+
+    /**
+     * 是否报备所属宣传部门
+     * @return YN_BBSSXCBM 是否报备所属宣传部门
+     */
+    public String getYnBbssxcbm() {
+        return ynBbssxcbm;
+    }
+
+    /**
+     * 是否报备所属宣传部门
+     * @param ynBbssxcbm 是否报备所属宣传部门
+     */
+    public void setYnBbssxcbm(String ynBbssxcbm) {
+        this.ynBbssxcbm = ynBbssxcbm == null ? null : ynBbssxcbm.trim();
+    }
+
+    /**
+     * 备注
+     * @return MEMO 备注
+     */
+    public String getMemo() {
+        return memo;
+    }
+
+    /**
+     * 备注
+     * @param memo 备注
+     */
+    public void setMemo(String memo) {
+        this.memo = memo == null ? null : memo.trim();
+    }
+
+    /**
      * 接待类型   01 校级接待、02 院级接待
      * @return JDLX 接待类型   01 校级接待、02 院级接待
      */
@@ -768,8 +906,24 @@ public class WbjdZj {
     }
 
     /**
+     * null
+     * @return GDID null
+     */
+    public String getGdid() {
+        return gdid;
+    }
+
+    /**
+     * null
+     * @param gdid null
+     */
+    public void setGdid(String gdid) {
+        this.gdid = gdid == null ? null : gdid.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-10-08
+     * @mbggenerated 2018-10-31
      */
     @Override
     public String toString() {
@@ -781,7 +935,8 @@ public class WbjdZj {
         sb.append(", lfid=").append(lfid);
         sb.append(", dbtmc=").append(dbtmc);
         sb.append(", lfrs=").append(lfrs);
-        sb.append(", lfsj=").append(lfsj);
+        sb.append(", lfsjStart=").append(lfsjStart);
+        sb.append(", lfsjEnd=").append(lfsjEnd);
         sb.append(", tlsjStart=").append(tlsjStart);
         sb.append(", tlsjEnd=").append(tlsjEnd);
         sb.append(", lfmd=").append(lfmd);
@@ -807,10 +962,16 @@ public class WbjdZj {
         sb.append(", zqlxrxm=").append(zqlxrxm);
         sb.append(", zqlxrdh=").append(zqlxrdh);
         sb.append(", jdbm=").append(jdbm);
+        sb.append(", ynYqxld=").append(ynYqxld);
+        sb.append(", ynXyty=").append(ynXyty);
+        sb.append(", ynBbssgabm=").append(ynBbssgabm);
+        sb.append(", ynBbssxcbm=").append(ynBbssxcbm);
+        sb.append(", memo=").append(memo);
         sb.append(", jdlx=").append(jdlx);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", gdid=").append(gdid);
         sb.append("]");
         return sb.toString();
     }
