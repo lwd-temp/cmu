@@ -244,10 +244,9 @@
          <table tableName="T_SYS_MAXCODE" 	domainObjectName="MaxCode"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MaxCodeParams&gt;"/>
        </table>-->
-        <!-- <table tableName="T_WBJD_SQ" 	domainObjectName="WbjdSq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+         <table tableName="T_WBJD_SQ" 	domainObjectName="WbjdSq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSqParams&gt;"/>
          </table>
-         -->
         <table tableName="T_WBJD_ZJ" 	domainObjectName="WbjdZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjParams&gt;"/>
         </table>
