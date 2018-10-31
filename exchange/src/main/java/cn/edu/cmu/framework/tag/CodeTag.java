@@ -1,6 +1,7 @@
 package cn.edu.cmu.framework.tag;
 
 import cn.edu.cmu.framework.cache.DMCache;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.servlet.jsp.JspException;
 import java.io.IOException;
@@ -22,6 +23,9 @@ public class CodeTag extends  BaseTag {
     public String type="select";
     public List<String> valueList = null;
 
+    public List<Map<String, String>> sourceList;
+    public String keyPro;
+    public String valuePro;
 
     private static  String optionFMT = "\t<option value='%s' %s >%s</option>\r\n";
     private static  String radioFMT = "\t<input   name=\"%s\"  id=\"%s_%d\"    %s  type=\"radio\" class=\"ace\" %s value=\"%s\" />  <span class=\"lbl\"> %s</span>\r\n";
@@ -58,6 +62,30 @@ public class CodeTag extends  BaseTag {
         this.type = type;
     }
 
+    public List<Map<String, String>> getSourceList() {
+        return sourceList;
+    }
+
+    public void setSourceList(List<Map<String, String>> sourceList) {
+        this.sourceList = sourceList;
+    }
+
+    public String getKeyPro() {
+        return keyPro;
+    }
+
+    public void setKeyPro(String keyPro) {
+        this.keyPro = keyPro;
+    }
+
+    public String getValuePro() {
+        return valuePro;
+    }
+
+    public void setValuePro(String valuePro) {
+        this.valuePro = valuePro;
+    }
+
     @Override
     protected void tagHeader() throws IOException {
         if("select".equals(type)){
@@ -81,7 +109,13 @@ public class CodeTag extends  BaseTag {
 
     @Override
     protected void tagContent() throws JspException, IOException {
-        List<Map<String,String>> list = DMCache.getTableList(tabName);
+        List<Map<String,String>> list = null;
+        if(StringUtils.isNotEmpty(tabName)){
+            list = DMCache.getTableList(tabName);
+        }else{
+            list = sourceList;
+        }
+
 
         if(list == null || list.size()<=0){
             return;

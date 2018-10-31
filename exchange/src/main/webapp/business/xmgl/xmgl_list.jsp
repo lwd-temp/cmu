@@ -68,7 +68,7 @@
                     layer.newpage({
                         area: ['1000px', '620px'],
                         title:'创建项目',
-                        content:'business/xmgl/xmgl_add.jsp',
+                        content:'xm/toAdd',
                     });
                 }
             }

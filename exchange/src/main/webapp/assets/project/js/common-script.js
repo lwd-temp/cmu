@@ -185,7 +185,12 @@ $(function(){
                     //隐藏grid底部滚动条
                     tab.closest(".ui-jqgrid-bdiv").css({ "overflow-x" : "hidden" });
                 },
-                loadComplete : function() {
+                loadComplete : function(res) {
+
+                    if(options.loaded){
+                        options.loaded(res);
+                    }
+
                     var table = this;
                     //更新 反野的 图标
                     var replacement =
@@ -228,8 +233,6 @@ $(function(){
 
         }
     });
-
-
 
 
 });

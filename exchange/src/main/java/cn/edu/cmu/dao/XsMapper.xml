@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.XsMapper">
+
+
+    <select id="listxs" parameterType="java.util.Map" resultType="hashmap">
+        select * from (
+        <!-- 本科生-->
+            select xs.xh,
+            xs.xm,
+            decode(xs.xbm, '0', '', '1', '男', '2', '女', '3', '', xs.xbm) xb
+
+            from v_bks_xsjbsjxx xs
+            inner join v_bks_xjjbsjxx xj
+            on xs.xh = xj.xh and xj.yxsh= #{unitId,jdbcType=VARCHAR}
+            <if test="xm!=null">
+                <bind name="xmLike" value="'%' + xm + '%'"/>
+                and xm like #{xmLike,jdbcType=VARCHAR}
+            </if>
+
+            union all
+
+
+            <!-- 研究生-->
+            select xs.xh,  xs.xm,  decode(xs.xbm, '0', '', '1', '男', '2', '女', '3', '', xs.xbm) xb
+
+            from v_yjs_xsjbsjxx xs inner join v_yjs_xjjbsjxx xj on xs.xh = xj.xh and xj.yxsh=#{unitId,jdbcType=VARCHAR}
+            <if test="xm!=null">
+                <bind name="xmLike" value="'%' + xm + '%'"/>
+                and xm like #{xmLike,jdbcType=VARCHAR}
+            </if>
+        )
+
+        order by ${order}
+
+    </select>
+
+</mapper>

@@ -33,14 +33,35 @@
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+
         <attribute>
             <name>type</name>
             <required>false</required>
         </attribute>
         <attribute>
             <name>tabName</name>
-            <required>true</required>
+            <required>false</required>
         </attribute>
+
+
+        <!-- 自定义数据 生成列表-->
+        <attribute>
+            <name>sourceList</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <attribute>
+            <name>keyPro</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>valuePro</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
         <dynamic-attributes>true</dynamic-attributes>
     </tag>
 </taglib>

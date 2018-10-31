@@ -54,7 +54,7 @@
     var setting = {
         async : {
             enable : true,//设置 zTree 是否开启异步加载模式
-            url : "sys/unit/list",//Ajax 获取数据的 URL 地址
+            url : "sys/unit/first/unit",//Ajax 获取数据的 URL 地址
             autoParam : [ "unitId=belongUnit" ],//异步加载时需要自动提交父节点属性的参数
             dataFilter: dataFilter
         },

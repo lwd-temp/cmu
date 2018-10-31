@@ -14,8 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 @RequestMapping("/xm")
@@ -113,7 +112,32 @@ public class XmController extends BaseController {
 
         model.addAttribute("xm", xm);
 
-        return "xmgl/role/role_edit";
+        return "xmgl/xmgl_edit";
+    }
+
+    /**
+     * 跳转到添加页面
+     *
+     * @param model
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toAdd")
+    public String toAdd( Model model) throws Exception {
+
+        Random rnd = new Random();
+
+        ArrayList zyList = new ArrayList();
+        for (int i = 0; i <10 ; i++) {
+            Map zyMap = new HashMap();
+            zyMap.put("150001"+rnd.nextInt(50),"临床医学"+rnd.nextInt(50));
+            zyList.add(zyMap);
+        }
+
+        model.addAttribute("zyList", zyList);
+
+        return "xmgl/xmgl_add";
     }
 
     /**

@@ -2,6 +2,8 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.UnicUnitMapper;
 import cn.edu.cmu.dao.UnicUnitMapperExt;
+import cn.edu.cmu.domain.Contact;
+import cn.edu.cmu.domain.ContactParams;
 import cn.edu.cmu.domain.UnicUnit;
 import cn.edu.cmu.domain.UnicUnitParams;
 import cn.edu.cmu.framework.web.BaseService;
@@ -40,8 +42,22 @@ public class UnicUnitServiceImpl extends BaseService<UnicUnit, UnicUnitParams, U
 
     @Override
     public List list(Object... conditions) throws Exception {
-        return null;
+        UnicUnitParams params = new UnicUnitParams();
+        UnicUnitParams.Criteria c = params.createCriteria();
+
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            UnicUnit unicUnit = (UnicUnit) conditions[0];
+
+            if(StringUtils.isNotEmpty(unicUnit.getName())){
+                c.andNameLike("%"+unicUnit.getName()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return dao.selectByExample(params);
     }
+
+
 
     @Override
     public UnicUnit queryMcById(String ejdwid) {
