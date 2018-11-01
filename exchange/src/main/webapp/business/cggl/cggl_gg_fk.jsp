@@ -74,22 +74,22 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 批准出访人数   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="pzcfrw"  value="${cgRwzxqkfk.pzcfrw}"   class="col-xs-12" />
+                        <input type="text"  name="pzcfrw"  value="${cgRwzxqkfk.pzcfrw}" placeholder="请输入批准出访人数"  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label "  > 批准出访天数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="pzcfts"  value="${cgRwzxqkfk.pzcfts}"   class="col-xs-12" />
+                        <input type="text"  name="pzcfts"  value="${cgRwzxqkfk.pzcfts}" placeholder="请输入批准出访天数"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 实际出访人数   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="sjcfrs"  value="${cgRwzxqkfk.sjcfrs}" class="col-xs-12" />
+                        <input type="text"  name="sjcfrs"  value="${cgRwzxqkfk.sjcfrs}" placeholder="请输入实际出访人数"  class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 实际出访天数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="sjcfts"  value="${cgRwzxqkfk.sjcfts}" class="col-xs-12" />
+                        <input type="text"  name="sjcfts"  value="${cgRwzxqkfk.sjcfts}"  placeholder="请输入实际出访天数"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">

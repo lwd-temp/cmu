@@ -101,7 +101,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 举行日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker"  name="hyJh.jxrq" id="jbrq" value="" type="text" data-date-format="yyyy-mm-dd" />
+                                    <input class="form-control date-picker"  name="hyJh.jxrq" id="jbrq" placeholder="请选择举行日期" value="" type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 经费来源: </label>

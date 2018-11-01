@@ -142,24 +142,24 @@
                         <label class="col-xs-2 control-label"  > 出访团组号   : </label>
                         <div class="col-xs-4">
                             <input type="hidden"  name="tzid"  id="tzid"  />
-                            <input type="text" name="tzh" id="tzh" onclick="clicktzid()" readonly="readonly" class="col-xs-12" />
+                            <input type="text" name="tzh" id="tzh" onclick="clicktzid()" readonly="readonly" placeholder="请选择出访团组号" class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 出访团组名称   : </label>
                         <div class="col-xs-4">
-                            <input type="text" name="tzmc" id="tzmc" onclick="clicktzid()"  readonly="readonly" class="col-xs-12" />
+                            <input type="text" name="tzmc" id="tzmc" onclick="clicktzid()"  readonly="readonly" placeholder="请选择出访团组名称" class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 出访开始日期 </label>
                         <div class="col-xs-4">
                             <input class="form-control date-picker" name="cfksrq"
-                                   readonly="readonly"    id="cfksrq" type="text" data-date-format="yyyy-mm-dd" />
+                                   readonly="readonly"  placeholder="请选择出访开始日期"   id="cfksrq" type="text" data-date-format="yyyy-mm-dd" />
                         </div>
                         <label class="col-xs-2 control-label"  > 出访结束日期   : </label>
                         <div class="col-xs-4">
                             <input class="form-control date-picker" name="cfjsrq"
-                                   readonly="readonly"    id="cfjsrq" type="text" data-date-format="yyyy-mm-dd" />
+                                   readonly="readonly"  placeholder="请选择出访结束日期"  id="cfjsrq" type="text" data-date-format="yyyy-mm-dd" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -171,63 +171,63 @@
                     <div class="form-group cfmdqt" >
                         <label class="col-xs-2 control-label"  > 出访目的—其他: </label>
                         <div class="col-xs-10">
-                            <input type="text"  name="cfmdQt"  id="cfmdqt"    class="col-xs-12" />
+                            <input type="text"  name="cfmdQt"  id="cfmdqt"   class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 邀请人姓名   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrXm"        class="col-xs-12" />
+                            <input type="text"  name="yqrXm"   placeholder="请输入邀请人姓名"     class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 邀请人职务: </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrZw"      class="col-xs-12" />
+                            <input type="text"  name="yqrZw"    placeholder="请输入邀请人职务"  class="col-xs-12" />
                         </div>
                     </div><div class="form-group">
                         <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrXmEn"     class="col-xs-12" />
+                            <input type="text"  name="yqrXmEn"  placeholder="请输入邀请人姓名(英文)"   class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrZwEn"         class="col-xs-12" />
+                            <input type="text"  name="yqrZwEn"     placeholder="请输入邀请人职务(英文)"      class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 邀请人单位   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrDw"        class="col-xs-12" />
+                            <input type="text"  name="yqrDw"     placeholder="请输入邀请人单位"    class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 邀请人详细地址: </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrXxdz"       class="col-xs-12" />
+                            <input type="text"  name="yqrXxdz"   placeholder="请输入邀请人详细地址"     class="col-xs-12" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 邀请人单位(英文)   : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrDwEn"         class="col-xs-12" />
+                            <input type="text"  name="yqrDwEn"     placeholder="请输入邀请人单位(英文)"     class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 邀请人详细地址(英文): </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrXxdzEn"        class="col-xs-12" />
+                            <input type="text"  name="yqrXxdzEn"   placeholder="请输入邀请人详细地址(英文)"      class="col-xs-12" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="col-xs-2 control-label"  > 邀请人电话  : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrDh"         class="col-xs-12" />
+                            <input type="text"  name="yqrDh"    placeholder="请输入邀请人电话"     class="col-xs-12" />
                         </div>
 
                         <label class="col-xs-2 control-label"  > 邀请人电话(英文): </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="yqrDhEn"        class="col-xs-12" />
+                            <input type="text"  name="yqrDhEn"    placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -237,7 +237,7 @@
                         </div>
                         <label class="col-xs-2 control-label"  > 年内出访次数  : </label>
                         <div class="col-xs-4">
-                            <input type="text"  name="nncfcs"      class="col-xs-12" />
+                            <input type="text"  name="nncfcs"   placeholder="请输入年内出访次数"    class="col-xs-12" />
                         </div>
                     </div>
 

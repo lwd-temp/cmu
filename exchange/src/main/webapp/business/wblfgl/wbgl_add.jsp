@@ -75,22 +75,22 @@
                     <label class="col-xs-2 control-label "  > 代表团名称: </label>
 
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.dbtmc"   placeholder=""  class="col-xs-12" />
+                        <input type="text"  name="wbjdSq.dbtmc" placeholder="请输入代表团名称"  placeholder=""  class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.lfrs"   placeholder=""  class="col-xs-12" />
+                        <input type="text"  name="wbjdSq.lfrs"   placeholder="请输入来访人数"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 来访时间起: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.lfsjStart" value="" id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" name="wbjdSq.lfsjStart"  placeholder="请选择来访时间起" value="" id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdSq.lfsjEnd" value="" id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" name="wbjdSq.lfsjEnd" placeholder="请选择来访时间止" value="" id="lfsjEnd" type="text"  data-date-format="yyyy-mm-dd" />
                     </div>
 
                 </div>
@@ -104,7 +104,7 @@
 
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
@@ -123,7 +123,7 @@
 
                     <label class="col-xs-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.jfly" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.jfly" placeholder="请输入经费来源" value="" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
@@ -178,7 +178,7 @@
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 团长姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="wbjdSq.tzxm" value="" type="text"   />
+                        <input class="form-control  " name="wbjdSq.tzxm" placeholder="请输入团长姓名" value="" type="text"   />
                     </div>
                     <label class="col-xs-2 control-label "  > 团长国籍: </label>
                     <div class="col-xs-4">
@@ -232,12 +232,12 @@
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " id="zqlxrxm" name="wbjdSq.zqlxrxm" value="" type="text"   />
+                        <input class="form-control  " id="zqlxrxm" name="wbjdSq.zqlxrxm" placeholder="请输入主请联系人姓名" value="" type="text"   />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " id="zqlxrdh" name="wbjdSq.zqlxrdh" value="" type="text"   />
+                        <input class="form-control  " id="zqlxrdh" name="wbjdSq.zqlxrdh" placeholder="请输入主请联系人电话" value="" type="text"   />
                     </div>
                 </div>
 

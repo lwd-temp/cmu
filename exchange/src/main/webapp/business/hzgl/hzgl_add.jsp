@@ -55,22 +55,22 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 姓名: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="xm"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="xm"  value="" placeholder="请输入姓名"    class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 性别: </label>
 
                                 <div class="col-xs-4">
-                                    <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"   ></dm:list>
+                                    <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  placeholder="请选择性别" ></dm:list>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 护照号码: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="hzhm"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="hzhm"  value=""  placeholder="请输入护照号码"  class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="gj"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="gj"  value=""  placeholder="请选择国籍"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -82,19 +82,19 @@
                                 </div>
                                 <label class="col-xs-2 control-label "  > 出生地点: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="csdd"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="csdd"  value="" placeholder="请输入签发日期"   class="col-xs-12" />
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 签发日期: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-5" name="qfrq" value=""
+                                    <input class="form-control date-picker" id="id-date-picker-5" name="qfrq" placeholder="请选择签发日期" value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 签发地点: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="qfdd"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="qfdd"  value="" placeholder="请输入签发地点"    class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -105,13 +105,13 @@
                                 </div>
                                 <label class="col-xs-2 control-label "  > 发证机关: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="fzjg"  value=""    class="col-xs-12" />
+                                    <input type="text"  name="fzjg"  value=""  placeholder="请输入发证机关"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 借出时间:</label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="id-date-picker-8"  name="jcsj"  value=""
+                                    <input class="form-control date-picker" id="id-date-picker-8" placeholder="请选择借出时间" name="jcsj"  value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 归还时间:</label>

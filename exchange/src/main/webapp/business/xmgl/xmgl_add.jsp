@@ -189,7 +189,7 @@
                                 <div class="col-xs-4">
 
 
-                                    <dm:list sourceList="${zyList}" keyPro="code" valuePro="name" id="jfly" name="xm.jfly" multiple="multiple" data-placeholder="请选择经费来源"></dm:list>
+                                    <dm:list sourceList="${zyList}" keyPro="code" valuePro="name" id="jfly" name="xm.jfly" multiple="multiple" data-placeholder="项目专业限制"></dm:list>
 
 
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">

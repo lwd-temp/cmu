@@ -135,24 +135,24 @@
                 <div class="form-group lx1">
                     <label class="col-xs-2 control-label "> 团组负责人姓名: </label>
                     <div class="col-xs-4" id="fzr1">
-                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm" value="" type="text"/>
+                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm" placeholder="请输入团组负责人姓名" value="" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 行政职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control " name="cgTzjh.xzzw" id="xzzw" value="" type="text"/>
+                        <input class="form-control " name="cgTzjh.xzzw" id="xzzw" placeholder="请输入行政职务" value="" type="text"/>
                     </div>
 
                 </div>
                 <div class="form-group lx1">
                     <label class="col-xs-2 control-label "> 行政级别: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="cgTzjh.xzjb" id="xzjb" value="" type="text"/>
+                        <input class="form-control  " name="cgTzjh.xzjb" id="xzjb" placeholder="请输入行政级别" value="" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 技术职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="cgTzjh.jszw" id="jszw" value="" type="text"/>
+                        <input class="form-control  " name="cgTzjh.jszw" id="jszw" placeholder="请输入技术职务" value="" type="text"/>
                     </div>
 
                 </div>
@@ -165,19 +165,19 @@
 
                     <label class="col-xs-2 control-label "> 职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="cgTzjh.zw" id="zw" value="" type="text"/>
+                        <input class="form-control  " name="cgTzjh.zw" id="zw" placeholder="请输入职务" value="" type="text"/>
                     </div>
 
                 </div>
                 <div class="form-group lx2">
                     <label class="col-xs-2 control-label "> 职级: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  name="cgTzjh.zj" id="zj" value="" type="text"/>
+                        <input class="form-control  "  name="cgTzjh.zj" id="zj" placeholder="请输入职级" value="" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 分管工作: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  name="cgTzjh.ffgz"  id="ffgz" value="" type="text"/>
+                        <input class="form-control  "  name="cgTzjh.ffgz"  id="ffgz" placeholder="请输入分管工作" value="" type="text"/>
                     </div>
 
                 </div>
@@ -186,11 +186,11 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组人数: </label>
                     <div class="col-xs-4">
-                        <input class="form-control "  name="cgTzjh.tzrs"   id="tzrs" value="" type="text"/>
+                        <input class="form-control "  name="cgTzjh.tzrs"   id="tzrs" placeholder="请输入团组人数" value="" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择出访国家"  ></dm:list>
 
 
                     </div>
@@ -198,12 +198,12 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访任务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw" value="" type="text"/>
+                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw" placeholder="请输入出访任务" value="" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 出访单位: </label>
 
                     <div class="col-xs-4">
-                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="中国医科大学" class="col-xs-12"/>
+                        <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="中国医科大学" data-placeholder="请选择出访单位" class="col-xs-12"/>
                     </div>
 
                 </div>
@@ -212,34 +212,34 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
                     <div class="col-xs-4 ">
-                        <input class="form-control month-picker" data-date-format="YYYY-MM"  id="cfsj" name="cgTzjh.cfsj" value="" type="text"/>
+                        <input class="form-control month-picker" data-date-format="YYYY-MM" placeholder="请输入出访时间(月)"  id="cfsj" name="cgTzjh.cfsj" value="" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="cfts" name="cgTzjh.cfts" value="" type="text"/>
+                        <input class="form-control" id="cfts" name="cgTzjh.cfts" placeholder="请输入出访天数" value="" type="text"/>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 省本级部门预算: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="sjys" name="cgTzjh.sjys" value="" type="text"/>
+                        <input class="form-control" id="sjys" name="cgTzjh.sjys" placeholder="请输入省本级部门预算" value="" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 其他预算: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="qtys" name="cgTzjh.qtys" value="" type="text"/>
+                        <input class="form-control" id="qtys" name="cgTzjh.qtys" placeholder="请输入其他预算" value="" type="text"/>
                     </div>
 
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 任务批件文号: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" value="" type="text"/>
+                        <input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" placeholder="请输入任务批件文号" value="" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 任务批复时间: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="cgTzjh.rwpfsj" id="rwpfsj" value="" type="text"
+                        <input class="form-control date-picker" name="cgTzjh.rwpfsj" placeholder="请输入任务批复时间" id="rwpfsj" value="" type="text"
                                data-date-format="yyyy-mm-dd"/>
                     </div>
 

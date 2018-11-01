@@ -110,7 +110,7 @@
                     </div>
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbCodeList}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbCodeList}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
@@ -134,21 +134,25 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 是否邀请校领导: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynYqxld" type="radio" value="${wbjdSq.ynYqxld}" onclick="getRadio(this)" data-placeholder="请选是否邀请校领导" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynYqxld" type="radio" value="${wbjdSq.ynYqxld}"
+                                 onclick="getRadio(this)" data-placeholder="请选是否邀请校领导" ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 是否获学院同意: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynXyty"  type="radio" value="${wbjdSq.ynXyty}"  onclick="getRadio(this)" data-placeholder="请选是否获学院同意" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynXyty"  type="radio" value="${wbjdSq.ynXyty}"
+                                 onclick="getRadio(this)" data-placeholder="请选是否获学院同意" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm"   type="radio" value="${wbjdSq.ynBbssgabm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm"   type="radio" value="${wbjdSq.ynBbssgabm}"
+                                 onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm"   type="radio" value="${wbjdSq.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm"   type="radio" value="${wbjdSq.ynBbssxcbm}"
+                                 onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >
@@ -332,34 +336,6 @@
                 $(".qtmd").hide();
             }
 
-            var ynYqxld_value = $("#ynYqxld").val();
-            if(ynYqxld_value == 'Y'){
-                $("#ynYqxld_value").val("是否邀请校领导:是");
-            }else{
-                $("#ynYqxld_value").val("是否邀请校领导:否");
-            }
-
-            var ynXyty_value = $("#ynXyty").val()
-            if(ynXyty_value == 'Y'){
-                $("#ynXyty_value").val("是否获学院同意:是");
-            }else{
-                $("#ynXyty_value").val("是否获学院同意:否");
-            }
-
-            var ynBbssgabm_value = $("#ynBbssgabm").val()
-            if(ynBbssgabm_value == 'Y'){
-                $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
-            }else{
-                $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
-            }
-
-            var ynBbssxcbm_value = $("#ynBbssxcbm").val();
-            if(ynBbssxcbm_value == 'Y'){
-                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
-            }else{
-                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
-            }
-
             var val = $("#jdlx").val();
             jdlxfunction(val);
 
@@ -368,7 +344,6 @@
             $("#jdlx").change(function(){
                 var $select = $(this);
                 var val = $select.val();
-                alert(val);
                 jdlxfunction(val);
             })
 
@@ -528,6 +503,41 @@
 
 
         function getRadio(rad){
+
+            $("input[name='wbjdSq.ynYqxld'][checked]").val();
+
+
+
+            if(ynYqxld_value == 'Y'){
+                $("#ynYqxld_value").val("是否邀请校领导:是");
+            }else{
+                $("#ynYqxld_value").val("是否邀请校领导:否");
+            }
+
+            var ynXyty_value = $("#ynXyty").val();
+
+            if(ynXyty_value == 'Y'){
+                $("#ynXyty_value").val("是否获学院同意:是");
+            }else{
+                $("#ynXyty_value").val("是否获学院同意:否");
+            }
+
+            var ynBbssgabm_value = $("#ynBbssgabm").val();
+
+            if(ynBbssgabm_value == 'Y'){
+                $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+            }else{
+                $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+            }
+
+            var ynBbssxcbm_value = $("#ynBbssxcbm").val();
+
+            if(ynBbssxcbm_value == 'Y'){
+                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+            }else{
+                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+            }
+
             var val = $(rad).val(); // y n
             switch ($(rad).attr('name')) {
                 case "wbjdSq.ynYqxld"://是否邀请校领导

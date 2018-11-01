@@ -127,7 +127,8 @@
         layer.newpage({
             area: ['900px', ($(window).height()-20)+"px"],
             title:'外宾接待【总结】',
-            content:'business/wblfgl/wbgl_zj_add.jsp?lfid='+lfid,
+           // content:'business/wblfgl/wbgl_zj_add.jsp?lfid='+lfid,
+            content:'wbzj/add?lfid='+lfid,
         });
     }
     function editWbgl(zjid){

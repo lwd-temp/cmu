@@ -58,7 +58,7 @@
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="wbjdZj.lfid" value="${param['lfid']}"/>
-
+                <input type="hidden" id="status"  name="wbjdZj.status" value="${wbjdZj.status}"/>
                 <input type="hidden"   id="ynYqxld_value" />
                 <input type="hidden"   id="ynXyty_value"   />
                 <input type="hidden"   id="ynBbssgabm_value"  />
@@ -95,15 +95,15 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 来访时间起: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdZj.lfsj"
-                               value="<fmt:formatDate value="${wbjdZj.lfsj}" pattern="yyyy-MM-dd"/>"
-                               id="lfsj" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" name="wbjdZj.lfsjStart"
+                               value="<fmt:formatDate value="${wbjdZj.lfsjStart}" pattern="yyyy-MM-dd"/>"
+                               id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-4">
-                        <input class="form-control date-picker" name="wbjdZj.tlsjEnd"
-                               value="<fmt:formatDate value="${wbjdZj.tlsjEnd}" pattern="yyyy-MM-dd"/>" id="tlsjEnd" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" name="wbjdZj.lfsjEnd"
+                               value="<fmt:formatDate value="${wbjdZj.lfsjEnd}" pattern="yyyy-MM-dd"/>" id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
 
                 </div>
@@ -117,7 +117,7 @@
 
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple" valueList="${cfgbIds}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple" valueList="${cfgbIds}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
