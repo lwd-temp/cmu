@@ -36,8 +36,8 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         WbjdSqParams ex = new WbjdSqParams();
         if(WbjdSq != null){
             WbjdSqParams.Criteria c = ex.createCriteria();
-            if(StringUtils.isNotEmpty(WbjdSq.getZqrxm())){
-                c.andZqrxmLike("%"+WbjdSq.getZqrxm()+"%");
+            if(StringUtils.isNotEmpty(WbjdSq.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+WbjdSq.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(WbjdSq.getDbtmc())){
                 c.andDbtmcLike("%"+WbjdSq.getDbtmc()+"%");
@@ -53,8 +53,8 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         if(conditions != null && conditions.length>0 && conditions[0]!=null){ 
             WbjdSq jdsq = (WbjdSq) conditions[0];
 
-            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
-                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+            if(StringUtils.isNotEmpty(jdsq.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
                 c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
@@ -72,8 +72,8 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             WbjdSq jdsq = (WbjdSq) conditions[0];
 
-            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
-                c.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+            if(StringUtils.isNotEmpty(jdsq.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
                 c.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
@@ -177,7 +177,6 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         int count  = dao.updateByPrimaryKeySelective(wbjdSq);
         //新增到总结表中 ，申请的数据
         if(wbjdSq.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
-            insertWbjdZj(wbjdSq,zjid);
             insertWbjdZjSxry(sxryList,zjid);
             insertWbjdZjGb(gbDomainList,zjid);
         }
@@ -209,45 +208,6 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
                 wbjdZjSxryMapper.insertSelective(wbjdZjSxry);
             }
         }
-    }
-
-    private void insertWbjdZj(WbjdSq wbjdSq,String zjid) {
-        //审核通过 总结表新增一条数据
-        /*WbjdZj wbjdZj = new WbjdZj();
-        wbjdZj.setZjid(zjid);
-        wbjdZj.setLfid(wbjdSq.getLfid());
-        wbjdZj.setStatus(wbjdSq.getStatus());
-        wbjdZj.setDbtmc(wbjdSq.getDbtmc());
-        wbjdZj.setFwcg(wbjdSq.getFwcg());
-        wbjdZj.setJdbm(wbjdSq.getJdbm());
-        wbjdZj.setJdlx(wbjdSq.getJdlx());
-        wbjdZj.setJfly(wbjdSq.getJfly());
-        wbjdZj.setLfmd(wbjdSq.getLfmd());
-        wbjdZj.setLfmdQt(wbjdSq.getLfmdQt());
-        wbjdZj.setLfrs(wbjdSq.getLfrs());
-        wbjdZj.setLfsj(wbjdSq.getLfsj());
-        wbjdZj.setLp(wbjdSq.getLp());
-        wbjdZj.setLpsl(wbjdSq.getLpsl());
-        wbjdZj.setQkjl(wbjdSq.getQkjl());
-        wbjdZj.setTlsjEnd(wbjdSq.getTlsjEnd());
-        wbjdZj.setTlsjStart(wbjdSq.getTlsjStart());
-        wbjdZj.setTzcsrq(wbjdSq.getTzcsrq());
-        wbjdZj.setTzgj(wbjdSq.getTzgj());
-        wbjdZj.setTzgzdw(wbjdSq.getTzgzdw());
-        wbjdZj.setTzxb(wbjdSq.getTzxb());
-        wbjdZj.setTzxm(wbjdSq.getTzxm());
-        wbjdZj.setTzzw(wbjdSq.getTzzw());
-        wbjdZj.setTzxsly(wbjdSq.getTzxsly());
-        wbjdZj.setTzzy(wbjdSq.getTzzy());
-        wbjdZj.setYjtm(wbjdSq.getYjtm());
-        wbjdZj.setYqcg(wbjdSq.getYqcg());
-        wbjdZj.setYqxx(wbjdSq.getYqxx());
-        wbjdZj.setZqlxrdh(wbjdSq.getZqlxrdh());
-        wbjdZj.setZqlxrxm(wbjdSq.getZqlxrxm());
-        wbjdZj.setZqrdh(wbjdSq.getZqrdh());
-        wbjdZj.setZqrxm(wbjdSq.getZqrxm());*//*
-        //所有字段
-        wbjdZjMapper.insertSelective(wbjdZj);*/
     }
 
 

@@ -57,7 +57,7 @@
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="hidden"    name="wbjdZj.lfid" value="${wbjdSq.lfmd}"/>
+                <input type="hidden"    name="wbjdZj.lfid" value="${wbjdSq.lfid}"/>
                 <input type="hidden"   id="status"  name="wbjdZj.status" value="${wbjdSq.status}"/>
 
                 <input type="hidden"   id="ynYqxld_value" />
@@ -343,37 +343,6 @@
             $(".qtmd").hide();
         }
 
-        var ynYqxld_value = $("#ynYqxld").val();
-        alert(ynYqxld_value)
-        if(ynYqxld_value == 'Y'){
-            $("#ynYqxld_value").val("是否邀请校领导:是");
-        }else{
-            $("#ynYqxld_value").val("是否邀请校领导:否");
-        }
-
-        var ynXyty_value = $("#ynXyty").val()
-        alert(ynXyty_value)
-        if(ynXyty_value == 'Y'){
-            $("#ynXyty_value").val("是否获学院同意:是");
-        }else{
-            $("#ynXyty_value").val("是否获学院同意:否");
-        }
-
-        var ynBbssgabm_value = $("#ynBbssgabm").val()
-        alert(ynBbssgabm_value)
-        if(ynBbssgabm_value == 'Y'){
-            $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
-        }else{
-            $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
-        }
-
-        var ynBbssxcbm_value = $("#ynBbssxcbm").val();
-        alert(ynBbssxcbm_value)
-        if(ynBbssxcbm_value == 'Y'){
-            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
-        }else{
-            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
-        }
 
         var val = $("#jdlx").val();
         jdlxfunction(val);
@@ -485,47 +454,6 @@
             $(".qtmd").hide();
         }
     }
-    function getRadio(rad){
-        var val = $(rad).val(); // y n
-        switch ($(rad).attr('name')) {
-            case "wbjdZj.ynYqxld"://是否邀请校领导
-                if(val == 'Y'){
-                    $("#ynYqxld_value").val("是否邀请校领导:是");
-                }else{
-                    $("#ynYqxld_value").val("是否邀请校领导:否");
-                }
-                break;
-            case "wbjdZj.ynXyty"://是否获学院同意
-                if(val == 'Y'){
-                    $("#ynXyty_value").val("是否获学院同意:是");
-                }else{
-                    $("#ynXyty_value").val("是否获学院同意:否");
-                }
-                break;
-            case "wbjdZj.ynBbssgabm"://是否报备所属公安部门
-                if(val == 'Y'){
-                    $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
-                }else{
-                    $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
-                }
-                break;
-            case "wbjdZj.ynBbssxcbm"://是否报备所属宣传部门
-                if(val == 'Y'){
-                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
-                }else{
-                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
-                }
-                break;
-            default:
-                break;
-        }
-
-        var ynYqxld_value = $("#ynYqxld_value").val();
-        var ynXyty_value  = $("#ynXyty_value").val();
-        var ynBbssgabm_value = $("#ynBbssgabm_value").val();
-        var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
-        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
-    }
 
     function jdlxfunction(val) {
         if (val == '01') {//校级
@@ -556,6 +484,41 @@
             $("#zqlxrdh").removeAttr("disabled");
             $("#zqlxrdh").removeAttr("readonly");
         }
+    }
+
+    function getRadio(rad){
+        var ynYqxld_check = $("input[name='wbjdZj.ynYqxld']:checked").val();
+        var ynXyty_check  = $("input[name='wbjdZj.ynXyty']:checked").val();
+        var ynBbssgabm_check = $("input[name='wbjdZj.ynBbssgabm']:checked").val();
+        var ynBbssxcbm_check = $("input[name='wbjdZj.ynBbssxcbm']:checked").val();
+
+        if(ynYqxld_check == 'Y'){
+            $("#ynYqxld_value").val("是否邀请校领导:是");
+        }else if(ynYqxld_check == 'N'){
+            $("#ynYqxld_value").val("是否邀请校领导:否");
+        }
+        if(ynXyty_check == 'Y'){
+            $("#ynXyty_value").val("是否获学院同意:是");
+        }else if(ynXyty_check == 'N'){
+            $("#ynXyty_value").val("是否获学院同意:否");
+        }
+        if(ynBbssgabm_check == 'Y'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+        }else if(ynBbssgabm_check == 'N'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+        }
+        if(ynBbssxcbm_check == 'Y'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+        }else if(ynBbssxcbm_check == 'N'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+        }
+        var ynYqxld_value =  $("#ynYqxld_value").val();
+        var ynXyty_value  = $("#ynXyty_value").val();
+        var ynBbssgabm_value = $("#ynBbssgabm_value").val();
+        var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
+
+        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+        console.info($("#memo").val());
     }
 </script>
 </body>

@@ -78,7 +78,7 @@
                         return dmcache.getCode('t_dm_lfmd',lfmd);
                     }},
                 {name:'tzxm',index:'tzxm',  },
-                {name:'zqrxm',index:'zqrxm',  },
+                {name:'zqlxrxm',index:'zqlxrxm',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
@@ -124,7 +124,7 @@
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
-                'zqrxm':$("#condition1").val(),
+                'zqlxrxm':$("#condition1").val(),
                 'dbtmc':$("#condition2").val()
             },//条件查询项后台发送的条件数据
             page:1

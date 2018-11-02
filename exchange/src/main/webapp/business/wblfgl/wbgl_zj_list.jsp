@@ -10,7 +10,7 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 主请人姓名: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 主请联系人姓名: </label>
 
             <div class="col-sm-3">
                 <input type="text" id="condition1" name="condition" placeholder="主请人姓名" class="col-xs-12" />
@@ -95,9 +95,10 @@
                         var zjid = rowObject.zjid;
                         var btns = "";
                         var zt = rowObject.status;
+
                         if("0" == status ){
                             btns = "<button class='btn btn-success btn-mini' onclick='zjWbgl(\""+lfid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
-                        }else{
+                        }else {
                             btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-calendar '>编辑</i></button>";
                         }
                         return btns;
@@ -116,7 +117,7 @@
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
-                'zqrxm':$("#condition1").val(),
+                'zqlxrxm':$("#condition1").val(),
                 'dbtmc':$("#condition2").val()
             },//条件查询项后台发送的条件数据
             page:1
@@ -125,7 +126,7 @@
     //总结外宾接待申请
     function zjWbgl(lfid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'外宾接待【总结】',
            // content:'business/wblfgl/wbgl_zj_add.jsp?lfid='+lfid,
             content:'wbzj/add?lfid='+lfid,
@@ -133,9 +134,16 @@
     }
     function editWbgl(zjid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'外宾接待【总结】',
             content:'wbzj/toEdit?zjid='+zjid,
+        });
+    }
+    function showWbgl(zjid){
+        layer.newpage({
+            area: ['1100px', ($(window).height()-20)+"px"],
+            title:'外宾接待【总结】',
+            content:'wbzj/toEdit?type=show&zjid='+zjid,
         });
     }
 </script>

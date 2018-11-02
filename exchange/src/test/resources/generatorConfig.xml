@@ -243,10 +243,10 @@
         </table>
          <table tableName="T_SYS_MAXCODE" 	domainObjectName="MaxCode"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.MaxCodeParams&gt;"/>
-       </table>-->
+       </table>
          <table tableName="T_WBJD_SQ" 	domainObjectName="WbjdSq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSqParams&gt;"/>
-         </table>
+         </table>-->
         <table tableName="T_WBJD_ZJ" 	domainObjectName="WbjdZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjParams&gt;"/>
         </table>
@@ -256,14 +256,10 @@
         <table tableName="T_WBJD_GJ" 	domainObjectName="WbjdGj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdGjParams&gt;"/>
         </table>
-
-
         <table tableName="T_WBJD_SXRY" 	domainObjectName="WbjdSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
          </table>
         -->
-
-
         <!-- 机构-->
       <!--  <table tableName="v_uicm_unit" 	domainObjectName="UnicUnit"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UnicUnitParams&gt;"/>

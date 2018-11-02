@@ -1,9 +1,7 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.web.BaseController;
-import cn.edu.cmu.service.WbjdGjService;
-import cn.edu.cmu.service.WbjdZjService;
-import cn.edu.cmu.service.WbjdZjSxryService;
+import cn.edu.cmu.service.*;
 import cn.edu.cmu.vo.WbglVO;
 import cn.edu.cmu.vo.WbjdZjVo;
 import com.github.pagehelper.Page;
@@ -32,6 +30,12 @@ public class WbjdZjController extends BaseController {
     @Autowired
     WbjdGjService wbjdGjService;
 
+    @Autowired
+    WbjdSqService wbjdSqService;
+
+    @Autowired
+    WbjdSxryService wbjdSxryService;
+
     /**
      * 分页查询
      * @param WbjdSq      查询条件
@@ -55,6 +59,34 @@ public class WbjdZjController extends BaseController {
         return super.pagingInfo(pageInfo, list);
     }
 
+    /**
+     * 跳转到修改页面
+     *
+     * @param lfid
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/add")
+    public String add(String lfid ,Model model) throws Exception {
+        WbjdSq wbjdSq = wbjdSqService.queryById(lfid);
+
+        WbjdSxry queryWbjdSxry = new WbjdSxry();
+        queryWbjdSxry.setLfid(lfid);
+        List sxryList = wbjdSxryService.list(queryWbjdSxry);
+
+        WbjdGj queryWbjdGj = new WbjdGj();
+        queryWbjdGj.setLfid(lfid);
+        List<WbjdGj> gbDomainList = wbjdGjService.list(queryWbjdGj);
+        List gbCodeList = new ArrayList();
+        for (WbjdGj gb : gbDomainList) {
+            gbCodeList.add(gb.getLfjdgjid());
+        }
+        model.addAttribute("wbjdSq", wbjdSq);
+        model.addAttribute("sxryList", sxryList);
+        model.addAttribute("gbCodeList", gbCodeList);
+        return "wblfgl/wbgl_zj_add";
+    }
 
     /**
      * 跳转到修改页面

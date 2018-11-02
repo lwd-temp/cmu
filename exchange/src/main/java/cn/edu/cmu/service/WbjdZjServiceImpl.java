@@ -39,9 +39,9 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             WbjdSq jdsq = (WbjdSq) conditions[0];
-            if(StringUtils.isNotEmpty(jdsq.getZqrxm())){
-                c1.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
-                c2.andZqrxmLike("%"+jdsq.getZqrxm()+"%");
+            if(StringUtils.isNotEmpty(jdsq.getZqlxrxm())){
+                c1.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
+                c2.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
                 c1.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
@@ -58,8 +58,8 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
         WbjdZjParams ex = new WbjdZjParams();
         if(wbjdZj != null){
             WbjdZjParams.Criteria c = ex.createCriteria();
-            if(StringUtils.isNotEmpty(wbjdZj.getZqrxm())){
-                c.andZqrxmLike("%"+wbjdZj.getZqrxm()+"%");
+            if(StringUtils.isNotEmpty(wbjdZj.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+wbjdZj.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(wbjdZj.getDbtmc())){
                 c.andDbtmcLike("%"+wbjdZj.getDbtmc()+"%");
@@ -72,33 +72,46 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 
     @Override
     public boolean saveOrupdate(WbglVO vo) throws Exception {
-        WbjdZj wbjdZj = vo.getWbjdZj();
+        boolean isEdit = false;//是否修改标志
+        WbjdZj wbjdZj = new WbjdZj();
+        wbjdZj = vo.getWbjdZj();
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdZjSxry> sxr = vo.getZjsxr();
-        boolean isEdit = false;//是否修改标志
         if(StringUtil.isEmpty(wbjdZj.getZjid())){
             String keyId = CmuStringUtil.UUID();
             wbjdZj.setZjid(keyId);
-            dao.insertSelective(wbjdZj);
-        }else{
-            dao.updateByPrimaryKeySelective(wbjdZj);
+        }else{//如果存在id则说明是修改
+            isEdit = true;
         }
-        String zjid = wbjdZj.getZjid();
-        //删除随行人
-        deleteSxr(zjid);
-        //新增随行人
-        insertSxr(sxr,zjid);
-        //删除国别
-        deleteGb(zjid);
-        //新增国别
-        insertGb(zjid,cfgbIds);
+        //无论新增，还是修改，需要再成员表中维护主外键关系
+        if((!CollectionUtils.isEmpty(sxr)) ){
+            for (WbjdZjSxry r : sxr) {
+                r.setLfid(wbjdZj.getZjid());//设置外键团组计划id
+            }
+        }
+        if(isEdit){ //修改
+            dao.updateByPrimaryKeySelective(wbjdZj);
+            //从表先删后查
+            deleteSxr(wbjdZj);
+            //删完后添加从表数据
+            insertSxr(sxr);
+            //国别先删除后插入
+            deleteGb(wbjdZj.getZjid());
+            //删完后添加从表国别数据
+            insertGb(wbjdZj.getZjid(),cfgbIds);
 
+        }else{ //添加
+            System.out.println(wbjdZj);
+            dao.insertSelective(wbjdZj);
+            insertSxr(sxr);
+            insertGb(wbjdZj.getZjid(),cfgbIds);
+        }
         return true;
     }
     //删除对应的随行成员
-    private void deleteSxr(String zjid){
+    private void deleteSxr(WbjdZj wbjdZj){
         WbjdZjSxryParams params = new WbjdZjSxryParams();
-        params.createCriteria().andLfidEqualTo(zjid);
+        params.createCriteria().andLfidEqualTo(wbjdZj.getZjid());
         List oldSxrs = wbjdZjSxryMapper.selectByExample(params);
         if(!CollectionUtils.isEmpty(oldSxrs)) {
             for (Object obj : oldSxrs) {
@@ -108,11 +121,10 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
         }
     }
     //添加对应的随行成员
-    private void insertSxr(List<WbjdZjSxry> sxr, String zjid){
+    private void insertSxr(List<WbjdZjSxry> sxr){
         if(!CollectionUtils.isEmpty(sxr)) {
             for (WbjdZjSxry r : sxr) {
                 r.setRyid(CmuStringUtil.UUID());
-                r.setLfid(zjid);
                 wbjdZjSxryMapper.insertSelective(r);
             }
         }

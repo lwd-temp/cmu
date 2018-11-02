@@ -57,35 +57,29 @@
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="hidden" name="wbjdZj.lfid" value="${param['lfid']}"/>
-                <input type="hidden" id="status"  name="wbjdZj.status" value="${wbjdZj.status}"/>
+                <input type="hidden"    name="wbjdZj.lfid" value="${wbjdZj.lfid}"/>
+                <input type="hidden"    name="wbjdZj.zjid" value="${wbjdZj.zjid}"/>
+                <input type="hidden"   id="status"  name="wbjdZj.status" value="${wbjdZj.status}"/>
+
                 <input type="hidden"   id="ynYqxld_value" />
                 <input type="hidden"   id="ynXyty_value"   />
                 <input type="hidden"   id="ynBbssgabm_value"  />
                 <input type="hidden"   id="ynBbssxcbm_value"  />
 
-
                 <div class="form-group ">
-
                     <label class="col-xs-2 control-label "  > 接待类型: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="t_dm_wblf_jdlx"  id="jdlx" name="wbjdZj.jdlx" value="${wbjdZj.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
-
-
                     <label class="col-xs-2 control-label "  > 接待部门: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " id="jdbm" name="wbjdZj.jdbm" value="${wbjdZj.jdbm}"  type="text"   />
+                        <input class="form-control" id="jdbm" name="wbjdZj.jdbm" value="${wbjdZj.jdbm}" type="text"   />
                     </div>
-
-
                 </div>
-
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 代表团名称: </label>
-
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdZj.dbtmc"   placeholder="" value="${wbjdZj.dbtmc}"  class="col-xs-12" />
+                        <input type="text"  name="wbjdZj.dbtmc"   placeholder="" value="${wbjdZj.dbtmc}" class="col-xs-12" />
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
@@ -99,25 +93,21 @@
                                value="<fmt:formatDate value="${wbjdZj.lfsjStart}" pattern="yyyy-MM-dd"/>"
                                id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-
                     <label class="col-xs-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="wbjdZj.lfsjEnd"
-                               value="<fmt:formatDate value="${wbjdZj.lfsjEnd}" pattern="yyyy-MM-dd"/>" id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
+                               value="<fmt:formatDate value="${wbjdZj.lfsjEnd}" pattern="yyyy-MM-dd"/>"
+                               id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-
                 </div>
-
                 <div class="form-group">
-
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd"  name="wbjdZj.lfmd" value="${wbjdZj.lfmd}"  data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd"  name="wbjdZj.lfmd" id="lfmd" data-placeholder="请选择来访目的" value="${wbjdZj.lfmd}"  onchange="selectlfmd(this)"></dm:list>
                     </div>
-
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple" valueList="${cfgbIds}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择国家/地区"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  valueList="${gbCodeList}"  data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
@@ -129,7 +119,7 @@
                 <div class="form-group yjtm" >
                     <label class="col-xs-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdZj.yjtm"  value="${wbjdZj.yjtm}" type="text"   />
+                        <input class="form-control  " name="wbjdZj.yjtm" value="${wbjdZj.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
@@ -142,60 +132,64 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 是否邀请校领导: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynYqxld" type="radio" value="${wbjdZj.ynYqxld}"  onclick="getRadio(this)" data-placeholder="请选是否邀请校领导" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynYqxld" type="radio" id="ynYqxld"
+                                 value="${wbjdZj.ynYqxld}"  onclick="getRadio(this)" data-placeholder="请选是否邀请校领导" ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 是否获学院同意: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynXyty"  type="radio" value="${wbjdZj.ynXyty}" onclick="getRadio(this)" data-placeholder="请选是否获学院同意" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynXyty"  type="radio" id="ynXyty"
+                                 value="${wbjdZj.ynXyty}" onclick="getRadio(this)" data-placeholder="请选是否获学院同意" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssgabm"   type="radio" value="${wbjdZj.ynBbssgabm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssgabm"   type="radio" id="ynBbssgabm"
+                                 value="${wbjdZj.ynBbssgabm}"  onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssxcbm"   type="radio" value="${wbjdZj.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssxcbm"   type="radio" id="ynBbssxcbm"
+                                 value="${wbjdZj.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
-                        <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}" readonly=readonly type="text"  style="height: 70px;" />
+                        <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}"  readonly=readonly type="text"  style="height: 70px;" />
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-xs-2 control-label "  > 礼品: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  "  id="lp" name="wbjdZj.lp" value="${wbjdZj.lp}" type="text"   />
+                    <input class="form-control  "  id="lp" name="wbjdZj.lp" value="${wbjdZj.lp}"  type="text"   />
                 </div>
                 <label class="col-xs-2 control-label "  > 数量: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " id="lpsl" name="wbjdZj.lpsl" value="${wbjdZj.lpsl}" type="text"   />
+                    <input class="form-control  " id="lpsl" name="wbjdZj.lpsl" value="${wbjdZj.lpsl}"  type="text"   />
                 </div>
             </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdZj.qkjl}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdZj.qkjl}"  type="text"   />
                 </div>
             </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 访问成果: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdZj.fwcg" value="${wbjdZj.fwcg}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.fwcg" value="${wbjdZj.fwcg}"  type="text"   />
                 </div>
             </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长姓名: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdZj.tzxm" value="${wbjdZj.tzxm}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.tzxm" value="${wbjdZj.tzxm}"  type="text"   />
                 </div>
                 <label class="col-xs-2 control-label "  > 团长国籍: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdZj.tzgj" value="${wbjdZj.tzgj}" type="text"   />
+                    <input class="form-control  " name="wbjdZj.tzgj" value="${wbjdZj.tzgj}"  type="text"   />
 
                 </div>
             </div>
@@ -209,7 +203,8 @@
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
                     <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq"
-                           value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy-MM-dd"/>"  type="text" data-date-format="yyyy-mm-dd" />
+                           value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy-MM-dd"/>"
+                           type="text" data-date-format="yyyy-mm-dd" />
                 </div>
             </div>
             <div class="form-group ">
@@ -218,10 +213,10 @@
                     <input class="form-control  " name="wbjdZj.tzgzdw" value="${wbjdZj.tzgzdw}" type="text"   />
                 </div>
 
-                <label class="col-xs-2 control-label "  > 团长职称: </label>
+                <%--<label class="col-xs-2 control-label "  > 团长职称: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdZj.tzzc" value="${wbjdZj.tzzc}" type="text"   />
-                </div>
+                    <input class="form-control  " name="wbjdZj.tzzw" value="${wbjdZj.tzzw}" type="text"   />
+                </div>--%>
             </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
@@ -261,22 +256,32 @@
                     操作
                 </div>
             </div>
-            <div class="form-group sxr">
-                <div class="col-xs-3">
-                    <input type="text"  inp="xm" name="sxr[@].xm"  value="${sxr.xm}"  placeholder="姓名"  class="col-xs-12" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="text"  inp="gj" name="sxr[@].gj"  value="${sxr.gj}" placeholder="国籍"  class="col-xs-12" />
-                </div>
-                <div class="col-xs-3">
-                    <input type="text"  inp="zw" name="sxr[@].zw"  value="${sxr.zw}" placeholder="职务"  class="col-xs-12" />
-                </div>
-                <div class="col-xs-2">
-                    <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                    <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
-                </div>
-            </div>
-
+            <c:choose>
+                <c:when test="${sxryList!=null && sxryList.size()>0}">
+                    <c:forEach items="${sxryList}" var="sxr">
+                        <div class="form-group sxr">
+                            <div class="col-xs-3"><input type="text" inp="xm"  placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍"   value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"   value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-2">
+                                <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                                <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div class="form-group sxr">
+                        <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
+                        <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
+                        <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务"    name="sxr[@].zw" class="col-xs-12"/></div>
+                        <div class="col-xs-2">
+                            <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                            <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                        </div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
             <div id="btns" class="col-md-offset-3 col-md-9">
                 <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>
@@ -324,7 +329,7 @@
 
 <script>
     $(function () {
-        var md = $('#lfmd').val();
+        var md= $("#lfmd").val();
         //学术讲座 -- 演讲题目
         if (md == '03') {
             $(".yjtm").show();
@@ -339,52 +344,18 @@
             $(".qtmd").hide();
         }
 
+
+        var val = $("#jdlx").val();
+        jdlxfunction(val);
+
         setFormValid();//设置校验规则
 
         $("#jdlx").change(function(){
             var $select = $(this);
-            if($select.val() == '01'){//校级
-
-                $("#lp").removeAttr("disabled");
-                $("#lp").removeAttr("readonly");
-                $("#lpsl").removeAttr("disabled");
-                $("#lpsl").removeAttr("readonly");
-
-                $("#jdbm").val("");
-                $("#jdbm").attr("disabled","disabled");
-                $("#jdbm").attr("readonly","readonly");
-
-                $("#zqlxrxm").val("");
-                $("#zqlxrxm").attr("disabled","disabled");
-                $("#zqlxrxm").attr("readonly","readonly");
-
-                $("#zqlxrdh").val("");
-                $("#zqlxrdh").attr("disabled","disabled");
-                $("#zqlxrdh").attr("readonly","readonly");
-
-            }else if($select.val() == '02'){//院级
-
-                $("#lp").val("");
-                $("#lp").attr("disabled","disabled");
-                $("#lp").attr("readonly","readonly");
-                $("#lpsl").val("");
-                $("#lpsl").attr("disabled","disabled");
-                $("#lpsl").attr("readonly","readonly");
-
-
-                $("#jdbm").removeAttr("disabled");
-                $("#jdbm").removeAttr("readonly");
-
-                $("#zqlxrxm").removeAttr("disabled");
-                $("#zqlxrxm").removeAttr("readonly");
-
-                $("#zqlxrdh").removeAttr("disabled");
-                $("#zqlxrdh").removeAttr("readonly");
-            }
+            var val = $select.val();
+            jdlxfunction(val);
         })
 
-
-        setFormValid();//设置校验规则
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
             saveSq();
@@ -484,46 +455,71 @@
             $(".qtmd").hide();
         }
     }
-    function getRadio(rad){
-        var val = $(rad).val(); // y n
-        switch ($(rad).attr('name')) {
-            case "wbjdZj.ynYqxld"://是否邀请校领导
-                if(val == 'Y'){
-                    $("#ynYqxld_value").val("是否邀请校领导:是");
-                }else{
-                    $("#ynYqxld_value").val("是否邀请校领导:否");
-                }
-                break;
-            case "wbjdZj.ynXyty"://是否获学院同意
-                if(val == 'Y'){
-                    $("#ynXyty_value").val("是否获学院同意:是");
-                }else{
-                    $("#ynXyty_value").val("是否获学院同意:否");
-                }
-                break;
-            case "wbjdZj.ynBbssgabm"://是否报备所属公安部门
-                if(val == 'Y'){
-                    $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
-                }else{
-                    $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
-                }
-                break;
-            case "wbjdZj.ynBbssxcbm"://是否报备所属宣传部门
-                if(val == 'Y'){
-                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
-                }else{
-                    $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
-                }
-                break;
-            default:
-                break;
-        }
 
-        var ynYqxld_value = $("#ynYqxld_value").val();
+    function jdlxfunction(val) {
+        if (val == '01') {//校级
+            $("#lp").removeAttr("disabled");
+            $("#lp").removeAttr("readonly");
+            $("#lpsl").removeAttr("disabled");
+            $("#lpsl").removeAttr("readonly");
+            $("#jdbm").val("");
+            $("#jdbm").attr("disabled", "disabled");
+            $("#jdbm").attr("readonly", "readonly");
+            $("#zqlxrxm").val("");
+            $("#zqlxrxm").attr("disabled", "disabled");
+            $("#zqlxrxm").attr("readonly", "readonly");
+            $("#zqlxrdh").val("");
+            $("#zqlxrdh").attr("disabled", "disabled");
+            $("#zqlxrdh").attr("readonly", "readonly");
+        } else if (val == '02') {//院级
+            $("#lp").val("");
+            $("#lp").attr("disabled", "disabled");
+            $("#lp").attr("readonly", "readonly");
+            $("#lpsl").val("");
+            $("#lpsl").attr("disabled", "disabled");
+            $("#lpsl").attr("readonly", "readonly");
+            $("#jdbm").removeAttr("disabled");
+            $("#jdbm").removeAttr("readonly");
+            $("#zqlxrxm").removeAttr("disabled");
+            $("#zqlxrxm").removeAttr("readonly");
+            $("#zqlxrdh").removeAttr("disabled");
+            $("#zqlxrdh").removeAttr("readonly");
+        }
+    }
+
+    function getRadio(rad){
+        var ynYqxld_check = $("input[name='wbjdZj.ynYqxld']:checked").val();
+        var ynXyty_check  = $("input[name='wbjdZj.ynXyty']:checked").val();
+        var ynBbssgabm_check = $("input[name='wbjdZj.ynBbssgabm']:checked").val();
+        var ynBbssxcbm_check = $("input[name='wbjdZj.ynBbssxcbm']:checked").val();
+
+        if(ynYqxld_check == 'Y'){
+            $("#ynYqxld_value").val("是否邀请校领导:是");
+        }else if(ynYqxld_check == 'N'){
+            $("#ynYqxld_value").val("是否邀请校领导:否");
+        }
+        if(ynXyty_check == 'Y'){
+            $("#ynXyty_value").val("是否获学院同意:是");
+        }else if(ynXyty_check == 'N'){
+            $("#ynXyty_value").val("是否获学院同意:否");
+        }
+        if(ynBbssgabm_check == 'Y'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+        }else if(ynBbssgabm_check == 'N'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+        }
+        if(ynBbssxcbm_check == 'Y'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+        }else if(ynBbssxcbm_check == 'N'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+        }
+        var ynYqxld_value =  $("#ynYqxld_value").val();
         var ynXyty_value  = $("#ynXyty_value").val();
         var ynBbssgabm_value = $("#ynBbssgabm_value").val();
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
+
         $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+        console.info($("#memo").val());
     }
 </script>
 </body>
