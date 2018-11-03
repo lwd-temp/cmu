@@ -47,13 +47,13 @@
             colNames:['姓名','性别', '所属二级单位', '所属二级单位名称','出访国家','状态',"操作"],
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm', width:'15%'},
-                {name:'xb',index:'xb',width:'10%',  formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm' ,width:'20%'},
+                {name:'xb',index:'xb',  width:'15%',  formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
                 {name:'ssejdw',index:'ssejdw', hidden:true },
-                {name:'ssejdwmc',index:'ssejdwmc',width:'15%',  },
-                {name:'cfgj',index:'cfgj', width:'15%', },
+                {name:'ssejdwmc',index:'ssejdwmc' ,width:'15%' },
+                {name:'cfgj',index:'cfgj',width:'15%' },
                 {name:'writed',index:'writed',width:'15%',formatter:function(status){
                         var ztText = "";
                         if("0" == status){
@@ -63,7 +63,7 @@
                         }
                         return ztText;
                     } },
-                {name:'cgid',index:'', fixed:true,sortable:false, resize:true,
+                {name:'cgid',index:'',width:'20%', sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         var status = rowObject.writed;
                         var cgid = rowObject.cgid;
@@ -72,11 +72,11 @@
 
                         if("0" == status ){
                             btns = "<button class='btn btn-info btn-mini' title='填写反馈' onclick='fkCgsq(\""+cgid+"\")'><i class='ace-icon fa fa-pencil '>填写反馈</i></button>"+
-                                "<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
+                                "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
                         }else{
                             btns = "<button class='btn btn-info btn-mini' title='编辑反馈' onclick='editfkCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>编辑反馈</i></button>"+
-                                "<button class='btn btn-info btn-mini' title='导出反馈' onclick='fkCgsqWord(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>导出反馈Word</i></button>"+
-                            "<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
+                                "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='导出反馈' onclick='fkCgsqWord(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>导出反馈Word</i></button>"+
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
                         }
                         return btns;
                     }

@@ -85,15 +85,14 @@ public class CgDqcgjExtController {
         String cfjsrq ="";
         String cfksrq = "";
 
-        logger.info(cgDqcgj);
         if(cgDqcgj.getCsrq()!=null){
-            csrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCsrq()).toString();
+            csrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCsrq()).toString();
         }
         if(cgDqcgj.getCfjsrq()!=null){
-            cfjsrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfjsrq()).toString();
+            cfjsrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfjsrq()).toString();
         }
         if(cgDqcgj.getCfksrq()!=null){
-            cfksrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfksrq()).toString();
+            cfksrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfksrq()).toString();
         }
 
         //返回值
@@ -118,14 +117,8 @@ public class CgDqcgjExtController {
 
     @RequestMapping("/downloadword")
     public void downloadword(HttpServletResponse response, HttpServletRequest request, String rwfkid) throws Exception {
-
         String application = WebAppContextUtils.REAL_CONTEXT_PATH;
-
         FileInputStream is = new FileInputStream(new File(application + "/download_template/word/cggl.docx"));
-        //InputStream is = CgDqcgjExtController.class.getClassLoader().getResourceAsStream("cggl.docx");
-
-        int length = is.available();
-
         XWPFTemplate template = XWPFTemplate.compile(is);
         HashMap<String, Object> data = new HashMap<String, Object>();
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
@@ -140,14 +133,17 @@ public class CgDqcgjExtController {
         data.put("sjcfrs", cgRwzxqkfk.getSjcfrs());
         data.put("sjcfts", cgRwzxqkfk.getSjcfts());
         data.put("rwpjwh", cgRwzxqkfk.getRwpjwh());
-        data.put("rjsj", cgRwzxqkfk.getRjsj());
+
+        if(cgRwzxqkfk.getRjsj()!=null){
+            data.put("rjsj", new SimpleDateFormat("yyyy-MM-dd").format(cgRwzxqkfk.getRjsj()).toString());
+        }else{
+            data.put("rjsj", cgRwzxqkfk.getRjsj());
+        }
         data.put("cfbt", cgRwzxqkfk.getCfbt());
         data.put("rwzxqk", cgRwzxqkfk.getRwzxqk());
         data.put("rwwwcnr", cgRwzxqkfk.getRwwwcnr());
 
         template.render(data);
-
-
         response.reset();
         response.setContentType("application/x-msdownload");
         response.setHeader("Content-Type", "application/octet-stream");
@@ -160,7 +156,6 @@ public class CgDqcgjExtController {
         }
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
         ServletOutputStream os = response.getOutputStream();
-        //FileOutputStream out = new FileOutputStream("归国管理反馈表.docx");
         template.write(os);
         os.flush();
         os.close();

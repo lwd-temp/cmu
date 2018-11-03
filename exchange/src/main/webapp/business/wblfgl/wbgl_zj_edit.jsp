@@ -213,10 +213,10 @@
                     <input class="form-control  " name="wbjdZj.tzgzdw" value="${wbjdZj.tzgzdw}" type="text"   />
                 </div>
 
-                <%--<label class="col-xs-2 control-label "  > 团长职称: </label>
+                <label class="col-xs-2 control-label "  > 团长职称: </label>
                 <div class="col-xs-4">
-                    <input class="form-control  " name="wbjdZj.tzzw" value="${wbjdZj.tzzw}" type="text"   />
-                </div>--%>
+                    <input class="form-control  " name="wbjdZj.tzzc" value="${wbjdZj.tzzc}" type="text"   />
+                </div>
             </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
