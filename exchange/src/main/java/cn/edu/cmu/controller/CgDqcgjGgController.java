@@ -1,13 +1,16 @@
 package cn.edu.cmu.controller;
+import cn.edu.cmu.dao.UnicUnitMapperExt;
 import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgRwzxqkfk;
+import cn.edu.cmu.domain.UnicUnit;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjGgService;
 import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
+import cn.edu.cmu.vo.CgrwzxqkfkVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired; ;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +32,8 @@ public class CgDqcgjGgController extends BaseController {
     @Autowired
     CgDqcgjGgService cgDqcgjGgService;
 
+    @Autowired
+    UnicUnitMapperExt unicUnitService;
     /**
      * 分页查询
      *
@@ -42,7 +47,7 @@ public class CgDqcgjGgController extends BaseController {
      */
     @RequestMapping("/list")
     @ResponseBody
-    public Map list(CgRwzxqkfk cgRwzxqkfk,
+    public Map list(CgrwzxqkfkVo cgRwzxqkfk,
                     String orderCol,
                     String orderType,
                     @RequestParam(defaultValue = "1", required = false) Integer page,
@@ -60,11 +65,35 @@ public class CgDqcgjGgController extends BaseController {
     @RequestMapping("/toEdit")
     public String toEdit(Model model,String rwfkid) throws Exception {
         CgRwzxqkfk cgRwzxqkfk = cgDqcgjGgService.queryById(rwfkid);
-
         model.addAttribute("cgRwzxqkfk", cgRwzxqkfk);
-        return "cggl/cggl_gg_fk";
+        return "cggl/cggl_gg_fk_edit";
     }
 
+    /**
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/add")
+    public String add(Model model,String cgid) throws Exception {
+        CgDqcgj cgDqcgj = cgDqcgjService.queryById(cgid);
+        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
+        if(cgDqcgj!=null) {
+            cgRwzxqkfk.setTzdw("中国医科大学");//出访单位
+            cgRwzxqkfk.setTzzw(cgDqcgj.getZw());//团长职务
+            cgRwzxqkfk.setSsejdw(cgDqcgj.getSsejdw());//二级单位
+            //查询二级单位
+            String ejdwid = cgDqcgj.getSsejdw();
+            UnicUnit unicUnit = unicUnitService.queryMcById(ejdwid);
+            String ssejdwMc = unicUnit.getName();
+            cgRwzxqkfk.setTzzdw(ssejdwMc);//团长二级单位名称
+            cgRwzxqkfk.setCgid(cgDqcgj.getCgid());//Cgid
+            cgRwzxqkfk.setTzxm(cgDqcgj.getXm());//团长姓名
+            cgRwzxqkfk.setCfgjdq(cgDqcgj.getCfgj());//出访国家
+        }
+        model.addAttribute("cgRwzxqkfk", cgRwzxqkfk);
+        return "cggl/cggl_gg_fk_add";
+    }
 
     /**
      * @param cgRwzxqkfk
@@ -75,7 +104,7 @@ public class CgDqcgjGgController extends BaseController {
     @ResponseBody
     public Map save(CgRwzxqkfk cgRwzxqkfk) throws Exception {
         logger.info("保存 短期出国反馈 信息 :" + cgRwzxqkfk);
-        boolean success = cgDqcgjGgService.updateById(cgRwzxqkfk);
+        boolean success = cgDqcgjGgService.saveorupdate(cgRwzxqkfk);
         logger.debug("保存 短期出国反馈 结果 :" + success);
         return super.ajaxStatus(success, cgRwzxqkfk);
     }
@@ -96,4 +125,19 @@ public class CgDqcgjGgController extends BaseController {
         boolean success = cgDqcgjService.updateById(cgDqcgj);
         return super.ajaxStatus(success);
     }
+
+
+    /**
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/fkCgsqWord")
+    public String fkCgsqWord(Model model,String rwfkid) throws Exception {
+        CgRwzxqkfk cgRwzxqkfk = cgDqcgjGgService.queryById(rwfkid);
+        model.addAttribute("cgRwzxqkfk", cgRwzxqkfk);
+        return "cggl/cggl_gg_fk_edit";
+    }
+
+
 }

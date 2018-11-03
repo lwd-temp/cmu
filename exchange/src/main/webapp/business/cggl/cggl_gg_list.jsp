@@ -47,33 +47,38 @@
             colNames:['姓名','性别', '所属二级单位', '所属二级单位名称','出访国家','状态',"操作"],
             pager:pager_selector,
             colModel:[
-                {name:'tzxm',index:'tzxm' },
-                {name:'xb',index:'xb',hidden:true,  formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm', width:'15%'},
+                {name:'xb',index:'xb',width:'10%',  formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
                 {name:'ssejdw',index:'ssejdw', hidden:true },
-                {name:'ssejdwmc',index:'ssejdwmc', formatter:function(xb,options,rowObject){
-                        return '名称';
-                    }},
-                {name:'cfgjdq',index:'cfgjdq',  },
-                {name:'status',index:'status', formatter:function(status,options,rowObject) {
-                        var zt = "审核通过";
-                        switch (status) {
-                            case '01':
-                                zt = '暂存';
-                                break;
-                            case '02':
-                                zt = '已通过';
-                                break;
+                {name:'ssejdwmc',index:'ssejdwmc',width:'15%',  },
+                {name:'cfgj',index:'cfgj', width:'15%', },
+                {name:'writed',index:'writed',width:'15%',formatter:function(status){
+                        var ztText = "";
+                        if("0" == status){
+                            ztText = "未填写";
+                        }else{
+                            ztText = "已填写";
                         }
-                        return zt;
-                    }
-                },
-                {name:'rwfkId',index:'rwfkId', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        var zt = rowObject.status;
-                        return  "<button class='btn btn-info btn-mini' title='反馈' onclick='fkCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-pencil '>反馈</i></button>"+
-                            "<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
+                        return ztText;
+                    } },
+                {name:'cgid',index:'', fixed:true,sortable:false, resize:true,
+                    formatter:function(id, options, rowObject){
+                        var status = rowObject.writed;
+                        var cgid = rowObject.cgid;
+                        var zjid = rowObject.zjid;
+                        var btns = "";
+
+                        if("0" == status ){
+                            btns = "<button class='btn btn-info btn-mini' title='填写反馈' onclick='fkCgsq(\""+cgid+"\")'><i class='ace-icon fa fa-pencil '>填写反馈</i></button>"+
+                                "<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
+                        }else{
+                            btns = "<button class='btn btn-info btn-mini' title='编辑反馈' onclick='editfkCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>编辑反馈</i></button>"+
+                                "<button class='btn btn-info btn-mini' title='导出反馈' onclick='fkCgsqWord(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>导出反馈Word</i></button>"+
+                            "<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
+                        }
+                        return btns;
                     }
                 },
             ]
@@ -96,21 +101,31 @@
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }
-    function fkCgsq(rwfkid){
+    function fkCgsq(cgid){
         layer.newpage({
             area: ['1000px', ($(window).height()-20)+"px"],
-            title:'编辑出国反馈',
-            content:'cgglgg/toEdit?rwfkid='+rwfkid,
+            title:'填写出国反馈',
+            content:'cgglgg/add?cgid='+cgid,
         });
     }
-    function sczjCgsq(rwfkid){
+    function sczjCgsq(zjid){
 
         layer.newpage({
             area: ['400px', "220px"],
             title:'上传总结',
-            content:'sys/file/uppage?targetUrl=cgglgg/updateUploadId&rwfkid='+rwfkid,
+            content:'sys/file/uppage?targetUrl=cgglgg/updateUploadId&rwfkid='+zjid,
+        });
+    }
+    function editfkCgsq(zjid){
+        layer.newpage({
+            area: ['1000px', ($(window).height()-20)+"px"],
+            title:'编辑出国反馈',
+            content:'cgglgg/toEdit?rwfkid='+zjid,
         });
     }
 
+    function  fkCgsqWord(zjid){
+        window.open("cgglexp/downloadword?rwfkid="+zjid);
+    }
 
 </script>

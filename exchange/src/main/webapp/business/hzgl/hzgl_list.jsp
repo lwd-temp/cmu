@@ -44,29 +44,30 @@
                         content:'business/hzgl/hzgl_add.jsp',
                     });
                 }
-            },{
-                caption:"批量删除",
-                buttonicon:"ace-icon fa fa-trash-o red",
-                onClickButton: function(){
-                    var ids= $(grid_selector).jqGrid('getGridParam','selarrrow');
-                    if(ids && ids.length>0){
-                        var cindex = layer.confirm('确定删除？', {
-                            btn: ['确定','取消'] //按钮
-                        }, function(){
-                            layer.close(cindex);
-                            var index = layer.loading();
-                            setTimeout(function(){
-                                $(ids).each(function(index,id){
-                                    $(grid_selector).jqGrid('delRowData',id);
-                                });
-                                layer.close(index);
-                            },1500);
-                        });
-                    }else{
-                        layer.alert("请选择要删除的数据",{icon:3})
-                    }
-                }
             }
+            // ,{
+            //     caption:"批量删除",
+            //     buttonicon:"ace-icon fa fa-trash-o red",
+            //     onClickButton: function(){
+            //         var ids= $(grid_selector).jqGrid('getGridParam','selarrrow');
+            //         if(ids && ids.length>0){
+            //             var cindex = layer.confirm('确定删除？', {
+            //                 btn: ['确定','取消'] //按钮
+            //             }, function(){
+            //                 layer.close(cindex);
+            //                 var index = layer.loading();
+            //                 setTimeout(function(){
+            //                     $(ids).each(function(index,id){
+            //                         $(grid_selector).jqGrid('delRowData',id);
+            //                     });
+            //                     layer.close(index);
+            //                 },1500);
+            //             });
+            //         }else{
+            //             layer.alert("请选择要删除的数据",{icon:3})
+            //         }
+            //     }
+            // }
         ]
 
 
@@ -81,6 +82,7 @@
                 {name:'gender',index:'gender', formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);
                     } },
+                {name:'hzhm',index:'hzhm'},
                 {name:'hzhm',index:'hzhm'},
                 {name:'birthday',index:'birthday',formatter:function(birthday){
                         return new Date(birthday).getYmd("yyyy年MM月dd日")

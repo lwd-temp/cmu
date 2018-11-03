@@ -15,7 +15,7 @@
         </style>
     </head>
     <body>
-        <table>
+        <table cellspacing="0" border="2">
             <tr>
                 <td style="width:25%">代表团名称</td>
                 <td style="width:25%"colspan="2">${wbjdSq.dbtmc}</td>
@@ -24,44 +24,52 @@
             </tr>
             <tr>
                 <td>来访时间</td>
-                <!--wbjdSq.lfsj-->
+                ${wbjdSq.lfsj!''}
                 <td colspan="2"></td>
                 <td>停留时间起始</td>
-                <!--wbjdSq.tlsjStart-->
+                ${wbjdSq.tlsjStart!''}
                 <td colspan="2"></td>
             </tr>
             <tr>
                 <td>停留时间截止</td>
-                <!--wbjdSq.tlsjEnd-->
+                ${wbjdSq.tlsjEnd!''}
                 <td colspan="2"></td>
                 <td>国家</td>
                 <td colspan="2">${gb}</td>
             </tr>
             <tr>
                 <td>来访目的</td>
-                <td colspan="2">${wbjdSq.lfmd}</td>
+                <td colspan="2">${wbjdSq.lfmd!''}</td>
                 <td>经费来源</td>
                 <td colspan="2">${wbjdSq.jfly}</td>
             </tr>
-            <tr>
+            <#if wbjdSq.lfmd == '学术讲座'>
+            <tr >
                 <td>演讲题目</td>
-                <td colspan="5">${wbjdSq.yjtm}</td>
+                <td colspan="5">${wbjdSq.yjtm!''}</td>
             </tr>
-            <tr>
+           <#elseif wbjdSq.lfmd == '其他'>
+            <tr >
                 <td>其他目的</td>
-               <!-- wbjdSq.lfmdQt-->
-                <td colspan="5"></td>
+                <td colspan="5">${wbjdSq.lfmdQt!''}</td>
             </tr>
+           </#if>
             <tr>
                 <td>邀请信息</td>
-                <td colspan="5">${wbjdSq.yqxx}</td>
+                <td colspan="5">${wbjdSq.yqxx!''}</td>
             </tr>
             <tr>
-                <td>礼品</td>
-                <td colspan="2">${wbjdSq.lp}</td>
-                <td>数量</td>
-                <td colspan="2">${wbjdSq.lpsl}</td>
+                <td>备注</td>
+                <td colspan="5">${wbjdSq.memo!''}</td>
             </tr>
+            <#if wbjdSq.jdlx == '校级接待'>
+            <tr>
+                <td>礼品</td>
+                <td colspan="2">${wbjdSq.lp!''}</td>
+                <td>数量</td>
+                <td colspan="2">${wbjdSq.lpsl!''}</td>
+            </tr>
+            </#if>
             <tr>
                 <td>情况记录</td>
                 <td colspan="5">${wbjdSq.qkjl}</td>
@@ -80,7 +88,7 @@
                 <td>团长性别</td>
                 <td colspan="2">${wbjdSq.tzxb}</td>
                 <td>团长出生日期</td>
-                <!--wbjdSq.tzzw-->
+                ${wbjdSq.tzzw!''}
                 <td colspan="2"></td>
             </tr>
             <tr>
@@ -95,19 +103,23 @@
             </tr>
             <tr>
                 <td>主请人姓名</td>
-                <td colspan="2">${wbjdSq.zqrxm}</td>
+                <td colspan="2">${wbjdSq.zqrxm!''}</td>
                 <td>主请人电话</td>
-                <td colspan="2">${wbjdSq.zqrdh}</td>
+                <td colspan="2">${wbjdSq.zqrdh!''}</td>
             </tr>
+            <#if wbjdSq.jdlx == '院级接待'>
             <tr>
                 <td>主请联系人姓名</td>
                 <td colspan="2">${wbjdSq.zqlxrxm}</td>
                 <td>主请联系人电话</td>
                 <td colspan="2">${wbjdSq.zqlxrdh}</td>
             </tr>
+            </#if>
             <tr>
+                <#if wbjdSq.jdlx == '院级接待'>
                 <td>接待部门</td>
-                <td colspan="2">${wbjdSq.jdbm}</td>
+                <td colspan="2">${wbjdSq.jdbm!''}</td>
+                </#if>
                 <td>接待类型</td>
                 <td colspan="2">${wbjdSq.jdlx}</td>
             </tr>

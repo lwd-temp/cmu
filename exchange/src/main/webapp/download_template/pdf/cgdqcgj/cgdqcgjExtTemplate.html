@@ -27,44 +27,45 @@
 政办公室信息科）以相关材料。
 <table border="2" align="center" cellspacing="0" height="950px" width="40%">
     <tr align="center">
-        <td align="left">姓名：${cgDqcgj.xm}</td>
-        <td align="left" width="200px">性别：${cgDqcgj.xb}</td>
-        <td align="left">出生日期：${csrq}</td>
+        <td align="left">姓名：${cgDqcgj.xm!''}</td>
+        <td align="left" width="200px">性别：${cgDqcgj.xb!''}</td>
+        <td align="left">出生日期：${csrq!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="2" align="left">出生地：${cgDqcgj.csd}</td>
-        <td align="left">户籍所在地：${cgDqcgj.hjszd}</td>
+        <td colspan="2" align="left">出生地：${cgDqcgj.csd!''}</td>
+        <td align="left">户籍所在地：${cgDqcgj.hjszd!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">身份证号：${cgDqcgj.sfzh}</td>
+        <td colspan="3" align="left">身份证号：${cgDqcgj.sfzh!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="2" align="left">二级所属单位：${ssejdwMc}</td>
-        <td align="left">科室：${cgDqcgj.ks}</td>
+        <td colspan="2" align="left">二级所属单位：${ssejdwMc!''}</td>
+        <td align="left">科室：${cgDqcgj.ks!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="2" align="left">职务：${cgDqcgj.zw}</td>
-        <td align="left">职称：${cgDqcgj.zc} </td>
+        <td colspan="2" align="left">职务：${cgDqcgj.zw!''}</td>
+        <td align="left">职称：${cgDqcgj.zc!''} </td>
     </tr>
     <tr align="center">
-        <td colspan="2" align="left">联系电话：${cgDqcgj.lxdh}</td>
-        <td align="left">邮箱：${cgDqcgj.email} </td>
+        <td colspan="2" align="left">联系电话：${cgDqcgj.lxdh!''}</td>
+        <td align="left">邮箱：${cgDqcgj.email!''} </td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">出访国家（地区）：${cgDqcgj.cfgj} </td>
+        <td colspan="3" align="left">出访国家（地区）：${cgDqcgj.cfgj!''} </td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">入境城市（地区）：${cgDqcgj.rjcs} </td>
+        <td colspan="3" align="left">入境城市（地区）：${cgDqcgj.rjcs!''} </td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">出访日期：${cfjsrq}至${cfksrq}
+        <td colspan="3" align="left">出访日期：${cfjsrq}至${cfksrq!''}
             <br/>注意：离境日期和入境日期都要算在内
         </td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left" >出访目的：${cgDqcgj.cfmd}<br/>
-            <br/>
-            其他：${cgDqcgj.cfmdQt}
+        <td colspan="3" align="left" ><span id="cfmd" >出访目的：${cgDqcgj.cfmd!''}</span><br/>
+            <#if cgDqcgj.cfmd == '其他'>
+            <span id="qt">其他：${cgDqcgj.cfmdQt!''}</span>
+            </#if>
         </td>
     </tr>
     <tr align="center">
@@ -72,19 +73,19 @@
             邀请人信息：
             <br/>
             英文
-            <br/>&nbsp;&nbsp;&nbsp;邀请人姓名：${cgDqcgj.yqrXmEn}
-            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZwEn}
-            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDwEn}
-            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdzEn}
-            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDhEn}
+            <br/>&nbsp;&nbsp;&nbsp;邀请人姓名：${cgDqcgj.yqrXmEn!''}
+            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZwEn!''}
+            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDwEn!''}
+            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdzEn!''}
+            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDhEn!''}
 
             <br/>
             中文
-            <br/>&nbsp;&nbsp;&nbsp;姓名：${cgDqcgj.yqrXm}
-            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZw}
-            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDw}
-            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdz}
-            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDh}
+            <br/>&nbsp;&nbsp;&nbsp;姓名：${cgDqcgj.yqrXm!''}
+            <br/>&nbsp;&nbsp;&nbsp;职务：${cgDqcgj.yqrZw!''}
+            <br/>&nbsp;&nbsp;&nbsp;单位：${cgDqcgj.yqrDw!''}
+            <br/>&nbsp;&nbsp;&nbsp;详细地址：${cgDqcgj.yqrXxdz!''}
+            <br/>&nbsp;&nbsp;&nbsp;电话：${cgDqcgj.yqrDh!''}
         </td>
     </tr>
     <tr align="left">
@@ -97,13 +98,13 @@
     <tr align="left">
         <td colspan="3" >
             经费预算（按以下样例填写，标准请参见辽财行[2014]71号文件）：<br/>
-            ${cgDqcgj.jfysmx}
+            ${cgDqcgj.jfysmx!''}
             <br/>&nbsp;&nbsp;&nbsp;国际旅费：
             <br/>&nbsp;&nbsp;&nbsp;住宿费：
             <br/>&nbsp;&nbsp;&nbsp;伙食费：
             <br/>&nbsp;&nbsp;&nbsp;公杂费：
             <br/>&nbsp;&nbsp;&nbsp;其他：
-            <br/>&nbsp;&nbsp;&nbsp;合计：${cgDqcgj.jfyshj}<br/>
+            <br/>&nbsp;&nbsp;&nbsp;合计：${cgDqcgj.jfyshj!''}<br/>
             <br/>
             [样例以出访英国伦敦为样例]
         </td>

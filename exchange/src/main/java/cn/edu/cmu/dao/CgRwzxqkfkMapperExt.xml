@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.CgRwzxqkfkMapperExt" >
+
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.vo.CgrwzxqkfkVo" >
+    <constructor >
+      <idArg column="CGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CGLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XB" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CSD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HJSZD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SFZH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SSEJDW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="KS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="LXDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="NNCFCS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="QTSHRZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RJCS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="TZID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFKSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFJSRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="CFMD" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFMD_QT" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XXDZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XM_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_ZW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_XXDZ_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQR_DH_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFYSMX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFYSHJ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="SQBSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SQRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHJG" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHRY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHYJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SHRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="GDWJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFZJBGID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ZJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="WRITED" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SSEJDWMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+
+
+  <select id="selectZjByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
+    select
+    zj.rwfk_id zjid ,
+    un.ssejdwmc ssejdwmc,
+    decode(zj.rwfk_id,null,'0','1') writed,
+    cgid, cglx, xm, xb, csrq, csd, hjszd, sfzh, ssejdw, ks, zw, zc, lxdh, email, nncfcs, qtshrz,
+    cfgj, rjcs, tzid, cfksrq, cfjsrq, cfmd, cfmd_qt, yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en,
+    yqr_zw_en, yqr_dw_en, yqr_xxdz_en, yqr_dh_en, jfly, jfysmx, jfyshj, sqbsm, sqrq,
+    status, shjg, shry, shyj, shrq, gdwjid, cfzjbgid, valid, create_time,''
+    from t_cg_dqcgj
+    left join (select rwfk_id ,cgid zjsbid  from t_cg_rwzxqkfk ) zj on cgid = zj.zjsbid
+    left join (select unit_id ,name ssejdwmc from v_uicm_unit ) un on ssejdw = un.unit_id
+    <if test="_parameter != null" >
+      <include refid="cn.edu.cmu.dao.CgDqcgjMapper.Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+
+
+
+
+</mapper>

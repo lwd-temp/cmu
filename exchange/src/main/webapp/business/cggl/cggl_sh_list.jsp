@@ -50,14 +50,13 @@
         var settings = {
             caption: "出国审批",
             url:'cggl/shlist',
-            colNames:['姓名','性别', '所属二级单位', '出访国家','状态',"操作"],
+            colNames:['姓名','性别', '出访国家','状态',"操作"],
             pager:pager_selector,
             colModel:[
                 {name:'xm',index:'xm' },
                 {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
-                {name:'ssejdw',index:'ssejdw', },
                 {name:'cfgj',index:'cfgj',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject) {
                         switch (status) {

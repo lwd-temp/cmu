@@ -117,7 +117,7 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
     @Override
     public boolean shSave(CgDqcgj cgDqcgj) {
         dao.updateByPrimaryKeySelective(cgDqcgj);
-        if(cgDqcgj.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
+        /*if(cgDqcgj.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
             CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
             String keyId = CmuStringUtil.UUID();
 
@@ -131,7 +131,7 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
             cgRwzxqkfk.setCfgjdq(cgDqcgj.getCfgj());//出访国家
 
             cgRwzxqkfkMapper.insertSelective(cgRwzxqkfk);
-        }
+        }*/
         return true;
     }
 }

@@ -126,7 +126,7 @@
 <script src="assets/js/layer/layer.js"></script>
 
 <!--自定义js -->
-<script src="assets/project/js/common-window.js"></script>
+<%--<script src="assets/project/js/common-window.js"></script>--%>
 
 
 
@@ -185,11 +185,13 @@
             dataType:'json',
             success: function (ret) {
                 if(ret && ret.success){
-                    closeLayer();
+                    var index = parent.layer.getFrameIndex(window.name);
+                    parent.layer.close(index);
+
                     if('uploadCall' in parent.window){
                         parent.window.uploadCall();
                     }
-                    winAlert("上传成功...");
+                    parent.layer.alert("上传成功","shancghuancheng");
                 }else{
                     parent.layer.alert("上传失败 :"+ret.msg);
                 }

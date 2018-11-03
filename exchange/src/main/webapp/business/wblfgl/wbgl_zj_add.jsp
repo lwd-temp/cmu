@@ -284,12 +284,7 @@
             <div id="btns" class="col-md-offset-3 col-md-9">
                 <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>
-                    暂存
-                </button>
-                &nbsp; &nbsp; &nbsp;
-                <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
-                    <i class="ace-icon fa fa-check bigger-110"></i>
-                    提交
+                    保存
                 </button>
             </div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -359,10 +354,7 @@
             $("#status").val("01");//暂存
             saveSq();
         });
-        $("#submitForm").click(function(){
-            $("#status").val("02");//提交
-            saveSq();
-        });
+
     });
 
     function setFormValid(){

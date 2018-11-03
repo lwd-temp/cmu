@@ -1,22 +1,21 @@
 package cn.edu.cmu.controller;
-import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.domain.CgTzjh;
-import cn.edu.cmu.domain.UnicUnit;
+import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.util.PdfUtils;
+import cn.edu.cmu.service.CgDqcgjGgService;
 import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
 import cn.edu.cmu.service.UnicUnitService;
+import com.deepoove.poi.XWPFTemplate;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,8 +30,8 @@ public class CgDqcgjExtController {
     UnicUnitService unicUnitService;
     @Autowired
     CgTzjhService cgTzjhService;
-
-
+    @Autowired
+    CgDqcgjGgService cgDqcgjGgService;
 
 
     @RequestMapping("/downloadPdf")
@@ -49,13 +48,14 @@ public class CgDqcgjExtController {
         }
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
         ServletOutputStream os = response.getOutputStream();
-
-
-        //还没有画页面
-        //先把申请表信息更新到表中
         CgDqcgj cgDqcgj = cgDqcgjService.queryById(id);
-        cgDqcgj.setSqbsm(sqbsm);
-        cgDqcgjService.updateByIdAllColumn(cgDqcgj);
+
+        //先把申请表信息更新到表中
+        if(sqbsm!=null&&sqbsm!=""){
+            String sqbsmnew=new String(sqbsm.getBytes("ISO-8859-1"), "UTF-8");
+            cgDqcgj.setSqbsm(sqbsmnew);
+            cgDqcgjService.updateByIdAllColumn(cgDqcgj);
+        }
 
         //查询二级单位
         String ejdwid = cgDqcgj.getSsejdw();
@@ -78,15 +78,24 @@ public class CgDqcgjExtController {
         cgDqcgj.setXb(xb);
         cgDqcgj.setCglx(cglx);
         cgDqcgj.setCfmd(cfmd);
+        String csrq = "";
+        String cfjsrq ="";
+        String cfksrq = "";
 
-        String csrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCsrq()).toString();
-        String cfjsrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfjsrq()).toString();
-        String cfksrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfksrq()).toString();
+        logger.info(cgDqcgj);
+        if(cgDqcgj.getCsrq()!=null){
+            csrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCsrq()).toString();
+        }
+        if(cgDqcgj.getCfjsrq()!=null){
+            cfjsrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfjsrq()).toString();
+        }
+        if(cgDqcgj.getCfksrq()!=null){
+            cfksrq = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(cgDqcgj.getCfksrq()).toString();
+        }
 
         //返回值
         String template = "cgdqcgj/cgdqcgjExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(5);
-
 
         variables.put("csrq", csrq);
         variables.put("cfjsrq", cfjsrq);
@@ -102,5 +111,36 @@ public class CgDqcgjExtController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    @RequestMapping("/downloadword")
+    public void downloadword(HttpServletResponse response, HttpServletRequest request, String rwfkid) throws Exception {
+        InputStream is = CgDqcgjExtController.class.getClassLoader().getResourceAsStream("cggl.docx");
+        int length = is.available();
+        XWPFTemplate template = XWPFTemplate.compile(is);
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
+        cgRwzxqkfk = cgDqcgjGgService.queryById(rwfkid);
+        data.put("tzdw", cgRwzxqkfk.getTzdw());
+        data.put("cfgjdq", cgRwzxqkfk.getCfgjdq());
+        data.put("tzxm", cgRwzxqkfk.getTzxm());
+        data.put("tzzdw", cgRwzxqkfk.getTzzdw());
+        data.put("tzzw", cgRwzxqkfk.getTzzw());
+        data.put("pzcfrw", cgRwzxqkfk.getPzcfrw());
+        data.put("pzcfts", cgRwzxqkfk.getPzcfts());
+        data.put("sjcfrs", cgRwzxqkfk.getSjcfrs());
+        data.put("sjcfts", cgRwzxqkfk.getSjcfts());
+        data.put("rwpjwh", cgRwzxqkfk.getRwpjwh());
+        data.put("rjsj", cgRwzxqkfk.getRjsj());
+        data.put("cfbt", cgRwzxqkfk.getCfbt());
+        data.put("rwzxqk", cgRwzxqkfk.getRwzxqk());
+        data.put("rwwwcnr", cgRwzxqkfk.getRwwwcnr());
+
+        template.render(data);
+        FileOutputStream out = new FileOutputStream("归国管理反馈表.docx");
+        template.write(out);
+        out.flush();
+        out.close();
+        template.close();
     }
 }

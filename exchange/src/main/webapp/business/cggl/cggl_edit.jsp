@@ -265,11 +265,11 @@
                 <div class="form-group shjg">
                     <label class="col-xs-2 control-label"  > 审核结果  : </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_cgspjg" readonly="readonly" value="${cgdqcgj.shjg}"  id="shjg"  ></dm:list>
+                        <dm:list tabName="t_dm_cgspjg" readonly="readonly" disabled="disabled" value="${cgdqcgj.shjg}"  id="shjg"  ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label"  > 审核意见  : </label>
                     <div class="col-xs-4">
-                        <input type="text"    readonly="readonly" value="${cgdqcgj.shyj}" class="col-xs-12" />
+                        <input type="text"    readonly="readonly" disabled="disabled" value="${cgdqcgj.shyj}" class="col-xs-12" />
                     </div>
                 </div>
                 <div id="btns" class="col-md-offset-3 col-md-9">

@@ -53,20 +53,29 @@
                 <input type="hidden" name="rwfkId"  id="rwfkId"     value="${cgRwzxqkfk.rwfkId}" />
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 组团单位   : </label>
-                    <div class="col-xs-4">
+                    <div class="col-xs-10">
                         <input type="text"  name="tzdw"   value="${cgRwzxqkfk.tzdw}" readonly="readonly"    class="col-xs-12" />
                     </div>
+
+                </div>
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 出访国家或地区 : </label>
                     <div class="col-xs-4">
                         <input type="text"  name="cfgjdq"  value="${cgRwzxqkfk.cfgjdq}" readonly="readonly"     class="col-xs-12" />
                     </div>
-                </div>
-                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 团长姓名   : </label>
                     <div class="col-xs-4">
                         <input type="text"  name="tzxm"  value="${cgRwzxqkfk.tzxm}" readonly="readonly"     class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 团长单位及职务: </label>
+
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label "  > 团长单位: </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="tzzdw"  value="${cgRwzxqkfk.tzzdw}" readonly="readonly"     class="col-xs-12" />
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 团长职务: </label>
                     <div class="col-xs-4">
                         <input type="text"  name="tzzw"  value="${cgRwzxqkfk.tzzw}" readonly="readonly"     class="col-xs-12" />
                     </div>
@@ -133,12 +142,7 @@
                 <div id="btns" class="col-md-offset-3 col-md-9">
                     <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
-                        暂存
-                    </button>
-                    &nbsp; &nbsp; &nbsp;
-                    <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        提交
+                        保存
                     </button>
                 </div>
                 &nbsp; &nbsp; &nbsp;
@@ -178,13 +182,6 @@
             saveSq();
         });
 
-        $("#submitForm").click(function(){
-            $("#status").val("02");//提交
-            if(!validateSq()){
-                return;
-            }
-            saveSq();
-        });
     });
     function setFormValid(){
        $("#form").setValid({
