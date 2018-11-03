@@ -190,9 +190,14 @@ public class WbjdZj {
     private String jdlx;
 
     /**
-     * 状态
+     * 归档id
      */
-    private String status;
+    private String gdid;
+
+    /**
+     * 团长职称
+     */
+    private String tzzc;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -200,20 +205,20 @@ public class WbjdZj {
     private String valid;
 
     /**
+     * 状态
+     */
+    private String status;
+
+    /**
      * 创建时间默认当前数据生成时间
      */
     private Date createTime;
 
     /**
-     * null
-     */
-    private String gdid;
-
-    /**
      *
      * @mbggenerated 2018-11-03
      */
-    public WbjdZj(String zjid, String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String yjtm, String lfmdQt, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String memo, String jdlx, String status, String valid, Date createTime, String gdid) {
+    public WbjdZj(String zjid, String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String yjtm, String lfmdQt, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String memo, String jdlx, String gdid, String tzzc, String valid, String status, Date createTime) {
         this.zjid = zjid;
         this.lfid = lfid;
         this.dbtmc = dbtmc;
@@ -251,10 +256,11 @@ public class WbjdZj {
         this.ynBbssxcbm = ynBbssxcbm;
         this.memo = memo;
         this.jdlx = jdlx;
-        this.status = status;
-        this.valid = valid;
-        this.createTime = createTime;
         this.gdid = gdid;
+        this.tzzc = tzzc;
+        this.valid = valid;
+        this.status = status;
+        this.createTime = createTime;
     }
 
     /**
@@ -858,19 +864,35 @@ public class WbjdZj {
     }
 
     /**
-     * 状态
-     * @return STATUS 状态
+     * 归档id
+     * @return GDID 归档id
      */
-    public String getStatus() {
-        return status;
+    public String getGdid() {
+        return gdid;
     }
 
     /**
-     * 状态
-     * @param status 状态
+     * 归档id
+     * @param gdid 归档id
      */
-    public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+    public void setGdid(String gdid) {
+        this.gdid = gdid == null ? null : gdid.trim();
+    }
+
+    /**
+     * 团长职称
+     * @return TZZC 团长职称
+     */
+    public String getTzzc() {
+        return tzzc;
+    }
+
+    /**
+     * 团长职称
+     * @param tzzc 团长职称
+     */
+    public void setTzzc(String tzzc) {
+        this.tzzc = tzzc == null ? null : tzzc.trim();
     }
 
     /**
@@ -890,6 +912,22 @@ public class WbjdZj {
     }
 
     /**
+     * 状态
+     * @return STATUS 状态
+     */
+    public String getStatus() {
+        return status;
+    }
+
+    /**
+     * 状态
+     * @param status 状态
+     */
+    public void setStatus(String status) {
+        this.status = status == null ? null : status.trim();
+    }
+
+    /**
      * 创建时间默认当前数据生成时间
      * @return CREATE_TIME 创建时间默认当前数据生成时间
      */
@@ -903,22 +941,6 @@ public class WbjdZj {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    /**
-     * null
-     * @return GDID null
-     */
-    public String getGdid() {
-        return gdid;
-    }
-
-    /**
-     * null
-     * @param gdid null
-     */
-    public void setGdid(String gdid) {
-        this.gdid = gdid == null ? null : gdid.trim();
     }
 
     /**
@@ -968,10 +990,11 @@ public class WbjdZj {
         sb.append(", ynBbssxcbm=").append(ynBbssxcbm);
         sb.append(", memo=").append(memo);
         sb.append(", jdlx=").append(jdlx);
-        sb.append(", status=").append(status);
-        sb.append(", valid=").append(valid);
-        sb.append(", createTime=").append(createTime);
         sb.append(", gdid=").append(gdid);
+        sb.append(", tzzc=").append(tzzc);
+        sb.append(", valid=").append(valid);
+        sb.append(", status=").append(status);
+        sb.append(", createTime=").append(createTime);
         sb.append("]");
         return sb.toString();
     }
