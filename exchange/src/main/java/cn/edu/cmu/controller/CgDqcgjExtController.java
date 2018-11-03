@@ -1,6 +1,7 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.util.PdfUtils;
+import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.service.CgDqcgjGgService;
 import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
@@ -10,6 +11,8 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.ServletContext;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -115,8 +118,14 @@ public class CgDqcgjExtController {
 
     @RequestMapping("/downloadword")
     public void downloadword(HttpServletResponse response, HttpServletRequest request, String rwfkid) throws Exception {
-        InputStream is = CgDqcgjExtController.class.getClassLoader().getResourceAsStream("cggl.docx");
+
+        String application = WebAppContextUtils.REAL_CONTEXT_PATH;
+
+        FileInputStream is = new FileInputStream(new File(application + "/download_template/word/cggl.docx"));
+        //InputStream is = CgDqcgjExtController.class.getClassLoader().getResourceAsStream("cggl.docx");
+
         int length = is.available();
+
         XWPFTemplate template = XWPFTemplate.compile(is);
         HashMap<String, Object> data = new HashMap<String, Object>();
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
@@ -137,10 +146,24 @@ public class CgDqcgjExtController {
         data.put("rwwwcnr", cgRwzxqkfk.getRwwwcnr());
 
         template.render(data);
-        FileOutputStream out = new FileOutputStream("归国管理反馈表.docx");
-        template.write(out);
-        out.flush();
-        out.close();
+
+
+        response.reset();
+        response.setContentType("application/x-msdownload");
+        response.setHeader("Content-Type", "application/octet-stream");
+        String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
+        String fileName = "导出word.doc";
+        if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
+            fileName = URLEncoder.encode(fileName, "UTF-8");
+        } else {  //其他浏览器
+            fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
+        }
+        response.setHeader("content-disposition", "attachment;filename=" + fileName);
+        ServletOutputStream os = response.getOutputStream();
+        //FileOutputStream out = new FileOutputStream("归国管理反馈表.docx");
+        template.write(os);
+        os.flush();
+        os.close();
         template.close();
     }
 }
