@@ -83,7 +83,6 @@
                         return dmcache.getCode("t_dm_xb",gender);
                     } },
                 {name:'hzhm',index:'hzhm'},
-                {name:'hzhm',index:'hzhm'},
                 {name:'birthday',index:'birthday',formatter:function(birthday){
                         return new Date(birthday).getYmd("yyyy年MM月dd日")
                     }},
