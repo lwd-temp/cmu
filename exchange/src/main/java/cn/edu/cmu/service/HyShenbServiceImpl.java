@@ -92,7 +92,7 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HyShenb hysb = hysbVO.getHysb();
 
         boolean isEdit = false;//是否修改标志
-        if(StringUtil.isEmpty(hysb.getJhid())){
+        if(StringUtil.isEmpty(hysb.getSbid())){
             String keyId = CmuStringUtil.UUID();
             hysb.setSbid(keyId);
         }else{//如果存在id则说明是修改
