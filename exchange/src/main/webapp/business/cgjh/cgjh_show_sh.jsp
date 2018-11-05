@@ -69,7 +69,7 @@
 
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
-        <ul class="nav nav-tabs" id="myTab">
+        <%--<ul class="nav nav-tabs" id="myTab">
             <li class="active">
                 <a data-toggle="tab" href="#home">
                     <i class="green ace-icon fa fa-home bigger-120"></i>
@@ -84,7 +84,7 @@
                 </a>
             </li>
 
-        </ul>
+        </ul>--%>
 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
@@ -218,7 +218,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
                     <div class="col-xs-4">
-                        <input class="form-control" disabled="disabled" id="cfsj" name="cgTzjh.cfsj"  value="${cgTzjh.cfsj}"  type="text"/>
+                        <input class="form-control month-picker" data-date-format="YYYY-MM" disabled="disabled" id="cfsj" name="cgTzjh.cfsj" value="<fmt:formatDate value="${cgTzjh.cfsj}" pattern="yyyy-MM"/>" placeholder="请输入出访时间(月)" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">
@@ -250,94 +250,66 @@
                     </div>
 
                 </div>
+                <hr/>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        姓名
+                    </div>
+                    <div class="col-xs-3">
+                        二级单位名称
+                    </div>
+                    <div class="col-xs-3">
+                        职务
+                    </div>
+                    <div class="col-xs-2">
+                        级别
+                    </div>
 
-
-            </div>
-            <div id="messages" class="tab-pane fade in " style="">
-                <div class="row" style="text-align: center;">
-                    <div class="col-xs-3">姓名</div>
-                    <div class="col-xs-4">二级单位名称</div>
-                    <div class="col-xs-3">职务</div>
-                    <div class="col-xs-2">级别</div>
                 </div>
-
-
-
-
                 <c:choose>
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
-                            <div class="row cy">
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"       name="cys[0].xm"  class="col-xs-12"/></div>
-                                <div class="col-xs-4"><input type="text" disabled="disabled" value="${cy.ejdwmc}" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.zw}" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="form-group cy">
+                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.ejdwmc}" inp="ejdwmc"  placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
 
                             </div>
                         </c:forEach>
-
                     </c:when>
                     <c:otherwise>
-                        <%--如果没有数据，默认显示一条，用于添加删除操作--%>
-                        <div class="row cy">
-                            <div class="col-xs-2"><input type="text" disabled="disabled" inp="xm"       name="cys[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" disabled="disabled" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" disabled="disabled" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" disabled="disabled" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                        <div class="form-group cy">
+                            <div class="col-xs-2"><input type="text" inp="xm"  disabled="disabled"   placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"  placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-2"><input type="text" inp="jb"  disabled="disabled"   placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
 
                         </div>
-
                     </c:otherwise>
                 </c:choose>
-
-
-
-
-
+                <div id="btns" class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-info btn-sm" id="btnPass" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        通过
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-sm" id="btnBack" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        退回
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-sm" id="btnClose" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        关闭
+                    </button>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-offset-2 col-md-9">
-            &nbsp; &nbsp; &nbsp;
-        </div>
-        <div class="col-md-offset-2 col-md-9">
-
-            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-
-
-            <button class="btn btn-info btn-sm" id="btnPass" type="button">
-                <i class="ace-icon fa fa-check bigger-110"></i>
-               通过
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-danger btn-sm" id="btnBack" type="button">
-                <i class="ace-icon fa fa-backward bigger-110"></i>
-                退回
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="btn btn-success btn-sm" id="btnClose" type="button">
-                <i class="ace-icon fa fa-close bigger-110"></i>
-                关闭
-            </button>
-
-        </div>
-        <div class="col-md-offset-2 col-md-9">
-            &nbsp; &nbsp; &nbsp;
-        </div>
-
-    </div>
 </form>
-
-
-
-
-
-
-
 <script src='assets/js/jquery.js'></script>
-
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>

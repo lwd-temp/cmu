@@ -69,7 +69,7 @@
 
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
-        <ul class="nav nav-tabs" id="myTab">
+        <%--<ul class="nav nav-tabs" id="myTab">
             <li class="active">
                 <a data-toggle="tab" href="#home">
                     <i class="green ace-icon fa fa-home bigger-120"></i>
@@ -84,7 +84,7 @@
                 </a>
             </li>
 
-        </ul>
+        </ul>--%>
 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
@@ -255,49 +255,43 @@
                     </div>
 
                 </div>
-
-
-            </div>
-            <div id="messages" class="tab-pane fade in " style="">
-                <div class="row" style="text-align: center;">
-                    <div class="col-xs-3">姓名</div>
-                    <div class="col-xs-4">二级单位名称</div>
-                    <div class="col-xs-3">职务</div>
-                    <div class="col-xs-2">级别</div>
+                <hr/>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        姓名
+                    </div>
+                    <div class="col-xs-3">
+                        二级单位名称
+                    </div>
+                    <div class="col-xs-3">
+                        职务
+                    </div>
+                    <div class="col-xs-2">
+                        级别
+                    </div>
                 </div>
-
-
-
-
                 <c:choose>
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
-                            <div class="row cy">
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"       name="cys[0].xm"  class="col-xs-12"/></div>
-                                <div class="col-xs-4"><input type="text" disabled="disabled" value="${cy.ejdwmc}" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.zw}" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="form-group cy">
+                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"     disabled="disabled"     placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.ejdwmc}" inp="ejdwmc"  disabled="disabled" placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"    disabled="disabled"      placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"     disabled="disabled"     placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
 
                             </div>
                         </c:forEach>
-
                     </c:when>
                     <c:otherwise>
-                        <%--如果没有数据，默认显示一条，用于添加删除操作--%>
-                        <div class="row cy">
-                            <div class="col-xs-2"><input type="text" disabled="disabled" inp="xm"       name="cys[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" disabled="disabled" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" disabled="disabled" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" disabled="disabled" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                        <div class="form-group cy">
+                            <div class="col-xs-2"><input type="text" inp="xm"     disabled="disabled" placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"    disabled="disabled" placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-2"><input type="text" inp="jb"   disabled="disabled"  placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
 
                         </div>
-
                     </c:otherwise>
                 </c:choose>
-
-
-
-
 
             </div>
         </div>
@@ -308,28 +302,17 @@
             &nbsp; &nbsp; &nbsp;
         </div>
         <div class="col-md-offset-2 col-md-9">
-
             &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-
-
             <button class="btn btn-danger btn-sm" id="btnClose" type="button">
                 <i class="ace-icon fa fa-close bigger-110"></i>
                 关闭
             </button>
-
         </div>
         <div class="col-md-offset-2 col-md-9">
             &nbsp; &nbsp; &nbsp;
         </div>
-
     </div>
 </form>
-
-
-
-
-
-
 
 <script src='assets/js/jquery.js'></script>
 

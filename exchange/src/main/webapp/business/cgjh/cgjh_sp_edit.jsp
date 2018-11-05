@@ -69,7 +69,7 @@
 
 <form class="form-horizontal" id="form" role="form">
     <div class="tabbable">
-        <ul class="nav nav-tabs" id="myTab">
+        <%--<ul class="nav nav-tabs" id="myTab">
             <li class="active">
                 <a data-toggle="tab" href="#home">
                     <i class="green ace-icon fa fa-home bigger-120"></i>
@@ -84,7 +84,7 @@
                 </a>
             </li>
 
-        </ul>
+        </ul>--%>
 
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
@@ -251,81 +251,73 @@
 
                 </div>
 
-
-                <div class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info btn-sm" id="saveForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        暂存
-                    </button>
-
-                    &nbsp; &nbsp; &nbsp;
-
-
-                    <button class="btn btn-danger btn-sm" id="submitForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
-                        提交
-                    </button>
-
+                <hr/>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        姓名
+                    </div>
+                    <div class="col-xs-3">
+                        二级单位名称
+                    </div>
+                    <div class="col-xs-3">
+                        职务
+                    </div>
+                    <div class="col-xs-2">
+                        级别
+                    </div>
+                    <div class="col-xs-2">
+                        操作
+                    </div>
                 </div>
-
-
-
-            </div>
-            <div id="messages" class="tab-pane fade in " style="">
-                <div class="row" style="text-align: center;">
-                    <div class="col-xs-2">姓名</div>
-                    <div class="col-xs-3">二级单位名称</div>
-                    <div class="col-xs-3">职务</div>
-                    <div class="col-xs-2">级别</div>
-                    <div class="col-xs-2">操作</div>
-                </div>
-
-
-
-
                 <c:choose>
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
-                            <div class="row cy">
-                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"       name="cys[0].xm"  class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" value="${cy.ejdwmc}" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="form-group cy">
+                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.ejdwmc}" inp="ejdwmc"  placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
                                 <div class="col-xs-2">
                                     <button class='btn btn-danger btn-mini' onclick='deleteCy(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                     <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
                                 </div>
                             </div>
                         </c:forEach>
-
                     </c:when>
                     <c:otherwise>
-                        <%--如果没有数据，默认显示一条，用于添加删除操作--%>
-                        <div class="row cy">
-                            <div class="col-xs-2"><input type="text" inp="xm"       name="cys[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
+                        <div class="form-group cy">
+                            <div class="col-xs-2"><input type="text" inp="xm"     placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="ejdwmc" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="zw"     placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-2"><input type="text" inp="jb"     placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
                             <div class="col-xs-2">
                                 <button class='btn btn-danger btn-mini' onclick='deleteCy(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                 <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
                             </div>
                         </div>
-
                     </c:otherwise>
                 </c:choose>
 
-
-
-
-
+                <div id="btns" class="col-md-offset-3 col-md-9">
+                    <button class="btn btn-info btn-sm" id="saveForm" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        暂存
+                    </button>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-danger btn-sm" id="submitForm" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        提交
+                    </button>
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
 </form>
 
+
 <div id="template" style="display: none">
-    <div class="row cy" >
+    <div class="form-group cy" >
         <div class="col-xs-2"><input type="text" inp="xm"   name="cys[@].xm" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="ejdwmc"   name="cys[@].ejdwmc" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="zw"   name="cys[@].zw" class="col-xs-12"/></div>
@@ -504,18 +496,7 @@
         }
     }
 
-    function deleteCy(btn){
 
-        var size = $("#messages .cy").size();
-        if(size<=1){
-            parent.layer.alert("请至少录入一个团组成员");
-            return false;
-        }
-
-        var row = $(btn).parent().parent();
-        row.remove();
-
-    }
 
     function calInputNames(){
 
@@ -538,9 +519,24 @@
     }
 
     function appendCy(){
-        //var $template = $("#template").clone();
-        $("#messages").append($("#template").html());
+        $("#btns").before($("#template").html());
+        var cy = $("#btns").prev(".cy");
+        cy.find("input").each(function(index,el){
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+        })
+        setFormValid();//设置校验规则
+    }
+    function deleteCy(btn){
 
+        var size = $("#form .cy").size();
+        if(size<=1){
+            parent.layer.alert("请至少录入一个团组成员信息");
+            return false;
+        }
+        var row = $(btn).parent().parent();
+        row.remove();
+        setFormValid();//设置校验规则
     }
 
 </script>

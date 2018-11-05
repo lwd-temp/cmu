@@ -75,7 +75,7 @@
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
                         }else{
                             btns = "<button class='btn btn-info btn-mini' title='编辑反馈' onclick='editfkCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>编辑反馈</i></button>"+
-                                "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='导出反馈' onclick='fkCgsqWord(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>导出反馈Word</i></button>"+
+                                "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='导出反馈' onclick='fkCgsqWord(\""+zjid+"\")'><i class='ace-icon fa fa-pencil '>导出反馈</i></button>"+
                             "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='上传总结'  onclick='sczjCgsq(\""+zjid+"\")'><i class='ace-icon fa fa-trash-o '>上传总结</i></button>";
                         }
                         return btns;

@@ -72,7 +72,7 @@
 
 <form class="form-horizontal" id="form" role="form">
 <div class="tabbable">
-    <ul class="nav nav-tabs" id="myTab">
+    <%--<ul class="nav nav-tabs" id="myTab">
         <li class="active">
             <a data-toggle="tab" href="#home">
                 <i class="green ace-icon fa fa-home bigger-120"></i>
@@ -87,7 +87,7 @@
             </a>
         </li>
 
-    </ul>
+    </ul>--%>
 
     <div class="tab-content">
         <div id="home" class="tab-pane fade in active">
@@ -242,58 +242,59 @@
                         <input class="form-control date-picker" name="cgTzjh.rwpfsj" placeholder="请输入任务批复时间" id="rwpfsj" value="" type="text"
                                data-date-format="yyyy-mm-dd"/>
                     </div>
-
+                </div>
+            <hr/>
+                <div class="form-group">
+                    <div class="col-xs-2">
+                        姓名
+                    </div>
+                    <div class="col-xs-3">
+                        二级单位名称
+                    </div>
+                    <div class="col-xs-3">
+                        职务
+                    </div>
+                    <div class="col-xs-2">
+                        级别
+                    </div>
+                    <div class="col-xs-2">
+                        操作
+                    </div>
+                </div>
+                <div class="form-group cy">
+                    <div class="col-xs-2"> <input type="text"  inp="xm"     name="cys[@].xm"   placeholder="姓名"  class="col-xs-12" /></div>
+                    <div class="col-xs-3"> <input type="text"  inp="ejdwmc" name="cys[@].ejdwmc"   placeholder="二级单位"  class="col-xs-12" /></div>
+                    <div class="col-xs-3"> <input type="text"  inp="zw"     name="cys[@].zw"   placeholder="职务"  class="col-xs-12" /></div>
+                    <div class="col-xs-2"> <input type="text"  inp="jb"     name="cys[@].jb"   placeholder="级别"  class="col-xs-12" /></div>
+                    <div class="col-xs-2">
+                        <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                        <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                    </div>
                 </div>
 
 
-                <div class="col-md-offset-3 col-md-9">
+                <div id="btns" class="col-md-offset-3 col-md-9">
                     <button class="btn btn-info btn-sm" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         暂存
                     </button>
-
-                    &nbsp; &nbsp; &nbsp;
-
-
+                    &nbsp;&nbsp;&nbsp;
                     <button class="btn btn-danger btn-sm" id="submitForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         提交
                     </button>
-
                 </div>
-
-
-
-        </div>
-        <div id="messages" class="tab-pane fade in " style="">
-            <div class="row" style="text-align: center;">
-                <div class="col-xs-2">姓名</div>
-                <div class="col-xs-3">二级单位名称</div>
-                <div class="col-xs-3">职务</div>
-                <div class="col-xs-2">级别</div>
-                <div class="col-xs-2">操作</div>
-            </div>
-            <div class="row cy">
-                <div class="col-xs-2"><input type="text" inp="xm"       name="cys[0].xm" class="col-xs-12"/></div>
-                <div class="col-xs-3"><input type="text" inp="ejdwmc"   name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                <div class="col-xs-3"><input type="text" inp="zw"       name="cys[0].zw" class="col-xs-12"/></div>
-                <div class="col-xs-2"><input type="text" inp="jb"       name="cys[0].jb" class="col-xs-12"/></div>
-                <div class="col-xs-2">
-                    <button class='btn btn-danger btn-mini' onclick='deleteCy(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                    <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
-                </div>
-            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
 </div>
 </form>
-
 <div id="template" style="display: none">
-    <div class="row cy" >
-        <div class="col-xs-2"><input type="text" inp="xm"   name="cys[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="ejdwmc"   name="cys[@].ejdwmc" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="zw"   name="cys[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2"><input type="text" inp="jb"   name="cys[@].jb" class="col-xs-12"/></div>
+    <div class="form-group cy" >
+        <div class="col-xs-2"><input type="text" inp="xm"      placeholder="姓名"  name="cys[@].xm" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="ejdwmc"  placeholder="二级单位"  name="cys[@].ejdwmc" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="zw"      placeholder="职务"  name="cys[@].zw" class="col-xs-12"/></div>
+        <div class="col-xs-2"><input type="text" inp="jb"      placeholder="级别"  name="cys[@].jb" class="col-xs-12"/></div>
         <div class="col-xs-2">
             <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
             <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -301,13 +302,7 @@
     </div>
 </div>
 
-
-
-
-
-
 <script src='assets/js/jquery.js'></script>
-
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
 <script src="assets/js/date-time/moment.js"></script>
@@ -315,7 +310,6 @@
 <script src="assets/js/date-time/bootstrap-datetimepicker.js"></script>
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
-
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
@@ -325,10 +319,8 @@
 <script src="assets/js/jqvalidate/messages_zh.js"></script>
 <!--弹出层 -->
 <script src="assets/js/layer/layer.js"></script>
-
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
-
 <script>
 
 
@@ -471,17 +463,7 @@
         }
     }
 
-    function deleteCy(btn){
 
-        var size = $("#messages .cy").size();
-        if(size<=1){
-            parent.layer.alert("请至少录入一个团组成员");
-            return false;
-        }
-
-        var row = $(btn).parent().parent();
-        row.remove();
-    }
 
     function calInputNames(){
 
@@ -504,8 +486,25 @@
     }
 
     function appendCy(){
-        //var $pdf_template = $("#pdf_template").clone();
-        $("#messages").append($("#pdf_template").html());
+        alert('appendCy')
+        $("#btns").before($("#template").html());
+        var cy = $("#btns").prev(".cy");
+        cy.find("input").each(function(index,el){
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+        })
+        setFormValid();//设置校验规则
+    }
+    function deleteCy(btn){
+
+        var size = $("#form .cy").size();
+        if(size<=1){
+            parent.layer.alert("请至少录入一个团组成员信息");
+            return false;
+        }
+        var row = $(btn).parent().parent();
+        row.remove();
+        setFormValid();//设置校验规则
     }
 
 </script>

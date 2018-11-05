@@ -38,24 +38,16 @@
 <script type="text/javascript">
     var $path_base = "..";//in Ace demo this will be used for editurl parameter
 </script>
-
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-
-
-
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
-
-
     $(function() {
-
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
         $(window).on('resize.jqGrid', function () {
             $(grid_selector).jqGrid( 'setGridWidth', parent_column.width() );
         })
-
         //侧边栏发生变化时重新设置宽度
         $(document).on('settings.ace.jqGrid' , function(ev, event_name, collapsed) {
             if( event_name === 'sidebar_collapsed' || event_name === 'main_container_fixed' ) {
@@ -65,13 +57,10 @@
                 }, 0);
             }
         })
-
         //自定义 按钮
         var navBtns = [];
-
         var settings = {
             caption: "出访计划管理",
-            /* data: grid_data,*/
             url:'cgjh/shlist',
             colNames:['团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态","操作"],
             navBtns:navBtns,//自定义按钮
@@ -108,27 +97,17 @@
                 {name:'tzid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(tzid, options, rowObject){
                         var zt = rowObject.status;
-
-                        return "<button class='btn btn-info btn-mini' onclick='showShCgjh(\""+tzid+"\")' title='查看' ><i class='ace-icon fa fa-eye '>审核</i></button>";
-
+                        return "<button class='btn btn-info btn-mini' onclick='showShCgjh(\""+tzid+"\")' title='审核' ><i class='ace-icon fa fa-eye '>审核</i></button>";
                     }
                 },
             ]
-
         }
-
-
         //渲染jqGrid表格 ,包括渲染 分页信息
         $(grid_selector).tables(settings);
-
-
-
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
         });
-
-
     });
 
 

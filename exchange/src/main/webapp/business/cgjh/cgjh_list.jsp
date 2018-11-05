@@ -125,8 +125,8 @@
                         if(zt == "02"  || zt == "04"){
                             return "<button class='btn btn-info btn-mini' onclick='showCgjh(\""+tzid+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
                         }else{
-                            return "<button class='btn btn-info btn-mini' onclick='editCgjh(\""+tzid+"\")' title='测试' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                                "&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delCgjh(\""+tzid+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                            return "<button class='btn btn-info btn-mini' onclick='editCgjh(\""+tzid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
+                                "&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delCgjh(\""+tzid+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }
                     }
                 },
@@ -179,6 +179,21 @@
 
     //删除出访计划
     function delCgjh(jhid){
-        $(grid_selector).delGridRow(jhid);
+        //$(grid_selector).delGridRow(jhid);
+
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+            $.ajax('cgjh/delById',{
+                data:{id:jhid},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("删除成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("删除失败")
+                    }
+                }
+            })
+        })
     }
 </script>
