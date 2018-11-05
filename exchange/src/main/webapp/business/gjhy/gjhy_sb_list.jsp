@@ -75,11 +75,11 @@
                         layer.close(confirmIndex);
                         //alert(confirmIndex);
                         var index = layer.newpage({
-                            area: ['1000px', ($(window).height()-10)+"px"],
+                            area: ['1000px', ($(parent).height()-10)+"px"],
                             title:'选择申报的会议计划',
                             content:'business/gjhy/gjhy_jh_list_select.jsp',
                         });
-                        layer.full(index);
+
                     },function(){//无计划立即申报
                         layer.close(confirmIndex);
                         layer.newpage({
@@ -128,8 +128,8 @@
                         var btns = "";
 
                         if("01" == status || "03" == status){
-                            btns = "<button class='btn btn-info btn-mini' title='测试' onclick='editHysb(\""+id+"\")' ><i class='ace-icon fa fa-pencil'>编辑</i></button>" +
-                                "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delHysb(\""+id+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                            btns = "<button class='btn btn-info btn-mini' title='编辑' onclick='editHysb(\""+id+"\")' ><i class='ace-icon fa fa-pencil'>编辑</i></button>" +
+                                "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delHysb(\""+id+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else{
                             btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo(\""+id+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
 
@@ -183,8 +183,21 @@
     }
 
     //删除用户
-    function delUser(sbid){
-        $(grid_selector).delGridRow(userId);
+    function delHysb(sbid){
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+            $.ajax('hysb/delById',{
+                data:{sbid:sbid},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("删除成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("删除失败")
+                    }
+                }
+            })
+        })
     }
 
     //查看用户
