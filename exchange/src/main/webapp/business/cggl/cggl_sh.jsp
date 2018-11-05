@@ -252,7 +252,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 审核结果  : </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_cgspjg"  name="shjg" id="shjg"  ></dm:list>
+                        <dm:list tabName="t_dm_cgspjg" onchange="shjgcs(this)"  name="shjg" id="shjg"   ></dm:list>
                     </div>
                     <label class="col-xs-2 control-label"  > 审核意见  : </label>
                     <div class="col-xs-4">
@@ -306,9 +306,6 @@
 <script>
 
     $(function () {
-
-
-
         var cfmd =  $("#cfmd").val();
         if (cfmd == '99') {
             $("#cfmdQt").show();
@@ -336,22 +333,33 @@
             sh();
         });
     });
+    function shjgcs(select){
+        var val = $(select).val();
+        if (val=='01'){//资料需要修改
+            $("#btnPass").attr("disabled","disabled");
+        }
+        if (val=='02'||val=='03') {//资料合格  办结
+            $("#btnPass").removeAttr("disabled");
+        }
+    }
     //审核，03 退回， 04通过
     function sh(){
-        $.ajax('cggl/shSave',{
-            data:$("#form").serialize(),
-            success:function(res){
-                if(res && res.success){
-                    winAlert("处理成功");
-                    parent.refreshTable();
-                    closeLayer();
-                }else{
-                    winAlert("处理失败");
+            $.ajax('cggl/shSave',{
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        winAlert("处理成功");
+                        parent.refreshTable();
+                        closeLayer();
+                    }else{
+                        winAlert("处理失败");
+                    }
                 }
-            }
-        })
+            })
 
-    }
+        }
+
+
 
 </script>
 </body>
