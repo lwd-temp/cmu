@@ -393,9 +393,8 @@
                 });
             });
         });
-        var validator;
         function setFormValid(){
-            var validator =  $("#form").setValid({
+            $("#form").setValid({
                 //校验规则
                 rules: {
                     "wbjdSq.dbtmc":{ required:true},
@@ -435,7 +434,6 @@
         //校验整个计划
         function validateSq(){
             if(!$("#form").valid()){
-                validator.focusInvalid();
                 return false;
             }
             return true;

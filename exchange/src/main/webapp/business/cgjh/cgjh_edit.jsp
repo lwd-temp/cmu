@@ -193,7 +193,7 @@
                     </div>
                     <label class="col-xs-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  data-placeholder="请选择出访国家"  valueList="${gbCodeList}"  data-placeholder="请选择团组级别"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  data-placeholder="请选择出访国家"  valueList="${gbCodeList}"   ></dm:list>
 
 
                     </div>

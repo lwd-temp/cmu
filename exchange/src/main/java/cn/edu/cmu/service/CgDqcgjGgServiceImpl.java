@@ -32,7 +32,7 @@ public class CgDqcgjGgServiceImpl extends BaseService<CgRwzxqkfk, CgRwzxqkfkPara
     }
 
     @Override
-    public List list(Object... conditions)  {
+    public List list(Object... conditions)  throws Exception{
         CgDqcgjParams params = new CgDqcgjParams();
         CgDqcgjParams.Criteria c1 = params.createCriteria();
         CgDqcgjParams.Criteria c2 = params.or();
@@ -45,18 +45,7 @@ public class CgDqcgjGgServiceImpl extends BaseService<CgRwzxqkfk, CgRwzxqkfkPara
                 c1.andCfgjLike("%" + cgDqcgj.getCfgj() + "%");
                 c2.andCfgjLike("%" + cgDqcgj.getCfgj() + "%");
             }
-            try {
-                super.addOrderBy(params, conditions);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        try {
-            cgRwzxqkfkMapperExt.selectZjByExample(params);
-        } catch (Exception e) {
-            e.printStackTrace();
+            super.addOrderBy(params,conditions);
         }
         return cgRwzxqkfkMapperExt.selectZjByExample(params);
     }
