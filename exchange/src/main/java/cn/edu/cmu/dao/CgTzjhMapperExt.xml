@@ -10,17 +10,14 @@
         <if test="distinct" >
             distinct
         </if>
-        F_GetTableText('T_DM_TZLB', 'code', 'name', TZLB) TZLB,
-        F_GetTableText('T_DM_JHLX', 'code', 'name', JHLX) JHLX,
-        F_GetTableText('T_DM_TZJB', 'code', 'name', TZJB) TZJB,
-        F_GetTableText('T_DM_ZZSK', 'code', 'name', ZZHSK) ZZHSK,
-
+        F_GetTableText('T_DM_TZLB', 'code', 'name', TZLB) tzlb,
+        F_GetTableText('T_DM_JHLX', 'code', 'name', JHLX) jhlx,
+        F_GetTableText('T_DM_TZJB', 'code', 'name', TZJB) tzjb,
+        F_GetTableText('T_DM_ZZSK', 'code', 'name', ZZHSK) zzhsk,
         (select wm_concat(gb.name) from t_cg_cgjh_gb t inner join T_DM_GB gb on gb.code = t.gjdm  where t.jhid =TZID) cfgj1,
-
-        TZID, TZH,  CFDW,  FZRXM, XZZW, XZJB, JSZW, ZW, ZJ,
-        CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, RWPJWH,
-        RWPFSJ, STATUS, VALID, CREATE_TIME
-
+        tzid, tzh, tzmc, cfdw, fzrxm, xzzw,
+        xzjb, jszw, zw, zj, cfgj2, cfgj3, cfgj4, cfgj5, ffgz, tzrs,
+        cfrw, cfsj, cfts, sjys, qtys, yshj, rwpjwh, rwpfsj, status, valid, create_time
         from T_CG_TZJH
         <if test="_parameter != null" >
             /*此处应用的refid 是其他Mapper中写好的*/
