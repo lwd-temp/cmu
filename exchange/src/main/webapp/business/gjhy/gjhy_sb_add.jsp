@@ -257,24 +257,20 @@
                             </c:choose>
 
 
-                            <div id="btns" class="col-md-offset-3 col-md-9">
+                            <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
                                 <button class="btn btn-info btn-sm" id="saveHyjh" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     暂存
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
+								&nbsp; &nbsp; &nbsp;
                                 <button class="btn btn-success btn-sm" id="submitHyjh" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     提交
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
-
                             </div>
-
+                           &nbsp; &nbsp; &nbsp;
                         </form>
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->

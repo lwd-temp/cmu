@@ -101,16 +101,14 @@
                                     <textarea class="form-control limited" id="form-field-12"  name="jyywt"  maxlength="300" placeholder="会议申办主办过程中的经验与问题" readonly="readonly" disabled="disabled">${hyzj.jyywt}</textarea>
                                 </div>
                             </div>
-
-                            <div class="col-md-offset-3 col-md-9">
+							<div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
                                 <button class="btn btn-info btn-sm" id="btnClose" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                    关闭
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
                             </div>
-
+						  &nbsp; &nbsp; &nbsp;
                         </form>
 
                     </div><!-- /.col -->

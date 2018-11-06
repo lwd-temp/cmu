@@ -252,7 +252,7 @@
                 </div>
                 <hr/>
                 <div class="form-group">
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         姓名
                     </div>
                     <div class="col-xs-3">
@@ -261,7 +261,7 @@
                     <div class="col-xs-3">
                         职务
                     </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         级别
                     </div>
 
@@ -270,26 +270,27 @@
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
                             <div class="form-group cy">
-                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
                                 <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.ejdwmc}" inp="ejdwmc"  placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
                                 <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
 
                             </div>
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <div class="form-group cy">
-                            <div class="col-xs-2"><input type="text" inp="xm"  disabled="disabled"   placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
+                        <div class="form-group cy" >
+                            <div class="col-xs-3"><input type="text" inp="xm"  disabled="disabled"   placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"  placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" inp="jb"  disabled="disabled"   placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="jb"  disabled="disabled"   placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
 
                         </div>
                     </c:otherwise>
                 </c:choose>
-                <div id="btns" class="col-md-offset-3 col-md-9">
-                    <button class="btn btn-info btn-sm" id="btnPass" type="button">
+                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <hr/>
+                    <button class="btn btn-success btn-sm" id="btnPass" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         通过
                     </button>
@@ -298,13 +299,13 @@
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         退回
                     </button>
-                    &nbsp;&nbsp;&nbsp;
-                    <button class="btn btn-danger btn-sm" id="btnClose" type="button">
+                    <%--&nbsp;&nbsp;&nbsp;
+                    <button class="btn btn-success btn-sm" id="btnClose" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         关闭
-                    </button>
+                    </button>--%>
                 </div>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>

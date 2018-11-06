@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2018/9/13
-  Time: 16:08
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 <!DOCTYPE html>
@@ -137,37 +130,27 @@
 
                             </div>
 
-                            <div class=" form-actions">
-                                <div class="col-md-offset-3 col-md-9">
-                                    <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
-                                        <i class="ace-icon fa fa-check bigger-110"></i>
-                                        保存
-                                    </button>
 
-
-                                </div>
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
+                                <button class="btn btn-info btn-sm"  id="btn-submit"  type="button">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    保存
+                                </button>
                             </div>
 
                         </form>
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->
-
-
 </div><!-- /.main-container -->
-
-
 <script src='assets/js/jquery.js'></script>
-
 <script type="text/javascript">
     if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
 </script>
-
 <script src="assets/js/bootstrap.js"></script>
-
 <!-- page specific plugin scripts -->
 <script src="assets/js/jquery-ui.custom.js"></script>
 <script src="assets/js/jquery.ui.touch-punch.js"></script>
@@ -178,22 +161,17 @@
 <script src="assets/js/jquery.inputlimiter.1.3.1.js"></script>
 <script src="assets/js/jquery.maskedinput.js"></script>
 <script src="assets/js/bootstrap-tag.js"></script>
-
 <!-- jqueryValidate验证框架-->
 <script src="assets/js/jqvalidate/jquery.validate.min.js"></script>
 <script src="assets/js/jqvalidate/messages_zh.js"></script>
 <!--弹出层 -->
 <script src="assets/js/layer/layer.js"></script>
-
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
-
 <!-- ace scripts -->
 <script>
     var index = parent.layer.getFrameIndex(window.name); //获取窗口索引
-
     $(function(){
-
        var validator = $("#form").setValid({
             //校验规则
             rules: {
@@ -206,18 +184,13 @@
                 email:{
                     email: true
                 },
-
             }
         });
-
-
         $("#btn-submit").click(function(){
-
             if(!$("#form").valid()){
                 validator.focusInvalid();
                 return;
             }
-
             $.ajax('lxr/save',{
                 type:'post',
                 dataType:'json',
@@ -229,12 +202,9 @@
                         winAlert("保存成功");//弹出确认消息
                     }
                 }
-
             });
         });
-
     })
-
 </script>
 </body>
 </html>

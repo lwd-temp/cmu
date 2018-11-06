@@ -74,7 +74,7 @@
                             </div>
                              <div class="form-group">
                                  <label class="col-xs-2 control-label" > 国别: </label>
-                                 <div class="col-xs-5">
+                                 <div class="col-xs-10">
                                      <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   data-placeholder="请选择国别"  ></dm:list>
                                  </div>
                              </div>
@@ -98,12 +98,12 @@
                                  </div>
                              </div>
 
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
                                 <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
-                                &nbsp; &nbsp; &nbsp;
                             </div>
                         </form>
                     </div><!-- /.col -->

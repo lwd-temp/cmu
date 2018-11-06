@@ -210,18 +210,15 @@
                             </c:choose>
 
 
-                            <div id="btns" class="col-md-offset-3 col-md-9">
+                            <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
                                 <button class="btn btn-info btn-sm" id="saveHyjh" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
-
-                                &nbsp; &nbsp; &nbsp;
-
-                            </div>
-
+							   </div>
+							&nbsp; &nbsp; &nbsp;
                         </form>
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->

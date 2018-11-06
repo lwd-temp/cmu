@@ -218,12 +218,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
                     <div class="col-xs-4">
-
                         <input class="form-control" disabled="disabled" id="cfsj" name="cgTzjh.cfsj"  value="<fmt:formatDate value="${cgTzjh.cfsj}" pattern="yyyy-MM" />" type="text"/>
-
-
-
-
                     </div>
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">
@@ -240,24 +235,21 @@
                     <div class="col-xs-4">
                         <input class="form-control" disabled="disabled" id="qtys" name="cgTzjh.qtys" value="${cgTzjh.qtys}" type="text"/>
                     </div>
-
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 任务批件文号: </label>
                     <div class="col-xs-4">
                         <input class="form-control" disabled="disabled" id="rwpjwh" name="cgTzjh.rwpjwh" value="${cgTzjh.rwpjwh}" type="text"/>
                     </div>
-
                     <label class="col-xs-2 control-label "> 任务批复时间: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" disabled="disabled"  name="cgTzjh.rwpfsj" id="rwpfsj"  value="<fmt:formatDate value="${cgTzjh.rwpfsj}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-
                 </div>
                 <hr/>
                 <div class="form-group">
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         姓名
                     </div>
                     <div class="col-xs-3">
@@ -266,7 +258,7 @@
                     <div class="col-xs-3">
                         职务
                     </div>
-                    <div class="col-xs-2">
+                    <div class="col-xs-3">
                         级别
                     </div>
                 </div>
@@ -274,48 +266,36 @@
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
                             <div class="form-group cy">
-                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"     disabled="disabled"     placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.xm}" inp="xm"     disabled="disabled"     placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
                                 <div class="col-xs-3"><input type="text" value="${cy.ejdwmc}" inp="ejdwmc"  disabled="disabled" placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
                                 <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"    disabled="disabled"      placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"     disabled="disabled"     placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
-
+                                <div class="col-xs-3"><input type="text" value="${cy.jb}" inp="jb"     disabled="disabled"     placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
                             </div>
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
                         <div class="form-group cy">
-                            <div class="col-xs-2"><input type="text" inp="xm"     disabled="disabled" placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="xm"     disabled="disabled" placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="zw"    disabled="disabled" placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" inp="jb"   disabled="disabled"  placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="jb"   disabled="disabled"  placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
 
                         </div>
                     </c:otherwise>
                 </c:choose>
-
+                <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <hr/>
+                    <button class="btn btn-info btn-sm" id="btnClose" type="button">
+                        <i class="ace-icon fa fa-close bigger-110"></i>
+                        关闭
+                    </button>
+                </div>
+                &nbsp; &nbsp; &nbsp;
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-offset-2 col-md-9">
-            &nbsp; &nbsp; &nbsp;
-        </div>
-        <div class="col-md-offset-2 col-md-9">
-            &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-            <button class="btn btn-danger btn-sm" id="btnClose" type="button">
-                <i class="ace-icon fa fa-close bigger-110"></i>
-                关闭
-            </button>
-        </div>
-        <div class="col-md-offset-2 col-md-9">
-            &nbsp; &nbsp; &nbsp;
-        </div>
-    </div>
 </form>
-
 <script src='assets/js/jquery.js'></script>
-
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>

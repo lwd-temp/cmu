@@ -71,10 +71,10 @@
         var navBtns = [
             {
                 caption:"申请出访计划",
-                buttonicon:"ace-icon fa fa-plus pink",
+                buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', ($(window).height()-15)+'px'],
+                        area: ['1100px', ($(window).height()-100)+'px'],
                         title:'申请出访计划',
                         content:'business/cgjh/cgjh_add.jsp',
                     });
@@ -123,7 +123,7 @@
                     formatter:function(tzid, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == "02"  || zt == "04"){
-                            return "<button class='btn btn-info btn-mini' onclick='showCgjh(\""+tzid+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
+                            return "<button class='btn btn-success btn-mini' onclick='showCgjh(\""+tzid+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
                         }else{
                             return "<button class='btn btn-info btn-mini' onclick='editCgjh(\""+tzid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
                                 "&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delCgjh(\""+tzid+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
@@ -162,7 +162,7 @@
     //修改出访计划
     function editCgjh(jhid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-15)+'px'],
+            area: ['1100px', ($(window).height()-100)+'px'],
             title:'修改出访计划',
             content:'cgjh/toEdit?id='+jhid,
         });
@@ -171,7 +171,7 @@
     //查看出访计划
     function showCgjh(jhid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-15)+'px'],
+            area: ['1100px', ($(window).height()-100)+'px'],
             title:'查看出访计划',
             content:'cgjh/show?id='+jhid,
         });

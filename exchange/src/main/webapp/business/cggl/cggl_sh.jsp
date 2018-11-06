@@ -174,17 +174,18 @@
                     <div class="col-xs-4">
                         <input type="text"  name="yqrZw"   value="${cgdqcgj.yqrZw}"  readonly="readonly"     class="col-xs-12" />
                     </div>
-                </div><div class="form-group">
-                <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
-                <div class="col-xs-4">
-                    <input type="text"  name="yqrXmEn"  value="${cgdqcgj.yqrXmEn}" readonly="readonly"    class="col-xs-12" />
                 </div>
+                <div class="form-group">
+                    <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="yqrXmEn"  value="${cgdqcgj.yqrXmEn}" readonly="readonly"    class="col-xs-12" />
+                    </div>
 
-                <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
-                <div class="col-xs-4">
-                    <input type="text"  name="yqrZwEn"    value="${cgdqcgj.yqrZwEn}"  readonly="readonly"     class="col-xs-12" />
+                    <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="yqrZwEn"    value="${cgdqcgj.yqrZwEn}"  readonly="readonly"     class="col-xs-12" />
+                    </div>
                 </div>
-            </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 邀请人单位   : </label>
                     <div class="col-xs-4">
@@ -259,30 +260,28 @@
                         <input type="text"  name="shyj"   class="col-xs-12" />
                     </div>
                 </div>
-                <div class="col-md-offset-2 col-md-9">
-                    &nbsp; &nbsp; &nbsp;
+                <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <hr/>
                     <button class="btn btn-info btn-sm" id="btnPass" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         通过
                     </button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;
                     <button class="btn btn-danger btn-sm" id="btnBack" type="button">
                         <i class="ace-icon fa fa-backward bigger-110"></i>
                         退回
                     </button>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <%--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <button class="btn btn-success btn-sm" id="btnClose" type="button">
                         <i class="ace-icon fa fa-close bigger-110"></i>
                         关闭
-                    </button>
-
+                    </button>--%>
                 </div>
-                &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+                &nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
 </form>
-
 <script src='assets/js/jquery.js'></script>
 <!-- jqueryValidate验证框架-->
 <script src="assets/js/jqvalidate/jquery.validate.min.js"></script>

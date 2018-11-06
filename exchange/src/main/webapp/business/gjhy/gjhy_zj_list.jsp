@@ -102,7 +102,7 @@
                         if("0" == status ){
                             btns = "<button class='btn btn-success btn-mini' onclick='addZj(\""+sbid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
                         }else{
-                            btns = "<button class='btn btn-info btn-mini' onclick='editZj(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-calendar '>编辑</i></button>";
+                            btns = "<button class='btn btn-info btn-mini' onclick='editZj(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
                         }
                         return btns;
                     }
@@ -146,7 +146,7 @@
     //填写总结
     function addZj(sbid){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-300)+"px"],
             title:'填写会议总结',
             content:'business/gjhy/gjhy_zj_add.jsp?sbid='+sbid,
         });
@@ -156,7 +156,7 @@
     //编辑总结
     function editZj(zjid){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-300)+"px"],
             title:'编辑会议总结',
             content:'hyzj/toEdit?id='+zjid,
         });

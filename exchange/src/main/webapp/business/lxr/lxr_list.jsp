@@ -65,7 +65,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-20)+"px"],
+                        area: ['900px', ($(window).height()-400)+"px"],
                         title:'添加联系人',
                         content:'business/lxr/lxr_add.jsp',
                     });
@@ -113,8 +113,8 @@
                 {name:'lxrId',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
 
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editLxr(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='查看' onclick='delLxr(\""+id+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='编辑' onclick='editLxr(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delLxr(\""+id+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -147,7 +147,7 @@
     //修改用户
     function editLxr(lxrId){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['900px', ($(window).height()-400)+"px"],
             title:'编辑联系人',
             content:'lxr/toEdit?id='+lxrId
         });

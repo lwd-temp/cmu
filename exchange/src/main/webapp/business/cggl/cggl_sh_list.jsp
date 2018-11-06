@@ -81,8 +81,8 @@
                 },
                 {name:'cgid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
-                        return  "<button class='btn btn-warning btn-mini' title='审核' onclick='shCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>审核</i></button>"+
-                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='归档' onclick='gdCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>归档</i></button>";
+                        return  "<button class='btn btn-info btn-mini' title='审核' onclick='shCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>审核</i></button>"+
+                            "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='归档' onclick='gdCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-upload '>归档</i></button>";
 
                     }
                 },
@@ -111,7 +111,7 @@
     //审核
     function shCgsq(cgid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-120)+"px"],
             title:'审核出国申请',
             content:'cggl/sh?id='+cgid,
         });

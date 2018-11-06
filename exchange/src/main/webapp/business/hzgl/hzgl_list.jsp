@@ -39,7 +39,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['850px', ($(window).height()-20)+"px"],
+                        area: ['1100px', ($(window).height()-200)+"px"],
                         title:'添加护照、通行证',
                         content:'business/hzgl/hzgl_add.jsp',
                     });
@@ -92,7 +92,7 @@
                 {name:'hzid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='测试' onclick='editHz(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='查看' onclick='delHz(\""+id+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHz(\""+id+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
                     }
                 },
             ]
@@ -116,7 +116,7 @@
     //修改
     function editHz(bzid){
         layer.newpage({
-            area: ['850px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-200)+"px"],
             title:'编辑护照、通行证',
             content:'hzgl/toEdit?id='+bzid
         });

@@ -75,7 +75,7 @@
                         layer.close(confirmIndex);
                         //alert(confirmIndex);
                         var index = layer.newpage({
-                            area: ['1000px', ($(parent).height()-10)+"px"],
+                            area: ['1100px', ($(parent).height()-20)+"px"],
                             title:'选择申报的会议计划',
                             content:'business/gjhy/gjhy_jh_list_select.jsp',
                         });
@@ -83,7 +83,7 @@
                     },function(){//无计划立即申报
                         layer.close(confirmIndex);
                         layer.newpage({
-                            area: ['1100px', ($(window).height()-10)+"px"],
+                            area: ['1100px', ($(window).height()-20)+"px"],
                             title:'申报会议',
                             content:'business/gjhy/gjhy_sb_add.jsp',
                         });
@@ -176,7 +176,7 @@
     //修改用户
     function editHysb(sbid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'修改会议申报信息',
             content:'hysb/toEdit?id='+sbid,
         });
@@ -203,7 +203,7 @@
     //查看用户
     function showSbInfo(sbid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-20)+"px"],
             title:'查看会议申报信息',
             content:'hysb/toEdit?type=show&id='+sbid,
         });

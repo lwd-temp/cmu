@@ -26,7 +26,7 @@
                     查询
                 </button>
 
-                <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
                     下载团组
                 </button>
             </div>
@@ -153,7 +153,7 @@
     //修改出访计划
     function editCgjh(jhid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-15)+'px'],
+            area: ['1100px', ($(window).height()-100)+'px'],
             title:'修改出访计划',
             content:'cgjh/toEdit?id='+jhid,
         });
@@ -162,7 +162,7 @@
     //查看出访计划
     function showShCgjh(jhid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-15)+'px'],
+            area: ['1100px', ($(window).height()-100)+'px'],
             title:'查看出访计划',
             content:'cgjh/show?type=sh&id='+jhid,
         });
