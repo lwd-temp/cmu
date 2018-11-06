@@ -58,6 +58,16 @@ public class UnicUnitServiceImpl extends BaseService<UnicUnit, UnicUnitParams, U
     }
 
 
+    /**
+     * 查询学生归属院系
+     * @param unit
+     * @return
+     */
+    @Override
+    public List queryXsyx(UnicUnit unit){
+        return   unicUnitMapperExt.queryXsyx(unit);
+    }
+
 
     @Override
     public UnicUnit queryMcById(String ejdwid) {

@@ -936,7 +936,10 @@ if (typeof jQuery === 'undefined') { throw new Error('Ace\'s JavaScript requires
 			var fileIcon = fileIcons[format];
 			
 			
-			if(!this.well_style) this.$label.find('.ace-file-name').attr({'data-title':filename}).find(ace.vars['.icon']).attr('class', ace.vars['icon'] + fileIcon);
+			if(!this.well_style) {
+				console.info(this.$label.html());
+                this.$label.find('.ace-file-name').attr({'data-title': filename}).find(ace.vars['.icon']).attr('class', ace.vars['icon'] + fileIcon);
+            }
 			else {
 				this.$label.append('<span class="ace-file-name" data-title="'+filename+'"><i class="'+ ace.vars['icon'] + fileIcon+'"></i></span>');
 				var type = (inner_call === true && hasFile && files[i] instanceof File) ? $.trim(files[i].type) : '';

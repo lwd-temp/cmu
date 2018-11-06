@@ -23,7 +23,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public XmParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class XmParams {
     }
 
     /**
-     * T_XM 2018-10-23
+     * T_XM 2018-11-04
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1182,76 +1182,6 @@ public class XmParams {
             return (Criteria) this;
         }
 
-        public Criteria andJlmbgjIsNull() {
-            addCriterion("JLMBGJ is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjIsNotNull() {
-            addCriterion("JLMBGJ is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjEqualTo(String value) {
-            addCriterion("JLMBGJ =", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjNotEqualTo(String value) {
-            addCriterion("JLMBGJ <>", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjGreaterThan(String value) {
-            addCriterion("JLMBGJ >", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjGreaterThanOrEqualTo(String value) {
-            addCriterion("JLMBGJ >=", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjLessThan(String value) {
-            addCriterion("JLMBGJ <", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjLessThanOrEqualTo(String value) {
-            addCriterion("JLMBGJ <=", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjLike(String value) {
-            addCriterion("JLMBGJ like", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjNotLike(String value) {
-            addCriterion("JLMBGJ not like", value, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjIn(List<String> values) {
-            addCriterion("JLMBGJ in", values, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjNotIn(List<String> values) {
-            addCriterion("JLMBGJ not in", values, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjBetween(String value1, String value2) {
-            addCriterion("JLMBGJ between", value1, value2, "jlmbgj");
-            return (Criteria) this;
-        }
-
-        public Criteria andJlmbgjNotBetween(String value1, String value2) {
-            addCriterion("JLMBGJ not between", value1, value2, "jlmbgj");
-            return (Criteria) this;
-        }
-
         public Criteria andFybzIsNull() {
             addCriterion("FYBZ is null");
             return (Criteria) this;
@@ -1722,6 +1652,286 @@ public class XmParams {
             return (Criteria) this;
         }
 
+        public Criteria andGsyxdmIsNull() {
+            addCriterion("GSYXDM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmIsNotNull() {
+            addCriterion("GSYXDM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmEqualTo(String value) {
+            addCriterion("GSYXDM =", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmNotEqualTo(String value) {
+            addCriterion("GSYXDM <>", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmGreaterThan(String value) {
+            addCriterion("GSYXDM >", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmGreaterThanOrEqualTo(String value) {
+            addCriterion("GSYXDM >=", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmLessThan(String value) {
+            addCriterion("GSYXDM <", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmLessThanOrEqualTo(String value) {
+            addCriterion("GSYXDM <=", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmLike(String value) {
+            addCriterion("GSYXDM like", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmNotLike(String value) {
+            addCriterion("GSYXDM not like", value, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmIn(List<String> values) {
+            addCriterion("GSYXDM in", values, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmNotIn(List<String> values) {
+            addCriterion("GSYXDM not in", values, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmBetween(String value1, String value2) {
+            addCriterion("GSYXDM between", value1, value2, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxdmNotBetween(String value1, String value2) {
+            addCriterion("GSYXDM not between", value1, value2, "gsyxdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcIsNull() {
+            addCriterion("GSYXMC is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcIsNotNull() {
+            addCriterion("GSYXMC is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcEqualTo(String value) {
+            addCriterion("GSYXMC =", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcNotEqualTo(String value) {
+            addCriterion("GSYXMC <>", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcGreaterThan(String value) {
+            addCriterion("GSYXMC >", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcGreaterThanOrEqualTo(String value) {
+            addCriterion("GSYXMC >=", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcLessThan(String value) {
+            addCriterion("GSYXMC <", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcLessThanOrEqualTo(String value) {
+            addCriterion("GSYXMC <=", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcLike(String value) {
+            addCriterion("GSYXMC like", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcNotLike(String value) {
+            addCriterion("GSYXMC not like", value, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcIn(List<String> values) {
+            addCriterion("GSYXMC in", values, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcNotIn(List<String> values) {
+            addCriterion("GSYXMC not in", values, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcBetween(String value1, String value2) {
+            addCriterion("GSYXMC between", value1, value2, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsyxmcNotBetween(String value1, String value2) {
+            addCriterion("GSYXMC not between", value1, value2, "gsyxmc");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmIsNull() {
+            addCriterion("GSXSDM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmIsNotNull() {
+            addCriterion("GSXSDM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmEqualTo(String value) {
+            addCriterion("GSXSDM =", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmNotEqualTo(String value) {
+            addCriterion("GSXSDM <>", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmGreaterThan(String value) {
+            addCriterion("GSXSDM >", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmGreaterThanOrEqualTo(String value) {
+            addCriterion("GSXSDM >=", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmLessThan(String value) {
+            addCriterion("GSXSDM <", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmLessThanOrEqualTo(String value) {
+            addCriterion("GSXSDM <=", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmLike(String value) {
+            addCriterion("GSXSDM like", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmNotLike(String value) {
+            addCriterion("GSXSDM not like", value, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmIn(List<String> values) {
+            addCriterion("GSXSDM in", values, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmNotIn(List<String> values) {
+            addCriterion("GSXSDM not in", values, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmBetween(String value1, String value2) {
+            addCriterion("GSXSDM between", value1, value2, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsdmNotBetween(String value1, String value2) {
+            addCriterion("GSXSDM not between", value1, value2, "gsxsdm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmIsNull() {
+            addCriterion("GSXSXM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmIsNotNull() {
+            addCriterion("GSXSXM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmEqualTo(String value) {
+            addCriterion("GSXSXM =", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmNotEqualTo(String value) {
+            addCriterion("GSXSXM <>", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmGreaterThan(String value) {
+            addCriterion("GSXSXM >", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmGreaterThanOrEqualTo(String value) {
+            addCriterion("GSXSXM >=", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmLessThan(String value) {
+            addCriterion("GSXSXM <", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmLessThanOrEqualTo(String value) {
+            addCriterion("GSXSXM <=", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmLike(String value) {
+            addCriterion("GSXSXM like", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmNotLike(String value) {
+            addCriterion("GSXSXM not like", value, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmIn(List<String> values) {
+            addCriterion("GSXSXM in", values, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmNotIn(List<String> values) {
+            addCriterion("GSXSXM not in", values, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmBetween(String value1, String value2) {
+            addCriterion("GSXSXM between", value1, value2, "gsxsxm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGsxsxmNotBetween(String value1, String value2) {
+            addCriterion("GSXSXM not between", value1, value2, "gsxsxm");
+            return (Criteria) this;
+        }
+
         public Criteria andOperatorCodeIsNull() {
             addCriterion("OPERATOR_CODE is null");
             return (Criteria) this;
@@ -2004,7 +2214,7 @@ public class XmParams {
     }
 
     /**
-     * T_XM 2018-10-23
+     * T_XM 2018-11-04
      */
     public static class Criterion {
         private String condition;

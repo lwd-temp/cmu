@@ -23,8 +23,6 @@ public class MenuController extends BaseController {
     @Autowired
     MenuService menuService;
 
-
-
     @RequestMapping("/list")
     @ResponseBody
     public List list( ) throws Exception {

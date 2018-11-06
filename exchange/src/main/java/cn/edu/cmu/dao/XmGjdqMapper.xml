@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.XmGjdqMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.XmGjdq" >
+    <constructor >
+      <idArg column="GBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJDM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+       and valid = 1
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    GBID, GJDM, XMID, VALID, CREATE_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmGjdqParams" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_XM_GJDQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_XM_GJDQ
+    where GBID = #{gbid,jdbcType=VARCHAR}
+      and VALID = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_XM_GJDQ
+    where GBID = #{gbid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.XmGjdqParams" >
+    delete from T_XM_GJDQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.XmGjdq" >
+    insert into T_XM_GJDQ (GBID, GJDM, XMID, 
+      VALID, CREATE_TIME)
+    values (#{gbid,jdbcType=VARCHAR}, #{gjdm,jdbcType=VARCHAR}, #{xmid,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmGjdq" >
+    insert into T_XM_GJDQ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gbid != null" >
+        GBID,
+      </if>
+      <if test="gjdm != null" >
+        GJDM,
+      </if>
+      <if test="xmid != null" >
+        XMID,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gbid != null" >
+        #{gbid,jdbcType=VARCHAR},
+      </if>
+      <if test="gjdm != null" >
+        #{gjdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmid != null" >
+        #{xmid,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.XmGjdqParams" resultType="java.lang.Integer" >
+    select count(*) from T_XM_GJDQ
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_XM_GJDQ
+    <set >
+      <if test="record.gbid != null" >
+        GBID = #{record.gbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gjdm != null" >
+        GJDM = #{record.gjdm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmid != null" >
+        XMID = #{record.xmid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_XM_GJDQ
+    set GBID = #{record.gbid,jdbcType=VARCHAR},
+      GJDM = #{record.gjdm,jdbcType=VARCHAR},
+      XMID = #{record.xmid,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.XmGjdq" >
+    update T_XM_GJDQ
+    <set >
+      <if test="gjdm != null" >
+        GJDM = #{gjdm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmid != null" >
+        XMID = #{xmid,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where GBID = #{gbid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.XmGjdq" >
+    update T_XM_GJDQ
+    set GJDM = #{gjdm,jdbcType=VARCHAR},
+      XMID = #{xmid,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where GBID = #{gbid,jdbcType=VARCHAR}
+  </update>
+</mapper>

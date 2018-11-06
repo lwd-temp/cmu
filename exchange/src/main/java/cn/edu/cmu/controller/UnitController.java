@@ -56,7 +56,9 @@ public class UnitController extends BaseController {
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
-        List list = unitService.list(unit,orderCol,orderType);//demoList();
+        //List list = unitService.list(unit,orderCol,orderType);//demoList();
+
+        List list = unitService.queryXsyx(unit);
 
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo,list);

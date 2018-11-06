@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.XmMapperExt">
+    <resultMap id="BaseResultMap" type="cn.edu.cmu.vo.XmExt" >
+        <constructor >
+            <idArg column="XM_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMZM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GLXMMCID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMBH" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMKSSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="SMJSSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="XMJLTS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="XMCC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="ZJJE" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMGK" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMZZJH" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JLMBJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="FYBZ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="XMNJXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="YYYQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="XMZYXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GSYXDM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GSYXMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GSXSDM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GSXSXM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="OPERATOR_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="SQ_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="SQJL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+        </constructor>
+    </resultMap>
+
+    <select id="selectXmmcDistinct" resultType="java.lang.String">
+      select distinct xmmc  from t_xm where xmmc is not null
+    </select>
+
+
+    <select id="selectNjxzDistinct" resultType="java.lang.String">
+      select distinct xmnjxz from t_xm where xmnjxz is not null order by xmnjxz
+    </select>
+
+
+
+
+    <!--查询可申请的项目-->
+    <select id="selectSqxm" resultMap="BaseResultMap" parameterType="hashmap">
+        select
+            t.XM_ID 			as XM_ID 				,
+            t.XMLX			as XMLX				,
+            t.XMZM			as XMZM				,
+            t.GLXMMCID		as GLXMMCID				,
+            t.XMMC			as XMMC				,
+            t.XMBH			as XMBH				,
+            t.XMKSSJ			as XMKSSJ				,
+            t.SMJSSJ			as SMJSSJ				,
+            t.XMJLTS			as XMJLTS				,
+            t.XMCC			as XMCC				,
+            t.JFLY			as JFLY				,
+            t.ZJJE			as ZJJE				,
+            t.XMGK			as XMGK				,
+            t.XMZZJH			as XMZZJH				,
+            t.JLMBJGMC		as JLMBJGMC				,
+            t.FYBZ			as FYBZ				,
+            t.ZYSM			as ZYSM				,
+            t.SFXZRS			as SFXZRS				,
+            t.JHRS			as JHRS				,
+            t.XMNJXZ			as XMNJXZ				,
+            t.YYYQ			as YYYQ				,
+            t.XMZYXZ			as XMZYXZ				,
+            t.GSYXDM			as GSYXDM				,
+            t.GSYXMC			as GSYXMC				,
+            t.GSXSDM		as  GSXSDM				,
+            t.GSXSXM			as GSXSXM				,
+            t.OPERATOR_CODE	as OPERATOR_CODE		,
+            t.STATUS			as STATUS				,
+            t.VALID			as VALID				,
+            t.CREATE_TIME	as CREATE_TIME		,
+
+          jl.status  SQ_STATUS,
+          jl.sqjl_id SQJL_ID
+
+
+        from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
+            where t.valid = '1'  and t.status ='02'
+            and (
+              <!--全校项目-->
+                t.xmcc = '01'
+                <!--院系项目-->
+                or (t.xmcc ='02' and t.gsyxdm =#{gsyxdm,jdbcType=VARCHAR})
+                <!--个人项目-->
+                or (t.xmcc ='03' and t.gsxsdm =#{gsxsdm,jdbcType=VARCHAR})
+            )
+
+
+        <if test="xm.xmmc != null and  xm.xmzm != null">
+            and
+            (
+
+                <bind name="xmmcLike" value="'%' + xm.xmmc + '%'"/>
+                t.xmmc like #{xmmcLike,jdbcType=VARCHAR}
+
+                <bind name="xmzmLike" value="'%' + xm.xmzm + '%'"/>
+                or t.xmzm like #{xmzmLike,jdbcType=VARCHAR}
+            )
+
+        </if>
+    </select>
+
+
+    <select id="selectXmGb" parameterType="java.lang.String" resultType="hashmap">
+
+
+        select code as "code" , name as "name"
+        from t_dm_gb t
+          where code in (
+            select gjdm from t_xm_gjdq xm where xm.xmid = #{xmid}
+            )
+             and  valid = '1'
+
+    </select>
+
+
+</mapper>

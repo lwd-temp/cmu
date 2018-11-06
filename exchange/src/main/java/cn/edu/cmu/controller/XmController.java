@@ -1,6 +1,9 @@
 package cn.edu.cmu.controller;
 
+import cn.edu.cmu.domain.BksXsjbsjxx;
 import cn.edu.cmu.domain.Xm;
+import cn.edu.cmu.domain.XmXssqjl;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.XmService;
 import cn.edu.cmu.vo.XmVo;
@@ -27,7 +30,7 @@ public class XmController extends BaseController {
     /**
      * 分页查询
      *
-     * @param xm      查询条件
+     * @param xm        查询条件
      * @param orderCol  排序字段
      * @param orderType 排序方式 asc desc
      * @param page      分页对象页号，即想查询第几页
@@ -54,6 +57,31 @@ public class XmController extends BaseController {
     }
 
 
+
+
+
+
+    @RequestMapping("/listSqXm")
+    @ResponseBody
+    public Map listSqXm(Xm xm,
+                    String orderCol,
+                    String orderType,
+                    @RequestParam(defaultValue = "1", required = false) Integer page,
+                    @RequestParam(defaultValue = "10", required = false) Integer rows,
+                        HttpSession session) throws Exception {
+
+        logger.debug("condition:" + xm);
+        //开启分页
+        Page<Object> pageInfo = PageHelper.startPage(page, rows);
+        //查询
+        List list = xmService.listSqXm(xm, session);//demoList();
+
+        //返回带【分页】 的表格JSON 信息
+        return super.pagingInfo(pageInfo, list);
+    }
+
+
+
     /**
      * 如果对象存在key 则说明是修改，否则是新增
      *
@@ -63,34 +91,15 @@ public class XmController extends BaseController {
      */
     @RequestMapping("/save")
     @ResponseBody
-    public Map add(XmVo xmVo, HttpSession session) throws Exception {
+    public Map save(XmVo xmVo,  HttpSession session) throws Exception {
 
         logger.debug("待保存的 xmVo:" + xmVo);
 
 
-        boolean success = xmService.save(xmVo,session);
+        boolean success = xmService.save(xmVo, session);
 
 
-        //if(1==1){
-        //    super.ajaxStatus(true, null);
-        //}
-       /* boolean isEdit = false;//是否修改标志
-        if (StringUtil.isEmpty(xm.getXmId())) {
-            String keyId = CmuStringUtil.UUID();
-            xm.setXmId(keyId);
-        } else {//如果存在id则说明是修改
-            isEdit = true;
-        }
-
-
-        boolean success = false;
-        if (isEdit) {
-            success = xmService.updateById(xm);
-        } else {
-            success = xmService.insert(xm);
-        }
-*/
-        //logger.debug("保存 xm 结果 :" + success);
+        logger.debug("保存 xm 结果 :" + success);
 
         //返回带【分页】 的表格JSON 信息
         return super.ajaxStatus(success, xmVo);
@@ -109,8 +118,11 @@ public class XmController extends BaseController {
     public String toEdit(String id, Model model) throws Exception {
 
         Xm xm = xmService.queryById(id);
-
         model.addAttribute("xm", xm);
+
+        List zyList = initZyList();
+        model.addAttribute("zyList", zyList);
+
 
         return "xmgl/xmgl_edit";
     }
@@ -124,22 +136,30 @@ public class XmController extends BaseController {
      * @throws Exception
      */
     @RequestMapping("/toAdd")
-    public String toAdd( Model model) throws Exception {
+    public String toAdd(Model model) throws Exception {
 
-        Random rnd = new Random();
-
-        ArrayList zyList = new ArrayList();
-        for (int i = 0; i <10 ; i++) {
-            Map zyMap = new HashMap();
-            zyMap.put("150001"+rnd.nextInt(50),"临床医学"+rnd.nextInt(50));
-            zyList.add(zyMap);
-        }
-
+        List zyList = initZyList();
         model.addAttribute("zyList", zyList);
 
         return "xmgl/xmgl_add";
     }
 
+
+    /**
+     * 初始化专业列表
+     * @return
+     */
+    private List<Map> initZyList(){
+        List<Map> zyList = xmService.listZy();
+        for (Map<String,String> map : zyList) {
+            String code = map.get("code");
+            String name = map.get("name");
+            map.put(code,name);
+            map.remove("code");
+            map.remove("name");
+        }
+        return zyList;
+    }
     /**
      * 根据id删除角色
      *
@@ -172,6 +192,72 @@ public class XmController extends BaseController {
         return super.ajaxStatus(false);
     }
 
+
+    @RequestMapping("/listMc")
+    @ResponseBody
+    public Map listMc() throws Exception {
+        List list = xmService.listMcDistinct();
+        return super.ajaxStatus(true, list);
+    }
+
+    @RequestMapping("/listNj")
+    @ResponseBody
+    public Map listNj() throws Exception {
+        List list = xmService.listNjDistinct();
+        return super.ajaxStatus(true, list);
+    }
+
+
+    /**
+     *
+     * @param id 项目id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toSbAdd")
+    public String toSbAdd(String id, Model model ,HttpSession session) throws Exception {
+
+        Xm xm = xmService.queryById(id);
+        //model.addAttribute("xm", xm);
+
+        //初始化页面学生信息
+        XmXssqjl sqjl  = xmService.initSqPage(session);
+
+        //初始化项目信息
+        sqjl.setXmId(xm.getXmId());
+        sqjl.setXmzm(xm.getXmzm());
+        sqjl.setXmmc(xm.getXmmc());
+
+        model.addAttribute("sqjl",sqjl);
+
+
+
+        List<Map> gjdqList =  xmService.initGjdq(id);
+
+        model.addAttribute("gjdqList",gjdqList);
+
+
+        return "xmgl/xmgl_sq";
+    }
+
+
+
+    @RequestMapping("/saveSq")
+    @ResponseBody
+    public Map saveSq(XmXssqjl jl,String[] fileid,String[] clsm) throws Exception {
+
+        logger.debug("待保存的项目申请  :" + jl);
+
+
+        boolean success = xmService.saveSq(jl,fileid,clsm);
+
+
+        logger.debug("保存 项目申请 结果 :" + success);
+
+        //返回带【分页】 的表格JSON 信息
+        return super.ajaxStatus(success, jl);
+    }
 
 
 

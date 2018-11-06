@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 项目总名或者项目名称: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 项目总名或者项目名称: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="请输入项目总名或者项目名称" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="请输入项目总名或者项目名称" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -78,10 +78,12 @@
             caption: "项目管理",
            /* data: grid_data,*/
             url:'xm/list',
-            colNames:['项目名称','开始时间', '结束时间', '层次','经费来源',"操作"],
+            colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '层次',/*'经费来源',*/'状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
+                {name:'xmbh',index:'xmbh',  },
+                {name:'xmzm',index:'xmzm',  },
                 {name:'xmmc',index:'xmmc',  },
                 {name:'xmkssj',index:'xmkssj', formatter:function( time){
                     return new Date(time).getYmd("yyyy年MM月dd日")
@@ -92,14 +94,34 @@
                 {name:'xmcc',index:'xmcc',formatter:function(xmccdm){
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     }  },
-                {name:'jfly',index:'jfly', formatter:function(jfly){
+               /* {name:'jfly',index:'jfly', formatter:function(jfly){
                         return dmcache.getCode('T_DM_JFLY',jfly);
+                    }  },*/
+
+                {name:'status',index:'status', formatter:function(status){
+                        var zt = "";
+                        if('01' == status){
+                            zt = "暂存";
+                        }else if('02' == status){
+                            zt = "已发布";
+                        }
+                        return zt;
                     }  },
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editUser("+cellvalue+")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delUser("+cellvalue+")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                {name:'xmId',index:'xmId', fixed:true, sortable:false, resize:true,
+                    formatter:function(xmId, options, rowObject){
+                        var status = rowObject.status;
+                        var content = "";
+                        if(status == '01' ){
+                            content += "<button class='btn btn-info btn-mini' title='测试' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
+
+                            content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        }
+
+                        if(content == ''){
+                            content = "无";
+                        }
+                        return content;
                     }
                 },
             ]
@@ -114,11 +136,7 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
+            refreshTable();
 
         });
 
@@ -141,15 +159,30 @@
 
     //修改用户
     function editXm(xmid){
+
         layer.newpage({
-            area: ['600px', '290px'],
-            title:'修改项目',
-            content:'business/xmgl/xmgl_edit.jsp',
+            area: ['1000px', ($(window).height()-20)+'px'],
+            title:'编辑项目',
+            content:'xm/toEdit?id='+xmid,
         });
     }
 
     //删除用户
     function delXm(xmid){
-        $(grid_selector).delGridRow(xmid);
+        var index = layer.dconfirm("确认删除?",function(){
+            layer.close(index);
+
+            $.ajax('xm/delById',{
+                data:{id:xmid},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("删除成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("删除失败")
+                    }
+                }
+            })
+        })
     }
 </script>

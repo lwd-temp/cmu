@@ -5,15 +5,19 @@
     <constructor >
       <idArg column="SQJL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMZM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XMMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GENDER" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="YCDM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YXDM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="YXMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="RXN" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="NJ" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ZY" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="BJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZYH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BJH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BJMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CHPM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZHPJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="YYSP" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -21,6 +25,7 @@
       <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZZJE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
       <arg column="SELFT_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JLGJDQM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XLCP" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CONFIRM_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -88,8 +93,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    SQJL_ID, XM_ID, XH, XM, GENDER, YCDM, YXMC, RXN, NJ, ZY, BJ, CHPM, ZHPJ, YYSP, PHONE, 
-    EMAIL, ZZJE, SELFT_PAY, XLCP, STATUS, CONFIRM_STATUS, VALID, CREATE_TIME
+    SQJL_ID, XM_ID, XMZM, XMMC, XH, XM, GENDER, YXDM, YXMC, RXN, NJ, ZYH, ZYMC, BJH, 
+    BJMC, CHPM, ZHPJ, YYSP, PHONE, EMAIL, ZZJE, SELFT_PAY, JLGJDQM, XLCP, STATUS, CONFIRM_STATUS, 
+    VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     select
@@ -124,20 +130,24 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.XmXssqjl" >
-    insert into T_XM_XSSQJL (SQJL_ID, XM_ID, XH, 
-      XM, GENDER, YCDM, YXMC, 
-      RXN, NJ, ZY, BJ, 
+    insert into T_XM_XSSQJL (SQJL_ID, XM_ID, XMZM, 
+      XMMC, XH, XM, GENDER, 
+      YXDM, YXMC, RXN, NJ, 
+      ZYH, ZYMC, BJH, BJMC, 
       CHPM, ZHPJ, YYSP, PHONE, 
       EMAIL, ZZJE, SELFT_PAY, 
-      XLCP, STATUS, CONFIRM_STATUS, 
-      VALID, CREATE_TIME)
-    values (#{sqjlId,jdbcType=VARCHAR}, #{xmId,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, 
-      #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{ycdm,jdbcType=VARCHAR}, #{yxmc,jdbcType=VARCHAR}, 
-      #{rxn,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, #{zy,jdbcType=VARCHAR}, #{bj,jdbcType=VARCHAR}, 
+      JLGJDQM, XLCP, STATUS, 
+      CONFIRM_STATUS, VALID, CREATE_TIME
+      )
+    values (#{sqjlId,jdbcType=VARCHAR}, #{xmId,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
+      #{xmmc,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{yxdm,jdbcType=VARCHAR}, #{yxmc,jdbcType=VARCHAR}, #{rxn,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, 
+      #{zyh,jdbcType=VARCHAR}, #{zymc,jdbcType=VARCHAR}, #{bjh,jdbcType=VARCHAR}, #{bjmc,jdbcType=VARCHAR}, 
       #{chpm,jdbcType=VARCHAR}, #{zhpj,jdbcType=VARCHAR}, #{yysp,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{zzje,jdbcType=DECIMAL}, #{selftPay,jdbcType=VARCHAR}, 
-      #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{jlgjdqm,jdbcType=VARCHAR}, #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{confirmStatus,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmXssqjl" >
     insert into T_XM_XSSQJL
@@ -148,6 +158,12 @@
       <if test="xmId != null" >
         XM_ID,
       </if>
+      <if test="xmzm != null" >
+        XMZM,
+      </if>
+      <if test="xmmc != null" >
+        XMMC,
+      </if>
       <if test="xh != null" >
         XH,
       </if>
@@ -157,8 +173,8 @@
       <if test="gender != null" >
         GENDER,
       </if>
-      <if test="ycdm != null" >
-        YCDM,
+      <if test="yxdm != null" >
+        YXDM,
       </if>
       <if test="yxmc != null" >
         YXMC,
@@ -169,11 +185,17 @@
       <if test="nj != null" >
         NJ,
       </if>
-      <if test="zy != null" >
-        ZY,
+      <if test="zyh != null" >
+        ZYH,
       </if>
-      <if test="bj != null" >
-        BJ,
+      <if test="zymc != null" >
+        ZYMC,
+      </if>
+      <if test="bjh != null" >
+        BJH,
+      </if>
+      <if test="bjmc != null" >
+        BJMC,
       </if>
       <if test="chpm != null" >
         CHPM,
@@ -195,6 +217,9 @@
       </if>
       <if test="selftPay != null" >
         SELFT_PAY,
+      </if>
+      <if test="jlgjdqm != null" >
+        JLGJDQM,
       </if>
       <if test="xlcp != null" >
         XLCP,
@@ -219,6 +244,12 @@
       <if test="xmId != null" >
         #{xmId,jdbcType=VARCHAR},
       </if>
+      <if test="xmzm != null" >
+        #{xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        #{xmmc,jdbcType=VARCHAR},
+      </if>
       <if test="xh != null" >
         #{xh,jdbcType=VARCHAR},
       </if>
@@ -228,8 +259,8 @@
       <if test="gender != null" >
         #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="ycdm != null" >
-        #{ycdm,jdbcType=VARCHAR},
+      <if test="yxdm != null" >
+        #{yxdm,jdbcType=VARCHAR},
       </if>
       <if test="yxmc != null" >
         #{yxmc,jdbcType=VARCHAR},
@@ -240,11 +271,17 @@
       <if test="nj != null" >
         #{nj,jdbcType=VARCHAR},
       </if>
-      <if test="zy != null" >
-        #{zy,jdbcType=VARCHAR},
+      <if test="zyh != null" >
+        #{zyh,jdbcType=VARCHAR},
       </if>
-      <if test="bj != null" >
-        #{bj,jdbcType=VARCHAR},
+      <if test="zymc != null" >
+        #{zymc,jdbcType=VARCHAR},
+      </if>
+      <if test="bjh != null" >
+        #{bjh,jdbcType=VARCHAR},
+      </if>
+      <if test="bjmc != null" >
+        #{bjmc,jdbcType=VARCHAR},
       </if>
       <if test="chpm != null" >
         #{chpm,jdbcType=VARCHAR},
@@ -266,6 +303,9 @@
       </if>
       <if test="selftPay != null" >
         #{selftPay,jdbcType=VARCHAR},
+      </if>
+      <if test="jlgjdqm != null" >
+        #{jlgjdqm,jdbcType=VARCHAR},
       </if>
       <if test="xlcp != null" >
         #{xlcp,jdbcType=VARCHAR},
@@ -299,6 +339,12 @@
       <if test="record.xmId != null" >
         XM_ID = #{record.xmId,jdbcType=VARCHAR},
       </if>
+      <if test="record.xmzm != null" >
+        XMZM = #{record.xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmmc != null" >
+        XMMC = #{record.xmmc,jdbcType=VARCHAR},
+      </if>
       <if test="record.xh != null" >
         XH = #{record.xh,jdbcType=VARCHAR},
       </if>
@@ -308,8 +354,8 @@
       <if test="record.gender != null" >
         GENDER = #{record.gender,jdbcType=VARCHAR},
       </if>
-      <if test="record.ycdm != null" >
-        YCDM = #{record.ycdm,jdbcType=VARCHAR},
+      <if test="record.yxdm != null" >
+        YXDM = #{record.yxdm,jdbcType=VARCHAR},
       </if>
       <if test="record.yxmc != null" >
         YXMC = #{record.yxmc,jdbcType=VARCHAR},
@@ -320,11 +366,17 @@
       <if test="record.nj != null" >
         NJ = #{record.nj,jdbcType=VARCHAR},
       </if>
-      <if test="record.zy != null" >
-        ZY = #{record.zy,jdbcType=VARCHAR},
+      <if test="record.zyh != null" >
+        ZYH = #{record.zyh,jdbcType=VARCHAR},
       </if>
-      <if test="record.bj != null" >
-        BJ = #{record.bj,jdbcType=VARCHAR},
+      <if test="record.zymc != null" >
+        ZYMC = #{record.zymc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bjh != null" >
+        BJH = #{record.bjh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bjmc != null" >
+        BJMC = #{record.bjmc,jdbcType=VARCHAR},
       </if>
       <if test="record.chpm != null" >
         CHPM = #{record.chpm,jdbcType=VARCHAR},
@@ -346,6 +398,9 @@
       </if>
       <if test="record.selftPay != null" >
         SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jlgjdqm != null" >
+        JLGJDQM = #{record.jlgjdqm,jdbcType=VARCHAR},
       </if>
       <if test="record.xlcp != null" >
         XLCP = #{record.xlcp,jdbcType=VARCHAR},
@@ -371,15 +426,19 @@
     update T_XM_XSSQJL
     set SQJL_ID = #{record.sqjlId,jdbcType=VARCHAR},
       XM_ID = #{record.xmId,jdbcType=VARCHAR},
+      XMZM = #{record.xmzm,jdbcType=VARCHAR},
+      XMMC = #{record.xmmc,jdbcType=VARCHAR},
       XH = #{record.xh,jdbcType=VARCHAR},
       XM = #{record.xm,jdbcType=VARCHAR},
       GENDER = #{record.gender,jdbcType=VARCHAR},
-      YCDM = #{record.ycdm,jdbcType=VARCHAR},
+      YXDM = #{record.yxdm,jdbcType=VARCHAR},
       YXMC = #{record.yxmc,jdbcType=VARCHAR},
       RXN = #{record.rxn,jdbcType=VARCHAR},
       NJ = #{record.nj,jdbcType=VARCHAR},
-      ZY = #{record.zy,jdbcType=VARCHAR},
-      BJ = #{record.bj,jdbcType=VARCHAR},
+      ZYH = #{record.zyh,jdbcType=VARCHAR},
+      ZYMC = #{record.zymc,jdbcType=VARCHAR},
+      BJH = #{record.bjh,jdbcType=VARCHAR},
+      BJMC = #{record.bjmc,jdbcType=VARCHAR},
       CHPM = #{record.chpm,jdbcType=VARCHAR},
       ZHPJ = #{record.zhpj,jdbcType=VARCHAR},
       YYSP = #{record.yysp,jdbcType=VARCHAR},
@@ -387,6 +446,7 @@
       EMAIL = #{record.email,jdbcType=VARCHAR},
       ZZJE = #{record.zzje,jdbcType=DECIMAL},
       SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
+      JLGJDQM = #{record.jlgjdqm,jdbcType=VARCHAR},
       XLCP = #{record.xlcp,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR},
@@ -402,6 +462,12 @@
       <if test="xmId != null" >
         XM_ID = #{xmId,jdbcType=VARCHAR},
       </if>
+      <if test="xmzm != null" >
+        XMZM = #{xmzm,jdbcType=VARCHAR},
+      </if>
+      <if test="xmmc != null" >
+        XMMC = #{xmmc,jdbcType=VARCHAR},
+      </if>
       <if test="xh != null" >
         XH = #{xh,jdbcType=VARCHAR},
       </if>
@@ -411,8 +477,8 @@
       <if test="gender != null" >
         GENDER = #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="ycdm != null" >
-        YCDM = #{ycdm,jdbcType=VARCHAR},
+      <if test="yxdm != null" >
+        YXDM = #{yxdm,jdbcType=VARCHAR},
       </if>
       <if test="yxmc != null" >
         YXMC = #{yxmc,jdbcType=VARCHAR},
@@ -423,11 +489,17 @@
       <if test="nj != null" >
         NJ = #{nj,jdbcType=VARCHAR},
       </if>
-      <if test="zy != null" >
-        ZY = #{zy,jdbcType=VARCHAR},
+      <if test="zyh != null" >
+        ZYH = #{zyh,jdbcType=VARCHAR},
       </if>
-      <if test="bj != null" >
-        BJ = #{bj,jdbcType=VARCHAR},
+      <if test="zymc != null" >
+        ZYMC = #{zymc,jdbcType=VARCHAR},
+      </if>
+      <if test="bjh != null" >
+        BJH = #{bjh,jdbcType=VARCHAR},
+      </if>
+      <if test="bjmc != null" >
+        BJMC = #{bjmc,jdbcType=VARCHAR},
       </if>
       <if test="chpm != null" >
         CHPM = #{chpm,jdbcType=VARCHAR},
@@ -450,6 +522,9 @@
       <if test="selftPay != null" >
         SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
       </if>
+      <if test="jlgjdqm != null" >
+        JLGJDQM = #{jlgjdqm,jdbcType=VARCHAR},
+      </if>
       <if test="xlcp != null" >
         XLCP = #{xlcp,jdbcType=VARCHAR},
       </if>
@@ -471,15 +546,19 @@
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.XmXssqjl" >
     update T_XM_XSSQJL
     set XM_ID = #{xmId,jdbcType=VARCHAR},
+      XMZM = #{xmzm,jdbcType=VARCHAR},
+      XMMC = #{xmmc,jdbcType=VARCHAR},
       XH = #{xh,jdbcType=VARCHAR},
       XM = #{xm,jdbcType=VARCHAR},
       GENDER = #{gender,jdbcType=VARCHAR},
-      YCDM = #{ycdm,jdbcType=VARCHAR},
+      YXDM = #{yxdm,jdbcType=VARCHAR},
       YXMC = #{yxmc,jdbcType=VARCHAR},
       RXN = #{rxn,jdbcType=VARCHAR},
       NJ = #{nj,jdbcType=VARCHAR},
-      ZY = #{zy,jdbcType=VARCHAR},
-      BJ = #{bj,jdbcType=VARCHAR},
+      ZYH = #{zyh,jdbcType=VARCHAR},
+      ZYMC = #{zymc,jdbcType=VARCHAR},
+      BJH = #{bjh,jdbcType=VARCHAR},
+      BJMC = #{bjmc,jdbcType=VARCHAR},
       CHPM = #{chpm,jdbcType=VARCHAR},
       ZHPJ = #{zhpj,jdbcType=VARCHAR},
       YYSP = #{yysp,jdbcType=VARCHAR},
@@ -487,6 +566,7 @@
       EMAIL = #{email,jdbcType=VARCHAR},
       ZZJE = #{zzje,jdbcType=DECIMAL},
       SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
+      JLGJDQM = #{jlgjdqm,jdbcType=VARCHAR},
       XLCP = #{xlcp,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR},

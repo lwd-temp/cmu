@@ -1,4 +1,7 @@
 sys:
+  student:
+    roleid:
+      "role_id_xs"
   debug:
     #DEBUG开关
     switch:
@@ -8,12 +11,12 @@ sys:
     switch:
       true
     userId:
-      "19981022"
+      "112102"
     userType:
-      "3"
+      "1"
   cache:
     mapperbeans:
-      dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
+      dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
   upload:
     #上传文件的基本路径
     base_dir:

@@ -24,8 +24,6 @@ public class CodeTag extends  BaseTag {
     public List<String> valueList = null;
 
     public List<Map<String, String>> sourceList;
-    public String keyPro;
-    public String valuePro;
 
     private static  String optionFMT = "\t<option value='%s' %s >%s</option>\r\n";
     private static  String radioFMT = "\t<input   name=\"%s\"  id=\"%s_%d\"    %s  type=\"radio\" class=\"ace\" %s value=\"%s\" />  <span class=\"lbl\"> %s</span>\r\n";
@@ -70,21 +68,6 @@ public class CodeTag extends  BaseTag {
         this.sourceList = sourceList;
     }
 
-    public String getKeyPro() {
-        return keyPro;
-    }
-
-    public void setKeyPro(String keyPro) {
-        this.keyPro = keyPro;
-    }
-
-    public String getValuePro() {
-        return valuePro;
-    }
-
-    public void setValuePro(String valuePro) {
-        this.valuePro = valuePro;
-    }
 
     @Override
     protected void tagHeader() throws IOException {
@@ -134,7 +117,7 @@ public class CodeTag extends  BaseTag {
                     boolean isSel = containsListValue(dmCode);
                     isSelected = (isSel?"selected":"");
                 }else{
-                    isSelected = (dmCode.equals(value)?"selected":"");
+                    isSelected = (dmCode.equals(value) || containsValues(dmCode)?"selected":"");
                 }
 
                 super.writeln(String.format(optionFMT,  dmCode, isSelected,   dmName));
@@ -143,6 +126,17 @@ public class CodeTag extends  BaseTag {
                 super.writeln(String.format(radioFMT,   name,  id, count++, checked,    daValue, dmCode, dmName));
             }
         }
+    }
+
+    private boolean containsValues(String dmCode) {
+        String[] values = value.split(",");
+        for (String s : values) {
+            if(dmCode.equals(value)){
+                return true;
+            }
+
+        }
+        return false;
     }
 
 

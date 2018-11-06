@@ -110,7 +110,7 @@
             caption: "",
             /*data: grid_data,*/
             url:'sys/unit/list',
-            colNames:["机构号","机构名称","选择"],
+            colNames:["院系号","院系名称","选择"],
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[

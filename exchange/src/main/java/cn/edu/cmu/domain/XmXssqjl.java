@@ -15,6 +15,16 @@ public class XmXssqjl {
     private String xmId;
 
     /**
+     * 项目总名
+     */
+    private String xmzm;
+
+    /**
+     * 项目名称
+     */
+    private String xmmc;
+
+    /**
      * 学号
      */
     private String xh;
@@ -32,7 +42,7 @@ public class XmXssqjl {
     /**
      * 院系代码
      */
-    private String ycdm;
+    private String yxdm;
 
     /**
      * 院系名称
@@ -50,14 +60,24 @@ public class XmXssqjl {
     private String nj;
 
     /**
-     * 专业
+     * 专业号
      */
-    private String zy;
+    private String zyh;
+
+    /**
+     * 专业名称
+     */
+    private String zymc;
 
     /**
      * 班级
      */
-    private String bj;
+    private String bjh;
+
+    /**
+     * 班机名称
+     */
+    private String bjmc;
 
     /**
      * 最近一学年学业成绩排名（或最近一学年综合测评排名，记为'列A'）格式“20/100”
@@ -95,6 +115,11 @@ public class XmXssqjl {
     private String selftPay;
 
     /**
+     * null
+     */
+    private String jlgjdqm;
+
+    /**
      * 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
      */
     private String xlcp;
@@ -121,20 +146,24 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-05
      */
-    public XmXssqjl(String sqjlId, String xmId, String xh, String xm, String gender, String ycdm, String yxmc, String rxn, String nj, String zy, String bj, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String selftPay, String xlcp, String status, String confirmStatus, String valid, Date createTime) {
+    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String selftPay, String jlgjdqm, String xlcp, String status, String confirmStatus, String valid, Date createTime) {
         this.sqjlId = sqjlId;
         this.xmId = xmId;
+        this.xmzm = xmzm;
+        this.xmmc = xmmc;
         this.xh = xh;
         this.xm = xm;
         this.gender = gender;
-        this.ycdm = ycdm;
+        this.yxdm = yxdm;
         this.yxmc = yxmc;
         this.rxn = rxn;
         this.nj = nj;
-        this.zy = zy;
-        this.bj = bj;
+        this.zyh = zyh;
+        this.zymc = zymc;
+        this.bjh = bjh;
+        this.bjmc = bjmc;
         this.chpm = chpm;
         this.zhpj = zhpj;
         this.yysp = yysp;
@@ -142,6 +171,7 @@ public class XmXssqjl {
         this.email = email;
         this.zzje = zzje;
         this.selftPay = selftPay;
+        this.jlgjdqm = jlgjdqm;
         this.xlcp = xlcp;
         this.status = status;
         this.confirmStatus = confirmStatus;
@@ -151,7 +181,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-05
      */
     public XmXssqjl() {
         super();
@@ -187,6 +217,38 @@ public class XmXssqjl {
      */
     public void setXmId(String xmId) {
         this.xmId = xmId == null ? null : xmId.trim();
+    }
+
+    /**
+     * 项目总名
+     * @return XMZM 项目总名
+     */
+    public String getXmzm() {
+        return xmzm;
+    }
+
+    /**
+     * 项目总名
+     * @param xmzm 项目总名
+     */
+    public void setXmzm(String xmzm) {
+        this.xmzm = xmzm == null ? null : xmzm.trim();
+    }
+
+    /**
+     * 项目名称
+     * @return XMMC 项目名称
+     */
+    public String getXmmc() {
+        return xmmc;
+    }
+
+    /**
+     * 项目名称
+     * @param xmmc 项目名称
+     */
+    public void setXmmc(String xmmc) {
+        this.xmmc = xmmc == null ? null : xmmc.trim();
     }
 
     /**
@@ -239,18 +301,18 @@ public class XmXssqjl {
 
     /**
      * 院系代码
-     * @return YCDM 院系代码
+     * @return YXDM 院系代码
      */
-    public String getYcdm() {
-        return ycdm;
+    public String getYxdm() {
+        return yxdm;
     }
 
     /**
      * 院系代码
-     * @param ycdm 院系代码
+     * @param yxdm 院系代码
      */
-    public void setYcdm(String ycdm) {
-        this.ycdm = ycdm == null ? null : ycdm.trim();
+    public void setYxdm(String yxdm) {
+        this.yxdm = yxdm == null ? null : yxdm.trim();
     }
 
     /**
@@ -302,35 +364,67 @@ public class XmXssqjl {
     }
 
     /**
-     * 专业
-     * @return ZY 专业
+     * 专业号
+     * @return ZYH 专业号
      */
-    public String getZy() {
-        return zy;
+    public String getZyh() {
+        return zyh;
     }
 
     /**
-     * 专业
-     * @param zy 专业
+     * 专业号
+     * @param zyh 专业号
      */
-    public void setZy(String zy) {
-        this.zy = zy == null ? null : zy.trim();
+    public void setZyh(String zyh) {
+        this.zyh = zyh == null ? null : zyh.trim();
+    }
+
+    /**
+     * 专业名称
+     * @return ZYMC 专业名称
+     */
+    public String getZymc() {
+        return zymc;
+    }
+
+    /**
+     * 专业名称
+     * @param zymc 专业名称
+     */
+    public void setZymc(String zymc) {
+        this.zymc = zymc == null ? null : zymc.trim();
     }
 
     /**
      * 班级
-     * @return BJ 班级
+     * @return BJH 班级
      */
-    public String getBj() {
-        return bj;
+    public String getBjh() {
+        return bjh;
     }
 
     /**
      * 班级
-     * @param bj 班级
+     * @param bjh 班级
      */
-    public void setBj(String bj) {
-        this.bj = bj == null ? null : bj.trim();
+    public void setBjh(String bjh) {
+        this.bjh = bjh == null ? null : bjh.trim();
+    }
+
+    /**
+     * 班机名称
+     * @return BJMC 班机名称
+     */
+    public String getBjmc() {
+        return bjmc;
+    }
+
+    /**
+     * 班机名称
+     * @param bjmc 班机名称
+     */
+    public void setBjmc(String bjmc) {
+        this.bjmc = bjmc == null ? null : bjmc.trim();
     }
 
     /**
@@ -446,6 +540,22 @@ public class XmXssqjl {
     }
 
     /**
+     * null
+     * @return JLGJDQM null
+     */
+    public String getJlgjdqm() {
+        return jlgjdqm;
+    }
+
+    /**
+     * null
+     * @param jlgjdqm null
+     */
+    public void setJlgjdqm(String jlgjdqm) {
+        this.jlgjdqm = jlgjdqm == null ? null : jlgjdqm.trim();
+    }
+
+    /**
      * 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
      * @return XLCP 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
      */
@@ -527,7 +637,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-05
      */
     @Override
     public String toString() {
@@ -537,15 +647,19 @@ public class XmXssqjl {
         sb.append("Hash = ").append(hashCode());
         sb.append(", sqjlId=").append(sqjlId);
         sb.append(", xmId=").append(xmId);
+        sb.append(", xmzm=").append(xmzm);
+        sb.append(", xmmc=").append(xmmc);
         sb.append(", xh=").append(xh);
         sb.append(", xm=").append(xm);
         sb.append(", gender=").append(gender);
-        sb.append(", ycdm=").append(ycdm);
+        sb.append(", yxdm=").append(yxdm);
         sb.append(", yxmc=").append(yxmc);
         sb.append(", rxn=").append(rxn);
         sb.append(", nj=").append(nj);
-        sb.append(", zy=").append(zy);
-        sb.append(", bj=").append(bj);
+        sb.append(", zyh=").append(zyh);
+        sb.append(", zymc=").append(zymc);
+        sb.append(", bjh=").append(bjh);
+        sb.append(", bjmc=").append(bjmc);
         sb.append(", chpm=").append(chpm);
         sb.append(", zhpj=").append(zhpj);
         sb.append(", yysp=").append(yysp);
@@ -553,6 +667,7 @@ public class XmXssqjl {
         sb.append(", email=").append(email);
         sb.append(", zzje=").append(zzje);
         sb.append(", selftPay=").append(selftPay);
+        sb.append(", jlgjdqm=").append(jlgjdqm);
         sb.append(", xlcp=").append(xlcp);
         sb.append(", status=").append(status);
         sb.append(", confirmStatus=").append(confirmStatus);

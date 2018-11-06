@@ -18,6 +18,8 @@ public class CmuConstants {
         public final String USER_ID = "USER_ID";
          //用户名称
         public final String USER_NAME = "USER_NAME";
+        //用户名称
+        public final String USER_DEPT = "USER_DEPT";
 
         //用户类型
         public final String USER_TYPE = "USER_TYPE";

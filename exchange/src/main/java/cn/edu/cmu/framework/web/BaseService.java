@@ -96,4 +96,5 @@ public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends Ba
         setOrderByClauseMethod.invoke(myBatisParam,String.format(" %s %s",orderCol,orderType));
 
     }
+
 }

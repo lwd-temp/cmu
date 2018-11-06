@@ -17,4 +17,6 @@ public interface PowerMapper {
 
     List<Menu> selectUserMenu(String userId);
 
+    List<Menu> selectUserMenuByRole(String roleId);
+
 }

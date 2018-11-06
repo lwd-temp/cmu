@@ -80,11 +80,6 @@ public class Xm {
     private String jlmbjgmc;
 
     /**
-     * 交流目标国家或地区
-     */
-    private String jlmbgj;
-
-    /**
      * 项目收费标准
      */
     private BigDecimal fybz;
@@ -120,6 +115,26 @@ public class Xm {
     private String xmzyxz;
 
     /**
+     * 归属学院号
+     */
+    private String gsyxdm;
+
+    /**
+     * 归属学院名称
+     */
+    private String gsyxmc;
+
+    /**
+     * 归属学生号
+     */
+    private String gsxsdm;
+
+    /**
+     * 归属学生名称
+     */
+    private String gsxsxm;
+
+    /**
      * 项目录入人
      */
     private String operatorCode;
@@ -141,9 +156,9 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String jlmbgj, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String yyyq, String xmzyxz, String operatorCode, String status, String valid, Date createTime) {
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, String status, String valid, Date createTime) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -159,7 +174,6 @@ public class Xm {
         this.xmgk = xmgk;
         this.xmzzjh = xmzzjh;
         this.jlmbjgmc = jlmbjgmc;
-        this.jlmbgj = jlmbgj;
         this.fybz = fybz;
         this.zysm = zysm;
         this.sfxzrs = sfxzrs;
@@ -167,6 +181,10 @@ public class Xm {
         this.xmnjxz = xmnjxz;
         this.yyyq = yyyq;
         this.xmzyxz = xmzyxz;
+        this.gsyxdm = gsyxdm;
+        this.gsyxmc = gsyxmc;
+        this.gsxsdm = gsxsdm;
+        this.gsxsxm = gsxsxm;
         this.operatorCode = operatorCode;
         this.status = status;
         this.valid = valid;
@@ -175,7 +193,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     public Xm() {
         super();
@@ -422,22 +440,6 @@ public class Xm {
     }
 
     /**
-     * 交流目标国家或地区
-     * @return JLMBGJ 交流目标国家或地区
-     */
-    public String getJlmbgj() {
-        return jlmbgj;
-    }
-
-    /**
-     * 交流目标国家或地区
-     * @param jlmbgj 交流目标国家或地区
-     */
-    public void setJlmbgj(String jlmbgj) {
-        this.jlmbgj = jlmbgj == null ? null : jlmbgj.trim();
-    }
-
-    /**
      * 项目收费标准
      * @return FYBZ 项目收费标准
      */
@@ -550,6 +552,70 @@ public class Xm {
     }
 
     /**
+     * 归属学院号
+     * @return GSYXDM 归属学院号
+     */
+    public String getGsyxdm() {
+        return gsyxdm;
+    }
+
+    /**
+     * 归属学院号
+     * @param gsyxdm 归属学院号
+     */
+    public void setGsyxdm(String gsyxdm) {
+        this.gsyxdm = gsyxdm == null ? null : gsyxdm.trim();
+    }
+
+    /**
+     * 归属学院名称
+     * @return GSYXMC 归属学院名称
+     */
+    public String getGsyxmc() {
+        return gsyxmc;
+    }
+
+    /**
+     * 归属学院名称
+     * @param gsyxmc 归属学院名称
+     */
+    public void setGsyxmc(String gsyxmc) {
+        this.gsyxmc = gsyxmc == null ? null : gsyxmc.trim();
+    }
+
+    /**
+     * 归属学生号
+     * @return GSXSDM 归属学生号
+     */
+    public String getGsxsdm() {
+        return gsxsdm;
+    }
+
+    /**
+     * 归属学生号
+     * @param gsxsdm 归属学生号
+     */
+    public void setGsxsdm(String gsxsdm) {
+        this.gsxsdm = gsxsdm == null ? null : gsxsdm.trim();
+    }
+
+    /**
+     * 归属学生名称
+     * @return GSXSXM 归属学生名称
+     */
+    public String getGsxsxm() {
+        return gsxsxm;
+    }
+
+    /**
+     * 归属学生名称
+     * @param gsxsxm 归属学生名称
+     */
+    public void setGsxsxm(String gsxsxm) {
+        this.gsxsxm = gsxsxm == null ? null : gsxsxm.trim();
+    }
+
+    /**
      * 项目录入人
      * @return OPERATOR_CODE 项目录入人
      */
@@ -615,7 +681,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-10-23
+     * @mbggenerated 2018-11-04
      */
     @Override
     public String toString() {
@@ -638,7 +704,6 @@ public class Xm {
         sb.append(", xmgk=").append(xmgk);
         sb.append(", xmzzjh=").append(xmzzjh);
         sb.append(", jlmbjgmc=").append(jlmbjgmc);
-        sb.append(", jlmbgj=").append(jlmbgj);
         sb.append(", fybz=").append(fybz);
         sb.append(", zysm=").append(zysm);
         sb.append(", sfxzrs=").append(sfxzrs);
@@ -646,6 +711,10 @@ public class Xm {
         sb.append(", xmnjxz=").append(xmnjxz);
         sb.append(", yyyq=").append(yyyq);
         sb.append(", xmzyxz=").append(xmzyxz);
+        sb.append(", gsyxdm=").append(gsyxdm);
+        sb.append(", gsyxmc=").append(gsyxmc);
+        sb.append(", gsxsdm=").append(gsxsdm);
+        sb.append(", gsxsxm=").append(gsxsxm);
         sb.append(", operatorCode=").append(operatorCode);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);

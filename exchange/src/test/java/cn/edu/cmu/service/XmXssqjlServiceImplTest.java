@@ -28,8 +28,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception{
-        XmXssqjl xmXssqjl = new XmXssqjl(CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),
-                "01","01","01","01", null,null);
+        XmXssqjl xmXssqjl = null;//new XmXssqjl(CmuStringUtil.UUID(),"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34), "01","01","01","01", null,null);
         boolean success = service.insert(xmXssqjl);
         System.out.println("XmXssqjl:"+xmXssqjl);
         System.out.println("success:"+success);
@@ -71,8 +70,7 @@ public class XmXssqjlServiceImplTest extends SpringIOC {
     @Test
     public void deleteById()throws Exception{
         String keyId = CmuStringUtil.UUID();
-        XmXssqjl xmXssqjl = new XmXssqjl(keyId,"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34),
-                "01","01","01","01", null,null);
+        XmXssqjl xmXssqjl = null;//new XmXssqjl(keyId,"01", "01","01","01","01","01","01","01","01","01","01","01","01","01","01", BigDecimal.valueOf(1.34), "01","01","01","01", null,null);
         boolean success = service.insert(xmXssqjl);
         System.out.println("保存成功："+success);
         XmXssqjl queryXmXssqjl = service.queryById(keyId);

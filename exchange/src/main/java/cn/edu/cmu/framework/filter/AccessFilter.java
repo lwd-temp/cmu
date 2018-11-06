@@ -1,8 +1,6 @@
 package cn.edu.cmu.framework.filter;
 
-import cn.edu.cmu.dao.BksXsjbsjxxMapper;
-import cn.edu.cmu.dao.JzgMapper;
-import cn.edu.cmu.dao.YjsXsjbsjxxMapper;
+import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
@@ -68,6 +66,7 @@ public class AccessFilter implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
+        HttpSession session = request.getSession();
 
         String uri = CmuStringUtil.REQUEST_URI(request);
         String ext = CmuStringUtil.REQUEST_EXTENSION_NAME(uri);
@@ -83,6 +82,13 @@ public class AccessFilter implements Filter {
             e.printStackTrace();
             return;
         }
+
+        String userType = (String) session.getAttribute(CmuConstants.SESSION.USER_TYPE);
+        if(!userType.equals(CmuConstants.SESSION.USER_TYPE_JZG) ){
+            logger.debug("非教职工登录，登录画面特殊处理...");
+        }
+
+
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
@@ -130,16 +136,19 @@ public class AccessFilter implements Filter {
     private void queryUserBody(String loginUserType, String sessionUserId, HttpSession session) throws Exception {
         //教职工
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_JZG)) {
+            logger.debug("获取教职工登录信息");
             queryJzgBody(loginUserType, sessionUserId,session);
         }
         //本科生
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_BKS)) {
+            logger.debug("获取本科生登录信息");
             queryBksBody(loginUserType, sessionUserId,session);
         }
 
 
         //研究生
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_YJS)) {
+            logger.debug("获取研究生登录信息");
             queryYjsBody(loginUserType, sessionUserId,session);
         }
     }
@@ -160,10 +169,23 @@ public class AccessFilter implements Filter {
         if(CollectionUtils.isEmpty(list)){
             throw new Exception("根据学号["+sessionUserId+"]，未查询到研究生信息..");
         }
+        //学生
         YjsXsjbsjxx yjs = (YjsXsjbsjxx) list.get(0);
+
+        //学籍
+        YjsXjjbsjxxMapper yjsXjDao = WebAppContextUtils.getBean(YjsXjjbsjxxMapper.class);
+        YjsXjjbsjxxParams xjjbsjxxParams = new YjsXjjbsjxxParams();
+        xjjbsjxxParams.createCriteria().andXhEqualTo(sessionUserId);
+
+        List xjList = yjsXjDao.selectByExample(xjjbsjxxParams);
+
+        YjsXjjbsjxx xjDto = (YjsXjjbsjxx) xjList.get(0);
+
+
+
         session.setAttribute(CmuConstants.SESSION.USER_INFO_YJS, yjs);
         session.setAttribute(CmuConstants.SESSION.USER_NAME, yjs.getXm());
-
+        session.setAttribute(CmuConstants.SESSION.USER_DEPT, xjDto.getYxsh());
     }
 
     /**
@@ -183,8 +205,22 @@ public class AccessFilter implements Filter {
             throw new Exception("根据学号["+sessionUserId+"]，未查询到本科生信息..");
         }
         BksXsjbsjxx bks = (BksXsjbsjxx) list.get(0);
-        session.setAttribute(CmuConstants.SESSION.USER_INFO_JZG, bks);
+
+
+        //学籍
+        BksXjjbsjxxMapper bksXjDao = WebAppContextUtils.getBean(BksXjjbsjxxMapper.class);
+        BksXjjbsjxxParams xjjbsjxxParams = new BksXjjbsjxxParams();
+        xjjbsjxxParams.createCriteria().andXhEqualTo(sessionUserId);
+
+        List xjList = bksXjDao.selectByExample(xjjbsjxxParams);
+
+        BksXjjbsjxx xjDto = (BksXjjbsjxx) xjList.get(0);
+
+
+
+        session.setAttribute(CmuConstants.SESSION.USER_INFO_BKS, bks);
         session.setAttribute(CmuConstants.SESSION.USER_NAME, bks.getXm());
+        session.setAttribute(CmuConstants.SESSION.USER_DEPT, xjDto.getYxsh());
 
     }
 
@@ -209,6 +245,7 @@ public class AccessFilter implements Filter {
         Jzg jzg = (Jzg) list.get(0);
         session.setAttribute(CmuConstants.SESSION.USER_INFO_JZG, jzg);
         session.setAttribute(CmuConstants.SESSION.USER_NAME, jzg.getXm());
+        session.setAttribute(CmuConstants.SESSION.USER_DEPT, jzg.getDwh());
     }
 
     @Override

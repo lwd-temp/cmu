@@ -33,5 +33,14 @@
 
 
 
+    <select id="selectUserMenuByRole" parameterType="java.lang.String" resultMap="cn.edu.cmu.dao.MenuMapper.BaseResultMap">
+         select distinct *
+          from t_sys_menu m inner join t_sys_role_menu  rm on m.menu_id = rm.menu_id
+         where m.valid='1'  and rm.role_id = #{roleId,jdbcType=VARCHAR}
+         order by sort
+    </select>
+
+
+
 
 </mapper>

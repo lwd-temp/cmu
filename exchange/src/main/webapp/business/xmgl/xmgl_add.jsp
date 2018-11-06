@@ -126,7 +126,7 @@
 
                             <div class="form-group selectgs">
 
-                                <label class="col-xs-2 control-label "> 归谁院系: </label>
+                                <label class="col-xs-2 control-label "> 归属院系: </label>
                                 <div class="col-xs-4">
 
                                     <input   name="xm.gsyxdm" id="gsyxdm" value=""  id="gsyxdm" type="hidden" />
@@ -146,7 +146,7 @@
 
                                 <label class="col-xs-2 control-label "> 交流目标国家或地区: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control " name="xm.jlmbgj" id="jlmbgj" value="" type="text"/>
+                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   data-placeholder="请选择国别"  ></dm:list>
                                 </div>
 
 
@@ -189,8 +189,7 @@
                                 <div class="col-xs-4">
 
 
-                                    <dm:list sourceList="${zyList}" keyPro="code" valuePro="name" id="jfly" name="xm.jfly" multiple="multiple" data-placeholder="项目专业限制"></dm:list>
-
+                                    <dm:list sourceList="${zyList}"   id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
 
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
                                         <option value="2014" >临床医学</option>
@@ -200,11 +199,7 @@
                                 </div>
                                 <label class="col-xs-2 control-label "> 语言要求: </label>
                                 <div class="col-xs-4">
-                                    <select class="form-control chosen-select" name="xm.yyyq" id="yyyq" data-placeholder="请选择语言" multiple="multiple">
-                                        <option value="英语">英语</option>
-                                        <option value="俄语">俄语</option>
-                                        <option value="法语">法语</option>
-                                    </select>
+                                    <dm:list tabName="t_dm_yy"  value="" id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
                                 </div>
 
                             </div>
@@ -277,11 +272,16 @@
 
     $(function () {
 
+        //设置验证.
+        setFormValidate();
+
         var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
 
-        $('#xmnjxz').inputSelect([2015, 2016, 2017, 2018, 2019]);
 
         $('#jlmbjgmc').inputSelect(names);
+
+        $('#xmnjxz').inputSelect('xm/listNj');
+        $('#xmzm').inputSelect('xm/listMc');
 
 
         //根据项目层次 设置归属院系、归属学生显隐
@@ -322,7 +322,8 @@
                 validator.focusInvalid();
                 return;
             }
-            var id = $(this).attr(id);
+            var id = $(this).attr('id');
+
             if ("btnSave" == id) {
                 $("#status").val('01');
             } else {
@@ -341,28 +342,8 @@
             })
         });
 
-
-        $("button.btnStuAdd").click(selectStu)
-
     });
 
-    function selectStu() {
-        var index = parent.layer.open({
-            type: 2,
-            area: ['1000px', ($(parent).height() - 10) + "px"],
-            maxmin: true,
-            content: 'http://www.baidu.com',
-            success: function (layero, index) {
-
-                var fraWinName = layero.find('iframe')[0]['name'];
-                //设置打开窗口的回调函数,及调用此函数接受参数
-                parent.frames[fraWinName].onload = function () {
-                    alert('页面加载完成...');
-                };
-            },
-        });
-
-    }
 
 
     /**
@@ -400,11 +381,12 @@
             $("#gsxs").attr("placeholder","非个人项目无需录入学生");
         }
 
-
     }
 
+
+    //添加校验
     function setFormValidate() {
-        //添加校验
+
         validator = $("#form").setValid({
             ignore: ".ignore",
             //校验规则
@@ -426,7 +408,13 @@
                 'xm.xmzyxz': 'required',
                 'xm.yyyq': 'required',
                 'xm.xmgk': 'required',
-                'xm.xmzzjh': 'required'
+                'xm.xmzzjh': 'required',
+                'xm.gsyxmc':{required:function(){
+                        return ($("#xmcc").val() =='02' || $("#xmcc").val()== '03')
+                    }},
+                'xm.gsxsxm':{required:function(){
+                        return $("#xmcc").val() == '03';
+                    }}
             }
         });
     }
@@ -452,6 +440,10 @@
             },
         });
     }
+
+    /**
+     * 选择归属学生
+     */
     function selectXs(){
         var unitId = $("#gsyxdm").val();
         var index = parent.layer.open({

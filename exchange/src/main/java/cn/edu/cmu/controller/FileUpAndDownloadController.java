@@ -1,6 +1,7 @@
 package cn.edu.cmu.controller;
 
 import cn.edu.cmu.domain.Upload;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.AccessUtils;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.YmlUtils;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
@@ -65,10 +67,11 @@ public class FileUpAndDownloadController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/upload")
-    public Map upload(@RequestParam("file") CommonsMultipartFile[] file, HttpServletRequest request) {
+    public Map upload(@RequestParam("file") CommonsMultipartFile[] file, HttpServletRequest request, HttpSession session) {
         try {
 
-            String operator = "操作员";
+            String userName = (String)session.getAttribute(CmuConstants.SESSION.USER_NAME);
+
             Date now = new Date();
             String requestIP = AccessUtils.getIpAddress(request);//操作ip
             List<String> uploadFileIds = new ArrayList();
@@ -80,7 +83,7 @@ public class FileUpAndDownloadController extends BaseController {
                 String oriFileName = commonsMultipartFile.getOriginalFilename();
                 long size = commonsMultipartFile.getSize();
 
-                logger.info(String.format("操作员:%s ,ip:%s上传文件,原始文件名:%s,大小:%d", operator, requestIP, oriFileName, size));
+                logger.info(String.format("用户:%s ,ip:%s上传文件,原始文件名:%s,大小:%d", userName, requestIP, oriFileName, size));
 
                 String fileId = CmuStringUtil.UUID();
                 String ext = CmuStringUtil.fileExt(oriFileName);//文件扩展名
@@ -96,7 +99,7 @@ public class FileUpAndDownloadController extends BaseController {
                 commonsMultipartFile.transferTo(dest);
 
                 //生成待保存的 上传信息数据
-                Upload upload = new Upload(fileId, relativePath, ext, operator, requestIP, null, null);
+                Upload upload = new Upload(fileId, relativePath, ext, userName, requestIP, null, null);
 
                 uploadFileIds.add(fileId);//追加所有上传文件的id（uuid）
                 uploads.add(upload);//所有上传文件

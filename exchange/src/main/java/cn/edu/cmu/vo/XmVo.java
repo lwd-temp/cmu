@@ -1,6 +1,9 @@
 package cn.edu.cmu.vo;
 
 import cn.edu.cmu.domain.Xm;
+import cn.edu.cmu.domain.XmGjdq;
+
+import java.util.Arrays;
 
 /**
  * @Author: jshand
@@ -13,6 +16,8 @@ public class XmVo {
 
     private Xm xm;
 
+    private String[] gbs;
+
     public Xm getXm() {
         return xm;
     }
@@ -21,10 +26,19 @@ public class XmVo {
         this.xm = xm;
     }
 
+    public String[] getGbs() {
+        return gbs;
+    }
+
+    public void setGbs(String[] gbs) {
+        this.gbs = gbs;
+    }
+
     @Override
     public String toString() {
         return "XmVo{" +
                 "xm=" + xm +
+                ", gbs=" + Arrays.toString(gbs) +
                 '}';
     }
 }
