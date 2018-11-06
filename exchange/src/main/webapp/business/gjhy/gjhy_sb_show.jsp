@@ -219,21 +219,15 @@
                                     </div>
                                 </c:forEach>
                             </c:if>
-
-
-
-                            <div id="btns" class="col-md-offset-3 col-md-9">
-                                <button class="btn btn-danger btn-sm" id="close" type="button">
+                             <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
+                                <button class="btn btn-info btn-sm" id="close" type="button">
                                     <i class="ace-icon fa fa-close bigger-110"></i>
                                     关闭
                                 </button>
-
-
-
                             </div>
-
+                           &nbsp;&nbsp;&nbsp;
                         </form>
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->

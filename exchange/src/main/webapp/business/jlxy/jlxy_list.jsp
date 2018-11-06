@@ -53,7 +53,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['850px', ($(window).height()-20)+"px"],
+                        area: ['850px', ($(window).height()-350)+"px"],
                         title:'添加协议',
                         content:'business/jlxy/jlxy_add.jsp',
                     });
@@ -97,14 +97,14 @@
                 {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         var fileId = rowObject.uploadId;
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick=\"uploadXy('"+id+"')\" ><i class='ace-icon fa fa-upload '>上传</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='测试' ><i class='ace-icon fa fa-download '>下载</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='上传' onclick=\"uploadXy('"+id+"')\" ><i class='ace-icon fa fa-upload '>上传</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-success btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
                     }
                 },
                 {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editHzxy(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='查看' onclick='delHzxy(\""+id+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='编辑' onclick='editHzxy(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHzxy(\""+id+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -150,7 +150,7 @@
     //修改
     function editHzxy(bzid){
         layer.newpage({
-            area: ['850px', ($(window).height()-20)+"px"],
+            area: ['850px', ($(window).height()-350)+"px"],
             title:'编辑协议',
             content:'jlxy/toEdit?id='+bzid
         });

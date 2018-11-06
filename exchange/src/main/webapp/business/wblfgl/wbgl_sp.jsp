@@ -216,13 +216,13 @@
             </div>
             <hr/>
             <div class="form-group">
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                     姓名
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                     国籍
                 </div>
-                <div class="col-xs-3">
+                <div class="col-xs-4">
                     职务
                 </div>
 
@@ -231,50 +231,48 @@
                 <c:when test="${sxryList!=null && sxryList.size()>0}">
                     <c:forEach items="${sxryList}" var="sxr">
                         <div class="form-group sxr">
-                            <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名"  disabled="disabled"  value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍" disabled="disabled"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务" disabled="disabled"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-4"><input type="text" inp="xm" placeholder="姓名"  disabled="disabled"  value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-4"><input type="text" inp="gj"  placeholder="国籍" disabled="disabled"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                            <div class="col-xs-4"><input type="text" inp="zw"  placeholder="职务" disabled="disabled"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
 
                         </div>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>
                     <div class="form-group sxr">
-                        <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名"  disabled="disabled"  name="sxr[@].xm" class="col-xs-12"/></div>
-                        <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍"  disabled="disabled"  name="sxr[@].gj" class="col-xs-12"/></div>
-                        <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"   disabled="disabled"  name="sxr[@].zw" class="col-xs-12"/></div>
+                        <div class="col-xs-4"><input type="text" inp="xm"   placeholder="姓名"  disabled="disabled"  name="sxr[@].xm" class="col-xs-12"/></div>
+                        <div class="col-xs-4"><input type="text" inp="gj"   placeholder="国籍"  disabled="disabled"  name="sxr[@].gj" class="col-xs-12"/></div>
+                        <div class="col-xs-4"><input type="text" inp="zw"  placeholder="职务"   disabled="disabled"  name="sxr[@].zw" class="col-xs-12"/></div>
 
                     </div>
                 </c:otherwise>
             </c:choose>
-            <div class="col-md-offset-2 col-md-9">
-                &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                <button class="btn btn-info btn-sm" id="btnPass" type="button">
+            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                <hr/>
+                <button class="btn btn-success btn-sm" id="btnPass" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>
                     通过
                 </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;
                 <button class="btn btn-danger btn-sm" id="btnBack" type="button">
                     <i class="ace-icon fa fa-backward bigger-110"></i>
                     退回
                 </button>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <%--&nbsp;&nbsp;&nbsp;
                 <button class="btn btn-success btn-sm" id="btnClose" type="button">
                     <i class="ace-icon fa fa-close bigger-110"></i>
                     关闭
-                </button>
+                </button>--%>
             </div>
-            &nbsp; &nbsp; &nbsp;
-        </div>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;
         </div>
     </div>
 </form>
 <div id="template" style="display: none">
     <div class="form-group sxr" >
-        <div class="col-xs-3"><input type="text" inp="xm" disabled="disabled"  placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="zw"  disabled="disabled" placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
+        <div class="col-xs-4"><input type="text" inp="xm" disabled="disabled"  placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
+        <div class="col-xs-4"><input type="text" inp="gj"  disabled="disabled" placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
+        <div class="col-xs-4"><input type="text" inp="zw"  disabled="disabled" placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
     </div>
 </div>
 <script src='assets/js/jquery.js'></script>

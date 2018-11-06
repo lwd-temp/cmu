@@ -273,13 +273,14 @@
                     </div>
                 </div>
 
-                <div id="btns" class="col-md-offset-3 col-md-9">
+                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <hr/>
                     <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         暂存
                     </button>
                     &nbsp; &nbsp; &nbsp;
-                    <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
+                    <button class="btn btn-success btn-sm btns" id="submitForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         提交
                     </button>

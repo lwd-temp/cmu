@@ -48,7 +48,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', ($(window).height()-40)+"px"],
+                        area: ['1100px', ($(window).height()-120)+"px"],
                         title:'申请短期出国',
                         content:'cggl/add',
                     });
@@ -62,13 +62,13 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm' },
-                {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm' ,width:'25%'},
+                {name:'xb',index:'xb', width:'20%',formatter:function(xb,options,rowObject){
                     return dmcache.getCode('t_dm_xb',xb);
                 }},
                 {name:'ssejdw',index:'ssejdw', hidden:true },
-                {name:'cfgj',index:'cfgj',  },
-                {name:'status',index:'status', formatter:function(status,options,rowObject) {
+                {name:'cfgj',index:'cfgj', width:'20%' },
+                {name:'status',index:'status', width:'20%',formatter:function(status,options,rowObject) {
                         switch (status) {
                             case '01':
                                 zt = "暂存";
@@ -89,15 +89,15 @@
                         return zt;
                     }
                 },
-                {name:'cgid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'cgid',index:'',  width:'15%',sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == '01'||zt == '03'){
                             return  "<button class='btn btn-info btn-mini' title='编辑' onclick='editCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-pencil '>编辑</i></button>"+
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除'  onclick='delCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else {
-                            return  "<button class='btn btn-warning btn-mini' title='查看' onclick='showCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>查看</i></button>"+
-                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='导出pdf' onclick='downCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>导出pdf</i></button>";
+                            return  "<button class='btn btn-success btn-mini' title='查看' onclick='showCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>查看</i></button>"+
+                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='导出pdf' onclick='downCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-download '>导出pdf</i></button>";
 
                         }
                     }
@@ -126,7 +126,7 @@
     //修改
     function editCgsq(cgid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+"px"],
+            area: ['1100px', ($(window).height()-120)+"px"],
             title:'编辑出国申请',
             content:'cggl/toEdit?id='+cgid,
         });
@@ -134,8 +134,8 @@
     //查看
     function showCgsq(cgid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+"px"],
-            title:'编辑出国申请',
+            area: ['1100px', ($(window).height()-150)+"px"],
+            title:'查看出国申请',
             content:'cggl/show?id='+cgid,
         });
     }

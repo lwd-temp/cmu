@@ -67,7 +67,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', ($(window).height()-10)+"px"],
+                        area: ['1100px', ($(window).height()-200)+"px"],
                         title:'填写会议计划',
                         content:'business/gjhy/gjhy_jh_add.jsp',
                     });
@@ -97,8 +97,8 @@
 
                 {name:'jhid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(jhid, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editGjhyJh(\""+jhid+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjhyJh(\""+jhid+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='修改' onclick='editGjhyJh(\""+jhid+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjhyJh(\""+jhid+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -138,7 +138,7 @@
     //修改用户
     function editGjhyJh(jhid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-10)+"px"],
+            area: ['1100px', ($(window).height()-200)+"px"],
             title:'修改会议计划',
             content:'hyjh/toEdit?id='+jhid,
         });

@@ -56,10 +56,10 @@
                             <textarea class="form-control" name="sqbsm" id="sqbsm" maxlength="300">${cgdqcgj.sqbsm}</textarea>
                         </div>
                     </div>
-                &nbsp; &nbsp; &nbsp;
-                    <div id="btns" class="col-md-offset-3 col-md-9">
-                        <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
+                    &nbsp; &nbsp; &nbsp;
+                    <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                        <button class="btn btn-warning btn-sm btns" id="submitForm" type="button">
+                            <i class="ace-icon fa fa-download bigger-110"></i>
                             导出pdf
                         </button>
                         <button class="btn btn-danger btn-sm btns" id="btnClose" type="button">
@@ -67,7 +67,6 @@
                             关闭
                         </button>
                     </div>
-
                     &nbsp; &nbsp; &nbsp;
             </div>
         </div>

@@ -79,29 +79,19 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" role="form">
-
-
-
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 归档材料  : </label>
                                 <div class="col-xs-10">
                                     <input type="file" id="id-input-file-1" />
 
                                 </div>
-
-
                             </div>
-
-
                             <div class="col-md-offset-3 col-md-9">
 
                                 <button class="btn btn-info btn-minier" type="button">
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     提交
                                 </button>
-
-
-
                             </div>
 
                         </form>

@@ -10,7 +10,7 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 外籍教师姓名: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 外籍教师姓名: </label>
 
             <div class="col-sm-5">
                 <input type="text" id="condition" placeholder="外籍教师姓名" class="col-xs-12" />
@@ -66,7 +66,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-20)+"px"],
+                        area: ['900px', ($(window).height()-400)+"px"],
                         title:'添加教师',
                         content:'business/jsgl/jsgl_add.jsp',
                     });
@@ -116,8 +116,8 @@
 
                 {name:'tid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(tid, options, rowObject){
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick='editjsgl(\""+tid+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-warning btn-mini' title='删除' onclick='deljsgl(\""+tid+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='编辑' onclick='editjsgl(\""+tid+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='deljsgl(\""+tid+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -150,7 +150,7 @@
     //修改用户
     function editjsgl(tid){
         layer.newpage({
-            area: ['900px', ($(window).height()-20)+"px"],
+            area: ['900px', ($(window).height()-400)+"px"],
             title:'编辑教师',
             content:'wjjs/toEdit?id='+tid
         });

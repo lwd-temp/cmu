@@ -120,9 +120,9 @@
                 {name:'roleId',index:'', /*fixed:true,*/ sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var idStr = "'"+cellvalue+"'";
-                        return "<button class='btn btn-info btn-mini' title='测试' onclick=\"editRole("+idStr+")\" ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='测试' onclick=\"grant("+idStr+")\" ><i class='ace-icon fa fa-pencil '>授权</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"delRole("+idStr+")\" title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        return "<button class='btn btn-info btn-mini' title='修改' onclick=\"editRole("+idStr+")\" ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='授权' onclick=\"grant("+idStr+")\" ><i class='ace-icon fa fa-pencil '>授权</i></button>" +
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick=\"delRole("+idStr+")\" title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -161,7 +161,7 @@
 
     function grant(roleId){
         layer.newpage({
-            area: ['300px', '590px'],
+            area: ['500px', '500px'],
             title:'角色【授权】',
             content:'sys/role/toGrant?id='+roleId,
         });

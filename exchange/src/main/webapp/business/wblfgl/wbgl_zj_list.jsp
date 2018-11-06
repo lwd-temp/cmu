@@ -99,7 +99,7 @@
                         if("0" == status ){
                             btns = "<button class='btn btn-success btn-mini' onclick='zjWbgl(\""+lfid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
                         }else {
-                            btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-calendar '>编辑</i></button>";
+                            btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
                         }
                         return btns;
                     }

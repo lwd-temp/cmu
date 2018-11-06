@@ -272,7 +272,8 @@
                         <input type="text"    readonly="readonly" disabled="disabled" value="${cgdqcgj.shyj}" class="col-xs-12" />
                     </div>
                 </div>
-                <div id="btns" class="col-md-offset-3 col-md-9">
+                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <hr/>
                     <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         暂存
@@ -283,7 +284,7 @@
                         提交
                     </button>
                 </div>
-                &nbsp; &nbsp; &nbsp;
+                &nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>

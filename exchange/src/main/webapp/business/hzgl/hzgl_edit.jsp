@@ -157,18 +157,14 @@
                                     <input type="text"  name="dcwfqzhmQt" value="${hz.dcwfqzhmQt}"  class="col-xs-12" />
                                 </div>
                             </div>
-
-
-
-
-                            <div class=" form-actions">
-                                <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                                <hr/>
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
                                         <i class="ace-icon fa fa-check bigger-110"></i>
                                         保存
                                     </button>
                                 </div>
-                            </div>
+                             &nbsp;&nbsp;&nbsp;
                         </form>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
