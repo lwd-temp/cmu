@@ -22,7 +22,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public XmXssbfjParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class XmXssbfjParams {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class XmXssbfjParams {
     }
 
     /**
-     * T_XM_XSSBFJ 2018-09-22
+     * T_XM_XSSBFJ 2018-11-06
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -231,6 +231,76 @@ public class XmXssbfjParams {
             return (Criteria) this;
         }
 
+        public Criteria andSqjlIdIsNull() {
+            addCriterion("SQJL_ID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdIsNotNull() {
+            addCriterion("SQJL_ID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdEqualTo(String value) {
+            addCriterion("SQJL_ID =", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdNotEqualTo(String value) {
+            addCriterion("SQJL_ID <>", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdGreaterThan(String value) {
+            addCriterion("SQJL_ID >", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdGreaterThanOrEqualTo(String value) {
+            addCriterion("SQJL_ID >=", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdLessThan(String value) {
+            addCriterion("SQJL_ID <", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdLessThanOrEqualTo(String value) {
+            addCriterion("SQJL_ID <=", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdLike(String value) {
+            addCriterion("SQJL_ID like", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdNotLike(String value) {
+            addCriterion("SQJL_ID not like", value, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdIn(List<String> values) {
+            addCriterion("SQJL_ID in", values, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdNotIn(List<String> values) {
+            addCriterion("SQJL_ID not in", values, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdBetween(String value1, String value2) {
+            addCriterion("SQJL_ID between", value1, value2, "sqjlId");
+            return (Criteria) this;
+        }
+
+        public Criteria andSqjlIdNotBetween(String value1, String value2) {
+            addCriterion("SQJL_ID not between", value1, value2, "sqjlId");
+            return (Criteria) this;
+        }
+
         public Criteria andFileIdIsNull() {
             addCriterion("FILE_ID is null");
             return (Criteria) this;
@@ -301,73 +371,73 @@ public class XmXssbfjParams {
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdIsNull() {
-            addCriterion("SQJL_ID is null");
+        public Criteria andClsmIsNull() {
+            addCriterion("CLSM is null");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdIsNotNull() {
-            addCriterion("SQJL_ID is not null");
+        public Criteria andClsmIsNotNull() {
+            addCriterion("CLSM is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdEqualTo(String value) {
-            addCriterion("SQJL_ID =", value, "sqjlId");
+        public Criteria andClsmEqualTo(String value) {
+            addCriterion("CLSM =", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdNotEqualTo(String value) {
-            addCriterion("SQJL_ID <>", value, "sqjlId");
+        public Criteria andClsmNotEqualTo(String value) {
+            addCriterion("CLSM <>", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdGreaterThan(String value) {
-            addCriterion("SQJL_ID >", value, "sqjlId");
+        public Criteria andClsmGreaterThan(String value) {
+            addCriterion("CLSM >", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdGreaterThanOrEqualTo(String value) {
-            addCriterion("SQJL_ID >=", value, "sqjlId");
+        public Criteria andClsmGreaterThanOrEqualTo(String value) {
+            addCriterion("CLSM >=", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdLessThan(String value) {
-            addCriterion("SQJL_ID <", value, "sqjlId");
+        public Criteria andClsmLessThan(String value) {
+            addCriterion("CLSM <", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdLessThanOrEqualTo(String value) {
-            addCriterion("SQJL_ID <=", value, "sqjlId");
+        public Criteria andClsmLessThanOrEqualTo(String value) {
+            addCriterion("CLSM <=", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdLike(String value) {
-            addCriterion("SQJL_ID like", value, "sqjlId");
+        public Criteria andClsmLike(String value) {
+            addCriterion("CLSM like", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdNotLike(String value) {
-            addCriterion("SQJL_ID not like", value, "sqjlId");
+        public Criteria andClsmNotLike(String value) {
+            addCriterion("CLSM not like", value, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdIn(List<String> values) {
-            addCriterion("SQJL_ID in", values, "sqjlId");
+        public Criteria andClsmIn(List<String> values) {
+            addCriterion("CLSM in", values, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdNotIn(List<String> values) {
-            addCriterion("SQJL_ID not in", values, "sqjlId");
+        public Criteria andClsmNotIn(List<String> values) {
+            addCriterion("CLSM not in", values, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdBetween(String value1, String value2) {
-            addCriterion("SQJL_ID between", value1, value2, "sqjlId");
+        public Criteria andClsmBetween(String value1, String value2) {
+            addCriterion("CLSM between", value1, value2, "clsm");
             return (Criteria) this;
         }
 
-        public Criteria andSqjlIdNotBetween(String value1, String value2) {
-            addCriterion("SQJL_ID not between", value1, value2, "sqjlId");
+        public Criteria andClsmNotBetween(String value1, String value2) {
+            addCriterion("CLSM not between", value1, value2, "clsm");
             return (Criteria) this;
         }
 
@@ -513,7 +583,7 @@ public class XmXssbfjParams {
     }
 
     /**
-     * T_XM_XSSBFJ 2018-09-22
+     * T_XM_XSSBFJ 2018-11-06
      */
     public static class Criterion {
         private String condition;

@@ -27,7 +27,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save()throws Exception {
-        XmXssbfj xmXssbfj = new XmXssbfj(CmuStringUtil.UUID(),"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
+        XmXssbfj xmXssbfj = null;//new XmXssbfj(CmuStringUtil.UUID(),"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
         boolean success = service.insert(xmXssbfj);
         System.out.println("XmXssbfj:"+xmXssbfj);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class XmXssbfjServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
-        XmXssbfj xmXssbfj = new XmXssbfj(keyId,"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
+        XmXssbfj xmXssbfj = null;//new XmXssbfj(keyId,"485600be9cb34b20b0340a376756f064","3f19f18698e84388a7f655fd0c65f0a2",null,null);
         boolean success = service.insert(xmXssbfj);
         System.out.println("保存成功："+success);
         XmXssbfj queryXmXssbfj = service.queryById(keyId);

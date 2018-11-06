@@ -9,14 +9,19 @@ public class XmXssbfj {
     private String fjId;
 
     /**
+     * 申请记录id
+     */
+    private String sqjlId;
+
+    /**
      * 文件id
      */
     private String fileId;
 
     /**
-     * 申请记录id
+     * 材料说明
      */
-    private String sqjlId;
+    private String clsm;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -30,19 +35,20 @@ public class XmXssbfj {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
-    public XmXssbfj(String fjId, String fileId, String sqjlId, String valid, Date createTime) {
+    public XmXssbfj(String fjId, String sqjlId, String fileId, String clsm, String valid, Date createTime) {
         this.fjId = fjId;
-        this.fileId = fileId;
         this.sqjlId = sqjlId;
+        this.fileId = fileId;
+        this.clsm = clsm;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     public XmXssbfj() {
         super();
@@ -65,6 +71,22 @@ public class XmXssbfj {
     }
 
     /**
+     * 申请记录id
+     * @return SQJL_ID 申请记录id
+     */
+    public String getSqjlId() {
+        return sqjlId;
+    }
+
+    /**
+     * 申请记录id
+     * @param sqjlId 申请记录id
+     */
+    public void setSqjlId(String sqjlId) {
+        this.sqjlId = sqjlId == null ? null : sqjlId.trim();
+    }
+
+    /**
      * 文件id
      * @return FILE_ID 文件id
      */
@@ -81,19 +103,19 @@ public class XmXssbfj {
     }
 
     /**
-     * 申请记录id
-     * @return SQJL_ID 申请记录id
+     * 材料说明
+     * @return CLSM 材料说明
      */
-    public String getSqjlId() {
-        return sqjlId;
+    public String getClsm() {
+        return clsm;
     }
 
     /**
-     * 申请记录id
-     * @param sqjlId 申请记录id
+     * 材料说明
+     * @param clsm 材料说明
      */
-    public void setSqjlId(String sqjlId) {
-        this.sqjlId = sqjlId == null ? null : sqjlId.trim();
+    public void setClsm(String clsm) {
+        this.clsm = clsm == null ? null : clsm.trim();
     }
 
     /**
@@ -130,7 +152,7 @@ public class XmXssbfj {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-06
      */
     @Override
     public String toString() {
@@ -139,8 +161,9 @@ public class XmXssbfj {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", fjId=").append(fjId);
-        sb.append(", fileId=").append(fileId);
         sb.append(", sqjlId=").append(sqjlId);
+        sb.append(", fileId=").append(fileId);
+        sb.append(", clsm=").append(clsm);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

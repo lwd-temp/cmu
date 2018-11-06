@@ -335,7 +335,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         xmfjDao.deleteByExample(fjParam);
         XmXssbfj fj = null;
         for (int i = 0; i < fileid.length; i++) {
-            fj = new XmXssbfj(CmuStringUtil.UUID(), fileid[i], jl.getSqjlId(),null,null);
+            fj = new XmXssbfj(CmuStringUtil.UUID(),jl.getSqjlId(), fileid[i], clsm[i],null,null);
             xmfjDao.insertSelective(fj);//添加附件
         }
 
