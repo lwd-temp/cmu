@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,13 +95,19 @@
         <li>
             <a data-toggle="tab" href="#messages">
                 申报材料
-                <span class="badge badge-danger">2</span>
+                <c:if  test="${fjList != null && fjList.size() >0 }">
+                    <span class="badge badge-danger">${fjList.size()}</span>
+                </c:if>
             </a>
+
         </li>
+
         <li>
             <a data-toggle="tab" href="#ysqxm">
                 已申请项目
-                <span class="badge badge-danger">3</span>
+                <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
+                    <span class="badge badge-danger">${ysqxmList.size()}</span>
+                </c:if>
             </a>
         </li>
 
@@ -110,182 +119,195 @@
 
 
             <form class="form-horizontal" role="form">
+                <input type="hidden" name="sqjlId" id="sqjlId" value="${sqjl.sqjlId}" />
+                <input type="hidden" name="xmId" id="xmId" value="${sqjl.xmId}" />
+                <input type="hidden" name="status" id="status" value="${sqjl.status}" />
+                <input type="hidden" name="confirmStatus" id="confirmStatus" value="${sqjl.confirmStatus}" />
                 <!-- #section:elements.form -->
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 项目总名: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="xxxxxxx项目总名" readonly="readonly"    class="col-xs-12" />
+                        <input type="text"   name="xmzm" id="xmzm" value="${sqjl.xmzm}" readonly="readonly"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 项目名称: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="初审xxxxxxx项目项目名称" readonly="readonly"     class="col-xs-12" />
+                        <input type="text"  name="xmmc"  id="xmmc" value="${sqjl.xmmc}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 学号 : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="2015021303" readonly="readonly"    class="col-xs-12" />
+                        <input type="text"  name="xh" id="xh"  value="${sqjl.xh}" readonly="readonly"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 姓名: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="温家宝" readonly="readonly"     class="col-xs-12" />
+                        <input type="text"  name="xm"  id="xm" value="${sqjl.xm}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 性别  : </label>
                     <div class="col-xs-4">
-                        <input name="form-field-radio"  disabled="" type="radio" class="ace"  checked/>
-                        <span class="lbl"> 男</span>
-                        <input name="form-field-radio"  disabled="" type="radio"  class="ace" />
-                        <span class="lbl"> 女</span>
+                        <dm:list tabName="T_DM_XB" type="radio" name="gender" id="gender" value="${sqjl.gender}" readonly="readonly"/>
                     </div>
 
                     <label class="col-xs-2 control-label "  > 院系: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="基础医学院" readonly="readonly"     class="col-xs-12" />
+                        <input type="hidden" name="yxdm" id="yxdm" value="${sqjl.yxdm}" />
+                        <input type="text"  name="yxmc"  id="yxmc" value="${sqjl.yxmc}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 入学年级   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="2014" readonly="readonly"     class="col-xs-12" />
+                        <input type="text"  name="rxn" id="rxn" value="${sqjl.rxn}" readonly="readonly"     class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 年级: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="2014" readonly="readonly"     class="col-xs-12" />
+                        <input type="text"  name="nj" id="nj"  value="${sqjl.nj}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 专业   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="麻醉学" readonly="readonly"     class="col-xs-12" />
+                        <input type="hidden" name="zyh" id="zyh" value="${sqjl.zyh}" />
+                        <input type="text"  name="zymc" id="zymc"  value="${sqjl.zymc}" readonly="readonly"     class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 班级: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="基础医学麻醉01班" readonly="readonly"     class="col-xs-12" />
+                        <input type="hidden" name="bjh" id="bjh" value="${sqjl.bjh}" />
+                        <input type="text"  name="bjmc"  id="bjmc" value="${sqjl.bjmc}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 成绩排名   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"  value="8/1021"   id="cjpm1" placeholder="格式20/100" readonly="readonly"    class="col-xs-12" />
+                        <input type="text"  name="chpm" id="chpm"  value="${sqjl.chpm}"  readonly="readonly"  placeholder="格式20/100"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 综合评级: </label>
                     <div class="col-xs-4">
-                        <select class="chosen-select form-control"  readonly="readonly"  disabled="disabled"  data-placeholder="综合评级">
-                            <option value="">  </option>
-                            <option value="A" selected>A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
-                            <option value="X">X</option>
-                        </select>
+                        <dm:list tabName="t_dm_zhpj" name="zhpj" id="zhpj" value="${sqjl.zhpj}" readonly="readonly"  data-placeholder="请选择综合评级"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 手机号   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"    readonly="readonly" value="13801662589"    class="col-xs-12" />
+                        <input type="text"  name="phone" id="phone"  value="${sqjl.phone}"  readonly="readonly"  placeholder="手机号"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 邮箱: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"   readonly="readonly"    value="demo@cmu.edu.cn"    class="col-xs-12" />
+                        <input type="text"  name="email" id="email" value="${sqjl.email}"  readonly="readonly"  placeholder="邮箱"    class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-2 control-label "  > 交流目标国家或地区   : </label>
+                    <div class="col-xs-4">
+
+                        <dm:list sourceList="${gjdqList}"  type="select" id="jlgjdqm"  name="jlgjdqm"  value="${sqjl.jlgjdqm}" readonly="readonly"  data-placeholder="交流目标国家或地区"  ></dm:list>
+
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 英语水平 </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="yysp" id="yysp" value="${sqjl.yysp}"  readonly="readonly" placeholder="考试种类+成绩"      class="col-xs-12" />
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
                     <label class="col-xs-2 control-label "  > 已资助金额   : </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="username"    readonly="readonly" disabled="" value="13000"    class="col-xs-12" />
+                        <input type="text"  name="yzzje"    readonly="readonly" disabled="" value="${yzzje}"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-2 control-label "  > 心理测评结果: </label>
                     <div class="col-xs-4">
-                        <select class="chosen-select form-control"     data-placeholder="请选择该学生测评结果">
+                        <select class="chosen-select form-control" name="xlcp"  id="xlcp"    data-placeholder="请选择该学生测评结果">
                             <option value="A" selected>&nbsp;&nbsp;A&nbsp;&nbsp;</option>
                             <option value="B">&nbsp;&nbsp;B&nbsp;&nbsp;</option>
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-5 control-label "  > 项目资助金额(分段博士/硕士/本科)   : </label>
-                    <div class="col-xs-7">
-                        <input type="text"  name="username"    readonly="readonly" disabled="" value="5000/4000/2500"    class="col-xs-12" />
+                    <label class="col-xs-2 control-label "  > 项目资助金额(分段): </label>
+                    <div class="col-xs-4">
+                        <input type="text"     readonly="readonly" disabled="" value="${xm.zjje}"    class="col-xs-12" />
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 资助金额<i class="fa fa-star red"></i>: </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="zzje"  id="zzje"  value=""    class="col-xs-12" />
                     </div>
 
 
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>
-                    <div class="col-xs-4">
-                        <select class="chosen-select form-control"  readonly="readonly"   data-placeholder="请选择审核意见">
+                    <div class="col-xs-10">
+                       <%-- <select class="chosen-select form-control"  readonly="readonly"   data-placeholder="请选择审核意见">
                             <option value="">  </option>
                             <option value="A">通过</option>
                             <option value="B">不通过</option>
-                        </select>
+                        </select>--%>
+
+                           <input type="text"  name="fsyj"  id="fsyj"  value=""    class="col-xs-12" />
+
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 资助金额<i class="fa fa-star red"></i>: </label>
-                    <div class="col-xs-4">
-                        <input type="text"  name="username"   value=""    class="col-xs-12" />
-                    </div>
+
                 </div>
 
             </form>
 
-
-
-
         </div>
 
         <div id="messages" class="tab-pane fade">
-            <p><a href="alink/doc/f1.doc" target="_blank">申报材料1...............(点击可下载)</a>.</p>
-            <p><a href="alink/doc/f2.doc" target="_blank">申报材料2...............(点击可下载)</a>.</p>
-        </div>
-        <div id="ysqxm" class="tab-pane fade">
-            <table>
-                <thead>
-                <tr>
-                    <th>序号</th>
-                    <th>项目名称</th>
-                    <th>目的地</th>
-                    <th>出发时间</th>
-                    <th>天数</th>
-                    <th>资助金额</th>
-                </tr>
 
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>项目名称1</td>
-                    <td>目的地1</td>
-                    <td>2018-01-01</td>
-                    <td>3</td>
-                    <td>5000</td>
-                </tr> <tr>
-                    <td>2</td>
-                    <td>项目名称2</td>
-                    <td>目的地2</td>
-                    <td>2018-02-01</td>
-                    <td>3</td>
-                    <td>5000</td>
-                </tr> <tr>
-                    <td>3</td>
-                    <td>项目名称3</td>
-                    <td>目的地4</td>
-                    <td>2018-03-01</td>
-                    <td>3</td>
-                    <td>2000</td>
-                </tr>
-                </tbody>
-            </table>
+            <c:if  test="${fjList != null && fjList.size() >0 }">
+                <c:forEach items="${fjList}" var="fj" varStatus="status" >
+                    <p><a href="sys/file/download?fileName=download${status.count}&fileId=${fj.fileId}" target="_blank">${fj.clsm} -点击下载</a>.</p>
+
+                </c:forEach>
+            </c:if>
+
+        </div>
+
+
+        <div id="ysqxm" class="tab-pane fade">
+
+            <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>项目名称</th>
+                        <th>资助金额</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${ysqxmList}" var="ysqJl" varStatus="status">
+                        <tr>
+                            <td>${status.count}</td>
+                            <td>${ysqJl.xmmc}</td>
+                            <td>${ysqJl.zzje}</td>
+                        </tr>
+                    </c:forEach>
+
+
+
+                    </tbody>
+                </table>
+
+            </c:if>
+
         </div>
 
 
@@ -293,7 +315,7 @@
 </div>
 <div class="col-md-offset-3 col-md-9">
 
-    <button class="btn btn-info btn-sm" type="button">
+    <button class="btn btn-info btn-sm" id="btnPass" type="button">
         <i class="ace-icon fa fa-check bigger-110"></i>
         通过
     </button>
@@ -301,7 +323,7 @@
     &nbsp; &nbsp; &nbsp;
 
 
-    <button class="btn btn-danger btn-sm" type="button">
+    <button class="btn btn-danger btn-sm" id="btnBack" type="button">
         <i class="ace-icon fa fa-close bigger-110"></i>
         不通过
     </button>
@@ -340,32 +362,59 @@
 
 <!-- ace scripts -->
 
+
+<!--自定义js -->
+<script src="assets/project/js/common-window.js"></script>
+
+
+
 <script>
     $(function(){
 
 
-        $('[type=file]').ace_file_input({
-            no_file:'暂无文件 ...',
-            btn_choose:'选择',
-            btn_change:'替换',
-            droppable:false,
-            onchange:null,
-            thumbnail:true //| true | large
-            //whitelist:'gif|png|jpg|jpeg'
-            //blacklist:'exe|php'
-            //onchange:''
-            //
-        });
+
 
         $('.chosen-select').chosen({allow_single_deselect:true});
 
-        $("#cjpm").mouseover(function(){
+        /*$("#cjpm").mouseover(function(){
             layer.tips('最近一学年学业成绩排名或最近一学年综合测评排名:格式20/100', '#cjpm');
-        });
+        });*/
 
+
+        $("#btnPass").click(function(){
+            alert("复审通过");
+            sh("02");
+        });
+        $("#btnBack").click(function(){
+
+            alert("复审不通过");
+            sh("03");
+        })
 
     })
 
+
+
+    function sh(status){
+       // alert("$(\"#sqjlId\").val():"+$("#sqjlId").val());
+        $.ajax('xm/xsshFs',{
+            data:{
+                sqjlId:$("#sqjlId").val(),
+                confirmStatus:status,
+                xlcp:$("#xlcp").val(),
+                zzje:$("#zzje").val(),
+                fsyj:$("#fsyj").val()
+            },
+            success:function(resp){
+                if(resp && resp.success){
+                    parent.layer.alert("审核成功");
+                    callback();
+                }else{
+                    parent.layer.alert("操作失败");
+                }
+            }
+        })
+    }
 
 </script>
 </body>

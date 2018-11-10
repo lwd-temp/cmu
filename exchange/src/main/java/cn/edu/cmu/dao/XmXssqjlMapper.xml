@@ -24,11 +24,14 @@
       <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZZJE" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
-      <arg column="SELFT_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JLGJDQM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XLCP" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CONFIRM_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ISCONFIRM1" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ISCONFIRM2" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="FSYJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SELFT_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -94,8 +97,8 @@
   </sql>
   <sql id="Base_Column_List" >
     SQJL_ID, XM_ID, XMZM, XMMC, XH, XM, GENDER, YXDM, YXMC, RXN, NJ, ZYH, ZYMC, BJH, 
-    BJMC, CHPM, ZHPJ, YYSP, PHONE, EMAIL, ZZJE, SELFT_PAY, JLGJDQM, XLCP, STATUS, CONFIRM_STATUS, 
-    VALID, CREATE_TIME
+    BJMC, CHPM, ZHPJ, YYSP, PHONE, EMAIL, ZZJE, JLGJDQM, XLCP, STATUS, CONFIRM_STATUS, 
+    ISCONFIRM1, ISCONFIRM2, FSYJ, SELFT_PAY, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     select
@@ -135,18 +138,20 @@
       YXDM, YXMC, RXN, NJ, 
       ZYH, ZYMC, BJH, BJMC, 
       CHPM, ZHPJ, YYSP, PHONE, 
-      EMAIL, ZZJE, SELFT_PAY, 
-      JLGJDQM, XLCP, STATUS, 
-      CONFIRM_STATUS, VALID, CREATE_TIME
+      EMAIL, ZZJE, JLGJDQM, 
+      XLCP, STATUS, CONFIRM_STATUS, 
+      ISCONFIRM1, ISCONFIRM2, FSYJ, 
+      SELFT_PAY, VALID, CREATE_TIME
       )
     values (#{sqjlId,jdbcType=VARCHAR}, #{xmId,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{xmmc,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{yxdm,jdbcType=VARCHAR}, #{yxmc,jdbcType=VARCHAR}, #{rxn,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, 
       #{zyh,jdbcType=VARCHAR}, #{zymc,jdbcType=VARCHAR}, #{bjh,jdbcType=VARCHAR}, #{bjmc,jdbcType=VARCHAR}, 
       #{chpm,jdbcType=VARCHAR}, #{zhpj,jdbcType=VARCHAR}, #{yysp,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{zzje,jdbcType=DECIMAL}, #{selftPay,jdbcType=VARCHAR}, 
-      #{jlgjdqm,jdbcType=VARCHAR}, #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{confirmStatus,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      #{email,jdbcType=VARCHAR}, #{zzje,jdbcType=DECIMAL}, #{jlgjdqm,jdbcType=VARCHAR}, 
+      #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}, 
+      #{isconfirm1,jdbcType=VARCHAR}, #{isconfirm2,jdbcType=VARCHAR}, #{fsyj,jdbcType=VARCHAR}, 
+      #{selftPay,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmXssqjl" >
@@ -215,9 +220,6 @@
       <if test="zzje != null" >
         ZZJE,
       </if>
-      <if test="selftPay != null" >
-        SELFT_PAY,
-      </if>
       <if test="jlgjdqm != null" >
         JLGJDQM,
       </if>
@@ -229,6 +231,18 @@
       </if>
       <if test="confirmStatus != null" >
         CONFIRM_STATUS,
+      </if>
+      <if test="isconfirm1 != null" >
+        ISCONFIRM1,
+      </if>
+      <if test="isconfirm2 != null" >
+        ISCONFIRM2,
+      </if>
+      <if test="fsyj != null" >
+        FSYJ,
+      </if>
+      <if test="selftPay != null" >
+        SELFT_PAY,
       </if>
       <if test="valid != null" >
         VALID,
@@ -301,9 +315,6 @@
       <if test="zzje != null" >
         #{zzje,jdbcType=DECIMAL},
       </if>
-      <if test="selftPay != null" >
-        #{selftPay,jdbcType=VARCHAR},
-      </if>
       <if test="jlgjdqm != null" >
         #{jlgjdqm,jdbcType=VARCHAR},
       </if>
@@ -315,6 +326,18 @@
       </if>
       <if test="confirmStatus != null" >
         #{confirmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isconfirm1 != null" >
+        #{isconfirm1,jdbcType=VARCHAR},
+      </if>
+      <if test="isconfirm2 != null" >
+        #{isconfirm2,jdbcType=VARCHAR},
+      </if>
+      <if test="fsyj != null" >
+        #{fsyj,jdbcType=VARCHAR},
+      </if>
+      <if test="selftPay != null" >
+        #{selftPay,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -396,9 +419,6 @@
       <if test="record.zzje != null" >
         ZZJE = #{record.zzje,jdbcType=DECIMAL},
       </if>
-      <if test="record.selftPay != null" >
-        SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
-      </if>
       <if test="record.jlgjdqm != null" >
         JLGJDQM = #{record.jlgjdqm,jdbcType=VARCHAR},
       </if>
@@ -410,6 +430,18 @@
       </if>
       <if test="record.confirmStatus != null" >
         CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isconfirm1 != null" >
+        ISCONFIRM1 = #{record.isconfirm1,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isconfirm2 != null" >
+        ISCONFIRM2 = #{record.isconfirm2,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fsyj != null" >
+        FSYJ = #{record.fsyj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.selftPay != null" >
+        SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -445,11 +477,14 @@
       PHONE = #{record.phone,jdbcType=VARCHAR},
       EMAIL = #{record.email,jdbcType=VARCHAR},
       ZZJE = #{record.zzje,jdbcType=DECIMAL},
-      SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
       JLGJDQM = #{record.jlgjdqm,jdbcType=VARCHAR},
       XLCP = #{record.xlcp,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       CONFIRM_STATUS = #{record.confirmStatus,jdbcType=VARCHAR},
+      ISCONFIRM1 = #{record.isconfirm1,jdbcType=VARCHAR},
+      ISCONFIRM2 = #{record.isconfirm2,jdbcType=VARCHAR},
+      FSYJ = #{record.fsyj,jdbcType=VARCHAR},
+      SELFT_PAY = #{record.selftPay,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -519,9 +554,6 @@
       <if test="zzje != null" >
         ZZJE = #{zzje,jdbcType=DECIMAL},
       </if>
-      <if test="selftPay != null" >
-        SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
-      </if>
       <if test="jlgjdqm != null" >
         JLGJDQM = #{jlgjdqm,jdbcType=VARCHAR},
       </if>
@@ -533,6 +565,18 @@
       </if>
       <if test="confirmStatus != null" >
         CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="isconfirm1 != null" >
+        ISCONFIRM1 = #{isconfirm1,jdbcType=VARCHAR},
+      </if>
+      <if test="isconfirm2 != null" >
+        ISCONFIRM2 = #{isconfirm2,jdbcType=VARCHAR},
+      </if>
+      <if test="fsyj != null" >
+        FSYJ = #{fsyj,jdbcType=VARCHAR},
+      </if>
+      <if test="selftPay != null" >
+        SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
@@ -565,11 +609,14 @@
       PHONE = #{phone,jdbcType=VARCHAR},
       EMAIL = #{email,jdbcType=VARCHAR},
       ZZJE = #{zzje,jdbcType=DECIMAL},
-      SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
       JLGJDQM = #{jlgjdqm,jdbcType=VARCHAR},
       XLCP = #{xlcp,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       CONFIRM_STATUS = #{confirmStatus,jdbcType=VARCHAR},
+      ISCONFIRM1 = #{isconfirm1,jdbcType=VARCHAR},
+      ISCONFIRM2 = #{isconfirm2,jdbcType=VARCHAR},
+      FSYJ = #{fsyj,jdbcType=VARCHAR},
+      SELFT_PAY = #{selftPay,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}

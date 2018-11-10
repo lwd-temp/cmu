@@ -1,4 +1,4 @@
-package cn.edu.cmu.mybatis_gen.gen.xml.sql;
+package cn.edu.cmu.mbg.gen.xml.sql;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.dom.xml.Attribute;

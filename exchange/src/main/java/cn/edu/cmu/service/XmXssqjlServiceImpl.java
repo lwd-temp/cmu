@@ -30,4 +30,18 @@ public class XmXssqjlServiceImpl extends BaseService<XmXssqjl, XmXssqjlParams, X
     public List list(Object... conditions) throws Exception {
         return null;
     }
+
+    @Override
+    public List<XmXssqjl> listYsqxm(XmXssqjl sqjl) {
+        XmXssqjlParams param = new XmXssqjlParams();
+        XmXssqjlParams.Criteria criteria = param.createCriteria();
+
+        criteria.andXhEqualTo(sqjl.getXh());
+        criteria.andSqjlIdNotEqualTo(sqjl.getSqjlId());
+        //criteria.andStatusEqualTo("03");//初审通过
+        //criteria.andConfirmStatusEqualTo("03");//复审通过
+
+        List list = dao.selectByExample(param);
+        return list;
+    }
 }

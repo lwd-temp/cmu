@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -336,9 +337,86 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         XmXssbfj fj = null;
         for (int i = 0; i < fileid.length; i++) {
             fj = new XmXssbfj(CmuStringUtil.UUID(),jl.getSqjlId(), fileid[i], clsm[i],null,null);
+            logger.debug(fj);
             xmfjDao.insertSelective(fj);//添加附件
         }
 
         return success;
+    }
+
+    @Override
+    public List<XmXssbfj> querySbFjs(String id) {
+
+        XmXssbfjParams param = new XmXssbfjParams();
+
+        param.createCriteria().andSqjlIdEqualTo(id);
+
+        List list = xmfjDao.selectByExample(param);
+
+        return list;
+    }
+
+    @Override
+    public List listXmSqxs(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+        XmXssqjlParams params = new XmXssqjlParams();
+        XmXssqjlParams.Criteria c1 = params.createCriteria();
+
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            XmXssqjl jl = (XmXssqjl) conditions[0];
+
+
+            c1.andXmIdEqualTo(jl.getXmId());
+
+            if(StringUtils.isNotEmpty(jl.getXm())){
+                c1.andXmLike("%" + jl.getXm() + "%");
+            }
+            super.addOrderBy(params, conditions);
+        }
+
+        return sqDao.selectByExample(params);
+
+
+    }
+
+    @Override
+    public boolean xsshCs(String id, String status) {
+
+        XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
+
+        sqjl.setStatus(status);
+
+        int count = sqDao.updateByPrimaryKeySelective(sqjl);
+
+        return count>0;
+    }
+
+    /**
+     * 初审确认
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean confirmCs(String id) {
+
+        XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
+        jl.setIsconfirm1("1"); //是否确认初审，0 未确认 默认， 1 已确认
+        jl.setConfirmStatus("01");//复审状态 待复审
+
+        int count = sqDao.updateByPrimaryKeySelective(jl);
+
+
+        return count>0;
+    }
+
+    /**
+     *  学生项目复审
+     * @param jl
+     * @return
+     */
+    @Override
+    public boolean xsshFs(XmXssqjl jl) {
+        int count = sqDao.updateByPrimaryKeySelective(jl);
+        return count>0;
     }
 }

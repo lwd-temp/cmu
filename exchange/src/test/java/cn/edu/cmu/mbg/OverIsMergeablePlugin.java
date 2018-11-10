@@ -1,4 +1,4 @@
-package cn.edu.cmu.mybatis_gen;
+package cn.edu.cmu.mbg;
 
 import org.mybatis.generator.api.GeneratedXmlFile;
 import org.mybatis.generator.api.IntrospectedTable;

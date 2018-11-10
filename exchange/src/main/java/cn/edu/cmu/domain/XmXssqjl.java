@@ -110,12 +110,7 @@ public class XmXssqjl {
     private BigDecimal zzje;
 
     /**
-     * 01 非自费 02 自费
-     */
-    private String selftPay;
-
-    /**
-     * null
+     * 交流国家或地区码
      */
     private String jlgjdqm;
 
@@ -130,9 +125,29 @@ public class XmXssqjl {
     private String status;
 
     /**
-     * 01 学生已知晓待复审  02 学生已知晓复审结果。 
+     * 01 待复审 02 复审通过  03 复审不通过
      */
     private String confirmStatus;
+
+    /**
+     * 初审确认 0未确认 1 已确认
+     */
+    private String isconfirm1;
+
+    /**
+     * 复审确认 0未确认 1 已确认
+     */
+    private String isconfirm2;
+
+    /**
+     * 复审意见
+     */
+    private String fsyj;
+
+    /**
+     * 01 自费 02非自费
+     */
+    private String selftPay;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -146,9 +161,9 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
-    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String selftPay, String jlgjdqm, String xlcp, String status, String confirmStatus, String valid, Date createTime) {
+    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selftPay, String valid, Date createTime) {
         this.sqjlId = sqjlId;
         this.xmId = xmId;
         this.xmzm = xmzm;
@@ -170,18 +185,21 @@ public class XmXssqjl {
         this.phone = phone;
         this.email = email;
         this.zzje = zzje;
-        this.selftPay = selftPay;
         this.jlgjdqm = jlgjdqm;
         this.xlcp = xlcp;
         this.status = status;
         this.confirmStatus = confirmStatus;
+        this.isconfirm1 = isconfirm1;
+        this.isconfirm2 = isconfirm2;
+        this.fsyj = fsyj;
+        this.selftPay = selftPay;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public XmXssqjl() {
         super();
@@ -524,32 +542,16 @@ public class XmXssqjl {
     }
 
     /**
-     * 01 非自费 02 自费
-     * @return SELFT_PAY 01 非自费 02 自费
-     */
-    public String getSelftPay() {
-        return selftPay;
-    }
-
-    /**
-     * 01 非自费 02 自费
-     * @param selftPay 01 非自费 02 自费
-     */
-    public void setSelftPay(String selftPay) {
-        this.selftPay = selftPay == null ? null : selftPay.trim();
-    }
-
-    /**
-     * null
-     * @return JLGJDQM null
+     * 交流国家或地区码
+     * @return JLGJDQM 交流国家或地区码
      */
     public String getJlgjdqm() {
         return jlgjdqm;
     }
 
     /**
-     * null
-     * @param jlgjdqm null
+     * 交流国家或地区码
+     * @param jlgjdqm 交流国家或地区码
      */
     public void setJlgjdqm(String jlgjdqm) {
         this.jlgjdqm = jlgjdqm == null ? null : jlgjdqm.trim();
@@ -588,19 +590,83 @@ public class XmXssqjl {
     }
 
     /**
-     * 01 学生已知晓待复审  02 学生已知晓复审结果。 
-     * @return CONFIRM_STATUS 01 学生已知晓待复审  02 学生已知晓复审结果。 
+     * 01 待复审 02 复审通过  03 复审不通过
+     * @return CONFIRM_STATUS 01 待复审 02 复审通过  03 复审不通过
      */
     public String getConfirmStatus() {
         return confirmStatus;
     }
 
     /**
-     * 01 学生已知晓待复审  02 学生已知晓复审结果。 
-     * @param confirmStatus 01 学生已知晓待复审  02 学生已知晓复审结果。 
+     * 01 待复审 02 复审通过  03 复审不通过
+     * @param confirmStatus 01 待复审 02 复审通过  03 复审不通过
      */
     public void setConfirmStatus(String confirmStatus) {
         this.confirmStatus = confirmStatus == null ? null : confirmStatus.trim();
+    }
+
+    /**
+     * 初审确认 0未确认 1 已确认
+     * @return ISCONFIRM1 初审确认 0未确认 1 已确认
+     */
+    public String getIsconfirm1() {
+        return isconfirm1;
+    }
+
+    /**
+     * 初审确认 0未确认 1 已确认
+     * @param isconfirm1 初审确认 0未确认 1 已确认
+     */
+    public void setIsconfirm1(String isconfirm1) {
+        this.isconfirm1 = isconfirm1 == null ? null : isconfirm1.trim();
+    }
+
+    /**
+     * 复审确认 0未确认 1 已确认
+     * @return ISCONFIRM2 复审确认 0未确认 1 已确认
+     */
+    public String getIsconfirm2() {
+        return isconfirm2;
+    }
+
+    /**
+     * 复审确认 0未确认 1 已确认
+     * @param isconfirm2 复审确认 0未确认 1 已确认
+     */
+    public void setIsconfirm2(String isconfirm2) {
+        this.isconfirm2 = isconfirm2 == null ? null : isconfirm2.trim();
+    }
+
+    /**
+     * 复审意见
+     * @return FSYJ 复审意见
+     */
+    public String getFsyj() {
+        return fsyj;
+    }
+
+    /**
+     * 复审意见
+     * @param fsyj 复审意见
+     */
+    public void setFsyj(String fsyj) {
+        this.fsyj = fsyj == null ? null : fsyj.trim();
+    }
+
+    /**
+     * 01 自费 02非自费
+     * @return SELFT_PAY 01 自费 02非自费
+     */
+    public String getSelftPay() {
+        return selftPay;
+    }
+
+    /**
+     * 01 自费 02非自费
+     * @param selftPay 01 自费 02非自费
+     */
+    public void setSelftPay(String selftPay) {
+        this.selftPay = selftPay == null ? null : selftPay.trim();
     }
 
     /**
@@ -637,7 +703,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     @Override
     public String toString() {
@@ -666,11 +732,14 @@ public class XmXssqjl {
         sb.append(", phone=").append(phone);
         sb.append(", email=").append(email);
         sb.append(", zzje=").append(zzje);
-        sb.append(", selftPay=").append(selftPay);
         sb.append(", jlgjdqm=").append(jlgjdqm);
         sb.append(", xlcp=").append(xlcp);
         sb.append(", status=").append(status);
         sb.append(", confirmStatus=").append(confirmStatus);
+        sb.append(", isconfirm1=").append(isconfirm1);
+        sb.append(", isconfirm2=").append(isconfirm2);
+        sb.append(", fsyj=").append(fsyj);
+        sb.append(", selftPay=").append(selftPay);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

@@ -42,6 +42,7 @@ public class AccessFilter implements Filter {
         ignoreLogin = Boolean.valueOf((Boolean) YmlUtils.getProperty("sys.ignoreLogin.switch"));
         ignoreLoginUserId = (String) YmlUtils.getProperty("sys.ignoreLogin.userId");
         ignoreLoginUserType = (String) YmlUtils.getProperty("sys.ignoreLogin.userType");
+        ignoreExt = (String) YmlUtils.getProperty("sys.access.ignore.ext");
     }
 
     private void noCache(HttpServletResponse response) {
@@ -71,23 +72,26 @@ public class AccessFilter implements Filter {
         String uri = CmuStringUtil.REQUEST_URI(request);
         String ext = CmuStringUtil.REQUEST_EXTENSION_NAME(uri);
 
-        logger.debug("Access URI is : " + uri);
+
         //logger.debug("Access ext is : " + ext);
 
         //禁用浏览器缓存
         noCache((HttpServletResponse) servletResponse);
         try {
-            validateSessionUserInfo(request,response);
+            validateSessionUserInfo(request, response);
         } catch (Exception e) {
             e.printStackTrace();
             return;
         }
 
-        String userType = (String) session.getAttribute(CmuConstants.SESSION.USER_TYPE);
-        if(!userType.equals(CmuConstants.SESSION.USER_TYPE_JZG) ){
-            logger.debug("非教职工登录，登录画面特殊处理...");
+        if (ignoreExt.indexOf(ext) == -1) { //不在忽略名单的扩展名
+            logger.debug("Access URI is : " + uri);
         }
 
+        String userType = (String) session.getAttribute(CmuConstants.SESSION.USER_TYPE);
+        if (ignoreExt.indexOf(ext) == -1 && !userType.equals(CmuConstants.SESSION.USER_TYPE_JZG)) {
+            logger.debug("非教职工登录，登录画面特殊处理...");
+        }
 
         filterChain.doFilter(servletRequest, servletResponse);
     }
@@ -137,24 +141,25 @@ public class AccessFilter implements Filter {
         //教职工
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_JZG)) {
             logger.debug("获取教职工登录信息");
-            queryJzgBody(loginUserType, sessionUserId,session);
+            queryJzgBody(loginUserType, sessionUserId, session);
         }
         //本科生
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_BKS)) {
             logger.debug("获取本科生登录信息");
-            queryBksBody(loginUserType, sessionUserId,session);
+            queryBksBody(loginUserType, sessionUserId, session);
         }
 
 
         //研究生
         if (loginUserType.equals(CmuConstants.SESSION.USER_TYPE_YJS)) {
             logger.debug("获取研究生登录信息");
-            queryYjsBody(loginUserType, sessionUserId,session);
+            queryYjsBody(loginUserType, sessionUserId, session);
         }
     }
 
     /**
      * 查询研究生
+     *
      * @param loginUserType
      * @param sessionUserId
      * @param session
@@ -166,8 +171,8 @@ public class AccessFilter implements Filter {
         params.createCriteria().andXhEqualTo(sessionUserId);
 
         List list = yjsDao.selectByExample(params);
-        if(CollectionUtils.isEmpty(list)){
-            throw new Exception("根据学号["+sessionUserId+"]，未查询到研究生信息..");
+        if (CollectionUtils.isEmpty(list)) {
+            throw new Exception("根据学号[" + sessionUserId + "]，未查询到研究生信息..");
         }
         //学生
         YjsXsjbsjxx yjs = (YjsXsjbsjxx) list.get(0);
@@ -182,7 +187,6 @@ public class AccessFilter implements Filter {
         YjsXjjbsjxx xjDto = (YjsXjjbsjxx) xjList.get(0);
 
 
-
         session.setAttribute(CmuConstants.SESSION.USER_INFO_YJS, yjs);
         session.setAttribute(CmuConstants.SESSION.USER_NAME, yjs.getXm());
         session.setAttribute(CmuConstants.SESSION.USER_DEPT, xjDto.getYxsh());
@@ -190,6 +194,7 @@ public class AccessFilter implements Filter {
 
     /**
      * 查询本科生
+     *
      * @param loginUserType
      * @param sessionUserId
      * @param session
@@ -201,8 +206,8 @@ public class AccessFilter implements Filter {
         params.createCriteria().andXhEqualTo(sessionUserId);
 
         List list = bksDao.selectByExample(params);
-        if(CollectionUtils.isEmpty(list)){
-            throw new Exception("根据学号["+sessionUserId+"]，未查询到本科生信息..");
+        if (CollectionUtils.isEmpty(list)) {
+            throw new Exception("根据学号[" + sessionUserId + "]，未查询到本科生信息..");
         }
         BksXsjbsjxx bks = (BksXsjbsjxx) list.get(0);
 
@@ -217,7 +222,6 @@ public class AccessFilter implements Filter {
         BksXjjbsjxx xjDto = (BksXjjbsjxx) xjList.get(0);
 
 
-
         session.setAttribute(CmuConstants.SESSION.USER_INFO_BKS, bks);
         session.setAttribute(CmuConstants.SESSION.USER_NAME, bks.getXm());
         session.setAttribute(CmuConstants.SESSION.USER_DEPT, xjDto.getYxsh());
@@ -227,6 +231,7 @@ public class AccessFilter implements Filter {
 
     /**
      * 查询教职工
+     *
      * @param loginUserType
      * @param sessionUserId
      * @param session
@@ -239,7 +244,7 @@ public class AccessFilter implements Filter {
         params.createCriteria().andGhEqualTo(sessionUserId);
 
         List list = jzgDao.selectByExample(params);
-        if(CollectionUtils.isEmpty(list)){
+        if (CollectionUtils.isEmpty(list)) {
             throw new Exception("根据工号，未查询到教职工信息..");
         }
         Jzg jzg = (Jzg) list.get(0);

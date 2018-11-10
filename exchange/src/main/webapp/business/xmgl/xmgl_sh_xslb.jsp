@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,11 +107,14 @@
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
-
+<script src="assets/js/layer/layer.js"></script>
+<script src="assets/project/js/common-script.js"></script>
 
 <script>
 
 
+    var grid_selector = "#grid-table";
+    var pager_selector = "#grid-pager";
 
     $(function(){
 
@@ -116,51 +122,72 @@
 
     });
 
-    function initStus(){
-        var grid_data =
-            [
-                {id:"1",	name:"张三",yx:"临床医学",	zy:"麻醉学"},
-                {id:"2",	name:"李四",yx:"护理医学院",	zy:"护师"},
-                {id:"3",	name:"王五",yx:"妇产",	zy:"妇产学"},
-                {id:"4",	name:"赵六",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"6",	name:"赵六1",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"7",	name:"赵六2",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"8",	name:"赵六3",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"9",	name:"赵六4",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"10",	name:"赵六5",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"11",	name:"赵六6",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"12",	name:"赵六7",yx:"临床医学",	zy:"眼耳鼻喉"},
-                {id:"13",	name:"赵六8",yx:"临床医学",	zy:"眼耳鼻喉"},
-            ];
 
-        var grid_selector = "#grid-table";
+
+    function initStus(){
+
 
 
         var settings = {
             caption: "申请学生列表",
-            data: grid_data,
-            colNames:['学生姓名','院系', '专业',"审核"],
+            url:'xm/listXmSqxs?xmId=${param["xmid"]}',
+            colNames:['学号','姓名','成绩排名','综合测评','初审状态','复审状态',"审核"],
             navBtns:[],//自定义按钮
-            pager_selector:"",
+            pager:pager_selector,
             colModel:[
-                {name:'name',index:'name', formatter:function(cellvalue, options, rowObject){
+                {name:'xh',index:'xh',  },
+                {name:'xm',index:'xm', formatter:function(cellvalue, options, rowObject){
                         if(parseInt(rowObject.id)%3 != 0) {
                             return cellvalue;
                         }
                         return cellvalue+"(<i class='ace-icon fa fa-eye '>已申请"+rowObject.id+"项目</i>)";
 
                     } },
-                {name:'yx',index:'yx',  },
-                {name:'zy',index:'zy',  },
 
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        //console.info(parseInt(cellvalue) +"\t"+parseInt(cellvalue)%2)
-                        if(parseInt(cellvalue)%2 == 0){
-                            return "<button class='btn btn-info btn-mini' onclick='sh_ch("+cellvalue+")' title='删除' ><i class='ace-icon fa fa-eye '>初审</i></button>";
-                        }else{
-                            return "<button class='btn btn-danger btn-mini' onclick='sh_fh("+cellvalue+")' title='删除' ><i class='ace-icon fa fa-street-view '>复审</i></button>";
+                {name:'chpm',index:'chpm',  },
+                {name:'zhpj',index:'zhpj',  },
+                {name:'status',index:'status',formatter:function(status){
+                        if(status == '01'){
+                            return "申请中";
+                        }else if(status == "02"){
+                            return "待审核";
+                        }else if(status == '03'){
+                            return "通过";
+                        }else if(status == '04'){
+                            return "不通过";
                         }
+                    }  },
+                {name:'configmStatus',index:'configmStatus', formatter:function(confirmStatus,options, rowObject){
+                    var status = rowObject.status;
+                    if(!confirmStatus || confirmStatus ==''){
+                        if(status == '03'){//已通过初审，但为处理的复审状态 默认显示个
+                            return "待学生初审确认";
+                        }else{
+                            return "无";
+                        }
+                    }
+                    if(confirmStatus == '01'){
+                        return "待复审";
+                    }else if(confirmStatus = "02"){
+                        return "通过";
+                    }else if(confirmStatus == '03'){
+                        return "不通过";
+                    }
+                } },
+
+                {name:'sqjlId',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(cellvalue, options, rowObject){
+                        var status = rowObject.status;
+                        var confirmStatus = rowObject.confirmStatus;
+                        var content = "";
+                        if("02" == status){//待初审
+                            content += "<button class='btn btn-info btn-mini' onclick='sh_ch(\""+cellvalue+"\")' title='初审' ><i class='ace-icon fa fa-eye '>初审</i></button>";
+                        }
+                        if('01' == confirmStatus){
+                            content += "<button class='btn btn-danger btn-mini' onclick='sh_fh(\""+cellvalue+"\")' title='复审' ><i class='ace-icon fa fa-street-view '>复审</i></button>";
+                        }
+                        return content;
+
                     }
                 },
             ]
@@ -172,20 +199,57 @@
         $(grid_selector).tables(settings);
     }
 
-    function sh_ch(){
-        parent.layer.newpage({
-            area: ['800px', '600px'],
+
+    function refreshTable(){
+
+        $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
+           /* postData:{
+                'xmmc':$("#condition").val(),//项目名称
+                'xmzm':$("#condition").val() //项目总名
+            },*/
+            page:1
+        }).trigger("reloadGrid");
+    }
+
+    function sh_ch(sqjlId){
+        var index = parent.layer.newpage({
+            area: ['1000px', ($(window).height()-10)+'px'],
             title:'【初审】申请',
-            content:'business/xmgl/xmgl_sh_cs.jsp',
+            content:'xm/toCs?id='+sqjlId,
+            success:function(layero, index){
+                var fraWinName = layero.find('iframe')[0]['name'];
+                //设置打开窗口的回调函数,及调用此函数接受参数
+                parent.frames[fraWinName].callback = function(){
+
+                    refreshTable();
+
+                    parent.layer.close(index);
+
+                };
+            },
         });
     }
-    function sh_fh(){
-        parent.layer.newpage({
-            area: ['800px', '600px'],
+
+
+    function sh_fh(sqjlId){
+        var index = parent.layer.newpage({
+            area: ['1000px', ($(window).height()-10)+'px'],
             title:'【复审】申请',
-            content:'business/xmgl/xmgl_sh_fs.jsp',
+            content:'xm/toFs?id='+sqjlId,
+            success:function(layero, index){
+                var fraWinName = layero.find('iframe')[0]['name'];
+                //设置打开窗口的回调函数,及调用此函数接受参数
+                parent.frames[fraWinName].callback = function(){
+
+                    refreshTable();
+
+                    parent.layer.close(index);
+
+                };
+            },
         });
     }
+
 
 
 </script>

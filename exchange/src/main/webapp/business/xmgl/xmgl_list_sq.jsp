@@ -85,42 +85,54 @@
 
 
 
-                {name:'sqStatus',index:'sqStatus', formatter:function(sqStatus){
-                        var txzt = "";
-                        if("01" == sqStatus){
-                            txzt = "暂存";
-                        }else if ("02" == sqStatus){
-                            txzt = "提交待审批";
-                        }else if ("03" == sqStatus){
-                            txzt = "待复审";
-                        }else if ("04" == sqStatus){
-                            txzt = "复审通过";
-                        }else if ("05" == sqStatus){
-                            txzt = "审核不通过";
-                        }else{
-                            txzt = "未申报";
+                {name:'sqStatus',index:'sqStatus', formatter:function(sqStatus,options,rowObject){
 
+                        var status = sqStatus.split("-")[0];
+                        var confirmStatus = sqStatus.split("-")[1];
+                        var comfirm1 = rowObject.comfirm1;
+                        var comfirm2 = rowObject.comfirm2;
+
+
+                        // return "comfirm1:"+comfirm1;
+
+                        if(status == '00'){
+                            return "未申报";
+                        }else if(status == '01'){
+                            return "申请中";
+                        }else if(status == "02"){
+                            return "初审待审核";
+                        }else if(status == '03'){
+                            //初审通过
+                            if(comfirm1 == '0'  || !comfirm1){
+                                return "初审待确认";
+                            }else{
+                                if(confirmStatus == '01'){
+                                    return "待复审";
+                                }else if(confirmStatus == "02"){
+                                    return "复审通过"+confirmStatus;
+                                }else if(confirmStatus == '03'){
+                                    return "复审不通过";
+                                }
+                            }
+                        }else if(status == '04'){
+                            return "初审不通过";
                         }
-                        return txzt;
 
                     } },
                 {name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
                     formatter:function(sqjlId, options, rowObject){
                         var sqStatus = rowObject.sqStatus;
+                        var status = sqStatus.split("-")[0];
+                        var confirmStatus = sqStatus.split("-")[1];
                         var xmId = rowObject.xmId;
                         var content = "";
-                        if("01" == sqStatus){
-                            content += "<button class='btn btn-info btn-mini' title='编辑' onclick='editXmSb(\""+sqjlId+"\")' ><i class='ace-icon fa fa-pencil '>修改申报</i></button>" ;
-                        }else if ("02" == sqStatus){
 
-                        }else if ("03" == sqStatus){
-
-                        }else if ("04" == sqStatus){
-
-                        }else if ("05" == sqStatus){
-
-                        }else{
+                        if(status == '00'){
                             content += "<button class='btn btn-info btn-mini' title='申报' onclick='addXmSb(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>申报</i></button>" ;
+                        }else if(status == '01'){
+                            content += "<button class='btn btn-info btn-mini' title='编辑' onclick='editXmSb(\""+sqjlId+"\")' ><i class='ace-icon fa fa-pencil '>编辑申报</i></button>" ;
+                        }else {
+                            content += "<button class='btn btn-info btn-mini' title='查看' onclick='detail(\""+sqjlId+"\")' ><i class='ace-icon fa fa-pencil '>查看</i></button>" ;
                         }
 
                         return content;
@@ -177,6 +189,24 @@
             area: ['1000px', ($(window).height()-20)+'px'],
             title:'申报项目',
             content:'xm/toSbAdd?id='+xmid,
+        });
+    }
+
+
+    function detail(xmid){
+        var index = layer.newpage({
+            area: ['1000px', ($(window).height()-20)+'px'],
+            title:'申报详情',
+            content:'xm/toSbDetail?id='+xmid,
+            success:function(layero, index){
+                var fraWinName = layero.find('iframe')[0]['name'];
+                //设置打开窗口的回调函数,及调用此函数接受参数
+                parent.frames[fraWinName].callback = function(tzjh){
+                    parent.layer.close(index);
+                    refreshTable();
+                    // parent.layer.alert("");
+                };
+            },
         });
     }
 

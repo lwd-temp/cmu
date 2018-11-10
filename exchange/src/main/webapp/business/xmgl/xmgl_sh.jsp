@@ -35,7 +35,7 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
+   /* var grid_data =
         [
             {id:"1",	xmzm:"项目总名1",kssj:"2017-02-01",	jssj:"2018-12-08",	cc:"本科",  jfly:'自筹',zt:'正在审核'},
             {id:"2",	xmzm:"项目总名2",kssj:"2017-03-01",	jssj:"2018-11-08",	cc:"硕士",  jfly:'省级财政',zt:'正在审核'},
@@ -45,7 +45,7 @@
             {id:"6",	xmzm:"项目总名6",kssj:"2017-07-01",	jssj:"2018-07-08",	cc:"本科", jfly:'企业赞助',zt:'已全部审核'},
             {id:"7",	xmzm:"项目总名7",kssj:"2017-08-01",	jssj:"2018-06-08",	cc:"博士",  jfly:'省级财政',zt:'已全部审核'},
             {id:"8",	xmzm:"项目总名8",kssj:"2017-09-01",	jssj:"2018-05-08",	cc:"本科",  jfly:'企业赞助',zt:'已全部审核'},
-        ];
+        ];*/
 
 
     var grid_selector = "#grid-table";
@@ -76,21 +76,43 @@
 
         var settings = {
             caption: "项目审核",
-            data: grid_data,
-            colNames:['项目名称','开始时间', '结束时间', '层次','经费来源','状态',"操作"],
+            /*data: grid_data,*/
+            url:'xm/list',
+            colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '项目层次','操作'/*,'经费来源'*/,/*'状态'*/,/*"操作"*/],
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmzm',index:'xmzm',  formatter:function(cellvalue, options, rowObject){
+                {name:'xmbh',index:'xmbh',  formatter:function(cellvalue, options, rowObject){
                         var callback = 'javascript:applyXm("'+rowObject.id+'")';
                         var href = "<a href='"+callback+"'  >"+cellvalue+"<a>";
                         //console.info(href);
                         return href;
-                    }},
-                {name:'kssj',index:'kssj',  },
-                {name:'jssj',index:'jssj',  },
-                {name:'cc',index:'cc',  },
-                {name:'jfly',index:'jfly',  },
+                    } },
+                {name:'xmzm',index:'xmzm',  },
+                {name:'xmmc',index:'xmmc', },
+
+                {name:'xmkssj',index:'xmkssj',formatter:function(time){
+                        return new Date(time).getYmd("yyyy年MM月dd日")
+                    }  },
+                {name:'smjssj',index:'smjssj',formatter:function(time){
+                        return new Date(time).getYmd("yyyy年MM月dd日")
+                    }  },
+                {name:'xmcc',index:'xmcc', formatter:function(xmccdm){
+                        return dmcache.getCode('T_DM_XMCC',xmccdm);
+                    } },
+
+                {name:'xmId',index:'', fixed:true, sortable:false, resize:true,
+                    formatter:function(xmId, options, rowObject){
+
+                            return "<button class='btn btn-info btn-mini' onclick='shxm(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-child  '>审核</i></button> &nbsp;" +
+                                "<button class='btn btn-info btn-mini' onclick='cwmx(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-child  '>明细</i></button> " ;
+
+
+                    }
+                }
+
+                /*
+               /!* {name:'jfly',index:'jfly',  },*!/
                 {name:'zt',index:'zt',  },
 
                 {name:'id',index:'', fixed:true, sortable:false, resize:true,
@@ -101,7 +123,7 @@
                             return "<button class='btn btn-info btn-mini' onclick='shxm("+cellvalue+")' title='审核项目' ><i class='ace-icon fa fa-child  '>审核</i></button>";
                         }
                     }
-                },
+                },*/
             ]
 
         }
@@ -140,9 +162,9 @@
     //修改用户
     function shxm(xmid){
         var index = layer.newpage({
-            area: ['800px', '600px'],
-            title:'审核学生申请',
-            content:'business/xmgl/xmgl_sh_xslb.jsp',
+            area: ['1000px', ($(window).height()-20)+'px'],
+            title:'',
+            content:'business/xmgl/xmgl_sh_xslb.jsp?xmid='+xmid,
         });
 
         //全屏

@@ -14,7 +14,7 @@
  *  limitations under the License.
  */
 
-package  cn.edu.cmu.mybatis_gen;
+package  cn.edu.cmu.mbg;
 
 import org.mybatis.generator.api.CommentGenerator;
 import org.mybatis.generator.api.dom.java.CompilationUnit;

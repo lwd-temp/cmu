@@ -389,7 +389,7 @@
 								<%--<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />--%>
                                 <i class="fa fa-user fa-2x"></i>
 								<span class="user-info">
-									<small>Welcome,</small>
+									<small>Welcome</small>
 									<%=session.getAttribute(CmuConstants.SESSION.USER_NAME)%>
 								</span>
 

@@ -23,7 +23,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public XmXssqjlParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-05
+     * @mbggenerated 2018-11-11
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class XmXssqjlParams {
     }
 
     /**
-     * T_XM_XSSQJL 2018-11-05
+     * T_XM_XSSQJL 2018-11-11
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1622,76 +1622,6 @@ public class XmXssqjlParams {
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayIsNull() {
-            addCriterion("SELFT_PAY is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayIsNotNull() {
-            addCriterion("SELFT_PAY is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayEqualTo(String value) {
-            addCriterion("SELFT_PAY =", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayNotEqualTo(String value) {
-            addCriterion("SELFT_PAY <>", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayGreaterThan(String value) {
-            addCriterion("SELFT_PAY >", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayGreaterThanOrEqualTo(String value) {
-            addCriterion("SELFT_PAY >=", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayLessThan(String value) {
-            addCriterion("SELFT_PAY <", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayLessThanOrEqualTo(String value) {
-            addCriterion("SELFT_PAY <=", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayLike(String value) {
-            addCriterion("SELFT_PAY like", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayNotLike(String value) {
-            addCriterion("SELFT_PAY not like", value, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayIn(List<String> values) {
-            addCriterion("SELFT_PAY in", values, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayNotIn(List<String> values) {
-            addCriterion("SELFT_PAY not in", values, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayBetween(String value1, String value2) {
-            addCriterion("SELFT_PAY between", value1, value2, "selftPay");
-            return (Criteria) this;
-        }
-
-        public Criteria andSelftPayNotBetween(String value1, String value2) {
-            addCriterion("SELFT_PAY not between", value1, value2, "selftPay");
-            return (Criteria) this;
-        }
-
         public Criteria andJlgjdqmIsNull() {
             addCriterion("JLGJDQM is null");
             return (Criteria) this;
@@ -1972,6 +1902,286 @@ public class XmXssqjlParams {
             return (Criteria) this;
         }
 
+        public Criteria andIsconfirm1IsNull() {
+            addCriterion("ISCONFIRM1 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1IsNotNull() {
+            addCriterion("ISCONFIRM1 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1EqualTo(String value) {
+            addCriterion("ISCONFIRM1 =", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1NotEqualTo(String value) {
+            addCriterion("ISCONFIRM1 <>", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1GreaterThan(String value) {
+            addCriterion("ISCONFIRM1 >", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1GreaterThanOrEqualTo(String value) {
+            addCriterion("ISCONFIRM1 >=", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1LessThan(String value) {
+            addCriterion("ISCONFIRM1 <", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1LessThanOrEqualTo(String value) {
+            addCriterion("ISCONFIRM1 <=", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1Like(String value) {
+            addCriterion("ISCONFIRM1 like", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1NotLike(String value) {
+            addCriterion("ISCONFIRM1 not like", value, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1In(List<String> values) {
+            addCriterion("ISCONFIRM1 in", values, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1NotIn(List<String> values) {
+            addCriterion("ISCONFIRM1 not in", values, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1Between(String value1, String value2) {
+            addCriterion("ISCONFIRM1 between", value1, value2, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm1NotBetween(String value1, String value2) {
+            addCriterion("ISCONFIRM1 not between", value1, value2, "isconfirm1");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2IsNull() {
+            addCriterion("ISCONFIRM2 is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2IsNotNull() {
+            addCriterion("ISCONFIRM2 is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2EqualTo(String value) {
+            addCriterion("ISCONFIRM2 =", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2NotEqualTo(String value) {
+            addCriterion("ISCONFIRM2 <>", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2GreaterThan(String value) {
+            addCriterion("ISCONFIRM2 >", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2GreaterThanOrEqualTo(String value) {
+            addCriterion("ISCONFIRM2 >=", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2LessThan(String value) {
+            addCriterion("ISCONFIRM2 <", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2LessThanOrEqualTo(String value) {
+            addCriterion("ISCONFIRM2 <=", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2Like(String value) {
+            addCriterion("ISCONFIRM2 like", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2NotLike(String value) {
+            addCriterion("ISCONFIRM2 not like", value, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2In(List<String> values) {
+            addCriterion("ISCONFIRM2 in", values, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2NotIn(List<String> values) {
+            addCriterion("ISCONFIRM2 not in", values, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2Between(String value1, String value2) {
+            addCriterion("ISCONFIRM2 between", value1, value2, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsconfirm2NotBetween(String value1, String value2) {
+            addCriterion("ISCONFIRM2 not between", value1, value2, "isconfirm2");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjIsNull() {
+            addCriterion("FSYJ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjIsNotNull() {
+            addCriterion("FSYJ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjEqualTo(String value) {
+            addCriterion("FSYJ =", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjNotEqualTo(String value) {
+            addCriterion("FSYJ <>", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjGreaterThan(String value) {
+            addCriterion("FSYJ >", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjGreaterThanOrEqualTo(String value) {
+            addCriterion("FSYJ >=", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjLessThan(String value) {
+            addCriterion("FSYJ <", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjLessThanOrEqualTo(String value) {
+            addCriterion("FSYJ <=", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjLike(String value) {
+            addCriterion("FSYJ like", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjNotLike(String value) {
+            addCriterion("FSYJ not like", value, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjIn(List<String> values) {
+            addCriterion("FSYJ in", values, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjNotIn(List<String> values) {
+            addCriterion("FSYJ not in", values, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjBetween(String value1, String value2) {
+            addCriterion("FSYJ between", value1, value2, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andFsyjNotBetween(String value1, String value2) {
+            addCriterion("FSYJ not between", value1, value2, "fsyj");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayIsNull() {
+            addCriterion("SELFT_PAY is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayIsNotNull() {
+            addCriterion("SELFT_PAY is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayEqualTo(String value) {
+            addCriterion("SELFT_PAY =", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayNotEqualTo(String value) {
+            addCriterion("SELFT_PAY <>", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayGreaterThan(String value) {
+            addCriterion("SELFT_PAY >", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayGreaterThanOrEqualTo(String value) {
+            addCriterion("SELFT_PAY >=", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayLessThan(String value) {
+            addCriterion("SELFT_PAY <", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayLessThanOrEqualTo(String value) {
+            addCriterion("SELFT_PAY <=", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayLike(String value) {
+            addCriterion("SELFT_PAY like", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayNotLike(String value) {
+            addCriterion("SELFT_PAY not like", value, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayIn(List<String> values) {
+            addCriterion("SELFT_PAY in", values, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayNotIn(List<String> values) {
+            addCriterion("SELFT_PAY not in", values, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayBetween(String value1, String value2) {
+            addCriterion("SELFT_PAY between", value1, value2, "selftPay");
+            return (Criteria) this;
+        }
+
+        public Criteria andSelftPayNotBetween(String value1, String value2) {
+            addCriterion("SELFT_PAY not between", value1, value2, "selftPay");
+            return (Criteria) this;
+        }
+
         public Criteria andValidIsNull() {
             addCriterion("VALID is null");
             return (Criteria) this;
@@ -2114,7 +2324,7 @@ public class XmXssqjlParams {
     }
 
     /**
-     * T_XM_XSSQJL 2018-11-05
+     * T_XM_XSSQJL 2018-11-11
      */
     public static class Criterion {
         private String condition;

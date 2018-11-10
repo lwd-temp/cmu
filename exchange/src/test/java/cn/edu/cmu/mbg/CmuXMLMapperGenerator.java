@@ -13,10 +13,10 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package cn.edu.cmu.mybatis_gen;
+package cn.edu.cmu.mbg;
 
-import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuExampleWhereClauseElementGenerator;
-import cn.edu.cmu.mybatis_gen.gen.xml.sql.CmuSelectByPrimaryKeyElementGenerator;
+import cn.edu.cmu.mbg.gen.xml.sql.CmuExampleWhereClauseElementGenerator;
+import cn.edu.cmu.mbg.gen.xml.sql.CmuSelectByPrimaryKeyElementGenerator;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.AbstractXmlElementGenerator;

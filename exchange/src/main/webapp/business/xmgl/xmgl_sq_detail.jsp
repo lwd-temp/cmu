@@ -216,51 +216,36 @@
 
                                                 <button class='btn btn-info btn-mini' type="button" title='下载' onclick='download("${fj.fileId}")' ><i class='ace-icon fa fa-pencil '>下载</i></button>
 
-
-
-                                                <button class='btn btn-danger btn-mini uploadBtnDelete' type="button" title='删除' onclick='delUpload(this)' ><i class='ace-icon fa fa-trash-o '>删除</i></button>
-                                                <button class='btn btn-info btn-mini' type="button" title='添加' onclick='addUpload()' ><i class='ace-icon fa fa-pencil '>添加</i></button>
-
                                             </div>
                                         </div>
                                     </c:forEach>
                                 </c:when>
-                                <c:otherwise>
-                                    <div class="form-group uploadGroup">
-
-                                        <div class="col-xs-4">
-                                            <input type="hidden" class="newFileId" name="fileid" value="" />
-                                            <input type="file"  multiple="multiple" class="fileUpload"  onchange="changeFile(this)" />
-                                        </div>
-
-
-                                        <div class="col-xs-5">
-                                            <input type="text"  name="clsm"  value=""     placeholder="材料说明"    class="col-xs-12" />
-                                        </div>
-                                        <div class="col-xs-3"  style="text-align:center">
-                                            <button class='btn btn-danger btn-mini uploadBtnDelete' type="button" title='删除' onclick='delUpload(this)' ><i class='ace-icon fa fa-trash-o '>删除</i></button>
-                                            <button class='btn btn-info btn-mini' type="button" title='添加' onclick='addUpload()' ><i class='ace-icon fa fa-pencil '>添加</i></button>
-                                        </div>
-
-                                    </div>
-
-                                </c:otherwise>
                             </c:choose>
+
+
+
+
+
+                            <!--
+                                初审确认， status =3 isConfirm1 =0;     ---?  confirmStatus=01
+
+                                复审确认   confirmStatus(02,03) isConfirm2=0;
+                                如果 复审没通过， 不限制人数 复审自费
+                             -->
 
 
                             <div class="col-md-offset-3 col-md-9 btns">
 
-                                <button class="btn btn-info btn-sm " id="btnSave"  type="button">
-                                    <i class="ace-icon fa fa-save bigger-110"></i>
-                                    暂存
-                                </button>
 
-                                &nbsp; &nbsp; &nbsp;
 
-                                <button class="btn btn-info btn-sm" id="btnCommit"  type="button">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    提交
-                                </button>
+                                <c:choose>
+                                    <c:when test="${sqjl.status =='03' && sqjl.isconfirm1 == '0'}">
+                                        <button class="btn btn-info btn-sm " id="btnConfirmCs"  type="button">
+                                            <i class="ace-icon fa fa-save bigger-110"></i>
+                                            初审确认
+                                        </button>
+                                    </c:when>
+                                </c:choose>
                             </div>
 
                         </form>
@@ -347,15 +332,16 @@
         });
 
 
-        $("#btnSave").click(function(){
-            $("#status").val('01');
-            saveSq();
+        $("#btnConfirmCs").click(function(){
+            comfirmCs();
+        });
 
-        });
-        $("#btnCommit").click(function(){
-            $("#status").val('02');
-            saveSq();
-        });
+
+        //
+        // $("#btnCommit").click(function(){
+        //     $("#status").val('02');
+        //     saveSq();
+        // });
 
     })
 
@@ -380,98 +366,23 @@
     }
 
     /**
-     * 上传成功后保存form
+     * 初审确认
      */
-    function submitForm() {
-        $.ajax('xm/saveSq', {
-            data: $("#form").serialize(),
+    function comfirmCs() {
+        $.ajax('xm/comfirmCs', {
+            data: {
+                id:$("#sqjlId").val(),
+            },
             success: function (resp) {
                 if (resp && resp.success) {
-                    parent.refreshTable();
-                    winAlert("保存成功");
-                    closeLayer();
+                    parent.layer.alert("已确认");
+                    callback();
                 }
             }
         });
     }
 
-    function saveSq(){
-        if (!$("#form").valid()) {
-            validator.focusInvalid();
-            return;
-        }
 
-        var fileList = [];
-        var formFile = new FormData();
-
-        if($("form input[type=file]").size()>0){
-
-            $("form input[type=file]").each(function(index,input){
-
-                var file = input.files[0];
-
-                formFile.append('file', file, file.name);
-            })
-
-            $.ajax({
-                url: 'sys/file/upload',
-                type: 'POST',
-                cache: false,
-                data: formFile,
-                processData: false,
-                contentType: false,
-                success:function(resp){
-                    if(resp && resp.success){
-                        var fileids = resp.data;
-                        $(fileids).each(function(index,id){
-                            $(".newFileId").eq(index).val(id);
-
-                            submitForm();
-                        });
-                    }
-                }
-            });
-        }else{
-            submitForm();
-        }
-    }
-
-
-    function changeFile(fileInput){
-        //alert($(fileInput).parent().prev().size())
-        $(fileInput).parent().prev().val("");
-        // alert("index:"+index)
-    }
-
-    function delUpload(btn){
-        var size = $("form .uploadBtnDelete").size();
-        if(size <=1){
-            parent.layer.msg("至少保留一条");
-            return;
-        }
-
-        $(btn).parent().parent().remove();
-
-    }
-    function addUpload(){
-        //var el = $("form .uploadGroup").clone(true);
-        var el = $("#template>div").clone();
-        $(".btns").before(el);
-
-        el.find('[type=file]').ace_file_input({
-            no_file:'暂无文件 ...',
-            btn_choose:'选择',
-            btn_change:'替换',
-            droppable:false,
-            onchange:null,
-            thumbnail:true, //| true | large
-            //whitelist:'gif|png|jpg|jpeg'
-            //blacklist:'exe|php'
-            /* onchange:'changeFile'*/
-            //
-        });
-
-    }
 
 </script>
 </body>

@@ -429,7 +429,7 @@
             content:'cggl/selectTzList',
             success:function(layero, index){
 
-                var fraWinName = layero.find('iframe')[0]['name'];
+                var fraWinName = layero.find('')[0]['name'];
                 //设置打开窗口的回调函数,及调用此函数接受参数
                 parent.frames[fraWinName].callback = function(tzjh){
 

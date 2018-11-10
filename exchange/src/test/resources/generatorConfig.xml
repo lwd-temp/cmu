@@ -25,10 +25,10 @@
             <property name="replaceString" value="Params"/>
         </plugin>
         <!--覆盖原始文件 -->
-        <plugin type="cn.edu.cmu.mybatis_gen.OverIsMergeablePlugin" />
+        <plugin type="cn.edu.cmu.mbg.OverIsMergeablePlugin" />
 
 		<!-- 这里的type里写的是你的实现类的类全路径 -->
-		<commentGenerator type="cn.edu.cmu.mybatis_gen.MyCommentGenerator">
+		<commentGenerator type="cn.edu.cmu.mbg.MyCommentGenerator">
 		</commentGenerator>
 
 
@@ -66,7 +66,7 @@
         </javaTypeResolver>
 
 <!--
-        <javaTypeResolver type="cn.edu.cmu.mybatis_gen.MyJavaTypeResolver"/>
+        <javaTypeResolver type="cn.edu.cmu.mbgypeResolver"/>
 -->
 
         <!-- targetPackage：生成的实体类所在的包 -->
@@ -90,7 +90,7 @@
  
         <!-- targetPackage 和 targetProject：生成的 interface 文件的包和位置 -->
        <!-- <javaClientGenerator type="XMLMAPPER"  targetPackage="cn.edu.cmu.dao" targetProject="E:\development\workspace\ideaworspace\space2\cmu\exchange\src\main\java">-->
-        <javaClientGenerator type="cn.edu.cmu.mybatis_gen.CmuJavaMapperGenerator"  targetPackage="cn.edu.cmu.dao" targetProject="E:\development\workspace\ideaworspace\space2\cmu\exchange\src\main\java">
+        <javaClientGenerator type="cn.edu.cmu.mbg.CmuJavaMapperGenerator" targetPackage="cn.edu.cmu.dao" targetProject="E:\development\workspace\ideaworspace\space2\cmu\exchange\src\main\java">
             <!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
@@ -113,12 +113,12 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmJlzjbgParams&gt;"/>
         </table>
             -->
-        <table tableName="T_XM_XSSBFJ" 	domainObjectName="XmXssbfj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--<table tableName="T_XM_XSSBFJ" 	domainObjectName="XmXssbfj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmXssbfjParams&gt;"/>
-        </table>
-      <!--<table tableName="T_XM_XSSQJL" 	domainObjectName="XmXssqjl"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmXssqjlParams&gt;"/>
         </table>-->
+      <table tableName="T_XM_XSSQJL" 	domainObjectName="XmXssqjl"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmXssqjlParams&gt;"/>
+        </table>
         <!--<table tableName="T_CG_DQCGJ" 	domainObjectName="CgDqcgj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
           <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.CgDqcgjParams&gt;"/>
       </table>-->
