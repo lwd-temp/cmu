@@ -47,5 +47,6 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
     boolean confirmFs(String id);
 
+    List listYsqxm(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

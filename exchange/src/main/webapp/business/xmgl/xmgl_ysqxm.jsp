@@ -76,32 +76,28 @@
         var navBtns = [ ]
 
         var settings = {
-            caption: "项目管理",
-            data: grid_data,
-            colNames:['项目名称','开始时间', '结束时间', '层次','经费来源',"状态","操纵"],
+            caption: "已申请项目管理",
+            /*data: grid_data,*/
+            url:'xm/listYsqxm',
+            colNames:['项目总名','项目名称','查看总结',"总结"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'xmzm',index:'xmzm',  },
-                {name:'kssj',index:'kssj',  },
-                {name:'jssj',index:'jssj',  },
-                {name:'cc',index:'cc',  },
-                {name:'jfly',index:'jfly',  },
-                {name:'zt',index:'zt',  },
-                {name:'id',index:'', fixed:true, sortable:false, resize:true,
-                    formatter:function(cellvalue, options, rowObject){
-                        var param = cellvalue +','+'"'+rowObject.zt +'"';
-                        if(rowObject.zt == '暂存'){
-                            return "<button class='btn btn-info btn-mini' onclick='editSq("+cellvalue+")' title='测试' ><i class='ace-icon  fa fa-pencil'>编辑 </i></button>";
-                        } if(rowObject.zt == '已初审'){
-                            return "<button class='btn btn-success btn-mini' onclick='confirmXm("+param+")' title='测试' ><i class='ace-icon fa fa-check '>确认</i></button>";
-                        } if(rowObject.zt == '已复审'){
-                            return "<button class='btn btn-danger btn-mini' onclick='confirmXm("+param+")' title='测试' ><i class='ace-icon fa fa-check '>确认</i></button>";
-                        } if(rowObject.zt == '已通过'){
-                            return "<button class='btn btn-yellow btn-mini' onclick='zj("+cellvalue+")' title='总结' ><i class='ace-icon fa fa-trash-o '>总结</i></button>";
-                        }
+                {name:'xmmc',index:'kssj',  },
+                {name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
+                    formatter:function(sqjlId, options, rowObject){
+
+                        return "<button class='btn btn-info btn-mini' onclick='ckzj(\""+sqjlId+"\")' title='查看总结' ><i class='ace-icon fa fa-eye '>查看总结</i></button>";
+
                     }
-                },
+                },{name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
+                    formatter:function(sqjlId, options, rowObject){
+
+                        return "<button class='btn btn-yellow btn-mini' onclick='zj(\""+sqjlId+"\")' title='总结' ><i class='ace-icon fa fa-upload '>总结</i></button>";
+
+                    }
+                }
             ]
         }
 
@@ -135,26 +131,23 @@
         }).trigger("reloadGrid");
     }
 
-    //修改用户
-    function editSq(xmid){
+
+    function  zj(sqjlId){
         layer.newpage({
-            area: ['800px', '600px'],
-            title:'编辑申请项目',
-            content:'business/xmgl/xmgl_sq.jsp',
+            area: ['400px', "220px"],
+            title:'上传总结',
+            content:'sys/file/uppage?targetUrl=xm/zj&sqjlId='+sqjlId,
         });
     }
 
-    function confirmXm(id,zt){
-        layer.confirm("确认收到 【"+zt+"】 消息？");
-
-    }
-
-    function  zj(xmid){
+    function ckzj(sqjlId){
         layer.newpage({
-            area: ['600px', '490px'],
-            title:'项目总结',
-            content:'business/xmgl/xmgl_xs_zj.jsp',
+            area: ['700px', "520px"],
+            title:'查看总结',
+            content:'xm/ckzj?sqjlId='+sqjlId,
         });
     }
+
+
 
 </script>

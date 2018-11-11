@@ -2,8 +2,10 @@ package cn.edu.cmu.controller;
 
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
+import cn.edu.cmu.service.XmJlzjbgService;
 import cn.edu.cmu.service.XmService;
 import cn.edu.cmu.service.XmXssqjlService;
 import cn.edu.cmu.service.XmXssqjlServiceImpl;
@@ -40,6 +42,9 @@ public class XmController extends BaseController {
 
     @Autowired
     XmXssqjlService sqService;
+
+    @Autowired
+    XmJlzjbgService zjService;
 
 
     /**
@@ -382,6 +387,43 @@ public class XmController extends BaseController {
     }
 
 
+    /**
+     * 查询个人 已申请项目(学生端)
+     * @param jl
+     * @param orderCol
+     * @param orderType
+     * @param page
+     * @param rows
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/listYsqxm")
+    @ResponseBody
+    public Map listYsqxm(XmXssqjl jl,
+                          String orderCol,
+                          String orderType,
+                          @RequestParam(defaultValue = "1", required = false) Integer page,
+                          @RequestParam(defaultValue = "10", required = false) Integer rows,
+                         HttpSession session) throws Exception {
+
+        logger.debug("condition:" + jl);
+        //开启分页
+        Page<Object> pageInfo = PageHelper.startPage(page, rows);
+        //查询
+
+        if(jl== null){
+            jl = new XmXssqjl();
+        }
+        String xh = (String) session.getAttribute(CmuConstants.SESSION.USER_ID);
+        jl.setXh(xh);//设置当前学生学号，只查询自己一复审通过，或者自费的项目，为了总结报告
+
+        List list = xmService.listYsqxm(jl, orderCol, orderType);//demoList();
+
+        //返回带【分页】 的表格JSON 信息
+        return super.pagingInfo(pageInfo, list);
+    }
+
+
     @RequestMapping("/toCs")
     public String toCs(String id, Model model, HttpSession session) throws Exception {
 
@@ -598,5 +640,41 @@ public class XmController extends BaseController {
 
 
     }
+
+
+
+    /**
+     * 上传总结
+     * @param fileId
+     * @param sqjlId
+     */
+    @ResponseBody
+    @RequestMapping("/zj")
+    public Map uploadXy(String fileId, String sqjlId) throws Exception {
+
+
+        XmJlzjbg zjBg = new XmJlzjbg();
+        zjBg.setZjid(CmuStringUtil.UUID());
+        zjBg.setFileId(fileId);
+        zjBg.setSqjlId(sqjlId);
+        boolean success = zjService.insert(zjBg);
+
+        return super.ajaxStatus(success);
+    }
+
+
+    @RequestMapping("/ckzj")
+    public String uploadXy(String sqjlId,Model model) throws Exception {
+
+        XmJlzjbgParams params = new XmJlzjbgParams();
+        params.createCriteria().andSqjlIdEqualTo(sqjlId);
+
+        List zjList = zjService.listByParam(params);
+        model.addAttribute("zjList",zjList );
+
+        return "xmgl/xmgl_ckzj";
+    }
+
+
 
 }

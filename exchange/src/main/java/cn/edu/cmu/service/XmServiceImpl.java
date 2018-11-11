@@ -54,6 +54,9 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
     @Autowired
     XmXssqjlMapper sqDao;
 
+    @Autowired
+    XmXssqjlMapperExt sqExtDao;
+
 
     @Autowired
     XmXssbfjMapper xmfjDao; //学生申请项目上传附件
@@ -491,5 +494,33 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
     public boolean xsshFs(XmXssqjl jl) {
         int count = sqDao.updateByPrimaryKeySelective(jl);
         return count>0;
+    }
+
+
+
+
+
+    @Override
+    public List listYsqxm(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+
+        XmXssqjlParams params = new XmXssqjlParams();
+        XmXssqjlParams.Criteria c1 = params.createCriteria();
+        XmXssqjlParams.Criteria c2 = params.or();
+
+        c1.andConfirmStatusEqualTo("02"); //复审通过
+        c2.andSelfPayEqualTo("Y");//自费
+
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            XmXssqjl jl = (XmXssqjl) conditions[0];
+
+            c1.andXhEqualTo(jl.getXh());
+            c2.andXhEqualTo(jl.getXh());
+
+
+            super.addOrderBy(params, conditions);
+        }
+
+        return sqExtDao.selectByExample(params);
     }
 }
