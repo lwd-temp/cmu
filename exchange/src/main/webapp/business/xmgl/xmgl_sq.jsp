@@ -117,7 +117,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 性别  : </label>
+                                <label class="col-xs-2 control-label "  > 性别  ${sqjl.gender}: </label>
                                 <div class="col-xs-4">
                                     <dm:list tabName="T_DM_XB" type="radio" name="gender" id="gender" value="${sqjl.gender}"/>
                                 </div>

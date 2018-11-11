@@ -103,14 +103,14 @@
                         }else if(status == '03'){
                             //初审通过
                             if(comfirm1 == '0'  || !comfirm1){
-                                return "初审待确认";
+                                return "初审通过待确认";
                             }else{
                                 if(confirmStatus == '01'){
                                     return "待复审";
                                 }else if(confirmStatus == "02"){
-                                    return "复审通过";
+                                    return "复审通过"+(comfirm2=='1'?',已确认':',未确认');
                                 }else if(confirmStatus == '03'){
-                                    return "复审不通过"+(selfPay == 'Y'?".已自费":"");
+                                    return "复审不通过"+(selfPay == 'Y'?".已自费":(comfirm2=='1'?',已确认':'未确认'));
                                 }
                             }
                         }else if(status == '04'){

@@ -71,10 +71,10 @@
                         <form class="form-horizontal" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 用户: </label>
+                                <label class="col-sm-4 control-label no-padding-right" for="condition"> 学生姓名: </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" id="form-field-1" placeholder="请输入用户显示名称或用户名" class="col-xs-12" />
+                                    <input type="text" id="condition" placeholder="请输入学生姓名" class="col-xs-12" />
                                 </div>
 
                                 <div class="col-sm-3">
@@ -203,16 +203,21 @@
 
         //渲染jqGrid表格 ,包括渲染 分页信息
         $(grid_selector).tables(settings);
+
+
+        $("#query").click(function(){
+            refreshTable();
+        })
     }
 
 
     function refreshTable(){
 
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-           /* postData:{
-                'xmmc':$("#condition").val(),//项目名称
-                'xmzm':$("#condition").val() //项目总名
-            },*/
+            postData:{
+                'xm':$("#condition").val(),//学生姓名
+                /*'xmzm':$("#condition").val() //项目总名*/
+            },
             page:1
         }).trigger("reloadGrid");
     }

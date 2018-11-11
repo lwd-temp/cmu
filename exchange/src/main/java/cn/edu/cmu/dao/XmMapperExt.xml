@@ -36,7 +36,7 @@
             <arg column="SQ_STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SQJL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="IS_COMFIRM1" jdbcType="VARCHAR" javaType="java.lang.String" />
-            <arg column="IS_COMFIRM1" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="IS_COMFIRM2" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SELF_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
         </constructor>
     </resultMap>

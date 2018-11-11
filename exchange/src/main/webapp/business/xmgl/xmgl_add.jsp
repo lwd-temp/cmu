@@ -167,8 +167,16 @@
                             </div>
 
                             <div class="form-group">
+
+                                <label class="col-xs-2 control-label "> 是否限制人数: </label>
+                                <div class="col-xs-4">
+                                    <%--<input class="form-control" name="xm.sfxzrs" id="sfxzrs" value="" type="text"/>--%>
+                                    <dm:list tabName="t_dm_yn"  type="radio" value="${xm.sfxzrs}" id="sfxzrs" name="xm.sfxzrs" />
+                                </div>
+
+
                                 <label class="col-xs-2 control-label "> 项目收费说明: </label>
-                                <div class="col-xs-10">
+                                <div class="col-xs-4">
                                     <input class="col-xs-12 col-sm-12" name="xm.zysm" id="zysm" value="" type="text"/>
                                 </div>
                             </div>
@@ -342,8 +350,33 @@
             })
         });
 
+
+
+        var  sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
+        setSfxzrs(sfxzrs);
+
+        $("input[name='xm.sfxzrs']").click(function(){
+            var sfxzrs = $(this).val();
+            setSfxzrs(sfxzrs);
+
+        })
+
+
+
     });
 
+
+    /***
+     * 设置是否 限制人数
+     *
+     */
+    function setSfxzrs(sfxzrs){
+        if(sfxzrs == 'Y'){
+            $("#jhrs").removeAttr("readonly",'readonly');
+        }else{
+            $("#jhrs").attr("readonly",'readonly');
+        }
+    }
 
 
     /**
@@ -398,12 +431,23 @@
                 'xm.xmcc': 'required',
                 'xm.smjssj': 'required',
                 'xm.jfly': 'required',
-                'xm.zjje': {required: true, digits: true},
+                'xm.zjje': {required: true/*, digits: true*/},
                 'xm.jlmbjgmc': 'required',
                 'xm.jlmbgj': 'required',
                 'xm.fybz': {required: true, digits: true},
                 'xm.zysm': 'required',
-                'xm.jhrs': {required: true, number: true},
+                'xm.sfxzrs':'required',
+                'xm.jhrs': {required: function(){
+
+                        var  sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
+
+                        if(sfxzrs == 'Y'){
+                            return true;
+                        }else{
+                            return false;
+                        }
+
+                    }, number: true},
                 'xm.xmnjxz': 'required',
                 'xm.xmzyxz': 'required',
                 'xm.yyyq': 'required',

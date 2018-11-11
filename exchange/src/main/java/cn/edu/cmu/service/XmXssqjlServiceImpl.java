@@ -39,7 +39,7 @@ public class XmXssqjlServiceImpl extends BaseService<XmXssqjl, XmXssqjlParams, X
         criteria.andXhEqualTo(sqjl.getXh());
         criteria.andSqjlIdNotEqualTo(sqjl.getSqjlId());
         //criteria.andStatusEqualTo("03");//初审通过
-        //criteria.andConfirmStatusEqualTo("03");//复审通过
+        criteria.andConfirmStatusEqualTo("02");//复审通过
 
         List list = dao.selectByExample(param);
         return list;

@@ -5,6 +5,7 @@ import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.DateUtils;
+import cn.edu.cmu.framework.util.IcdcUtil;
 import cn.edu.cmu.framework.util.MaxNumUtils;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.XmVo;
@@ -194,7 +195,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
             sqjl.setXh(xh);
             sqjl.setXm(bks.getXm());
-            sqjl.setGender(bks.getXbm());
+            sqjl.setGender(IcdcUtil.translateBksXb(bks.getXbm()));
             //入学年份
             sqjl.setRxn(xjDto.getRxny());
             //年级:
@@ -206,6 +207,10 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             sqjl.setBjh(xjDto.getSzbh());   //院系统一转码
             //专业 :
             sqjl.setZyh(xjDto.getZym());
+
+
+
+
 
             BksZyxxsjxxParams zyParam = new BksZyxxsjxxParams();
             BksZyxxsjxxParams.Criteria zyCriteria = zyParam.createCriteria();
@@ -237,7 +242,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
             sqjl.setXh(xh);
             sqjl.setXm(yjs.getXm());
-            sqjl.setGender(yjs.getXbm());
+            sqjl.setGender(IcdcUtil.translateYjsXb(yjs.getXbm()));
             //入学年份
             sqjl.setRxn(xjDto.getRxny());
             //年级:
@@ -401,11 +406,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
         XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
         jl.setIsconfirm1("1"); //是否确认初审，0 未确认 默认， 1 已确认
-        jl.setConfirmStatus("01");//复审状态 待复审
+
+        if("03".equals(jl.getStatus())){//如果是初审通过，则确认时将状态变为待复审
+            jl.setConfirmStatus("01");//复审状态 待复审
+        }
 
         int count = sqDao.updateByPrimaryKeySelective(jl);
-
-
         return count>0;
     }
 
