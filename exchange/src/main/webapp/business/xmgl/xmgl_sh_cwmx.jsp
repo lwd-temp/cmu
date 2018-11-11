@@ -6,6 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,22 +69,28 @@
                         <!-- PAGE CONTENT BEGINS -->
 
                         <form class="form-horizontal" role="form">
+
+                            <input type="hidden" id="xmid" value="${param["xmid"]}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 学生姓名: </label>
+                                <label class="col-sm-3 control-label no-padding-right" for="condition"> 学生姓名: </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" id="form-field-1" placeholder="学生姓名" class="col-xs-12" />
+                                    <input type="text" id="condition" placeholder="请输入学生姓名" class="col-xs-12" />
                                 </div>
 
-                                <div class="col-sm-3">
+                                <div class="col-sm-4">
                                     <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                                         查询
                                     </button>
-                                    <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
-                                       下载明细
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-search "></i>
+                                        下载明细
                                     </button>
                                 </div>
+
+
+
                             </div>
 
                         </form>
@@ -107,57 +116,51 @@
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
-
+<script src="assets/js/layer/layer.js"></script>
+<script src="assets/project/js/common-script.js"></script>
 
 <script>
 
 
+    var grid_selector = "#grid-table";
+    var pager_selector = "#grid-pager";
 
     $(function(){
 
         initStus();
 
-
-        $("#download").click(function(){
-
-            window.location.href="alink/doc/cwmx.xls";
-        });
-
-
-
     });
 
-    function initStus(){
-        var grid_data =
-            [
-                {id:"1",	name:"张三",yx:"临床医学",	zy:"麻醉学",zzje:500},
-                {id:"2",	name:"李四",yx:"护理医学院",	zy:"护师",zzje:500},
-                {id:"3",	name:"王五",yx:"妇产",	zy:"妇产学",zzje:4000},
-                {id:"4",	name:"赵六",yx:"临床医学",	zy:"眼耳鼻喉",zzje:500},
-                {id:"6",	name:"赵六1",yx:"临床医学",	zy:"眼耳鼻喉",zzje:2800},
-                {id:"7",	name:"赵六2",yx:"临床医学",	zy:"眼耳鼻喉",zzje:500},
-                {id:"8",	name:"赵六3",yx:"临床医学",	zy:"眼耳鼻喉",zzje:2600},
-                {id:"9",	name:"赵六4",yx:"临床医学",	zy:"眼耳鼻喉",zzje:500},
-                {id:"10",	name:"赵六5",yx:"临床医学",	zy:"眼耳鼻喉",zzje:3500},
-                {id:"11",	name:"赵六6",yx:"临床医学",	zy:"眼耳鼻喉",zzje:500},
-                {id:"12",	name:"赵六7",yx:"临床医学",	zy:"眼耳鼻喉",zzje:4400},
-                {id:"13",	name:"赵六8",yx:"临床医学",	zy:"眼耳鼻喉",zzje:500},
-            ];
 
-        var grid_selector = "#grid-table";
+
+    function initStus(){
+
 
 
         var settings = {
             caption: "申请学生列表",
-            data: grid_data,
-            colNames:['学生姓名','院系', '专业',"资助金额"],
+            url:'xm/listXmmx?xmId=${param["xmid"]}',
+            colNames:['学号','姓名','成绩排名','综合测评','是否自费',"资助金额"],
             navBtns:[],//自定义按钮
-            pager_selector:"",
+            pager:pager_selector,
             colModel:[
-                {name:'name',index:'name' },
-                {name:'yx',index:'yx',  },
-                {name:'zy',index:'zy',  },
-                {name:'zzje',index:'zzje',}
+                {name:'xh',index:'xh',  },
+                {name:'xm',index:'xm', formatter:function(cellvalue, options, rowObject){
+
+                    return cellvalue;
+
+                    } },
+
+                {name:'chpm',index:'chpm',  },
+                {name:'zhpj',index:'zhpj',  },
+                {name:'selfPay',index:'selfPay',formatter:function(selfPay){
+                    if("Y" == selfPay){
+                        return "自费";
+                    }
+                    return "";
+                    }  },
+                {name:'zzje',index:'zzje',  }
+
             ]
 
         }
@@ -165,22 +168,32 @@
 
         //渲染jqGrid表格 ,包括渲染 分页信息
         $(grid_selector).tables(settings);
+
+
+        $("#query").click(function(){
+            refreshTable();
+        });
+
+
+        $("#download").click(function(){
+            window.open("xm/xmmx?xmid="+$("#xmid").val());
+        });
+
     }
 
-    function sh_ch(){
-        parent.layer.newpage({
-            area: ['800px', '600px'],
-            title:'【初审】申请',
-            content:'business/xmgl/xmgl_sh_cs.jsp',
-        });
+
+    function refreshTable(){
+
+        $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
+            postData:{
+                'xm':$("#condition").val(),//学生姓名
+                /*'xmzm':$("#condition").val() //项目总名*/
+            },
+            page:1
+        }).trigger("reloadGrid");
     }
-    function sh_fh(){
-        parent.layer.newpage({
-            area: ['800px', '600px'],
-            title:'【复审】申请',
-            content:'business/xmgl/xmgl_sh_fs.jsp',
-        });
-    }
+
+
 
 
 </script>

@@ -176,7 +176,7 @@
         var index = layer.newpage({
             area: ['800px', '600px'],
             title:'财务明细',
-            content:'business/xmgl/xmgl_sh_cwmx.jsp',
+            content:'business/xmgl/xmgl_sh_cwmx.jsp?xmid='+xmid,
         });
 
         //全屏

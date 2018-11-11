@@ -433,6 +433,36 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         return count>0;
     }
 
+    /**
+     * 列表显示 项目中已复审通过 或自费 的学生名单
+     * @param conditions
+     * @return
+     */
+    @Override
+    public List listXmmx(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+
+        XmXssqjlParams params = new XmXssqjlParams();
+        XmXssqjlParams.Criteria c1 = params.createCriteria();
+        XmXssqjlParams.Criteria c2 = params.or();
+
+        c1.andConfirmStatusEqualTo("02"); //复审通过
+        c2.andSelfPayEqualTo("Y");//自费
+
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            XmXssqjl jl = (XmXssqjl) conditions[0];
+            c1.andXmIdEqualTo(jl.getXmId());
+            c2.andXmIdEqualTo(jl.getXmId());
+
+            if(StringUtils.isNotEmpty(jl.getXm())){
+                c1.andXmLike("%" + jl.getXm() + "%");
+                c2.andXmLike("%" + jl.getXm() + "%");
+            }
+            super.addOrderBy(params, conditions);
+        }
+
+        return sqDao.selectByExample(params);
+    }
 
 
     /**

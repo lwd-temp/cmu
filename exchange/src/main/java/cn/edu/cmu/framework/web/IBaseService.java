@@ -31,6 +31,9 @@ public interface IBaseService<Domain,DomainParams> {
     public List list(Domain domain)throws Exception;
 
 
+    public List listByParam(DomainParams params)throws Exception;
+
+
     //按条件查询
     public abstract List list(Object... conditions) throws Exception;
 

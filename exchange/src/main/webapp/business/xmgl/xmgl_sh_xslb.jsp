@@ -137,10 +137,12 @@
             colModel:[
                 {name:'xh',index:'xh',  },
                 {name:'xm',index:'xm', formatter:function(cellvalue, options, rowObject){
-                        if(parseInt(rowObject.id)%3 != 0) {
-                            return cellvalue;
-                        }
-                        return cellvalue+"(<i class='ace-icon fa fa-eye '>已申请"+rowObject.id+"项目</i>)";
+
+                        return cellvalue;
+                        // if(parseInt(rowObject.id)%3 != 0) {
+                        //     return cellvalue;
+                        // }
+                        // return cellvalue+"(<i class='ace-icon fa fa-eye '>已申请"+rowObject.id+"项目</i>)";
 
                     } },
 

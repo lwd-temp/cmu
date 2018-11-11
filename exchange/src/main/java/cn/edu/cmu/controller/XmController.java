@@ -1,10 +1,8 @@
 package cn.edu.cmu.controller;
 
-import cn.edu.cmu.domain.BksXsjbsjxx;
-import cn.edu.cmu.domain.Xm;
-import cn.edu.cmu.domain.XmXssbfj;
-import cn.edu.cmu.domain.XmXssqjl;
+import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.XmService;
 import cn.edu.cmu.service.XmXssqjlService;
@@ -12,7 +10,14 @@ import cn.edu.cmu.service.XmXssqjlServiceImpl;
 import cn.edu.cmu.vo.XmVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +25,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.*;
 
 @Controller
@@ -316,6 +324,16 @@ public class XmController extends BaseController {
     }
 
 
+    /**
+     * 列表显示申请项目的学生
+     * @param jl
+     * @param orderCol
+     * @param orderType
+     * @param page
+     * @param rows
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/listXmSqxs")
     @ResponseBody
     public Map listXmSqxs(XmXssqjl jl,
@@ -329,6 +347,35 @@ public class XmController extends BaseController {
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         //查询
         List list = xmService.listXmSqxs(jl, orderCol, orderType);//demoList();
+
+        //返回带【分页】 的表格JSON 信息
+        return super.pagingInfo(pageInfo, list);
+    }
+
+
+    /**
+     * 列表显示申请项目的学生明细
+     * @param jl
+     * @param orderCol
+     * @param orderType
+     * @param page
+     * @param rows
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/listXmmx")
+    @ResponseBody
+    public Map listXmmx(XmXssqjl jl,
+                          String orderCol,
+                          String orderType,
+                          @RequestParam(defaultValue = "1", required = false) Integer page,
+                          @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
+
+        logger.debug("condition:" + jl);
+        //开启分页
+        Page<Object> pageInfo = PageHelper.startPage(page, rows);
+        //查询
+        List list = xmService.listXmmx(jl, orderCol, orderType);//demoList();
 
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo, list);
@@ -510,6 +557,46 @@ public class XmController extends BaseController {
         //TODO 此处需要根据 状态给学生发邮件
 
         return super.ajaxStatus(success);
+    }
+
+
+
+
+
+
+    @RequestMapping("/xmmx")
+    public  void export(String xmid, HttpServletResponse response) throws Exception {
+
+        XmXssqjlParams params = new XmXssqjlParams();
+        XmXssqjlParams.Criteria c1 = params.createCriteria();
+        XmXssqjlParams.Criteria c2 = params.or();
+
+        c1.andXmIdEqualTo(xmid);
+        c1.andConfirmStatusEqualTo("02");//已复审通过
+
+        c2.andXmIdEqualTo(xmid);
+        c2.andSelfPayEqualTo("Y");//或者申请自费
+
+        List<XmXssqjl> list = sqService.listByParam(params);
+
+        //转换自费代码
+        for (XmXssqjl jl : list) {
+            if("Y".equals(jl.getSelfPay())){
+                jl.setSelfPay("自费");
+            }
+
+        }
+
+        logger.debug("查询项目学生明细"+list.size());
+
+        String downFileName = "mx.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "xmgl/xmgl_mx.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
+
+
     }
 
 }

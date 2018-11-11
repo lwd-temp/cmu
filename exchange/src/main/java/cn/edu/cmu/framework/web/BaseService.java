@@ -63,6 +63,13 @@ public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends Ba
     @Override
     public abstract List list(Domain domain)throws Exception;
 
+
+    @Override
+    public List listByParam(DomainParams domainParams) throws Exception {
+
+        return dao.selectByExample(domainParams);
+    }
+
     @Override
     public abstract List list(Object... conditions) throws  Exception;
 
