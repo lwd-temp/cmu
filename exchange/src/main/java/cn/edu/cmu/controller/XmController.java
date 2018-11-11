@@ -278,11 +278,16 @@ public class XmController extends BaseController {
 
         //初始化页面学生信息
         XmXssqjl sqjl = sqService.queryById(id);
-
         model.addAttribute("sqjl", sqjl);
 
-        List<Map> gjdqList = xmService.initGjdq(sqjl.getXmId());
 
+        Xm xm = xmService.queryById(sqjl.getXmId());
+        model.addAttribute("xm", xm);
+
+
+
+
+        List<Map> gjdqList = xmService.initGjdq(sqjl.getXmId());
         model.addAttribute("gjdqList", gjdqList);
 
 
@@ -431,7 +436,7 @@ public class XmController extends BaseController {
         boolean success = xmService.xsshCs(id, status);
 
 
-        //此处需要根据 状态给学生发邮件
+        //TODO 此处需要根据 状态给学生发邮件
 
 
         return super.ajaxStatus(success);
@@ -450,24 +455,61 @@ public class XmController extends BaseController {
         boolean success = xmService.xsshFs(jl);
 
 
-        //此处需要根据 状态给学生发邮件
+        //TODO 此处需要根据 状态给学生发邮件
 
 
         return super.ajaxStatus(success);
     }
 
 
-
+    /**
+     * 初审确认
+     * @param id
+     * @return
+     */
     @ResponseBody
     @RequestMapping("/comfirmCs")
     public Map confirmCs(String id) {
 
         boolean success = xmService.confirmCs(id);
 
-        //此处需要根据 状态给学生发邮件
+        //TODO 此处需要根据 状态给学生发邮件
 
         return super.ajaxStatus(success);
     }
 
+
+    /**
+     * 复审确认
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/comfirmFs")
+    public Map comfirmFs(String id) {
+
+        boolean success = xmService.confirmFs(id);
+
+        //TODO 此处需要根据 状态给学生发邮件
+
+        return super.ajaxStatus(success);
+    }
+
+
+    /**
+     * 申请自费
+     * @param id
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/sqzf")
+    public Map sqzf(String id) {
+
+        boolean success = xmService.sqzf(id);
+
+        //TODO 此处需要根据 状态给学生发邮件
+
+        return super.ajaxStatus(success);
+    }
 
 }

@@ -37,6 +37,7 @@
             <arg column="SQJL_ID" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="IS_COMFIRM1" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="IS_COMFIRM1" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="SELF_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
         </constructor>
     </resultMap>
 
@@ -89,7 +90,8 @@
           nvl(jl.status,'00')||  '-' || nvl(jl.confirm_status,'00') as   SQ_STATUS,
           jl.sqjl_id  as SQJL_ID,
           jl.isconfirm1   as is_comfirm1,
-          jl.isconfirm2   as is_comfirm2
+          jl.isconfirm2   as is_comfirm2,
+          jl.self_pay     as self_pay
 
         from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
             where t.valid = '1'  and t.status ='02'

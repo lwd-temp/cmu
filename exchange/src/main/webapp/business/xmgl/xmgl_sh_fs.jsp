@@ -245,8 +245,6 @@
                     <div class="col-xs-4">
                         <input type="text"  name="zzje"  id="zzje"  value=""    class="col-xs-12" />
                     </div>
-
-
                 </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>

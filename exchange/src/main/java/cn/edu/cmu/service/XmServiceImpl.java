@@ -409,6 +409,43 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         return count>0;
     }
 
+
+
+    /**
+     * 复审确认
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean confirmFs(String id) {
+
+        XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
+        jl.setIsconfirm2("1"); //是否确认复审，0 未确认 默认， 1 已确认
+
+        int count = sqDao.updateByPrimaryKeySelective(jl);
+
+        return count>0;
+    }
+
+
+
+    /**
+     * 申请自费
+     * @param id
+     * @return
+     */
+    @Override
+    public boolean sqzf(String id) {
+
+        XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
+        jl.setSelfPay("Y");
+        jl.setIsconfirm2("1");//复审阶段已经确认
+
+        int count = sqDao.updateByPrimaryKeySelective(jl);
+
+        return count>0;
+    }
+
     /**
      *  学生项目复审
      * @param jl

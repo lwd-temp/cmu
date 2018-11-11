@@ -145,9 +145,9 @@ public class XmXssqjl {
     private String fsyj;
 
     /**
-     * 01 自费 02非自费
+     * Y 自费 N 非自费
      */
-    private String selftPay;
+    private String selfPay;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -163,7 +163,7 @@ public class XmXssqjl {
      *
      * @mbggenerated 2018-11-11
      */
-    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selftPay, String valid, Date createTime) {
+    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selfPay, String valid, Date createTime) {
         this.sqjlId = sqjlId;
         this.xmId = xmId;
         this.xmzm = xmzm;
@@ -192,7 +192,7 @@ public class XmXssqjl {
         this.isconfirm1 = isconfirm1;
         this.isconfirm2 = isconfirm2;
         this.fsyj = fsyj;
-        this.selftPay = selftPay;
+        this.selfPay = selfPay;
         this.valid = valid;
         this.createTime = createTime;
     }
@@ -654,19 +654,19 @@ public class XmXssqjl {
     }
 
     /**
-     * 01 自费 02非自费
-     * @return SELFT_PAY 01 自费 02非自费
+     * Y 自费 N 非自费
+     * @return SELF_PAY Y 自费 N 非自费
      */
-    public String getSelftPay() {
-        return selftPay;
+    public String getSelfPay() {
+        return selfPay;
     }
 
     /**
-     * 01 自费 02非自费
-     * @param selftPay 01 自费 02非自费
+     * Y 自费 N 非自费
+     * @param selfPay Y 自费 N 非自费
      */
-    public void setSelftPay(String selftPay) {
-        this.selftPay = selftPay == null ? null : selftPay.trim();
+    public void setSelfPay(String selfPay) {
+        this.selfPay = selfPay == null ? null : selfPay.trim();
     }
 
     /**
@@ -739,7 +739,7 @@ public class XmXssqjl {
         sb.append(", isconfirm1=").append(isconfirm1);
         sb.append(", isconfirm2=").append(isconfirm2);
         sb.append(", fsyj=").append(fsyj);
-        sb.append(", selftPay=").append(selftPay);
+        sb.append(", selfPay=").append(selfPay);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

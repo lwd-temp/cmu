@@ -39,6 +39,10 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
     boolean confirmCs(String id);
 
+    boolean sqzf(String id);
+
     boolean xsshFs(XmXssqjl jl);
+
+    boolean confirmFs(String id);
 }
 

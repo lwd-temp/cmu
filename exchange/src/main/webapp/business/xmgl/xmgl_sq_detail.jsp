@@ -190,6 +190,40 @@
 
 
 
+
+                            <c:if test="${sqjl.confirmStatus == '02' || sqjl.confirmStatus == '03'}">
+                                <%--复审通过或退回显示意见--%>
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>
+                                    <div class="col-xs-10">
+                                        <input type="text"  readonly="readonly" name="fsyj"  id="fsyj"  value="${sqjl.fsyj}"    class="col-xs-12" />
+                                    </div>
+                                </div>
+
+                                <c:if test="${sqjl.confirmStatus == '02'}">
+                                    <div class="form-group">
+                                        <label class="col-xs-2 control-label "  > 资助金额<i class="fa fa-star-o red"></i>   : </label>
+                                        <div class="col-xs-10">
+                                            <input type="text"  readonly="readonly" name="zzje"  id="zzje"  value="${sqjl.zzje}"    class="col-xs-12" />
+                                        </div>
+                                    </div>
+                                </c:if>
+                                <c:if test="${sqjl.confirmStatus == '03' && xm.sfxzrs == 'N'}">
+
+                                    <div class="form-group">
+
+                                        <div class="col-xs-10" style="color: red">
+                                           当前项目为不限制人数，可<b>申请自费</b>。
+                                        </div>
+                                    </div>
+                                </c:if>
+
+                            </c:if>
+
+
+
+
+
                             <hr>
 
                             <div class="form-group">
@@ -238,14 +272,34 @@
 
 
 
-                                <c:choose>
-                                    <c:when test="${sqjl.status =='03' && sqjl.isconfirm1 == '0'}">
-                                        <button class="btn btn-info btn-sm " id="btnConfirmCs"  type="button">
-                                            <i class="ace-icon fa fa-save bigger-110"></i>
-                                            初审确认
-                                        </button>
-                                    </c:when>
-                                </c:choose>
+                            <c:if test="${(sqjl.status =='03' || sqjl.status =='04') && sqjl.isconfirm1 == '0'}">
+                                <button class="btn btn-info btn-sm " id="btnConfirmCs"  type="button">
+                                    <i class="ace-icon fa fa-save bigger-110"></i>
+                                    初审结果确认
+                                </button>
+                            </c:if>
+
+
+                            <c:if test="${(sqjl.confirmStatus =='02' || sqjl.confirmStatus =='03') && sqjl.isconfirm2 == '0'}">
+                                <button class="btn btn-info btn-sm " id="btnConfirmFs"  type="button">
+                                    <i class="ace-icon fa fa-save bigger-110"></i>
+                                    复审结果确认
+                                </button>
+                            </c:if>
+
+
+                            <c:if test="${sqjl.confirmStatus == '03' && xm.sfxzrs == 'N'}">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger btn-sm " id="btnSqzf"  type="button">
+                                    <i class="ace-icon fa fa-save bigger-110"></i>
+                                    申请自费
+                                </button>
+
+
+                            </c:if>
+
+
+
                             </div>
 
                         </form>
@@ -337,11 +391,15 @@
         });
 
 
-        //
-        // $("#btnCommit").click(function(){
-        //     $("#status").val('02');
-        //     saveSq();
-        // });
+        $("#btnConfirmFs").click(function(){
+            comfirmFs();
+        });
+
+
+
+        $("#btnSqzf").click(function(){
+            sqzf();
+        });
 
     })
 
@@ -366,6 +424,7 @@
     }
 
     /**
+
      * 初审确认
      */
     function comfirmCs() {
@@ -381,6 +440,45 @@
             }
         });
     }
+
+
+    /**
+     * 复审确认
+     */
+    function comfirmFs() {
+        $.ajax('xm/comfirmFs', {
+            data: {
+                id:$("#sqjlId").val(),
+            },
+            success: function (resp) {
+                if (resp && resp.success) {
+                    parent.layer.alert("已确认");
+                    callback();
+                }
+            }
+        });
+    }
+
+
+    /**
+     * 申请自费
+     */
+    function sqzf() {
+        $.ajax('xm/sqzf', {
+            data: {
+                id:$("#sqjlId").val(),
+            },
+            success: function (resp) {
+                if (resp && resp.success) {
+                    parent.layer.alert("已申请");
+                    callback();
+                }
+            }
+        });
+    }
+
+
+
 
 
 

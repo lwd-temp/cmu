@@ -131,7 +131,7 @@
         var settings = {
             caption: "申请学生列表",
             url:'xm/listXmSqxs?xmId=${param["xmid"]}',
-            colNames:['学号','姓名','成绩排名','综合测评','初审状态','复审状态',"审核"],
+            colNames:['学号','姓名','成绩排名','综合测评','初审状态','复审状态','是否自费',"审核"],
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -146,34 +146,40 @@
 
                 {name:'chpm',index:'chpm',  },
                 {name:'zhpj',index:'zhpj',  },
-                {name:'status',index:'status',formatter:function(status){
+                {name:'status',index:'status',formatter:function(status,options,rowObject){
+
+                    var confirm1 = rowObject.isconfirm1;
+
                         if(status == '01'){
                             return "申请中";
                         }else if(status == "02"){
-                            return "待审核";
+                            return "初审待审核";
                         }else if(status == '03'){
-                            return "通过";
+                            return "通过"+("1"==confirm1?"已确认":"未确认");
+                            //初审通过
                         }else if(status == '04'){
-                            return "不通过";
+                            return "不通过"+("1"==confirm1?"已确认":"未确认");
                         }
                     }  },
-                {name:'configmStatus',index:'configmStatus', formatter:function(confirmStatus,options, rowObject){
-                    var status = rowObject.status;
-                    if(!confirmStatus || confirmStatus ==''){
-                        if(status == '03'){//已通过初审，但为处理的复审状态 默认显示个
-                            return "待学生初审确认";
-                        }else{
-                            return "无";
-                        }
-                    }
+                {name:'confirmStatus',index:'confirmStatus', formatter:function(confirmStatus,options, rowObject){
+
+                    var confirm2 = rowObject.isconfirm2;
+
                     if(confirmStatus == '01'){
                         return "待复审";
-                    }else if(confirmStatus = "02"){
-                        return "通过";
+                    }else if(confirmStatus == "02"){
+                        return "通过"+("1"==confirm2?"已确认":"未确认");
                     }else if(confirmStatus == '03'){
-                        return "不通过";
+                        return "不通过"+("1"==confirm2?"已确认":"未确认");
                     }
+                    return "";
                 } },
+                {name:'selfPay',index:'selfPay',formatter:function(selfPay){
+                    if(selfPay == 'Y'){
+                        return "是"
+                    }
+                    return "";
+                    }},
 
                 {name:'sqjlId',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){

@@ -83,14 +83,13 @@
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     }  },
 
-
-
                 {name:'sqStatus',index:'sqStatus', formatter:function(sqStatus,options,rowObject){
 
                         var status = sqStatus.split("-")[0];
                         var confirmStatus = sqStatus.split("-")[1];
                         var comfirm1 = rowObject.comfirm1;
                         var comfirm2 = rowObject.comfirm2;
+                        var selfPay = rowObject.selfPay;
 
 
                         // return "comfirm1:"+comfirm1;
@@ -109,9 +108,9 @@
                                 if(confirmStatus == '01'){
                                     return "待复审";
                                 }else if(confirmStatus == "02"){
-                                    return "复审通过"+confirmStatus;
+                                    return "复审通过";
                                 }else if(confirmStatus == '03'){
-                                    return "复审不通过";
+                                    return "复审不通过"+(selfPay == 'Y'?".已自费":"");
                                 }
                             }
                         }else if(status == '04'){

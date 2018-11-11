@@ -2112,73 +2112,73 @@ public class XmXssqjlParams {
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayIsNull() {
-            addCriterion("SELFT_PAY is null");
+        public Criteria andSelfPayIsNull() {
+            addCriterion("SELF_PAY is null");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayIsNotNull() {
-            addCriterion("SELFT_PAY is not null");
+        public Criteria andSelfPayIsNotNull() {
+            addCriterion("SELF_PAY is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayEqualTo(String value) {
-            addCriterion("SELFT_PAY =", value, "selftPay");
+        public Criteria andSelfPayEqualTo(String value) {
+            addCriterion("SELF_PAY =", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayNotEqualTo(String value) {
-            addCriterion("SELFT_PAY <>", value, "selftPay");
+        public Criteria andSelfPayNotEqualTo(String value) {
+            addCriterion("SELF_PAY <>", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayGreaterThan(String value) {
-            addCriterion("SELFT_PAY >", value, "selftPay");
+        public Criteria andSelfPayGreaterThan(String value) {
+            addCriterion("SELF_PAY >", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayGreaterThanOrEqualTo(String value) {
-            addCriterion("SELFT_PAY >=", value, "selftPay");
+        public Criteria andSelfPayGreaterThanOrEqualTo(String value) {
+            addCriterion("SELF_PAY >=", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayLessThan(String value) {
-            addCriterion("SELFT_PAY <", value, "selftPay");
+        public Criteria andSelfPayLessThan(String value) {
+            addCriterion("SELF_PAY <", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayLessThanOrEqualTo(String value) {
-            addCriterion("SELFT_PAY <=", value, "selftPay");
+        public Criteria andSelfPayLessThanOrEqualTo(String value) {
+            addCriterion("SELF_PAY <=", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayLike(String value) {
-            addCriterion("SELFT_PAY like", value, "selftPay");
+        public Criteria andSelfPayLike(String value) {
+            addCriterion("SELF_PAY like", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayNotLike(String value) {
-            addCriterion("SELFT_PAY not like", value, "selftPay");
+        public Criteria andSelfPayNotLike(String value) {
+            addCriterion("SELF_PAY not like", value, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayIn(List<String> values) {
-            addCriterion("SELFT_PAY in", values, "selftPay");
+        public Criteria andSelfPayIn(List<String> values) {
+            addCriterion("SELF_PAY in", values, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayNotIn(List<String> values) {
-            addCriterion("SELFT_PAY not in", values, "selftPay");
+        public Criteria andSelfPayNotIn(List<String> values) {
+            addCriterion("SELF_PAY not in", values, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayBetween(String value1, String value2) {
-            addCriterion("SELFT_PAY between", value1, value2, "selftPay");
+        public Criteria andSelfPayBetween(String value1, String value2) {
+            addCriterion("SELF_PAY between", value1, value2, "selfPay");
             return (Criteria) this;
         }
 
-        public Criteria andSelftPayNotBetween(String value1, String value2) {
-            addCriterion("SELFT_PAY not between", value1, value2, "selftPay");
+        public Criteria andSelfPayNotBetween(String value1, String value2) {
+            addCriterion("SELF_PAY not between", value1, value2, "selfPay");
             return (Criteria) this;
         }
 
