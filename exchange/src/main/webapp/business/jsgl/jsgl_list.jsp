@@ -66,7 +66,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-400)+"px"],
+                        area: ['1000px', ($(window).height()-40)+"px"],
                         title:'添加教师',
                         content:'business/jsgl/jsgl_add.jsp',
                     });
@@ -98,21 +98,27 @@
             caption: "教师管理",
            /* data: grid_data,*/
             url:'wjjs/list',
-            colNames:['ID','姓名','性别','语言', '国籍', '专业领域','关联项目',"操作"],
+            colNames:['ID','姓名','性别', '国籍', '出生日期','婚姻状况',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'tid',index:'tid', key:true,hidden:true  },
-                {name:'name',index:'name',  },
+                {name:'jsx',index:'jsx', formatter:function(jsx,options,rowObject){
+                        return jsx;
+
+                    } },
                 {name:'gender',index:'gender',
                     formatter:function(gender){
                         return dmcache.getCode('t_dm_xb',gender);
                     }
                 },
-                {name:'language',index:'language',  },
                 {name:'gj',index:'gj',  },
-                {name:'zyly',index:'zyly',  },
-                {name:'glxm',index:'glxm',  },
+                {name:'birthday',index:'birthday',formatter:function(time){
+
+                        return new Date(time).getYmd("yyyy年MM月dd日")
+                    }  },
+                {name:'hyzk',index:'hyzk',  },
+
 
                 {name:'tid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(tid, options, rowObject){
@@ -150,7 +156,7 @@
     //修改用户
     function editjsgl(tid){
         layer.newpage({
-            area: ['900px', ($(window).height()-400)+"px"],
+            area: ['1000px', ($(window).height()-40)+"px"],
             title:'编辑教师',
             content:'wjjs/toEdit?id='+tid
         });

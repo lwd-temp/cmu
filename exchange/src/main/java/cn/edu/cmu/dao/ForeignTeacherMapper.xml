@@ -4,19 +4,29 @@
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.ForeignTeacher" >
     <constructor >
       <idArg column="TID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JSX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CHINESE_NAME" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GENDER" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="LANGUAGE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="GZDW" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ZYLY" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ZWZC" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="GLXM" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="CZ" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="TXDZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BIRTHDAY" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="HYZK" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HZLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HZH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HZQFRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="HZYXQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="ZGXW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HYSP" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="EMAIL" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SYCCSYHZGJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GZGW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="RZZMSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="GZZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GZSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="GZSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="HR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -81,8 +91,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    TID, NAME, GENDER, LANGUAGE, GZDW, ZYLY, EMAIL, PHONE, ZWZC, GLXM, CZ, TXDZ, GJ, 
-    MEMO, VALID, CREATE_TIME
+    TID, GH, JSX, JSM, CHINESE_NAME, GENDER, GJ, BIRTHDAY, HYZK, HZLX, HZH, HZQFRQ, HZYXQ, 
+    ZGXW, HYSP, EMAIL, SYCCSYHZGJ, GZGW, RZZMSJ, GZZW, GZSJ_START, GZSJ_END, PHONE, HR, 
+    VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.ForeignTeacherParams" >
     select
@@ -117,18 +128,24 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
-    insert into T_FOREIGN_TEACHER (TID, NAME, GENDER, 
-      LANGUAGE, GZDW, ZYLY, 
-      EMAIL, PHONE, ZWZC, 
-      GLXM, CZ, TXDZ, GJ, 
-      MEMO, VALID, CREATE_TIME
-      )
-    values (#{tid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
-      #{language,jdbcType=VARCHAR}, #{gzdw,jdbcType=VARCHAR}, #{zyly,jdbcType=VARCHAR}, 
-      #{email,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{zwzc,jdbcType=VARCHAR}, 
-      #{glxm,jdbcType=VARCHAR}, #{cz,jdbcType=VARCHAR}, #{txdz,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, 
-      #{memo,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+    insert into T_FOREIGN_TEACHER (TID, GH, JSX, 
+      JSM, CHINESE_NAME, GENDER, 
+      GJ, BIRTHDAY, HYZK, 
+      HZLX, HZH, HZQFRQ, 
+      HZYXQ, ZGXW, HYSP, 
+      EMAIL, SYCCSYHZGJ, GZGW, 
+      RZZMSJ, GZZW, GZSJ_START, 
+      GZSJ_END, PHONE, HR, 
+      VALID, CREATE_TIME)
+    values (#{tid,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{jsx,jdbcType=VARCHAR}, 
+      #{jsm,jdbcType=VARCHAR}, #{chineseName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{hyzk,jdbcType=VARCHAR}, 
+      #{hzlx,jdbcType=VARCHAR}, #{hzh,jdbcType=VARCHAR}, #{hzqfrq,jdbcType=TIMESTAMP}, 
+      #{hzyxq,jdbcType=TIMESTAMP}, #{zgxw,jdbcType=VARCHAR}, #{hysp,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{syccsyhzgj,jdbcType=VARCHAR}, #{gzgw,jdbcType=VARCHAR}, 
+      #{rzzmsj,jdbcType=TIMESTAMP}, #{gzzw,jdbcType=VARCHAR}, #{gzsjStart,jdbcType=TIMESTAMP}, 
+      #{gzsjEnd,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, #{hr,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
     insert into T_FOREIGN_TEACHER
@@ -136,44 +153,74 @@
       <if test="tid != null" >
         TID,
       </if>
-      <if test="name != null" >
-        NAME,
+      <if test="gh != null" >
+        GH,
+      </if>
+      <if test="jsx != null" >
+        JSX,
+      </if>
+      <if test="jsm != null" >
+        JSM,
+      </if>
+      <if test="chineseName != null" >
+        CHINESE_NAME,
       </if>
       <if test="gender != null" >
         GENDER,
       </if>
-      <if test="language != null" >
-        LANGUAGE,
+      <if test="gj != null" >
+        GJ,
       </if>
-      <if test="gzdw != null" >
-        GZDW,
+      <if test="birthday != null" >
+        BIRTHDAY,
       </if>
-      <if test="zyly != null" >
-        ZYLY,
+      <if test="hyzk != null" >
+        HYZK,
+      </if>
+      <if test="hzlx != null" >
+        HZLX,
+      </if>
+      <if test="hzh != null" >
+        HZH,
+      </if>
+      <if test="hzqfrq != null" >
+        HZQFRQ,
+      </if>
+      <if test="hzyxq != null" >
+        HZYXQ,
+      </if>
+      <if test="zgxw != null" >
+        ZGXW,
+      </if>
+      <if test="hysp != null" >
+        HYSP,
       </if>
       <if test="email != null" >
         EMAIL,
       </if>
+      <if test="syccsyhzgj != null" >
+        SYCCSYHZGJ,
+      </if>
+      <if test="gzgw != null" >
+        GZGW,
+      </if>
+      <if test="rzzmsj != null" >
+        RZZMSJ,
+      </if>
+      <if test="gzzw != null" >
+        GZZW,
+      </if>
+      <if test="gzsjStart != null" >
+        GZSJ_START,
+      </if>
+      <if test="gzsjEnd != null" >
+        GZSJ_END,
+      </if>
       <if test="phone != null" >
         PHONE,
       </if>
-      <if test="zwzc != null" >
-        ZWZC,
-      </if>
-      <if test="glxm != null" >
-        GLXM,
-      </if>
-      <if test="cz != null" >
-        CZ,
-      </if>
-      <if test="txdz != null" >
-        TXDZ,
-      </if>
-      <if test="gj != null" >
-        GJ,
-      </if>
-      <if test="memo != null" >
-        MEMO,
+      <if test="hr != null" >
+        HR,
       </if>
       <if test="valid != null" >
         VALID,
@@ -186,44 +233,74 @@
       <if test="tid != null" >
         #{tid,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="gh != null" >
+        #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsx != null" >
+        #{jsx,jdbcType=VARCHAR},
+      </if>
+      <if test="jsm != null" >
+        #{jsm,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseName != null" >
+        #{chineseName,jdbcType=VARCHAR},
       </if>
       <if test="gender != null" >
         #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="language != null" >
-        #{language,jdbcType=VARCHAR},
+      <if test="gj != null" >
+        #{gj,jdbcType=VARCHAR},
       </if>
-      <if test="gzdw != null" >
-        #{gzdw,jdbcType=VARCHAR},
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="zyly != null" >
-        #{zyly,jdbcType=VARCHAR},
+      <if test="hyzk != null" >
+        #{hyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="hzlx != null" >
+        #{hzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="hzh != null" >
+        #{hzh,jdbcType=VARCHAR},
+      </if>
+      <if test="hzqfrq != null" >
+        #{hzqfrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hzyxq != null" >
+        #{hzyxq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zgxw != null" >
+        #{zgxw,jdbcType=VARCHAR},
+      </if>
+      <if test="hysp != null" >
+        #{hysp,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         #{email,jdbcType=VARCHAR},
       </if>
+      <if test="syccsyhzgj != null" >
+        #{syccsyhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="gzgw != null" >
+        #{gzgw,jdbcType=VARCHAR},
+      </if>
+      <if test="rzzmsj != null" >
+        #{rzzmsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gzzw != null" >
+        #{gzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="gzsjStart != null" >
+        #{gzsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gzsjEnd != null" >
+        #{gzsjEnd,jdbcType=TIMESTAMP},
+      </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="zwzc != null" >
-        #{zwzc,jdbcType=VARCHAR},
-      </if>
-      <if test="glxm != null" >
-        #{glxm,jdbcType=VARCHAR},
-      </if>
-      <if test="cz != null" >
-        #{cz,jdbcType=VARCHAR},
-      </if>
-      <if test="txdz != null" >
-        #{txdz,jdbcType=VARCHAR},
-      </if>
-      <if test="gj != null" >
-        #{gj,jdbcType=VARCHAR},
-      </if>
-      <if test="memo != null" >
-        #{memo,jdbcType=VARCHAR},
+      <if test="hr != null" >
+        #{hr,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -245,44 +322,74 @@
       <if test="record.tid != null" >
         TID = #{record.tid,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null" >
-        NAME = #{record.name,jdbcType=VARCHAR},
+      <if test="record.gh != null" >
+        GH = #{record.gh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jsx != null" >
+        JSX = #{record.jsx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jsm != null" >
+        JSM = #{record.jsm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chineseName != null" >
+        CHINESE_NAME = #{record.chineseName,jdbcType=VARCHAR},
       </if>
       <if test="record.gender != null" >
         GENDER = #{record.gender,jdbcType=VARCHAR},
       </if>
-      <if test="record.language != null" >
-        LANGUAGE = #{record.language,jdbcType=VARCHAR},
+      <if test="record.gj != null" >
+        GJ = #{record.gj,jdbcType=VARCHAR},
       </if>
-      <if test="record.gzdw != null" >
-        GZDW = #{record.gzdw,jdbcType=VARCHAR},
+      <if test="record.birthday != null" >
+        BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.zyly != null" >
-        ZYLY = #{record.zyly,jdbcType=VARCHAR},
+      <if test="record.hyzk != null" >
+        HYZK = #{record.hyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hzlx != null" >
+        HZLX = #{record.hzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hzh != null" >
+        HZH = #{record.hzh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hzqfrq != null" >
+        HZQFRQ = #{record.hzqfrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.hzyxq != null" >
+        HZYXQ = #{record.hzyxq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.zgxw != null" >
+        ZGXW = #{record.zgxw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hysp != null" >
+        HYSP = #{record.hysp,jdbcType=VARCHAR},
       </if>
       <if test="record.email != null" >
         EMAIL = #{record.email,jdbcType=VARCHAR},
       </if>
+      <if test="record.syccsyhzgj != null" >
+        SYCCSYHZGJ = #{record.syccsyhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzgw != null" >
+        GZGW = #{record.gzgw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rzzmsj != null" >
+        RZZMSJ = #{record.rzzmsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gzzw != null" >
+        GZZW = #{record.gzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gzsjStart != null" >
+        GZSJ_START = #{record.gzsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.gzsjEnd != null" >
+        GZSJ_END = #{record.gzsjEnd,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.phone != null" >
         PHONE = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.zwzc != null" >
-        ZWZC = #{record.zwzc,jdbcType=VARCHAR},
-      </if>
-      <if test="record.glxm != null" >
-        GLXM = #{record.glxm,jdbcType=VARCHAR},
-      </if>
-      <if test="record.cz != null" >
-        CZ = #{record.cz,jdbcType=VARCHAR},
-      </if>
-      <if test="record.txdz != null" >
-        TXDZ = #{record.txdz,jdbcType=VARCHAR},
-      </if>
-      <if test="record.gj != null" >
-        GJ = #{record.gj,jdbcType=VARCHAR},
-      </if>
-      <if test="record.memo != null" >
-        MEMO = #{record.memo,jdbcType=VARCHAR},
+      <if test="record.hr != null" >
+        HR = #{record.hr,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -298,19 +405,29 @@
   <update id="updateByExample" parameterType="map" >
     update T_FOREIGN_TEACHER
     set TID = #{record.tid,jdbcType=VARCHAR},
-      NAME = #{record.name,jdbcType=VARCHAR},
+      GH = #{record.gh,jdbcType=VARCHAR},
+      JSX = #{record.jsx,jdbcType=VARCHAR},
+      JSM = #{record.jsm,jdbcType=VARCHAR},
+      CHINESE_NAME = #{record.chineseName,jdbcType=VARCHAR},
       GENDER = #{record.gender,jdbcType=VARCHAR},
-      LANGUAGE = #{record.language,jdbcType=VARCHAR},
-      GZDW = #{record.gzdw,jdbcType=VARCHAR},
-      ZYLY = #{record.zyly,jdbcType=VARCHAR},
-      EMAIL = #{record.email,jdbcType=VARCHAR},
-      PHONE = #{record.phone,jdbcType=VARCHAR},
-      ZWZC = #{record.zwzc,jdbcType=VARCHAR},
-      GLXM = #{record.glxm,jdbcType=VARCHAR},
-      CZ = #{record.cz,jdbcType=VARCHAR},
-      TXDZ = #{record.txdz,jdbcType=VARCHAR},
       GJ = #{record.gj,jdbcType=VARCHAR},
-      MEMO = #{record.memo,jdbcType=VARCHAR},
+      BIRTHDAY = #{record.birthday,jdbcType=TIMESTAMP},
+      HYZK = #{record.hyzk,jdbcType=VARCHAR},
+      HZLX = #{record.hzlx,jdbcType=VARCHAR},
+      HZH = #{record.hzh,jdbcType=VARCHAR},
+      HZQFRQ = #{record.hzqfrq,jdbcType=TIMESTAMP},
+      HZYXQ = #{record.hzyxq,jdbcType=TIMESTAMP},
+      ZGXW = #{record.zgxw,jdbcType=VARCHAR},
+      HYSP = #{record.hysp,jdbcType=VARCHAR},
+      EMAIL = #{record.email,jdbcType=VARCHAR},
+      SYCCSYHZGJ = #{record.syccsyhzgj,jdbcType=VARCHAR},
+      GZGW = #{record.gzgw,jdbcType=VARCHAR},
+      RZZMSJ = #{record.rzzmsj,jdbcType=TIMESTAMP},
+      GZZW = #{record.gzzw,jdbcType=VARCHAR},
+      GZSJ_START = #{record.gzsjStart,jdbcType=TIMESTAMP},
+      GZSJ_END = #{record.gzsjEnd,jdbcType=TIMESTAMP},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      HR = #{record.hr,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -320,44 +437,74 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
     update T_FOREIGN_TEACHER
     <set >
-      <if test="name != null" >
-        NAME = #{name,jdbcType=VARCHAR},
+      <if test="gh != null" >
+        GH = #{gh,jdbcType=VARCHAR},
+      </if>
+      <if test="jsx != null" >
+        JSX = #{jsx,jdbcType=VARCHAR},
+      </if>
+      <if test="jsm != null" >
+        JSM = #{jsm,jdbcType=VARCHAR},
+      </if>
+      <if test="chineseName != null" >
+        CHINESE_NAME = #{chineseName,jdbcType=VARCHAR},
       </if>
       <if test="gender != null" >
         GENDER = #{gender,jdbcType=VARCHAR},
       </if>
-      <if test="language != null" >
-        LANGUAGE = #{language,jdbcType=VARCHAR},
+      <if test="gj != null" >
+        GJ = #{gj,jdbcType=VARCHAR},
       </if>
-      <if test="gzdw != null" >
-        GZDW = #{gzdw,jdbcType=VARCHAR},
+      <if test="birthday != null" >
+        BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
       </if>
-      <if test="zyly != null" >
-        ZYLY = #{zyly,jdbcType=VARCHAR},
+      <if test="hyzk != null" >
+        HYZK = #{hyzk,jdbcType=VARCHAR},
+      </if>
+      <if test="hzlx != null" >
+        HZLX = #{hzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="hzh != null" >
+        HZH = #{hzh,jdbcType=VARCHAR},
+      </if>
+      <if test="hzqfrq != null" >
+        HZQFRQ = #{hzqfrq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hzyxq != null" >
+        HZYXQ = #{hzyxq,jdbcType=TIMESTAMP},
+      </if>
+      <if test="zgxw != null" >
+        ZGXW = #{zgxw,jdbcType=VARCHAR},
+      </if>
+      <if test="hysp != null" >
+        HYSP = #{hysp,jdbcType=VARCHAR},
       </if>
       <if test="email != null" >
         EMAIL = #{email,jdbcType=VARCHAR},
       </if>
+      <if test="syccsyhzgj != null" >
+        SYCCSYHZGJ = #{syccsyhzgj,jdbcType=VARCHAR},
+      </if>
+      <if test="gzgw != null" >
+        GZGW = #{gzgw,jdbcType=VARCHAR},
+      </if>
+      <if test="rzzmsj != null" >
+        RZZMSJ = #{rzzmsj,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gzzw != null" >
+        GZZW = #{gzzw,jdbcType=VARCHAR},
+      </if>
+      <if test="gzsjStart != null" >
+        GZSJ_START = #{gzsjStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gzsjEnd != null" >
+        GZSJ_END = #{gzsjEnd,jdbcType=TIMESTAMP},
+      </if>
       <if test="phone != null" >
         PHONE = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="zwzc != null" >
-        ZWZC = #{zwzc,jdbcType=VARCHAR},
-      </if>
-      <if test="glxm != null" >
-        GLXM = #{glxm,jdbcType=VARCHAR},
-      </if>
-      <if test="cz != null" >
-        CZ = #{cz,jdbcType=VARCHAR},
-      </if>
-      <if test="txdz != null" >
-        TXDZ = #{txdz,jdbcType=VARCHAR},
-      </if>
-      <if test="gj != null" >
-        GJ = #{gj,jdbcType=VARCHAR},
-      </if>
-      <if test="memo != null" >
-        MEMO = #{memo,jdbcType=VARCHAR},
+      <if test="hr != null" >
+        HR = #{hr,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
@@ -370,19 +517,29 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
     update T_FOREIGN_TEACHER
-    set NAME = #{name,jdbcType=VARCHAR},
+    set GH = #{gh,jdbcType=VARCHAR},
+      JSX = #{jsx,jdbcType=VARCHAR},
+      JSM = #{jsm,jdbcType=VARCHAR},
+      CHINESE_NAME = #{chineseName,jdbcType=VARCHAR},
       GENDER = #{gender,jdbcType=VARCHAR},
-      LANGUAGE = #{language,jdbcType=VARCHAR},
-      GZDW = #{gzdw,jdbcType=VARCHAR},
-      ZYLY = #{zyly,jdbcType=VARCHAR},
-      EMAIL = #{email,jdbcType=VARCHAR},
-      PHONE = #{phone,jdbcType=VARCHAR},
-      ZWZC = #{zwzc,jdbcType=VARCHAR},
-      GLXM = #{glxm,jdbcType=VARCHAR},
-      CZ = #{cz,jdbcType=VARCHAR},
-      TXDZ = #{txdz,jdbcType=VARCHAR},
       GJ = #{gj,jdbcType=VARCHAR},
-      MEMO = #{memo,jdbcType=VARCHAR},
+      BIRTHDAY = #{birthday,jdbcType=TIMESTAMP},
+      HYZK = #{hyzk,jdbcType=VARCHAR},
+      HZLX = #{hzlx,jdbcType=VARCHAR},
+      HZH = #{hzh,jdbcType=VARCHAR},
+      HZQFRQ = #{hzqfrq,jdbcType=TIMESTAMP},
+      HZYXQ = #{hzyxq,jdbcType=TIMESTAMP},
+      ZGXW = #{zgxw,jdbcType=VARCHAR},
+      HYSP = #{hysp,jdbcType=VARCHAR},
+      EMAIL = #{email,jdbcType=VARCHAR},
+      SYCCSYHZGJ = #{syccsyhzgj,jdbcType=VARCHAR},
+      GZGW = #{gzgw,jdbcType=VARCHAR},
+      RZZMSJ = #{rzzmsj,jdbcType=TIMESTAMP},
+      GZZW = #{gzzw,jdbcType=VARCHAR},
+      GZSJ_START = #{gzsjStart,jdbcType=TIMESTAMP},
+      GZSJ_END = #{gzsjEnd,jdbcType=TIMESTAMP},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      HR = #{hr,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where TID = #{tid,jdbcType=VARCHAR}

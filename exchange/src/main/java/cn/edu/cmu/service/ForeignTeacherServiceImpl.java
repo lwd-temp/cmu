@@ -46,8 +46,8 @@ public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, Forei
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             ForeignTeacher foreignTeacher = (ForeignTeacher) conditions[0];
 
-            if (StringUtils.isNotEmpty(foreignTeacher.getName())) {
-                c1.andNameLike("%" + foreignTeacher.getName() + "%");
+            if (StringUtils.isNotEmpty(foreignTeacher.getJsm())) {
+                c1.andJsmEqualTo("%" + foreignTeacher.getJsm() + "%");
             }
             //暂时好像没有外文名字字段后期如果出现多个名字，就需要用到第二个Criteria的or的关系
             //if (StringUtils.isNotEmpty(foreignTeacher.getName())) {

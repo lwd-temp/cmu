@@ -9,59 +9,29 @@ public class ForeignTeacher {
     private String tid;
 
     /**
+     * 工号
+     */
+    private String gh;
+
+    /**
      * 教师姓名
      */
-    private String name;
+    private String jsx;
 
     /**
      * 教师性别
      */
-    private String gender;
+    private String jsm;
 
     /**
      * 语种
      */
-    private String language;
+    private String chineseName;
 
     /**
-     * 工作单位
+     * 性别
      */
-    private String gzdw;
-
-    /**
-     * 专业领域
-     */
-    private String zyly;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 工作电话
-     */
-    private String phone;
-
-    /**
-     * 职务职称
-     */
-    private String zwzc;
-
-    /**
-     * 关联项目
-     */
-    private String glxm;
-
-    /**
-     * 传真
-     */
-    private String cz;
-
-    /**
-     * 通信地址
-     */
-    private String txdz;
+    private String gender;
 
     /**
      * 国籍
@@ -69,9 +39,89 @@ public class ForeignTeacher {
     private String gj;
 
     /**
-     * 备注
+     * 出生日期
      */
-    private String memo;
+    private Date birthday;
+
+    /**
+     * 婚姻状况
+     */
+    private String hyzk;
+
+    /**
+     * 护照类型
+     */
+    private String hzlx;
+
+    /**
+     * 护照号码
+     */
+    private String hzh;
+
+    /**
+     * 护照签发日期
+     */
+    private Date hzqfrq;
+
+    /**
+     * 护照有效期至
+     */
+    private Date hzyxq;
+
+    /**
+     * 最高学位（学历）
+     */
+    private String zgxw;
+
+    /**
+     * 汉语水平
+     */
+    private String hysp;
+
+    /**
+     * 申请人电子邮箱
+     */
+    private String email;
+
+    /**
+     * 所有曾授予你护照的国家
+     */
+    private String syccsyhzgj;
+
+    /**
+     * 工作岗位（职业）
+     */
+    private String gzgw;
+
+    /**
+     * 聘用合同/任职证明在华工作开始时间
+     */
+    private Date rzzmsj;
+
+    /**
+     * 申请在中国工作职务
+     */
+    private String gzzw;
+
+    /**
+     * 申请在华工作时间开始
+     */
+    private Date gzsjStart;
+
+    /**
+     * 申请在华工作时间结束
+     */
+    private Date gzsjEnd;
+
+    /**
+     * 在中国工作电话
+     */
+    private String phone;
+
+    /**
+     * 是否是HR ，Y从HR导入
+     */
+    private String hr;
 
     /**
      * 数据是否有效(0已经删除 1有效)
@@ -85,30 +135,40 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-10-28
+     * @mbggenerated 2018-11-12
      */
-    public ForeignTeacher(String tid, String name, String gender, String language, String gzdw, String zyly, String email, String phone, String zwzc, String glxm, String cz, String txdz, String gj, String memo, String valid, Date createTime) {
+    public ForeignTeacher(String tid, String gh, String jsx, String jsm, String chineseName, String gender, String gj, Date birthday, String hyzk, String hzlx, String hzh, Date hzqfrq, Date hzyxq, String zgxw, String hysp, String email, String syccsyhzgj, String gzgw, Date rzzmsj, String gzzw, Date gzsjStart, Date gzsjEnd, String phone, String hr, String valid, Date createTime) {
         this.tid = tid;
-        this.name = name;
+        this.gh = gh;
+        this.jsx = jsx;
+        this.jsm = jsm;
+        this.chineseName = chineseName;
         this.gender = gender;
-        this.language = language;
-        this.gzdw = gzdw;
-        this.zyly = zyly;
-        this.email = email;
-        this.phone = phone;
-        this.zwzc = zwzc;
-        this.glxm = glxm;
-        this.cz = cz;
-        this.txdz = txdz;
         this.gj = gj;
-        this.memo = memo;
+        this.birthday = birthday;
+        this.hyzk = hyzk;
+        this.hzlx = hzlx;
+        this.hzh = hzh;
+        this.hzqfrq = hzqfrq;
+        this.hzyxq = hzyxq;
+        this.zgxw = zgxw;
+        this.hysp = hysp;
+        this.email = email;
+        this.syccsyhzgj = syccsyhzgj;
+        this.gzgw = gzgw;
+        this.rzzmsj = rzzmsj;
+        this.gzzw = gzzw;
+        this.gzsjStart = gzsjStart;
+        this.gzsjEnd = gzsjEnd;
+        this.phone = phone;
+        this.hr = hr;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-10-28
+     * @mbggenerated 2018-11-12
      */
     public ForeignTeacher() {
         super();
@@ -131,179 +191,83 @@ public class ForeignTeacher {
     }
 
     /**
-     * 教师姓名
-     * @return NAME 教师姓名
+     * 工号
+     * @return GH 工号
      */
-    public String getName() {
-        return name;
+    public String getGh() {
+        return gh;
+    }
+
+    /**
+     * 工号
+     * @param gh 工号
+     */
+    public void setGh(String gh) {
+        this.gh = gh == null ? null : gh.trim();
     }
 
     /**
      * 教师姓名
-     * @param name 教师姓名
+     * @return JSX 教师姓名
      */
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public String getJsx() {
+        return jsx;
+    }
+
+    /**
+     * 教师姓名
+     * @param jsx 教师姓名
+     */
+    public void setJsx(String jsx) {
+        this.jsx = jsx == null ? null : jsx.trim();
     }
 
     /**
      * 教师性别
-     * @return GENDER 教师性别
+     * @return JSM 教师性别
+     */
+    public String getJsm() {
+        return jsm;
+    }
+
+    /**
+     * 教师性别
+     * @param jsm 教师性别
+     */
+    public void setJsm(String jsm) {
+        this.jsm = jsm == null ? null : jsm.trim();
+    }
+
+    /**
+     * 语种
+     * @return CHINESE_NAME 语种
+     */
+    public String getChineseName() {
+        return chineseName;
+    }
+
+    /**
+     * 语种
+     * @param chineseName 语种
+     */
+    public void setChineseName(String chineseName) {
+        this.chineseName = chineseName == null ? null : chineseName.trim();
+    }
+
+    /**
+     * 性别
+     * @return GENDER 性别
      */
     public String getGender() {
         return gender;
     }
 
     /**
-     * 教师性别
-     * @param gender 教师性别
+     * 性别
+     * @param gender 性别
      */
     public void setGender(String gender) {
         this.gender = gender == null ? null : gender.trim();
-    }
-
-    /**
-     * 语种
-     * @return LANGUAGE 语种
-     */
-    public String getLanguage() {
-        return language;
-    }
-
-    /**
-     * 语种
-     * @param language 语种
-     */
-    public void setLanguage(String language) {
-        this.language = language == null ? null : language.trim();
-    }
-
-    /**
-     * 工作单位
-     * @return GZDW 工作单位
-     */
-    public String getGzdw() {
-        return gzdw;
-    }
-
-    /**
-     * 工作单位
-     * @param gzdw 工作单位
-     */
-    public void setGzdw(String gzdw) {
-        this.gzdw = gzdw == null ? null : gzdw.trim();
-    }
-
-    /**
-     * 专业领域
-     * @return ZYLY 专业领域
-     */
-    public String getZyly() {
-        return zyly;
-    }
-
-    /**
-     * 专业领域
-     * @param zyly 专业领域
-     */
-    public void setZyly(String zyly) {
-        this.zyly = zyly == null ? null : zyly.trim();
-    }
-
-    /**
-     * 邮箱
-     * @return EMAIL 邮箱
-     */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * 邮箱
-     * @param email 邮箱
-     */
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
-
-    /**
-     * 工作电话
-     * @return PHONE 工作电话
-     */
-    public String getPhone() {
-        return phone;
-    }
-
-    /**
-     * 工作电话
-     * @param phone 工作电话
-     */
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    /**
-     * 职务职称
-     * @return ZWZC 职务职称
-     */
-    public String getZwzc() {
-        return zwzc;
-    }
-
-    /**
-     * 职务职称
-     * @param zwzc 职务职称
-     */
-    public void setZwzc(String zwzc) {
-        this.zwzc = zwzc == null ? null : zwzc.trim();
-    }
-
-    /**
-     * 关联项目
-     * @return GLXM 关联项目
-     */
-    public String getGlxm() {
-        return glxm;
-    }
-
-    /**
-     * 关联项目
-     * @param glxm 关联项目
-     */
-    public void setGlxm(String glxm) {
-        this.glxm = glxm == null ? null : glxm.trim();
-    }
-
-    /**
-     * 传真
-     * @return CZ 传真
-     */
-    public String getCz() {
-        return cz;
-    }
-
-    /**
-     * 传真
-     * @param cz 传真
-     */
-    public void setCz(String cz) {
-        this.cz = cz == null ? null : cz.trim();
-    }
-
-    /**
-     * 通信地址
-     * @return TXDZ 通信地址
-     */
-    public String getTxdz() {
-        return txdz;
-    }
-
-    /**
-     * 通信地址
-     * @param txdz 通信地址
-     */
-    public void setTxdz(String txdz) {
-        this.txdz = txdz == null ? null : txdz.trim();
     }
 
     /**
@@ -323,19 +287,275 @@ public class ForeignTeacher {
     }
 
     /**
-     * 备注
-     * @return MEMO 备注
+     * 出生日期
+     * @return BIRTHDAY 出生日期
      */
-    public String getMemo() {
-        return memo;
+    public Date getBirthday() {
+        return birthday;
     }
 
     /**
-     * 备注
-     * @param memo 备注
+     * 出生日期
+     * @param birthday 出生日期
      */
-    public void setMemo(String memo) {
-        this.memo = memo == null ? null : memo.trim();
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    /**
+     * 婚姻状况
+     * @return HYZK 婚姻状况
+     */
+    public String getHyzk() {
+        return hyzk;
+    }
+
+    /**
+     * 婚姻状况
+     * @param hyzk 婚姻状况
+     */
+    public void setHyzk(String hyzk) {
+        this.hyzk = hyzk == null ? null : hyzk.trim();
+    }
+
+    /**
+     * 护照类型
+     * @return HZLX 护照类型
+     */
+    public String getHzlx() {
+        return hzlx;
+    }
+
+    /**
+     * 护照类型
+     * @param hzlx 护照类型
+     */
+    public void setHzlx(String hzlx) {
+        this.hzlx = hzlx == null ? null : hzlx.trim();
+    }
+
+    /**
+     * 护照号码
+     * @return HZH 护照号码
+     */
+    public String getHzh() {
+        return hzh;
+    }
+
+    /**
+     * 护照号码
+     * @param hzh 护照号码
+     */
+    public void setHzh(String hzh) {
+        this.hzh = hzh == null ? null : hzh.trim();
+    }
+
+    /**
+     * 护照签发日期
+     * @return HZQFRQ 护照签发日期
+     */
+    public Date getHzqfrq() {
+        return hzqfrq;
+    }
+
+    /**
+     * 护照签发日期
+     * @param hzqfrq 护照签发日期
+     */
+    public void setHzqfrq(Date hzqfrq) {
+        this.hzqfrq = hzqfrq;
+    }
+
+    /**
+     * 护照有效期至
+     * @return HZYXQ 护照有效期至
+     */
+    public Date getHzyxq() {
+        return hzyxq;
+    }
+
+    /**
+     * 护照有效期至
+     * @param hzyxq 护照有效期至
+     */
+    public void setHzyxq(Date hzyxq) {
+        this.hzyxq = hzyxq;
+    }
+
+    /**
+     * 最高学位（学历）
+     * @return ZGXW 最高学位（学历）
+     */
+    public String getZgxw() {
+        return zgxw;
+    }
+
+    /**
+     * 最高学位（学历）
+     * @param zgxw 最高学位（学历）
+     */
+    public void setZgxw(String zgxw) {
+        this.zgxw = zgxw == null ? null : zgxw.trim();
+    }
+
+    /**
+     * 汉语水平
+     * @return HYSP 汉语水平
+     */
+    public String getHysp() {
+        return hysp;
+    }
+
+    /**
+     * 汉语水平
+     * @param hysp 汉语水平
+     */
+    public void setHysp(String hysp) {
+        this.hysp = hysp == null ? null : hysp.trim();
+    }
+
+    /**
+     * 申请人电子邮箱
+     * @return EMAIL 申请人电子邮箱
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * 申请人电子邮箱
+     * @param email 申请人电子邮箱
+     */
+    public void setEmail(String email) {
+        this.email = email == null ? null : email.trim();
+    }
+
+    /**
+     * 所有曾授予你护照的国家
+     * @return SYCCSYHZGJ 所有曾授予你护照的国家
+     */
+    public String getSyccsyhzgj() {
+        return syccsyhzgj;
+    }
+
+    /**
+     * 所有曾授予你护照的国家
+     * @param syccsyhzgj 所有曾授予你护照的国家
+     */
+    public void setSyccsyhzgj(String syccsyhzgj) {
+        this.syccsyhzgj = syccsyhzgj == null ? null : syccsyhzgj.trim();
+    }
+
+    /**
+     * 工作岗位（职业）
+     * @return GZGW 工作岗位（职业）
+     */
+    public String getGzgw() {
+        return gzgw;
+    }
+
+    /**
+     * 工作岗位（职业）
+     * @param gzgw 工作岗位（职业）
+     */
+    public void setGzgw(String gzgw) {
+        this.gzgw = gzgw == null ? null : gzgw.trim();
+    }
+
+    /**
+     * 聘用合同/任职证明在华工作开始时间
+     * @return RZZMSJ 聘用合同/任职证明在华工作开始时间
+     */
+    public Date getRzzmsj() {
+        return rzzmsj;
+    }
+
+    /**
+     * 聘用合同/任职证明在华工作开始时间
+     * @param rzzmsj 聘用合同/任职证明在华工作开始时间
+     */
+    public void setRzzmsj(Date rzzmsj) {
+        this.rzzmsj = rzzmsj;
+    }
+
+    /**
+     * 申请在中国工作职务
+     * @return GZZW 申请在中国工作职务
+     */
+    public String getGzzw() {
+        return gzzw;
+    }
+
+    /**
+     * 申请在中国工作职务
+     * @param gzzw 申请在中国工作职务
+     */
+    public void setGzzw(String gzzw) {
+        this.gzzw = gzzw == null ? null : gzzw.trim();
+    }
+
+    /**
+     * 申请在华工作时间开始
+     * @return GZSJ_START 申请在华工作时间开始
+     */
+    public Date getGzsjStart() {
+        return gzsjStart;
+    }
+
+    /**
+     * 申请在华工作时间开始
+     * @param gzsjStart 申请在华工作时间开始
+     */
+    public void setGzsjStart(Date gzsjStart) {
+        this.gzsjStart = gzsjStart;
+    }
+
+    /**
+     * 申请在华工作时间结束
+     * @return GZSJ_END 申请在华工作时间结束
+     */
+    public Date getGzsjEnd() {
+        return gzsjEnd;
+    }
+
+    /**
+     * 申请在华工作时间结束
+     * @param gzsjEnd 申请在华工作时间结束
+     */
+    public void setGzsjEnd(Date gzsjEnd) {
+        this.gzsjEnd = gzsjEnd;
+    }
+
+    /**
+     * 在中国工作电话
+     * @return PHONE 在中国工作电话
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * 在中国工作电话
+     * @param phone 在中国工作电话
+     */
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    /**
+     * 是否是HR ，Y从HR导入
+     * @return HR 是否是HR ，Y从HR导入
+     */
+    public String getHr() {
+        return hr;
+    }
+
+    /**
+     * 是否是HR ，Y从HR导入
+     * @param hr 是否是HR ，Y从HR导入
+     */
+    public void setHr(String hr) {
+        this.hr = hr == null ? null : hr.trim();
     }
 
     /**
@@ -372,7 +592,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-10-28
+     * @mbggenerated 2018-11-12
      */
     @Override
     public String toString() {
@@ -381,19 +601,29 @@ public class ForeignTeacher {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", tid=").append(tid);
-        sb.append(", name=").append(name);
+        sb.append(", gh=").append(gh);
+        sb.append(", jsx=").append(jsx);
+        sb.append(", jsm=").append(jsm);
+        sb.append(", chineseName=").append(chineseName);
         sb.append(", gender=").append(gender);
-        sb.append(", language=").append(language);
-        sb.append(", gzdw=").append(gzdw);
-        sb.append(", zyly=").append(zyly);
-        sb.append(", email=").append(email);
-        sb.append(", phone=").append(phone);
-        sb.append(", zwzc=").append(zwzc);
-        sb.append(", glxm=").append(glxm);
-        sb.append(", cz=").append(cz);
-        sb.append(", txdz=").append(txdz);
         sb.append(", gj=").append(gj);
-        sb.append(", memo=").append(memo);
+        sb.append(", birthday=").append(birthday);
+        sb.append(", hyzk=").append(hyzk);
+        sb.append(", hzlx=").append(hzlx);
+        sb.append(", hzh=").append(hzh);
+        sb.append(", hzqfrq=").append(hzqfrq);
+        sb.append(", hzyxq=").append(hzyxq);
+        sb.append(", zgxw=").append(zgxw);
+        sb.append(", hysp=").append(hysp);
+        sb.append(", email=").append(email);
+        sb.append(", syccsyhzgj=").append(syccsyhzgj);
+        sb.append(", gzgw=").append(gzgw);
+        sb.append(", rzzmsj=").append(rzzmsj);
+        sb.append(", gzzw=").append(gzzw);
+        sb.append(", gzsjStart=").append(gzsjStart);
+        sb.append(", gzsjEnd=").append(gzsjEnd);
+        sb.append(", phone=").append(phone);
+        sb.append(", hr=").append(hr);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

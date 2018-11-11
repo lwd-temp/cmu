@@ -7,36 +7,43 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <%
         String path = request.getContextPath();
-        String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+        String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
     %>
-    <base href="<%=basePath%>" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta charset="utf-8" />
+    <base href="<%=basePath%>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
 
-    <meta name="description" content="Common form elements and layouts" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="Common form elements and layouts"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
 
     <!-- bootstrap & fontawesome -->
-    <link rel="stylesheet" href="assets/css/bootstrap.css" />
-    <link rel="stylesheet" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.css"/>
 
     <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css"/>
     <!-- text fonts -->
-    <link rel="stylesheet" href="assets/css/ace-fonts.css" />
+    <link rel="stylesheet" href="assets/css/ace-fonts.css"/>
+
+    <link rel="stylesheet" href="assets/css/jquery-ui.css"/>
+    <link rel="stylesheet" href="assets/css/chosen.css"/>
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css"/>
+
 
     <!-- ace styles -->
-    <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
+    <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style"/>
 
     <!--[if lte IE 9]>
-    <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
-    <link rel="stylesheet" href="assets/css/ace-ie.css" />
+    <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet"/>
+    <link rel="stylesheet" href="assets/css/ace-ie.css"/>
     <![endif]-->
 
     <!--[if lte IE 9]>
@@ -60,99 +67,154 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
-                             <input type="hidden" name="tid" id="tid" value="${teacher.tid}"/>
+                             <input type="hidden" name="tid" id="tid" value="${teacher.tid}" />
+                             <input type="hidden" name="hr" id="hr" value="${teacher.hr}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 外籍姓名: </label>
-
+                                <label class="col-xs-2 control-label "> 姓: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="name" id="name"  value="${teacher.name}" placeholder="姓名"  class="col-xs-12" />
+                                    <input type="text" name="jsx" id="jsx" value="${teacher.jsx}" placeholder="姓" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 性别: </label>
-
+                                <label class="col-xs-2 control-label "> 名: </label>
                                 <div class="col-xs-4">
-
-                                    <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender" value="${teacher.gender}" ></dm:list>
-
+                                    <input type="text" name="jsm" id="jsm" value="${teacher.jsm}" placeholder="名" class="col-xs-12"/>
                                 </div>
-
                             </div>
+
+
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 国籍: </label>
+                                <label class="col-xs-2 control-label "> 中文名字: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="gj" id="gj" value="${teacher.gj}"  placeholder="国籍"  class="col-xs-12" />
+                                    <input type="text" name="chineseName" id="chineseName" value="${teacher.chineseName}" placeholder="中文名字" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 语种: </label>
+                                <label class="col-xs-2 control-label "> 性别: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="language"  id="language" value="${teacher.language}"  placeholder="语种"  class="col-xs-12" />
+                                    <dm:list tabName="t_dm_xb"   type="radio" name="gender" id="gender" value="${teacher.gender}" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 工作单位: </label>
+                                <label class="col-xs-2 control-label "> 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="gzdw" id="gzdw" value="${teacher.gzdw}"  placeholder="工作单位"  class="col-xs-12" />
+                                    <input type="text" name="gj" id="gj" value="${teacher.gj}" placeholder="国籍" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 职务职称: </label>
+                                <label class="col-xs-2 control-label "> 出生日期: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="zwzc"   id="zwzc" value="${teacher.zwzc}"  placeholder="职务职称"  class="col-xs-12" />
+
+                                    <input class="form-control date-picker" name="birthday" id="birthday"
+                                           value="<fmt:formatDate value="${teacher.birthday}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 专业领域: </label>
+                                <label class="col-xs-2 control-label "> 婚姻状况: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="zyly" id="zyly" value="${teacher.zyly}"  placeholder="专业领域"  class="col-xs-12" />
+                                    <input type="text" name="hyzk" id="hyzk" value="${teacher.hyzk}" placeholder="婚姻状况" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 关联项目: </label>
+                                <label class="col-xs-2 control-label "> 护照类型: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="glxm"   id="glxm" value="${teacher.glxm}"  placeholder="关联项目"  class="col-xs-12" />
+                                    <input type="text" name="hzlx" id="hzlx" value="${teacher.hzlx}" placeholder="护照类型" class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 邮箱: </label>
+                                <label class="col-xs-2 control-label "> 护照码: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="email" id="email" value="${teacher.email}"  placeholder="邮箱"  class="col-xs-12" />
+                                    <input type="text" name="hzh" id="hzh" value="${teacher.hzh}" placeholder="护照码" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 传真: </label>
+                                <label class="col-xs-2 control-label "> 护照签发日期: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="cz"   id="cz" value="${teacher.cz}"  placeholder="传真"  class="col-xs-12" />
+                                    <input class="form-control date-picker" name="hzqfrq" id="hzqfrq"
+                                           value="<fmt:formatDate value="${teacher.hzqfrq}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 护照有效期至: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" name="hzyxq" id="hzyxq"
+                                           value="<fmt:formatDate value="${teacher.hzyxq}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+
+                                <label class="col-xs-2 control-label "> 最高学位（学历）: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="zgxw" id="zgxw" value="${teacher.zgxw}" placeholder="最高学位（学历）" class="col-xs-12"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 汉语水平: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="hysp" id="hysp" value="${teacher.hysp}" placeholder="汉语水平" class="col-xs-12"/>
+                                </div>
+
+                                <label class="col-xs-2 control-label "> 申请人电子邮箱: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="email" id="email" value="${teacher.email}" placeholder="申请人电子邮箱" class="col-xs-12"/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 所有曾授予你护照的国家: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="syccsyhzgj" id="syccsyhzgj" value="${teacher.syccsyhzgj}" placeholder="所有曾授予你护照的国家" class="col-xs-12"/>
+                                </div>
+
+                                <label class="col-xs-2 control-label "> 工作岗位（职业）: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="gzgw" id="gzgw" value="${teacher.gzgw}" placeholder="工作岗位（职业）" class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 工作电话: </label>
+                                <label class="col-xs-2 control-label "> 聘用合同/任职证明在华工作开始时间: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="phone" id="phone" value="${teacher.phone}"  placeholder="工作电话"  class="col-xs-12" />
+                                    <input class="form-control date-picker" name="rzzmsj" id="rzzmsj"
+                                           value="<fmt:formatDate value="${teacher.rzzmsj}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 通信地址: </label>
+                                <label class="col-xs-2 control-label ">申请在中国工作职务: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="txdz" id="txdz"  value="${teacher.txdz}"  placeholder="通信地址"  class="col-xs-12" />
+                                    <input type="text" name="gzzw" id="gzzw" value="${teacher.gzzw}" placeholder="申请在中国工作职务" class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 备注: </label>
+                                <label class="col-xs-2 control-label "> 申请在华工作时间开始: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" name="gzsjStart" id="gzsjStart"
+                                           value="<fmt:formatDate value="${teacher.gzsjStart}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+
+                                <label class="col-xs-2 control-label ">申请在华工作时间结束: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" name="gzsjEnd" id="gzsjEnd"
+                                           value="<fmt:formatDate value="${teacher.gzsjEnd}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 在中国工作电话: </label>
                                 <div class="col-xs-10">
-                                    <input type="text"  name="memo" id="memo" value="${teacher.memo}"  placeholder="备注"  class="col-xs-12" />
+                                    <input type="text" name="phone" id="phone" value="${teacher.phone}" placeholder="在中国工作电话" class="col-xs-12"/>
                                 </div>
-
                             </div>
+                            <hr/>
 
+                            <div class="col-md-offset-3 col-md-9" style="text-align:left;">
 
-                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
-                                <hr/>
-                                <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
+                                <button class="btn btn-info btn-sm" id="btn-submit" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
                             </div>
 
-
                         </form>
-
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
@@ -166,7 +228,7 @@
 <script src='assets/js/jquery.js'></script>
 
 <script type="text/javascript">
-    if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>"+"<"+"/script>");
+    if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
 </script>
 
 <script src="assets/js/bootstrap.js"></script>
@@ -175,6 +237,7 @@
 <script src="assets/js/jquery-ui.custom.js"></script>
 <script src="assets/js/jquery.ui.touch-punch.js"></script>
 <script src="assets/js/chosen.jquery.js"></script>
+<script src="assets/js/date-time/bootstrap-datepicker.js"></script>
 <script src="assets/js/fuelux/fuelux.spinner.js"></script>
 <script src="assets/js/jquery.knob.js"></script>
 <script src="assets/js/autosize.js"></script>
@@ -196,32 +259,32 @@
 <script>
 
 
-    $(function(){
+    $(function () {
 
         var validator = $("#form").setValid({
             //校验规则
             rules: {
-                "tid":  "required",
+                "tid": "required",
                 "name": "required",
-                "gender":"required",
-                "language":"required",
-                "gzdw":"required",
-                "zyly":"required",
-                "email":{
-                    required:true,
-                    email:true
+                "gender": "required",
+                "language": "required",
+                "gzdw": "required",
+                "zyly": "required",
+                "email": {
+                    required: true,
+                    email: true
                 },
-                "phone":{
-                    required:true,
-                    isphoneNum:true
+                "phone": {
+                    required: true,
+                    isphoneNum: true
                 },
-                "zwzc":"required",
-                "glxm":"required",
-                "cz":"required",
-                "txdz":"required",
-                "gj":"required",
-                "memo":{
-                    maxlength:500
+                "zwzc": "required",
+                "glxm": "required",
+                "cz": "required",
+                "txdz": "required",
+                "gj": "required",
+                "memo": {
+                    maxlength: 500
                 },
 
 
@@ -229,19 +292,19 @@
         });
 
 
-        $("#btn-submit").click(function(){
+        $("#btn-submit").click(function () {
 
-            if(!$("#form").valid()){
+            if (!$("#form").valid()) {
                 validator.focusInvalid();
                 return;
             }
 
-            $.ajax('wjjs/save',{
-                type:'post',
-                dataType:'json',
-                data:$("#form").serialize(),
-                success:function(res){
-                    if(res && res.success){
+            $.ajax('wjjs/save', {
+                type: 'post',
+                dataType: 'json',
+                data: $("#form").serialize(),
+                success: function (res) {
+                    if (res && res.success) {
                         parent.refreshTable();
                         closeLayer();//关闭
                         winAlert("保存成功");//弹出确认消息
@@ -250,8 +313,6 @@
             });
         });
     })
-
-
 
 
 </script>
