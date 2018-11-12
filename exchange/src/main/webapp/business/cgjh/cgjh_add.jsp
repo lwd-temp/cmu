@@ -272,7 +272,7 @@
                     </div>
                 </div>
 
-                <div  class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                <div  id ="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
                     <hr/>
                     <button class="btn btn-info btn-sm" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
@@ -486,7 +486,6 @@
     }
 
     function appendCy(){
-        alert('appendCy')
         $("#btns").before($("#template").html());
         var cy = $("#btns").prev(".cy");
         cy.find("input").each(function(index,el){

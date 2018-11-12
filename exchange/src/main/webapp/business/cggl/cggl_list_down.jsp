@@ -50,24 +50,24 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
-                    <div class="form-group">
-                        <label class="col-xs-3 control-label"  > 本人承诺(申请表说明): </label>
-                        <div class="col-xs-9">
-                            <textarea class="form-control" name="sqbsm" id="sqbsm" maxlength="300">${cgdqcgj.sqbsm}</textarea>
-                        </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label"  > 本人承诺(申请表说明): </label>
+                    <div class="col-xs-9">
+                        <textarea class="form-control" name="sqbsm" id="sqbsm" maxlength="300">${cgdqcgj.sqbsm}</textarea>
                     </div>
-                    &nbsp; &nbsp; &nbsp;
-                    <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
-                        <button class="btn btn-warning btn-sm btns" id="submitForm" type="button">
-                            <i class="ace-icon fa fa-download bigger-110"></i>
-                            导出pdf
-                        </button>
-                        <button class="btn btn-danger btn-sm btns" id="btnClose" type="button">
-                            <i class="ace-icon fa fa-check bigger-110"></i>
-                            关闭
-                        </button>
-                    </div>
-                    &nbsp; &nbsp; &nbsp;
+                </div>
+                &nbsp; &nbsp; &nbsp;
+                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                    <button class="btn btn-warning btn-sm btns" id="submitForm" type="button">
+                        <i class="ace-icon fa fa-download bigger-110"></i>
+                        导出pdf
+                    </button>
+                    <button class="btn btn-danger btn-sm btns" id="btnClose" type="button">
+                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        关闭
+                    </button>
+                </div>
+                &nbsp; &nbsp; &nbsp;
             </div>
         </div>
     </div>
@@ -122,7 +122,6 @@
     //校验整个计划
     function validateSq(){
         if(!$("#form").valid()){
-            validator.focusInvalid();
             return false;
         }
         return true;

@@ -67,8 +67,8 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
-                             <input type="hidden" name="tid" id="tid" value="${teacher.tid}" />
-                             <input type="hidden" name="hr" id="hr" value="${teacher.hr}" />
+                            <input type="hidden" name="tid" id="tid" value="${teacher.tid}" />
+                            <input type="hidden" name="hr" id="hr" value="${teacher.hr}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 姓: </label>

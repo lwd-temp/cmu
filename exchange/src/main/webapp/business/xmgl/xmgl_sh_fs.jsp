@@ -249,13 +249,13 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>
                     <div class="col-xs-10">
-                       <%-- <select class="chosen-select form-control"  readonly="readonly"   data-placeholder="请选择审核意见">
-                            <option value="">  </option>
-                            <option value="A">通过</option>
-                            <option value="B">不通过</option>
-                        </select>--%>
+                        <%-- <select class="chosen-select form-control"  readonly="readonly"   data-placeholder="请选择审核意见">
+                             <option value="">  </option>
+                             <option value="A">通过</option>
+                             <option value="B">不通过</option>
+                         </select>--%>
 
-                           <input type="text"  name="fsyj"  id="fsyj"  value=""    class="col-xs-12" />
+                        <input type="text"  name="fsyj"  id="fsyj"  value=""    class="col-xs-12" />
 
                     </div>
 
@@ -394,7 +394,7 @@
 
 
     function sh(status){
-       // alert("$(\"#sqjlId\").val():"+$("#sqjlId").val());
+        // alert("$(\"#sqjlId\").val():"+$("#sqjlId").val());
         $.ajax('xm/xsshFs',{
             data:{
                 sqjlId:$("#sqjlId").val(),

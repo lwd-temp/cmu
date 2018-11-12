@@ -89,8 +89,8 @@
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
 
-                <input type="hidden" name="cgTzjh.tzid" id="tzid" value="${cgTzjh.tzid}" />
-                <input type="hidden" name="cgTzjh.status" id="status" value="01" />
+                <input type="hidden" name="cgTzjh.tzid" id="tzid" value="${cgTzjh.tzid}"/>
+                <input type="hidden" name="cgTzjh.status" id="status" value="01"/>
                 <!-- #section:elements.form -->
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组号: </label>
@@ -102,7 +102,7 @@
                     <label class="col-xs-2 control-label "> 团组名称: </label>
 
                     <div class="col-xs-4">
-                        <input type="text" id="tzmc" readonly="readonly" value="${cgTzjh.tzmc}"  class="col-xs-12"/>
+                        <input type="text" id="tzmc" readonly="readonly" value="${cgTzjh.tzmc}" class="col-xs-12"/>
                     </div>
 
                 </div>
@@ -142,12 +142,12 @@
                 <div class="form-group lx1">
                     <label class="col-xs-2 control-label "> 团组负责人姓名: </label>
                     <div class="col-xs-4" id="fzr1">
-                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm"  value="${cgTzjh.fzrxm}" type="text"/>
+                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm" value="${cgTzjh.fzrxm}" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 行政职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control " name="cgTzjh.xzzw" id="xzzw"  value="${cgTzjh.xzzw}" type="text"/>
+                        <input class="form-control " name="cgTzjh.xzzw" id="xzzw" value="${cgTzjh.xzzw}" type="text"/>
                     </div>
 
                 </div>
@@ -172,19 +172,19 @@
 
                     <label class="col-xs-2 control-label "> 职务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  " name="cgTzjh.zw" id="zw" value="${cgTzjh.zw}"  type="text"/>
+                        <input class="form-control  " name="cgTzjh.zw" id="zw" value="${cgTzjh.zw}" type="text"/>
                     </div>
 
                 </div>
                 <div class="form-group lx2">
                     <label class="col-xs-2 control-label "> 职级: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  name="cgTzjh.zj" id="zj"  value="${cgTzjh.zj}"  type="text"/>
+                        <input class="form-control  " name="cgTzjh.zj" id="zj" value="${cgTzjh.zj}" type="text"/>
                     </div>
 
                     <label class="col-xs-2 control-label "> 分管工作: </label>
                     <div class="col-xs-4">
-                        <input class="form-control  "  name="cgTzjh.ffgz"  id="ffgz"  value="${cgTzjh.ffgz}"  type="text"/>
+                        <input class="form-control  " name="cgTzjh.ffgz" id="ffgz" value="${cgTzjh.ffgz}" type="text"/>
                     </div>
 
                 </div>
@@ -193,7 +193,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组人数: </label>
                     <div class="col-xs-4">
-                        <input class="form-control "  name="cgTzjh.tzrs"   id="tzrs"  value="${cgTzjh.tzrs}" type="text"/>
+                        <input class="form-control " name="cgTzjh.tzrs" id="tzrs" value="${cgTzjh.tzrs}" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-4">
@@ -205,7 +205,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访任务: </label>
                     <div class="col-xs-4">
-                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw"  value="${cgTzjh.cfrw}" type="text"/>
+                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw" value="${cgTzjh.cfrw}" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 出访单位: </label>
 
@@ -218,11 +218,11 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 出访时间(月): </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="cfsj" name="cgTzjh.cfsj"  value="${cgTzjh.cfsj}"  type="text"/>
+                        <input class="form-control" id="cfsj" name="cgTzjh.cfsj" value="${cgTzjh.cfsj}" type="text"/>
                     </div>
                     <label class="col-xs-2 control-label "> 出访天数: </label>
                     <div class="col-xs-4">
-                        <input class="form-control" id="cfts" name="cgTzjh.cfts"  value="${cgTzjh.cfts}"  type="text"/>
+                        <input class="form-control" id="cfts" name="cgTzjh.cfts" value="${cgTzjh.cfts}" type="text"/>
                     </div>
 
                 </div>
@@ -246,7 +246,7 @@
                     <label class="col-xs-2 control-label "> 任务批复时间: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" name="cgTzjh.rwpfsj" id="rwpfsj"  value="<fmt:formatDate value="${cgTzjh.rwpfsj}" pattern="yyyy-MM-dd"/>"
-                               type="text" data-date-format="yyyy-mm-dd" />
+                               type="text" data-date-format="yyyy-mm-dd"/>
                     </div>
 
                 </div>
@@ -298,7 +298,7 @@
                     </c:otherwise>
                 </c:choose>
 
-                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                <div id="btns" class="col-md-offset-3 col-md-9" style="text-align:right;">
                     <hr/>
                     <button class="btn btn-info btn-sm" id="saveForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
@@ -318,11 +318,11 @@
 
 
 <div id="template" style="display: none">
-    <div class="form-group cy" >
-        <div class="col-xs-2"><input type="text" inp="xm"   name="cys[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="ejdwmc"   name="cys[@].ejdwmc" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="zw"   name="cys[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2"><input type="text" inp="jb"   name="cys[@].jb" class="col-xs-12"/></div>
+    <div class="form-group cy">
+        <div class="col-xs-2"><input type="text" inp="xm" name="cys[@].xm" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="ejdwmc" name="cys[@].ejdwmc" class="col-xs-12"/></div>
+        <div class="col-xs-3"><input type="text" inp="zw" name="cys[@].zw" class="col-xs-12"/></div>
+        <div class="col-xs-2"><input type="text" inp="jb" name="cys[@].jb" class="col-xs-12"/></div>
         <div class="col-xs-2">
             <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
             <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -367,21 +367,21 @@
 
         setFormValid();//设置校验规则
 
-        $("#saveForm").click(function(){
+        $("#saveForm").click(function () {
             $("#status").val("01");//暂存
             saveJh();
         });
 
-        $("#submitForm").click(function(){
+        $("#submitForm").click(function () {
             $("#status").val("02");//提交
             saveJh();
         });
     });
 
     //校验整个计划
-    function validateJh(){
+    function validateJh() {
 
-        if(!$("#form").valid()){
+        if (!$("#form").valid()) {
             return false;
         }
         //校验成员信息
@@ -389,22 +389,22 @@
         return true;
     }
 
-    function isLx1(){
+    function isLx1() {
         var lb = $("#tzlb").val();
 
         //$("#tzh").val(lb);
-        if (lb!='' && (lb == '01' || lb == '02')) {
+        if (lb != '' && (lb == '01' || lb == '02')) {
             return true;
         }
 
         return false;
     }
 
-    function isLx2(){
+    function isLx2() {
         var lb = $("#tzlb").val();
 
         //$("#tzh").val(lb);
-        if (lb!='' &&(lb == '01' || lb == '02')) {
+        if (lb != '' && (lb == '01' || lb == '02')) {
             return false;
         }
 
@@ -412,53 +412,53 @@
     }
 
 
-    function setFormValid(){
+    function setFormValid() {
 
         $("#form").setValid({
             //校验规则
             rules: {
-                "cgTzjh.tzlb":{ required:true},
-                "cgTzjh.tzmc":{ required:true},
-                "cgTzjh.jhlx":{ required:true},
-                "cgTzjh.cfdw":{ required:true},
-                "cgTzjh.tzjb":{ required:true},
-                "cgTzjh.zzhsk":{ required:true},
-                "cgTzjh.fzrxm":{ required:true},
+                "cgTzjh.tzlb": {required: true},
+                "cgTzjh.tzmc": {required: true},
+                "cgTzjh.jhlx": {required: true},
+                "cgTzjh.cfdw": {required: true},
+                "cgTzjh.tzjb": {required: true},
+                "cgTzjh.zzhsk": {required: true},
+                "cgTzjh.fzrxm": {required: true},
 
-                "cgTzjh.xzzw":{ required:isLx1},
-                "cgTzjh.xzjb":{ required:isLx1},
-                "cgTzjh.jszw":{ required:isLx1},
+                "cgTzjh.xzzw": {required: isLx1},
+                "cgTzjh.xzjb": {required: isLx1},
+                "cgTzjh.jszw": {required: isLx1},
 
-                "cgTzjh.zw":{ required:isLx2},
-                "cgTzjh.zj":{ required:isLx2},
-                "cgTzjh.ffgz":{ required:isLx2},
+                "cgTzjh.zw": {required: isLx2},
+                "cgTzjh.zj": {required: isLx2},
+                "cgTzjh.ffgz": {required: isLx2},
 
-                "cgTzjh.tzrs":{ required:true,number:true},
-                "cgTzjh.cfrw":{ required:true},
-                "cgTzjh.cfsj":{ required:true},
-                "cgTzjh.cfts":{ required:true,number:true},
-                "cgTzjh.sjys":{ required:true,range:[0.01,9999999999.99]},
-                "cgTzjh.qtys":{ required:true,range:[0.01,9999999999.99]},
-                "cgTzjh.rwpjwh":{ required:true},
-                "cgTzjh.rwpfsj":{ required:true},
+                "cgTzjh.tzrs": {required: true, number: true},
+                "cgTzjh.cfrw": {required: true},
+                "cgTzjh.cfsj": {required: true},
+                "cgTzjh.cfts": {required: true, number: true},
+                "cgTzjh.sjys": {required: true, range: [0.01, 9999999999.99]},
+                "cgTzjh.qtys": {required: true, range: [0.01, 9999999999.99]},
+                "cgTzjh.rwpjwh": {required: true},
+                "cgTzjh.rwpfsj": {required: true},
             }
         })
 
     }
 
 
-    function saveJh(){
-        if(!validateJh()){
+    function saveJh() {
+        if (!validateJh()) {
             return;
         }
         calInputNames();
 
-        $.ajax('cgjh/save',{
-            type:'post',
-            dataType:'json',
-            data:$("#form").serialize(),
-            success:function(res){
-                if(res && res.success){
+        $.ajax('cgjh/save', {
+            type: 'post',
+            dataType: 'json',
+            data: $("#form").serialize(),
+            success: function (res) {
+                if (res && res.success) {
                     parent.refreshTable();
                     closeLayer();//关闭
                     winAlert("保存成功");//弹出确认消息
@@ -499,39 +499,39 @@
 
 
 
-    function calInputNames(){
+    function calInputNames() {
 
-        $('form input[inp=xm]').each(function(index,el){
-            $(el).attr('name','cys['+index+'].xm');
+        $('form input[inp=xm]').each(function (index, el) {
+            $(el).attr('name', 'cys[' + index + '].xm');
         });
 
-        $('form input[inp=ejdwmc]').each(function(index,el){
-            $(el).attr('name','cys['+index+'].ejdwmc');
+        $('form input[inp=ejdwmc]').each(function (index, el) {
+            $(el).attr('name', 'cys[' + index + '].ejdwmc');
         });
 
-        $('form input[inp=zw]').each(function(index,el){
-            $(el).attr('name','cys['+index+'].zw');
+        $('form input[inp=zw]').each(function (index, el) {
+            $(el).attr('name', 'cys[' + index + '].zw');
         });
 
-        $('form input[inp=jb]').each(function(index,el){
-            $(el).attr('name','cys['+index+'].jb');
+        $('form input[inp=jb]').each(function (index, el) {
+            $(el).attr('name', 'cys[' + index + '].jb');
         });
 
     }
 
-    function appendCy(){
+    function appendCy() {
         $("#btns").before($("#template").html());
         var cy = $("#btns").prev(".cy");
-        cy.find("input").each(function(index,el){
-            $(el).attr("id","formEl"+(Math.rnd()));
-            $(el).rules('add', { required:true  });
+        cy.find("input").each(function (index, el) {
+            $(el).attr("id", "formEl" + (Math.rnd()));
+            $(el).rules('add', {required: true});
         })
         setFormValid();//设置校验规则
     }
-    function deleteCy(btn){
+    function deleteCy(btn) {
 
         var size = $("#form .cy").size();
-        if(size<=1){
+        if (size <= 1) {
             parent.layer.alert("请至少录入一个团组成员信息");
             return false;
         }

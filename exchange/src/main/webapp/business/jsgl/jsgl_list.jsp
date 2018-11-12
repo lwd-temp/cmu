@@ -104,9 +104,12 @@
             colModel:[
                 {name:'tid',index:'tid', key:true,hidden:true  },
                 {name:'jsx',index:'jsx', formatter:function(jsx,options,rowObject){
-                        return jsx;
-
-                    } },
+                        if(jsx==null){
+                            return '';
+                        }else{
+                            return jsx;
+                        }
+                     } },
                 {name:'gender',index:'gender',
                     formatter:function(gender){
                         return dmcache.getCode('t_dm_xb',gender);
@@ -114,8 +117,11 @@
                 },
                 {name:'gj',index:'gj',  },
                 {name:'birthday',index:'birthday',formatter:function(time){
-
-                        return new Date(time).getYmd("yyyy年MM月dd日")
+                        if(time==null){
+                            return '';
+                        }else{
+                            return new Date(time).getYmd("yyyy-MM-dd");
+                        }
                     }  },
                 {name:'hyzk',index:'hyzk',  },
 

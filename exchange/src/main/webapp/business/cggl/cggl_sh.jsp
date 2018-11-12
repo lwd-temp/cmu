@@ -176,16 +176,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
-                    <div class="col-xs-4">
-                        <input type="text"  name="yqrXmEn"  value="${cgdqcgj.yqrXmEn}" readonly="readonly"    class="col-xs-12" />
-                    </div>
-
-                    <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
-                    <div class="col-xs-4">
-                        <input type="text"  name="yqrZwEn"    value="${cgdqcgj.yqrZwEn}"  readonly="readonly"     class="col-xs-12" />
-                    </div>
+                <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
+                <div class="col-xs-4">
+                    <input type="text"  name="yqrXmEn"  value="${cgdqcgj.yqrXmEn}" readonly="readonly"    class="col-xs-12" />
                 </div>
+
+                <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
+                <div class="col-xs-4">
+                    <input type="text"  name="yqrZwEn"    value="${cgdqcgj.yqrZwEn}"  readonly="readonly"     class="col-xs-12" />
+                </div>
+            </div>
                 <div class="form-group">
                     <label class="col-xs-2 control-label"  > 邀请人单位   : </label>
                     <div class="col-xs-4">

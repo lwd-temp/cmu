@@ -147,17 +147,17 @@
                 {name:'xh',index:'xh',  },
                 {name:'xm',index:'xm', formatter:function(cellvalue, options, rowObject){
 
-                    return cellvalue;
+                        return cellvalue;
 
                     } },
 
                 {name:'chpm',index:'chpm',  },
                 {name:'zhpj',index:'zhpj',  },
                 {name:'selfPay',index:'selfPay',formatter:function(selfPay){
-                    if("Y" == selfPay){
-                        return "自费";
-                    }
-                    return "";
+                        if("Y" == selfPay){
+                            return "自费";
+                        }
+                        return "";
                     }  },
                 {name:'zzje',index:'zzje',  }
 

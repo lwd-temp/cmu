@@ -150,7 +150,7 @@
                 {name:'zhpj',index:'zhpj',  },
                 {name:'status',index:'status',formatter:function(status,options,rowObject){
 
-                    var confirm1 = rowObject.isconfirm1;
+                        var confirm1 = rowObject.isconfirm1;
 
                         if(status == '01'){
                             return "申请中";
@@ -165,22 +165,22 @@
                     }  },
                 {name:'confirmStatus',index:'confirmStatus', formatter:function(confirmStatus,options, rowObject){
 
-                    var confirm2 = rowObject.isconfirm2;
+                        var confirm2 = rowObject.isconfirm2;
 
-                    if(confirmStatus == '01'){
-                        return "待复审";
-                    }else if(confirmStatus == "02"){
-                        return "通过"+("1"==confirm2?"已确认":"未确认");
-                    }else if(confirmStatus == '03'){
-                        return "不通过"+("1"==confirm2?"已确认":"未确认");
-                    }
-                    return "";
-                } },
+                        if(confirmStatus == '01'){
+                            return "待复审";
+                        }else if(confirmStatus == "02"){
+                            return "通过"+("1"==confirm2?"已确认":"未确认");
+                        }else if(confirmStatus == '03'){
+                            return "不通过"+("1"==confirm2?"已确认":"未确认");
+                        }
+                        return "";
+                    } },
                 {name:'selfPay',index:'selfPay',formatter:function(selfPay){
-                    if(selfPay == 'Y'){
-                        return "是"
-                    }
-                    return "";
+                        if(selfPay == 'Y'){
+                            return "是"
+                        }
+                        return "";
                     }},
 
                 {name:'sqjlId',index:'', fixed:true, sortable:false, resize:true,

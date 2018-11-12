@@ -89,8 +89,8 @@
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
 
-                <input type="hidden" name="cgTzjh.tzid" id="tzid" value="${cgTzjh.tzid}" />
-                <input type="hidden" name="cgTzjh.status" id="status" value="01" />
+                <input type="hidden" name="cgTzjh.tzid" id="tzid" value="${cgTzjh.tzid}"/>
+                <input type="hidden" name="cgTzjh.status" id="status" value="01"/>
                 <!-- #section:elements.form -->
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组号: </label>
@@ -246,7 +246,7 @@
                     <label class="col-xs-2 control-label "> 任务批复时间: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" disabled="disabled"  name="cgTzjh.rwpfsj" id="rwpfsj"  value="<fmt:formatDate value="${cgTzjh.rwpfsj}" pattern="yyyy-MM-dd"/>"
-                               type="text" data-date-format="yyyy-mm-dd" />
+                               type="text" data-date-format="yyyy-mm-dd"/>
                     </div>
 
                 </div>
@@ -279,7 +279,7 @@
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <div class="form-group cy" >
+                        <div class="form-group cy">
                             <div class="col-xs-3"><input type="text" inp="xm"  disabled="disabled"   placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
                             <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"  placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
@@ -288,7 +288,7 @@
                         </div>
                     </c:otherwise>
                 </c:choose>
-                <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                <div id="btns" class="col-md-offset-3 col-md-9" style="text-align:right;">
                     <hr/>
                     <button class="btn btn-success btn-sm" id="btnPass" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
@@ -340,33 +340,33 @@
         selecttzjb();
 
 
-        $("#btnPass").click(function(){
+        $("#btnPass").click(function () {
             sh("04");
 
         })
-        $("#btnBack").click(function(){
+        $("#btnBack").click(function () {
             sh("03")
 
         })
-        $("#btnClose").click(function(){
+        $("#btnClose").click(function () {
             closeLayer();
         })
 
     });
 
     //审核，03 退回， 04通过
-    function sh(status){
-        $.ajax('cgjh/sh',{
+    function sh(status) {
+        $.ajax('cgjh/sh', {
             data: {
-                'id':$("#tzid").val(),
-                'status':status
+                'id': $("#tzid").val(),
+                'status': status
             },
-            success:function(res){
-                if(res && res.success){
+            success: function (res) {
+                if (res && res.success) {
                     winAlert("处理成功");
                     parent.refreshTable();
                     closeLayer();
-                }else{
+                } else {
                     winAlert("处理失败");
                 }
             }
@@ -383,7 +383,6 @@
     function selecttzjb(select) {
         var lb = $("#tzlb").val();
 
-        //$("#tzh").val(lb);
         if (lb == '01' || lb == '02') {
 
             $(".lx1").show();

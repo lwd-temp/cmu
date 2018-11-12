@@ -284,13 +284,13 @@
                     </c:otherwise>
                 </c:choose>
                 <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
-                    <hr/>
+            <hr/>
                     <button class="btn btn-info btn-sm" id="btnClose" type="button">
-                        <i class="ace-icon fa fa-close bigger-110"></i>
-                        关闭
-                    </button>
-                </div>
-                &nbsp; &nbsp; &nbsp;
+                <i class="ace-icon fa fa-close bigger-110"></i>
+                关闭
+            </button>
+        </div>
+     &nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
@@ -344,8 +344,6 @@
     //选择团组类别决定团组号
     function selecttzjb(select) {
         var lb = $("#tzlb").val();
-
-        //$("#tzh").val(lb);
         if (lb == '01' || lb == '02') {
 
             $(".lx1").show();

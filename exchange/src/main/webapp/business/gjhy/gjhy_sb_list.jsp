@@ -187,7 +187,7 @@
         var index = layer.dconfirm("确认删除?",function(){
             layer.close(index);
             $.ajax('hysb/delById',{
-                data:{sbid:sbid},
+                data:{id:sbid},
                 success:function(res){
                     if(res && res.success){
                         layer.alert("删除成功");

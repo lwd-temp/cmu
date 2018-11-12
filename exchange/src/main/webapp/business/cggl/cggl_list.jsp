@@ -134,7 +134,7 @@
     //查看
     function showCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-150)+"px"],
+            area: ['1100px', ($(window).height()-120)+"px"],
             title:'查看出国申请',
             content:'cggl/show?id='+cgid,
         });

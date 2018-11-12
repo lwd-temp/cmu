@@ -70,13 +70,21 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'dbtmc',index:'dbtmc', width:'20%' },
+                {name:'dbtmc',index:'dbtmc'},
                 {name:'lfsjStart',index:'lfsjStart',formatter:function(lfsjStart, options, rowObject){
+                    if(lfsjStart==null){
+                        return '';
+                    }else{
                         return new Date(lfsjStart).getYmd("yyyy-MM-dd");
+                    }
                 }},
                 {name:'lfsjEnd',index:'lfsjEnd',formatter:function(lfsjEnd, options, rowObject){
+                    if(lfsjEnd==null){
+                        return '';
+                    }else{
                         return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
-                    }},
+                    }
+                }},
                 {name:'lfrs',index:'lfrs',  },
                 {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                     return dmcache.getCode('t_dm_lfmd',lfmd);

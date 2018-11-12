@@ -279,12 +279,12 @@
                         暂存
                     </button>
                     &nbsp; &nbsp; &nbsp;
-                    <button class="btn btn-danger btn-sm btns" id="submitForm" type="button">
+                    <button class="btn btn-success btn-sm btns" id="submitForm" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
                         提交
                     </button>
                 </div>
-                &nbsp;&nbsp;&nbsp;
+                &nbsp; &nbsp; &nbsp;
             </div>
         </div>
     </div>

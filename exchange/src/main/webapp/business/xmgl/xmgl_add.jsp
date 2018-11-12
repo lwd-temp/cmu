@@ -226,7 +226,7 @@
 
                             </div>
 
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
 
                                 <button class="btn btn-info btn-sm" id="btnSave" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
@@ -235,13 +235,12 @@
 
                                 &nbsp; &nbsp; &nbsp;
 
-                                <button class="btn btn-info btn-sm" id="btnDeploy" type="button">
+                                <button class="btn btn-success btn-sm" id="btnDeploy" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     发布
                                 </button>
-
-                            </div>
-
+                                </div>
+                            &nbsp;&nbsp;&nbsp;
                         </form>
 
                     </div><!-- /.col -->

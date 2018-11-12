@@ -88,7 +88,7 @@
         <li class="active">
             <a data-toggle="tab" href="#home">
                 <i class="green ace-icon fa fa-home bigger-120"></i>
-               学生信息
+                学生信息
             </a>
         </li>
 
@@ -96,7 +96,7 @@
             <a data-toggle="tab" href="#messages">
                 申报材料
                 <c:if  test="${fjList != null && fjList.size() >0 }">
-                 <span class="badge badge-danger">${fjList.size()}</span>
+                    <span class="badge badge-danger">${fjList.size()}</span>
                 </c:if>
             </a>
 
@@ -251,33 +251,33 @@
         </div>
 
 
-         <div id="ysqxm" class="tab-pane fade">
+        <div id="ysqxm" class="tab-pane fade">
 
-                <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
-                    <table>
-                        <thead>
+            <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>项目名称</th>
+                        <th>资助金额</th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${ysqxmList}" var="ysqJl" varStatus="status">
                         <tr>
-                            <th>序号</th>
-                            <th>项目名称</th>
-                            <th>资助金额</th>
+                            <td>${status.count}</td>
+                            <td>${ysqJl.xmmc}</td>
+                            <td>${ysqJl.zzje}</td>
                         </tr>
-
-                        </thead>
-                        <tbody>
-                        <c:forEach items="${ysqxmList}" var="ysqJl" varStatus="status">
-                            <tr>
-                                <td>${status.count}</td>
-                                <td>${ysqJl.xmmc}</td>
-                                <td>${ysqJl.zzje}</td>
-                            </tr>
-                        </c:forEach>
+                    </c:forEach>
 
 
 
-                        </tbody>
-                    </table>
+                    </tbody>
+                </table>
 
-                </c:if>
+            </c:if>
 
         </div>
 

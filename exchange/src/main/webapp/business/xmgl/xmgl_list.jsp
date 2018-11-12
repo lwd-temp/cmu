@@ -66,7 +66,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', '620px'],
+                        area: ['1000px', ($(window).height()-50)+"px"],
                         title:'创建项目',
                         content:'xm/toAdd',
                     });
@@ -76,7 +76,7 @@
 
         var settings = {
             caption: "项目管理",
-           /* data: grid_data,*/
+            /* data: grid_data,*/
             url:'xm/list',
             colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '层次',/*'经费来源',*/'状态',"操作"],
             navBtns:navBtns,//自定义按钮
@@ -86,7 +86,7 @@
                 {name:'xmzm',index:'xmzm',  },
                 {name:'xmmc',index:'xmmc',  },
                 {name:'xmkssj',index:'xmkssj', formatter:function( time){
-                    return new Date(time).getYmd("yyyy年MM月dd日")
+                        return new Date(time).getYmd("yyyy年MM月dd日")
                     } },
                 {name:'smjssj',index:'smjssj', formatter:function( time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
@@ -94,9 +94,9 @@
                 {name:'xmcc',index:'xmcc',formatter:function(xmccdm){
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     }  },
-               /* {name:'jfly',index:'jfly', formatter:function(jfly){
-                        return dmcache.getCode('T_DM_JFLY',jfly);
-                    }  },*/
+                /* {name:'jfly',index:'jfly', formatter:function(jfly){
+                         return dmcache.getCode('T_DM_JFLY',jfly);
+                     }  },*/
 
                 {name:'status',index:'status', formatter:function(status){
                         var zt = "";
