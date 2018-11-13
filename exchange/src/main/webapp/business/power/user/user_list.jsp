@@ -116,6 +116,9 @@
                 $(data).each(function(index,ele){
                     ele.isParent = true;
                 })
+
+                data.name = "组织架构";
+                data.open = true;
                 zTreeObj = $.fn.zTree.init($("#ztree"), setting, data);
                 var nodes = zTreeObj.getNodesByParam("menuId", "0", null);
                 zTreeObj.expandNode(nodes[0], true);
