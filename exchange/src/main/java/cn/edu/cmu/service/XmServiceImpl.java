@@ -373,7 +373,6 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             XmXssqjl jl = (XmXssqjl) conditions[0];
 
-
             c1.andXmIdEqualTo(jl.getXmId());
 
             if(StringUtils.isNotEmpty(jl.getXm())){

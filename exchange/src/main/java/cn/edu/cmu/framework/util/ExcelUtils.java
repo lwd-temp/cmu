@@ -86,7 +86,11 @@ public class ExcelUtils {
             sheet.autoSizeColumn(i); //让列自适应宽度
         }
 
+
+        logger.info("准备将文件输出到客户端：" + path);
         workbook.write(os);
+
+        logger.info("输出到客户端完成关闭资源" );
         os.flush();
         os.close();
         workbook.close();
