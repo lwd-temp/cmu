@@ -511,7 +511,6 @@
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
 
         $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
-        console.info($("#memo").val());
     }
 </script>
 </body>

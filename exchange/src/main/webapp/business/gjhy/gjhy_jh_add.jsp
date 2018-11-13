@@ -300,7 +300,6 @@
     function setRyListIndex(){
         $("form input[inp=xm]").each(function(index,el){
             $(el).attr('name','chrys['+index+'].xm');
-            console.info($(el).attr(name));
         });
 
         $("form input[inp=gj]").each(function(index,el){
