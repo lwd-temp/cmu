@@ -67,9 +67,17 @@ public class CgDqcgjExtController {
 
         //查询团组信息
         String tzid = cgDqcgj.getTzid();
+        String tzh=" ";
+        String tzmc=" ";
+        System.err.println(tzid);
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzh = cgTzjh.getTzh();
-        String tzmc = cgTzjh.getTzmc();
+        if (cgTzjhService.queryById(tzid)!=null){
+
+            tzh = cgTzjh.getTzh();
+            tzmc = cgTzjh.getTzmc();
+
+        }
+
 
         //性别
         String xb = cgDqcgjService.selectXb(cgDqcgj.getXb());

@@ -205,14 +205,14 @@
                             </div>
                             <hr/>
 
-                            <div class="col-md-offset-3 col-md-9" style="text-align:left;">
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
 
                                 <button class="btn btn-info btn-sm" id="btn-submit" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
                             </div>
-
+                                &nbsp;&nbsp;&nbsp;
                         </form>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

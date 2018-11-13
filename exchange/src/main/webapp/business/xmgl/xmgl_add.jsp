@@ -457,7 +457,8 @@
                     }},
                 'xm.gsxsxm':{required:function(){
                         return $("#xmcc").val() == '03';
-                    }}
+                    }},
+                'gbs': 'required'
             }
         });
     }

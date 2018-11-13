@@ -154,9 +154,16 @@ public class CgDqcgjController extends BaseController {
         model.addAttribute("ssejdwMc", ssejdwMc);
         //查询团组信息
         String tzid = cgDqcgj.getTzid();
+        String tzh=" ";
+        String tzmc=" ";
+        System.err.println(tzid);
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzh = cgTzjh.getTzh();
-        String tzmc = cgTzjh.getTzmc();
+        if (cgTzjhService.queryById(tzid)!=null){
+
+            tzh = cgTzjh.getTzh();
+            tzmc = cgTzjh.getTzmc();
+
+        }
         logger.info(cgDqcgj);
         model.addAttribute("tzh", tzh);
         model.addAttribute("tzmc", tzmc);

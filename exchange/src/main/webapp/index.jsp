@@ -59,7 +59,8 @@
 
         <!--[if IE]>
         <script type="text/javascript">
-            window.jQuery || document.write("<script src='assets/js/jquery1x.js'>"+"<"+"/script>");
+			alert('提示：监测到您的浏览器版本过低，请您升级浏览器，推荐使用火狐/谷歌浏览器')
+           //window.jQuery || document.write("<script  src='assets/js/jquery1x.js'>"+"<"+"/script>");
         </script>
         <![endif]-->
 
@@ -919,7 +920,9 @@
                ace.settings.sidebar_fixed(null, true);
                ace.settings.breadcrumbs_fixed(null, true);
 
-           })
+
+
+            })
         </script>
     </body>
 </html>

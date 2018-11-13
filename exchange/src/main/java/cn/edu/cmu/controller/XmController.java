@@ -5,10 +5,7 @@ import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
-import cn.edu.cmu.service.XmJlzjbgService;
-import cn.edu.cmu.service.XmService;
-import cn.edu.cmu.service.XmXssqjlService;
-import cn.edu.cmu.service.XmXssqjlServiceImpl;
+import cn.edu.cmu.service.*;
 import cn.edu.cmu.vo.XmVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -46,6 +43,8 @@ public class XmController extends BaseController {
     @Autowired
     XmJlzjbgService zjService;
 
+    @Autowired
+    XmGjService xmGjService;
 
     /**
      * 分页查询
@@ -135,9 +134,19 @@ public class XmController extends BaseController {
         Xm xm = xmService.queryById(id);
         model.addAttribute("xm", xm);
 
+
+        XmGjdq queryXmGjdq = new XmGjdq();
+        queryXmGjdq.setXmid(id);
+        List<XmGjdq> gbDomainList = xmGjService.list(queryXmGjdq);
+        List gbCodeList = new ArrayList();
+        if(gbDomainList!=null){
+            for (XmGjdq gb : gbDomainList) {
+                gbCodeList.add(gb.getGjdm());
+            }
+        }
         List zyList = initZyList();
         model.addAttribute("zyList", zyList);
-
+        model.addAttribute("gbCodeList", gbCodeList);
 
         return "xmgl/xmgl_edit";
     }

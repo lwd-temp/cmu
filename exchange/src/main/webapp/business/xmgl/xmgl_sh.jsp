@@ -35,17 +35,17 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    /* var grid_data =
-         [
-             {id:"1",	xmzm:"项目总名1",kssj:"2017-02-01",	jssj:"2018-12-08",	cc:"本科",  jfly:'自筹',zt:'正在审核'},
-             {id:"2",	xmzm:"项目总名2",kssj:"2017-03-01",	jssj:"2018-11-08",	cc:"硕士",  jfly:'省级财政',zt:'正在审核'},
-             {id:"3",	xmzm:"项目总名3",kssj:"2017-04-01",	jssj:"2018-10-08",	cc:"博士",  jfly:'国家级财政',zt:'正在审核'},
-             {id:"4",	xmzm:"项目总名4",kssj:"2017-05-01",	jssj:"2018-09-08",	cc:"本科",  jfly:'企业赞助',zt:'正在审核'},
-             {id:"5",	xmzm:"项目总名5",kssj:"2017-06-01",	jssj:"2018-08-08",	cc:"博士",  jfly:'省级财政',zt:'已全部审核'},
-             {id:"6",	xmzm:"项目总名6",kssj:"2017-07-01",	jssj:"2018-07-08",	cc:"本科", jfly:'企业赞助',zt:'已全部审核'},
-             {id:"7",	xmzm:"项目总名7",kssj:"2017-08-01",	jssj:"2018-06-08",	cc:"博士",  jfly:'省级财政',zt:'已全部审核'},
-             {id:"8",	xmzm:"项目总名8",kssj:"2017-09-01",	jssj:"2018-05-08",	cc:"本科",  jfly:'企业赞助',zt:'已全部审核'},
-         ];*/
+   /* var grid_data =
+        [
+            {id:"1",	xmzm:"项目总名1",kssj:"2017-02-01",	jssj:"2018-12-08",	cc:"本科",  jfly:'自筹',zt:'正在审核'},
+            {id:"2",	xmzm:"项目总名2",kssj:"2017-03-01",	jssj:"2018-11-08",	cc:"硕士",  jfly:'省级财政',zt:'正在审核'},
+            {id:"3",	xmzm:"项目总名3",kssj:"2017-04-01",	jssj:"2018-10-08",	cc:"博士",  jfly:'国家级财政',zt:'正在审核'},
+            {id:"4",	xmzm:"项目总名4",kssj:"2017-05-01",	jssj:"2018-09-08",	cc:"本科",  jfly:'企业赞助',zt:'正在审核'},
+            {id:"5",	xmzm:"项目总名5",kssj:"2017-06-01",	jssj:"2018-08-08",	cc:"博士",  jfly:'省级财政',zt:'已全部审核'},
+            {id:"6",	xmzm:"项目总名6",kssj:"2017-07-01",	jssj:"2018-07-08",	cc:"本科", jfly:'企业赞助',zt:'已全部审核'},
+            {id:"7",	xmzm:"项目总名7",kssj:"2017-08-01",	jssj:"2018-06-08",	cc:"博士",  jfly:'省级财政',zt:'已全部审核'},
+            {id:"8",	xmzm:"项目总名8",kssj:"2017-09-01",	jssj:"2018-05-08",	cc:"本科",  jfly:'企业赞助',zt:'已全部审核'},
+        ];*/
 
 
     var grid_selector = "#grid-table";
@@ -104,8 +104,8 @@
                 {name:'xmId',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(xmId, options, rowObject){
 
-                        return "<button class='btn btn-info btn-mini' onclick='shxm(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-child  '>审核</i></button> &nbsp;" +
-                            "<button class='btn btn-info btn-mini' onclick='cwmx(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-child  '>明细</i></button> " ;
+                            return "<button class='btn btn-info btn-mini' onclick='shxm(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-eye'>审核</i></button> &nbsp;" +
+                                "<button class='btn btn-info btn-mini' onclick='cwmx(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-child  '>明细</i></button> " ;
 
 
                     }
@@ -162,13 +162,12 @@
     //修改用户
     function shxm(xmid){
         var index = layer.newpage({
-            area: ['1000px', ($(window).height()-20)+'px'],
+            area: ['1000px', ($(window).height()-200)+'px'],
             title:'',
             content:'business/xmgl/xmgl_sh_xslb.jsp?xmid='+xmid,
         });
 
-        //全屏
-        layer.full(index);
+
     }
 
     function cwmx(xmid){
@@ -179,8 +178,7 @@
             content:'business/xmgl/xmgl_sh_cwmx.jsp?xmid='+xmid,
         });
 
-        //全屏
-        layer.full(index);
+
     }
 
 </script>

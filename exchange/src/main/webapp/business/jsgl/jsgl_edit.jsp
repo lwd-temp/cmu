@@ -67,8 +67,8 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
-                            <input type="hidden" name="tid" id="tid" value="${teacher.tid}" />
-                            <input type="hidden" name="hr" id="hr" value="${teacher.hr}" />
+                             <input type="hidden" name="tid" id="tid" value="${teacher.tid}" />
+                             <input type="hidden" name="hr" id="hr" value="${teacher.hr}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 姓: </label>
@@ -206,14 +206,14 @@
                             </div>
                             <hr/>
 
-                            <div class="col-md-offset-3 col-md-9" style="text-align:left;">
+                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
 
                                 <button class="btn btn-info btn-sm" id="btn-submit" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     保存
                                 </button>
                             </div>
-
+                            &nbsp;&nbsp;&nbsp;
                         </form>
                     </div><!-- /.col -->
                 </div><!-- /.row -->

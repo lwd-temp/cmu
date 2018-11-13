@@ -10,13 +10,20 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="condition"> 外籍教师姓名: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 外籍教师姓: </label>
 
-            <div class="col-sm-5">
-                <input type="text" id="condition" placeholder="外籍教师姓名" class="col-xs-12" />
+            <div class="col-sm-2">
+                <input type="text" id="condition1" placeholder="外籍教师姓" class="col-xs-12" />
             </div>
-
-            <div class="col-sm-3">
+            <label class="col-sm-1 control-label no-padding-right" for="condition2"> 外籍教师名: </label>
+            <div class="col-sm-2">
+                <input type="text" id="condition2" placeholder="外籍教师名" class="col-xs-12" />
+            </div>
+            <label class="col-sm-1 control-label no-padding-right" for="condition3"> 中文姓名: </label>
+            <div class="col-sm-2">
+                <input type="text" id="condition3" placeholder="中文姓名" class="col-xs-12" />
+            </div>
+            <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -66,7 +73,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', ($(window).height()-40)+"px"],
+                        area: ['1000px', ($(window).height()-100)+"px"],
                         title:'添加教师',
                         content:'business/jsgl/jsgl_add.jsp',
                     });
@@ -96,9 +103,8 @@
 
         var settings = {
             caption: "教师管理",
-           /* data: grid_data,*/
             url:'wjjs/list',
-            colNames:['ID','姓名','性别', '国籍', '出生日期','婚姻状况',"操作"],
+            colNames:['ID','姓','名','中文姓名','性别', '国籍', '出生日期','婚姻状况',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -110,6 +116,20 @@
                             return jsx;
                         }
                      } },
+                {name:'jsm',index:'jsm', formatter:function(jsm,options,rowObject){
+                        if(jsm==null){
+                            return '';
+                        }else{
+                            return jsm;
+                        }
+                    } },
+                {name:'chineseName',index:'chineseName', formatter:function(chineseName,options,rowObject){
+                        if(chineseName==null){
+                            return '';
+                        }else{
+                            return chineseName;
+                        }
+                    } },
                 {name:'gender',index:'gender',
                     formatter:function(gender){
                         return dmcache.getCode('t_dm_xb',gender);
@@ -142,6 +162,8 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
+
+
             refreshTable();
         });
 
@@ -154,15 +176,21 @@
 
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'name':$("#condition").val()},//条件查询项后台发送的条件数据
+            postData:{
+                'jsx':$("#condition1").val(),
+                'jsm':$("#condition2").val(),
+                'chineseName':$("#condition3").val()
+            },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
     }
 
+
+
     //修改用户
     function editjsgl(tid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-40)+"px"],
+            area: ['1000px', ($(window).height()-100)+"px"],
             title:'编辑教师',
             content:'wjjs/toEdit?id='+tid
         });

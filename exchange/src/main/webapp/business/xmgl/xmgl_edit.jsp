@@ -149,7 +149,7 @@
 
                                 <label class="col-xs-2 control-label "> 交流目标国家或地区: </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"     data-placeholder="请选择国别"  ></dm:list>
+                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   valueList="${gbCodeList}"  data-placeholder="请选择国别"  ></dm:list>
                                 </div>
 
 
@@ -457,7 +457,8 @@
                     }},
                 'xm.gsxsxm':{required:function(){
                         return $("#xmcc").val() == '03';
-                    }}
+                    }},
+                'gbs': 'required'
             }
         });
     }

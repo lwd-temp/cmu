@@ -89,10 +89,18 @@
                 {name:'xyid',index:'xyid',key:true,hidden:true},
                 {name:'xymc',index:'xymc'},
                 {name:'qdrq',index:'qdrq',formatter:function(qdrq, options, rowObject){
-                        return new Date(qdrq).getYmd("yyyy-MM-dd");
+                        if(qdrq==null){
+                            return '';
+                        }else{
+                            return new Date(qdrq).getYmd("yyyy-MM-dd");
+                        }
                     }},
                 {name:'sxrq',index:'sxrq',formatter:function(sxrq, options, rowObject){
-                        return new Date(sxrq).getYmd("yyyy-MM-dd");
+                        if(sxrq==null){
+                            return '';
+                        }else{
+                            return new Date(sxrq).getYmd("yyyy-MM-dd");
+                        }
                     }},
                 {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){

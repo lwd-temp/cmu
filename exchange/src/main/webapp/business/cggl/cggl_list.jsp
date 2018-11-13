@@ -126,7 +126,7 @@
     //修改
     function editCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-120)+"px"],
+            area: ['1100px', ($(window).height()-100)+"px"],
             title:'编辑出国申请',
             content:'cggl/toEdit?id='+cgid,
         });
@@ -134,7 +134,7 @@
     //查看
     function showCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-120)+"px"],
+            area: ['1100px', ($(window).height()-100)+"px"],
             title:'查看出国申请',
             content:'cggl/show?id='+cgid,
         });
@@ -158,7 +158,7 @@
     }
     function downCgsq(cgid){
         layer.newpage({
-            area: ['600px', ($(window).height()-600)+"px"],
+            area: ['600px','300px'],
             title:'填写申请信息',
             content:'cggl/sqbsm?cgid='+cgid,
         });

@@ -18,9 +18,9 @@
         <table cellspacing="0" border="2">
             <tr>
                 <td style="width:25%">代表团名称</td>
-                <td style="width:25%"colspan="2">${wbjdSq.dbtmc}</td>
+                <td style="width:25%"colspan="2">${wbjdSq.dbtmc!''}</td>
                 <td style="width:25%">来访人数</td>
-                <td style="width:25%" colspan="2">${wbjdSq.lfrs}</td>
+                <td style="width:25%" colspan="2">${wbjdSq.lfrs!''}</td>
             </tr>
             <tr>
                 <td>来访时间</td>
@@ -35,13 +35,13 @@
                 ${wbjdSq.tlsjEnd!''}
                 <td colspan="2"></td>
                 <td>国家</td>
-                <td colspan="2">${gb}</td>
+                <td colspan="2">${gb!''}</td>
             </tr>
             <tr>
                 <td>来访目的</td>
                 <td colspan="2">${wbjdSq.lfmd!''}</td>
                 <td>经费来源</td>
-                <td colspan="2">${wbjdSq.jfly}</td>
+                <td colspan="2">${wbjdSq.jfly!''}</td>
             </tr>
             <#if wbjdSq.lfmd == '学术讲座'>
             <tr >
@@ -72,34 +72,34 @@
             </#if>
             <tr>
                 <td>情况记录</td>
-                <td colspan="5">${wbjdSq.qkjl}</td>
+                <td colspan="5">${wbjdSq.qkjl!''}</td>
             </tr>
             <tr>
                 <td>访问成果</td>
-                <td colspan="5">${wbjdSq.fwcg}</td>
+                <td colspan="5">${wbjdSq.fwcg!''}</td>
             </tr>
             <tr>
                 <td>团长姓名</td>
-                <td colspan="2">${wbjdSq.tzxm}</td>
+                <td colspan="2">${wbjdSq.tzxm!''}</td>
                 <td>团长国籍</td>
-                <td colspan="2">${wbjdSq.tzgj}</td>
+                <td colspan="2">${wbjdSq.tzgj!''}</td>
             </tr>
             <tr>
                 <td>团长性别</td>
-                <td colspan="2">${wbjdSq.tzxb}</td>
+                <td colspan="2">${wbjdSq.tzxb!''}</td>
                 <td>团长出生日期</td>
                 ${wbjdSq.tzzw!''}
                 <td colspan="2"></td>
             </tr>
             <tr>
                 <td>团长工作单位</td>
-                <td colspan="2">${wbjdSq.tzgzdw}</td>
+                <td colspan="2">${wbjdSq.tzgzdw!''}</td>
                 <td>团长职称及职务</td>
-                <td colspan="2">${wbjdSq.tzzw}</td>
+                <td colspan="2">${wbjdSq.tzzw!''}</td>
             </tr>
             <tr>
                 <td>专业及学术领域</td>
-                <td colspan="5">${wbjdSq.tzzy}</td>
+                <td colspan="5">${wbjdSq.tzzy!''}</td>
             </tr>
             <tr>
                 <td>主请人姓名</td>
@@ -110,9 +110,9 @@
             <#if wbjdSq.jdlx == '院级接待'>
             <tr>
                 <td>主请联系人姓名</td>
-                <td colspan="2">${wbjdSq.zqlxrxm}</td>
+                <td colspan="2">${wbjdSq.zqlxrxm!''}</td>
                 <td>主请联系人电话</td>
-                <td colspan="2">${wbjdSq.zqlxrdh}</td>
+                <td colspan="2">${wbjdSq.zqlxrdh!''}</td>
             </tr>
             </#if>
             <tr>
@@ -121,17 +121,17 @@
                 <td colspan="2">${wbjdSq.jdbm!''}</td>
                 </#if>
                 <td>接待类型</td>
-                <td colspan="2">${wbjdSq.jdlx}</td>
+                <td colspan="2">${wbjdSq.jdlx!''}</td>
             </tr>
             <th>随行人员</th>
             <#list sxryList as sxr>
                 <tr>
                     <td style="width: 16%">姓名</td>
-                    <td style="width: 16%">${sxr.xm}</td>
+                    <td style="width: 16%">${sxr.xm!''}</td>
                     <td style="width: 16%">国籍</td>
-                    <td style="width: 16%">${sxr.gj}</td>
+                    <td style="width: 16%">${sxr.gj!''}</td>
                     <td style="width: 16%">职务</td>
-                    <td style="width: 16%">${sxr.zw}</td>
+                    <td style="width: 16%">${sxr.zw!''}</td>
                 </tr>
             </#list>
         </table>
