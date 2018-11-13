@@ -326,6 +326,23 @@
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
 <script>
+
+    var validator;
+    function setFormValidate(){
+        validator = $("#form").setValid({
+            //校验规则
+            rules: {
+                chpm:{  required:true  },
+                zhpj:{ required:true },
+                phone:{ required: true ,isphoneNum:true },
+                email:{ required: true ,email:true },
+                jlgjdqm:{ required: true  },
+                yysp:{ required: true  },
+            }
+        });
+    }
+
+
     $(function(){
         $('form .fileUpload').ace_file_input({
             no_file:'暂无文件 ...',
@@ -342,9 +359,13 @@
 
         $('.chosen-select').chosen({allow_single_deselect:true});
 
-        $("#cjpm").mouseover(function(){
-            layer.tips('最近一学年学业成绩排名或最近一学年综合测评排名:格式20/100', '#cjpm');
+        $("#chpm").mouseover(function(){
+            layer.tips('最近一学年学业成绩排名或最近一学年综合测评排名:格式20/100', '#chpm');
         });
+
+
+
+        setFormValidate();
 
 
         $("#btnSave").click(function(){
@@ -360,29 +381,13 @@
     })
 
 
-    var validator;
-    function setFormValidate(){
-        validator = $("#form").setValid({
-            //校验规则
-            rules: {
-                name:{
-                    required:true
-                },
-                gender:{
-                    required:true
-                },
-                email:{
-                    email: true
-                },
 
-            }
-        });
-    }
 
     /**
      * 上传成功后保存form
      */
     function submitForm() {
+
         $.ajax('xm/saveSq', {
             data: $("#form").serialize(),
             success: function (resp) {
@@ -393,6 +398,7 @@
                 }
             }
         });
+
     }
 
     function saveSq(){
@@ -401,15 +407,18 @@
             return;
         }
 
+        if(!validaFileUpload()){
+            return;
+        }
+
+
         var fileList = [];
         var formFile = new FormData();
 
         if($("form input[type=file]").size()>0){
 
             $("form input[type=file]").each(function(index,input){
-
                 var file = input.files[0];
-
                 formFile.append('file', file, file.name);
             })
 
@@ -436,6 +445,34 @@
         }
     }
 
+
+    /**
+     * 校验上传文档
+     */
+    function validaFileUpload(){
+        var valid = true;
+        $("form input[type=file]").each(function(index,input){
+
+            if(input.files.length<=0){
+                parent.layer.msg("第"+(index+1)+"份材料未上传");
+                valid = false;
+                return false;
+            }
+        });
+
+        if(valid){
+            $("form input[name=clsm]").each(function(index,input){
+                var clsm = $(input).val();
+                if(!clsm || clsm==''){
+                    parent.layer.msg("第"+(index+1)+"份材料说明未填写");
+                    valid = false;
+                    return false;
+                }
+            });
+        }
+
+        return valid;
+    }
 
     function changeFile(fileInput){
         //alert($(fileInput).parent().prev().size())
