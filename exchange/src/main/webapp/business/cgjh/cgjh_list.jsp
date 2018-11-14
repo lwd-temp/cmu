@@ -76,7 +76,8 @@
                     layer.newpage({
                         area: ['1100px', ($(window).height()-100)+'px'],
                         title:'申请出访计划',
-                        content:'business/cgjh/cgjh_add.jsp',
+                        //content:'business/cgjh/cgjh_add.jsp',
+                        content:'cgjh/toAdd',
                     });
                 }
             },

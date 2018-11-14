@@ -3,11 +3,10 @@ package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.CgTzcy;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgjhGb;
+import cn.edu.cmu.domain.UnicUnit;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
-import cn.edu.cmu.service.CgTzcyService;
-import cn.edu.cmu.service.CgTzjhService;
-import cn.edu.cmu.service.CgjhGbService;
+import cn.edu.cmu.service.*;
 import cn.edu.cmu.vo.CgtzjhVO;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
@@ -37,6 +36,10 @@ public class CgTzjhController extends BaseController {
 
     @Autowired
     CgjhGbService cgjhGbService;
+
+    @Autowired
+    UnicUnitService unicUnitService;
+
 
     /**
      * 分页查询
@@ -165,6 +168,7 @@ public class CgTzjhController extends BaseController {
         CgTzcy queryCgTzcy = new CgTzcy();
         queryCgTzcy.setTzid(id);
         List cyList = cgTzcyService.list(queryCgTzcy);
+       // List cyList = cgTzcyService.selectCy(queryCgTzcy);
 
 
         CgjhGb queryCgjhGb = new CgjhGb();
@@ -250,6 +254,24 @@ public class CgTzjhController extends BaseController {
         String excelTempPath = "cgjh/cgjh_gl.xls";
         ExcelUtils.expExcel(list,excelTempPath,out);
     }
+
+    /**
+     * 跳转到添加页面
+     *
+     * @param model
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toAdd")
+    public String toAdd(Model model) throws Exception {
+        UnicUnit unicUnit = new UnicUnit();
+        unicUnit.setBelongUnit("9000000");
+        List list = unicUnitService.list(unicUnit);
+        model.addAttribute("list", list);
+        return "cgjh/cgjh_add";
+    }
+
 
 
 }

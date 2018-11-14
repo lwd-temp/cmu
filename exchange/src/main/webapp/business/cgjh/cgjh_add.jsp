@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -261,9 +262,19 @@
                         操作
                     </div>
                 </div>
-                <div class="form-group cy">
+                <div class="form-group cy clone">
                     <div class="col-xs-2"> <input type="text"  inp="xm"     name="cys[@].xm"   placeholder="姓名"  class="col-xs-12" /></div>
-                    <div class="col-xs-3"> <input type="text"  inp="ejdwmc" name="cys[@].ejdwmc"   placeholder="二级单位"  class="col-xs-12" /></div>
+                    <div class="col-xs-3">
+                        <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc"  >
+                            <c:choose>
+                                <c:when test="${list!=null && list.size()>0}">
+                                    <c:forEach items="${list}" var="dw">
+                                        <option value="${dw.unitId}">${dw.name}</option>
+                                    </c:forEach>
+                                </c:when>
+                            </c:choose>
+                        </select>
+                    </div>
                     <div class="col-xs-3"> <input type="text"  inp="zw"     name="cys[@].zw"   placeholder="职务"  class="col-xs-12" /></div>
                     <div class="col-xs-2"> <input type="text"  inp="jb"     name="cys[@].jb"   placeholder="级别"  class="col-xs-12" /></div>
                     <div class="col-xs-2">
@@ -290,9 +301,19 @@
 </div>
 </form>
 <div id="template" style="display: none">
-    <div class="form-group cy" >
+    <div class="form-group cy" id="templatedic">
         <div class="col-xs-2"><input type="text" inp="xm"      placeholder="姓名"  name="cys[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="ejdwmc"  placeholder="二级单位"  name="cys[@].ejdwmc" class="col-xs-12"/></div>
+        <div class="col-xs-3">
+            <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" >
+                <c:choose>
+                    <c:when test="${list!=null && list.size()>0}">
+                    <c:forEach items="${list}" var="dw">
+                        <option value="${dw.unitId}">${dw.name}</option>
+                    </c:forEach>
+                    </c:when>
+                </c:choose>
+            </select>
+        </div>
         <div class="col-xs-3"><input type="text" inp="zw"      placeholder="职务"  name="cys[@].zw" class="col-xs-12"/></div>
         <div class="col-xs-2"><input type="text" inp="jb"      placeholder="级别"  name="cys[@].jb" class="col-xs-12"/></div>
         <div class="col-xs-2">
@@ -415,11 +436,11 @@
 
 
     function saveJh(){
-        if(!validateJh()){
+        /*if(!validateJh()){
             return;
-        }
+        }*/
         calInputNames();
-
+        console.info($("#form").serialize());
         $.ajax('cgjh/save',{
             type:'post',
             dataType:'json',
@@ -471,7 +492,7 @@
             $(el).attr('name','cys['+index+'].xm');
         });
 
-        $('form input[inp=ejdwmc]').each(function(index,el){
+        $('form [inp=ejdwmc]').each(function(index,el){
             $(el).attr('name','cys['+index+'].ejdwmc');
         });
 
@@ -485,15 +506,19 @@
 
     }
 
-    function appendCy(){
-        $("#btns").before($("#template").html());
+    function appendCy() {
+        var oSel = document.getElementById('templatedic');
+        var oNewSel = oSel.cloneNode(true);
+        $("#btns").before(oNewSel);
         var cy = $("#btns").prev(".cy");
-        cy.find("input").each(function(index,el){
-            $(el).attr("id","formEl"+(Math.rnd()));
-            $(el).rules('add', { required:true  });
+        cy.find("input").each(function (index, el) {
+            $(el).attr("id", "formEl" + (Math.rnd()));
+            $(el).rules('add', {required: true});
         })
         setFormValid();//设置校验规则
     }
+
+
     function deleteCy(btn){
 
         var size = $("#form .cy").size();
