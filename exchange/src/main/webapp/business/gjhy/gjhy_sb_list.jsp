@@ -93,7 +93,7 @@
         ]
 
         var settings = {
-           /* caption: "已申报国际会议计划列表",*/
+            caption: "国际会议申报",
             url:'hysb/list',
             colNames:["会议编号","会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"状态","操作"],
             navBtns:navBtns,//自定义按钮

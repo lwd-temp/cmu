@@ -39,7 +39,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', ($(window).height()-200)+"px"],
+                        area: ['1200px', '600px'],
                         title:'添加护照、通行证',
                         content:'business/hzgl/hzgl_add.jsp',
                     });
@@ -116,7 +116,7 @@
     //修改
     function editHz(bzid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-200)+"px"],
+            area: ['1200px', ($(window).height()-200)+"px"],
             title:'编辑护照、通行证',
             content:'hzgl/toEdit?id='+bzid
         });

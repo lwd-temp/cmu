@@ -67,7 +67,7 @@
         var navBtns = [ ];
 
         var settings = {
-           /* caption: "已申报国际会议计划列表",*/
+            caption: "国际会议审核",
             url:'hysb/list?status=02',
             colNames:["会议编号","会议名称","主办单位","承办单位","举行日期","地点","经费来源" ,"状态","操作"],
             navBtns:navBtns,//自定义按钮

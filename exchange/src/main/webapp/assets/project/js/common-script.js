@@ -41,17 +41,35 @@ layer.loading = function(){
 
 //定义layer的弹出层
 layer.newpage = function(options) {
+
+    var area = options.area;
+    var width = 1100;
+    var height = $(window).height()+'px';
+    if(area){
+        if(area[0]){
+            width = area[0];
+        }
+        if(area[1]){
+            if(height >area[1]){//如果屏幕比设置的高，按照设置的来
+                height = area[1];
+            }
+        }
+    }
+    //从options 中删除 area 否则 会覆盖settings中的area
     var settings ={
         type: 2,
         anim: 1,
-        area: ['700px', '450px'],
+        area: [width, height],
         //fixed: false, //不固定
         maxmin: true,
     }
+    delete options.area;
     $.extend(settings, options);
     var index = layer.open(settings);
 
     return index;
+
+
 }
 
 

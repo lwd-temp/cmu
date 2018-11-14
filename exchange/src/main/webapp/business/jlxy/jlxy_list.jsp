@@ -53,7 +53,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['850px', ($(window).height()-350)+"px"],
+                        area: ['850px', '600px'],
                         title:'添加协议',
                         content:'business/jlxy/jlxy_add.jsp',
                     });
