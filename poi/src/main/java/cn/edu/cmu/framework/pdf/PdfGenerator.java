@@ -1,4 +1,4 @@
-package cn.edu.cmu.framework.excel.pdf;
+package cn.edu.cmu.framework.pdf;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.PdfWriter;

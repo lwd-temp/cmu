@@ -480,7 +480,7 @@
 
 
     function download(fileId){
-        window.open('sys/file/download?fileId='+fileId+'fileName=download')
+        window.open('sys/file/download?fileId='+fileId+'&fileName=download')
     }
 
 

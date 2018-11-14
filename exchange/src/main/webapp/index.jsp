@@ -15,6 +15,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
+		<script src="assets/project/js/browser.js"></script>
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="assets/css/bootstrap.css" />
 		<link rel="stylesheet" href="assets/css/font-awesome.css" />
@@ -59,11 +60,12 @@
 
         <!--[if IE]>
         <script type="text/javascript">
-			alert('提示：监测到您的浏览器版本过低，请您升级浏览器，推荐使用火狐/谷歌浏览器')
+           //if 如果低版本的走这个
+           window.location.href = "brower.jsp";
+           //else 高版本的依然走 jquery1x
            //window.jQuery || document.write("<script  src='assets/js/jquery1x.js'>"+"<"+"/script>");
         </script>
         <![endif]-->
-
 
         <script src="assets/js/layer/layer.js"></script>
         <!-- 自定义脚本...-->

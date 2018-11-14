@@ -144,14 +144,18 @@ public class FileUpAndDownloadController extends BaseController {
 
 
     @RequestMapping("/download")
-    public ResponseEntity<byte[]> export(String fileName, String fileId) throws Exception {
+    public ResponseEntity<byte[]> download(String fileName, String fileId) throws Exception {
 
 
+        logger.debug("想要下载的文件id为："+fileId);
         HttpHeaders headers = new HttpHeaders();
 
 
         Upload upload = uploadService.queryById(fileId);
+
         String absolutePath = BASE_DIR + upload.getUploadPath(); //完整的上传路径
+        logger.debug("下载文件对应的完成路径为："+absolutePath);
+
         File file = new File(absolutePath);
 
         headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
