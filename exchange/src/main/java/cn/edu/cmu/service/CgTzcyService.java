@@ -17,12 +17,13 @@ import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgTzjhParams;
 import cn.edu.cmu.framework.web.IBaseService;
 
+import java.util.List;
+
 /**
  * 用户操作的 业务的抽象
  * @author jshand
  *
  */
 public interface CgTzcyService extends IBaseService<CgTzcy, CgTzcyParams> {
-
 }
 

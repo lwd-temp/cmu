@@ -162,25 +162,27 @@ public class CgTzjhController extends BaseController {
      */
     @RequestMapping("/toEdit")
     public String toEdit(String id, Model model) throws Exception {
-
         CgTzjh cgTzjh = cgTzjhService.queryById(id);
 
         CgTzcy queryCgTzcy = new CgTzcy();
         queryCgTzcy.setTzid(id);
         List cyList = cgTzcyService.list(queryCgTzcy);
-       // List cyList = cgTzcyService.selectCy(queryCgTzcy);
 
+        UnicUnit unicUnit = new UnicUnit();
+        unicUnit.setBelongUnit("9000000");
+        List list = unicUnitService.list(unicUnit);
 
         CgjhGb queryCgjhGb = new CgjhGb();
         queryCgjhGb.setJhid(id);
-        List<CgjhGb> gbDomainList = cgjhGbService.list(queryCgjhGb);
+        List<CgjhGb> gbDomainList  = cgjhGbService.list(queryCgjhGb);
+
         List gbCodeList = new ArrayList();
         for (CgjhGb gb : gbDomainList) {
             gbCodeList.add(gb.getGjdm());
         }
-
-        model.addAttribute("cgTzjh", cgTzjh);
+        model.addAttribute("list", list);
         model.addAttribute("cyList", cyList);
+        model.addAttribute("cgTzjh", cgTzjh);
         model.addAttribute("gbCodeList", gbCodeList);
 
         return "cgjh/cgjh_edit";
@@ -195,6 +197,9 @@ public class CgTzjhController extends BaseController {
         queryCgTzcy.setTzid(id);
         List cyList = cgTzcyService.list(queryCgTzcy);
 
+        UnicUnit unicUnit = new UnicUnit();
+        unicUnit.setBelongUnit("9000000");
+        List list = unicUnitService.list(unicUnit);
 
         CgjhGb queryCgjhGb = new CgjhGb();
         queryCgjhGb.setJhid(id);
@@ -203,7 +208,7 @@ public class CgTzjhController extends BaseController {
         for (CgjhGb gb : gbDomainList) {
             gbCodeList.add(gb.getGjdm());
         }
-
+        model.addAttribute("list", list);
         model.addAttribute("cgTzjh", cgTzjh);
         model.addAttribute("cyList", cyList);
         model.addAttribute("gbCodeList", gbCodeList);
