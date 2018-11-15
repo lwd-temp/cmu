@@ -424,7 +424,7 @@
 
         var index = parent.layer.open({
             type: 2,
-            area: ['1000px', ($(parent).height()-10)+"px"],
+            area: ['1000px', ($(window).height()-60)+"px"],
             maxmin: true,
             content:'cggl/selectTzList',
             success:function(layero, index){

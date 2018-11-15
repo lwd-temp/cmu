@@ -65,7 +65,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['900px', ($(window).height()-400)+"px"],
+                        area: ['900px',"500px"],
                         title:'添加联系人',
                         content:'business/lxr/lxr_add.jsp',
                     });
@@ -147,7 +147,7 @@
     //修改用户
     function editLxr(lxrId){
         layer.newpage({
-            area: ['900px', ($(window).height()-400)+"px"],
+            area: ['900px',"500px"],
             title:'编辑联系人',
             content:'lxr/toEdit?id='+lxrId
         });

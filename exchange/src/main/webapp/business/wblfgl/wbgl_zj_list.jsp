@@ -126,7 +126,7 @@
     //总结外宾接待申请
     function zjWbgl(lfid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"750px"],
             title:'外宾接待【总结】',
            // content:'business/wblfgl/wbgl_zj_add.jsp?lfid='+lfid,
             content:'wbzj/add?lfid='+lfid,
@@ -134,14 +134,14 @@
     }
     function editWbgl(zjid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"750px"],
             title:'外宾接待【总结】',
             content:'wbzj/toEdit?zjid='+zjid,
         });
     }
     function showWbgl(zjid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"750px"],
             title:'外宾接待【总结】',
             content:'wbzj/toEdit?type=show&zjid='+zjid,
         });

@@ -158,7 +158,7 @@
     //修改
     function editHzxy(bzid){
         layer.newpage({
-            area: ['850px', ($(window).height()-350)+"px"],
+            area: ['850px', "600px"],
             title:'编辑协议',
             content:'jlxy/toEdit?id='+bzid
         });

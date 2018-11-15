@@ -265,10 +265,27 @@
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
                             <div class="form-group cy">
-                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" value="${cy.ejdwmc}" inp="ejdwmc"  placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
+                                <div class="col-xs-2"><input type="text" value="${cy.xm}" inp="xm"   placeholder="姓名"  name="cys[@].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3">
+                                    <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" >
+                                        <c:choose>
+                                            <c:when test="${list!=null && list.size()>0}">
+                                                <c:forEach items="${list}" var="dw">
+                                                    <c:choose>
+                                                        <c:when test="${cy.ejdwmc == dw.unitId}">
+                                                            <option value="${dw.unitId}" selected="selected">${dw.name}</option>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="${dw.unitId}" >${dw.name}</option>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:forEach>
+                                            </c:when>
+                                        </c:choose>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[@].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-2"><input type="text" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[@].jb" class="col-xs-12"/></div>
                                 <div class="col-xs-2">
                                     <button class='btn btn-danger btn-mini' onclick='deleteCy(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                     <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -278,10 +295,22 @@
                     </c:when>
                     <c:otherwise>
                         <div class="form-group cy">
-                            <div class="col-xs-2"><input type="text" inp="xm"     placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="ejdwmc" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"     placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2"><input type="text" inp="jb"     placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="col-xs-2"><input type="text" inp="xm"     placeholder="姓名"   name="cys[@].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3">
+
+                                <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" >
+                                    <c:choose>
+                                        <c:when test="${list!=null && list.size()>0}">
+                                            <c:forEach items="${list}" var="dw">
+                                                <option value="${dw.unitId}">${dw.name}</option>
+                                            </c:forEach>
+                                        </c:when>
+                                    </c:choose>
+                                </select>
+
+                            </div>
+                            <div class="col-xs-3"><input type="text" inp="zw"     placeholder="姓名"    name="cys[@].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-2"><input type="text" inp="jb"     placeholder="姓名"    name="cys[@].jb" class="col-xs-12"/></div>
                             <div class="col-xs-2">
                                 <button class='btn btn-danger btn-mini' onclick='deleteCy(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                 <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
@@ -308,9 +337,19 @@
 </form>
 
 <div id="template" style="display: none">
-    <div class="form-group cy" >
+    <div class="form-group cy" id="templatedic" >
         <div class="col-xs-2"><input type="text" inp="xm"     placeholder="姓名"      name="cys[@].xm" class="col-xs-12"/></div>
-        <div class="col-xs-3"><input type="text" inp="ejdwmc" placeholder="二级单位"  name="cys[@].ejdwmc" class="col-xs-12"/></div>
+        <div class="col-xs-3">
+            <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" >
+                <c:choose>
+                    <c:when test="${list!=null && list.size()>0}">
+                        <c:forEach items="${list}" var="dw">
+                            <option value="${dw.unitId}">${dw.name}</option>
+                        </c:forEach>
+                    </c:when>
+                </c:choose>
+            </select>
+        </div>
         <div class="col-xs-3"><input type="text" inp="zw"     placeholder="职务"      name="cys[@].zw" class="col-xs-12"/></div>
         <div class="col-xs-2"><input type="text" inp="jb"     placeholder="级别"      name="cys[@].jb" class="col-xs-12"/></div>
         <div class="col-xs-2">
@@ -347,7 +386,7 @@
 
 
     $(function () {
-
+        var validator = null;
         $(".month-picker").datetimepicker({viewMode: "months",format: 'YYYY-MM'});
 
 
@@ -372,6 +411,7 @@
     function validateJh(){
 
         if(!$("#form").valid()){
+            validator.focusInvalid();
             return false;
         }
         //校验成员信息
@@ -404,7 +444,7 @@
 
     function setFormValid(){
 
-        $("#form").setValid({
+        validator = $("#form").setValid({
             //校验规则
             rules: {
                 "cgTzjh.tzlb":{ required:true},
@@ -494,7 +534,7 @@
             $(el).attr('name','cys['+index+'].xm');
         });
 
-        $('form input[inp=ejdwmc]').each(function(index,el){
+        $('form [inp=ejdwmc]').each(function(index,el){
             $(el).attr('name','cys['+index+'].ejdwmc');
         });
 
@@ -509,11 +549,13 @@
     }
 
     function appendCy(){
-        $("#btns").before($("#template").html());
+        var oSel = document.getElementById('templatedic');
+        var oNewSel = oSel.cloneNode(true);
+        $("#btns").before(oNewSel);
         var cy = $("#btns").prev(".cy");
-        cy.find("input").each(function(index,el){
-            $(el).attr("id","formEl"+(Math.rnd()));
-            $(el).rules('add', { required:true  });
+        cy.find("input").each(function (index, el) {
+            $(el).attr("id", "formEl" + (Math.rnd()));
+            $(el).rules('add', {required: true});
         })
         setFormValid();//设置校验规则
     }

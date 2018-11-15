@@ -103,7 +103,7 @@
     }
     function fkCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-190)+"px"],
+            area: ['1100px',"750px"],
             title:'填写出国反馈',
             content:'cgglgg/add?cgid='+cgid,
         });
@@ -118,7 +118,7 @@
     }
     function editfkCgsq(zjid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-190)+"px"],
+            area: ['1100px', "750px"],
             title:'编辑出国反馈',
             content:'cgglgg/toEdit?rwfkid='+zjid,
         });

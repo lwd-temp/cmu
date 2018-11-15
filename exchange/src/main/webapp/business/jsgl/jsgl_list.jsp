@@ -73,7 +73,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', '600px'],
+                        area: ['1000px',"750px"],
                         title:'添加教师',
                         content:'business/jsgl/jsgl_add.jsp',
                     });
@@ -190,7 +190,7 @@
     //修改用户
     function editjsgl(tid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-100)+"px"],
+            area: ['1000px',"750px"],
             title:'编辑教师',
             content:'wjjs/toEdit?id='+tid
         });

@@ -270,21 +270,48 @@
                     <c:when test="${cyList!=null && cyList.size()>0}">
                         <c:forEach items="${cyList}" var="cy">
                             <div class="form-group cy">
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.xm}" inp="xm"          placeholder="姓名"    name="cys[0].xm"  class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.ejdwmc}" inp="ejdwmc"  placeholder="姓名" name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.zw}" inp="zw"          placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                                <div class="col-xs-3"><input type="text" disabled="disabled" value="${cy.jb}" inp="jb"          placeholder="姓名"   name="cys[0].jb" class="col-xs-12"/></div>
-
+                                <div class="col-xs-3"><input type="text" value="${cy.xm}" inp="xm" disabled="disabled"  placeholder="姓名"  name="cys[@].xm"  class="col-xs-12"/></div>
+                                <div class="col-xs-3">
+                                    <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" disabled="disabled">
+                                        <c:choose>
+                                            <c:when test="${list!=null && list.size()>0}">
+                                                <c:forEach items="${list}" var="dw">
+                                                    <c:choose>
+                                                        <c:when test="${cy.ejdwmc == dw.unitId}">
+                                                            <option value="${dw.unitId}" selected="selected">${dw.name}</option>
+                                                        </c:when>
+                                                        <c:otherwise>
+                                                            <option value="${dw.unitId}" >${dw.name}</option>
+                                                        </c:otherwise>
+                                                    </c:choose>
+                                                </c:forEach>
+                                            </c:when>
+                                        </c:choose>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3"><input type="text" value="${cy.zw}" inp="zw"   disabled="disabled"       placeholder="姓名"    name="cys[@].zw" class="col-xs-12"/></div>
+                                <div class="col-xs-3"><input type="text" value="${cy.jb}" inp="jb"   disabled="disabled"       placeholder="姓名"   name="cys[@].jb" class="col-xs-12"/></div>
                             </div>
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
                         <div class="form-group cy">
-                            <div class="col-xs-3"><input type="text" inp="xm"  disabled="disabled"   placeholder="姓名"   name="cys[0].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="ejdwmc" disabled="disabled" placeholder="姓名"  name="cys[0].ejdwmc" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"   disabled="disabled"  placeholder="姓名"    name="cys[0].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="jb"  disabled="disabled"   placeholder="姓名"    name="cys[0].jb" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="xm"     placeholder="姓名" disabled="disabled"  name="cys[@].xm" class="col-xs-12"/></div>
+                            <div class="col-xs-3">
 
+                                <select   name="cys[@].ejdwmc" style="width:200px;" inp="ejdwmc" disabled="disabled">
+                                    <c:choose>
+                                        <c:when test="${list!=null && list.size()>0}">
+                                            <c:forEach items="${list}" var="dw">
+                                                <option value="${dw.unitId}">${dw.name}</option>
+                                            </c:forEach>
+                                        </c:when>
+                                    </c:choose>
+                                </select>
+
+                            </div>
+                            <div class="col-xs-3"><input type="text" inp="zw"     placeholder="姓名"  disabled="disabled"  name="cys[@].zw" class="col-xs-12"/></div>
+                            <div class="col-xs-3"><input type="text" inp="jb"     placeholder="姓名"  disabled="disabled"  name="cys[@].jb" class="col-xs-12"/></div>
                         </div>
                     </c:otherwise>
                 </c:choose>

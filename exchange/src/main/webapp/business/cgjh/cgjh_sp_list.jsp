@@ -62,11 +62,12 @@
         var settings = {
             caption: "出访计划管理",
             url:'cgjh/shlist',
-            colNames:['团组号','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态","操作"],
+            colNames:['团组号','团组名称','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态","操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'tzh',index:'tzh',  },
+                {name:'tzmc',index:'tzmc',  },
                 {name:'tzlb',index:'tzlb', formatter:function(tzlb,options,rowObject){
                         return dmcache.getCode('t_dm_tzlb',tzlb);
                     }  },
@@ -125,7 +126,7 @@
     //修改出访计划
     function editCgjh(jhid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-100)+'px'],
+            area: ['1100px','750px'],
             title:'修改出访计划',
             content:'cgjh/toEdit?id='+jhid,
         });
@@ -134,7 +135,7 @@
     //查看出访计划
     function showShCgjh(jhid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-100)+'px'],
+            area: ['1100px','750px'],
             title:'审核出访计划',
             content:'cgjh/show?type=sh&id='+jhid,
         });

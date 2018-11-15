@@ -146,7 +146,7 @@
     //查看申报
     function showSbInfo(sbid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-10)+"px"],
+            area: ['1100px', "750px"],
             title:'查看会议申报信息',
             content:'hysb/toEdit?type=show&id='+sbid,
         });
@@ -155,7 +155,7 @@
     //查看总结
     function showZjInfo(zjid){
         layer.newpage({
-            area: ['900px', ($(window).height()-10)+"px"],
+            area: ['900px',"780px"],
             title:'查看会议总结信息',
             content:'hyzj/toEdit?type=show&id='+zjid,
         });

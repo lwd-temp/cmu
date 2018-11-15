@@ -56,7 +56,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', ($(window).height()-20)+"px"],
+                        area: ['1100px',"750px"],
                         title:'申请接待',
                         content:'business/wblfgl/wbgl_add.jsp',
                     });
@@ -153,14 +153,14 @@
     //修改外宾接待申请
     function editWbgl(lfid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"850px"],
             title:'外宾接待申请编辑',
             content:'wbjd/toEdit?id='+lfid,
         });
     }
     function showWbgl(lfid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px', "750px"],
             title:'外宾接待申请查看',
             content:'wbjd/show?id='+lfid,
         });

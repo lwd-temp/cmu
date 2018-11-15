@@ -67,7 +67,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', ($(window).height()-200)+"px"],
+                        area: ['1100px',"750px"],
                         title:'填写会议计划',
                         content:'business/gjhy/gjhy_jh_add.jsp',
                     });
@@ -138,7 +138,7 @@
     //修改用户
     function editGjhyJh(jhid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-200)+"px"],
+            area: ['1100px',"750px"],
             title:'修改会议计划',
             content:'hyjh/toEdit?id='+jhid,
         });

@@ -43,15 +43,22 @@ layer.loading = function(){
 layer.newpage = function(options) {
 
     var area = options.area;
-    var width = 1100;
-    var height = $(window).height()+'px';
+    var width = $(window).width()-40;
+    var height = $(window).height()-60;
     if(area){
         if(area[0]){
-            width = area[0];
+            if(width >area[0].substring(0,area[0].length-2)){//如果屏幕比设置的宽，按照设置的来
+                width = area[0];
+            }else{
+                width=width+'px';
+            }
+
         }
         if(area[1]){
-            if(height >area[1]){//如果屏幕比设置的高，按照设置的来
+            if(height >area[1].substring(0,area[1].length-2)){//如果屏幕比设置的高，按照设置的来
                 height = area[1];
+            }else{
+                height=height+'px';
             }
         }
     }

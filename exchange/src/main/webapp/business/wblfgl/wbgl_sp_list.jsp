@@ -133,14 +133,14 @@
     //审批外宾接待申请
     function spWbgl(lfid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"750px"],
             title:'外宾接待申请【审批】',
             content:'wbjd/show?type=sh&id='+lfid,
         });
     }
     function showWbgl(lfid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px',"750px"],
             title:'查看接待情况',
             content:'wbjd/show?id='+lfid,
         });

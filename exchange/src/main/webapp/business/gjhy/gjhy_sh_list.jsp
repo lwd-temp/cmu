@@ -146,7 +146,7 @@
     //修改用户
     function hysh(sbid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-20)+"px"],
+            area: ['1100px', "750px"],
             title:'审核会议申报信息',
             content:'hysb/toEdit?type=sh&id='+sbid,
         });

@@ -48,7 +48,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1100px', ($(window).height()-120)+"px"],
+                        area: ['1100px', "750px"],
                         title:'申请短期出国',
                         content:'cggl/add',
                     });
@@ -126,7 +126,7 @@
     //修改
     function editCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-100)+"px"],
+            area: ['1100px', "750px"],
             title:'编辑出国申请',
             content:'cggl/toEdit?id='+cgid,
         });
@@ -134,7 +134,7 @@
     //查看
     function showCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-100)+"px"],
+            area: ['1100px', "750px"],
             title:'查看出国申请',
             content:'cggl/show?id='+cgid,
         });

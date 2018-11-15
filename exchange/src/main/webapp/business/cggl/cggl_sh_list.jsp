@@ -111,7 +111,7 @@
     //审核
     function shCgsq(cgid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-120)+"px"],
+            area: ['1100px',"750px"],
             title:'审核出国申请',
             content:'cggl/sh?id='+cgid,
         });

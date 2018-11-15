@@ -66,7 +66,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', '800px'],
+                        area: ['1000px', '750px'],
                         title:'创建项目',
                         content:'xm/toAdd',
                     });
@@ -161,7 +161,7 @@
     function editXm(xmid){
 
         layer.newpage({
-            area: ['1100px', ($(window).height()-150)+'px'],
+            area: ['1100px', '750px'],
             title:'编辑项目',
             content:'xm/toEdit?id='+xmid,
         });

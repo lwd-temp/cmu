@@ -346,7 +346,7 @@
 
 
     $(function () {
-
+        var validator = null;
         //月份选择器
         $(".month-picker").datetimepicker({viewMode: "months",format: 'YYYY-MM'});
 
@@ -369,6 +369,7 @@
     function validateJh(){
 
         if(!$("#form").valid()){
+            validator.focusInvalid();
             return false;
         }
         //校验成员信息
@@ -401,7 +402,7 @@
 
     function setFormValid(){
 
-        $("#form").setValid({
+        validator = $("#form").setValid({
             //校验规则
             rules: {
                 "cgTzjh.tzlb":{ required:true},
@@ -436,11 +437,10 @@
 
 
     function saveJh(){
-        /*if(!validateJh()){
+        if(!validateJh()){
             return;
-        }*/
+        }
         calInputNames();
-        console.info($("#form").serialize());
         $.ajax('cgjh/save',{
             type:'post',
             dataType:'json',

@@ -146,7 +146,7 @@
     //填写总结
     function addZj(sbid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-300)+"px"],
+            area: ['1100px', "600px"],
             title:'填写会议总结',
             content:'business/gjhy/gjhy_zj_add.jsp?sbid='+sbid,
         });
@@ -156,7 +156,7 @@
     //编辑总结
     function editZj(zjid){
         layer.newpage({
-            area: ['1100px', ($(window).height()-300)+"px"],
+            area: ['1100px',"600px"],
             title:'编辑会议总结',
             content:'hyzj/toEdit?id='+zjid,
         });
