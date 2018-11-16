@@ -147,6 +147,11 @@ public class CgDqcgjExtController {
         }else{
             data.put("rjsj", cgRwzxqkfk.getRjsj());
         }
+        if(cgRwzxqkfk.getCjsj()!=null){
+            data.put("cjsj", new SimpleDateFormat("yyyy-MM-dd").format(cgRwzxqkfk.getCjsj()).toString());
+        }else{
+            data.put("cjsj", cgRwzxqkfk.getCjsj());
+        }
         data.put("cfbt", cgRwzxqkfk.getCfbt());
         data.put("rwzxqk", cgRwzxqkfk.getRwzxqk());
         data.put("rwwwcnr", cgRwzxqkfk.getRwwwcnr());

@@ -20,17 +20,16 @@
 
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
+    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
+    <link rel="stylesheet" href="assets/css/chosen.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css" />
     <!-- text fonts -->
     <link rel="stylesheet" href="assets/css/ace-fonts.css" />
 
     <!-- ace styles -->
     <link rel="stylesheet" href="assets/css/ace.css" class="ace-main-stylesheet" id="main-ace-style" />
-    <!-- page specific plugin styles -->
-    <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
-    <link rel="stylesheet" href="assets/css/jquery-ui.css" />
-    <link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
-    <link rel="stylesheet" href="assets/css/chosen.css" />
-    <link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css" />
+
     <!--[if lte IE 9]>
     <link rel="stylesheet" href="assets/css/ace-part2.css" class="ace-main-stylesheet" />
     <link rel="stylesheet" href="assets/css/ace-ie.css" />

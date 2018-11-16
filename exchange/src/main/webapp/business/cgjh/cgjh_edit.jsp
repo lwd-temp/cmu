@@ -471,6 +471,11 @@
                 "cgTzjh.qtys":{ required:true,range:[0.01,9999999999.99]},
                 "cgTzjh.rwpjwh":{ required:true},
                 "cgTzjh.rwpfsj":{ required:true},
+
+                "cys[@].xm":{ required:true},
+                "cys[@].ejdwmc":{ required:true},
+                "cys[@].zw":{ required:true},
+                "cys[@].jb":{ required:true}
             }
         })
 
