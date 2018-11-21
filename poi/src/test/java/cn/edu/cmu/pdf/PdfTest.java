@@ -1,6 +1,7 @@
 package cn.edu.cmu.pdf;
 
 import cn.edu.cmu.framework.pdf.HtmlGenerator;
+import cn.edu.cmu.framework.pdf.PdfGenerator;
 import org.junit.Test;
 
 import java.io.FileOutputStream;
@@ -31,7 +32,7 @@ public class PdfTest {
 
         String htmlStr = HtmlGenerator.generate("pdf_template.html", variables);
 
-        cn.edu.cmu.framework.excel.pdf.PdfGenerator.generatePlus(htmlStr, out);
+        PdfGenerator.generatePlus(htmlStr, out);
 
 
     }

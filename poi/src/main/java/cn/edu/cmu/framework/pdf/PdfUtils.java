@@ -16,7 +16,7 @@ public class PdfUtils {
     public static void fixedHtml2Pdf(String template, Map variables, OutputStream os) throws Exception {
         String htmlStr = HtmlGenerator.generate(template, variables);
 
-        cn.edu.cmu.framework.excel.pdf.PdfGenerator.generatePlus(htmlStr, os);
+        PdfGenerator.generatePlus(htmlStr, os);
     }
 
 
