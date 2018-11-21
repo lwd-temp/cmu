@@ -76,11 +76,6 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
         return true;
     }
 
-    @Override
-    public String selectXb(String xb) {
-        DmXb dmXb = (DmXb) dmXbMapper.selectByPrimaryKey(xb);
-        return dmXb.getName();
-    }
 
     @Override
     public String selectCglx(String cglx) {

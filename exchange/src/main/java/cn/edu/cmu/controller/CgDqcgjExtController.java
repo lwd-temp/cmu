@@ -1,5 +1,6 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.cache.DMCache;
 import cn.edu.cmu.framework.util.PdfUtils;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.service.CgDqcgjGgService;
@@ -80,7 +81,7 @@ public class CgDqcgjExtController {
 
 
         //性别
-        String xb = cgDqcgjService.selectXb(cgDqcgj.getXb());
+        String xb = DMCache.translateCode2Name("T_DM_XB",cgDqcgj.getXb());
         //出访类型
         String cglx = cgDqcgjService.selectCglx(cgDqcgj.getCglx());
         //出访目的

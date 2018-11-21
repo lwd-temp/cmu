@@ -25,8 +25,6 @@ import java.util.List;
 public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
     public boolean saveOrUpdate(CgDqcgj cgDqcgj) throws Exception;
 
-    public String selectXb(String xb);
-
     public String selectCglx(String cglx);
 
     public String selectCfmd(String cfmd);

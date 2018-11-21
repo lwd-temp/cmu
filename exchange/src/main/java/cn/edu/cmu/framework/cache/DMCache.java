@@ -77,6 +77,7 @@ public class DMCache {
 
     public static String translateCode2Name(String tableName, String code) {
         String key = tableName+"_"+code;
+        key = key.toUpperCase();
         if(tableCodeNameParis.containsKey(key)){
             return  tableCodeNameParis.get(key);
         }
@@ -137,6 +138,7 @@ public class DMCache {
         }
 
     }
+
 
 
 }
