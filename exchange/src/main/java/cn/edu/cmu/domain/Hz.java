@@ -135,7 +135,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-10-17
+     * @mbggenerated 2018-11-21
      */
     public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, Date qzsj, Date cfsj, String cfmd, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, Date ghsj, String status, String valid, Date createTime) {
         this.hzid = hzid;
@@ -168,7 +168,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-10-17
+     * @mbggenerated 2018-11-21
      */
     public Hz() {
         super();
@@ -592,7 +592,7 @@ public class Hz {
 
     /**
      *
-     * @mbggenerated 2018-10-17
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

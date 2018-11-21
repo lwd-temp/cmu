@@ -40,8 +40,36 @@
           </trim>
         </if>
       </foreach>
-      and valid = 1
     </where>
+  </sql>
+  <sql id="Select_Example_Where_Clause" >
+     where valid = 1 and (         
+    <foreach collection="oredCriteria" item="criteria" separator="or" >
+      <if test="criteria.valid" >
+        <trim prefix="(" suffix=")" prefixOverrides="and" >
+          <foreach collection="criteria.criteria" item="criterion" >
+            <choose >
+              <when test="criterion.noValue" >
+                and ${criterion.condition}
+              </when>
+              <when test="criterion.singleValue" >
+                and ${criterion.condition} #{criterion.value}
+              </when>
+              <when test="criterion.betweenValue" >
+                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+              </when>
+              <when test="criterion.listValue" >
+                and ${criterion.condition}
+                <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  #{listItem}
+                </foreach>
+              </when>
+            </choose>
+          </foreach>
+        </trim>
+      </if>
+    </foreach>
+      ) 
   </sql>
   <sql id="Update_By_Example_Where_Clause" >
     <where >
@@ -83,19 +111,18 @@
     'false' as QUERYID,
     <include refid="Base_Column_List" />
     from T_CG_TZCY
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
+
+    <include refid="Select_Example_Where_Clause" />
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select
+    select 
     <include refid="Base_Column_List" />
     from T_CG_TZCY
     where CYID = #{cyid,jdbcType=VARCHAR}
-    and VALID = 1
+      and VALID = 1
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from T_CG_TZCY
@@ -211,13 +238,13 @@
   <update id="updateByExample" parameterType="map" >
     update T_CG_TZCY
     set CYID = #{record.cyid,jdbcType=VARCHAR},
-    TZID = #{record.tzid,jdbcType=VARCHAR},
-    XM = #{record.xm,jdbcType=VARCHAR},
-    EJDWMC = #{record.ejdwmc,jdbcType=VARCHAR},
-    ZW = #{record.zw,jdbcType=VARCHAR},
-    JB = #{record.jb,jdbcType=VARCHAR},
-    VALID = #{record.valid,jdbcType=VARCHAR},
-    CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      TZID = #{record.tzid,jdbcType=VARCHAR},
+      XM = #{record.xm,jdbcType=VARCHAR},
+      EJDWMC = #{record.ejdwmc,jdbcType=VARCHAR},
+      ZW = #{record.zw,jdbcType=VARCHAR},
+      JB = #{record.jb,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>

@@ -38,8 +38,36 @@
           </trim>
         </if>
       </foreach>
-       and valid = 1
     </where>
+  </sql>
+  <sql id="Select_Example_Where_Clause" >
+     where valid = 1 and (         
+    <foreach collection="oredCriteria" item="criteria" separator="or" >
+      <if test="criteria.valid" >
+        <trim prefix="(" suffix=")" prefixOverrides="and" >
+          <foreach collection="criteria.criteria" item="criterion" >
+            <choose >
+              <when test="criterion.noValue" >
+                and ${criterion.condition}
+              </when>
+              <when test="criterion.singleValue" >
+                and ${criterion.condition} #{criterion.value}
+              </when>
+              <when test="criterion.betweenValue" >
+                and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+              </when>
+              <when test="criterion.listValue" >
+                and ${criterion.condition}
+                <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  #{listItem}
+                </foreach>
+              </when>
+            </choose>
+          </foreach>
+        </trim>
+      </if>
+    </foreach>
+      ) 
   </sql>
   <sql id="Update_By_Example_Where_Clause" >
     <where >
@@ -81,9 +109,8 @@
     'false' as QUERYID,
     <include refid="Base_Column_List" />
     from T_XM_XSSBFJ
-    <if test="_parameter != null" >
-      <include refid="Example_Where_Clause" />
-    </if>
+
+    <include refid="Select_Example_Where_Clause" />
     <if test="orderByClause != null" >
       order by ${orderByClause}
     </if>

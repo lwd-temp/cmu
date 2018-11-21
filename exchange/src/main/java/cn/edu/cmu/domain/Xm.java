@@ -90,7 +90,7 @@ public class Xm {
     private String zysm;
 
     /**
-     * 是否限制人数 0 表示不限制，1 表示限制
+     * 是否限制人数 N 表示不限制，Y 表示限制
      */
     private String sfxzrs;
 
@@ -156,7 +156,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-04
+     * @mbggenerated 2018-11-21
      */
     public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, String status, String valid, Date createTime) {
         this.xmId = xmId;
@@ -193,7 +193,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-04
+     * @mbggenerated 2018-11-21
      */
     public Xm() {
         super();
@@ -472,16 +472,16 @@ public class Xm {
     }
 
     /**
-     * 是否限制人数 0 表示不限制，1 表示限制
-     * @return SFXZRS 是否限制人数 0 表示不限制，1 表示限制
+     * 是否限制人数 N 表示不限制，Y 表示限制
+     * @return SFXZRS 是否限制人数 N 表示不限制，Y 表示限制
      */
     public String getSfxzrs() {
         return sfxzrs;
     }
 
     /**
-     * 是否限制人数 0 表示不限制，1 表示限制
-     * @param sfxzrs 是否限制人数 0 表示不限制，1 表示限制
+     * 是否限制人数 N 表示不限制，Y 表示限制
+     * @param sfxzrs 是否限制人数 N 表示不限制，Y 表示限制
      */
     public void setSfxzrs(String sfxzrs) {
         this.sfxzrs = sfxzrs == null ? null : sfxzrs.trim();
@@ -681,7 +681,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-04
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

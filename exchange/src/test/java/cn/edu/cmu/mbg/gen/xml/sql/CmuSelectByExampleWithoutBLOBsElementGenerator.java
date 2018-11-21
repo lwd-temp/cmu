@@ -68,7 +68,7 @@ public class CmuSelectByExampleWithoutBLOBsElementGenerator extends SelectByExam
         sb.append("from "); //$NON-NLS-1$
         sb.append(introspectedTable
                 .getAliasedFullyQualifiedTableNameAtRuntime());
-        answer.addElement((new TextElement(sb.toString())));
+        answer.addElement((new TextElement(sb.toString()+"\r\n")));
         answer.addElement(getExampleIncludeElement());
 
         ifElement = new XmlElement("if"); //$NON-NLS-1$
@@ -77,15 +77,15 @@ public class CmuSelectByExampleWithoutBLOBsElementGenerator extends SelectByExam
         answer.addElement(ifElement);
 
         //附加自定义条件
-        IntrospectedColumn deleteColumn = introspectedTable.getColumn(VALID);
-        if(deleteColumn != null) {
-            sb.setLength(0);
-            sb.append("  and ");
-            sb.append(MyBatis3FormattingUtilities
-                    .getAliasedEscapedColumnName(deleteColumn));
-            sb.append(" = 1");
-            answer.addElement(new TextElement(sb.toString()));
-        }
+        //IntrospectedColumn deleteColumn = introspectedTable.getColumn(VALID);
+        //if(deleteColumn != null) {
+        //    sb.setLength(0);
+        //    sb.append("  and ");
+        //    sb.append(MyBatis3FormattingUtilities
+        //            .getAliasedEscapedColumnName(deleteColumn));
+        //    sb.append(" = 1");
+        //    answer.addElement(new TextElement(sb.toString()));
+        //}
 
         if (context.getPlugins()
                 .sqlMapSelectByExampleWithoutBLOBsElementGenerated(answer,
@@ -93,5 +93,19 @@ public class CmuSelectByExampleWithoutBLOBsElementGenerator extends SelectByExam
             parentElement.addElement(answer);
         }
     }
+
+
+    protected XmlElement getExampleIncludeElement() {
+        //XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
+        //ifElement.addAttribute(new Attribute("test", "_parameter != null")); //$NON-NLS-1$ //$NON-NLS-2$
+
+        XmlElement includeElement = new XmlElement("include"); //$NON-NLS-1$
+        includeElement.addAttribute(new Attribute("refid", //$NON-NLS-1$
+                "Select_Example_Where_Clause"));
+        //ifElement.addElement(includeElement);
+
+        return includeElement;
+    }
+
 
 }

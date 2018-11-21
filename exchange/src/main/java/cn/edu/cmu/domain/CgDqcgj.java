@@ -196,7 +196,6 @@ public class CgDqcgj {
 
     /**
      * 状态 暂存、已提交；提交后不能修改
-     * 01 暂存 02提交待审核 03退回 资料需修改04 审核通过资料合格 05办结
      */
     private String status;
 
@@ -220,7 +219,7 @@ public class CgDqcgj {
      */
     private Date shrq;
 
-    /**sqlx
+    /**
      * 归档文件id 此id为上传文件表的id
      */
     private String gdwjid;
@@ -242,7 +241,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime) {
         this.cgid = cgid;
@@ -296,7 +295,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     public CgDqcgj() {
         super();
@@ -1056,7 +1055,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

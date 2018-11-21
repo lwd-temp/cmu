@@ -25,7 +25,7 @@ public class DmCgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-10-21
+     * @mbggenerated 2018-11-21
      */
     public DmCgSqlx(String code, String name, String valid, Date createTime) {
         this.code = code;
@@ -36,7 +36,7 @@ public class DmCgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-10-21
+     * @mbggenerated 2018-11-21
      */
     public DmCgSqlx() {
         super();
@@ -108,7 +108,7 @@ public class DmCgSqlx {
 
     /**
      *
-     * @mbggenerated 2018-10-21
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

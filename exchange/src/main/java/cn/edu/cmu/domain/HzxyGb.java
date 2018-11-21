@@ -35,7 +35,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-26
+     * @mbggenerated 2018-11-21
      */
     public HzxyGb(String gbid, String gjdm, String hzys, String xyid, String valid, Date createTime) {
         this.gbid = gbid;
@@ -48,7 +48,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-26
+     * @mbggenerated 2018-11-21
      */
     public HzxyGb() {
         super();
@@ -56,7 +56,7 @@ public class HzxyGb {
 
     /**
      * 国别id
-     * @return gbid 国别id
+     * @return GBID 国别id
      */
     public String getGbid() {
         return gbid;
@@ -72,7 +72,7 @@ public class HzxyGb {
 
     /**
      * null
-     * @return gjdm null
+     * @return GJDM null
      */
     public String getGjdm() {
         return gjdm;
@@ -88,7 +88,7 @@ public class HzxyGb {
 
     /**
      * 盒子颜色 此处需求还需待确认???
-     * @return hzys 盒子颜色 此处需求还需待确认???
+     * @return HZYS 盒子颜色 此处需求还需待确认???
      */
     public String getHzys() {
         return hzys;
@@ -104,7 +104,7 @@ public class HzxyGb {
 
     /**
      * 协议id
-     * @return xyid 协议id
+     * @return XYID 协议id
      */
     public String getXyid() {
         return xyid;
@@ -120,7 +120,7 @@ public class HzxyGb {
 
     /**
      * 数据是否有效(0已经删除 1有效)
-     * @return valid 数据是否有效(0已经删除 1有效)
+     * @return VALID 数据是否有效(0已经删除 1有效)
      */
     public String getValid() {
         return valid;
@@ -136,7 +136,7 @@ public class HzxyGb {
 
     /**
      * 创建时间默认当前数据生成时间
-     * @return create_time 创建时间默认当前数据生成时间
+     * @return CREATE_TIME 创建时间默认当前数据生成时间
      */
     public Date getCreateTime() {
         return createTime;
@@ -152,7 +152,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-09-26
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

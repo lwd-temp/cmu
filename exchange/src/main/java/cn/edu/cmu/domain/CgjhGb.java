@@ -30,7 +30,7 @@ public class CgjhGb {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     public CgjhGb(String gbid, String gjdm, String jhid, String valid, Date createTime) {
         this.gbid = gbid;
@@ -42,7 +42,7 @@ public class CgjhGb {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     public CgjhGb() {
         super();
@@ -130,7 +130,7 @@ public class CgjhGb {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

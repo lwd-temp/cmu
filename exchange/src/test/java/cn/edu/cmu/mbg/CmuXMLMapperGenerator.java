@@ -16,10 +16,12 @@
 package cn.edu.cmu.mbg;
 
 import cn.edu.cmu.mbg.gen.xml.sql.CmuExampleWhereClauseElementGenerator;
+import cn.edu.cmu.mbg.gen.xml.sql.CmuSelectByExampleWithoutBLOBsElementGenerator;
 import cn.edu.cmu.mbg.gen.xml.sql.CmuSelectByPrimaryKeyElementGenerator;
 import org.mybatis.generator.api.dom.xml.XmlElement;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.XMLMapperGenerator;
 import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.AbstractXmlElementGenerator;
+import org.mybatis.generator.codegen.mybatis3.xmlmapper.elements.SelectByExampleWithoutBLOBsElementGenerator;
 
 /**
  * 
@@ -34,11 +36,14 @@ public class CmuXMLMapperGenerator extends XMLMapperGenerator {
 
 
     protected void addExampleWhereClauseElement(XmlElement parentElement) {
-        if (introspectedTable.getRules().generateSQLExampleWhereClause()) {
-            AbstractXmlElementGenerator elementGenerator = new CmuExampleWhereClauseElementGenerator(
-                    false);
-            initializeAndExecuteGenerator(elementGenerator, parentElement);
-        }
+        super.addExampleWhereClauseElement(parentElement);
+
+
+        //额外生成 带valid的 where条件
+        AbstractXmlElementGenerator elementGenerator2 = new CmuExampleWhereClauseElementGenerator(
+                false);
+        initializeAndExecuteGenerator(elementGenerator2, parentElement);
+
     }
 
     /*protected void addSelectByExampleWithoutBLOBsElement(
@@ -63,5 +68,14 @@ public class CmuXMLMapperGenerator extends XMLMapperGenerator {
         }
     }
 
+
+    protected void addSelectByExampleWithoutBLOBsElement(
+            XmlElement parentElement) {
+        if (introspectedTable.getRules().generateSelectByExampleWithoutBLOBs()) {
+            //AbstractXmlElementGenerator elementGenerator = new SelectByExampleWithoutBLOBsElementGenerator();
+            AbstractXmlElementGenerator elementGenerator = new CmuSelectByExampleWithoutBLOBsElementGenerator();
+            initializeAndExecuteGenerator(elementGenerator, parentElement);
+        }
+    }
 
 }

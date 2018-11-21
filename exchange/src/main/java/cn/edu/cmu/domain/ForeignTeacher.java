@@ -135,7 +135,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-12
+     * @mbggenerated 2018-11-21
      */
     public ForeignTeacher(String tid, String gh, String jsx, String jsm, String chineseName, String gender, String gj, Date birthday, String hyzk, String hzlx, String hzh, Date hzqfrq, Date hzyxq, String zgxw, String hysp, String email, String syccsyhzgj, String gzgw, Date rzzmsj, String gzzw, Date gzsjStart, Date gzsjEnd, String phone, String hr, String valid, Date createTime) {
         this.tid = tid;
@@ -168,7 +168,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-12
+     * @mbggenerated 2018-11-21
      */
     public ForeignTeacher() {
         super();
@@ -592,7 +592,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-12
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

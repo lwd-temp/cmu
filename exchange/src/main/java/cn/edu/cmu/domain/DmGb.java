@@ -25,7 +25,7 @@ public class DmGb {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-11-21
      */
     public DmGb(String code, String name, String valid, Date createTime) {
         this.code = code;
@@ -36,7 +36,7 @@ public class DmGb {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-11-21
      */
     public DmGb() {
         super();
@@ -108,7 +108,7 @@ public class DmGb {
 
     /**
      *
-     * @mbggenerated 2018-10-05
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

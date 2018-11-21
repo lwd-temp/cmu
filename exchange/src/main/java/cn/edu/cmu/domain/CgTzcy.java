@@ -45,7 +45,7 @@ public class CgTzcy {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     public CgTzcy(String cyid, String tzid, String xm, String ejdwmc, String zw, String jb, String valid, Date createTime) {
         this.cyid = cyid;
@@ -60,7 +60,7 @@ public class CgTzcy {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     public CgTzcy() {
         super();
@@ -196,7 +196,7 @@ public class CgTzcy {
 
     /**
      *
-     * @mbggenerated 2018-09-22
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

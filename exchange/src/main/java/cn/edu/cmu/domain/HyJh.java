@@ -65,7 +65,6 @@ public class HyJh {
 
     /**
      * 状态
-     * 状态
      */
     private String status;
 
@@ -81,7 +80,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-11-21
      */
     public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzrdh, String operator, String status, String valid, Date createTime) {
         this.jhid = jhid;
@@ -103,7 +102,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-11-21
      */
     public HyJh() {
         super();
@@ -351,7 +350,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-10-04
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

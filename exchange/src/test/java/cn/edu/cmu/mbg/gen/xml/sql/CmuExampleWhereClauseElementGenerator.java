@@ -32,13 +32,13 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
                             "id", introspectedTable.getMyBatis3UpdateByExampleWhereClauseId())); //$NON-NLS-1$
         } else {
             answer.addAttribute(new Attribute(
-                    "id", introspectedTable.getExampleWhereClauseId())); //$NON-NLS-1$
+                    "id", "Select_Example_Where_Clause")); //$NON-NLS-1$
         }
 
         context.getCommentGenerator().addComment(answer);
 
-        XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$
-        answer.addElement(whereElement);
+        //XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$
+
 
         XmlElement outerForEachElement = new XmlElement("foreach"); //$NON-NLS-1$
         if (isForUpdateByExample) {
@@ -50,7 +50,13 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
         }
         outerForEachElement.addAttribute(new Attribute("item", "criteria")); //$NON-NLS-1$ //$NON-NLS-2$
         outerForEachElement.addAttribute(new Attribute("separator", "or")); //$NON-NLS-1$ //$NON-NLS-2$
-        whereElement.addElement(outerForEachElement);
+
+
+        //添加额外的 校验 开始...
+        answer.addElement(new TextElement(" where valid = 1 and (         "));
+        answer.addElement(outerForEachElement);
+        //添加额外的 校验  结束...
+        answer.addElement(new TextElement("  ) "));
 
         XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
         ifElement.addAttribute(new Attribute("test", "criteria.valid")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -65,6 +71,9 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
 
         trimElement.addElement(getMiddleForEachElement(null));
 
+
+
+
         for (IntrospectedColumn introspectedColumn : introspectedTable
                 .getNonBLOBColumns()) {
             if (stringHasValue(introspectedColumn
@@ -73,10 +82,6 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
                         .addElement(getMiddleForEachElement(introspectedColumn));
             }
         }
-
-        //在原来默认生成的基础上添加 valid = 1
-        TextElement validText = new TextElement(" and valid = 1");
-        whereElement.addElement(validText);
 
         if (context.getPlugins()
                 .sqlMapExampleWhereClauseElementGenerated(answer,

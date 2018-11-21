@@ -35,7 +35,7 @@ public class XmXssbfj {
 
     /**
      *
-     * @mbggenerated 2018-11-06
+     * @mbggenerated 2018-11-21
      */
     public XmXssbfj(String fjId, String sqjlId, String fileId, String clsm, String valid, Date createTime) {
         this.fjId = fjId;
@@ -48,7 +48,7 @@ public class XmXssbfj {
 
     /**
      *
-     * @mbggenerated 2018-11-06
+     * @mbggenerated 2018-11-21
      */
     public XmXssbfj() {
         super();
@@ -152,7 +152,7 @@ public class XmXssbfj {
 
     /**
      *
-     * @mbggenerated 2018-11-06
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {

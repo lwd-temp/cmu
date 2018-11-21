@@ -35,7 +35,7 @@ public class MaxCode {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     public MaxCode(String id, String type, Long year, Long maxcode, String valid, Date createTime) {
         this.id = id;
@@ -48,7 +48,7 @@ public class MaxCode {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     public MaxCode() {
         super();
@@ -152,7 +152,7 @@ public class MaxCode {
 
     /**
      *
-     * @mbggenerated 2018-10-01
+     * @mbggenerated 2018-11-21
      */
     @Override
     public String toString() {
