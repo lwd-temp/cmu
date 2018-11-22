@@ -38,7 +38,15 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
         context.getCommentGenerator().addComment(answer);
 
         //XmlElement whereElement = new XmlElement("where"); //$NON-NLS-1$
+        XmlElement ifParamElement = new XmlElement("if"); //$NON-NLS-1$
+        ifParamElement.addAttribute(new Attribute("test", "_parameter != null")); //$NON-NLS-1$ //$NON-NLS-2$
 
+
+
+        //添加额外的 校验 开始...
+        answer.addElement(new TextElement(" where valid = 1 and ( 1=1 and         "));
+
+        answer.addElement(ifParamElement);
 
         XmlElement outerForEachElement = new XmlElement("foreach"); //$NON-NLS-1$
         if (isForUpdateByExample) {
@@ -52,9 +60,8 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
         outerForEachElement.addAttribute(new Attribute("separator", "or")); //$NON-NLS-1$ //$NON-NLS-2$
 
 
-        //添加额外的 校验 开始...
-        answer.addElement(new TextElement(" where valid = 1 and (         "));
-        answer.addElement(outerForEachElement);
+
+        ifParamElement.addElement(outerForEachElement);
         //添加额外的 校验  结束...
         answer.addElement(new TextElement("  ) "));
 
