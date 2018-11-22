@@ -35,7 +35,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public HzxyGb(String gbid, String gjdm, String hzys, String xyid, String valid, Date createTime) {
         this.gbid = gbid;
@@ -48,7 +48,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public HzxyGb() {
         super();
@@ -152,7 +152,7 @@ public class HzxyGb {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

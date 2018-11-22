@@ -40,7 +40,7 @@ public class WbjdZjSxry {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public WbjdZjSxry(String ryid, String lfid, String xm, String gj, String zw, String valid, Date createTime) {
         this.ryid = ryid;
@@ -54,7 +54,7 @@ public class WbjdZjSxry {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public WbjdZjSxry() {
         super();
@@ -174,7 +174,7 @@ public class WbjdZjSxry {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

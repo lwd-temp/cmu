@@ -13,7 +13,7 @@ public class RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public RoleMenuKey(String roleId, String menuId) {
         this.roleId = roleId;
@@ -22,7 +22,7 @@ public class RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public RoleMenuKey() {
         super();
@@ -62,7 +62,7 @@ public class RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

@@ -45,7 +45,7 @@ public class SjjlZt {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public SjjlZt(String gjid, String gjnr, Date createtime, String czgh, String sqjlId, String status, String valid, Date createTime) {
         this.gjid = gjid;
@@ -60,7 +60,7 @@ public class SjjlZt {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public SjjlZt() {
         super();
@@ -196,7 +196,7 @@ public class SjjlZt {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

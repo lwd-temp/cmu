@@ -27,7 +27,7 @@
         <where>
             <if test="param!=null">
                 <if test="param.hybh!=null and param.hybh != '' ">
-                     name="hybhLike" value="'%' + param.hybh + '%'"/>
+                     <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
                     and hybh like   #{hybhLike,jdbcType=VARCHAR}
                 </if>
                 <if test="param.hymc!=null and param.hymc != '' ">

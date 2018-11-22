@@ -25,7 +25,7 @@ public class DmZhpj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public DmZhpj(String code, String name, String valid, Date createTime) {
         this.code = code;
@@ -36,7 +36,7 @@ public class DmZhpj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public DmZhpj() {
         super();
@@ -108,7 +108,7 @@ public class DmZhpj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

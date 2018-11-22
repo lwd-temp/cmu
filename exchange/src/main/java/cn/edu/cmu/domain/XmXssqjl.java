@@ -161,7 +161,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selfPay, String valid, Date createTime) {
         this.sqjlId = sqjlId;
@@ -199,7 +199,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public XmXssqjl() {
         super();
@@ -703,7 +703,7 @@ public class XmXssqjl {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

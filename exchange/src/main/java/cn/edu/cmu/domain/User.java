@@ -40,7 +40,7 @@ public class User {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public User(String userId, String userName, String password, Date lastModifyTime, Date lastLoginTime, String valid, Date createTime) {
         this.userId = userId;
@@ -54,7 +54,7 @@ public class User {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public User() {
         super();
@@ -174,7 +174,7 @@ public class User {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

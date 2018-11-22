@@ -25,7 +25,7 @@ public class Role {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public Role(String roleId, String roleName, String valid, Date createTime) {
         this.roleId = roleId;
@@ -36,7 +36,7 @@ public class Role {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public Role() {
         super();
@@ -108,7 +108,7 @@ public class Role {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

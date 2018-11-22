@@ -30,7 +30,7 @@ public class XmGjdq {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public XmGjdq(String gbid, String gjdm, String xmid, String valid, Date createTime) {
         this.gbid = gbid;
@@ -42,7 +42,7 @@ public class XmGjdq {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public XmGjdq() {
         super();
@@ -130,7 +130,7 @@ public class XmGjdq {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

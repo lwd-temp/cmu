@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 项目总名或者项目名称: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 项目总名或者项目名称: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="请输入项目总名或者项目名称" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="请输入项目总名或者项目名称" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -123,12 +123,7 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
-
+            refreshTable();
         });
 
     });
@@ -140,8 +135,10 @@
     function refreshTable(){
 
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{
+                'xmmc':$("#condition").val(),//项目名称
+                'xmzm':$("#condition").val() //项目总名
+            },
             page:1
         }).trigger("reloadGrid");
     }

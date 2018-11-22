@@ -241,7 +241,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime) {
         this.cgid = cgid;
@@ -295,7 +295,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public CgDqcgj() {
         super();
@@ -1055,7 +1055,7 @@ public class CgDqcgj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

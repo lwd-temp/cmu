@@ -30,7 +30,7 @@ public class WbjdGj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public WbjdGj(String gjid, String lfjdgjid, String lfid, String valid, Date createTime) {
         this.gjid = gjid;
@@ -42,7 +42,7 @@ public class WbjdGj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public WbjdGj() {
         super();
@@ -130,7 +130,7 @@ public class WbjdGj {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

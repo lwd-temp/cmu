@@ -15,7 +15,7 @@ public class RoleMenu extends RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public RoleMenu(String roleId, String menuId, String valid, Date createTime) {
         super(roleId, menuId);
@@ -25,7 +25,7 @@ public class RoleMenu extends RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public RoleMenu() {
         super();
@@ -65,7 +65,7 @@ public class RoleMenu extends RoleMenuKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

@@ -10,10 +10,10 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="form-field-1"> 已申报通过的交流项目名称: </label>
+            <label class="col-sm-4 control-label no-padding-right" for="condition"> 已申报通过的交流项目名称: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="form-field-1" placeholder="已申报通过的交流项目名称" class="col-xs-12" />
+                <input type="text" id="condition" placeholder="已申报通过的交流项目名称" class="col-xs-12" />
             </div>
 
             <div class="col-sm-3">
@@ -35,26 +35,12 @@
 
 <!-- inline scripts related to this page -->
 <script type="text/javascript">
-    var grid_data =
-        [
-            {id:"1",	xmzm:"项目总名1",kssj:"2017-02-01",	jssj:"2018-12-08",	cc:"本科", zt:"暂存",  jfly:'2017-01-01'},
-            {id:"2",	xmzm:"项目总名2",kssj:"2017-03-01",	jssj:"2018-11-08",	cc:"硕士", zt:"已初审", jfly:'2016-01-01'},
-            {id:"3",	xmzm:"项目总名3",kssj:"2017-04-01",	jssj:"2018-10-08",	cc:"博士", zt:"已复审", jfly:'2015-01-01'},
-            {id:"4",	xmzm:"项目总名4",kssj:"2017-05-01",	jssj:"2018-09-08",	cc:"本科", zt:"已通过", jfly:'2014-01-01'},
-            {id:"5",	xmzm:"项目总名5",kssj:"2017-06-01",	jssj:"2018-08-08",	cc:"博士", zt:"已通过", jfly:'2013-01-01'},
-            {id:"6",	xmzm:"项目总名6",kssj:"2017-07-01",	jssj:"2018-07-08",	cc:"本科", zt:"已通过",  jfly:'2012-01-01'},
-            {id:"7",	xmzm:"项目总名7",kssj:"2017-08-01",	jssj:"2018-06-08",	cc:"博士", zt:"已通过", jfly:'2011-01-01'},
-            {id:"8",	xmzm:"项目总名8",kssj:"2017-09-01",	jssj:"2018-05-08",	cc:"本科", zt:"已通过", jfly:'2010-01-01'},
-        ];
-
 
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
 
 
     $(function() {
-        grid_selector = "#grid-table";
-        pager_selector = "#grid-pager";
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -108,11 +94,7 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
-            layer.msg("点击查询后，根据条件进行查询")
-            clearTable(); //清空表格
-            setTimeout(function(){
-                refreshTable();//刷新页面
-            },800);
+            refreshTable();
 
         });
 
@@ -125,8 +107,10 @@
     function refreshTable(){
 
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            datatype:'local',
-            data : grid_data,   //  newdata 是符合格式要求的需要重新加载的数据
+            postData:{
+                'xmmc':$("#condition").val(),//项目名称
+                'xmzm':$("#condition").val() //项目总名
+            },
             page:1
         }).trigger("reloadGrid");
     }

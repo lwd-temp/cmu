@@ -126,7 +126,7 @@ public class CgRwzxqkfk {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public CgRwzxqkfk(String rwfkId, String tzdw, String cfgjdq, String tzxm, String xb, String tzzdw, String tzzw, String ssejdw, BigDecimal pzcfrw, BigDecimal pzcfts, BigDecimal sjcfrs, BigDecimal sjcfts, Date cjsj, Date rjsj, String rwpjwh, String cfbt, String rwzxqk, String rwwwcnr, String tbr, String tbrDh, String cgid, String status, String valid, Date createTime) {
         this.rwfkId = rwfkId;
@@ -157,7 +157,7 @@ public class CgRwzxqkfk {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public CgRwzxqkfk() {
         super();
@@ -549,7 +549,7 @@ public class CgRwzxqkfk {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

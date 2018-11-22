@@ -83,7 +83,6 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
             if (StringUtils.isNotEmpty(xm.getXmmc())) {
                 c1.andXmmcLike("%" + xm.getXmmc() + "%");
-                c1.andValidEqualTo("1");
             }
             if(StringUtils.isNotEmpty(xm.getXmzm())){
                 c2.andXmzmLike("%" + xm.getXmzm() + "%");
@@ -516,6 +515,14 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             c1.andXhEqualTo(jl.getXh());
             c2.andXhEqualTo(jl.getXh());
 
+            if(StringUtils.isNotEmpty(jl.getXmmc())){
+                c1.andXmmcLike(jl.getXmmc());
+                c2.andXmmcLike(jl.getXmmc());
+            }
+            if(StringUtils.isNotEmpty(jl.getXmzm())){
+                c1.andXmzmLike(jl.getXmzm());
+                c2.andXmzmLike(jl.getXmzm());
+            }
 
             super.addOrderBy(params, conditions);
         }

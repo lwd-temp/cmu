@@ -15,7 +15,7 @@ public class UserRole extends UserRoleKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public UserRole(String userId, String roleId, String valid, Date createTime) {
         super(userId, roleId);
@@ -25,7 +25,7 @@ public class UserRole extends UserRoleKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     public UserRole() {
         super();
@@ -65,7 +65,7 @@ public class UserRole extends UserRoleKey {
 
     /**
      *
-     * @mbggenerated 2018-11-21
+     * @mbggenerated 2018-11-22
      */
     @Override
     public String toString() {

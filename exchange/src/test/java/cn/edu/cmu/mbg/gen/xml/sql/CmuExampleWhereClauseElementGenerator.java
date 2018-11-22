@@ -44,11 +44,64 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
 
 
         //添加额外的 校验 开始...
-        answer.addElement(new TextElement(" where valid = 1 and ( 1=1       "));
+        answer.addElement(new TextElement(" where valid = 1   "));
 
         answer.addElement(ifParamElement);
 
-        ifParamElement.addElement(new TextElement("and"));
+
+        //<if test="oredCriteria != null and  oredCriteria.size() > 0 " >
+        XmlElement ifParamSizeElement = new XmlElement("if");
+        ifParamSizeElement.addAttribute(new Attribute("test", " oredCriteria != null and  oredCriteria.size() > 0 "));
+
+        ifParamElement.addElement(ifParamSizeElement);
+
+        //<bind name="hasCriteria" value="false" />
+        XmlElement bindElement = new XmlElement("bind");
+        bindElement.addAttribute(new Attribute("name", "hasCriteria"));
+        bindElement.addAttribute(new Attribute("value", "false"));
+        ifParamSizeElement.addElement(bindElement);
+
+
+        /**
+         * <foreach collection="oredCriteria" item="criteria" >
+         *         <if test="criteria.valid" >
+         *             <bind name="hasCriteria" value="true" />
+         *         </if>
+         *       </foreach>
+         */
+        XmlElement forEachElement = new XmlElement("foreach");
+        forEachElement.addAttribute(new Attribute("collection", "oredCriteria"));
+        forEachElement.addAttribute(new Attribute("item", "criteria"));
+
+
+        /**
+         *         <if test="criteria.valid" >
+         *             <bind name="hasCriteria" value="true" />
+         *         </if>
+         */
+        XmlElement ifCriteriaValidElement = new XmlElement("if");
+        ifCriteriaValidElement.addAttribute(new Attribute("test", "criteria.valid"));
+
+
+        XmlElement bindHashCriteriaElement = new XmlElement("bind");
+        bindHashCriteriaElement.addAttribute(new Attribute("name", "hasCriteria"));
+        bindHashCriteriaElement.addAttribute(new Attribute("value", "true"));
+
+
+        ifCriteriaValidElement.addElement(bindHashCriteriaElement);
+        forEachElement.addElement(ifCriteriaValidElement);
+        ifParamSizeElement.addElement(forEachElement);
+
+
+
+        XmlElement hashCriteriaAppendElement = new XmlElement("if");
+        hashCriteriaAppendElement.addAttribute(new Attribute("test", "hasCriteria"));
+        hashCriteriaAppendElement.addElement(new TextElement(" and ( "));
+        ifParamSizeElement.addElement(hashCriteriaAppendElement);
+
+
+
+
 
         XmlElement outerForEachElement = new XmlElement("foreach"); //$NON-NLS-1$
         if (isForUpdateByExample) {
@@ -63,9 +116,8 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
 
 
 
-        ifParamElement.addElement(outerForEachElement);
-        //添加额外的 校验  结束...
-        answer.addElement(new TextElement("  ) "));
+        ifParamSizeElement.addElement(outerForEachElement);
+
 
         XmlElement ifElement = new XmlElement("if"); //$NON-NLS-1$
         ifElement.addAttribute(new Attribute("test", "criteria.valid")); //$NON-NLS-1$ //$NON-NLS-2$
@@ -79,6 +131,13 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
         ifElement.addElement(trimElement);
 
         trimElement.addElement(getMiddleForEachElement(null));
+
+
+        XmlElement hashCriteriaAppendEndElement = new XmlElement("if");
+        hashCriteriaAppendEndElement.addAttribute(new Attribute("test", "hasCriteria"));
+        hashCriteriaAppendEndElement.addElement(new TextElement(" )  "));
+        ifParamSizeElement.addElement(hashCriteriaAppendEndElement);
+
 
 
 
