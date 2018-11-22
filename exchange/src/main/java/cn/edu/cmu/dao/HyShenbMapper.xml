@@ -56,8 +56,10 @@
     </where>
   </sql>
   <sql id="Select_Example_Where_Clause" >
-     where valid = 1 and ( 1=1 and         
+     where valid = 1 and ( 1=1       
     <if test="_parameter != null" >
+    <if test="oredCriteria != null and  oredCriteria.size() > 0 " >
+      and
       <foreach collection="oredCriteria" item="criteria" separator="or" >
         <if test="criteria.valid" >
           <trim prefix="(" suffix=")" prefixOverrides="and" >
@@ -83,6 +85,7 @@
           </trim>
         </if>
       </foreach>
+    </if>
     </if>
       ) 
   </sql>

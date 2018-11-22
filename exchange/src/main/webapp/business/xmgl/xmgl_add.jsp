@@ -101,7 +101,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 项目开始时间: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="xmkssj" name="xm.xmkssj" value="" type="text" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control date-picker" id="xmkssj" name="xm.xmkssj" placeholder="请选择项目开始时间" value="" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
 
 
@@ -115,7 +115,7 @@
                                 <label class="col-xs-2 control-label "> 项目结束时间: </label>
 
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="smjssj" name="xm.smjssj" value="" type="text" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control date-picker" id="smjssj" name="xm.smjssj" value="" placeholder="请选择项目结束时间"  type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-4">
@@ -152,17 +152,17 @@
 
                                 <label class="col-xs-2 control-label "> 交流目标机构名称: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" type="text" placeholder="交流目标机构名称,如'国'"/>
+                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" type="text" placeholder="请输入交流目标机构名称,如'国'"/>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 资助金额: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control  " name="xm.zjje" id="zjje" value="" type="text"/>
+                                    <input class="form-control  " name="xm.zjje" id="zjje" placeholder="请输入资助金额" value="" type="text"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 项目收费标准: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control" style="display: inline;width: 55%;" name="xm.fybz" id="fybz" type="text" placeholder="费用标准"/> &nbsp;&nbsp;&nbsp;人民币元/人
+                                    <input class="form-control" style="display: inline;width: 55%;" name="xm.fybz" id="fybz" type="text" placeholder="请输入费用标准"/> &nbsp;&nbsp;&nbsp;人民币元/人
                                 </div>
                             </div>
 
@@ -177,7 +177,7 @@
 
                                 <label class="col-xs-2 control-label "> 项目收费说明: </label>
                                 <div class="col-xs-4">
-                                    <input class="col-xs-12 col-sm-12" name="xm.zysm" id="zysm" value="" type="text"/>
+                                    <input class="col-xs-12 col-sm-12" name="xm.zysm" id="zysm" placeholder="请输入项目收费说明" value="" type="text"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -188,7 +188,7 @@
                                 <label class="col-xs-2 control-label "> 项目年级限制: </label>
                                 <div class="col-xs-4">
 
-                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="年级限制"/>
+                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="请输入年级限制"/>
                                 </div>
 
                             </div>
@@ -214,14 +214,14 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 项目概况: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="xm.xmgk" id="xmgk" maxlength="300"></textarea>
+                                    <textarea class="form-control limited" name="xm.xmgk" id="xmgk" placeholder="请输入项目概况" maxlength="300"></textarea>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 项目资助计划: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" maxlength="300"></textarea>
+                                    <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" placeholder="请输入项目资助计划" maxlength="300"></textarea>
                                 </div>
 
                             </div>
@@ -432,7 +432,7 @@
                 'xm.jfly': 'required',
                 'xm.zjje': {required: true/*, digits: true*/},
                 'xm.jlmbjgmc': 'required',
-                'xm.jlmbgj': 'required',
+                //'xm.jlmbgj': 'required',
                 'xm.fybz': {required: true, digits: true},
                 'xm.zysm': 'required',
                 'xm.sfxzrs':'required',

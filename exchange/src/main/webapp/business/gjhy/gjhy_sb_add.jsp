@@ -125,7 +125,7 @@
                                 <div class="col-xs-4">
 
                                     <input class="form-control date-picker" name="hysb.jxrq"
-                                           value="<fmt:formatDate value="${hysb.jxrq}" pattern="yyyy-MM-dd"/>" id="jbrq"
+                                           value="<fmt:formatDate value="${hysb.jxrq}" pattern="yyyy-MM-dd"/>"  placeholder="举行日期" id="jbrq"
                                            type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
 

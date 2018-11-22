@@ -44,9 +44,11 @@ public class CmuExampleWhereClauseElementGenerator extends AbstractXmlElementGen
 
 
         //添加额外的 校验 开始...
-        answer.addElement(new TextElement(" where valid = 1 and ( 1=1 and         "));
+        answer.addElement(new TextElement(" where valid = 1 and ( 1=1       "));
 
         answer.addElement(ifParamElement);
+
+        ifParamElement.addElement(new TextElement("and"));
 
         XmlElement outerForEachElement = new XmlElement("foreach"); //$NON-NLS-1$
         if (isForUpdateByExample) {
