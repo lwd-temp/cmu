@@ -247,7 +247,8 @@ public class CgTzjhController extends BaseController {
     @RequestMapping("/download")
     public void export(CgTzjh tzjh, String orderCol, String orderType, HttpServletResponse response) throws Exception {
 
-
+        String fzrxmnew=new String(tzjh.getFzrxm().getBytes("ISO-8859-1"), "UTF-8");
+        tzjh.setFzrxm(fzrxmnew);
         List<CgTzjh> list = cgTzjhService.gllistExp(tzjh, orderCol, orderType);//demoList();
 
         logger.info(String.format("导出团组信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
