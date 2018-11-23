@@ -18,9 +18,9 @@
                 <input type="text"  id="condition1"  placeholder="请输入会议编号" class="col-xs-12" />
             </div>
 
-            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 主办单位/承办单位: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 会议名称: </label>
             <div class="col-sm-2">
-                <input type="text"  id="condition2"  placeholder="请输入主办单位或承办单位" class="col-xs-12" />
+                <input type="text"  id="condition2"  placeholder="请输入会议名称" class="col-xs-12" />
             </div>
 
             <label class="col-sm-2 control-label no-padding-right"  > 会议类型: </label>
