@@ -52,7 +52,7 @@ public class CgDqcgjController extends BaseController {
                     @RequestParam(defaultValue = "1", required = false) Integer page,
                     @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
-        List list = cgDqcgjService.list(cgDqcgj, orderCol, orderType);//demoList();
+        List list = cgDqcgjService.list(cgDqcgj, orderCol, orderType);
         return super.pagingInfo(pageInfo, list);
     }
 
