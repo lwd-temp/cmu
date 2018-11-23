@@ -68,10 +68,18 @@
             colModel:[
                 {name:'dbtmc',index:'dbtmc',  },
                 {name:'lfsjStart',index:'lfsjStart',formatter:function(lfsjStart, options, rowObject){
-                        return new Date(lfsjStart).getYmd("yyyy-MM-dd");
+                        if(lfsjStart==null){
+                            return '';
+                        }else{
+                            return new Date(lfsjStart).getYmd("yyyy-MM-dd");
+                        }
                     }},
                 {name:'lfsjEnd',index:'lfsjEnd',formatter:function(lfsjEnd, options, rowObject){
-                        return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
+                        if(lfsjEnd==null){
+                            return '';
+                        }else{
+                            return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
+                        }
                     }},
                 {name:'lfrs',index:'lfrs',  },
                 {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){

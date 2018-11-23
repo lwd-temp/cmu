@@ -92,7 +92,7 @@
                             <div class="form-group">
                                 <label class="col-xs-3 control-label "  > 会议产出情况介绍: </label>
                                 <div class="col-xs-9">
-                                    <textarea class="form-control limited" name="ccqkjs"    id="form-field-2" maxlength="300" placeholder="会议具体情况介绍">${hyzj.ccqkjs}</textarea>
+                                    <textarea class="form-control limited" name="ccqkjs"    id="form-field-2" maxlength="300" placeholder="会议产出情况介绍">${hyzj.ccqkjs}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">

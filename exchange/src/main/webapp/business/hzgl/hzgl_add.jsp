@@ -84,7 +84,7 @@
                                 </div>
                                 <label class="col-xs-2 control-label "  > 出生地点: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="csdd"  value="" placeholder="请输入签发日期"   class="col-xs-12" />
+                                    <input type="text"  name="csdd"  value="" placeholder="请输入出生地点"   class="col-xs-12" />
                                 </div>
 
                             </div>

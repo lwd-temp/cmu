@@ -7,7 +7,7 @@
         F_GetTableText('t_dm_wblf_jdlx', 'code', 'name', jdlx) jdlx,
         F_GetTableText('t_dm_lfmd', 'code', 'name', lfmd) lfmd,
         F_GetTableText('t_dm_xb', 'code', 'name', tzxb) tzxb,
-        lfid, dbtmc, lfrs, lfsj_start, lfsj_end, tlsj_start, tlsj_end,
+        lfid, dbtmc, lfrs, lfsj_start lfsjStart, lfsj_end lfsjEnd, tlsj_start, tlsj_end,
         lfmd_qt lfmdQt, yjtm, yqxx, jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj,  tzcsrq,
         tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg, zqrxm, zqrdh, zqlxrxm,
         zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm,

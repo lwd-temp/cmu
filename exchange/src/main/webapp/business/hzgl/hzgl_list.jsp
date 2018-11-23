@@ -84,7 +84,11 @@
                     } },
                 {name:'hzhm',index:'hzhm'},
                 {name:'birthday',index:'birthday',formatter:function(birthday){
-                        return new Date(birthday).getYmd("yyyy年MM月dd日")
+                        if(birthday==null){
+                            return '';
+                        }else{
+                            return new Date(birthday).getYmd("yyyy-MM-dd");
+                        }
                     }},
                 {name:'status',index:'status', formatter:function(status){
                         return dmcache.getCode("t_dm_hzzt",status);

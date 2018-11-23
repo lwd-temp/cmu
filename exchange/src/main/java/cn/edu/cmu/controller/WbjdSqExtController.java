@@ -80,9 +80,21 @@ public class WbjdSqExtController {
             sb.append(gblist.get(i).getLfjdgjid()).append("/");
         }
         String gb = sb.toString().substring(0,sb.toString().length()-1);
+        String lfsjStart="";
+        String lfsjEnd="";
+        if(wbjdSq.getLfsjStart()!=null){
+            lfsjStart = new SimpleDateFormat("yyyy-MM-dd").format(wbjdSq.getLfsjStart()).toString();
+        }
+        if(wbjdSq.getLfsjEnd()!=null){
+            lfsjEnd = new SimpleDateFormat("yyyy-MM-dd").format(wbjdSq.getLfsjEnd()).toString();
+        }
         //还没有画样式
+        System.err.println(lfsjStart);
+        System.err.println(lfsjEnd);
         String template = "wbgl/wbglExtTemplate.html";
         Map<String, Object> variables = new HashMap<String, Object>(3);
+        variables.put("lfsjStart", lfsjStart);
+        variables.put("lfsjEnd", lfsjEnd);
         variables.put("wbjdSq", wbjdSq);
         variables.put("sxryList", sxryList);
         variables.put("gb", gb);
