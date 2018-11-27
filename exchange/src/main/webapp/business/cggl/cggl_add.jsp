@@ -432,10 +432,14 @@
                 var fraWinName = layero.find('iframe')[0]['name'];
                 //设置打开窗口的回调函数,及调用此函数接受参数
                 parent.frames[fraWinName].callback = function(tzjh){
-
                     $("#tzid").val(tzjh.tzid);
                     $("#tzh").val(tzjh.tzh);
-                    $("#tzmc").val(tzjh.tzmc);
+                    var tam=tzjh.tzmc;
+                    if (tam.length==0){
+                        $("#tzmc").val(" ");
+                    }else{
+                        $("#tzmc").val(tzjh.tzmc);
+                    }
                 };
             },
         });
