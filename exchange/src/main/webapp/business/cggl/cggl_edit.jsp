@@ -340,6 +340,10 @@
             $(".jfyshj").show();
         }
 
+        var tzm=$("#tzmc").val();
+        if (tzm.length==0){
+            $("#tzmc").val(" ");
+        }
 
 
         setFormValid();//设置校验规则

@@ -434,8 +434,8 @@
                 parent.frames[fraWinName].callback = function(tzjh){
                     $("#tzid").val(tzjh.tzid);
                     $("#tzh").val(tzjh.tzh);
-                    var tam=tzjh.tzmc;
-                    if (tam.length==0){
+                    var tzm=tzjh.tzmc;
+                    if (tzm.length==0){
                         $("#tzmc").val(" ");
                     }else{
                         $("#tzmc").val(tzjh.tzmc);
