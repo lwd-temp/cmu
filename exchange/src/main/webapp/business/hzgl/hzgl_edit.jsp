@@ -65,6 +65,60 @@
                                     <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender" value="${hz.gender}"  ></dm:list>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 单位   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dw"  value="${hz.dw}"  placeholder="请输入单位"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 职务: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="zw"   value="${hz.zw}"  placeholder="请输入职务"  class="col-xs-12" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 职称   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="zc"  value="${hz.zc}" placeholder="请输入职称" class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 签证或签注时间: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="qzsj" name="qzsj"  value="<fmt:formatDate value="${hz.qzsj}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择签证或签注时间" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访时间（出境）   : </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="cfsjCj" name="cfsjCj" value="<fmt:formatDate value="${hz.cfsjCj}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择出境时间" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 出访时间（入境）   : </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="cfsjRj" name="cfsjRj" value="<fmt:formatDate value="${hz.cfsjRj}" pattern="yyyy-MM-dd"/>"
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择入境时间" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访目的地   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="cfmd"  value="${hz.cfmd}"   placeholder="请输入出访目的地"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 经费来源: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="jfly"  value="${hz.jfly}"  placeholder="请输入经费来源"  class="col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访任务   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="cfrw"  value="${hz.cfrw}"    placeholder="请输入出访任务" class="col-xs-12" />
+                                </div>
+                            </div>
+
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 护照号码: </label>
                                 <div class="col-xs-4">

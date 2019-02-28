@@ -65,6 +65,59 @@
                                     <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  placeholder="请选择性别" ></dm:list>
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 单位   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="dw"  value=""  placeholder="请输入单位"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 职务: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="zw"  value=""   placeholder="请输入职务"  class="col-xs-12" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 职称   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="zc"  value=""    placeholder="请输入职称" class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 签证或签注时间: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="qzsj" name="qzsj" value=""
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择签证或签注时间" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访时间（出境）   : </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="cfsjCj" name="cfsjCj" value=""
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择出境时间" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 出访时间（入境）   : </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" id="cfsjRj" name="cfsjRj" value=""
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择入境时间" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访目的地   : </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="cfmd"  value=""   placeholder="请输入出访目的地"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 经费来源: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="jfly"  value=""  placeholder="请输入经费来源"  class="col-xs-12" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 出访任务   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="cfrw"  value=""    placeholder="请输入出访任务" class="col-xs-12" />
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 护照号码: </label>
                                 <div class="col-xs-4">
@@ -146,7 +199,7 @@
                                 </div>
                             </div>
 
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 加拿大多次往返签证号码   : </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="dcwfqzhmJnd"  value=""    class="col-xs-12" />
@@ -156,6 +209,7 @@
                                     <input type="text"  name="dcwfqzhmQt"  value=""    class="col-xs-12" />
                                 </div>
                             </div>
+
                             <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
                                 <hr/>
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">
