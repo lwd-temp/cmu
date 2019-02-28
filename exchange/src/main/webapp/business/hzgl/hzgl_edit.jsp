@@ -72,7 +72,7 @@
                                 </div>
                                 <label class="col-xs-2 control-label "  > 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="gj"  value="${hz.gj}"    class="col-xs-12" />
+                                    <input type="text"  name="gj"  value="${hz.gj}"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 证件类型   : </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="t_dm_tzlb" type="select" id="hzlx"  name="hzlx" value="${hz.hzlx}"  ></dm:list>
+                                    <dm:list tabName="t_dm_hzlx" type="select" id="hzlx"  name="hzlx" value="${hz.hzlx}"  ></dm:list>
                                 </div>
                                 <label class="col-xs-2 control-label "  > 护照状态: </label>
                                 <div class="col-xs-4">

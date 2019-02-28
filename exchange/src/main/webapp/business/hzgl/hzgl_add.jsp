@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/css/font-awesome.css" />
 
-    --
+
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="assets/css/jquery-ui.custom.css" />
     <link rel="stylesheet" href="assets/css/jquery-ui.css" />
@@ -72,14 +72,14 @@
                                 </div>
                                 <label class="col-xs-2 control-label "  > 国籍: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="gj"  value=""  placeholder="请选择国籍"  class="col-xs-12" />
+                                    <input type="text"  name="gj"  value=""  placeholder="请输入国籍"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 出生日期: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control date-picker" id="id-date-picker-1" name="birthday" value=""
-                                           type="text" data-date-format="yyyy-mm-dd" />
+                                           type="text" data-date-format="yyyy-mm-dd" placeholder="请选择出生日期" />
 
                                 </div>
                                 <label class="col-xs-2 control-label "  > 出生地点: </label>
@@ -126,7 +126,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "  > 证件类型   : </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="t_dm_tzlb" type="select" id="hzlx"  name="hzlx"   ></dm:list>
+                                    <dm:list tabName="t_dm_hzlx" type="select" id="hzlx"  name="hzlx"   ></dm:list>
                                 </div>
                                 <label class="col-xs-2 control-label "  > 护照状态: </label>
                                 <div class="col-xs-4">

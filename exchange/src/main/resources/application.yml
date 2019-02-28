@@ -18,7 +18,7 @@ sys:
 #      "1"
   cache:
     mapperbeans:
-      dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
+      dmHzlxMapper,dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
   upload:
     #上传文件的基本路径
     base_dir:
@@ -34,5 +34,3 @@ sys:
       ext:
         css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot
       url:
-
-

@@ -92,9 +92,9 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label" > 国别: </label>
+                                <label class="col-xs-2 control-label" > 国别或地区: </label>
                                 <div class="col-xs-10">
-                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbList}" id="gb"  name="gbs"   data-placeholder="请选择国别"></dm:list>
+                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbList}" id="gb"  name="gbs"   data-placeholder="请选择国别或地区"></dm:list>
                                 </div>
                             </div>
                             <div class="form-group">
