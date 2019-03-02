@@ -9,11 +9,14 @@
       <arg column="HYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="JXRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="JXRQ_KS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="JXRQ_JS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="DD" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="FZRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="FZRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BGTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BGNR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -123,8 +126,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    JHID, HYBH, HYLX, HYMC, ZBDW, CBDW, JXRQ, DD, JFLY, FZRXM, FZRDH, OPERATOR, STATUS, 
-    VALID, CREATE_TIME
+    JHID, HYBH, HYLX, HYMC, ZBDW, CBDW, JXRQ_KS, JXRQ_JS, DD, JFLY, FZRXM, FZRDH, BGTM, 
+    BGNR, OPERATOR, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyJhParams" >
     select
@@ -159,15 +162,17 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HyJh" >
     insert into T_HY_JH (JHID, HYBH, HYLX, 
-      HYMC, ZBDW, CBDW, JXRQ, 
-      DD, JFLY, FZRXM, FZRDH, 
-      OPERATOR, STATUS, VALID, 
-      CREATE_TIME)
+      HYMC, ZBDW, CBDW, JXRQ_KS, 
+      JXRQ_JS, DD, JFLY, 
+      FZRXM, FZRDH, BGTM, 
+      BGNR, OPERATOR, STATUS, 
+      VALID, CREATE_TIME)
     values (#{jhid,jdbcType=VARCHAR}, #{hybh,jdbcType=VARCHAR}, #{hylx,jdbcType=VARCHAR}, 
-      #{hymc,jdbcType=VARCHAR}, #{zbdw,jdbcType=VARCHAR}, #{cbdw,jdbcType=VARCHAR}, #{jxrq,jdbcType=TIMESTAMP}, 
-      #{dd,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{fzrxm,jdbcType=VARCHAR}, #{fzrdh,jdbcType=VARCHAR}, 
-      #{operator,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{hymc,jdbcType=VARCHAR}, #{zbdw,jdbcType=VARCHAR}, #{cbdw,jdbcType=VARCHAR}, #{jxrqKs,jdbcType=TIMESTAMP}, 
+      #{jxrqJs,jdbcType=TIMESTAMP}, #{dd,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, 
+      #{fzrxm,jdbcType=VARCHAR}, #{fzrdh,jdbcType=VARCHAR}, #{bgtm,jdbcType=VARCHAR}, 
+      #{bgnr,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HyJh" >
     insert into T_HY_JH
@@ -190,8 +195,11 @@
       <if test="cbdw != null" >
         CBDW,
       </if>
-      <if test="jxrq != null" >
-        JXRQ,
+      <if test="jxrqKs != null" >
+        JXRQ_KS,
+      </if>
+      <if test="jxrqJs != null" >
+        JXRQ_JS,
       </if>
       <if test="dd != null" >
         DD,
@@ -204,6 +212,12 @@
       </if>
       <if test="fzrdh != null" >
         FZRDH,
+      </if>
+      <if test="bgtm != null" >
+        BGTM,
+      </if>
+      <if test="bgnr != null" >
+        BGNR,
       </if>
       <if test="operator != null" >
         OPERATOR,
@@ -237,8 +251,11 @@
       <if test="cbdw != null" >
         #{cbdw,jdbcType=VARCHAR},
       </if>
-      <if test="jxrq != null" >
-        #{jxrq,jdbcType=TIMESTAMP},
+      <if test="jxrqKs != null" >
+        #{jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jxrqJs != null" >
+        #{jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="dd != null" >
         #{dd,jdbcType=VARCHAR},
@@ -251,6 +268,12 @@
       </if>
       <if test="fzrdh != null" >
         #{fzrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="bgtm != null" >
+        #{bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnr != null" >
+        #{bgnr,jdbcType=VARCHAR},
       </if>
       <if test="operator != null" >
         #{operator,jdbcType=VARCHAR},
@@ -293,8 +316,11 @@
       <if test="record.cbdw != null" >
         CBDW = #{record.cbdw,jdbcType=VARCHAR},
       </if>
-      <if test="record.jxrq != null" >
-        JXRQ = #{record.jxrq,jdbcType=TIMESTAMP},
+      <if test="record.jxrqKs != null" >
+        JXRQ_KS = #{record.jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.jxrqJs != null" >
+        JXRQ_JS = #{record.jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="record.dd != null" >
         DD = #{record.dd,jdbcType=VARCHAR},
@@ -307,6 +333,12 @@
       </if>
       <if test="record.fzrdh != null" >
         FZRDH = #{record.fzrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgtm != null" >
+        BGTM = #{record.bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgnr != null" >
+        BGNR = #{record.bgnr,jdbcType=VARCHAR},
       </if>
       <if test="record.operator != null" >
         OPERATOR = #{record.operator,jdbcType=VARCHAR},
@@ -333,11 +365,14 @@
       HYMC = #{record.hymc,jdbcType=VARCHAR},
       ZBDW = #{record.zbdw,jdbcType=VARCHAR},
       CBDW = #{record.cbdw,jdbcType=VARCHAR},
-      JXRQ = #{record.jxrq,jdbcType=TIMESTAMP},
+      JXRQ_KS = #{record.jxrqKs,jdbcType=TIMESTAMP},
+      JXRQ_JS = #{record.jxrqJs,jdbcType=TIMESTAMP},
       DD = #{record.dd,jdbcType=VARCHAR},
       JFLY = #{record.jfly,jdbcType=VARCHAR},
       FZRXM = #{record.fzrxm,jdbcType=VARCHAR},
       FZRDH = #{record.fzrdh,jdbcType=VARCHAR},
+      BGTM = #{record.bgtm,jdbcType=VARCHAR},
+      BGNR = #{record.bgnr,jdbcType=VARCHAR},
       OPERATOR = #{record.operator,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
@@ -364,8 +399,11 @@
       <if test="cbdw != null" >
         CBDW = #{cbdw,jdbcType=VARCHAR},
       </if>
-      <if test="jxrq != null" >
-        JXRQ = #{jxrq,jdbcType=TIMESTAMP},
+      <if test="jxrqKs != null" >
+        JXRQ_KS = #{jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jxrqJs != null" >
+        JXRQ_JS = #{jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="dd != null" >
         DD = #{dd,jdbcType=VARCHAR},
@@ -378,6 +416,12 @@
       </if>
       <if test="fzrdh != null" >
         FZRDH = #{fzrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="bgtm != null" >
+        BGTM = #{bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnr != null" >
+        BGNR = #{bgnr,jdbcType=VARCHAR},
       </if>
       <if test="operator != null" >
         OPERATOR = #{operator,jdbcType=VARCHAR},
@@ -401,11 +445,14 @@
       HYMC = #{hymc,jdbcType=VARCHAR},
       ZBDW = #{zbdw,jdbcType=VARCHAR},
       CBDW = #{cbdw,jdbcType=VARCHAR},
-      JXRQ = #{jxrq,jdbcType=TIMESTAMP},
+      JXRQ_KS = #{jxrqKs,jdbcType=TIMESTAMP},
+      JXRQ_JS = #{jxrqJs,jdbcType=TIMESTAMP},
       DD = #{dd,jdbcType=VARCHAR},
       JFLY = #{jfly,jdbcType=VARCHAR},
       FZRXM = #{fzrxm,jdbcType=VARCHAR},
       FZRDH = #{fzrdh,jdbcType=VARCHAR},
+      BGTM = #{bgtm,jdbcType=VARCHAR},
+      BGNR = #{bgnr,jdbcType=VARCHAR},
       OPERATOR = #{operator,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},

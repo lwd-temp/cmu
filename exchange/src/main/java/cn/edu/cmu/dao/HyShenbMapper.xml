@@ -9,7 +9,8 @@
       <arg column="HYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="HYMC_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="HYBH" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="JXRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="JXRQ_KS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="JXRQ_JS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="ZBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DD" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -19,6 +20,8 @@
       <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="FZRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="FZRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BGTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BGNR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SFBB" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -129,8 +132,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    SBID, JHID, HYLX, HYMC, HYMC_EN, HYBH, JXRQ, ZBDW, CBDW, DD, HYJBXX, HYGM, BJJBYX, 
-    JFLY, FZRXM, FZRDH, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME
+    SBID, JHID, HYLX, HYMC, HYMC_EN, HYBH, JXRQ_KS, JXRQ_JS, ZBDW, CBDW, DD, HYJBXX, 
+    HYGM, BJJBYX, JFLY, FZRXM, FZRDH, BGTM, BGNR, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyShenbParams" >
     select
@@ -166,16 +169,18 @@
   <insert id="insert" parameterType="cn.edu.cmu.domain.HyShenb" >
     insert into T_HY_SHENB (SBID, JHID, HYLX, 
       HYMC, HYMC_EN, HYBH, 
-      JXRQ, ZBDW, CBDW, 
-      DD, HYJBXX, HYGM, BJJBYX, 
-      JFLY, FZRXM, FZRDH, 
+      JXRQ_KS, JXRQ_JS, ZBDW, 
+      CBDW, DD, HYJBXX, HYGM, 
+      BJJBYX, JFLY, FZRXM, 
+      FZRDH, BGTM, BGNR, 
       SFBB, OPERATOR, STATUS, 
       VALID, CREATE_TIME)
     values (#{sbid,jdbcType=VARCHAR}, #{jhid,jdbcType=VARCHAR}, #{hylx,jdbcType=VARCHAR}, 
       #{hymc,jdbcType=VARCHAR}, #{hymcEn,jdbcType=VARCHAR}, #{hybh,jdbcType=VARCHAR}, 
-      #{jxrq,jdbcType=TIMESTAMP}, #{zbdw,jdbcType=VARCHAR}, #{cbdw,jdbcType=VARCHAR}, 
-      #{dd,jdbcType=VARCHAR}, #{hyjbxx,jdbcType=VARCHAR}, #{hygm,jdbcType=VARCHAR}, #{bjjbyx,jdbcType=VARCHAR}, 
-      #{jfly,jdbcType=VARCHAR}, #{fzrxm,jdbcType=VARCHAR}, #{fzrdh,jdbcType=VARCHAR}, 
+      #{jxrqKs,jdbcType=TIMESTAMP}, #{jxrqJs,jdbcType=TIMESTAMP}, #{zbdw,jdbcType=VARCHAR}, 
+      #{cbdw,jdbcType=VARCHAR}, #{dd,jdbcType=VARCHAR}, #{hyjbxx,jdbcType=VARCHAR}, #{hygm,jdbcType=VARCHAR}, 
+      #{bjjbyx,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{fzrxm,jdbcType=VARCHAR}, 
+      #{fzrdh,jdbcType=VARCHAR}, #{bgtm,jdbcType=VARCHAR}, #{bgnr,jdbcType=VARCHAR}, 
       #{sfbb,jdbcType=VARCHAR}, #{operator,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
       #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
@@ -200,8 +205,11 @@
       <if test="hybh != null" >
         HYBH,
       </if>
-      <if test="jxrq != null" >
-        JXRQ,
+      <if test="jxrqKs != null" >
+        JXRQ_KS,
+      </if>
+      <if test="jxrqJs != null" >
+        JXRQ_JS,
       </if>
       <if test="zbdw != null" >
         ZBDW,
@@ -229,6 +237,12 @@
       </if>
       <if test="fzrdh != null" >
         FZRDH,
+      </if>
+      <if test="bgtm != null" >
+        BGTM,
+      </if>
+      <if test="bgnr != null" >
+        BGNR,
       </if>
       <if test="sfbb != null" >
         SFBB,
@@ -265,8 +279,11 @@
       <if test="hybh != null" >
         #{hybh,jdbcType=VARCHAR},
       </if>
-      <if test="jxrq != null" >
-        #{jxrq,jdbcType=TIMESTAMP},
+      <if test="jxrqKs != null" >
+        #{jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jxrqJs != null" >
+        #{jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="zbdw != null" >
         #{zbdw,jdbcType=VARCHAR},
@@ -294,6 +311,12 @@
       </if>
       <if test="fzrdh != null" >
         #{fzrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="bgtm != null" >
+        #{bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnr != null" >
+        #{bgnr,jdbcType=VARCHAR},
       </if>
       <if test="sfbb != null" >
         #{sfbb,jdbcType=VARCHAR},
@@ -339,8 +362,11 @@
       <if test="record.hybh != null" >
         HYBH = #{record.hybh,jdbcType=VARCHAR},
       </if>
-      <if test="record.jxrq != null" >
-        JXRQ = #{record.jxrq,jdbcType=TIMESTAMP},
+      <if test="record.jxrqKs != null" >
+        JXRQ_KS = #{record.jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.jxrqJs != null" >
+        JXRQ_JS = #{record.jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="record.zbdw != null" >
         ZBDW = #{record.zbdw,jdbcType=VARCHAR},
@@ -368,6 +394,12 @@
       </if>
       <if test="record.fzrdh != null" >
         FZRDH = #{record.fzrdh,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgtm != null" >
+        BGTM = #{record.bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bgnr != null" >
+        BGNR = #{record.bgnr,jdbcType=VARCHAR},
       </if>
       <if test="record.sfbb != null" >
         SFBB = #{record.sfbb,jdbcType=VARCHAR},
@@ -397,7 +429,8 @@
       HYMC = #{record.hymc,jdbcType=VARCHAR},
       HYMC_EN = #{record.hymcEn,jdbcType=VARCHAR},
       HYBH = #{record.hybh,jdbcType=VARCHAR},
-      JXRQ = #{record.jxrq,jdbcType=TIMESTAMP},
+      JXRQ_KS = #{record.jxrqKs,jdbcType=TIMESTAMP},
+      JXRQ_JS = #{record.jxrqJs,jdbcType=TIMESTAMP},
       ZBDW = #{record.zbdw,jdbcType=VARCHAR},
       CBDW = #{record.cbdw,jdbcType=VARCHAR},
       DD = #{record.dd,jdbcType=VARCHAR},
@@ -407,6 +440,8 @@
       JFLY = #{record.jfly,jdbcType=VARCHAR},
       FZRXM = #{record.fzrxm,jdbcType=VARCHAR},
       FZRDH = #{record.fzrdh,jdbcType=VARCHAR},
+      BGTM = #{record.bgtm,jdbcType=VARCHAR},
+      BGNR = #{record.bgnr,jdbcType=VARCHAR},
       SFBB = #{record.sfbb,jdbcType=VARCHAR},
       OPERATOR = #{record.operator,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
@@ -434,8 +469,11 @@
       <if test="hybh != null" >
         HYBH = #{hybh,jdbcType=VARCHAR},
       </if>
-      <if test="jxrq != null" >
-        JXRQ = #{jxrq,jdbcType=TIMESTAMP},
+      <if test="jxrqKs != null" >
+        JXRQ_KS = #{jxrqKs,jdbcType=TIMESTAMP},
+      </if>
+      <if test="jxrqJs != null" >
+        JXRQ_JS = #{jxrqJs,jdbcType=TIMESTAMP},
       </if>
       <if test="zbdw != null" >
         ZBDW = #{zbdw,jdbcType=VARCHAR},
@@ -464,6 +502,12 @@
       <if test="fzrdh != null" >
         FZRDH = #{fzrdh,jdbcType=VARCHAR},
       </if>
+      <if test="bgtm != null" >
+        BGTM = #{bgtm,jdbcType=VARCHAR},
+      </if>
+      <if test="bgnr != null" >
+        BGNR = #{bgnr,jdbcType=VARCHAR},
+      </if>
       <if test="sfbb != null" >
         SFBB = #{sfbb,jdbcType=VARCHAR},
       </if>
@@ -489,7 +533,8 @@
       HYMC = #{hymc,jdbcType=VARCHAR},
       HYMC_EN = #{hymcEn,jdbcType=VARCHAR},
       HYBH = #{hybh,jdbcType=VARCHAR},
-      JXRQ = #{jxrq,jdbcType=TIMESTAMP},
+      JXRQ_KS = #{jxrqKs,jdbcType=TIMESTAMP},
+      JXRQ_JS = #{jxrqJs,jdbcType=TIMESTAMP},
       ZBDW = #{zbdw,jdbcType=VARCHAR},
       CBDW = #{cbdw,jdbcType=VARCHAR},
       DD = #{dd,jdbcType=VARCHAR},
@@ -499,6 +544,8 @@
       JFLY = #{jfly,jdbcType=VARCHAR},
       FZRXM = #{fzrxm,jdbcType=VARCHAR},
       FZRDH = #{fzrdh,jdbcType=VARCHAR},
+      BGTM = #{bgtm,jdbcType=VARCHAR},
+      BGNR = #{bgnr,jdbcType=VARCHAR},
       SFBB = #{sfbb,jdbcType=VARCHAR},
       OPERATOR = #{operator,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},

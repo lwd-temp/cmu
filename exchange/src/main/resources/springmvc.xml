@@ -21,7 +21,8 @@
     <!-- 包扫描路径-->
     <context:component-scan base-package="cn.edu.cmu"></context:component-scan>
 
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--使用maven环境替换，不用加载指定属性-->
+    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
 
 
     <bean id="dateConvert" class="cn.edu.cmu.framework.web.DateConvert"/>

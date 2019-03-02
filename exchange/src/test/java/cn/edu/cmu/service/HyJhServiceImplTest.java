@@ -27,8 +27,8 @@ public class HyJhServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save() throws Exception {
-        HyJh hyJh = new HyJh(CmuStringUtil.UUID(),"01","01","01","01","01", new Date(), "01","01",
-                "01","01","01","01", null, null);
+        HyJh hyJh = new HyJh(CmuStringUtil.UUID(),"01","01","01","01","01",new Date(),new Date(),"00","jfly","00","00","00","00","00","00","00",null);
+
         boolean success = service.insert(hyJh);
         System.out.println("hyJh:"+hyJh);
         System.out.println("success:"+success);
@@ -70,8 +70,7 @@ public class HyJhServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception {
         String keyId = CmuStringUtil.UUID();
-        HyJh hyJh = new HyJh(keyId,"01","01","01","01","01", new Date(),
-                "01","01","01","01","01","01", null, null);
+        HyJh hyJh = new HyJh(keyId,"01","01","01","01","01",new Date(),new Date(),"00","jfly","00","00","00","00","00","00","00",null);
         boolean success = service.insert(hyJh);
         System.out.println("保存成功："+success);
         HyJh queryHyJh = service.queryById(keyId);

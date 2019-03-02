@@ -34,9 +34,14 @@ public class HyJh {
     private String cbdw;
 
     /**
-     * 举行日期
+     * 举行日期(开始)
      */
-    private Date jxrq;
+    private Date jxrqKs;
+
+    /**
+     * 举行日期(结束)
+     */
+    private Date jxrqJs;
 
     /**
      * 地点
@@ -57,6 +62,16 @@ public class HyJh {
      * 负责人电话
      */
     private String fzrdh;
+
+    /**
+     * 报告、讲座等题目
+     */
+    private String bgtm;
+
+    /**
+     * 报告、讲座等内容简介
+     */
+    private String bgnr;
 
     /**
      * 操作人
@@ -80,20 +95,23 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
-    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrq, String dd, String jfly, String fzrxm, String fzrdh, String operator, String status, String valid, Date createTime) {
+    public HyJh(String jhid, String hybh, String hylx, String hymc, String zbdw, String cbdw, Date jxrqKs, Date jxrqJs, String dd, String jfly, String fzrxm, String fzrdh, String bgtm, String bgnr, String operator, String status, String valid, Date createTime) {
         this.jhid = jhid;
         this.hybh = hybh;
         this.hylx = hylx;
         this.hymc = hymc;
         this.zbdw = zbdw;
         this.cbdw = cbdw;
-        this.jxrq = jxrq;
+        this.jxrqKs = jxrqKs;
+        this.jxrqJs = jxrqJs;
         this.dd = dd;
         this.jfly = jfly;
         this.fzrxm = fzrxm;
         this.fzrdh = fzrdh;
+        this.bgtm = bgtm;
+        this.bgnr = bgnr;
         this.operator = operator;
         this.status = status;
         this.valid = valid;
@@ -102,7 +120,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
     public HyJh() {
         super();
@@ -205,19 +223,35 @@ public class HyJh {
     }
 
     /**
-     * 举行日期
-     * @return JXRQ 举行日期
+     * 举行日期(开始)
+     * @return JXRQ_KS 举行日期(开始)
      */
-    public Date getJxrq() {
-        return jxrq;
+    public Date getJxrqKs() {
+        return jxrqKs;
     }
 
     /**
-     * 举行日期
-     * @param jxrq 举行日期
+     * 举行日期(开始)
+     * @param jxrqKs 举行日期(开始)
      */
-    public void setJxrq(Date jxrq) {
-        this.jxrq = jxrq;
+    public void setJxrqKs(Date jxrqKs) {
+        this.jxrqKs = jxrqKs;
+    }
+
+    /**
+     * 举行日期(结束)
+     * @return JXRQ_JS 举行日期(结束)
+     */
+    public Date getJxrqJs() {
+        return jxrqJs;
+    }
+
+    /**
+     * 举行日期(结束)
+     * @param jxrqJs 举行日期(结束)
+     */
+    public void setJxrqJs(Date jxrqJs) {
+        this.jxrqJs = jxrqJs;
     }
 
     /**
@@ -282,6 +316,38 @@ public class HyJh {
      */
     public void setFzrdh(String fzrdh) {
         this.fzrdh = fzrdh == null ? null : fzrdh.trim();
+    }
+
+    /**
+     * 报告、讲座等题目
+     * @return BGTM 报告、讲座等题目
+     */
+    public String getBgtm() {
+        return bgtm;
+    }
+
+    /**
+     * 报告、讲座等题目
+     * @param bgtm 报告、讲座等题目
+     */
+    public void setBgtm(String bgtm) {
+        this.bgtm = bgtm == null ? null : bgtm.trim();
+    }
+
+    /**
+     * 报告、讲座等内容简介
+     * @return BGNR 报告、讲座等内容简介
+     */
+    public String getBgnr() {
+        return bgnr;
+    }
+
+    /**
+     * 报告、讲座等内容简介
+     * @param bgnr 报告、讲座等内容简介
+     */
+    public void setBgnr(String bgnr) {
+        this.bgnr = bgnr == null ? null : bgnr.trim();
     }
 
     /**
@@ -350,7 +416,7 @@ public class HyJh {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
     @Override
     public String toString() {
@@ -364,11 +430,14 @@ public class HyJh {
         sb.append(", hymc=").append(hymc);
         sb.append(", zbdw=").append(zbdw);
         sb.append(", cbdw=").append(cbdw);
-        sb.append(", jxrq=").append(jxrq);
+        sb.append(", jxrqKs=").append(jxrqKs);
+        sb.append(", jxrqJs=").append(jxrqJs);
         sb.append(", dd=").append(dd);
         sb.append(", jfly=").append(jfly);
         sb.append(", fzrxm=").append(fzrxm);
         sb.append(", fzrdh=").append(fzrdh);
+        sb.append(", bgtm=").append(bgtm);
+        sb.append(", bgnr=").append(bgnr);
         sb.append(", operator=").append(operator);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);

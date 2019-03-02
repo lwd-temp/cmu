@@ -34,9 +34,14 @@ public class HyShenb {
     private String hybh;
 
     /**
-     * 举办日期
+     * 举办日期(开始)
      */
-    private Date jxrq;
+    private Date jxrqKs;
+
+    /**
+     * 举办日期(结束)
+     */
+    private Date jxrqJs;
 
     /**
      * 主办单位
@@ -84,6 +89,16 @@ public class HyShenb {
     private String fzrdh;
 
     /**
+     * 报告、讲座等题目
+     */
+    private String bgtm;
+
+    /**
+     * 报告、讲座等内容简介
+     */
+    private String bgnr;
+
+    /**
      * 是否在属地公安部门报备 0 否 1 是
      */
     private String sfbb;
@@ -110,16 +125,17 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
-    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, String hybh, Date jxrq, String zbdw, String cbdw, String dd, String hyjbxx, String hygm, String bjjbyx, String jfly, String fzrxm, String fzrdh, String sfbb, String operator, String status, String valid, Date createTime) {
+    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, String hybh, Date jxrqKs, Date jxrqJs, String zbdw, String cbdw, String dd, String hyjbxx, String hygm, String bjjbyx, String jfly, String fzrxm, String fzrdh, String bgtm, String bgnr, String sfbb, String operator, String status, String valid, Date createTime) {
         this.sbid = sbid;
         this.jhid = jhid;
         this.hylx = hylx;
         this.hymc = hymc;
         this.hymcEn = hymcEn;
         this.hybh = hybh;
-        this.jxrq = jxrq;
+        this.jxrqKs = jxrqKs;
+        this.jxrqJs = jxrqJs;
         this.zbdw = zbdw;
         this.cbdw = cbdw;
         this.dd = dd;
@@ -129,6 +145,8 @@ public class HyShenb {
         this.jfly = jfly;
         this.fzrxm = fzrxm;
         this.fzrdh = fzrdh;
+        this.bgtm = bgtm;
+        this.bgnr = bgnr;
         this.sfbb = sfbb;
         this.operator = operator;
         this.status = status;
@@ -138,7 +156,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
     public HyShenb() {
         super();
@@ -241,19 +259,35 @@ public class HyShenb {
     }
 
     /**
-     * 举办日期
-     * @return JXRQ 举办日期
+     * 举办日期(开始)
+     * @return JXRQ_KS 举办日期(开始)
      */
-    public Date getJxrq() {
-        return jxrq;
+    public Date getJxrqKs() {
+        return jxrqKs;
     }
 
     /**
-     * 举办日期
-     * @param jxrq 举办日期
+     * 举办日期(开始)
+     * @param jxrqKs 举办日期(开始)
      */
-    public void setJxrq(Date jxrq) {
-        this.jxrq = jxrq;
+    public void setJxrqKs(Date jxrqKs) {
+        this.jxrqKs = jxrqKs;
+    }
+
+    /**
+     * 举办日期(结束)
+     * @return JXRQ_JS 举办日期(结束)
+     */
+    public Date getJxrqJs() {
+        return jxrqJs;
+    }
+
+    /**
+     * 举办日期(结束)
+     * @param jxrqJs 举办日期(结束)
+     */
+    public void setJxrqJs(Date jxrqJs) {
+        this.jxrqJs = jxrqJs;
     }
 
     /**
@@ -401,6 +435,38 @@ public class HyShenb {
     }
 
     /**
+     * 报告、讲座等题目
+     * @return BGTM 报告、讲座等题目
+     */
+    public String getBgtm() {
+        return bgtm;
+    }
+
+    /**
+     * 报告、讲座等题目
+     * @param bgtm 报告、讲座等题目
+     */
+    public void setBgtm(String bgtm) {
+        this.bgtm = bgtm == null ? null : bgtm.trim();
+    }
+
+    /**
+     * 报告、讲座等内容简介
+     * @return BGNR 报告、讲座等内容简介
+     */
+    public String getBgnr() {
+        return bgnr;
+    }
+
+    /**
+     * 报告、讲座等内容简介
+     * @param bgnr 报告、讲座等内容简介
+     */
+    public void setBgnr(String bgnr) {
+        this.bgnr = bgnr == null ? null : bgnr.trim();
+    }
+
+    /**
      * 是否在属地公安部门报备 0 否 1 是
      * @return SFBB 是否在属地公安部门报备 0 否 1 是
      */
@@ -482,7 +548,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-02-28
      */
     @Override
     public String toString() {
@@ -496,7 +562,8 @@ public class HyShenb {
         sb.append(", hymc=").append(hymc);
         sb.append(", hymcEn=").append(hymcEn);
         sb.append(", hybh=").append(hybh);
-        sb.append(", jxrq=").append(jxrq);
+        sb.append(", jxrqKs=").append(jxrqKs);
+        sb.append(", jxrqJs=").append(jxrqJs);
         sb.append(", zbdw=").append(zbdw);
         sb.append(", cbdw=").append(cbdw);
         sb.append(", dd=").append(dd);
@@ -506,6 +573,8 @@ public class HyShenb {
         sb.append(", jfly=").append(jfly);
         sb.append(", fzrxm=").append(fzrxm);
         sb.append(", fzrdh=").append(fzrdh);
+        sb.append(", bgtm=").append(bgtm);
+        sb.append(", bgnr=").append(bgnr);
         sb.append(", sfbb=").append(sfbb);
         sb.append(", operator=").append(operator);
         sb.append(", status=").append(status);

@@ -5,11 +5,11 @@ sys:
   debug:
     #DEBUG开关
     switch:
-      false
+      ${app.debug.switch}
   #ignoreLogin 是否忽略注释 true、false
   ignoreLogin:
     switch:
-      true
+      ${app.ignore.switch}
     userId:
       "20112026"
 #      "127506"
@@ -27,7 +27,7 @@ sys:
       ########    121测试环境   ##############
       #/mntdata/picdir/exchange
       #######   上线前UAT测试环境  ###########
-      #/home/weblogic/upload/
+#      /home/weblogic/upload/
   access:
     #忽略访问，ext为忽略扩展名，url，为忽略路径
     ignore:

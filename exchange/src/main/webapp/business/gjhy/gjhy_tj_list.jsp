@@ -76,17 +76,19 @@
             caption: "综合统计查询",
            /* data: grid_data,*/
             url:'hytj/list',
-            colNames:["会议编号","会议名称","举行日期","地点","经费来源","会议类型", "是否执行","是否总结"],
+            colNames:["会议编号","会议名称","举行日期(开始)","举行日期(结束)","经费来源","会议类型", "是否执行","是否总结"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'hybh',index:'hybh',  },
                 {name:'hymc',index:'hymc',  },
 
-                {name:'jxrq',index:'jxrq',formatter:function(jxrq){
-                        return new Date(jxrq).getYmd("yyyy-MM-dd");
+                {name:'jxrqKs',index:'jxrqKs',formatter:function(jxrqKs){
+                        return new Date(jxrqKs).getYmd("yyyy-MM-dd");
                     }  },
-                {name:'dd',index:'dd',  },
+                {name:'jxrqJs',index:'jxrqJs',formatter:function(jxrqJs){
+                        return new Date(jxrqJs).getYmd("yyyy-MM-dd");
+                    }  },
                 {name:'jfly',index:'jfly',  },
                 {name:'hylx',index:'hylx', formatter:function (hylx) {
                         return dmcache.getCode('t_dm_hylx',hylx);

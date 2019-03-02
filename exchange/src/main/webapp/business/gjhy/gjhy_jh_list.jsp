@@ -79,7 +79,7 @@
             caption: "国际会议计划管理",
             /*data: grid_data,*/
             url:'hyjh/list',
-            colNames:["会议编号","会议名称","主办单位","承办单位","举行日期3","地点","经费来源" ,"操作"],
+            colNames:["会议编号","会议名称","主办单位","承办单位","举行日期(开始)","举行日期(结束)","经费来源" ,"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -87,12 +87,15 @@
                 {name:'hymc',index:'hymc',  },
                 {name:'zbdw',index:'zbdw',  },
                 {name:'cbdw',index:'cbdw',  },
-                {name:'jxrq',index:'jxrq',
-                    formatter:function(jxrq){
-                        return new Date(jxrq).getYmd("yyyy年MM月dd日");
+                {name:'jxrqKs',index:'jxrqKs',
+                    formatter:function(jxrqKs){
+                        return new Date(jxrqKs).getYmd("yyyy年MM月dd日");
+                    }
+                },{name:'jxrqJs',index:'jxrqJs',
+                    formatter:function(jxrqJs){
+                        return new Date(jxrqJs).getYmd("yyyy年MM月dd日");
                     }
                 },
-                {name:'dd',index:'dd',  },
                 {name:'jfly',index:'jfly', },
 
                 {name:'jhid',index:'', fixed:true, sortable:false, resize:true,

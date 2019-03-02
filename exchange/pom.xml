@@ -334,9 +334,43 @@
                     <include>**/*.*</include>
                 </includes>
                 <filtering>true</filtering>
+               <!-- <excludes>
+                    &lt;!&ndash;排除替换文件&ndash;&gt;
+                    <exclude>casFilterConfig.xml</exclude>
+                </excludes>-->
             </resource>
         </resources>
 
-
     </build>
+
+    <profiles>
+
+    <profile>
+        <id>dev</id>
+        <activation>
+            <!--默认激活-->
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <properties>
+            <profiles.active>dev</profiles.active>
+        </properties>
+        <build>
+            <filters>
+                <filter>src/main/resources/env/dev.properties</filter>
+            </filters>
+        </build>
+    </profile>
+
+    <profile>
+        <id>product</id>
+        <properties>
+            <profiles.active>product</profiles.active>
+        </properties>
+        <build>
+            <filters>
+                <filter>src/main/resources/env/product.properties</filter>
+            </filters>
+        </build>
+    </profile>
+</profiles>
 </project>

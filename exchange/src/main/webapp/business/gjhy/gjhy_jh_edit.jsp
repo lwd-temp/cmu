@@ -100,27 +100,29 @@
                             </div>
 
 
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 举行日期(开始): </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker"  name="hyJh.jxrqKs" id="jxrqKs" placeholder="请选择举行日期(开始)" value="<fmt:formatDate value="${hyJh.jxrqKs}" pattern="yyyy-MM-dd"/>"  type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+
+                                <label class="col-xs-2 control-label "  > 举行日期(结束): </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker"  name="hyJh.jxrqJs" id="jxrqJs" placeholder="请选择举行日期(结束)" value="<fmt:formatDate value="${hyJh.jxrqJs}" pattern="yyyy-MM-dd"/>" type="text" data-date-format="yyyy-mm-dd" />
+                                </div>
+                            </div>
+
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 举行日期: </label>
-                                <div class="col-xs-4">
 
-                                    <input class="form-control date-picker"   name="hyJh.jxrq" value="<fmt:formatDate value="${hyJh.jxrq}" pattern="yyyy-MM-dd"/>" id="jbrq"  type="text" data-date-format="yyyy-mm-dd" />
+                                <label class="col-xs-2 control-label "  > 会议类型: </label>
+                                <div class="col-xs-4">
+                                    <dm:list  name="hyJh.hylx" value="${hyJh.hylx}" type="select"   id="hylx" tabName="t_dm_hylx" onchange="change_hylx(this)" />
                                 </div>
 
                                 <label class="col-xs-2 control-label "  > 经费来源: </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="hyJh.jfly"  value="${hyJh.jfly}" id="jfly" placeholder="经费来源"  class="col-xs-12" />
-                                </div>
-
-                            </div>
-
-                            <div class="form-group">
-
-                                <label class="col-xs-2 control-label " > 地点: </label>
-
-                                <div class="col-xs-10">
-                                    <input type="text"  name="hyJh.dd" value="${hyJh.dd}"  id="dd"  placeholder="地点"  class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -135,15 +137,30 @@
                                     <input type="text"  name="hyJh.fzrdh" value="${hyJh.fzrdh}"  id="fzrdh"  placeholder="负责人电话"  class="col-xs-12" />
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议类型: </label>
-                                <div class="col-xs-4">
-                                    <dm:list  name="hyJh.hylx" value="${hyJh.hylx}" type="select"   id="hylx" tabName="t_dm_hylx" />
-                                </div>
-                                <div class="col-xs-6">
 
+
+                            <!-- 报告信息  如果是报告、讲座、论坛，请增加【报告、讲座等题目】、【报告、讲座等内容简介】字段-->
+                            <div class="form-group bgxx" style="display: none">
+                                <label class="col-xs-2 control-label "  > 报告、讲座等题目: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="hyJh.bgtm"  id="bgtm" placeholder="报告、讲座等题目"  value="${hyJh.bgtm}" class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 报告、讲座等内容简介: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="hyJh.bgnr"  id="bgnr"  placeholder="报告、讲座等内容简介"  value="${hyJh.bgnr}" class="col-xs-12" />
                                 </div>
                             </div>
+
+
+                            <div class="form-group">
+
+                                <label class="col-xs-2 control-label " > 地点: </label>
+
+                                <div class="col-xs-10">
+                                    <input type="text"  name="hyJh.dd" value="${hyJh.dd}"  id="dd"  placeholder="地点"  class="col-xs-12" />
+                                </div>
+                            </div>
+
                             <hr/>
                             <div class="form-group">
                                 <div class="col-xs-2">
@@ -202,8 +219,8 @@
                                             <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
                                         </div>
                                         <div class="col-xs-2">
-                                            <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                                            <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+                                            <button type="button" class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                                            <button type="button" class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
                                         </div>
                                     </div>
                                 </c:otherwise>
@@ -243,8 +260,8 @@
             <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
         </div>
         <div class="col-xs-2">
-            <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-            <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+            <button type="button" class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+            <button type="button" class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
         </div>
     </div>
 </div>
@@ -298,6 +315,9 @@
 
     $(function(){
         setFormValid();
+
+        //修改会议类型
+        change_hylx($('#hylx'));
 
         $("#saveHyjh").click(function(){
 
@@ -363,15 +383,39 @@
 
 
     function appendCy(){
-        $("#btns").before($("#template").html());
-        var cy = $("#btns").prev(".cy");
-        cy.find("input").each(function(index,el){
 
+        var cys = $("#btns").prevAll(".cy");
+        if( cys.length >=799){
+            parent.layer.alert("科学类会议人数控制在800人以内");
+            return;
+        }
+
+        $("#btns").before($("#template").html());
+
+        var newCy= $("#btns").prev(".cy");
+
+        newCy.find("input").each(function(index,el){
             $(el).attr("id","formEl"+(Math.rnd()));
             $(el).rules('add', { required:true  });
-
         })
+
         setFormValid();
+    }
+
+    /**
+     * 如果是报告、讲座、论坛，请增加【报告、讲座等题目】、【报告、讲座等内容简介】字段
+     */
+    function change_hylx(hylxSelect) {
+
+        var hylx = $(hylxSelect).val();
+
+        if (hylx == '02') {
+            $(".bgxx").show();
+        } else {
+            $(".bgxx").hide();
+            $("#bgtm").val('');
+            $("#bgnr").val('');
+        }
     }
 
 </script>

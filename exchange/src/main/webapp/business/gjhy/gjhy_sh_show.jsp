@@ -114,20 +114,57 @@
                                 </div>
 
                             </div>
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 举行日期(开始): </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" name="hysb.jxrqKs"
+                                           value="<fmt:formatDate value="${hysb.jxrqKs}" pattern="yyyy-MM-dd"/>"  placeholder="举行日期" id="jxrqKs"
+                                           type="text" data-date-format="yyyy-mm-dd" readonly="readonly"/>
+                                </div>
 
+                                <label class="col-xs-2 control-label "> 举行日期(结束): </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control date-picker" name="hysb.jxrqJs"
+                                           value="<fmt:formatDate value="${hysb.jxrqJs}" pattern="yyyy-MM-dd"/>"  placeholder="举行日期" id="jxrqJs"
+                                           type="text" data-date-format="yyyy-mm-dd" readonly="readonly"/>
+                                </div>
+
+                            </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 举行日期: </label>
+                                <label class="col-xs-2 control-label "> 会议类型: </label>
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" name="hysb.jxrq" readonly="readonly" disabled="disabled" value="<fmt:formatDate value="${hysb.jxrq}" pattern="yyyy-MM-dd"/>" id="jbrq" type="text"
-                                           data-date-format="yyyy-mm-dd"/>
+                                    <dm:list name="hysb.hylx" value="${hysb.hylx}"  readonly="readonly" type="select" id="hylx"  tabName="t_dm_hylx" onchange="change_hylx(this)"/>
                                 </div>
-
                                 <label class="col-xs-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-4">
-                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.jfly" value="${hysb.jfly}" id="jfly" placeholder="经费来源" class="col-xs-12"/>
+                                    <input type="text" name="hysb.jfly" value="${hysb.jfly}" id="jfly" placeholder="经费来源" class="col-xs-12" readonly="readonly" />
                                 </div>
+                            </div>
 
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 负责人姓名: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="hysb.fzrxm" value="${hysb.fzrxm}" id="fzrxm"
+                                           placeholder="负责人姓名" class="col-xs-12" readonly="readonly" />
+                                </div>
+                                <label class="col-xs-2 control-label "> 负责人电话: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="hysb.fzrdh" value="${hysb.fzrdh}" id="fzrdh"
+                                           placeholder="负责人电话" class="col-xs-12" readonly="readonly" />
+                                </div>
+                            </div>
+
+                            <!-- 报告信息  如果是报告、讲座、论坛，请增加【报告、讲座等题目】、【报告、讲座等内容简介】字段-->
+                            <div class="form-group bgxx" style="display: none">
+                                <label class="col-xs-2 control-label "  > 报告、讲座等题目: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="hysb.bgtm" value="${hysb.bgtm}"  readonly="readonly"  id="bgtm" placeholder="报告、讲座等题目"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-2 control-label "  > 报告、讲座等内容简介: </label>
+                                <div class="col-xs-4">
+                                    <input type="text"  name="hysb.bgnr" value="${hysb.bgnr}" readonly="readonly"  id="bgnr"  placeholder="报告、讲座等内容简介"  class="col-xs-12" />
+                                </div>
                             </div>
 
                             <div class="form-group">
@@ -135,28 +172,8 @@
                                 <label class="col-xs-2 control-label "> 地点: </label>
 
                                 <div class="col-xs-10">
-                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.dd" value="${hysb.dd}" id="dd" placeholder="地点" class="col-xs-12"/>
-                                </div>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label "> 负责人姓名: </label>
-                                <div class="col-xs-4">
-                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.fzrxm" value="${hysb.fzrxm}" id="fzrxm" placeholder="负责人姓名" class="col-xs-12"/>
-                                </div>
-                                <label class="col-xs-2 control-label "> 负责人电话: </label>
-                                <div class="col-xs-4">
-                                    <input type="text" readonly="readonly" disabled="disabled" name="hysb.fzrdh" value="${hysb.fzrdh}" id="fzrdh" placeholder="负责人电话" class="col-xs-12"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label "> 会议类型: </label>
-                                <div class="col-xs-4">
-                                    <dm:list name="hysb.hylx" value="${hysb.hylx}" type="select" id="hylx"  tabName="t_dm_hylx" readonly="readonly" disabled="disabled"/>
-                                </div>
-                                <div class="col-xs-6">
-
+                                    <input type="text" name="hysb.dd" value="${hysb.dd}" id="dd" placeholder="地点"
+                                           class="col-xs-12" readonly="readonly"/>
                                 </div>
                             </div>
                             <div class="form-group">

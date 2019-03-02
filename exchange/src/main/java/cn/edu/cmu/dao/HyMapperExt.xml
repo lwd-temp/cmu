@@ -10,7 +10,8 @@
             <arg column="HYMC" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="HYMC_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="HYBH" jdbcType="VARCHAR" javaType="java.lang.String" />
-            <arg column="JXRQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="JXRQ_KS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+            <arg column="JXRQ_JS" jdbcType="TIMESTAMP" javaType="java.util.Date" />
             <arg column="ZBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="CBDW" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="DD" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -20,6 +21,8 @@
             <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="FZRXM" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="FZRDH" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="BGTM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="BGNR" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SFBB" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -36,8 +39,8 @@
         zj.zjid zjid ,
         decode(zj.zjid,null,'0','1') writed,
 
-        SBID, JHID, HYLX, HYMC, HYMC_EN, HYBH, JXRQ, ZBDW, CBDW, DD, HYJBXX, HYGM, BJJBYX,
-        JFLY, FZRXM, FZRDH, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME,''
+        SBID, JHID, HYLX, HYMC, HYMC_EN, HYBH, JXRQ_KS,JXRQ_JS, ZBDW, CBDW, DD, HYJBXX, HYGM, BJJBYX,
+        JFLY, FZRXM, FZRDH,BGTM, BGNR, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME,''
         from T_HY_SHENB
              left join (select zjid ,sbid zjsbid  from t_hy_zj ) zj on sbid = zj.zjsbid
 
