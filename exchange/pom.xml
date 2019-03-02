@@ -333,11 +333,11 @@
                 <includes>
                     <include>**/*.*</include>
                 </includes>
+                <excludes>
+                    <exclude>env/**</exclude>
+                    <exclude>env/*.*</exclude>
+                </excludes>
                 <filtering>true</filtering>
-               <!-- <excludes>
-                    &lt;!&ndash;排除替换文件&ndash;&gt;
-                    <exclude>casFilterConfig.xml</exclude>
-                </excludes>-->
             </resource>
         </resources>
 
@@ -349,7 +349,11 @@
         <id>dev</id>
         <activation>
             <!--默认激活-->
-            <activeByDefault>true</activeByDefault>
+            <!--<activeByDefault>true</activeByDefault>-->
+            <os>
+                <name>Windows 7</name>
+                <arch>amd64</arch>
+            </os>
         </activation>
         <properties>
             <profiles.active>dev</profiles.active>

@@ -1,3 +1,6 @@
+###############################################################
+##    开发人员注意此文件中出现${}  会经过maven根据环境替换        ##
+###############################################################
 sys:
   student:
     roleid:
@@ -9,7 +12,7 @@ sys:
   #ignoreLogin 是否忽略注释 true、false
   ignoreLogin:
     switch:
-      ${app.ignore.switch}
+      ${app.ignoreLogin.switch}
     userId:
       "20112026"
 #      "127506"
@@ -22,12 +25,7 @@ sys:
   upload:
     #上传文件的基本路径
     base_dir:
-      ######### 本地开发环境  ##############
-      D:\\upload\\
-      ########    121测试环境   ##############
-      #/mntdata/picdir/exchange
-      #######   上线前UAT测试环境  ###########
-#      /home/weblogic/upload/
+      ${app.upload.base_dir}
   access:
     #忽略访问，ext为忽略扩展名，url，为忽略路径
     ignore:
