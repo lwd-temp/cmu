@@ -170,7 +170,7 @@
                     </div>
                 </div>
                 <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 访问成果: </label>
+                    <label class="col-xs-2 control-label "  > 拟访问成果: </label>
                     <div class="col-xs-10">
                         <input class="form-control  " name="wbjdSq.fwcg" value="" type="text"   />
                     </div>
