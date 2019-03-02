@@ -2,7 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="cn.edu.cmu.dao.HyTjMapper">
 
-    <select id="selectList" resultType="cn.edu.cmu.vo.HytjVo" parameterType="hashMap">
+    <resultMap id="BaseResultMap" type="cn.edu.cmu.vo.HytjVo">
+        <result column="jhid" property="jhid" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="sbid" property="sbid" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="zjid" property="zjid" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="hybh" property="hybh" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="hymc" property="hymc" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+
+        <result column="jxrq_ks" property="jxrqKs"  jdbcType="TIMESTAMP" javaType="java.util.Date"></result>
+        <result column="jxrq_js" property="jxrqJs"  jdbcType="TIMESTAMP" javaType="java.util.Date"></result>
+        <result column="dd" property="dd" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="jfly" property="jfly" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="hylx" property="hylx" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="sfzxjh" property="sfzxjh" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="sfzxjh" property="sfzxjh" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+        <result column="sfzj" property="sfzj" jdbcType="VARCHAR" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <select id="selectList" resultMap="BaseResultMap" parameterType="hashMap">
 
         select * from (
             select jh.jhid jhid,
