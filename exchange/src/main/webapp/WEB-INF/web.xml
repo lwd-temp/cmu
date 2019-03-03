@@ -4,6 +4,11 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
+
+
+    <!-- 此文件中出现的 ${} 在使用maven编译打包的时候  会自动根据环境替换成指定的内容-->
+
+
     <!-- 该过滤器用于实现单点登出功能，可选设备。 -->
     <filter>
         <filter-name>CAS Single Sign Out Filter</filter-name>
@@ -31,21 +36,18 @@
 
     <filter-mapping>
         <filter-name>CASAuthenticationFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>${sso.url.pattern}</url-pattern>
     </filter-mapping>
     <!-- 该过滤器负责对Ticket的校验工作，必须启用它 -->
     <filter-mapping>
         <filter-name>CASValidationFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>${sso.url.pattern}</url-pattern>
     </filter-mapping>
 
     <!-- 该过滤器负责实现HttpServletRequest恳求的包裹， 比如容许开辟者经由过程HttpServletRequest的getRemoteUser()办法获得SSO登录用户的登录名，可选设备。-->
     <filter-mapping>
         <filter-name>CASHttpServletRequestWrapperFilter</filter-name>
-        <!--<url-pattern>/*</url-pattern>-->
-        <url-pattern>/sso-debug</url-pattern>
+        <url-pattern>${sso.url.pattern}</url-pattern>
     </filter-mapping>
 
 
