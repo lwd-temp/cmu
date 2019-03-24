@@ -527,7 +527,7 @@ public class XmController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/xsshCs")
-    public Map xsshCs(String id, String status) {
+    public Map xsshCs(String id, String status) throws Exception {
         System.out.println("id:" + id);
         System.out.println("status:" + status);
 
@@ -548,7 +548,7 @@ public class XmController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/xsshFs")
-    public Map xsshFs(XmXssqjl jl) {
+    public Map xsshFs(XmXssqjl jl) throws Exception {
 
         boolean success = xmService.xsshFs(jl);
 
@@ -567,7 +567,7 @@ public class XmController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/comfirmCs")
-    public Map confirmCs(String id) {
+    public Map confirmCs(String id) throws Exception {
 
         boolean success = xmService.confirmCs(id);
 

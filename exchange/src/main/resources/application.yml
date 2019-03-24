@@ -32,3 +32,11 @@ sys:
       ext:
         css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot
       url:
+
+wx_interface:
+  postUrl:
+    http://i.cmu.edu.cn/dcp/ifs
+  sysId:
+    wxpt_gjjl
+  key:
+    lbhunpuwgwaoanmbtsszqgrv

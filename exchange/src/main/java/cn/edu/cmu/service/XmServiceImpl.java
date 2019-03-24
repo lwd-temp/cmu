@@ -3,10 +3,7 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
-import cn.edu.cmu.framework.util.CmuStringUtil;
-import cn.edu.cmu.framework.util.DateUtils;
-import cn.edu.cmu.framework.util.IcdcUtil;
-import cn.edu.cmu.framework.util.MaxNumUtils;
+import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.XmVo;
 import org.apache.commons.lang3.ArrayUtils;
@@ -60,6 +57,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
     @Autowired
     XmXssbfjMapper xmfjDao; //学生申请项目上传附件
+
+    @Autowired
+    IfsWxlogMapper wxlogDao; //学生申请项目上传附件
+
+
+
 
     @Override
     public List list(Xm Xm) {
@@ -385,14 +388,45 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
     }
 
+    /**
+     * 项目初审
+     * @param id
+     * @param status
+     * @return
+     * @throws Exception
+     */
     @Override
-    public boolean xsshCs(String id, String status) {
+    public boolean xsshCs(String id, String status) throws Exception {
 
         XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
 
         sqjl.setStatus(status);
 
         int count = sqDao.updateByPrimaryKeySelective(sqjl);
+
+        String sendUser = "";
+        String receiveUser = sqjl.getXh();
+        String title = "项目初审结果";
+        String description = "";
+        String content = "项目申请初审结果：";
+        if("03".equals(sqjl.getConfirmStatus() ) ) {//审核通过
+            content += "审核通过";
+        }else if("04".equals(sqjl.getConfirmStatus())){
+            content += "审核不通过";
+        }
+        String json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
+
+        IfsWxlog log = new IfsWxlog();
+        log.setLogid(CmuStringUtil.UUID());
+        log.setSendUser(sendUser);
+        log.setReceiveUser(receiveUser);
+        log.setReceiveName(sqjl.getXm());
+        log.setTitle(title);
+        log.setDescription(description);
+        log.setContent(content);
+        log.setResult(json);
+
+        int logCount = wxlogDao.insertSelective(log);
 
         return count>0;
     }
@@ -403,7 +437,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
      * @return
      */
     @Override
-    public boolean confirmCs(String id) {
+    public boolean confirmCs(String id) throws Exception {
 
         XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
         jl.setIsconfirm1("1"); //是否确认初审，0 未确认 默认， 1 已确认
@@ -413,6 +447,11 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         }
 
         int count = sqDao.updateByPrimaryKeySelective(jl);
+
+
+
+
+
         return count>0;
     }
 
@@ -489,8 +528,34 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
      * @return
      */
     @Override
-    public boolean xsshFs(XmXssqjl jl) {
+    public boolean xsshFs(XmXssqjl jl) throws Exception {
         int count = sqDao.updateByPrimaryKeySelective(jl);
+
+
+        String sendUser = "";
+        String receiveUser = jl.getXh();
+        String title = "项目复审结果";
+        String description = "";
+        String content = "项目申请复审结果：";
+        if("02".equals(jl.getConfirmStatus() ) ) {//审核通过
+            content += "审核通过";
+        }else if("03".equals(jl.getConfirmStatus())){
+            content += "审核不通过";
+        }
+        String json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
+
+        IfsWxlog log = new IfsWxlog();
+        log.setLogid(CmuStringUtil.UUID());
+        log.setSendUser(sendUser);
+        log.setReceiveUser(receiveUser);
+        log.setReceiveName(jl.getXm());
+        log.setTitle(title);
+        log.setDescription(description);
+        log.setContent(content);
+        log.setResult(json);
+
+        int logCount = wxlogDao.insertSelective(log);
+
         return count>0;
     }
 

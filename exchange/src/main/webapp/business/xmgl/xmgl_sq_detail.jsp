@@ -182,7 +182,7 @@
 
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 英语水平 </label>
+                                <label class="col-xs-2 control-label "  > 外语水平 </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="yysp" id="yysp" value="${sqjl.yysp}"  placeholder="考试种类+成绩"      class="col-xs-12" />
                                 </div>
