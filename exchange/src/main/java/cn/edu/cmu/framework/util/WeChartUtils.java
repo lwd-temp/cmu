@@ -8,6 +8,8 @@ package cn.edu.cmu.framework.util;
  * @Version 1.0
  */
 
+import cn.edu.cmu.dao.IfsWxlogMapper;
+import cn.edu.cmu.domain.IfsWxlog;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -26,7 +28,7 @@ import java.util.List;
 /**
  * 微信工具类
  */
-public class WeChartUtils {
+public class WeChartUtils extends Thread {
 
     private static Logger logger = Logger.getLogger(NetUtils.class);
 
@@ -45,6 +47,23 @@ public class WeChartUtils {
     }
 
 
+    private String sendUser;
+    private String receiveUser;
+    private String title;
+    private String description;
+    private String content;
+
+
+    public WeChartUtils() {
+    }
+
+    public WeChartUtils(String sendUser, String receiveUser, String title, String description, String content) {
+        this.sendUser = sendUser;
+        this.receiveUser = receiveUser;
+        this.title = title;
+        this.description = description;
+        this.content = content;
+    }
 
     /**
      * 发送微信消息
@@ -85,6 +104,13 @@ public class WeChartUtils {
      */
     public static String sendWxMessage(String sendUser, String receiveUser, String title, String description, String content) throws Exception {
 
+        logger.info("===============发送微信参数如下========================================");
+        logger.info("sendUser:  "+sendUser);
+        logger.info("receiveUser:   "+receiveUser);
+        logger.info("title: "+title);
+        logger.info("description:   "+description);
+        logger.info("content:   "+content);
+        logger.info("======================================================================");
         String param = genPostParam(sendUser,receiveUser,title,description,content);
 
         logger.info("param:"+param);
@@ -159,6 +185,41 @@ public class WeChartUtils {
     }
 
 
+    /**
+     * 异步发起消息，并记录日志
+     */
+
+    public void sendWxMessageSync(){
+        this.start();
+    }
 
 
+
+    @Override
+    public void run() {
+
+        String json = null;
+        try {
+            json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
+        } catch (Exception e) {
+            e.printStackTrace();
+            json = e.getMessage();
+        }
+
+        IfsWxlog log = new IfsWxlog();
+        log.setLogid(CmuStringUtil.UUID());
+        log.setSendUser(sendUser);
+        log.setReceiveUser(receiveUser);
+        log.setReceiveName(receiveUser);
+        log.setTitle(title);
+        log.setDescription(description);
+        log.setContent(content);
+        log.setResult(json);
+
+        IfsWxlogMapper wxlogDao = WebAppContextUtils.getBean(IfsWxlogMapper.class);
+
+        int logCount = wxlogDao.insertSelective(log);
+
+        logger.info("保存微信接口消息到DB："+(logCount>0));
+    }
 }

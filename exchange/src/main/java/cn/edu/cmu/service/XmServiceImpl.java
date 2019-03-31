@@ -406,27 +406,17 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
         String sendUser = "";
         String receiveUser = sqjl.getXh();
-        String title = "项目初审结果";
+        String title = "国际交流项目初审";
         String description = "";
-        String content = "项目申请初审结果：";
-        if("03".equals(sqjl.getConfirmStatus() ) ) {//审核通过
-            content += "审核通过";
-        }else if("04".equals(sqjl.getConfirmStatus())){
-            content += "审核不通过";
+        String content = "审核结果：";
+        if("03".equals(sqjl.getStatus()) ) {//审核通过
+            content += "通过";
+        }else if("04".equals(sqjl.getStatus())){
+            content += "不通过";
         }
-        String json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
 
-        IfsWxlog log = new IfsWxlog();
-        log.setLogid(CmuStringUtil.UUID());
-        log.setSendUser(sendUser);
-        log.setReceiveUser(receiveUser);
-        log.setReceiveName(sqjl.getXm());
-        log.setTitle(title);
-        log.setDescription(description);
-        log.setContent(content);
-        log.setResult(json);
-
-        int logCount = wxlogDao.insertSelective(log);
+        //异步发送微信消息
+        new WeChartUtils(sendUser,receiveUser,title,description,content).sendWxMessageSync();
 
         return count>0;
     }
@@ -534,27 +524,19 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
         String sendUser = "";
         String receiveUser = jl.getXh();
-        String title = "项目复审结果";
+        String title = "国际交流项目复审";
         String description = "";
-        String content = "项目申请复审结果：";
+        String content = "审核结果：";
+
         if("02".equals(jl.getConfirmStatus() ) ) {//审核通过
-            content += "审核通过";
+            content += "通过";
         }else if("03".equals(jl.getConfirmStatus())){
-            content += "审核不通过";
+            content += "不通过";
         }
-        String json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
 
-        IfsWxlog log = new IfsWxlog();
-        log.setLogid(CmuStringUtil.UUID());
-        log.setSendUser(sendUser);
-        log.setReceiveUser(receiveUser);
-        log.setReceiveName(jl.getXm());
-        log.setTitle(title);
-        log.setDescription(description);
-        log.setContent(content);
-        log.setResult(json);
+        //异步发送微信消息
+        new WeChartUtils(sendUser,receiveUser,title,description,content).sendWxMessageSync();
 
-        int logCount = wxlogDao.insertSelective(log);
 
         return count>0;
     }
@@ -594,4 +576,6 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
         return sqExtDao.selectByExample(params);
     }
+
+
 }
