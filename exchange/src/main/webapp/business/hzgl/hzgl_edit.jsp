@@ -210,6 +210,16 @@
                                     <input type="text"  name="dcwfqzhmQt" value="${hz.dcwfqzhmQt}"  class="col-xs-12" />
                                 </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 备注   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="bz"  value="${hz.bz}"    placeholder="备注" class="col-xs-12" />
+                                </div>
+                            </div>
+
+
+
                             <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
                                 <hr/>
                                     <button class="btn btn-info btn-sm" id="btn-submit"  type="button">

@@ -164,10 +164,15 @@ public class Hz {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2019-02-28
+     * 备注
      */
-    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String valid, Date createTime) {
+    private String bz;
+
+    /**
+     *
+     * @mbggenerated 2019-04-10
+     */
+    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String valid, Date createTime, String bz) {
         this.hzid = hzid;
         this.hzhm = hzhm;
         this.xm = xm;
@@ -200,11 +205,12 @@ public class Hz {
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
+        this.bz = bz;
     }
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-04-10
      */
     public Hz() {
         super();
@@ -723,8 +729,24 @@ public class Hz {
     }
 
     /**
+     * 备注
+     * @return BZ 备注
+     */
+    public String getBz() {
+        return bz;
+    }
+
+    /**
+     * 备注
+     * @param bz 备注
+     */
+    public void setBz(String bz) {
+        this.bz = bz == null ? null : bz.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-04-10
      */
     @Override
     public String toString() {
@@ -764,6 +786,7 @@ public class Hz {
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", bz=").append(bz);
         sb.append("]");
         return sb.toString();
     }

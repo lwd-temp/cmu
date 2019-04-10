@@ -10010,7 +10010,7 @@ Primary
 </o:Column>
 <o:Column Id="o442">
 <a:ObjectID>E8B3E238-FF8D-4DBF-B93E-3559627884D3</a:ObjectID>
-<a:Name>外语水平</a:Name>
+<a:Name>英语水平</a:Name>
 <a:Code>yysp</a:Code>
 <a:CreationDate>1536504306</a:CreationDate>
 <a:Creator>Administrator</a:Creator>

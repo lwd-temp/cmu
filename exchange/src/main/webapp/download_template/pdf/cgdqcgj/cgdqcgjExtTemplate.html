@@ -1,31 +1,48 @@
 <html>
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <style type="text/css">
+        table ,tr,td{
+            margin: 0px;
+            margin: 0px;
+        }
         h1 {
             text-align: center;
+            margin-bottom: 0px;
         }
+
         table {
             width: 100%;
-            border: 1px;
+            border: solid 1px;
         }
-        td {
-            border: black dotted 1px;
+
+        tr, td {
+            border: solid 1px;
         }
+        table,tr,td{
+            vertical-align: top;
+        }
+
+        #jwyj td{
+            border-top: none;
+            padding-bottom: 25px;
+        }
+
+
     </style>
 </head>
-<body >
+<body>
 
 <h1>
-    中国医科大学在职人员因公短期出国（境）申请表
+    中国医科大学在职人员因公短期出国（境）申请表4
 </h1>
 
-<div>填表日期：  &nbsp;&nbsp;&nbsp;年  &nbsp;&nbsp;&nbsp;月  &nbsp;&nbsp;&nbsp;日</div>
-<br/>注：1：此表正反面打印，此表填写范围：全校（含各临床学院）在职人员出国（境）90天以内（不含90天）
+<div style="text-align: right;padding-right: 100px;margin-bottom: 5px" align="right">填表日期： &nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;&nbsp;月 &nbsp;&nbsp;&nbsp;日</div>
+注：1：此表正反面打印，此表填写范围：全校（含各临床学院）在职人员出国（境）90天以内（不含90天）
 办理因公出国手续的出访人员。
 <br/>&nbsp;&nbsp;2：相关人员还应提供《中国医科大学干部请假单》复印件（在学校党政办公室网页下载，具体要求请咨询党
 政办公室信息科）以相关材料。
-<table border="2" align="center" cellspacing="0" height="950px" width="40%">
+<table  align="center" cellspacing="0" height="950px" width="40%">
     <tr align="center">
         <td align="left">姓名：${cgDqcgj.xm!''}</td>
         <td align="left" width="200px">性别：${cgDqcgj.xb!''}</td>
@@ -44,17 +61,17 @@
     </tr>
     <tr align="center">
         <td colspan="2" align="left">职务：${cgDqcgj.zw!''}</td>
-        <td align="left">职称：${cgDqcgj.zc!''} </td>
+        <td align="left">职称：${cgDqcgj.zc!''}</td>
     </tr>
     <tr align="center">
         <td colspan="2" align="left">联系电话：${cgDqcgj.lxdh!''}</td>
-        <td align="left">邮箱：${cgDqcgj.email!''} </td>
+        <td align="left">邮箱：${cgDqcgj.email!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">出访国家（地区）：${cgDqcgj.cfgj!''} </td>
+        <td colspan="3" align="left">出访国家（地区）：${cgDqcgj.cfgj!''}</td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left">入境城市（地区）：${cgDqcgj.rjcs!''} </td>
+        <td colspan="3" align="left">入境城市（地区）：${cgDqcgj.rjcs!''}</td>
     </tr>
     <tr align="center">
         <td colspan="3" align="left">出访日期：${cfksrq}至${cfjsrq!''}
@@ -62,7 +79,7 @@
         </td>
     </tr>
     <tr align="center">
-        <td colspan="3" align="left" ><span id="cfmd" >出访目的：${cgDqcgj.cfmd!''}</span><br/>
+        <td colspan="3" align="left"><span id="cfmd">出访目的：${cgDqcgj.cfmd!''}</span><br/>
             <#if cgDqcgj.cfmd == '其他'>
             <span id="qt">其他：${cgDqcgj.cfmdQt!''}</span>
             </#if>
@@ -89,15 +106,15 @@
         </td>
     </tr>
     <tr align="left">
-        <td colspan="3" >
+        <td colspan="3">
             经费来源：
             <br/>
 
         </td>
     </tr>
     <tr align="left">
-        <td colspan="3" >
-            经费预算（按以下样例填写，标准请参见辽财行[2014]71号文件）：<br/>
+        <td colspan="3">
+            经费预算（按以下样例填写，<b><i>标准请参见辽财行[2014]71号文件</i></b>）：<br/>
             ${cgDqcgj.jfysmx!''}
             <br/>&nbsp;&nbsp;&nbsp;国际旅费：
             <br/>&nbsp;&nbsp;&nbsp;住宿费：
@@ -106,9 +123,71 @@
             <br/>&nbsp;&nbsp;&nbsp;其他：
             <br/>&nbsp;&nbsp;&nbsp;合计：${cgDqcgj.jfyshj!''}<br/>
             <br/>
-            [样例以出访英国伦敦为样例]
         </td>
     </tr>
+</table>
+<div style="page-break-after:always"></div>
+<table  cellspacing="0" cellpadding="0">
+    <tr style="height: 160px">
+        <td colspan="3">本人承诺1：
+
+            <div>申请人： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日期：</div>
+        </td>
+    </tr>
+
+    <tr style="height: 200px">
+        <td>2：</td>
+        <td>2：</td>
+        <td>2：</td>
+    </tr>
+
+    <tr style="height: 200px">
+        <td colspan="3" style="margin-top: 2px">学校课题管理部门意见（如科研处、发展规划与学科建设处、人事处等）：<br/><b>（仅限于使用学校课题经费填写）</b>
+
+            <br/>
+            <br/>
+            负责人： <br/>
+            日期： &nbsp;&nbsp;&nbsp;&nbsp;(盖章)
+
+            <div>申请人： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 日期：</div>
+        </td>
+    </tr>
+
+    <tr  style="margin-top: 2px;padding-top: 0px">
+        <td colspan="3" >
+            <table style="height: 260px;padding: 0" cellpadding="0" cellspacing="0" id="jwyj">
+                <tr>
+                    <td>
+                        医院纪委意见：<br/><b>（仅限于校管干部出访时）</b>
+
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        负责人： <br/>
+                        日期： &nbsp;&nbsp;&nbsp;&nbsp;(盖章)<br/>
+                        <br/>
+                    </td>
+
+                    <td>
+                        纪委意见：<br/><b>（仅限于校管干部出访时）</b>
+
+
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        负责人： <br/>
+                        日期： &nbsp;&nbsp;&nbsp;&nbsp;(盖章)<br/>
+                        <br/>
+                    </td>
+                </tr>
+            </table>
+
+        </td>
+    </tr>
+
 </table>
 </body>
 </html>
