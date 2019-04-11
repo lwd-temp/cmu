@@ -173,7 +173,7 @@
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdZj.qkjl}"  type="text"   />
+                    <textarea class="form-control limited" name="wbjdZj.qkjl"  placeholder="情况记录"  maxlength="300">${wbjdZj.qkjl}</textarea>
                 </div>
             </div>
 

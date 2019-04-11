@@ -153,7 +153,7 @@
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdSq.qkjl" disabled="disabled" value="${wbjdSq.qkjl}" type="text"   />
+                    <textarea class="form-control limited" name="wbjdSq.qkjl" disabled="disabled" placeholder="情况记录"  maxlength="300">${wbjdSq.qkjl}</textarea>
                 </div>
             </div>
 
