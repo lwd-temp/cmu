@@ -113,12 +113,13 @@ public class CodeTag extends  BaseTag {
             String dmName = dm.get(dmCode);
             if("select".equals(type)){
                 String isSelected = "";
-                if(daValue.indexOf("multiple")!=-1){
-                    boolean isSel = containsListValue(dmCode);
-                    isSelected = (isSel?"selected":"");
-                }else{
-                    isSelected = (dmCode.equals(value) || containsValues(dmCode)?"selected":"");
-                }
+
+                //选中状态，
+                // 1 当前代码 和提供的值匹配，
+                // 2  当前代码包含在按照分隔符拆分数组（'01','02'）  ['01','02']中
+                // 3 当前代码在提供的 集合（list）值中
+                boolean isSel = dmCode.equals(value) || containsValues(dmCode) || containsListValue(dmCode);
+                isSelected = (isSel?"selected":"");
 
                 super.writeln(String.format(optionFMT,  dmCode, isSelected,   dmName));
             }else if("radio".equals(type)){
@@ -131,7 +132,7 @@ public class CodeTag extends  BaseTag {
     private boolean containsValues(String dmCode) {
         String[] values = value.split(",");
         for (String s : values) {
-            if(dmCode.equals(value)){
+            if(dmCode.equals(s)){
                 return true;
             }
 
