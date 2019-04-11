@@ -178,12 +178,7 @@
                     <input class="form-control  " name="wbjdSq.qkjl" value="${wbjdSq.qkjl}" type="text"   />
                 </div>
             </div>
-            <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 拟访问成果: </label>
-                <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdSq.fwcg" value="${wbjdSq.fwcg}" type="text"   />
-                </div>
-            </div>
+
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长姓名: </label>
                 <div class="col-xs-4">
@@ -201,9 +196,9 @@
                 </div>
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
-                    <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq"
-                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
-                           type="text" data-date-format="yyyy-mm-dd" />
+                    <input class="form-control year-picker" name="wbjdSq.tzcsrq" id="tzcsrq"
+                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy"/>"
+                           type="text" data-date-format="yyyy" />
                 </div>
             </div>
             <div class="form-group ">
@@ -236,6 +231,16 @@
                     <input class="form-control  " id="zqlxrdh" name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
                 </div>
             </div>
+
+            <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 拟访问成果: </label>
+                <div class="col-xs-10">
+                    <input class="form-control  " name="wbjdSq.fwcg" value="${wbjdSq.fwcg}" type="text"   />
+                </div>
+            </div>
+
+
+
             <hr/>
             <div class="form-group">
                 <div class="col-xs-3">
@@ -373,6 +378,17 @@
                     }
                 });
             });
+
+            $('.year-picker').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                startView: 2,
+                maxViewMode: 2,
+                minViewMode:2,
+                end:new Date()
+            });
+
+
         });
         function jdlxfunction(val) {
             if (val == '01') {//校级

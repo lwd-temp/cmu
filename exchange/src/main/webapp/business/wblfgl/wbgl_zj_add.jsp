@@ -175,12 +175,7 @@
                     <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdSq.qkjl}"  type="text"   />
                 </div>
             </div>
-            <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 访问成果: </label>
-                <div class="col-xs-10">
-                    <input class="form-control  " name="wbjdZj.fwcg" value="${wbjdSq.fwcg}"  type="text"   />
-                </div>
-            </div>
+
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 团长姓名: </label>
                 <div class="col-xs-4">
@@ -202,8 +197,8 @@
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
                     <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq"
-                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
-                           type="text" data-date-format="yyyy-mm-dd" />
+                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy"/>"
+                           type="text" data-date-format="yyyy" />
                 </div>
             </div>
             <div class="form-group ">
@@ -236,6 +231,12 @@
                 <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
                 <div class="col-xs-4">
                     <input class="form-control  " id="zqlxrdh" name="wbjdZj.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
+                </div>
+            </div>
+            <div class="form-group ">
+                <label class="col-xs-2 control-label "  > 访问成果: </label>
+                <div class="col-xs-10">
+                    <input class="form-control " id="fwcg" name="wbjdZj.fwcg" value="${wbjdSq.fwcg}" style="color:red;background-color: #47ca8d" type="text"   />
                 </div>
             </div>
 
@@ -354,6 +355,10 @@
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
             saveSq();
+        });
+
+        $("#fwcg").mouseover(function(){
+            layer.tips('总结时，此部分需要可修改', '#fwcg');
         });
 
     });

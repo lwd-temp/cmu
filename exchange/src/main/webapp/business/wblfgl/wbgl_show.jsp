@@ -192,8 +192,8 @@
                 <label class="col-xs-2 control-label "  > 团长出生日期: </label>
                 <div class="col-xs-4">
                     <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" disabled="disabled"
-                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy-MM-dd"/>"
-                           type="text" data-date-format="yyyy-mm-dd" />
+                           value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy"/>"
+                           type="text" data-date-format="yyyy" />
                 </div>
             </div>
             <div class="form-group ">
