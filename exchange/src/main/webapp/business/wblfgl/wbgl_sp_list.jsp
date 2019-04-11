@@ -62,7 +62,7 @@
         var settings = {
             caption: "已申请来访接待",
             url:'wbjd/shlist',
-            colNames:['代表团名称','来访时间起','来访时间止', '来访人数', '来访目的','团长姓名','主请联系人姓名','状态',"操作"],
+            colNames:['代表团名称','来访时间起','来访时间止', '来访人数', /*'来访目的',*/'团长姓名','主请联系人姓名','状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -82,9 +82,9 @@
                         }
                     }},
                 {name:'lfrs',index:'lfrs',  },
-                {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
+                /*{name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                         return dmcache.getCode('t_dm_lfmd',lfmd);
-                    }},
+                    }},*/
                 {name:'tzxm',index:'tzxm',  },
                 {name:'zqlxrxm',index:'zqlxrxm',  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){

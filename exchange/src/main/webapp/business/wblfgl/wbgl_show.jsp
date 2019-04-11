@@ -100,7 +100,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label " > 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd"  name="wbjdSq.lfmd" id="lfmd" disabled="disabled"  value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd"  name="wbjdSq.lfmd" id="lfmd" multiple="multiple" disabled="disabled"  value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "  > 国家/地区: </label>
                     <div class="col-xs-4">

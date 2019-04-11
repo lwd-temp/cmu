@@ -99,7 +99,7 @@
 
                     <label class="col-xs-2 control-label "> 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd" name="wbjdSq.lfmd" data-placeholder="请选择来访目的" onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd" name="wbjdSq.lfmd" multiple="multiple" data-placeholder="请选择来访目的" onchange="selectlfmd(this)"></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "> 国家/地区: </label>
@@ -489,20 +489,40 @@
     //选择来访目的
     function selectlfmd(select) {
         var md = $(select).val();
+
         //学术讲座 -- 演讲题目
-        if (md == '03') {
+        if (containLfmd('03',md)) {
+            alert('学术讲座');
             $(".yjtm").show();
             $(".qtmd").hide();
-        }
-        if (md == '99') {
+        }else if(containLfmd('99',md)) {
             $(".qtmd").show();
             $(".yjtm").hide();
-        }
-        if (md == '01' || md == '02' || md == '04') {
+        }else if (containLfmd('01',md) || containLfmd('02',md) || containLfmd('04',md)) {
             $(".yjtm").hide();
             $(".qtmd").hide();
         }
     }
+
+
+    function containLfmd(type,mds){
+        if(type == '03'){
+            alert($.inArray(type,mds)>-1)
+        }
+
+        if(!mds){
+            mds = []
+        }
+
+        if(typeof(mds) == 'string'){
+            return type == mds;
+        }else{
+            return $.inArray(type,mds)>-1;
+        }
+
+    }
+
+
 
 
     function getRadio(rad) {
