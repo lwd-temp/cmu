@@ -126,7 +126,7 @@
 
                     <label class="col-xs-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdZj.jfly" disabled="disabled" value="${wbjdZj.jfly}" type="text"   />
+                        <textarea class="form-control limited" name="wbjdZj.jfly"  disabled="disabled" placeholder="请输入经费来源"  maxlength="300">${wbjdZj.jfly}</textarea>
                     </div>
                 </div>
                 <div class="form-group">

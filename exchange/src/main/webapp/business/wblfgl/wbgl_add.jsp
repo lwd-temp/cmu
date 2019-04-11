@@ -123,7 +123,7 @@
 
                     <label class="col-xs-2 control-label "> 经费来源: </label>
                     <div class="col-xs-10">
-                        <input class="form-control  " name="wbjdSq.jfly" placeholder="请输入经费来源" value="" type="text"/>
+                        <textarea class="form-control limited" name="wbjdSq.jfly"  placeholder="请输入经费来源"  maxlength="300"></textarea>
                     </div>
                 </div>
                 <div class="form-group">
