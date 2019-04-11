@@ -327,120 +327,39 @@
 <script src="assets/project/js/common-window.js"></script>
 <script>
     $(function () {
-            var md= $("#lfmd").val();
-            //学术讲座 -- 演讲题目
-            if (md == '03') {
-                $(".yjtm").show();
-                $(".qtmd").hide();
-            }
-            if (md == '99') {
-                $(".qtmd").show();
-                $(".yjtm").hide();
-            }
-            if (md == '01'||md == '02'||md == '04') {
-                $(".yjtm").hide();
-                $(".qtmd").hide();
-            }
+        var md= $("#lfmd").val();
+        //学术讲座 -- 演讲题目
+        if (md == '03') {
+            $(".yjtm").show();
+            $(".qtmd").hide();
+        }
+        if (md == '99') {
+            $(".qtmd").show();
+            $(".yjtm").hide();
+        }
+        if (md == '01'||md == '02'||md == '04') {
+            $(".yjtm").hide();
+            $(".qtmd").hide();
+        }
 
-            var val = $("#jdlx").val();
+        var val = $("#jdlx").val();
+        jdlxfunction(val);
+
+        setFormValid();//设置校验规则
+
+        $("#jdlx").change(function(){
+            var $select = $(this);
+            var val = $select.val();
             jdlxfunction(val);
+        })
 
-            setFormValid();//设置校验规则
-
-            $("#jdlx").change(function(){
-                var $select = $(this);
-                var val = $select.val();
-                jdlxfunction(val);
-            })
-
-            $("#saveForm").click(function(){
-                $("#status").val("01");//暂存
-                saveSq();
-            });
-
-            $("#submitForm").click(function(){
-                $("#status").val("02");//提交
-                if(!validateSq()){
-                    return;
-                }
-                calInputNames();
-                $.ajax('wbjd/save',{
-                    type:'post',
-                    dataType:'json',
-                    data:$("#form").serialize(),
-                    success:function(res){
-                        if(res && res.success){
-                            parent.refreshTable();
-                            closeLayer();//关闭
-                            winAlert("保存成功");//弹出确认消息
-                            //window.open("wbjdexp/downloadPdf");
-                        }
-                    }
-                });
-            });
-
-            $('.year-picker').datepicker({
-                autoclose: true,
-                todayHighlight: true,
-                startView: 2,
-                maxViewMode: 2,
-                minViewMode:2,
-                end:new Date()
-            });
-
-
+        $("#saveForm").click(function(){
+            $("#status").val("01");//暂存
+            saveSq();
         });
-        function jdlxfunction(val) {
-            if (val == '01') {//校级
-                $("#lp").removeAttr("disabled");
-                $("#lp").removeAttr("readonly");
-                $("#lpsl").removeAttr("disabled");
-                $("#lpsl").removeAttr("readonly");
-                $("#jdbm").val("");
-                $("#jdbm").attr("disabled", "disabled");
-                $("#jdbm").attr("readonly", "readonly");
-                $("#zqlxrxm").val("");
-                $("#zqlxrxm").attr("disabled", "disabled");
-                $("#zqlxrxm").attr("readonly", "readonly");
-                $("#zqlxrdh").val("");
-                $("#zqlxrdh").attr("disabled", "disabled");
-                $("#zqlxrdh").attr("readonly", "readonly");
-            } else if (val == '02') {//院级
-                $("#lp").val("");
-                $("#lp").attr("disabled", "disabled");
-                $("#lp").attr("readonly", "readonly");
-                $("#lpsl").val("");
-                $("#lpsl").attr("disabled", "disabled");
-                $("#lpsl").attr("readonly", "readonly");
-                $("#jdbm").removeAttr("disabled");
-                $("#jdbm").removeAttr("readonly");
-                $("#zqlxrxm").removeAttr("disabled");
-                $("#zqlxrxm").removeAttr("readonly");
-                $("#zqlxrdh").removeAttr("disabled");
-                $("#zqlxrdh").removeAttr("readonly");
-            }
-        }
-        var validator;
-        function setFormValid(){
-            var validator =  $("#form").setValid({
-                //校验规则
-                rules: {
-                    "wbjdSq.dbtmc":{ required:true},
-                    "wbjdSq.lfrs":{ required:true},
-                    "wbjdSq.lfmd":{ required:true},
-                    "wbjdSq.tzxm":{ required:true},
-                    "wbjdSq.jdlx":{ required:true},
-                    "wbjdSq.zqlxrxm":{ required:true},
-                    "wbjdSq.zqlxrdh":{ required:true},
-                    "cfgbIds":{ required:true},
-                    "sxr[@].xm":{ required:true},
-                    "sxr[@].gj":{ required:true},
-                    "sxr[@].zw":{ required:true}
-                }
-            })
-        }
 
-        function saveSq(){
+        $("#submitForm").click(function(){
+            $("#status").val("02");//提交
             if(!validateSq()){
                 return;
             }
@@ -454,103 +373,206 @@
                         parent.refreshTable();
                         closeLayer();//关闭
                         winAlert("保存成功");//弹出确认消息
+                        //window.open("wbjdexp/downloadPdf");
                     }
                 }
             });
+        });
+
+        $('.year-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            startView: 2,
+            maxViewMode: 2,
+            minViewMode:2,
+            end:new Date()
+        });
+
+
+    });
+    function jdlxfunction(val) {
+        if (val == '01') {//校级
+            $("#lp").removeAttr("disabled");
+            $("#lp").removeAttr("readonly");
+            $("#lpsl").removeAttr("disabled");
+            $("#lpsl").removeAttr("readonly");
+            $("#jdbm").val("");
+            $("#jdbm").attr("disabled", "disabled");
+            $("#jdbm").attr("readonly", "readonly");
+            $("#zqlxrxm").val("");
+            $("#zqlxrxm").attr("disabled", "disabled");
+            $("#zqlxrxm").attr("readonly", "readonly");
+            $("#zqlxrdh").val("");
+            $("#zqlxrdh").attr("disabled", "disabled");
+            $("#zqlxrdh").attr("readonly", "readonly");
+        } else if (val == '02') {//院级
+            $("#lp").val("");
+            $("#lp").attr("disabled", "disabled");
+            $("#lp").attr("readonly", "readonly");
+            $("#lpsl").val("");
+            $("#lpsl").attr("disabled", "disabled");
+            $("#lpsl").attr("readonly", "readonly");
+            $("#jdbm").removeAttr("disabled");
+            $("#jdbm").removeAttr("readonly");
+            $("#zqlxrxm").removeAttr("disabled");
+            $("#zqlxrxm").removeAttr("readonly");
+            $("#zqlxrdh").removeAttr("disabled");
+            $("#zqlxrdh").removeAttr("readonly");
+        }
+    }
+    var validator;
+    function setFormValid(){
+        var validator =  $("#form").setValid({
+            //校验规则
+            rules: {
+                "wbjdSq.dbtmc":{ required:true},
+                "wbjdSq.lfrs":{ required:true},
+                "wbjdSq.lfmd":{ required:true},
+                "wbjdSq.tzxm":{ required:true},
+                "wbjdSq.jdlx":{ required:true},
+                "wbjdSq.zqlxrxm":{ required:true},
+                "wbjdSq.zqlxrdh":{ required:true},
+                "cfgbIds":{ required:true},
+                "sxr[@].xm":{ required:true},
+                "sxr[@].gj":{ required:true},
+                "sxr[@].zw":{ required:true}
+            }
+        })
+    }
+
+    function saveSq(){
+        if(!validateSq()){
+            return;
+        }
+        calInputNames();
+        $.ajax('wbjd/save',{
+            type:'post',
+            dataType:'json',
+            data:$("#form").serialize(),
+            success:function(res){
+                if(res && res.success){
+                    parent.refreshTable();
+                    closeLayer();//关闭
+                    winAlert("保存成功");//弹出确认消息
+                }
+            }
+        });
+    }
+
+    //校验整个计划
+    function validateSq(){
+        if(!$("#form").valid()){
+            validator.focusInvalid();
+            return false;
+        }
+        return true;
+    }
+
+    function calInputNames(){
+        $('form input[inp=xm]').each(function(index,el){
+            $(el).attr('name','sxr['+index+'].xm');
+        });
+        $('form input[inp=gj]').each(function(index,el){
+            $(el).attr('name','sxr['+index+'].gj');
+        });
+        $('form input[inp=zw]').each(function(index,el){
+            $(el).attr('name','sxr['+index+'].zw');
+        });
+    }
+    function deleteSxr(btn){
+        var size = $("#form .sxr").size();
+        if(size<=1){
+            parent.layer.alert("请至少录入一个随行成员");
+            return false;
+        }
+        var row = $(btn).parent().parent();
+        row.remove();
+        setFormValid();//设置校验规则
+    }
+
+    function appendSxr(){
+        $("#btns").before($("#template").html());
+        var sxr = $("#btns").prev(".sxr");
+        sxr.find("input").each(function(index,el){
+            $(el).attr("id","formEl"+(Math.rnd()));
+            $(el).rules('add', { required:true  });
+        })
+        setFormValid();//设置校验规则
+    }
+
+
+    /**
+     * 判断是否包含来访目的
+     * @param type
+     * @param mds
+     * @returns {boolean}
+     */
+    function containLfmd(type,mds){
+
+        if(!mds){
+            mds = []
         }
 
-        //校验整个计划
-        function validateSq(){
-            if(!$("#form").valid()){
-                validator.focusInvalid();
-                return false;
-            }
-            return true;
+        if(typeof(mds) == 'string'){
+            return type == mds;
+        }else{
+            return $.inArray(type,mds)>-1;
         }
 
-        function calInputNames(){
-            $('form input[inp=xm]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].xm');
-            });
-            $('form input[inp=gj]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].gj');
-            });
-            $('form input[inp=zw]').each(function(index,el){
-                $(el).attr('name','sxr['+index+'].zw');
-            });
-        }
-        function deleteSxr(btn){
-            var size = $("#form .sxr").size();
-            if(size<=1){
-                parent.layer.alert("请至少录入一个随行成员");
-                return false;
-            }
-            var row = $(btn).parent().parent();
-            row.remove();
-            setFormValid();//设置校验规则
+    }
+
+
+    //选择来访目的
+    function selectlfmd(select) {
+        var md = $(select).val();
+
+        //学术讲座 -- 演讲题目
+        if (    containLfmd('03',md)    ) {
+            $(".yjtm").show();
+        }else{
+            $(".yjtm").hide();
         }
 
-        function appendSxr(){
-            $("#btns").before($("#template").html());
-            var sxr = $("#btns").prev(".sxr");
-            sxr.find("input").each(function(index,el){
-                $(el).attr("id","formEl"+(Math.rnd()));
-                $(el).rules('add', { required:true  });
-            })
-            setFormValid();//设置校验规则
+        if( containLfmd('99',md)    ) {
+            $(".qtmd").show();
+        }else{
+            $(".qtmd").hide();
         }
+    }
 
-        //选择来访目的
-        function selectlfmd(select) {
-            var md = $(select).val();
+    function getRadio(){
+        var ynYqxld_check = $("input[name='wbjdSq.ynYqxld']:checked").val();
+        var ynXyty_check  = $("input[name='wbjdSq.ynXyty']:checked").val();
+        var ynBbssgabm_check = $("input[name='wbjdSq.ynBbssgabm']:checked").val();
+        var ynBbssxcbm_check = $("input[name='wbjdSq.ynBbssxcbm']:checked").val();
 
-            //学术讲座 -- 演讲题目
-            if (containLfmd('03',md)) {
-                alert('学术讲座');
-                $(".yjtm").show();
-                $(".qtmd").hide();
-            }else if(containLfmd('99',md)) {
-                $(".qtmd").show();
-                $(".yjtm").hide();
-            }else if (containLfmd('01',md) || containLfmd('02',md) || containLfmd('04',md)) {
-                $(".yjtm").hide();
-                $(".qtmd").hide();
-            }
+        if(ynYqxld_check == 'Y'){
+            $("#ynYqxld_value").val("是否邀请校领导:是");
+        }else if(ynYqxld_check == 'N'){
+            $("#ynYqxld_value").val("是否邀请校领导:否");
         }
-
-        function getRadio(){
-            var ynYqxld_check = $("input[name='wbjdSq.ynYqxld']:checked").val();
-            var ynXyty_check  = $("input[name='wbjdSq.ynXyty']:checked").val();
-            var ynBbssgabm_check = $("input[name='wbjdSq.ynBbssgabm']:checked").val();
-            var ynBbssxcbm_check = $("input[name='wbjdSq.ynBbssxcbm']:checked").val();
-
-            if(ynYqxld_check == 'Y'){
-                $("#ynYqxld_value").val("是否邀请校领导:是");
-            }else if(ynYqxld_check == 'N'){
-                $("#ynYqxld_value").val("是否邀请校领导:否");
-            }
-            if(ynXyty_check == 'Y'){
-                $("#ynXyty_value").val("是否获学院同意:是");
-            }else if(ynXyty_check == 'N'){
-                $("#ynXyty_value").val("是否获学院同意:否");
-            }
-            if(ynBbssgabm_check == 'Y'){
-                $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
-            }else if(ynBbssgabm_check == 'N'){
-                $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
-            }
-            if(ynBbssxcbm_check == 'Y'){
-                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
-            }else if(ynBbssxcbm_check == 'N'){
-                $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
-            }
-            var ynYqxld_value =  $("#ynYqxld_value").val();
-            var ynXyty_value  = $("#ynXyty_value").val();
-            var ynBbssgabm_value = $("#ynBbssgabm_value").val();
-            var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
-
-            $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+        if(ynXyty_check == 'Y'){
+            $("#ynXyty_value").val("是否获学院同意:是");
+        }else if(ynXyty_check == 'N'){
+            $("#ynXyty_value").val("是否获学院同意:否");
         }
+        if(ynBbssgabm_check == 'Y'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+        }else if(ynBbssgabm_check == 'N'){
+            $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+        }
+        if(ynBbssxcbm_check == 'Y'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+        }else if(ynBbssxcbm_check == 'N'){
+            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+        }
+        var ynYqxld_value =  $("#ynYqxld_value").val();
+        var ynXyty_value  = $("#ynXyty_value").val();
+        var ynBbssgabm_value = $("#ynBbssgabm_value").val();
+        var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
+
+        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+    }
 </script>
 </body>
 </html>

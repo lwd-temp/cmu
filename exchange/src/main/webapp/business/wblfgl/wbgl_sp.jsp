@@ -299,20 +299,9 @@
 
 <script>
     $(function () {
-        var md = $("#lfmd").val();
-        //学术讲座 -- 演讲题目
-        if (md == '03') {
-            $(".yjtm").show();
-            $(".qtmd").hide();
-        }
-        if (md == '99') {
-            $(".qtmd").show();
-            $(".yjtm").hide();
-        }
-        if (md == '01' || md == '02' || md == '04') {
-            $(".yjtm").hide();
-            $(".qtmd").hide();
-        }
+
+        selectlfmd($("#lfmd"))
+
         var val = $("#jdlx").val();
         jdlxfunction(val);
 
@@ -328,6 +317,46 @@
             sh();
         });
     });
+
+
+    /**
+     * 判断是否包含来访目的
+     * @param type
+     * @param mds
+     * @returns {boolean}
+     */
+    function containLfmd(type,mds){
+
+        if(!mds){
+            mds = []
+        }
+
+        if(typeof(mds) == 'string'){
+            return type == mds;
+        }else{
+            return $.inArray(type,mds)>-1;
+        }
+
+    }
+
+
+    //选择来访目的
+    function selectlfmd(select) {
+        var md = $(select).val();
+
+        //学术讲座 -- 演讲题目
+        if (    containLfmd('03',md)    ) {
+            $(".yjtm").show();
+        }else{
+            $(".yjtm").hide();
+        }
+
+        if( containLfmd('99',md)    ) {
+            $(".qtmd").show();
+        }else{
+            $(".qtmd").hide();
+        }
+    }
 
     //审核，03 退回， 04通过
     function sh(){

@@ -486,29 +486,14 @@
         setFormValid();//设置校验规则
     }
 
-    //选择来访目的
-    function selectlfmd(select) {
-        var md = $(select).val();
 
-        //学术讲座 -- 演讲题目
-        if (containLfmd('03',md)) {
-            alert('学术讲座');
-            $(".yjtm").show();
-            $(".qtmd").hide();
-        }else if(containLfmd('99',md)) {
-            $(".qtmd").show();
-            $(".yjtm").hide();
-        }else if (containLfmd('01',md) || containLfmd('02',md) || containLfmd('04',md)) {
-            $(".yjtm").hide();
-            $(".qtmd").hide();
-        }
-    }
-
-
+    /**
+     * 判断是否包含来访目的
+     * @param type
+     * @param mds
+     * @returns {boolean}
+     */
     function containLfmd(type,mds){
-        if(type == '03'){
-            alert($.inArray(type,mds)>-1)
-        }
 
         if(!mds){
             mds = []
@@ -521,6 +506,28 @@
         }
 
     }
+
+
+    //选择来访目的
+    function selectlfmd(select) {
+        var md = $(select).val();
+
+        //学术讲座 -- 演讲题目
+        if (    containLfmd('03',md)    ) {
+            $(".yjtm").show();
+        }else{
+            $(".yjtm").hide();
+        }
+
+        if( containLfmd('99',md)    ) {
+            $(".qtmd").show();
+        }else{
+            $(".qtmd").hide();
+        }
+    }
+
+
+
 
 
 
