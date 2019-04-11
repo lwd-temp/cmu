@@ -6,12 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ace" />
         <module name="exchange" />
         <module name="poi" />
         <module name="sso" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ace" target="1.7" />
       <module name="exchange" target="1.7" />
       <module name="guiextensionformbg" target="1.8" />
       <module name="poi" target="1.7" />
