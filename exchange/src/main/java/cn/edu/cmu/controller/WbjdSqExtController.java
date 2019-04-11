@@ -57,20 +57,28 @@ public class WbjdSqExtController {
 
     @RequestMapping("/downloadPdf")
     public void downloadPdf(HttpServletResponse response, HttpServletRequest request, String id) throws Exception {
+
+
+        //变量
+        WbjdSq wbjdSq = wbjdSqService.selectSqExtPdf(id);
+
+
+        ServletOutputStream os = response.getOutputStream();
+
+
         response.reset();
         response.setContentType("application/x-msdownload");
         response.setHeader("Content-Type", "application/octet-stream");
         String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
-        String fileName = "外宾来访管理.pdf";
+        String fileName = String.format("%s.pdf",wbjdSq.getDbtmc());
         if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
             fileName = URLEncoder.encode(fileName, "UTF-8");
         } else {  //其他浏览器
             fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
         }
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
-        ServletOutputStream os = response.getOutputStream();
-        //变量
-        WbjdSq wbjdSq = wbjdSqService.selectSqExtPdf(id);
+
+
         WbjdSxry queryWbjdSxry = new WbjdSxry();
         queryWbjdSxry.setLfid(id);
         List sxryList = wbjdSxryService.list(queryWbjdSxry);
