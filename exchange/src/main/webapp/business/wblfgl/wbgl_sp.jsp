@@ -219,38 +219,43 @@
 
 
             <hr/>
-            <div class="form-group">
-                <div class="col-xs-4">
-                    姓名
-                </div>
-                <div class="col-xs-4">
-                    国籍
-                </div>
-                <div class="col-xs-4">
-                    职务
-                </div>
-
-            </div>
-            <c:choose>
-                <c:when test="${sxryList!=null && sxryList.size()>0}">
-                    <c:forEach items="${sxryList}" var="sxr">
-                        <div class="form-group sxr">
-                            <div class="col-xs-4"><input type="text" inp="xm" placeholder="姓名"  disabled="disabled"  value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-4"><input type="text" inp="gj"  placeholder="国籍" disabled="disabled"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
-                            <div class="col-xs-4"><input type="text" inp="zw"  placeholder="职务" disabled="disabled"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
-
+            <c:if test="${sxryList!=null && sxryList.size()>0}">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4 class="widget-title">随性人员</h4>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div class="form-group">
+                                        <div class="col-xs-4">
+                                            姓名
+                                        </div>
+                                        <div class="col-xs-4">
+                                            国籍
+                                        </div>
+                                        <div class="col-xs-4">
+                                            职务
+                                        </div>
+                                    </div>
+                                    <c:forEach items="${sxryList}" var="sxr">
+                                        <div class="form-group sxr">
+                                            <div class="col-xs-4"><input type="text" inp="xm" placeholder="姓名" disabled="disabled"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                            <div class="col-xs-4"><input type="text" inp="gj"  placeholder="国籍" disabled="disabled"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                            <div class="col-xs-4"><input type="text" inp="zw"  placeholder="职务" disabled="disabled"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
                         </div>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <div class="form-group sxr">
-                        <div class="col-xs-4"><input type="text" inp="xm"   placeholder="姓名"  disabled="disabled"  name="sxr[@].xm" class="col-xs-12"/></div>
-                        <div class="col-xs-4"><input type="text" inp="gj"   placeholder="国籍"  disabled="disabled"  name="sxr[@].gj" class="col-xs-12"/></div>
-                        <div class="col-xs-4"><input type="text" inp="zw"  placeholder="职务"   disabled="disabled"  name="sxr[@].zw" class="col-xs-12"/></div>
+                    </div><!-- /.span -->
 
-                    </div>
-                </c:otherwise>
-            </c:choose>
+                </div><!-- /.row -->
+            </c:if>
+
+
+
             <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
                 <hr/>
                 <button class="btn btn-success btn-sm" id="btnPass" type="button">

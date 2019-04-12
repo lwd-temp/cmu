@@ -86,7 +86,7 @@
                     </div>
                     <label class="col-xs-2 control-label " > 来访人数: </label>
                     <div class="col-xs-4">
-                        <input type="text"  name="wbjdSq.lfrs"   placeholder=""  value="${wbjdSq.lfrs}"  class="col-xs-12" />
+                        <input type="text"  name="wbjdSq.lfrs" id="lfrs"  placeholder=""  value="${wbjdSq.lfrs}"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -242,46 +242,59 @@
 
 
             <hr/>
-            <div class="form-group">
-                <div class="col-xs-3">
-                    姓名
-                </div>
-                <div class="col-xs-3">
-                    国籍
-                </div>
-                <div class="col-xs-3">
-                    职务
-                </div>
-                <div class="col-xs-2">
-                    操作
-                </div>
-            </div>
-            <c:choose>
-                <c:when test="${sxryList!=null && sxryList.size()>0}">
-                    <c:forEach items="${sxryList}" var="sxr">
-                        <div class="form-group sxr">
-                            <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
-                            <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
-                            <div class="col-xs-2">
-                                <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                                <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="widget-box">
+                        <div class="widget-header">
+                            <h4 class="widget-title">随性人员</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main">
+                                <div class="form-group">
+                                    <div class="col-xs-3">
+                                        姓名
+                                    </div>
+                                    <div class="col-xs-3">
+                                        国籍
+                                    </div>
+                                    <div class="col-xs-3">
+                                        职务
+                                    </div>
+                                    <div class="col-xs-2">
+                                        操作
+                                    </div>
+                                </div>
+
+                                <c:if test="${sxryList!=null && sxryList.size()>0}">
+                                    <c:forEach items="${sxryList}" var="sxr">
+                                        <div class="form-group sxr">
+                                            <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                            <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                            <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                                            <div class="col-xs-2">
+                                                <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+                                            </div>
+                                        </div>
+                                    </c:forEach>
+                                </c:if>
+
+
                             </div>
                         </div>
-                    </c:forEach>
-                </c:when>
-                <c:otherwise>
-                    <div class="form-group sxr">
-                        <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名"    name="sxr[@].xm" class="col-xs-12"/></div>
-                        <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍"    name="sxr[@].gj" class="col-xs-12"/></div>
-                        <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"     name="sxr[@].zw" class="col-xs-12"/></div>
-                        <div class="col-xs-2">
-                            <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-                            <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
-                        </div>
                     </div>
-                </c:otherwise>
-            </c:choose>
+                </div><!-- /.span -->
+
+            </div><!-- /.row -->
+
+
+
+
+
+
+
             <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
                 <hr/>
                 <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
@@ -306,7 +319,6 @@
         <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
         <div class="col-xs-2"  >
             <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
-            <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
         </div>
     </div>
 </div>
@@ -421,7 +433,7 @@
             //校验规则
             rules: {
                 "wbjdSq.dbtmc":{ required:true},
-                "wbjdSq.lfrs":{ required:true},
+                "wbjdSq.lfrs": {required: true,digits:true},
                 "wbjdSq.lfmd":{ required:true},
                 "wbjdSq.tzxm":{ required:true},
                 "wbjdSq.jdlx":{ required:true},
@@ -475,8 +487,8 @@
         });
     }
     function deleteSxr(btn){
-        var size = $("#form .sxr").size();
-        if(size<=1){
+        var size = $("#form .sxr").size();1
+        if (size <= 1 && $("#lfrs").val()>1) {
             parent.layer.alert("请至少录入一个随行成员");
             return false;
         }
@@ -486,7 +498,7 @@
     }
 
     function appendSxr(){
-        $("#btns").before($("#template").html());
+        $(".widget-main").append($("#template").html());
         var sxr = $("#btns").prev(".sxr");
         sxr.find("input").each(function(index,el){
             $(el).attr("id","formEl"+(Math.rnd()));
