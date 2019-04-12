@@ -371,29 +371,30 @@
         })
 
         $("#saveForm").click(function () {
+            if (!validateSq()) {
+                return;
+            }
             $("#status").val("01");//暂存
             saveSq();
         });
 
         $("#submitForm").click(function () {
-            $("#status").val("02");//提交
+
             if (!validateSq()) {
                 return;
             }
-            calInputNames();
-            $.ajax('wbjd/save', {
-                type: 'post',
-                dataType: 'json',
-                data: $("#form").serialize(),
-                success: function (res) {
-                    if (res && res.success) {
-                        parent.refreshTable();
-                        closeLayer();//关闭
-                        winAlert("保存成功");//弹出确认消息
-                        //window.open("wbjdexp/downloadPdf");
-                    }
-                }
-            });
+
+            $("#status").val("02");//提交
+            if($('#jdlx').val() == '01'){
+                winAlert('校级接待申请,自动审核通过请知悉。',function(){
+                    $("#status").val("04");//提交
+                    saveSq();
+                });
+
+            }else{
+                saveSq();
+            }
+
         });
 
         $('.year-picker').datepicker({
@@ -406,6 +407,7 @@
 
 
     });
+
 
     function setFormValid() {
         $("#form").setValid({
@@ -427,9 +429,7 @@
     }
 
     function saveSq() {
-        if (!validateSq()) {
-            return;
-        }
+
         calInputNames();
         $.ajax('wbjd/save', {
             type: 'post',
@@ -525,11 +525,6 @@
             $(".qtmd").hide();
         }
     }
-
-
-
-
-
 
 
     function getRadio(rad) {
