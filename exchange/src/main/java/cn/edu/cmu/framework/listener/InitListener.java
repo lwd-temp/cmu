@@ -1,11 +1,14 @@
 package cn.edu.cmu.framework.listener;
 
+import cn.edu.cmu.framework.util.PdfUtils;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
 import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import java.io.File;
+import java.net.URISyntaxException;
 
 public class InitListener implements ServletContextListener{
 
@@ -50,6 +53,19 @@ public class InitListener implements ServletContextListener{
 
         WebAppContextUtils.REAL_CONTEXT_PATH = realContextPath;
         app.setAttribute("realContextPath",realContextPath);
+
+        /**
+         * 获取实际classes目录
+         */
+        try {
+            File file = new File(InitListener.class.getResource("/").toURI());
+            logger.info("REAL_CLASS_PATH :\t"+file.getPath());
+            WebAppContextUtils.REAL_CLASS_PATH = file.getPath();
+
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
 
 
     }

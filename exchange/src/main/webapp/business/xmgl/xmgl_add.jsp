@@ -70,53 +70,56 @@
                             <input type="hidden" name="xm.status" id="status" value=""/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目类型: </label>
-
-                                <div class="col-xs-4">
-                                    <dm:list tabName="T_DM_XMLX" id="xmlx" name="xm.xmlx" data-placeholder="请选择项目类型"></dm:list>
-                                </div>
-                                <label class="col-xs-2 control-label "> 项目编号: </label>
-                                <div class="col-xs-4">
-                                    <input type="text" name="xm.xmbh" readonly="readonly" placeholder="保存后自动生成项目编号" class="col-xs-12"/>
-                                </div>
-
-
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目名称: </label>
-                                <div class="col-xs-4">
-                                    <input type="text" name="xm.xmmc" id="xmmc" placeholder="请输入项目名称" class="col-xs-12"/>
-                                </div>
-                                <label class="col-xs-2 control-label "> 项目总名: </label>
-
-                                <div class="col-xs-4">
-                                    <input type="text" name="xm.xmzm" id="xmzm" placeholder="请输入项目总名" class="col-xs-12"/>
-                                </div>
-
-                            </div>
-
-
-                            <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目开始时间: </label>
-                                <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="xmkssj" name="xm.xmkssj" placeholder="请选择项目开始时间" value="" type="text" data-date-format="yyyy-mm-dd"/>
-                                </div>
-
 
                                 <label class="col-xs-2 control-label "> 项目层次: </label>
                                 <div class="col-xs-4">
                                     <dm:list tabName="T_DM_XMCC" id="xmcc" name="xm.xmcc" data-placeholder="请选择项目层次"></dm:list>
                                 </div>
+
+                                <label class="col-xs-2 control-label "> 项目编号: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="xm.xmbh" readonly="readonly" placeholder="保存后自动生成项目编号" class="col-xs-12"/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label class="col-xs-2 control-label "> 项目总名: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="xm.xmzm" id="xmzm" placeholder="请输入项目总名" class="col-xs-12"/>
+                                </div>
+
+                                <label class="col-xs-2 control-label "> 项目名称: </label>
+                                <div class="col-xs-4">
+                                    <input type="text" name="xm.xmmc" id="xmmc" placeholder="请输入项目名称" class="col-xs-12"/>
+                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目结束时间: </label>
+
+                                <label class="col-xs-2 control-label "> 交流目标国家或地区: </label>
+                                <div class="col-xs-4">
+                                    <dm:list tabName="T_DM_GB" type="select" multiple="multiple" id="gb" name="gbs" data-placeholder="请选择"></dm:list>
+                                </div>
+
+                                <label class="col-xs-2 control-label "> 交流目标机构名称: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" type="text" placeholder="请输入交流目标机构名称,如'国'"/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+
+
+                                <label class="col-xs-2 control-label "> 项目类型: </label>
 
                                 <div class="col-xs-4">
-                                    <input class="form-control date-picker" id="smjssj" name="xm.smjssj" value="" placeholder="请选择项目结束时间"  type="text" data-date-format="yyyy-mm-dd"/>
+                                    <dm:list tabName="T_DM_XMLX" id="xmlx" name="xm.xmlx" data-placeholder="请选择项目类型"></dm:list>
                                 </div>
+
+
                                 <label class="col-xs-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-4">
                                     <dm:list tabName="T_DM_JFLY" id="jfly" name="xm.jfly" data-placeholder="请选择经费来源"></dm:list>
@@ -124,67 +127,51 @@
 
                             </div>
 
-                            <div class="form-group selectgs">
-
-                                <label class="col-xs-2 control-label "> 归属院系: </label>
-                                <div class="col-xs-4">
-
-                                    <input   name="xm.gsyxdm" id="gsyxdm" value=""  id="gsyxdm" type="hidden" />
-                                    <input class="form-control " style="cursor: pointer;" name="xm.gsyxmc" id="gsyx" value="" readonly="readonly" type="text" placeholder="请点击进行选择"/>
-                                </div>
-
-
-                                <label class="col-xs-2 control-label "> 归属学生: </label>
-                                <div class="col-xs-4">
-                                    <input   name="xm.gsxsdm" id="gsxsdm" value=""  type="hidden" />
-                                    <input class="form-control"  style="cursor: pointer;" name="xm.gsxsxm"  readonly="readonly" id="gsxs" type="text" placeholder="请点击进行选择"/>
-                                </div>
-                            </div>
-
-
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 交流目标国家或地区: </label>
-                                <div class="col-xs-4">
-                                    <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   data-placeholder="请选择国别"  ></dm:list>
+                                <label class="col-xs-2 control-label "> 项目开始时间: </label>
+                                <div class="col-xs-2">
+                                    <input class="form-control date-picker" id="xmkssj" name="xm.xmkssj" placeholder="请选择项目开始时间" value="" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
 
+                                <label class="col-xs-2 control-label "> 项目结束时间: </label>
 
-                                <label class="col-xs-2 control-label "> 交流目标机构名称: </label>
-                                <div class="col-xs-4">
-                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" type="text" placeholder="请输入交流目标机构名称,如'国'"/>
+                                <div class="col-xs-2">
+                                    <input class="form-control date-picker" id="smjssj" name="xm.smjssj" value="" placeholder="请选择项目结束时间" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
+                                <label class="col-xs-2 control-label "> 项目交流时长: </label>
+
+                                <div class="col-xs-2">
+                                    <input class="form-control date-picker" id="xmjlsc"  value="" placeholder="项目交流时长" type="text" data-date-format="yyyy-mm-dd"/>
+                                </div>
+
                             </div>
+
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 资助金额: </label>
-                                <div class="col-xs-4">
-                                    <input class="form-control  " name="xm.zjje" id="zjje" placeholder="请输入资助金额" value="" type="text"/>
-                                </div>
                                 <label class="col-xs-2 control-label "> 项目收费标准: </label>
-                                <div class="col-xs-4">
-                                    <input class="form-control" style="display: inline;width: 55%;" name="xm.fybz" id="fybz" type="text" placeholder="请输入费用标准"/> &nbsp;&nbsp;&nbsp;人民币元/人
+                                <div class="col-xs-10">
+                                    <input class="form-control" name="xm.fybz" id="fybz" type="text" placeholder="请输入费用标准"/>
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="form-group">
 
                                 <label class="col-xs-2 control-label "> 是否限制人数: </label>
                                 <div class="col-xs-4">
                                     <%--<input class="form-control" name="xm.sfxzrs" id="sfxzrs" value="" type="text"/>--%>
-                                    <dm:list tabName="t_dm_yn"  type="radio" value="${xm.sfxzrs}" id="sfxzrs" name="xm.sfxzrs" />
+                                    <dm:list tabName="t_dm_yn" type="radio" value="${xm.sfxzrs}" id="sfxzrs" name="xm.sfxzrs"/>
                                 </div>
 
-
-                                <label class="col-xs-2 control-label "> 项目收费说明: </label>
-                                <div class="col-xs-4">
-                                    <input class="col-xs-12 col-sm-12" name="xm.zysm" id="zysm" placeholder="请输入项目收费说明" value="" type="text"/>
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-xs-2 control-label "> 计划人数: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control" name="xm.jhrs" id="jhrs" value="" type="text"/>
                                 </div>
+                            </div>
+
+
+
+                            <div class="form-group">
+
                                 <label class="col-xs-2 control-label "> 项目年级限制: </label>
                                 <div class="col-xs-4">
 
@@ -197,7 +184,7 @@
                                 <div class="col-xs-4">
 
 
-                                    <dm:list sourceList="${zyList}"   id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
+                                    <dm:list sourceList="${zyList}" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
 
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
                                         <option value="2014" >临床医学</option>
@@ -207,10 +194,58 @@
                                 </div>
                                 <label class="col-xs-2 control-label "> 语言要求: </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="t_dm_yy"  value="" id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
+                                    <dm:list tabName="t_dm_yy" value="" id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
                                 </div>
 
                             </div>
+
+
+
+
+
+
+
+
+
+                            <div class="form-group selectgs">
+
+                                <label class="col-xs-2 control-label "> 归属院系: </label>
+                                <div class="col-xs-4">
+
+                                    <input name="xm.gsyxdm" id="gsyxdm" value="" id="gsyxdm" type="hidden"/>
+                                    <input class="form-control " style="cursor: pointer;" name="xm.gsyxmc" id="gsyx" value="" readonly="readonly" type="text" placeholder="请点击进行选择"/>
+                                </div>
+
+
+                                <label class="col-xs-2 control-label "> 归属学生: </label>
+                                <div class="col-xs-4">
+                                    <input name="xm.gsxsdm" id="gsxsdm" value="" type="hidden"/>
+                                    <input class="form-control" style="cursor: pointer;" name="xm.gsxsxm" readonly="readonly" id="gsxs" type="text" placeholder="请点击进行选择"/>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "> 资助金额: </label>
+                                <div class="col-xs-4">
+                                    <input class="form-control  " name="xm.zjje" id="zjje" placeholder="请输入资助金额" value="" type="text"/>
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+
+
+                                <label class="col-xs-2 control-label "> 项目收费说明: </label>
+                                <div class="col-xs-4">
+                                    <input class="col-xs-12 col-sm-12" name="xm.zysm" id="zysm" placeholder="请输入项目收费说明" value="" type="text"/>
+                                </div>
+                            </div>
+
+
+
+
+
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 项目概况: </label>
                                 <div class="col-xs-10">
@@ -226,7 +261,7 @@
 
                             </div>
 
-                            <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
+                            <div class="col-md-offset-3 col-md-9" style="text-align:right;">
 
                                 <button class="btn btn-info btn-sm" id="btnSave" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
@@ -239,7 +274,7 @@
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     发布
                                 </button>
-                                </div>
+                            </div>
                             &nbsp;&nbsp;&nbsp;
                         </form>
 
@@ -301,27 +336,24 @@
         });
 
 
-
         //选择归属院系
-        $("#gsyx").click(function(){
-            if($("#xmcc").val() =='02' || $("#xmcc").val() =='03'){
+        $("#gsyx").click(function () {
+            if ($("#xmcc").val() == '02' || $("#xmcc").val() == '03') {
                 selectYx();
             }
         });
 
         //选择归属学生
-        $("#gsxs").click(function(){
-            if($("#xmcc").val() =='03'){
+        $("#gsxs").click(function () {
+            if ($("#xmcc").val() == '03') {
 
-                if($("#gsyx").val() == ''){
+                if ($("#gsyx").val() == '') {
                     parent.layer.msg('请先选择归属院系');
                     return;
                 }
                 selectXs();
             }
         });
-
-
 
 
         $("#btnSave,#btnDeploy").click(function () {
@@ -350,16 +382,14 @@
         });
 
 
-
-        var  sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
+        var sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
         setSfxzrs(sfxzrs);
 
-        $("input[name='xm.sfxzrs']").click(function(){
+        $("input[name='xm.sfxzrs']").click(function () {
             var sfxzrs = $(this).val();
             setSfxzrs(sfxzrs);
 
         })
-
 
 
     });
@@ -369,11 +399,11 @@
      * 设置是否 限制人数
      *
      */
-    function setSfxzrs(sfxzrs){
-        if(sfxzrs == 'Y'){
-            $("#jhrs").removeAttr("readonly",'readonly');
-        }else{
-            $("#jhrs").attr("readonly",'readonly');
+    function setSfxzrs(sfxzrs) {
+        if (sfxzrs == 'Y') {
+            $("#jhrs").removeAttr("readonly", 'readonly');
+        } else {
+            $("#jhrs").attr("readonly", 'readonly');
         }
     }
 
@@ -382,7 +412,7 @@
      * 计算项目层次
      */
     function calXmcc(xmcc) {
-        if ("01" == xmcc || "" == xmcc ) {
+        if ("01" == xmcc || "" == xmcc) {
             $(".selectgs").hide();
             $("#gsyx").val("");
             $("#gsxs").val("");
@@ -406,11 +436,10 @@
         }
 
 
-
         if ("03" == xmcc) {
-            $("#gsxs").attr("placeholder","请点击选择学生");
-        }else{
-            $("#gsxs").attr("placeholder","非个人项目无需录入学生");
+            $("#gsxs").attr("placeholder", "请点击选择学生");
+        } else {
+            $("#gsxs").attr("placeholder", "非个人项目无需录入学生");
         }
 
     }
@@ -435,29 +464,35 @@
                 //'xm.jlmbgj': 'required',
                 'xm.fybz': {required: true, digits: true},
                 'xm.zysm': 'required',
-                'xm.sfxzrs':'required',
-                'xm.jhrs': {required: function(){
+                'xm.sfxzrs': 'required',
+                'xm.jhrs': {
+                    required: function () {
 
-                        var  sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
+                        var sfxzrs = $("input[name='xm.sfxzrs']:checked").val();
 
-                        if(sfxzrs == 'Y'){
+                        if (sfxzrs == 'Y') {
                             return true;
-                        }else{
+                        } else {
                             return false;
                         }
 
-                    }, number: true},
+                    }, number: true
+                },
                 'xm.xmnjxz': 'required',
                 'xm.xmzyxz': 'required',
                 'xm.yyyq': 'required',
                 'xm.xmgk': 'required',
                 'xm.xmzzjh': 'required',
-                'xm.gsyxmc':{required:function(){
-                        return ($("#xmcc").val() =='02' || $("#xmcc").val()== '03')
-                    }},
-                'xm.gsxsxm':{required:function(){
+                'xm.gsyxmc': {
+                    required: function () {
+                        return ($("#xmcc").val() == '02' || $("#xmcc").val() == '03')
+                    }
+                },
+                'xm.gsxsxm': {
+                    required: function () {
                         return $("#xmcc").val() == '03';
-                    }},
+                    }
+                },
                 'gbs': 'required'
             }
         });
@@ -467,17 +502,17 @@
     /**
      * 选择归属院系
      */
-    function selectYx(){
+    function selectYx() {
         var index = parent.layer.open({
             type: 2,
-            area: ['1000px', ($(parent).height()-10)+"px"],
+            area: ['1000px', ($(parent).height() - 10) + "px"],
             maxmin: true,
-            content:'sys/unit/selectUnic',
-            success:function(layero, index){
+            content: 'sys/unit/selectUnic',
+            success: function (layero, index) {
 
                 var fraWinName = layero.find('iframe')[0]['name'];
                 //设置打开窗口的回调函数,及调用此函数接受参数
-                parent.frames[fraWinName].callback = function(unit){
+                parent.frames[fraWinName].callback = function (unit) {
                     $("#gsyxdm").val(unit.unitId);
                     $("#gsyx").val(unit.name);
                 };
@@ -488,18 +523,18 @@
     /**
      * 选择归属学生
      */
-    function selectXs(){
+    function selectXs() {
         var unitId = $("#gsyxdm").val();
         var index = parent.layer.open({
             type: 2,
-            area: ['1000px', ($(parent).height()-10)+"px"],
+            area: ['1000px', ($(parent).height() - 10) + "px"],
             maxmin: true,
-            content:'xsxx/selectXs?unitId='+unitId,
-            success:function(layero, index){
+            content: 'xsxx/selectXs?unitId=' + unitId,
+            success: function (layero, index) {
 
                 var fraWinName = layero.find('iframe')[0]['name'];
                 //设置打开窗口的回调函数,及调用此函数接受参数
-                parent.frames[fraWinName].callback = function(xsxx){
+                parent.frames[fraWinName].callback = function (xsxx) {
                     var xh = xsxx.XH;
                     var xm = xsxx.XM;
                     $("#gsxsdm").val(xh);

@@ -3,6 +3,7 @@ import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.cache.DMCache;
 import cn.edu.cmu.framework.util.PdfUtils;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
+import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjGgService;
 import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
@@ -18,6 +19,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
@@ -25,7 +27,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/cgglexp")
-public class CgDqcgjExtController {
+public class CgDqcgjExtController extends BaseController {
     Logger logger = Logger.getLogger(CgDqcgjExtController.class);
 
     @Autowired
@@ -40,56 +42,49 @@ public class CgDqcgjExtController {
 
     @RequestMapping("/downloadPdf")
     public void downloadPdf(HttpServletResponse response, HttpServletRequest request, String id,String sqbsm) throws Exception {
-        response.reset();
-        response.setContentType("application/x-msdownload");
-        response.setHeader("Content-Type", "application/octet-stream");
-        String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
+        //response.reset();
+
+
+        sqbsm = URLDecoder.decode(sqbsm,"utf-8");
+
         String fileName = "短期出国管理.pdf";
-        if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
-            fileName = URLEncoder.encode(fileName, "UTF-8");
-        } else {  //其他浏览器
-            fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
+        super.getDownLoadFileName(request,response,fileName);
+
+        try {
+            Map variables = initPDFDate(id,sqbsm);
+            String template = "download_template\\pdf\\cgdqcgj\\cgdqcgjExtTemplate.pdf";
+
+            ServletOutputStream os = response.getOutputStream();
+            PdfUtils.outPdfWidthPdfTemp(template,variables,os);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        response.setHeader("content-disposition", "attachment;filename=" + fileName);
-        ServletOutputStream os = response.getOutputStream();
+    }
+
+
+    public Map initPDFDate(String id,String sqbsm) throws Exception {
+
+
+        //返回值
+        String template = "download_template\\pdf\\cgdqcgj\\temp-01.pdf";
+        Map<String, String> variables = new HashMap<String, String>();
+
+
         CgDqcgj cgDqcgj = cgDqcgjService.queryById(id);
 
         //先把申请表信息更新到表中
         if(sqbsm!=null&&sqbsm!=""){
-            String sqbsmnew=new String(sqbsm.getBytes("ISO-8859-1"), "UTF-8");
-            cgDqcgj.setSqbsm(sqbsmnew);
+            cgDqcgj.setSqbsm(sqbsm);
             cgDqcgjService.updateByIdAllColumn(cgDqcgj);
         }
 
         //查询二级单位
         String ejdwid = cgDqcgj.getSsejdw();
         UnicUnit unicUnit = unicUnitService.queryMcById(ejdwid);
-        String ssejdwMc = unicUnit.getName();
-
-        //查询团组信息
-        String tzid = cgDqcgj.getTzid();
-        String tzh=" ";
-        String tzmc=" ";
-        System.err.println(tzid);
-        CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        if (cgTzjhService.queryById(tzid)!=null){
-
-            tzh = cgTzjh.getTzh();
-            tzmc = cgTzjh.getTzmc();
-
-        }
-
 
         //性别
-        String xb = DMCache.translateCode2Name("T_DM_XB",cgDqcgj.getXb());
-        //出访类型
-        String cglx = cgDqcgjService.selectCglx(cgDqcgj.getCglx());
-        //出访目的
-        String cfmd = cgDqcgjService.selectCfmd(cgDqcgj.getCfmd());
 
-        cgDqcgj.setXb(xb);
-        cgDqcgj.setCglx(cglx);
-        cgDqcgj.setCfmd(cfmd);
         String csrq = "";
         String cfjsrq ="";
         String cfksrq = "";
@@ -97,32 +92,52 @@ public class CgDqcgjExtController {
         if(cgDqcgj.getCsrq()!=null){
             csrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCsrq()).toString();
         }
-        if(cgDqcgj.getCfjsrq()!=null){
-            cfjsrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfjsrq()).toString();
-        }
         if(cgDqcgj.getCfksrq()!=null){
             cfksrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfksrq()).toString();
         }
-
-        //返回值
-        String template = "cgdqcgj/cgdqcgjExtTemplate.html";
-        Map<String, Object> variables = new HashMap<String, Object>(5);
-
-        variables.put("csrq", csrq);
-        variables.put("cfjsrq", cfjsrq);
-        variables.put("cfksrq", cfksrq);
-        variables.put("tzh", tzh);
-        variables.put("tzmc", tzmc);
-        variables.put("ssejdwMc", ssejdwMc);
-        variables.put("sqbsm", sqbsm);
-        variables.put("cgDqcgj", cgDqcgj);
-
-        try {
-            PdfUtils.fixedHtml2Pdf(template,variables,os);
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(cgDqcgj.getCfjsrq()!=null){
+            cfjsrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfjsrq()).toString();
         }
+
+
+        variables.put("xm"	,	cgDqcgj.getXm());
+        variables.put("xb"	,	DMCache.translateCode2Name("t_DM_XB",cgDqcgj.getXb()));//代码转名称
+        variables.put("csrq"	,	csrq);
+        variables.put("hj"	,	cgDqcgj.getHjszd());
+        variables.put("csr"	,	cgDqcgj.getCsd());
+
+        variables.put("hjszd"	,	cgDqcgj.getHjszd());
+        variables.put("sfzh"	,	cgDqcgj.getSfzh());
+        variables.put("ejssdw"	,	unicUnit.getName());
+        variables.put("ks"	,	cgDqcgj.getKs());
+        variables.put("zw"	,	cgDqcgj.getZw());
+        variables.put("zc"	,	cgDqcgj.getZc());
+        variables.put("lxdh"	,	cgDqcgj.getLxdh());
+        variables.put("yx"	,	cgDqcgj.getEmail());
+        variables.put("cfgj"	,	cgDqcgj.getCfgj());
+        variables.put("rjcs"	,	cgDqcgj.getRjcs());
+        variables.put("cfrq_start"	,	cfksrq);
+        variables.put("cfrq_end"	,	cfjsrq);
+        variables.put("cfmd"	,	DMCache.translateCode2Name("t_DM_CFMD",cgDqcgj.getCfmd()));
+        variables.put("yqr_xm_en"	,	cgDqcgj.getYqrXmEn());
+        variables.put("yqr_zw_en"	,	cgDqcgj.getYqrZwEn());
+        variables.put("yqr_dw_en"	,	cgDqcgj.getYqrDwEn());
+        variables.put("yqr_dz_en"	,	cgDqcgj.getYqrXxdzEn());
+        variables.put("yqr_dh_en"	,	cgDqcgj.getYqrDhEn());
+
+        variables.put("yqr_xm_cn"	,	cgDqcgj.getYqrXm());
+        variables.put("yqr_zw_cn"	,	cgDqcgj.getYqrZw());
+        variables.put("yqr_dw_cn"	,	cgDqcgj.getYqrDw());
+        variables.put("yqr_dz_cn"	,	cgDqcgj.getYqrXxdz());
+        variables.put("yqr_dh_cn"	,	cgDqcgj.getYqrDh());
+
+        variables.put("jfly"	,	cgDqcgj.getJfly());
+        variables.put("jfysmx"	,	cgDqcgj.getJfysmx());
+        variables.put("brcn"	,	sqbsm);
+
+        return variables;
     }
+
 
     @RequestMapping("/downloadword")
     public void downloadword(HttpServletResponse response, HttpServletRequest request, String rwfkid) throws Exception {

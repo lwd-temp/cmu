@@ -44,23 +44,24 @@
     </style>
 </head>
 <body class="no-skin">
-<form class="form-horizontal" id="form" role="form">
+<form class="form-horizontal" action="cgglexp/downloadPdf" id="form" role="form" method="post">
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
-                <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
+                <input type="hidden" name="id" id="cgid" value="${cgdqcgj.cgid}" />
                 <div class="form-group">
                     <label class="col-xs-3 control-label"  > 本人承诺(申请表说明): </label>
                     <div class="col-xs-9">
-                        <textarea class="form-control" name="sqbsm" id="sqbsm" maxlength="300">${cgdqcgj.sqbsm}</textarea>
+                        <input type="hidden" name="sqbsm" id="sqbsm"/>
+                        <textarea class="form-control" name="sqbsm_show" id="sqbsm_show" maxlength="300">${cgdqcgj.sqbsm}</textarea>
                     </div>
                 </div>
                 &nbsp; &nbsp; &nbsp;
                 <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
                     <button class="btn btn-warning btn-sm btns" id="submitForm" type="button">
                         <i class="ace-icon fa fa-download bigger-110"></i>
-                        导出pdf
+                        导出pdf2
                     </button>
                     <button class="btn btn-danger btn-sm btns" id="btnClose" type="button">
                         <i class="ace-icon fa fa-check bigger-110"></i>
@@ -95,15 +96,15 @@
 <script>
 
     $(function () {
-        var cgid = $("#cgid").val();
         setFormValid();//设置校验规则
+
         $("#submitForm").click(function(){
             if(!validateSq()){
                 return;
             }
-            var sqbsm = $("#sqbsm").val();
-            //closeLayer();//关闭
-            window.open("cgglexp/downloadPdf?id="+cgid+"&sqbsm="+sqbsm);
+
+            $("#sqbsm").val(   encodeURI( $("#sqbsm_show").val()   ))
+            $("#form").submit();
         });
 
         $("#btnClose").click(function(){
@@ -115,7 +116,7 @@
         var validator =  $("#form").setValid({
             //校验规则
             rules: {
-                "sqbsm":{ required:true}
+                "sqbsm_show":{ required:true}
             }
         })
     }

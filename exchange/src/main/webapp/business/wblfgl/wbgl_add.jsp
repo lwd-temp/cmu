@@ -431,7 +431,7 @@
     function saveSq() {
 
         calInputNames();
-        $.ajax('wbjd/save', {
+        $.('wbjd/save', {
             type: 'post',
             dataType: 'json',
             data: $("#form").serialize(),

@@ -16,6 +16,7 @@ public class WebAppContextUtils {
     private static ApplicationContext context = null;
     private static ServletContext application = null;
     public static  String REAL_CONTEXT_PATH = "";
+    public static  String REAL_CLASS_PATH = "";
 
 
     public static void setContext(ApplicationContext context) {
