@@ -136,13 +136,13 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备属地公安部门: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm" disabled="disabled"  type="radio" value="${wbjdSq.ynBbssgabm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm" disabled="disabled"  type="radio" value="${wbjdSq.ynBbssgabm}" onclick="getRadio(this)" data-placeholder="请选是否报备属地公安部门" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备学校宣传部: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm" disabled="disabled"  type="radio" value="${wbjdSq.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                        <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm" disabled="disabled"  type="radio" value="${wbjdSq.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备学校宣传部" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >

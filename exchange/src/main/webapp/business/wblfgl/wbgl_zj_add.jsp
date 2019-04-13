@@ -141,15 +141,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备属地公安部门: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssgabm"   type="radio" id="ynBbssgabm"
-                                 value="${wbjdSq.ynBbssgabm}"  onclick="getRadio(this)" data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                                 value="${wbjdSq.ynBbssgabm}"  onclick="getRadio(this)" data-placeholder="请选是否报备属地公安部门" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备学校宣传部: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssxcbm"   type="radio" id="ynBbssxcbm"
-                                 value="${wbjdSq.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                                 value="${wbjdSq.ynBbssxcbm}" onclick="getRadio(this)" data-placeholder="请选是否报备学校宣传部" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >
@@ -509,14 +509,14 @@
             $("#ynXyty_value").val("是否获学院同意:否");
         }
         if(ynBbssgabm_check == 'Y'){
-            $("#ynBbssgabm_value").val("是否报备所属公安部门:是");
+            $("#ynBbssgabm_value").val("是否报备属地公安部门:是");
         }else if(ynBbssgabm_check == 'N'){
-            $("#ynBbssgabm_value").val("是否报备所属公安部门:否")
+            $("#ynBbssgabm_value").val("是否报备属地公安部门:否")
         }
         if(ynBbssxcbm_check == 'Y'){
-            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:是")
+            $("#ynBbssxcbm_value").val("是否报备学校宣传部:是")
         }else if(ynBbssxcbm_check == 'N'){
-            $("#ynBbssxcbm_value").val("是否报备所属宣传部门:否")
+            $("#ynBbssxcbm_value").val("是否报备学校宣传部:否")
         }
         var ynYqxld_value =  $("#ynYqxld_value").val();
         var ynXyty_value  = $("#ynXyty_value").val();

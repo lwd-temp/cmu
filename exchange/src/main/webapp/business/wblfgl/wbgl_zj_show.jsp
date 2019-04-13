@@ -142,15 +142,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否报备所属公安部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备属地公安部门: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssgabm"   type="radio" id="ynBbssgabm"
-                                 value="${wbjdZj.ynBbssgabm}"  disabled="disabled"  data-placeholder="请选是否报备所属公安部门" ></dm:list>
+                                 value="${wbjdZj.ynBbssgabm}"  disabled="disabled"  data-placeholder="请选是否报备属地公安部门" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否报备所属宣传部门: </label>
+                    <label class="col-xs-2 control-label "  > 是否报备学校宣传部: </label>
                     <div class="col-xs-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssxcbm"   type="radio" id="ynBbssxcbm"
-                                 value="${wbjdZj.ynBbssxcbm}" disabled="disabled" data-placeholder="请选是否报备所属宣传部门" ></dm:list>
+                                 value="${wbjdZj.ynBbssxcbm}" disabled="disabled" data-placeholder="请选是否报备学校宣传部" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >

@@ -2,21 +2,23 @@ package cn.edu.cmu.framework.pdf;
 
 import cn.edu.cmu.base.SpringIOC;
 import cn.edu.cmu.domain.CgDqcgj;
+import cn.edu.cmu.framework.listener.InitListener;
 import cn.edu.cmu.service.CgDqcgjService;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.*;
+import freemarker.template.SimpleDate;
 import org.junit.Before;
 import org.junit.Test;
+import org.xhtmlrenderer.pdf.ITextRenderer;
 
 import javax.swing.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -129,6 +131,29 @@ public class PdfGeneratorTest /*extends SpringIOC */ {
         } catch (DocumentException e) {
             e.printStackTrace();
         }
+
+
+    }
+
+
+    @Test
+    public void createPDFOnly() throws IOException, DocumentException {
+
+        ITextRenderer iTextRenderer = new ITextRenderer();
+        try {
+
+            iTextRenderer.getFontResolver().addFont("E:\\development\\workspace\\ideaworspace\\space2\\cmu\\exchange\\src\\main\\resources\\ttc\\simsun.ttc", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        iTextRenderer.setDocument(new File("D:\\pdf\\index.html").toURI().toString());
+        iTextRenderer.layout();
+        String time = new SimpleDateFormat("HH_mm_ss").format(new Date());
+        System.out.println("D:\\pdf\\"+time+".pdf");
+        OutputStream fileOutputStream = new FileOutputStream("D:\\pdf\\"+time+".pdf");
+        iTextRenderer.createPDF(fileOutputStream);
+        iTextRenderer.finishPDF();
+
 
 
     }

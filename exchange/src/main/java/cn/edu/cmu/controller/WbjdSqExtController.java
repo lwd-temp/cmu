@@ -3,7 +3,9 @@ package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.WbjdGj;
 import cn.edu.cmu.domain.WbjdSq;
 import cn.edu.cmu.domain.WbjdSxry;
+import cn.edu.cmu.framework.util.DateUtils;
 import cn.edu.cmu.framework.util.PdfUtils;
+import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.WbjdGjService;
 import cn.edu.cmu.service.WbjdSqService;
 import cn.edu.cmu.service.WbjdSxryService;
@@ -16,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -29,7 +33,7 @@ import java.util.*;
  */
 @Controller
 @RequestMapping("/wbjdexp")
-public class WbjdSqExtController {
+public class WbjdSqExtController extends BaseController {
     Logger logger = Logger.getLogger(WbjdSqExtController.class);
     @Autowired
     WbjdSqService wbjdSqService;
@@ -58,30 +62,16 @@ public class WbjdSqExtController {
     @RequestMapping("/downloadPdf")
     public void downloadPdf(HttpServletResponse response, HttpServletRequest request, String id) throws Exception {
 
-
         //变量
         WbjdSq wbjdSq = wbjdSqService.selectSqExtPdf(id);
-
-
-        ServletOutputStream os = response.getOutputStream();
-
-
-        response.reset();
-        response.setContentType("application/x-msdownload");
-        response.setHeader("Content-Type", "application/octet-stream");
-        String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
         String fileName = String.format("%s.pdf",wbjdSq.getDbtmc());
-        if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
-            fileName = URLEncoder.encode(fileName, "UTF-8");
-        } else {  //其他浏览器
-            fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
-        }
-        response.setHeader("content-disposition", "attachment;filename=" + fileName);
 
+        super.getDownLoadFileName(request,response,fileName);
 
         WbjdSxry queryWbjdSxry = new WbjdSxry();
         queryWbjdSxry.setLfid(id);
-        List sxryList = wbjdSxryService.list(queryWbjdSxry);
+
+
         List<WbjdGj> gblist = wbjdGjService.selectdGjExtPdf(id);
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < gblist.size(); i++) {
@@ -97,18 +87,60 @@ public class WbjdSqExtController {
             lfsjEnd = new SimpleDateFormat("yyyy-MM-dd").format(wbjdSq.getLfsjEnd()).toString();
         }
         //还没有画样式
-        System.err.println(lfsjStart);
-        System.err.println(lfsjEnd);
-        String template = "wbgl/wbglExtTemplate.html";
-        Map<String, Object> variables = new HashMap<String, Object>(3);
-        variables.put("lfsjStart", lfsjStart);
-        variables.put("lfsjEnd", lfsjEnd);
-        variables.put("wbjdSq", wbjdSq);
-        variables.put("sxryList", sxryList);
-        variables.put("gb", gb);
+        //String template = "wbgl/wbglExtTemplate.html";
+
+        Map variables = new HashMap<String, String>();
+        variables.put("dbtmc",wbjdSq.getDbtmc());//代表团名称
+        variables.put("jdbm",wbjdSq.getJdbm());//接待部门
+        variables.put("zqlxr",wbjdSq.getZqlxrxm());//主请联系人
+        variables.put("zqlxr_dh",wbjdSq.getZqlxrdh());//主请人电话
+        variables.put("lfrs", wbjdSq.getLfrs()!=null? String.valueOf(wbjdSq.getLfrs().longValue()) :"");//来访人数
+        variables.put("nfwrq", DateUtils.formYMD(wbjdSq.getLfsjStart())+"/"+DateUtils.formYMD(wbjdSq.getLfsjEnd()));//拟访问日期
+        variables.put("lfmd",wbjdSq.getLfmd());//来访目的
+        variables.put("fwnr",wbjdSq.getFwcg());//访问内容
+        variables.put("jfcc",wbjdSq.getJfly());//经费出处
+        variables.put("yjtm",wbjdSq.getYjtm());//演讲题目
+
+        //团长信息
+        variables.put("tz_xm",wbjdSq.getTzxm());//姓名
+        variables.put("tz_xb",wbjdSq.getTzxb());//性别
+        variables.put("tz_gj",wbjdSq.getTzgj());//国家、地区
+        variables.put("tz_csrq",DateUtils.formYMD(wbjdSq.getTzcsrq()));//出生日期
+        variables.put("tz_gzdw",wbjdSq.getTzgzdw());//工作单位
+        variables.put("tz_zc",wbjdSq.getTzzc());//职称
+        variables.put("tz_zw",wbjdSq.getTzzw());//职务
+        variables.put("zyjxsly",wbjdSq.getTzzy());//专业及学术领域
+
+
+        List<WbjdSxry> sxryList = wbjdSxryService.list(queryWbjdSxry);
+        StringBuffer sxryxx = new StringBuffer();
+        for (WbjdSxry wbjdSxry : sxryList) {
+            sxryxx.append(wbjdSxry.getXm()+"  ");
+            sxryxx.append(wbjdSxry.getZw()+"  ");
+            sxryxx.append(wbjdSxry.getGj());
+            sxryxx.append("\r\n");
+
+        }
+        variables.put("sxryxx",sxryxx.toString());//随性人员信息
+
+        String YN_XLD = "Y".equals(wbjdSq.getYnYqxld())?"√":"×";
+        String YN_BBSSGABM = "Y".equals(wbjdSq.getYnBbssgabm())?"√":"×";
+        String YN_BBSSXCBM = "Y".equals(wbjdSq.getYnYqxld())?"√":"×";
+        //
+        //
+        StringBuffer bz= new StringBuffer();
+        bz.append("   【"+YN_XLD+"】是否邀请校领导\n" +
+                  "   【"+YN_BBSSGABM+"】是否报备所属公安部门\n" +
+                  "   【"+YN_BBSSXCBM+"】是否报备所属宣传部门");
+        variables.put("bz",bz.toString());//备注
 
         try {
-            PdfUtils.fixedHtml2Pdf(template,variables,os);
+            String template = "download_template\\pdf\\wbgl\\wbglExtTemplate.pdf";
+
+            ServletOutputStream os = response.getOutputStream();
+
+            PdfUtils.outPdfWidthPdfTemp(template,variables,os);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

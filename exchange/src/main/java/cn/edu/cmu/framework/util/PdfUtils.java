@@ -39,6 +39,9 @@ public class PdfUtils {
         ByteArrayOutputStream bos;
         PdfStamper stamper;
 
+
+        //ByteArrayOutputStream bosMemary = new ByteArrayOutputStream();
+
         /*使用中文字体 */
         BaseFont bf = BaseFont.createFont(WebAppContextUtils.REAL_CLASS_PATH+"\\ttc\\simsun.ttc,1",BaseFont.IDENTITY_H,BaseFont.EMBEDDED);
         ArrayList<BaseFont> fontList = new ArrayList<BaseFont>();
@@ -56,7 +59,7 @@ public class PdfUtils {
             Iterator<String> it = form.getFields().keySet().iterator();
             while (it.hasNext()) {
                 String name = it.next().toString();
-                System.out.println(name);
+                //System.out.println(name);
                 form.setField(name, variables.get(name));
             }
             stamper.setFormFlattening(true);// 如果为false那么生成的PDF文件还能编辑，一定要设为true
@@ -73,6 +76,14 @@ public class PdfUtils {
             }
 
             doc.close();
+
+
+
+            //将内存中的byte数据发送给 response的 OutPutStream
+            //byte[] outBytes = bosMemary.toByteArray();
+            //out.write(outBytes);
+            //out.flush();
+            //out.close();
 
         } catch (BadPdfFormatException e) {
             e.printStackTrace();
