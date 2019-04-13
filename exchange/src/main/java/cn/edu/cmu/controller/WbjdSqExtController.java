@@ -68,24 +68,7 @@ public class WbjdSqExtController extends BaseController {
 
         super.getDownLoadFileName(request,response,fileName);
 
-        WbjdSxry queryWbjdSxry = new WbjdSxry();
-        queryWbjdSxry.setLfid(id);
 
-
-        List<WbjdGj> gblist = wbjdGjService.selectdGjExtPdf(id);
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < gblist.size(); i++) {
-            sb.append(gblist.get(i).getLfjdgjid()).append("/");
-        }
-        String gb = sb.toString().substring(0,sb.toString().length()-1);
-        String lfsjStart="";
-        String lfsjEnd="";
-        if(wbjdSq.getLfsjStart()!=null){
-            lfsjStart = new SimpleDateFormat("yyyy-MM-dd").format(wbjdSq.getLfsjStart()).toString();
-        }
-        if(wbjdSq.getLfsjEnd()!=null){
-            lfsjEnd = new SimpleDateFormat("yyyy-MM-dd").format(wbjdSq.getLfsjEnd()).toString();
-        }
         //还没有画样式
         //String template = "wbgl/wbglExtTemplate.html";
 
@@ -112,6 +95,8 @@ public class WbjdSqExtController extends BaseController {
         variables.put("zyjxsly",wbjdSq.getTzzy());//专业及学术领域
 
 
+        WbjdSxry queryWbjdSxry = new WbjdSxry();
+        queryWbjdSxry.setLfid(id);
         List<WbjdSxry> sxryList = wbjdSxryService.list(queryWbjdSxry);
         StringBuffer sxryxx = new StringBuffer();
         for (WbjdSxry wbjdSxry : sxryList) {
