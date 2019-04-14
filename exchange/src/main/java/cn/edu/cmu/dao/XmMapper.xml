@@ -22,6 +22,7 @@
       <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+      <arg column="CCXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMNJXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="YYYQ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMZYXZ" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -30,6 +31,7 @@
       <arg column="GSXSDM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GSXSXM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="OPERATOR_CODE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BMJZSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -139,8 +141,8 @@
   </sql>
   <sql id="Base_Column_List" >
     XM_ID, XMLX, XMZM, GLXMMCID, XMMC, XMBH, XMKSSJ, SMJSSJ, XMJLTS, XMCC, JFLY, ZJJE, 
-    XMGK, XMZZJH, JLMBJGMC, FYBZ, ZYSM, SFXZRS, JHRS, XMNJXZ, YYYQ, XMZYXZ, GSYXDM, GSYXMC, 
-    GSXSDM, GSXSXM, OPERATOR_CODE, STATUS, VALID, CREATE_TIME
+    XMGK, XMZZJH, JLMBJGMC, FYBZ, ZYSM, SFXZRS, JHRS, CCXZ, XMNJXZ, YYYQ, XMZYXZ, GSYXDM, 
+    GSYXMC, GSXSDM, GSXSXM, OPERATOR_CODE, BMJZSJ, STATUS, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmParams" >
     select
@@ -180,20 +182,22 @@
       XMCC, JFLY, ZJJE, XMGK, 
       XMZZJH, JLMBJGMC, FYBZ, 
       ZYSM, SFXZRS, JHRS, 
-      XMNJXZ, YYYQ, XMZYXZ, 
-      GSYXDM, GSYXMC, GSXSDM, 
-      GSXSXM, OPERATOR_CODE, STATUS, 
-      VALID, CREATE_TIME)
+      CCXZ, XMNJXZ, YYYQ, 
+      XMZYXZ, GSYXDM, GSYXMC, 
+      GSXSDM, GSXSXM, OPERATOR_CODE, 
+      BMJZSJ, STATUS, VALID, 
+      CREATE_TIME)
     values (#{xmId,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{glxmmcid,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, #{xmbh,jdbcType=VARCHAR}, 
       #{xmkssj,jdbcType=TIMESTAMP}, #{smjssj,jdbcType=TIMESTAMP}, #{xmjlts,jdbcType=DECIMAL}, 
       #{xmcc,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{zjje,jdbcType=VARCHAR}, #{xmgk,jdbcType=VARCHAR}, 
       #{xmzzjh,jdbcType=VARCHAR}, #{jlmbjgmc,jdbcType=VARCHAR}, #{fybz,jdbcType=DECIMAL}, 
       #{zysm,jdbcType=VARCHAR}, #{sfxzrs,jdbcType=VARCHAR}, #{jhrs,jdbcType=DECIMAL}, 
-      #{xmnjxz,jdbcType=VARCHAR}, #{yyyq,jdbcType=VARCHAR}, #{xmzyxz,jdbcType=VARCHAR}, 
-      #{gsyxdm,jdbcType=VARCHAR}, #{gsyxmc,jdbcType=VARCHAR}, #{gsxsdm,jdbcType=VARCHAR}, 
-      #{gsxsxm,jdbcType=VARCHAR}, #{operatorCode,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{ccxz,jdbcType=VARCHAR}, #{xmnjxz,jdbcType=VARCHAR}, #{yyyq,jdbcType=VARCHAR}, 
+      #{xmzyxz,jdbcType=VARCHAR}, #{gsyxdm,jdbcType=VARCHAR}, #{gsyxmc,jdbcType=VARCHAR}, 
+      #{gsxsdm,jdbcType=VARCHAR}, #{gsxsxm,jdbcType=VARCHAR}, #{operatorCode,jdbcType=VARCHAR}, 
+      #{bmjzsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Xm" >
     insert into T_XM
@@ -255,6 +259,9 @@
       <if test="jhrs != null" >
         JHRS,
       </if>
+      <if test="ccxz != null" >
+        CCXZ,
+      </if>
       <if test="xmnjxz != null" >
         XMNJXZ,
       </if>
@@ -278,6 +285,9 @@
       </if>
       <if test="operatorCode != null" >
         OPERATOR_CODE,
+      </if>
+      <if test="bmjzsj != null" >
+        BMJZSJ,
       </if>
       <if test="status != null" >
         STATUS,
@@ -347,6 +357,9 @@
       <if test="jhrs != null" >
         #{jhrs,jdbcType=DECIMAL},
       </if>
+      <if test="ccxz != null" >
+        #{ccxz,jdbcType=VARCHAR},
+      </if>
       <if test="xmnjxz != null" >
         #{xmnjxz,jdbcType=VARCHAR},
       </if>
@@ -370,6 +383,9 @@
       </if>
       <if test="operatorCode != null" >
         #{operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bmjzsj != null" >
+        #{bmjzsj,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
@@ -448,6 +464,9 @@
       <if test="record.jhrs != null" >
         JHRS = #{record.jhrs,jdbcType=DECIMAL},
       </if>
+      <if test="record.ccxz != null" >
+        CCXZ = #{record.ccxz,jdbcType=VARCHAR},
+      </if>
       <if test="record.xmnjxz != null" >
         XMNJXZ = #{record.xmnjxz,jdbcType=VARCHAR},
       </if>
@@ -471,6 +490,9 @@
       </if>
       <if test="record.operatorCode != null" >
         OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bmjzsj != null" >
+        BMJZSJ = #{record.bmjzsj,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
@@ -507,6 +529,7 @@
       ZYSM = #{record.zysm,jdbcType=VARCHAR},
       SFXZRS = #{record.sfxzrs,jdbcType=VARCHAR},
       JHRS = #{record.jhrs,jdbcType=DECIMAL},
+      CCXZ = #{record.ccxz,jdbcType=VARCHAR},
       XMNJXZ = #{record.xmnjxz,jdbcType=VARCHAR},
       YYYQ = #{record.yyyq,jdbcType=VARCHAR},
       XMZYXZ = #{record.xmzyxz,jdbcType=VARCHAR},
@@ -515,6 +538,7 @@
       GSXSDM = #{record.gsxsdm,jdbcType=VARCHAR},
       GSXSXM = #{record.gsxsxm,jdbcType=VARCHAR},
       OPERATOR_CODE = #{record.operatorCode,jdbcType=VARCHAR},
+      BMJZSJ = #{record.bmjzsj,jdbcType=TIMESTAMP},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -579,6 +603,9 @@
       <if test="jhrs != null" >
         JHRS = #{jhrs,jdbcType=DECIMAL},
       </if>
+      <if test="ccxz != null" >
+        CCXZ = #{ccxz,jdbcType=VARCHAR},
+      </if>
       <if test="xmnjxz != null" >
         XMNJXZ = #{xmnjxz,jdbcType=VARCHAR},
       </if>
@@ -602,6 +629,9 @@
       </if>
       <if test="operatorCode != null" >
         OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bmjzsj != null" >
+        BMJZSJ = #{bmjzsj,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
@@ -635,6 +665,7 @@
       ZYSM = #{zysm,jdbcType=VARCHAR},
       SFXZRS = #{sfxzrs,jdbcType=VARCHAR},
       JHRS = #{jhrs,jdbcType=DECIMAL},
+      CCXZ = #{ccxz,jdbcType=VARCHAR},
       XMNJXZ = #{xmnjxz,jdbcType=VARCHAR},
       YYYQ = #{yyyq,jdbcType=VARCHAR},
       XMZYXZ = #{xmzyxz,jdbcType=VARCHAR},
@@ -643,6 +674,7 @@
       GSXSDM = #{gsxsdm,jdbcType=VARCHAR},
       GSXSXM = #{gsxsxm,jdbcType=VARCHAR},
       OPERATOR_CODE = #{operatorCode,jdbcType=VARCHAR},
+      BMJZSJ = #{bmjzsj,jdbcType=TIMESTAMP},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}

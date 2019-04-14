@@ -100,6 +100,11 @@ public class Xm {
     private BigDecimal jhrs;
 
     /**
+     * 层次限制
+     */
+    private String ccxz;
+
+    /**
      * 项目年级限制
      */
     private String xmnjxz;
@@ -140,6 +145,11 @@ public class Xm {
     private String operatorCode;
 
     /**
+     * 报名截止时间
+     */
+    private Date bmjzsj;
+
+    /**
      * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
      */
     private String status;
@@ -156,9 +166,9 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-14
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, String status, String valid, Date createTime) {
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -178,6 +188,7 @@ public class Xm {
         this.zysm = zysm;
         this.sfxzrs = sfxzrs;
         this.jhrs = jhrs;
+        this.ccxz = ccxz;
         this.xmnjxz = xmnjxz;
         this.yyyq = yyyq;
         this.xmzyxz = xmzyxz;
@@ -186,6 +197,7 @@ public class Xm {
         this.gsxsdm = gsxsdm;
         this.gsxsxm = gsxsxm;
         this.operatorCode = operatorCode;
+        this.bmjzsj = bmjzsj;
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
@@ -193,7 +205,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-14
      */
     public Xm() {
         super();
@@ -504,6 +516,22 @@ public class Xm {
     }
 
     /**
+     * 层次限制
+     * @return CCXZ 层次限制
+     */
+    public String getCcxz() {
+        return ccxz;
+    }
+
+    /**
+     * 层次限制
+     * @param ccxz 层次限制
+     */
+    public void setCcxz(String ccxz) {
+        this.ccxz = ccxz == null ? null : ccxz.trim();
+    }
+
+    /**
      * 项目年级限制
      * @return XMNJXZ 项目年级限制
      */
@@ -632,6 +660,22 @@ public class Xm {
     }
 
     /**
+     * 报名截止时间
+     * @return BMJZSJ 报名截止时间
+     */
+    public Date getBmjzsj() {
+        return bmjzsj;
+    }
+
+    /**
+     * 报名截止时间
+     * @param bmjzsj 报名截止时间
+     */
+    public void setBmjzsj(Date bmjzsj) {
+        this.bmjzsj = bmjzsj;
+    }
+
+    /**
      * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
      * @return STATUS 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
      */
@@ -681,7 +725,7 @@ public class Xm {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-14
      */
     @Override
     public String toString() {
@@ -708,6 +752,7 @@ public class Xm {
         sb.append(", zysm=").append(zysm);
         sb.append(", sfxzrs=").append(sfxzrs);
         sb.append(", jhrs=").append(jhrs);
+        sb.append(", ccxz=").append(ccxz);
         sb.append(", xmnjxz=").append(xmnjxz);
         sb.append(", yyyq=").append(yyyq);
         sb.append(", xmzyxz=").append(xmzyxz);
@@ -716,6 +761,7 @@ public class Xm {
         sb.append(", gsxsdm=").append(gsxsdm);
         sb.append(", gsxsxm=").append(gsxsxm);
         sb.append(", operatorCode=").append(operatorCode);
+        sb.append(", bmjzsj=").append(bmjzsj);
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
