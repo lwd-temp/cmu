@@ -190,7 +190,7 @@
                         <input name="form-field-radio"   type="radio"  class="ace" />  <span class="lbl"> 女</span>
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 团长出生日期: </label>
+                    <label class="col-xs-2 control-label "  > 出生年份: </label>
                     <div class="col-xs-4">
                         <input class="form-control date-picker" readonly="readonly" id="id-date-picker-61" value="2018-09-15" type="text" data-date-format="yyyy-mm-dd" />
                     </div>

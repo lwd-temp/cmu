@@ -24,6 +24,8 @@ public class CodeTag extends  BaseTag {
     public List<String> valueList = null;
 
     public List<Map<String, String>> sourceList;
+    private String headerKey;
+    private String headerValue;
 
     private static  String optionFMT = "\t<option value='%s' %s >%s</option>\r\n";
     private static  String radioFMT = "\t<input   name=\"%s\"  id=\"%s_%d\"    %s  type=\"radio\" class=\"ace\" %s value=\"%s\" />  <span class=\"lbl\"> %s</span>\r\n";
@@ -68,6 +70,21 @@ public class CodeTag extends  BaseTag {
         this.sourceList = sourceList;
     }
 
+    public String getHeaderKey() {
+        return headerKey;
+    }
+
+    public void setHeaderKey(String headerKey) {
+        this.headerKey = headerKey;
+    }
+
+    public String getHeaderValue() {
+        return headerValue;
+    }
+
+    public void setHeaderValue(String headerValue) {
+        this.headerValue = headerValue;
+    }
 
     @Override
     protected void tagHeader() throws IOException {
@@ -77,6 +94,11 @@ public class CodeTag extends  BaseTag {
 
             if(daValue.indexOf("multiple")==-1){//如果不是多选，默认让他有一个请选择
                 super.writeln(String.format(optionFMT,  "", "",   "请选择"));
+            }else{//多选的  如果有默认 headerKey、 headerValue 先添加上
+                if(StringUtils.isNotEmpty(headerValue)){
+                    super.writeln(String.format(optionFMT, StringUtils.isEmpty(headerKey)?headerValue:headerKey, "",   headerValue));
+                }
+
             }
         }
     }

@@ -323,13 +323,10 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.YjsZyxxsjxxParams&gt;"/>
         </table>-->
 
-
         <!--接口表-->
        <!-- <table tableName="t_ifs_wxlog" 	domainObjectName="IfsWxlog"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.IfsWxlogParams&gt;"/>
         </table>-->
-
-
 
     </context>
 </generatorConfiguration>

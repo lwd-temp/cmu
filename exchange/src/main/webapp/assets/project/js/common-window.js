@@ -6,6 +6,24 @@ Math.rnd = function () {
 
 }
 
+/**
+ * 实例化 日期
+ */
+Date.instance = function(dateStr){
+    var ymd = dateStr.split('-');
+    var time = new Date(ymd[0] , ymd[1] ,ymd[2]);
+    return time;
+}
+
+/**
+ * 计算两个日期间 经过的天数  14--16号  算三天
+ * @param otherDay
+ * @returns {number}
+ */
+Date.prototype.diffDay = function(otherDay){
+    var days = parseInt(Math.abs(otherDay - this) / 1000 / 60 / 60 / 24)+1;
+    return days;
+}
 
 //弹出层，关闭自身
 function closeLayer() {

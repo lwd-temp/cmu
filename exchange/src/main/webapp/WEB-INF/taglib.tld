@@ -42,6 +42,14 @@
             <name>tabName</name>
             <required>false</required>
         </attribute>
+        <attribute>
+            <name>headerKey</name>
+            <required>false</required>
+        </attribute>
+        <attribute>
+            <name>headerValue</name>
+            <required>false</required>
+        </attribute>
 
 
         <!-- 自定义数据 生成列表-->
