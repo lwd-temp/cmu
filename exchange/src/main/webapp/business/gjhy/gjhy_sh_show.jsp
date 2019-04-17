@@ -202,18 +202,16 @@
                                 <div class="col-xs-2">
                                     参会人员姓名
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-3">
                                     国籍
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-4">
                                     单位
                                 </div>
                                 <div class="col-xs-3">
                                     职务
                                 </div>
-                                <div class="col-xs-2">
-                                    操作
-                                </div>
+
                             </div>
 
 
