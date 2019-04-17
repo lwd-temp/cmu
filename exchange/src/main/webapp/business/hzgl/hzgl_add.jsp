@@ -134,7 +134,7 @@
                                     <input class="form-control date-picker" id="id-date-picker-1" name="birthday" value=""
                                            type="text" data-date-format="yyyy-mm-dd" placeholder="请选择出生日期" />
 
-                                </div>出访任务 :
+                                </div>
                                 <label class="col-xs-2 control-label "  > 出生地点: </label>
                                 <div class="col-xs-4">
                                     <input type="text"  name="csdd"  value="" placeholder="请输入出生地点"   class="col-xs-12" />
