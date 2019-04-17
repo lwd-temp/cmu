@@ -231,18 +231,13 @@
                     <input class="form-control  " id="zqlxrdh" name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
                 </div>
             </div>
-
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 拟访问成果: </label>
                 <div class="col-xs-10">
                     <input class="form-control  " name="wbjdSq.fwcg" value="${wbjdSq.fwcg}" type="text"   />
                 </div>
             </div>
-
-
-
             <hr/>
-
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -288,11 +283,6 @@
                 </div><!-- /.span -->
 
             </div><!-- /.row -->
-
-
-
-
-
 
 
             <div id="btns" class="col-md-offset-3 col-md-9" style = "text-align:right;">
