@@ -39,11 +39,13 @@ public class PdfUtils {
         ByteArrayOutputStream bos;
         PdfStamper stamper;
 
+        template = template.replace('\\',File.separatorChar);
 
         //ByteArrayOutputStream bosMemary = new ByteArrayOutputStream();
 
         /*使用中文字体 */
-        BaseFont bf = BaseFont.createFont(WebAppContextUtils.REAL_CLASS_PATH+"\\ttc\\simsun.ttc,1",BaseFont.IDENTITY_H,BaseFont.EMBEDDED);
+        BaseFont bf = BaseFont.createFont(WebAppContextUtils.REAL_CLASS_PATH + File.separator+"ttc"+File.separator+"simsun.ttf",BaseFont.IDENTITY_H,BaseFont.EMBEDDED);
+        //BaseFont bf = BaseFont.createFont("SimSun,0","",BaseFont.EMBEDDED);
         ArrayList<BaseFont> fontList = new ArrayList<BaseFont>();
         fontList.add(bf);
 
