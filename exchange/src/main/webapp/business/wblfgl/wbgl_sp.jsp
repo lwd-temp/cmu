@@ -172,7 +172,7 @@
                 <div class="col-xs-4">
                     <dm:list tabName="t_dm_xb"  name="wbjdSq.tzxb" type="radio" disabled="disabled" value="${wbjdSq.tzxb}" data-placeholder="请选接团长性别" ></dm:list>
                 </div>
-                <label class="col-xs-2 control-label "  > 团长出生日期: </label>
+                <label class="col-xs-2 control-label "  > 出生年份: </label>
                 <div class="col-xs-4">
                     <input class="form-control date-picker" name="wbjdSq.tzcsrq" id="tzcsrq" disabled="disabled"
                            value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy"/>"
@@ -224,7 +224,7 @@
                     <div class="col-xs-12 col-sm-12">
                         <div class="widget-box">
                             <div class="widget-header">
-                                <h4 class="widget-title">随性人员</h4>
+                                <h4 class="widget-title">随行人员</h4>
                             </div>
                             <div class="widget-body">
                                 <div class="widget-main">

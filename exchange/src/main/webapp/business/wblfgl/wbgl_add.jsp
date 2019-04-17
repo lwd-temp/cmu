@@ -99,7 +99,7 @@
 
                     <label class="col-xs-2 control-label "> 来访目的: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_lfmd" name="wbjdSq.lfmd" multiple="multiple" data-placeholder="请选择来访目的" onchange="selectlfmd(this)"></dm:list>
+                        <dm:list tabName="t_dm_lfmd" name="wbjdSq.lfmd" multiple="是否报备学校宣传部" data-placeholder="请选择来访目的" onchange="selectlfmd(this)"></dm:list>
                     </div>
 
                     <label class="col-xs-2 control-label "> 国家/地区: </label>
@@ -188,7 +188,7 @@
                     <dm:list tabName="t_dm_xb" name="wbjdSq.tzxb" type="radio" data-placeholder="请选接团长性别"></dm:list>
                 </div>
 
-                <label class="col-xs-2 control-label "> 团长出生日期: </label>
+                <label class="col-xs-2 control-label "> 出生年份: </label>
                 <div class="col-xs-4">
                     <input class="form-control year-picker" name="wbjdSq.tzcsrq" id="tzcsrq" value="" type="text" data-date-format="yyyy"/>
                 </div>
@@ -249,7 +249,7 @@
                 <div class="col-xs-12 col-sm-12">
                     <div class="widget-box">
                         <div class="widget-header">
-                            <h4 class="widget-title">随性人员</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
+                            <h4 class="widget-title">随行人员</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
                         </div>
 
                         <div class="widget-body">
@@ -431,7 +431,7 @@
     function saveSq() {
 
         calInputNames();
-        $.('wbjd/save', {
+        $.ajax('wbjd/save', {
             type: 'post',
             dataType: 'json',
             data: $("#form").serialize(),
