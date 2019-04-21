@@ -20,6 +20,13 @@
 
     <!-- 包扫描路径-->
     <context:component-scan base-package="cn.edu.cmu"></context:component-scan>
+    <!--<mvc:annotation-driven />-->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+    <!-- 当访问静态资源, 将请求 交给默认的 default -->
+    <mvc:default-servlet-handler/>
+
+    <aop:aspectj-autoproxy ></aop:aspectj-autoproxy>
 
     <!--使用maven环境替换，不用加载指定属性-->
     <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
@@ -37,13 +44,7 @@
     <!-- 相当于是配置了 两个request handldermapping HandlerAdapter -->
 
 
-    <!--<mvc:annotation-driven />-->
-    <mvc:annotation-driven conversion-service="conversionService"/>
 
-
-
-    <!-- 当访问静态资源, 将请求 交给默认的 default -->
-    <mvc:default-servlet-handler/>
 
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -150,6 +151,8 @@
         <!-- 通知   使用 advice-ref="txAdvice" advice-ref="txAdvice"引用定义好的   通知 -->
         <aop:advisor advice-ref="txAdvice" pointcut-ref="serviceOperation"/>
     </aop:config>
+
+
 
 
 </beans>
