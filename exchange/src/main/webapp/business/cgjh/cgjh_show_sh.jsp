@@ -112,12 +112,12 @@
                     <label class="col-xs-2 control-label "> 团组类别: </label>
                     <div class="col-xs-4">
 
-                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb" value="${cgTzjh.tzlb}"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
+                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb" value="${cgTzjh.tzlb}" disabled="disabled"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
 
                     </div>
                     <label class="col-xs-2 control-label "> 计划类型: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_JHLX" id="jhlx" name="cgTzjh.jhlx" value="${cgTzjh.jhlx}" data-placeholder="请选择计划类型" ></dm:list>
+                        <dm:list tabName="T_DM_JHLX" id="jhlx" name="cgTzjh.jhlx" value="${cgTzjh.jhlx}" disabled="disabled" data-placeholder="请选择计划类型" ></dm:list>
 
                     </div>
 
@@ -128,13 +128,13 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 团组级别: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_TZJB" id="tzjb" name="cgTzjh.tzjb"   value="${cgTzjh.tzjb}" data-placeholder="请选择团组级别" ></dm:list>
+                        <dm:list tabName="T_DM_TZJB" id="tzjb" name="cgTzjh.tzjb"   value="${cgTzjh.tzjb}" disabled="disabled" data-placeholder="请选择团组级别" ></dm:list>
 
 
                     </div>
                     <label class="col-xs-2 control-label "> 自主或参加双跨: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_ZZSK" id="zzhsk" name="cgTzjh.zzhsk" value="${cgTzjh.zzhsk}" data-placeholder="请选择" ></dm:list>
+                        <dm:list tabName="T_DM_ZZSK" id="zzhsk" name="cgTzjh.zzhsk" value="${cgTzjh.zzhsk}" disabled="disabled" data-placeholder="请选择" ></dm:list>
 
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                     </div>
                     <label class="col-xs-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  valueList="${gbCodeList}"  data-placeholder="请输入出访国家/地区"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  valueList="${gbCodeList}" disabled="disabled" data-placeholder="请输入出访国家/地区"  ></dm:list>
 
 
                     </div>
