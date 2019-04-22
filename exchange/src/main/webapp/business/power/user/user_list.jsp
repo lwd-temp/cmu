@@ -202,7 +202,7 @@
     //修改用户
     function grantRole(gh) {
         layer.newpage({
-            area: ['800px', ($(window).height()-50)+"px"],
+            area: ['800px', '600px'],
             title: '给用户授权',
             content: 'business/power/user/user_grant.jsp?gh='+gh,
         });

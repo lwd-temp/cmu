@@ -198,10 +198,10 @@ public class CgDqcgjController extends BaseController {
     @RequestMapping("/shlist")
     @ResponseBody
     public Map shlist(CgDqcgj cgDqcgj,
-                    String orderCol,
-                    String orderType,
-                    @RequestParam(defaultValue = "1", required = false) Integer page,
-                    @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
+                      String orderCol,
+                      String orderType,
+                      @RequestParam(defaultValue = "1", required = false) Integer page,
+                      @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
         List list = cgDqcgjService.shlist(cgDqcgj, orderCol, orderType);
         return super.pagingInfo(pageInfo, list);

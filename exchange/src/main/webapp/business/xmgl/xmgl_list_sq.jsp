@@ -174,7 +174,7 @@
     function editXmSb(sbid){
 
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+'px'],
+            area: ['1000px','750px'],
             title:'申报项目',
             content:'xm/toSbEdit?id='+sbid,
         });
@@ -185,7 +185,7 @@
      */
     function addXmSb(xmid){
         layer.newpage({
-            area: ['1000px', ($(window).height()-20)+'px'],
+            area: ['1000px', '750px'],
             title:'申报项目',
             content:'xm/toSbAdd?id='+xmid,
         });
@@ -194,7 +194,7 @@
 
     function detail(xmid){
         var index = layer.newpage({
-            area: ['1000px', ($(window).height()-20)+'px'],
+            area: ['1000px', '750px'],
             title:'申报详情',
             content:'xm/toSbDetail?id='+xmid,
             success:function(layero, index){

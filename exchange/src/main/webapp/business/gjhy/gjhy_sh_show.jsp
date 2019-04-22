@@ -134,7 +134,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议类型: </label>
                                 <div class="col-xs-4">
-                                    <dm:list name="hysb.hylx" value="${hysb.hylx}"  readonly="readonly" type="select" id="hylx"  tabName="t_dm_hylx" onchange="change_hylx(this)"/>
+                                    <dm:list name="hysb.hylx" value="${hysb.hylx}"  readonly="readonly" type="select" id="hylx"  tabName="t_dm_hylx" onchange="change_hylx(this)" disabled="disabled"/>
                                 </div>
                                 <label class="col-xs-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-4">

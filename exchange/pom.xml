@@ -427,7 +427,7 @@
             </activation>
             <build>
                 <filters>
-                    <filter>src/main/resources/env/iont.properties</filter>
+                    <filter>src/main/resources/env/int.properties</filter>
                 </filters>
             </build>
         </profile>
