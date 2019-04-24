@@ -171,27 +171,27 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 聘用合同/任职证明在华工作开始时间: </label>
+                                <%--<label class="col-xs-2 control-label "> 聘用合同/任职证明在华工作开始时间: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control date-picker" name="rzzmsj" id="rzzmsj"
                                            value="<fmt:formatDate value="${teacher.rzzmsj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
-                                </div>
+                                </div>--%>
 
                                 <label class="col-xs-2 control-label ">申请在中国工作职务: </label>
-                                <div class="col-xs-4">
+                                <div class="col-xs-10">
                                     <input type="text" name="gzzw" id="gzzw" value="${teacher.gzzw}" placeholder="申请在中国工作职务" class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 申请在华工作时间开始: </label>
+                                <label class="col-xs-2 control-label "> 工作合同开始时间: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control date-picker" name="gzsjStart" id="gzsjStart"
                                            value="<fmt:formatDate value="${teacher.gzsjStart}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
-                                <label class="col-xs-2 control-label ">申请在华工作时间结束: </label>
+                                <label class="col-xs-2 control-label ">工作合同结束时间: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control date-picker" name="gzsjEnd" id="gzsjEnd"
                                            value="<fmt:formatDate value="${teacher.gzsjEnd}" pattern="yyyy-MM-dd"/>"
