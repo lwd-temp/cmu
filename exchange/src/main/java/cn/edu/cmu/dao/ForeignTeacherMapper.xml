@@ -26,6 +26,8 @@
       <arg column="GZSJ_START" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="GZSJ_END" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="PHONE" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QZLX" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="QZYXQ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="HR" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -135,8 +137,8 @@
   </sql>
   <sql id="Base_Column_List" >
     TID, GH, JSX, JSM, CHINESE_NAME, GENDER, GJ, BIRTHDAY, HYZK, HZLX, HZH, HZQFRQ, HZYXQ, 
-    ZGXW, HYSP, EMAIL, SYCCSYHZGJ, GZGW, RZZMSJ, GZZW, GZSJ_START, GZSJ_END, PHONE, HR, 
-    VALID, CREATE_TIME
+    ZGXW, HYSP, EMAIL, SYCCSYHZGJ, GZGW, RZZMSJ, GZZW, GZSJ_START, GZSJ_END, PHONE, QZLX, 
+    QZYXQ, HR, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.ForeignTeacherParams" >
     select
@@ -177,8 +179,9 @@
       HZYXQ, ZGXW, HYSP, 
       EMAIL, SYCCSYHZGJ, GZGW, 
       RZZMSJ, GZZW, GZSJ_START, 
-      GZSJ_END, PHONE, HR, 
-      VALID, CREATE_TIME)
+      GZSJ_END, PHONE, QZLX, 
+      QZYXQ, HR, VALID, 
+      CREATE_TIME)
     values (#{tid,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, #{jsx,jdbcType=VARCHAR}, 
       #{jsm,jdbcType=VARCHAR}, #{chineseName,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{hyzk,jdbcType=VARCHAR}, 
@@ -186,8 +189,9 @@
       #{hzyxq,jdbcType=TIMESTAMP}, #{zgxw,jdbcType=VARCHAR}, #{hysp,jdbcType=VARCHAR}, 
       #{email,jdbcType=VARCHAR}, #{syccsyhzgj,jdbcType=VARCHAR}, #{gzgw,jdbcType=VARCHAR}, 
       #{rzzmsj,jdbcType=TIMESTAMP}, #{gzzw,jdbcType=VARCHAR}, #{gzsjStart,jdbcType=TIMESTAMP}, 
-      #{gzsjEnd,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, #{hr,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{gzsjEnd,jdbcType=TIMESTAMP}, #{phone,jdbcType=VARCHAR}, #{qzlx,jdbcType=VARCHAR}, 
+      #{qzyxq,jdbcType=TIMESTAMP}, #{hr,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.ForeignTeacher" >
     insert into T_FOREIGN_TEACHER
@@ -260,6 +264,12 @@
       </if>
       <if test="phone != null" >
         PHONE,
+      </if>
+      <if test="qzlx != null" >
+        QZLX,
+      </if>
+      <if test="qzyxq != null" >
+        QZYXQ,
       </if>
       <if test="hr != null" >
         HR,
@@ -340,6 +350,12 @@
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="qzlx != null" >
+        #{qzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="qzyxq != null" >
+        #{qzyxq,jdbcType=TIMESTAMP},
       </if>
       <if test="hr != null" >
         #{hr,jdbcType=VARCHAR},
@@ -430,6 +446,12 @@
       <if test="record.phone != null" >
         PHONE = #{record.phone,jdbcType=VARCHAR},
       </if>
+      <if test="record.qzlx != null" >
+        QZLX = #{record.qzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="record.qzyxq != null" >
+        QZYXQ = #{record.qzyxq,jdbcType=TIMESTAMP},
+      </if>
       <if test="record.hr != null" >
         HR = #{record.hr,jdbcType=VARCHAR},
       </if>
@@ -469,6 +491,8 @@
       GZSJ_START = #{record.gzsjStart,jdbcType=TIMESTAMP},
       GZSJ_END = #{record.gzsjEnd,jdbcType=TIMESTAMP},
       PHONE = #{record.phone,jdbcType=VARCHAR},
+      QZLX = #{record.qzlx,jdbcType=VARCHAR},
+      QZYXQ = #{record.qzyxq,jdbcType=TIMESTAMP},
       HR = #{record.hr,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -545,6 +569,12 @@
       <if test="phone != null" >
         PHONE = #{phone,jdbcType=VARCHAR},
       </if>
+      <if test="qzlx != null" >
+        QZLX = #{qzlx,jdbcType=VARCHAR},
+      </if>
+      <if test="qzyxq != null" >
+        QZYXQ = #{qzyxq,jdbcType=TIMESTAMP},
+      </if>
       <if test="hr != null" >
         HR = #{hr,jdbcType=VARCHAR},
       </if>
@@ -581,6 +611,8 @@
       GZSJ_START = #{gzsjStart,jdbcType=TIMESTAMP},
       GZSJ_END = #{gzsjEnd,jdbcType=TIMESTAMP},
       PHONE = #{phone,jdbcType=VARCHAR},
+      QZLX = #{qzlx,jdbcType=VARCHAR},
+      QZYXQ = #{qzyxq,jdbcType=TIMESTAMP},
       HR = #{hr,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}

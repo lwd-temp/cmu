@@ -22,7 +22,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public ForeignTeacherParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class ForeignTeacherParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class ForeignTeacherParams {
     }
 
     /**
-     * T_FOREIGN_TEACHER 2018-11-22
+     * T_FOREIGN_TEACHER 2019-04-24
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -1711,6 +1711,136 @@ public class ForeignTeacherParams {
             return (Criteria) this;
         }
 
+        public Criteria andQzlxIsNull() {
+            addCriterion("QZLX is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxIsNotNull() {
+            addCriterion("QZLX is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxEqualTo(String value) {
+            addCriterion("QZLX =", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxNotEqualTo(String value) {
+            addCriterion("QZLX <>", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxGreaterThan(String value) {
+            addCriterion("QZLX >", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxGreaterThanOrEqualTo(String value) {
+            addCriterion("QZLX >=", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxLessThan(String value) {
+            addCriterion("QZLX <", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxLessThanOrEqualTo(String value) {
+            addCriterion("QZLX <=", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxLike(String value) {
+            addCriterion("QZLX like", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxNotLike(String value) {
+            addCriterion("QZLX not like", value, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxIn(List<String> values) {
+            addCriterion("QZLX in", values, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxNotIn(List<String> values) {
+            addCriterion("QZLX not in", values, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxBetween(String value1, String value2) {
+            addCriterion("QZLX between", value1, value2, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzlxNotBetween(String value1, String value2) {
+            addCriterion("QZLX not between", value1, value2, "qzlx");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqIsNull() {
+            addCriterion("QZYXQ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqIsNotNull() {
+            addCriterion("QZYXQ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqEqualTo(Date value) {
+            addCriterion("QZYXQ =", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqNotEqualTo(Date value) {
+            addCriterion("QZYXQ <>", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqGreaterThan(Date value) {
+            addCriterion("QZYXQ >", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqGreaterThanOrEqualTo(Date value) {
+            addCriterion("QZYXQ >=", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqLessThan(Date value) {
+            addCriterion("QZYXQ <", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqLessThanOrEqualTo(Date value) {
+            addCriterion("QZYXQ <=", value, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqIn(List<Date> values) {
+            addCriterion("QZYXQ in", values, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqNotIn(List<Date> values) {
+            addCriterion("QZYXQ not in", values, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqBetween(Date value1, Date value2) {
+            addCriterion("QZYXQ between", value1, value2, "qzyxq");
+            return (Criteria) this;
+        }
+
+        public Criteria andQzyxqNotBetween(Date value1, Date value2) {
+            addCriterion("QZYXQ not between", value1, value2, "qzyxq");
+            return (Criteria) this;
+        }
+
         public Criteria andHrIsNull() {
             addCriterion("HR is null");
             return (Criteria) this;
@@ -1923,7 +2053,7 @@ public class ForeignTeacherParams {
     }
 
     /**
-     * T_FOREIGN_TEACHER 2018-11-22
+     * T_FOREIGN_TEACHER 2019-04-24
      */
     public static class Criterion {
         private String condition;

@@ -119,7 +119,17 @@ public class ForeignTeacher {
     private String phone;
 
     /**
-     * 是否是HR ，Y从HR导入
+     * 签证类型
+     */
+    private String qzlx;
+
+    /**
+     * 签证有效期
+     */
+    private Date qzyxq;
+
+    /**
+     * null
      */
     private String hr;
 
@@ -135,9 +145,9 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
-    public ForeignTeacher(String tid, String gh, String jsx, String jsm, String chineseName, String gender, String gj, Date birthday, String hyzk, String hzlx, String hzh, Date hzqfrq, Date hzyxq, String zgxw, String hysp, String email, String syccsyhzgj, String gzgw, Date rzzmsj, String gzzw, Date gzsjStart, Date gzsjEnd, String phone, String hr, String valid, Date createTime) {
+    public ForeignTeacher(String tid, String gh, String jsx, String jsm, String chineseName, String gender, String gj, Date birthday, String hyzk, String hzlx, String hzh, Date hzqfrq, Date hzyxq, String zgxw, String hysp, String email, String syccsyhzgj, String gzgw, Date rzzmsj, String gzzw, Date gzsjStart, Date gzsjEnd, String phone, String qzlx, Date qzyxq, String hr, String valid, Date createTime) {
         this.tid = tid;
         this.gh = gh;
         this.jsx = jsx;
@@ -161,6 +171,8 @@ public class ForeignTeacher {
         this.gzsjStart = gzsjStart;
         this.gzsjEnd = gzsjEnd;
         this.phone = phone;
+        this.qzlx = qzlx;
+        this.qzyxq = qzyxq;
         this.hr = hr;
         this.valid = valid;
         this.createTime = createTime;
@@ -168,7 +180,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     public ForeignTeacher() {
         super();
@@ -543,16 +555,48 @@ public class ForeignTeacher {
     }
 
     /**
-     * 是否是HR ，Y从HR导入
-     * @return HR 是否是HR ，Y从HR导入
+     * 签证类型
+     * @return QZLX 签证类型
+     */
+    public String getQzlx() {
+        return qzlx;
+    }
+
+    /**
+     * 签证类型
+     * @param qzlx 签证类型
+     */
+    public void setQzlx(String qzlx) {
+        this.qzlx = qzlx == null ? null : qzlx.trim();
+    }
+
+    /**
+     * 签证有效期
+     * @return QZYXQ 签证有效期
+     */
+    public Date getQzyxq() {
+        return qzyxq;
+    }
+
+    /**
+     * 签证有效期
+     * @param qzyxq 签证有效期
+     */
+    public void setQzyxq(Date qzyxq) {
+        this.qzyxq = qzyxq;
+    }
+
+    /**
+     * null
+     * @return HR null
      */
     public String getHr() {
         return hr;
     }
 
     /**
-     * 是否是HR ，Y从HR导入
-     * @param hr 是否是HR ，Y从HR导入
+     * null
+     * @param hr null
      */
     public void setHr(String hr) {
         this.hr = hr == null ? null : hr.trim();
@@ -592,7 +636,7 @@ public class ForeignTeacher {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-04-24
      */
     @Override
     public String toString() {
@@ -623,6 +667,8 @@ public class ForeignTeacher {
         sb.append(", gzsjStart=").append(gzsjStart);
         sb.append(", gzsjEnd=").append(gzsjEnd);
         sb.append(", phone=").append(phone);
+        sb.append(", qzlx=").append(qzlx);
+        sb.append(", qzyxq=").append(qzyxq);
         sb.append(", hr=").append(hr);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

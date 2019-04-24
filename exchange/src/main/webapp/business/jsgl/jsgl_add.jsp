@@ -146,6 +146,21 @@
                                 </div>
                             </div>
 
+
+                                <div class="form-group">
+                                    <label class="col-xs-2 control-label "> 签证类型: </label>
+                                    <div class="col-xs-4">
+                                        <dm:list tabName="T_DM_WJJSQZ" type="select"  name="qzlx" id="qzlx" data-placeholder="签证类型" placeholder="签证类型" ></dm:list>
+                                    </div>
+
+                                    <label class="col-xs-2 control-label "> 签证有效期: </label>
+
+                                    <div class="col-xs-4">
+                                        <input class="form-control date-picker" name="qzyxq" id="qzyxq"
+                                               value="<fmt:formatDate value="${qzyxq}" pattern="yyyy-MM-dd"/>" type="text" data-date-format="yyyy-mm-dd" />
+                                    </div>
+                                </div>
+
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 汉语水平: </label>
                                 <div class="col-xs-4">
