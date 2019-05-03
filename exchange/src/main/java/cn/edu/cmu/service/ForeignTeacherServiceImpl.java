@@ -1,11 +1,13 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.ForeignTeacherMapper;
-import cn.edu.cmu.domain.ForeignTeacher;
-import cn.edu.cmu.domain.ForeignTeacherParams;
+import cn.edu.cmu.dao.UploadMapper;
+import cn.edu.cmu.dao.WjjsZjxxMapper;
+import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.web.BaseService;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,12 @@ import java.util.List;
 @Service
 public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, ForeignTeacherParams, ForeignTeacherMapper> implements ForeignTeacherService {
 
+
+    @Autowired
+    UploadMapper uploadDao;
+
+    @Autowired
+    WjjsZjxxMapper zjDao;
 
     @Override
     public List list(ForeignTeacher foreignTeacher) {
@@ -74,5 +82,32 @@ public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, Forei
             return true;
         }
         return false;
+    }
+
+    @Override
+    public boolean uploadZj(List<Upload> uploads, List<WjjsZjxx> zjs) {
+
+        int count = 0;
+
+        for (Upload upload : uploads) {
+            count += uploadDao.insertSelective(upload);
+        }
+
+        for (WjjsZjxx zj : zjs) {
+            count += zjDao.insertSelective(zj);
+        }
+
+
+        return count == uploads.size()*2;
+    }
+
+    @Override
+    public List<WjjsZjxx> queryZjs(String tid) {
+
+
+        WjjsZjxxParams param = new WjjsZjxxParams();
+        param.createCriteria().andTidEqualTo(tid);
+        List zjs = zjDao.selectByExample(param);
+        return zjs;
     }
 }

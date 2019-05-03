@@ -191,7 +191,7 @@
                     if('uploadCall' in parent.window){
                         parent.window.uploadCall();
                     }
-                    parent.layer.alert("上传成功","shancghuancheng");
+                    parent.layer.alert("上传成功...");
                 }else{
                     parent.layer.alert("上传失败 :"+ret.msg);
                 }

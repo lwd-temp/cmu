@@ -104,7 +104,7 @@
         var settings = {
             caption: "教师管理",
             url:'wjjs/list',
-            colNames:['ID','姓','名','中文姓名','性别', '国籍', '出生日期','婚姻状况',"操作"],
+            colNames:['ID','姓','名','中文姓名','性别', '国籍', '出生日期','证件管理',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -143,7 +143,10 @@
                             return new Date(time).getYmd("yyyy-MM-dd");
                         }
                     }  },
-                {name:'hyzk',index:'hyzk',  },
+                {name:'tid',index:'tid', formatter:function(tid, options, rowObject){
+                        return '<button class="btn btn-white btn-mini btn-bold" onclick="zjsc(\''+tid+'\')"><i class="ace-icon fa fa-floppy-o blue"></i>上传</button>' +
+                            '&nbsp;<button class="btn btn-blue btn-mini btn-bold" title="查看" onclick="zjgl(\''+tid+'\')"><i class="ace-icon fa fa-floppy-o blue"></i>管理</button>';
+                    } },
 
 
                 {name:'tid',index:'', fixed:true, sortable:false, resize:true,
@@ -227,6 +230,24 @@
                 }
             }
         })
+    }
+
+    function zjsc(tid){
+
+        layer.newpage({
+            area: ['800px',"550px"],
+            title:'上传证件',
+            content:'business/jsgl/jsgl_zjsc.jsp?tid='+tid
+        });
+    }
+
+    function zjgl(tid){
+
+        layer.newpage({
+            area: ['800px',"550px"],
+            title:'证件管理',
+            content:'wjjs/toShowZj?tid='+tid
+        });
     }
 
 </script>

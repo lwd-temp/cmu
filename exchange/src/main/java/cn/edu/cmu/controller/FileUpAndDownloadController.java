@@ -154,7 +154,7 @@ public class FileUpAndDownloadController extends BaseController {
         Upload upload = uploadService.queryById(fileId);
 
         String absolutePath = BASE_DIR + upload.getUploadPath(); //完整的上传路径
-        logger.debug("下载文件对应的完成路径为："+absolutePath);
+        logger.debug("下载文件对应的完成路为："+absolutePath);
 
         File file = new File(absolutePath);
 

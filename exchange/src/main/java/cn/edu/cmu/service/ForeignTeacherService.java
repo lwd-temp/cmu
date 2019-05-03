@@ -13,7 +13,11 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.domain.ForeignTeacher;
 import cn.edu.cmu.domain.ForeignTeacherParams;
+import cn.edu.cmu.domain.Upload;
+import cn.edu.cmu.domain.WjjsZjxx;
 import cn.edu.cmu.framework.web.IBaseService;
+
+import java.util.List;
 
 /**
  * 用户操作的 业务的抽象
@@ -23,5 +27,9 @@ import cn.edu.cmu.framework.web.IBaseService;
 public interface ForeignTeacherService extends IBaseService<ForeignTeacher, ForeignTeacherParams> {
 
     boolean deleteMulti(String[] ids) throws Exception;
+
+    boolean uploadZj(List<Upload> uploads, List<WjjsZjxx> zjs);
+
+    List<WjjsZjxx> queryZjs(String tid);
 }
 
