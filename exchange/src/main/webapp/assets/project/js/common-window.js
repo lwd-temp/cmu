@@ -1,3 +1,13 @@
+/***
+ * 全局变量
+ * @returns {number}
+ */
+
+
+var  player = parent.layer;
+
+
+
 //js随机
 Math.rnd = function () {
     var rnd = this.random();
@@ -28,8 +38,8 @@ Date.prototype.diffDay = function(otherDay){
 //弹出层，关闭自身
 function closeLayer() {
 
-    var index = parent.layer.getFrameIndex(window.name);
-    parent.layer.close(index);
+    var index =player.getFrameIndex(window.name);
+    player.close(index);
 
 }
 
@@ -39,8 +49,20 @@ function closeLayer() {
  * @param msg
  * @param setting
  */
-function winAlert(msg, setting) {
-    parent.layer.alert(msg, setting);
+function winAlert(msg, setting,callback) {
+    if(setting && typeof(setting) =='function'){
+        callback = setting;
+        setting = {closeBtn: 0};
+    }
+
+    var index = player.alert(msg, setting,function(){
+
+        player.close(index);
+
+        callback();
+    });
+
+    return index;
 }
 
 /**
@@ -81,10 +103,10 @@ $.ajaxSetup({
     dataType: 'json',
     traditional: true,
     beforeSend: function () {
-        ajaxIndex = parent.layer.loading();
+        ajaxIndex = player.loading();
     },
     complete: function (XHR, TS) {
-        parent.layer.close(ajaxIndex);
+        player.close(ajaxIndex);
     }
 });
 
@@ -110,7 +132,7 @@ $.fn.extend({
 
                     eleId = eleId + "_chosen";
                 }
-                layer.tips(text, "#" + eleId, {
+                tips(text, "#" + eleId, {
                     tips: [3, '#78BA32'],
                     tipsMore: true,
                     time: 2700
