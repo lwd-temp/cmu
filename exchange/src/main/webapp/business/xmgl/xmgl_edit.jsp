@@ -200,7 +200,7 @@
                                 <div class="col-xs-4">
 
 
-                                    <dm:list sourceList="${zyList}"  value="${xm.xmzyxz}"  id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
+                                    <dm:list sourceList="${zyList}"  value="${xm.xmzyxz}" multiple="multiple" headerKey="-1" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
 
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
                                         <option value="2014" >临床医学</option>
