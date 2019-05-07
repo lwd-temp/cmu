@@ -153,12 +153,22 @@
 <script>
 
 
-
     function showOnWin(tid,zjms){
 
         window.open('sys/file/download?fileId='+tid+'&fileName='+zjms);
 
     }
+
+
+    $(function(){
+
+        $("#btnClose").click(function(){
+
+            closeLayer();
+
+        })
+
+    })
 
 
 </script>
