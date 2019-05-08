@@ -132,7 +132,7 @@ $.fn.extend({
 
                     eleId = eleId + "_chosen";
                 }
-                tips(text, "#" + eleId, {
+                layer.tips(text, "#" + eleId, {
                     tips: [3, '#78BA32'],
                     tipsMore: true,
                     time: 2700
