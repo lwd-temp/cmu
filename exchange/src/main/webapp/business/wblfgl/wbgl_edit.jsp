@@ -158,7 +158,7 @@
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
-                        <input class="form-control"  id="memo" name="wbjdSq.memo" readonly=readonly  value="${wbjdSq.memo}" type="text"  style="height: 70px;" />
+                        <input class="form-control"  id="memo" name="wbjdSq.memo"  value="${wbjdSq.memo}" type="text"  style="height: 70px;" />
                     </div>
                 </div>
             </div>
@@ -348,6 +348,13 @@
         jdlxfunction(val);
 
         setFormValid();//设置校验规则
+
+
+
+        //是否邀请校领导， 选是，提示在备注中输入校领导的名字
+        $('input[name="wbjdSq.ynYqxld"][value="Y"]').click(function(){
+            layer.msg("请在备注中输入受邀校领导的姓名");
+        });
 
         $("#jdlx").change(function(){
             var $select = $(this);
@@ -568,7 +575,7 @@
         var ynBbssgabm_value = $("#ynBbssgabm_value").val();
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
 
-        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+        //$("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
     }
 </script>
 </body>

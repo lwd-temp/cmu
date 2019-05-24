@@ -18,6 +18,7 @@ import java.util.Map;
 public class CodeTag extends  BaseTag {
 
     public String tabName = "";
+    public String id = "";
     public String name = "";
     public String value = "";
     public String type="select";
@@ -84,6 +85,16 @@ public class CodeTag extends  BaseTag {
 
     public void setHeaderValue(String headerValue) {
         this.headerValue = headerValue;
+    }
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
     }
 
     @Override

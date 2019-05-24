@@ -129,7 +129,7 @@
                 <div class="form-group">
                     <label class="col-xs-2 control-label "> 是否邀请校领导: </label>
                     <div class="col-xs-4">
-                        <dm:list tabName="t_dm_yn" name="wbjdSq.ynYqxld" type="radio" onclick="getRadio(this)" data-placeholder="请选是否邀请校领导"></dm:list>
+                        <dm:list tabName="t_dm_yn" id="ynYqxld" name="wbjdSq.ynYqxld" type="radio" onclick="getRadio(this)" data-placeholder="请选是否邀请校领导"></dm:list>
                     </div>
                     <label class="col-xs-2 control-label "> 是否获学院同意: </label>
                     <div class="col-xs-4">
@@ -149,7 +149,7 @@
                 <div class="form-group ">
                     <label class="col-xs-2 control-label "> 备注: </label>
                     <div class="col-xs-10">
-                        <input class="form-control" id="memo" name="wbjdSq.memo" value="" readonly=readonly type="text" style="height: 70px;"/>
+                        <input class="form-control" id="memo" name="wbjdSq.memo" value=""  type="text" style="height: 70px;"/>
                     </div>
                 </div>
             </div>
@@ -327,6 +327,11 @@
         $(".qtmd").hide();
 
         setFormValid();//设置校验规则
+
+        //是否邀请校领导， 选是，提示在备注中输入校领导的名字
+        $('input[name="wbjdSq.ynYqxld"][value="Y"]').click(function(){
+            layer.msg("请在备注中输入受邀校领导的姓名");
+        });
 
         $("#jdlx").change(function () {
             var $select = $(this);
@@ -566,7 +571,7 @@
         var ynXyty_value = $("#ynXyty_value").val();
         var ynBbssgabm_value = $("#ynBbssgabm_value").val();
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
-        $("#memo").val(ynYqxld_value + '   ' + ynXyty_value + '   ' + ynBbssgabm_value + '   ' + ynBbssxcbm_value);
+        //$("#memo").val(ynYqxld_value + '   ' + ynXyty_value + '   ' + ynBbssgabm_value + '   ' + ynBbssxcbm_value);
     }
 </script>
 </body>
