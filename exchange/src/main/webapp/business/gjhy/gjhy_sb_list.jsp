@@ -63,29 +63,47 @@
             }
         })
 
+        /**
+         * 会议申报
+         */
+        function sbhy(){
+            var confirmIndex = layer.confirm("是否填写过会议计划",{
+                btn:["选择计划后填报","无计划立即申报"]
+            },function(){//选择计划后填报
+                layer.close(confirmIndex);
+                //alert(confirmIndex);
+                var index = layer.newpage({
+                    area: ['1100px',"830px"],
+                    title:'选择申报的会议计划',
+                    content:'business/gjhy/gjhy_jh_list_select.jsp',
+                });
+
+            },function(){//无计划立即申报
+                layer.close(confirmIndex);
+                layer.newpage({
+                    area: ['1100px',"750px"],
+                    title:'申报会议',
+                    content:'business/gjhy/gjhy_sb_add.jsp',
+                });
+            })
+        }
+
         //自定义 按钮
         var navBtns = [
             {
                 caption:"申报会议",
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
-                    var confirmIndex = layer.confirm("是否填写过会议计划",{
-                        btn:["选择计划后填报","无计划立即申报"]
-                    },function(){//选择计划后填报
-                        layer.close(confirmIndex);
-                        //alert(confirmIndex);
-                        var index = layer.newpage({
-                            area: ['1100px',"830px"],
-                            title:'选择申报的会议计划',
-                            content:'business/gjhy/gjhy_jh_list_select.jsp',
-                        });
+                    layer.confirm("请确认会议是否涉及一中一台问题？",{
+                        btn:["无涉及","有涉及"]
+                    },function(index){//选择计划后填报
+                        layer.close(index);
+                        sbhy();
+                    },function(index){//无计划立即申报
 
-                    },function(){//无计划立即申报
-                        layer.close(confirmIndex);
-                        layer.newpage({
-                            area: ['1100px',"750px"],
-                            title:'申报会议',
-                            content:'business/gjhy/gjhy_sb_add.jsp',
+                        layer.close(index);
+                        layer.alert("因涉及一中一台问题，不允许申请会议", {icon: 7, title:'信息提示'}, function(index){
+                            layer.close(index);
                         });
                     })
                 }
