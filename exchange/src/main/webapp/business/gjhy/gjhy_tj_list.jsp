@@ -8,27 +8,44 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 
+
 <div >
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
 
-            <label class="col-sm-1 control-label no-padding-right" for="condition1"> 会议编号: </label>
-            <div class="col-sm-2">
-                <input type="text"  id="condition1"  placeholder="请输入会议编号" class="col-xs-12" />
+
+            <div class="col-sm-4">
+                会议编号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  id="condition1"  placeholder="请输入会议编号" class="" />
             </div>
 
-            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 会议名称: </label>
-            <div class="col-sm-2">
-                <input type="text"  id="condition2"  placeholder="请输入会议名称" class="col-xs-12" />
+            <div class="col-sm-4">
+                会议名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text"  id="condition2"  placeholder="请输入会议名称" class="" />
             </div>
 
-            <label class="col-sm-2 control-label no-padding-right"  > 会议类型: </label>
-            <div class="col-sm-2">
-                <dm:list tabName="T_DM_HYLX" id="condition3" name="hylx" ></dm:list>
+            <div class="col-sm-4">
+                会议类型:<dm:list tabName="T_DM_HYLX" id="condition3" name="hylx"  style="width:70%;display:inline"></dm:list>
             </div>
 
-            <div class="col-sm-1">
+
+        </div>
+
+        <div class="form-group">
+
+
+            <div class="col-sm-4">
+                会议日期从:
+                <input class="form-control date-picker" style="width:70%;display:inline" id="condition4" name="condition4"  placeholder="举办会议日期"     type="text" data-date-format="yyyy-mm-dd"/>
+            </div>
+
+
+            <div class="col-sm-4">
+                到会议日期:
+                <input class="form-control date-picker" style="width:70%;display:inline" id="condition5" name="condition5"  placeholder="举办会议日期（终止）"     type="text" data-date-format="yyyy-mm-dd"/>
+
+            </div>
+
+            <div class="col-sm-4">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -52,6 +69,14 @@
 
 
     $(function() {
+
+        //日期控件
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+
+
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -138,7 +163,9 @@
             postData:{
                 'hybh':$("#condition1").val(),
                 'hymc':$("#condition2").val(),
-                'hylx':$("#condition3").val()
+                'hylx':$("#condition3").val(),
+                'jxrqKs':$("#condition4").val(),
+                'jxrqJs':$("#condition5").val()
             },
             page:1
         }).trigger("reloadGrid");
