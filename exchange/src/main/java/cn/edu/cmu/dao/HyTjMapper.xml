@@ -41,22 +41,34 @@
                 on jh.jhid = sb.jhid
                 left join t_hy_zj zj
                 on sb.sbid = zj.sbid
+
+            <where>
+                <if test="param!=null">
+                    <if test="param.hybh!=null and param.hybh != '' ">
+                        <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
+                        and hybh like   #{hybhLike,jdbcType=VARCHAR}
+                    </if>
+                    <if test="param.hymc!=null and param.hymc != '' ">
+                        <bind name="hymcLike" value="'%' + param.hymc + '%'"/>
+                        and hymc like   #{hymcLike,jdbcType=VARCHAR}
+                    </if>
+
+                    <if test="param.hylx!=null and param.hylx != '' ">
+                        and hylx = #{param.hylx,jdbcType=VARCHAR}
+                    </if>
+
+
+                    <if test="param.jxrqKs!=null">
+                        and decode(sb.jxrq_ks, null, jh.jxrq_ks, sb.jxrq_ks) &gt;= #{param.jxrqKs,jdbcType=VARCHAR}
+                    </if>
+
+                    <if test="param.jxrqJs!=null">
+                        and decode(sb.jxrq_js, null, jh.jxrq_js, sb.jxrq_js) &lt;= #{param.jxrqJs,jdbcType=VARCHAR}
+                    </if>
+                </if>
+            </where>
         )
-        <where>
-            <if test="param!=null">
-                <if test="param.hybh!=null and param.hybh != '' ">
-                     <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
-                    and hybh like   #{hybhLike,jdbcType=VARCHAR}
-                </if>
-                <if test="param.hymc!=null and param.hymc != '' ">
-                    <bind name="hymcLike" value="'%' + param.hymc + '%'"/>
-                    and hymc like   #{hymcLike,jdbcType=VARCHAR}
-                </if>
-                <if test="param.hylx!=null and param.hylx != '' ">
-                    and hylx = #{param.hylx,jdbcType=VARCHAR}
-                </if>
-            </if>
-        </where>
+
 
         order by ${orderCol} ${orderType}
     </select>
