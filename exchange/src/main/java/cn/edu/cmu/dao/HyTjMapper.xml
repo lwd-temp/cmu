@@ -46,15 +46,15 @@
                 <if test="param!=null">
                     <if test="param.hybh!=null and param.hybh != '' ">
                         <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
-                        and hybh like   #{hybhLike,jdbcType=VARCHAR}
+                        and jh.hybh like   #{hybhLike,jdbcType=VARCHAR}
                     </if>
                     <if test="param.hymc!=null and param.hymc != '' ">
                         <bind name="hymcLike" value="'%' + param.hymc + '%'"/>
-                        and hymc like   #{hymcLike,jdbcType=VARCHAR}
+                        and jh.hymc like   #{hymcLike,jdbcType=VARCHAR}
                     </if>
 
                     <if test="param.hylx!=null and param.hylx != '' ">
-                        and hylx = #{param.hylx,jdbcType=VARCHAR}
+                        and jh.hylx = #{param.hylx,jdbcType=VARCHAR}
                     </if>
 
 
