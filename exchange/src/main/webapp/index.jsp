@@ -24,6 +24,9 @@
 		<link rel="stylesheet" href="assets/css/jquery-ui.css" />
 		<link rel="stylesheet" href="assets/css/ui.jqgrid.css" />
 
+		<link rel="stylesheet" href="assets/css/bootstrap-datepicker3.css"/>
+
+
 
 		<!-- text fonts -->
 		<link rel="stylesheet" href="assets/css/ace-fonts.css" />

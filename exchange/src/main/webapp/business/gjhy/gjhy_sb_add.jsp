@@ -204,7 +204,7 @@
                                 <label class="col-xs-2 control-label "> 会议背景及必要性: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="hysb.bjjbyx" id="bjjbyx"
-                                              placeholder="会议背景及必要性" maxlength="500">${hysb.bjjbyx}</textarea>
+                                              placeholder="会议背景及必要性(请描述会议中涉及的所有组织无涉台问题)" maxlength="500">${hysb.bjjbyx}</textarea>
                                 </div>
                             </div>
                             <hr/>
@@ -345,6 +345,7 @@
 
 <script>
     var validator = null;
+
     function setFormValid() {
         validator =  $("#form").setValid({
             //校验规则
@@ -374,6 +375,13 @@
 
     $(function () {
         setFormValid();
+
+        $("#bjjbyx").focus(function(){
+            // layer.tips('请描述会议中涉及的所有组织无涉台问题', '#bjjbyx');
+            layer.tips('请描述会议中涉及的所有组织无涉台问题', '#bjjbyx', {
+                tips: [1, '#0FA6D8'] //还可配置颜色
+            });
+        })
 
         //修改会议类型
         change_hylx($('#hylx'));

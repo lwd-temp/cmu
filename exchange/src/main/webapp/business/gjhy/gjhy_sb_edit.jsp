@@ -343,6 +343,8 @@
 <script>
     var validator = null;
 
+
+
     function setFormValid() {
         validator = $("#form").setValid({
             //校验规则
@@ -372,6 +374,13 @@
 
     $(function () {
         setFormValid();
+
+        $("#bjjbyx").focus(function(){
+            // layer.tips('请描述会议中涉及的所有组织无涉台问题', '#bjjbyx');
+            layer.tips('请描述会议中涉及的所有组织无涉台问题', '#bjjbyx', {
+                tips: [1, '#0FA6D8'] //还可配置颜色
+            });
+        })
 
         //修改会议类型
         change_hylx($('#hylx'));
