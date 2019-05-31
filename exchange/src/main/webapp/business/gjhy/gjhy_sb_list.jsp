@@ -151,7 +151,8 @@
                             btns = "<button class='btn btn-info btn-mini' title='编辑' onclick='editHysb(\""+id+"\")' ><i class='ace-icon fa fa-pencil'>编辑</i></button>" +
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delHysb(\""+id+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else{
-                            btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo(\""+id+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>";
+                            btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo(\""+id+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>"+
+                            "&nbsp;&nbsp;<button class='btn btn-success btn-mini' onclick='downloadSbInfo(\""+id+"\")' title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
 
                         }
                         return btns;
@@ -227,6 +228,10 @@
             title:'查看会议申报信息',
             content:'hysb/toEdit?type=show&id='+sbid,
         });
+    }
+
+    function downloadSbInfo(id){
+        layer.alert('申报id：'+id);
     }
 
 </script>
