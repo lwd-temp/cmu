@@ -77,10 +77,10 @@
                 {name:'hymc',index:'hymc',  },
                 {name:'zbdw',index:'zbdw',  },
                 {name:'cbdw',index:'cbdw',  },
-                {name:'jxrqKs',index:'jxrqKs', formatter:function(jxrqKs){
+                {name:'jxrqKs',index:'jxrq_ks', formatter:function(jxrqKs){
                         return new Date(jxrqKs).getYmd("yyyy年MM月dd日")
                     } },
-                {name:'jxrqJs',index:'jxrqJs', formatter:function(jxrqJs){
+                {name:'jxrqJs',index:'jxrq_js', formatter:function(jxrqJs){
                         return new Date(jxrqJs).getYmd("yyyy年MM月dd日")
                     } },
                 {name:'jfly',index:'jfly',  },
