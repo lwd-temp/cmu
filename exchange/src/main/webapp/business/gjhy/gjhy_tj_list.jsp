@@ -108,10 +108,10 @@
                 {name:'hybh',index:'hybh',  },
                 {name:'hymc',index:'hymc',  },
 
-                {name:'jxrqKs',index:'jxrqKs',formatter:function(jxrqKs){
+                {name:'jxrqKs',index:'jxrq_ks',formatter:function(jxrqKs){
                         return new Date(jxrqKs).getYmd("yyyy-MM-dd");
                     }  },
-                {name:'jxrqJs',index:'jxrqJs',formatter:function(jxrqJs){
+                {name:'jxrqJs',index:'jxrq_js',formatter:function(jxrqJs){
                         return new Date(jxrqJs).getYmd("yyyy-MM-dd");
                     }  },
                 {name:'jfly',index:'jfly',  },
@@ -135,10 +135,7 @@
                             return "未总结";
                         }
                 }  },
-
-
             ]
-
         }
 
 
