@@ -71,14 +71,14 @@
             pager:pager_selector,
             colModel:[
                 {name:'dbtmc',index:'dbtmc'},
-                {name:'lfsjStart',index:'lfsjStart',formatter:function(lfsjStart, options, rowObject){
+                {name:'lfsjStart',index:'lfsj_start',formatter:function(lfsjStart, options, rowObject){
                     if(lfsjStart==null){
                         return '';
                     }else{
                         return new Date(lfsjStart).getYmd("yyyy-MM-dd");
                     }
                 }},
-                {name:'lfsjEnd',index:'lfsjEnd',formatter:function(lfsjEnd, options, rowObject){
+                {name:'lfsjEnd',index:'lfsj_end',formatter:function(lfsjEnd, options, rowObject){
                     if(lfsjEnd==null){
                         return '';
                     }else{

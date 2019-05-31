@@ -184,6 +184,8 @@
                                         <option value="2016" >检验学</option>
                                     </select>--%>
                                 </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-xs-2 control-label "> 语言要求: </label>
                                 <div class="col-xs-4">
                                     <dm:list tabName="t_dm_yy" value="" id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>

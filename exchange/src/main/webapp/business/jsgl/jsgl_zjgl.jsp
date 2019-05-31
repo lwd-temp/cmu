@@ -95,7 +95,7 @@
                                 <div class="form-group">
 
                                     <div class="col-xs-10">
-                                        <img style="max-height: 300px;cursor: pointer" src="sys/file/download?fileId=${zj.fid}&fileName=${zj.zjms}" title="点击查看大图" onclick="showOnWin('${zj.fid}','${zj.zjms}')">
+                                        <img style="max-height: 300px;cursor: pointer" src="sys/file/download?fileId=${zj.fid}&fileName=${zj.zjms}" title="点击下载" onclick="showOnWin('${zj.fid}','${zj.zjms}')">
                                     </div>
                                 </div>
                                 <hr/>
