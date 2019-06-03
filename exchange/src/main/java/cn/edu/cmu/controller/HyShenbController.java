@@ -1,9 +1,7 @@
 package cn.edu.cmu.controller;
 
-import cn.edu.cmu.domain.HyJh;
-import cn.edu.cmu.domain.HyRymd;
-import cn.edu.cmu.domain.HySbrymd;
-import cn.edu.cmu.domain.HyShenb;
+import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HyJhService;
 import cn.edu.cmu.service.HySbrymdService;
@@ -12,6 +10,7 @@ import cn.edu.cmu.vo.HysbVO;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -170,6 +172,16 @@ public class HyShenbController extends BaseController {
         boolean success = hyShenbService.updateById(shenb);
 
         return super.ajaxStatus(success);
+    }
+
+
+    /**
+     * 会议申报下载
+     */
+    @RequestMapping("/download")
+    public void export(String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        hyShenbService.download(id,request,response);
     }
 
 

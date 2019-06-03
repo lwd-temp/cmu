@@ -21,10 +21,10 @@ public interface BaseMapper<DomainParams> {
     int insertSelective(Object record);
 
 
-    List<Object> selectByExample(DomainParams params);
+    <T> List<T> selectByExample(DomainParams params);
 
 
-    Object selectByPrimaryKey(String keyId);
+    <T> T selectByPrimaryKey(String keyId);
 
 
     int updateByExampleSelective(@Param("record") Object record, @Param("example") DomainParams params);

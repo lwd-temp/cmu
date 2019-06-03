@@ -230,8 +230,12 @@
         });
     }
 
-    function downloadSbInfo(id){
-        layer.alert('申报id：'+id);
+    /**
+     * 会议申报信息下载
+     * @param sbid
+     */
+    function downloadSbInfo(sbid){
+        window.open('hysb/download?id='+sbid);
     }
 
 </script>
