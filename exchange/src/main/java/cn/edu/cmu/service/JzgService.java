@@ -12,4 +12,5 @@ import cn.edu.cmu.framework.web.IBaseService;
  * @Version 1.0
  */
 public interface JzgService extends IBaseService<Jzg, JzgParams> {
+    boolean validate(String gh);
 }

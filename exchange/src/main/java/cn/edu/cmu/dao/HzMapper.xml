@@ -5,6 +5,7 @@
     <constructor >
       <idArg column="HZID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="HZHM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GH" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GENDER" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -33,9 +34,9 @@
       <arg column="CFRW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="BZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
-      <arg column="BZ" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -141,9 +142,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    HZID, HZHM, XM, GENDER, GJ, BIRTHDAY, CSDD, QFRQ, QFDD, YXQZ, FZJG, HZLX, JCSJ, DCWFQZHM_MG, 
-    DCWFQZHM_OZ, DCWFQZHM_JND, DCWFQZHM_QT, CFNR, QZHM, DW, ZW, ZC, CFSJ_CJ, CFSJ_RJ, 
-    GHSJ, QZSJ, CFMD, CFRW, JFLY, STATUS, VALID, CREATE_TIME, BZ
+    HZID, HZHM, GH, XM, GENDER, GJ, BIRTHDAY, CSDD, QFRQ, QFDD, YXQZ, FZJG, HZLX, JCSJ, 
+    DCWFQZHM_MG, DCWFQZHM_OZ, DCWFQZHM_JND, DCWFQZHM_QT, CFNR, QZHM, DW, ZW, ZC, CFSJ_CJ, 
+    CFSJ_RJ, GHSJ, QZSJ, CFMD, CFRW, JFLY, STATUS, BZ, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzParams" >
     select
@@ -177,8 +178,8 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.Hz" >
-    insert into T_HZ (HZID, HZHM, XM, 
-      GENDER, GJ, BIRTHDAY, 
+    insert into T_HZ (HZID, HZHM, GH, 
+      XM, GENDER, GJ, BIRTHDAY, 
       CSDD, QFRQ, QFDD, 
       YXQZ, FZJG, HZLX, 
       JCSJ, DCWFQZHM_MG, DCWFQZHM_OZ, 
@@ -186,10 +187,10 @@
       QZHM, DW, ZW, ZC, 
       CFSJ_CJ, CFSJ_RJ, GHSJ, 
       QZSJ, CFMD, CFRW, 
-      JFLY, STATUS, VALID, 
-      CREATE_TIME, BZ)
-    values (#{hzid,jdbcType=VARCHAR}, #{hzhm,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
-      #{gender,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      JFLY, STATUS, BZ, VALID, 
+      CREATE_TIME)
+    values (#{hzid,jdbcType=VARCHAR}, #{hzhm,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, 
+      #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
       #{csdd,jdbcType=VARCHAR}, #{qfrq,jdbcType=TIMESTAMP}, #{qfdd,jdbcType=VARCHAR}, 
       #{yxqz,jdbcType=TIMESTAMP}, #{fzjg,jdbcType=VARCHAR}, #{hzlx,jdbcType=VARCHAR}, 
       #{jcsj,jdbcType=TIMESTAMP}, #{dcwfqzhmMg,jdbcType=VARCHAR}, #{dcwfqzhmOz,jdbcType=VARCHAR}, 
@@ -197,8 +198,8 @@
       #{qzhm,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{zc,jdbcType=VARCHAR}, 
       #{cfsjCj,jdbcType=TIMESTAMP}, #{cfsjRj,jdbcType=TIMESTAMP}, #{ghsj,jdbcType=TIMESTAMP}, 
       #{qzsj,jdbcType=TIMESTAMP}, #{cfmd,jdbcType=VARCHAR}, #{cfrw,jdbcType=VARCHAR}, 
-      #{jfly,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{bz,jdbcType=VARCHAR})
+      #{jfly,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Hz" >
     insert into T_HZ
@@ -208,6 +209,9 @@
       </if>
       <if test="hzhm != null" >
         HZHM,
+      </if>
+      <if test="gh != null" >
+        GH,
       </if>
       <if test="xm != null" >
         XM,
@@ -293,14 +297,14 @@
       <if test="status != null" >
         STATUS,
       </if>
+      <if test="bz != null" >
+        BZ,
+      </if>
       <if test="valid != null" >
         VALID,
       </if>
       <if test="createTime != null" >
         CREATE_TIME,
-      </if>
-      <if test="bz != null" >
-        BZ,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -309,6 +313,9 @@
       </if>
       <if test="hzhm != null" >
         #{hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null" >
+        #{gh,jdbcType=VARCHAR},
       </if>
       <if test="xm != null" >
         #{xm,jdbcType=VARCHAR},
@@ -394,14 +401,14 @@
       <if test="status != null" >
         #{status,jdbcType=VARCHAR},
       </if>
+      <if test="bz != null" >
+        #{bz,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="bz != null" >
-        #{bz,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -419,6 +426,9 @@
       </if>
       <if test="record.hzhm != null" >
         HZHM = #{record.hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gh != null" >
+        GH = #{record.gh,jdbcType=VARCHAR},
       </if>
       <if test="record.xm != null" >
         XM = #{record.xm,jdbcType=VARCHAR},
@@ -504,14 +514,14 @@
       <if test="record.status != null" >
         STATUS = #{record.status,jdbcType=VARCHAR},
       </if>
+      <if test="record.bz != null" >
+        BZ = #{record.bz,jdbcType=VARCHAR},
+      </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="record.bz != null" >
-        BZ = #{record.bz,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -522,6 +532,7 @@
     update T_HZ
     set HZID = #{record.hzid,jdbcType=VARCHAR},
       HZHM = #{record.hzhm,jdbcType=VARCHAR},
+      GH = #{record.gh,jdbcType=VARCHAR},
       XM = #{record.xm,jdbcType=VARCHAR},
       GENDER = #{record.gender,jdbcType=VARCHAR},
       GJ = #{record.gj,jdbcType=VARCHAR},
@@ -550,9 +561,9 @@
       CFRW = #{record.cfrw,jdbcType=VARCHAR},
       JFLY = #{record.jfly,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
+      BZ = #{record.bz,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      BZ = #{record.bz,jdbcType=VARCHAR}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -562,6 +573,9 @@
     <set >
       <if test="hzhm != null" >
         HZHM = #{hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="gh != null" >
+        GH = #{gh,jdbcType=VARCHAR},
       </if>
       <if test="xm != null" >
         XM = #{xm,jdbcType=VARCHAR},
@@ -647,14 +661,14 @@
       <if test="status != null" >
         STATUS = #{status,jdbcType=VARCHAR},
       </if>
+      <if test="bz != null" >
+        BZ = #{bz,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      </if>
-      <if test="bz != null" >
-        BZ = #{bz,jdbcType=VARCHAR},
       </if>
     </set>
     where HZID = #{hzid,jdbcType=VARCHAR}
@@ -662,6 +676,7 @@
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.Hz" >
     update T_HZ
     set HZHM = #{hzhm,jdbcType=VARCHAR},
+      GH = #{gh,jdbcType=VARCHAR},
       XM = #{xm,jdbcType=VARCHAR},
       GENDER = #{gender,jdbcType=VARCHAR},
       GJ = #{gj,jdbcType=VARCHAR},
@@ -690,9 +705,9 @@
       CFRW = #{cfrw,jdbcType=VARCHAR},
       JFLY = #{jfly,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
+      BZ = #{bz,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      BZ = #{bz,jdbcType=VARCHAR}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where HZID = #{hzid,jdbcType=VARCHAR}
   </update>
 </mapper>

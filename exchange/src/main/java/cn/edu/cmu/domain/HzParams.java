@@ -22,7 +22,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public HzParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2019-04-10
+     * T_HZ 2019-06-03
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -298,6 +298,76 @@ public class HzParams {
 
         public Criteria andHzhmNotBetween(String value1, String value2) {
             addCriterion("HZHM not between", value1, value2, "hzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhIsNull() {
+            addCriterion("GH is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhIsNotNull() {
+            addCriterion("GH is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhEqualTo(String value) {
+            addCriterion("GH =", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhNotEqualTo(String value) {
+            addCriterion("GH <>", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhGreaterThan(String value) {
+            addCriterion("GH >", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhGreaterThanOrEqualTo(String value) {
+            addCriterion("GH >=", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhLessThan(String value) {
+            addCriterion("GH <", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhLessThanOrEqualTo(String value) {
+            addCriterion("GH <=", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhLike(String value) {
+            addCriterion("GH like", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhNotLike(String value) {
+            addCriterion("GH not like", value, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhIn(List<String> values) {
+            addCriterion("GH in", values, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhNotIn(List<String> values) {
+            addCriterion("GH not in", values, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhBetween(String value1, String value2) {
+            addCriterion("GH between", value1, value2, "gh");
+            return (Criteria) this;
+        }
+
+        public Criteria andGhNotBetween(String value1, String value2) {
+            addCriterion("GH not between", value1, value2, "gh");
             return (Criteria) this;
         }
 
@@ -2181,6 +2251,76 @@ public class HzParams {
             return (Criteria) this;
         }
 
+        public Criteria andBzIsNull() {
+            addCriterion("BZ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzIsNotNull() {
+            addCriterion("BZ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzEqualTo(String value) {
+            addCriterion("BZ =", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzNotEqualTo(String value) {
+            addCriterion("BZ <>", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzGreaterThan(String value) {
+            addCriterion("BZ >", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzGreaterThanOrEqualTo(String value) {
+            addCriterion("BZ >=", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzLessThan(String value) {
+            addCriterion("BZ <", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzLessThanOrEqualTo(String value) {
+            addCriterion("BZ <=", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzLike(String value) {
+            addCriterion("BZ like", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzNotLike(String value) {
+            addCriterion("BZ not like", value, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzIn(List<String> values) {
+            addCriterion("BZ in", values, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzNotIn(List<String> values) {
+            addCriterion("BZ not in", values, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzBetween(String value1, String value2) {
+            addCriterion("BZ between", value1, value2, "bz");
+            return (Criteria) this;
+        }
+
+        public Criteria andBzNotBetween(String value1, String value2) {
+            addCriterion("BZ not between", value1, value2, "bz");
+            return (Criteria) this;
+        }
+
         public Criteria andValidIsNull() {
             addCriterion("VALID is null");
             return (Criteria) this;
@@ -2310,76 +2450,6 @@ public class HzParams {
             addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
-
-        public Criteria andBzIsNull() {
-            addCriterion("BZ is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzIsNotNull() {
-            addCriterion("BZ is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzEqualTo(String value) {
-            addCriterion("BZ =", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzNotEqualTo(String value) {
-            addCriterion("BZ <>", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzGreaterThan(String value) {
-            addCriterion("BZ >", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzGreaterThanOrEqualTo(String value) {
-            addCriterion("BZ >=", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzLessThan(String value) {
-            addCriterion("BZ <", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzLessThanOrEqualTo(String value) {
-            addCriterion("BZ <=", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzLike(String value) {
-            addCriterion("BZ like", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzNotLike(String value) {
-            addCriterion("BZ not like", value, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzIn(List<String> values) {
-            addCriterion("BZ in", values, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzNotIn(List<String> values) {
-            addCriterion("BZ not in", values, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzBetween(String value1, String value2) {
-            addCriterion("BZ between", value1, value2, "bz");
-            return (Criteria) this;
-        }
-
-        public Criteria andBzNotBetween(String value1, String value2) {
-            addCriterion("BZ not between", value1, value2, "bz");
-            return (Criteria) this;
-        }
     }
 
     /**
@@ -2393,7 +2463,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2019-04-10
+     * T_HZ 2019-06-03
      */
     public static class Criterion {
         private String condition;

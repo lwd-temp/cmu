@@ -14,6 +14,11 @@ public class Hz {
     private String hzhm;
 
     /**
+     * 工号
+     */
+    private String gh;
+
+    /**
      * 姓名
      */
     private String xm;
@@ -154,6 +159,11 @@ public class Hz {
     private String status;
 
     /**
+     * null
+     */
+    private String bz;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -164,17 +174,13 @@ public class Hz {
     private Date createTime;
 
     /**
-     * 备注
-     */
-    private String bz;
-
-    /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
-    public Hz(String hzid, String hzhm, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String valid, Date createTime, String bz) {
+    public Hz(String hzid, String hzhm, String gh, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String bz, String valid, Date createTime) {
         this.hzid = hzid;
         this.hzhm = hzhm;
+        this.gh = gh;
         this.xm = xm;
         this.gender = gender;
         this.gj = gj;
@@ -203,14 +209,14 @@ public class Hz {
         this.cfrw = cfrw;
         this.jfly = jfly;
         this.status = status;
+        this.bz = bz;
         this.valid = valid;
         this.createTime = createTime;
-        this.bz = bz;
     }
 
     /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     public Hz() {
         super();
@@ -246,6 +252,22 @@ public class Hz {
      */
     public void setHzhm(String hzhm) {
         this.hzhm = hzhm == null ? null : hzhm.trim();
+    }
+
+    /**
+     * 工号
+     * @return GH 工号
+     */
+    public String getGh() {
+        return gh;
+    }
+
+    /**
+     * 工号
+     * @param gh 工号
+     */
+    public void setGh(String gh) {
+        this.gh = gh == null ? null : gh.trim();
     }
 
     /**
@@ -697,6 +719,22 @@ public class Hz {
     }
 
     /**
+     * null
+     * @return BZ null
+     */
+    public String getBz() {
+        return bz;
+    }
+
+    /**
+     * null
+     * @param bz null
+     */
+    public void setBz(String bz) {
+        this.bz = bz == null ? null : bz.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -729,24 +767,8 @@ public class Hz {
     }
 
     /**
-     * 备注
-     * @return BZ 备注
-     */
-    public String getBz() {
-        return bz;
-    }
-
-    /**
-     * 备注
-     * @param bz 备注
-     */
-    public void setBz(String bz) {
-        this.bz = bz == null ? null : bz.trim();
-    }
-
-    /**
      *
-     * @mbggenerated 2019-04-10
+     * @mbggenerated 2019-06-03
      */
     @Override
     public String toString() {
@@ -756,6 +778,7 @@ public class Hz {
         sb.append("Hash = ").append(hashCode());
         sb.append(", hzid=").append(hzid);
         sb.append(", hzhm=").append(hzhm);
+        sb.append(", gh=").append(gh);
         sb.append(", xm=").append(xm);
         sb.append(", gender=").append(gender);
         sb.append(", gj=").append(gj);
@@ -784,9 +807,9 @@ public class Hz {
         sb.append(", cfrw=").append(cfrw);
         sb.append(", jfly=").append(jfly);
         sb.append(", status=").append(status);
+        sb.append(", bz=").append(bz);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
-        sb.append(", bz=").append(bz);
         sb.append("]");
         return sb.toString();
     }

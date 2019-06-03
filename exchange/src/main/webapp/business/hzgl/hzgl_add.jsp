@@ -55,9 +55,9 @@
                         <form class="form-horizontal" id="form" role="form">
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 姓名: </label>
+                                <label class="col-xs-2 control-label "  > 工号: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="xm"  value="" placeholder="请输入姓名"    class="col-xs-12" />
+                                    <input type="text"  name="gh" id="gh"  value="" placeholder="工号"    class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 性别: </label>
 
@@ -67,9 +67,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 单位   : </label>
+                                <label class="col-xs-2 control-label "  > 姓名: </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="dw"  value=""  placeholder="请输入单位"  class="col-xs-12" />
+                                    <input type="text"  name="xm"  value="" placeholder="请输入姓名"    class="col-xs-12" />
                                 </div>
                                 <label class="col-xs-2 control-label "  > 职务: </label>
                                 <div class="col-xs-4">
@@ -78,14 +78,23 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 职称   : </label>
+
+                                <label class="col-xs-2 control-label "  > 单位   : </label>
                                 <div class="col-xs-4">
-                                    <input type="text"  name="zc"  value=""    placeholder="请输入职称" class="col-xs-12" />
+                                    <input type="text"  name="dw"  value=""  placeholder="请输入单位"  class="col-xs-12" />
                                 </div>
+
                                 <label class="col-xs-2 control-label "  > 签证或签注时间: </label>
                                 <div class="col-xs-4">
                                     <input class="form-control date-picker" id="qzsj" name="qzsj" value=""
                                            type="text" data-date-format="yyyy-mm-dd" placeholder="请选择签证或签注时间" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2 control-label "  > 职称   : </label>
+                                <div class="col-xs-10">
+                                    <input type="text"  name="zc"  value=""    placeholder="请输入职称" class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -273,9 +282,27 @@
             todayHighlight: true
         });
 
+        $('#gh').blur(function(){
+            var gh = this;
+            $.ajax('sys/jzg/validateGh',{
+                data:{gh:$(gh).val()},
+                dataType:'json',
+                success:function(data){
+                    if(!data || !data.success){
+                        player.alert('工号【'+$(gh).val()+'】不存在，请检查后重新输入');
+                        $(gh).val('');//清空
+                    }
+               }
+
+            });
+        });
+
         var validator = $("#form").setValid({
             //校验规则
             rules: {
+                gh: {
+                    required: true
+                },
                 xm: {
                     required: true
                 },

@@ -40,4 +40,18 @@ public class JzgServiceImpl extends BaseService<Jzg, JzgParams, JzgMapper> imple
         map.put("orderByClause", orderByClause);
         return extDao.selectList(map);
     }
+
+    /**
+     * 根据工号查询是否存在
+     * @param gh
+     * @return
+     */
+    @Override
+    public boolean validate(String gh) {
+
+        JzgParams params = new JzgParams();
+        params.createCriteria().andGhEqualTo(gh);
+
+        return dao.countByExample(params)>0;
+    }
 }

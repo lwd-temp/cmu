@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -50,6 +51,24 @@ public class JzgController extends BaseController {
         return super.pagingInfo(pageInfo,list);
     }
 
+
+    /**
+     * 验证工号 是否存在
+     * @param gh
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/validateGh")
+    public Map validate(String gh){
+
+        Map map = new HashMap();
+        map.put("success",false);
+
+        boolean success = jzgService.validate(gh);
+        map.put("success",success);
+
+        return map;
+    }
 
 
 }
