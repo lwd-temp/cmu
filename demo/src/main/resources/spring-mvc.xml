@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+        http://www.springframework.org/schema/context
+	        http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+    <mvc:annotation-driven/>
+    <context:annotation-config/>
+    <context:component-scan base-package="cn.edu.cmu"></context:component-scan>
+
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+
+    <!-- 调度工厂  但是创建的是-->
+    <bean id="schedulerFactoryBean" name="schedulerFactoryBean"  class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+
+    <!--
+        定时任务 Cron表达式 * * * * * ？ 参考如下列表
+        https://www.cnblogs.com/hongwz/p/5831036.html
+
+        在线的Cron 生成器
+        http://cron.qqe2.com/
+    -->
+    <bean id="jobManager" class="cn.edu.cmu.quartz.schedule.JobManager">
+        <property name="scheduler" ref="schedulerFactoryBean"></property>
+        <property name="jobs">
+            <list>
+
+                <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
+                    <property name="jobGroup" value="Hz"/>
+                    <property name="jobName" value="Hz-job1"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzJob"/>
+                    <property name="cronExpression" value="0/5 * * * * ?"/>
+                    <property name="desc" value="1每5秒执行一次"/>
+                </bean>
+
+                <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
+                    <property name="jobGroup" value="Hz"/>
+                    <property name="jobName" value="Hz-job2"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzJob"/>
+                    <property name="cronExpression" value="0 59 14 * * ? *"/>
+                    <property name="desc" value="2每天的14:59:00 执行"/>
+                </bean>
+
+
+            </list>
+        </property>
+    </bean>
+
+</beans>
