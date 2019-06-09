@@ -20,19 +20,14 @@ public class YmlUtils {
 
     public static Object getProperty(String key,String fileName){
         String value = null;
+
+        if(cache.containsKey(key)){
+            return cache.get(key);
+        }
+
         org.yaml.snakeyaml.Yaml yaml = new org.yaml.snakeyaml.Yaml();
         //如果读入Map,这里可以是Mapj接口,默认实现为LinkedHashMap
         Map entity = yaml.loadAs(YmlUtils.class.getResourceAsStream(fileName), Map.class);
-
-        /*entity = (Map) entity.get("sys");
-        System.out.println(entity.getClass());
-
-        String object = (String) entity.get("cache");
-        System.out.println(object);
-
-        if(1 ==1 ){
-            return null;
-        }*/
 
         if(entity == null){
             return null;
