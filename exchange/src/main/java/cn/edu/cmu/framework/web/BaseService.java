@@ -14,6 +14,7 @@ public abstract class BaseService<Domain, DomainParams, MyBatisMapper extends Ba
 
     protected Logger logger = Logger.getLogger(this.getClass());
 
+    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     protected MyBatisMapper dao;
 

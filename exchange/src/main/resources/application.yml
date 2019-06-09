@@ -34,6 +34,8 @@ sys:
       url:
 
 wx_interface:
+  switch:
+    ${ifs.wechat.switch}
   postUrl:
     http://i.cmu.edu.cn/dcp/ifs
   sysId:

@@ -29,13 +29,58 @@
     <!-- 当访问静态资源, 将请求 交给默认的 default -->
     <mvc:default-servlet-handler/>
 
-    <task:annotation-driven />
+
 
 
     <aop:aspectj-autoproxy ></aop:aspectj-autoproxy>
 
-    <!--使用maven环境替换，不用加载指定属性-->
-    <!--<context:property-placeholder location="classpath:jdbc.properties"/>-->
+
+    <context:annotation-config/>
+
+
+
+
+
+
+
+
+
+
+    <!-- 启动任务注册扫描-->
+   <!-- <task:annotation-driven />-->
+
+
+
+
+
+    <!-- 调度工厂  但是创建的是-->
+    <bean id="schedulerFactoryBean" name="schedulerFactoryBean"  class="org.springframework.scheduling.quartz.SchedulerFactoryBean"/>
+
+    <!--
+        定时任务 Cron表达式 * * * * * ？ 参考如下列表
+        https://www.cnblogs.com/hongwz/p/5831036.html
+
+        在线的Cron 生成器
+        http://cron.qqe2.com/
+    -->
+    <bean id="jobManager" class="cn.edu.cmu.quartz.schedule.JobManager">
+        <property name="scheduler" ref="schedulerFactoryBean"></property>
+        <property name="jobs">
+            <list>
+
+                <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
+                    <property name="jobGroup" value="Hz"/>
+                    <property name="jobName" value="Hz-job1"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzHalfYearValidateJob"/>
+                    <!--<property name="cronExpression" value="0 0/5 0 0 0 ? *"/>-->
+                    <property name="cronExpression" value="0 30 8 * * ? *"/>
+                    <property name="desc" value="护照有效期半年微信提醒"/>
+                </bean>
+
+            </list>
+        </property>
+    </bean>
+
 
 
     <bean id="dateConvert" class="cn.edu.cmu.framework.web.DateConvert"/>
@@ -47,17 +92,10 @@
         </property>
     </bean>
 
-    <!-- 相当于是配置了 两个request handldermapping HandlerAdapter -->
-
-
-
-
 
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/business/"></property>
         <property name="suffix" value=".jsp"></property>
-        <!--<property key="prefix" value="/business/"/>
-        <property key="suffix" value=".jsp" />-->
     </bean>
 
 

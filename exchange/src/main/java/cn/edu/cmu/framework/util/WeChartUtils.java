@@ -24,11 +24,14 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 微信工具类
  */
-public class WeChartUtils extends Thread {
+public class WeChartUtils extends Thread implements Runnable{
 
     private static Logger logger = Logger.getLogger(NetUtils.class);
 
@@ -39,11 +42,15 @@ public class WeChartUtils extends Thread {
     private static String postUrl = "";
     private static String sysid = "";
     private static String key = "";
+    private static boolean sendSwitch = true;
+
+
 
     static {
         postUrl = (String) YmlUtils.getProperty("wx_interface.postUrl");
         sysid = (String) YmlUtils.getProperty("wx_interface.sysId");
         key = (String) YmlUtils.getProperty("wx_interface.key");
+        sendSwitch = (Boolean) YmlUtils.getProperty("wx_interface.switch");
     }
 
 
@@ -195,8 +202,14 @@ public class WeChartUtils extends Thread {
 
 
 
+
     @Override
     public void run() {
+
+        if(!sendSwitch){//使用开关控制，是否允许环境发送微信消息
+            logger.info("当前环境已关闭微信接口，暂不发送微信消息(如需打开请联系管理员)...");
+            return;
+        }
 
         String json = null;
         try {

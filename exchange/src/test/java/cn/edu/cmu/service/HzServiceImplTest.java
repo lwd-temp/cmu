@@ -81,4 +81,12 @@ public class HzServiceImplTest extends SpringIOC {
         System.out.println("删除成功："+success);
         Assert.assertTrue(success);
     }
+
+
+
+    @Test
+    public void halfYearRemind() {
+
+        service.halfYearRemind();
+    }
 }

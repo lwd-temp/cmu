@@ -41,7 +41,7 @@
                 <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
                     <property name="jobGroup" value="Hz"/>
                     <property name="jobName" value="Hz-job1"/>
-                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzJob"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.DemoJob"/>
                     <property name="cronExpression" value="0/5 * * * * ?"/>
                     <property name="desc" value="1每5秒执行一次"/>
                 </bean>
@@ -49,7 +49,7 @@
                 <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
                     <property name="jobGroup" value="Hz"/>
                     <property name="jobName" value="Hz-job2"/>
-                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzJob"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.DemoJob"/>
                     <property name="cronExpression" value="0 59 14 * * ? *"/>
                     <property name="desc" value="2每天的14:59:00 执行"/>
                 </bean>

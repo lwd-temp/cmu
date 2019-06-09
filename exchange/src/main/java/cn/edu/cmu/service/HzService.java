@@ -7,5 +7,7 @@ import cn.edu.cmu.framework.web.IBaseService;
 
 public interface HzService extends IBaseService<Hz, HzParams> {
 
+    public void halfYearRemind();
+
 }
 
