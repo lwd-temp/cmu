@@ -31,5 +31,14 @@ public class HyTjServiceImpl implements   HyTjService {
         return dao.selectList(map);
     }
 
+    @Override
+    public List selectListForDownload(HytjVo hytjVo, String orderCol, String orderType) {
+        Map map = new HashMap();
+        map.put("param",hytjVo);
+        map.put("orderCol",orderCol);
+        map.put("orderType",orderType);
+        return dao.selectListForDownload(map);
+    }
+
 
 }

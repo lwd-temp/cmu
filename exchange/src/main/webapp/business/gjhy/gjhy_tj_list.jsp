@@ -49,6 +49,11 @@
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
+                &nbsp;&nbsp;&nbsp;
+
+                <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
+                </button>
             </div>
         </div>
 
@@ -149,7 +154,18 @@
             refreshTable();
         });
 
+        $("#download").click(function(){
+            download();
+        });
+
     });
+
+    /**
+     * 批量下载
+     */
+    function download(){
+        window.open("hytj/download");
+    }
 
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格

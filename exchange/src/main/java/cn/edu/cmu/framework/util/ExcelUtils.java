@@ -87,6 +87,12 @@ public class ExcelUtils {
         }
 
 
+        //自动调整列宽
+        short cellnum = firstRow.getLastCellNum();
+        for (short i = 0; i < cellnum; i++) {
+            sheet.autoSizeColumn(i);
+        }
+
         logger.info("准备将文件输出到客户端：" + path);
         workbook.write(os);
 
@@ -110,11 +116,14 @@ public class ExcelUtils {
             try {
                 String methodName = "get" + key.substring(0, 1).toUpperCase() + key.substring(1);
 
-                Method method = data.getClass().getDeclaredMethod(methodName, null);
+                Method method = data.getClass().getMethod(methodName,null);
+//                Method method = data.getClass().getDeclaredMethod(methodName, null);
                 cellValue = method.invoke(data);
 
             } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
                 logger.debug("没有找到属性["+key+"]");
+
+
                 //e.printStackTrace();
             }
         }

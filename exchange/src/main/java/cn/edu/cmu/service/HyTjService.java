@@ -13,4 +13,6 @@ import java.util.List;
  */
 public interface HyTjService {
     public List<HytjVo> selectList(HytjVo param,String orderCol, String orderType);
+
+    List selectListForDownload(HytjVo hytjVo, String orderCol, String orderType);
 }

@@ -9,4 +9,5 @@ public interface HyTjMapper {
 
     public List<HytjVo> selectList(Map param);
 
+    public List selectListForDownload(Map map);
 }

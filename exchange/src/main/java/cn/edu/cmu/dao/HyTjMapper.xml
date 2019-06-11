@@ -72,4 +72,60 @@
 
         order by ${orderCol} ${orderType}
     </select>
+
+
+
+
+    <select id="selectListForDownload" resultMap="BaseResultMap" parameterType="hashMap">
+
+        select * from (
+            select jh.jhid jhid,
+            sb.sbid sbid,
+            zj.zjid zjid,
+            jh.hybh hybh,
+            decode(sb.hymc, null, jh.hymc, sb.hymc) hymc,
+            decode(sb.jxrq_ks, null, jh.jxrq_ks, sb.jxrq_ks) jxrq_ks,
+            decode(sb.jxrq_js, null, jh.jxrq_js, sb.jxrq_js) jxrq_js,
+            decode(sb.dd, null, jh.dd, sb.dd) dd,
+            decode(sb.jfly, null, jh.jfly, sb.jfly) jfly,
+            F_GetTableText('t_dm_hylx', 'code', 'name', decode(sb.hylx, null, jh.hylx, sb.hylx)) hylx,
+
+            decode(sb.sbid, null, '否', '是') sfzxjh, /*是否执行计划*/
+            decode(zj.zjid, null, '否', '是') sfzj /*是否总结*/
+
+            from t_hy_jh jh
+                left join t_hy_shenb sb  on jh.jhid = sb.jhid
+                left join t_hy_zj zj  on sb.sbid = zj.sbid
+
+        <where>
+            <if test="param!=null">
+                <if test="param.hybh!=null and param.hybh != '' ">
+                    <bind name="hybhLike" value="'%' + param.hybh + '%'"/>
+                    and jh.hybh like   #{hybhLike,jdbcType=VARCHAR}
+                </if>
+                <if test="param.hymc!=null and param.hymc != '' ">
+                    <bind name="hymcLike" value="'%' + param.hymc + '%'"/>
+                    and jh.hymc like   #{hymcLike,jdbcType=VARCHAR}
+                </if>
+
+                <if test="param.hylx!=null and param.hylx != '' ">
+                    and jh.hylx = #{param.hylx,jdbcType=VARCHAR}
+                </if>
+
+
+                <if test="param.jxrqKs!=null">
+                    and decode(sb.jxrq_ks, null, jh.jxrq_ks, sb.jxrq_ks) &gt;= #{param.jxrqKs,jdbcType=VARCHAR}
+                </if>
+
+                <if test="param.jxrqJs!=null">
+                    and decode(sb.jxrq_js, null, jh.jxrq_js, sb.jxrq_js) &lt;= #{param.jxrqJs,jdbcType=VARCHAR}
+                </if>
+            </if>
+        </where>
+        )
+
+        order by ${orderCol} ${orderType}
+    </select>
+
+
 </mapper>
