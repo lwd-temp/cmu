@@ -27,6 +27,9 @@
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    下载外籍教师信息
+                </button>
             </div>
         </div>
 
@@ -168,6 +171,18 @@
 
 
             refreshTable();
+        });
+
+        //下载外籍教师信息信息
+        $("#download").click(function(){
+
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("wjjs/download?jsx="+$("#condition1").val()+"&jsm="+$("#condition2").val()+"&chineseName="+$("#condition3").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
 
     });

@@ -16,7 +16,6 @@
                 </button>
             </div>
         </div>
-        </div>
     </form>
     <div id="grid-pager"></div>
     <table id="grid-table"></table>

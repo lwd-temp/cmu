@@ -1,12 +1,14 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.Hzxy;
 import cn.edu.cmu.domain.HzxyGb;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HzxyGbService;
 import cn.edu.cmu.service.JlxyService;
 import cn.edu.cmu.vo.HzxyVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -157,6 +161,26 @@ public class JlxyController extends BaseController {
         return super.ajaxStatus(success);
     }
 
+    /*
+    下砸协议信息
+     */
+    @RequestMapping("/download")
+    public void download(Hzxy xy, String orderCol, String orderType, HttpServletResponse response) throws Exception {
 
+//        String jlxymc=new String(xy.getXymc().getBytes("ISO-8859-1"), "UTF-8");
+//        xy.setXymc(jlxymc);
+        logger.info("交流协议名称:"+xy.getXymc());
+
+        List<Hzxy> list = jlxyService.jlxylistExp(xy, orderCol, orderType);
+
+        logger.info(String.format("导出协议信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "jlxy.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "jlxy/hzxy.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
+    }
 
 }

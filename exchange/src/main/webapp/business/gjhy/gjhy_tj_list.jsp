@@ -182,7 +182,7 @@
     //查看总结
     function showZjInfo(zjid){
         layer.newpage({
-            area: ['900px',"780px"],
+            area: ['1100px',"600px"],
             title:'查看会议总结信息',
             content:'hyzj/toEdit?type=show&id='+zjid,
         });

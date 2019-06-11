@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.ForeignTeacherMapperExt" >
+
+  <!--自定义查询 使用代码转换
+    resultMap 引用的是其他Mapper中定义好的
+  -->
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.ForeignTeacherMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.ForeignTeacherParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_XB', 'code', 'name', GENDER) gender,
+        F_GetTableText('T_DM_WJJSQZ', 'code', 'name', QZLX) qzlx,
+
+        tid, gh, jsx, jsm, chinese_name, gj, birthday, hyzk, hzlx, hzh, hzqfrq,
+        hzyxq, zgxw, hysp, email, syccsyhzgj, gzgw, rzzmsj, gzzw, gzsj_start, gzsj_end,
+        phone, qzyxq, hr, valid, create_time
+
+        from T_FOREIGN_TEACHER
+        <if test="_parameter != null" >
+            /*此处应用的refid 是其他Mapper中写好的*/
+            <include refid="cn.edu.cmu.dao.ForeignTeacherMapper.Select_Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+
+
+
+</mapper>
