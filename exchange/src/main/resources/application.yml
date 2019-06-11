@@ -36,6 +36,10 @@ sys:
 wx_interface:
   switch:
     ${ifs.wechat.switch}
+  debug:
+    ${ifs.wechat.debug}
+  debugReceiveUser:
+    ${ifs.wechat.debugReceiveUser}
   postUrl:
     http://i.cmu.edu.cn/dcp/ifs
   sysId:

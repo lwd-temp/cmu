@@ -43,6 +43,8 @@ public class WeChartUtils extends Thread implements Runnable{
     private static String sysid = "";
     private static String key = "";
     private static boolean sendSwitch = true;
+    private static boolean debug = true;
+    private static String debugReceiveUser = null;
 
 
 
@@ -51,6 +53,8 @@ public class WeChartUtils extends Thread implements Runnable{
         sysid = (String) YmlUtils.getProperty("wx_interface.sysId");
         key = (String) YmlUtils.getProperty("wx_interface.key");
         sendSwitch = (Boolean) YmlUtils.getProperty("wx_interface.switch");
+        debug = (Boolean) YmlUtils.getProperty("wx_interface.debug");
+        debugReceiveUser = (String) YmlUtils.getProperty("wx_interface.debugReceiveUser");
     }
 
 
@@ -111,7 +115,10 @@ public class WeChartUtils extends Thread implements Runnable{
      */
     public static String sendWxMessage(String sendUser, String receiveUser, String title, String description, String content) throws Exception {
 
+
         logger.info("===============发送微信参数如下========================================");
+        logger.info("debug开关:  "+debug);
+        logger.info("debug模式下接受者:  "+debugReceiveUser);
         logger.info("sendUser:  "+sendUser);
         logger.info("receiveUser:   "+receiveUser);
         logger.info("title: "+title);
@@ -211,8 +218,13 @@ public class WeChartUtils extends Thread implements Runnable{
             return;
         }
 
+        if(debug){
+            receiveUser = debugReceiveUser;
+        }
+
         String json = null;
         try {
+
             json = WeChartUtils.sendWxMessage(sendUser,receiveUser,title,description,content);
         } catch (Exception e) {
             e.printStackTrace();
