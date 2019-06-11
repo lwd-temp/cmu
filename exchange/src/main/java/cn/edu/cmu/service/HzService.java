@@ -9,5 +9,6 @@ public interface HzService extends IBaseService<Hz, HzParams> {
 
     public void halfYearRemind();
 
+    public void  qiTianTixing();
 }
 

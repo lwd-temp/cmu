@@ -5,9 +5,7 @@ import org.quartz.*;
 import org.quartz.impl.matchers.GroupMatcher;
 import org.springframework.beans.factory.InitializingBean;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 
@@ -154,6 +152,15 @@ public class JobManager implements InitializingBean {
             }
             jobList.add(job);
         }
+
+        Collections.sort(jobList, new Comparator<ScheduleJob>() {
+            @Override
+            public int compare(ScheduleJob o1, ScheduleJob o2) {
+                return Integer.parseInt(o1.getJobId()) - Integer.parseInt(o2.getJobId());
+            }
+        });
+
+
         return jobList;
 
     }

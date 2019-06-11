@@ -53,4 +53,16 @@ public class CmuConstants {
         public final String PASS = "04";
     }
 
+
+
+
+    public interface HZ{
+
+        /**
+         * 借出中
+         */
+        public static final String  STATUS_JCZ = "04";
+
+    }
+
 }

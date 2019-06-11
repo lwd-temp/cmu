@@ -76,6 +76,14 @@
                     <property name="cronExpression" value="0 30 8 * * ? *"/>
                     <property name="desc" value="护照有效期半年微信提醒"/>
                 </bean>
+                <bean class="cn.edu.cmu.quartz.schedule.ScheduleJob" >
+                    <property name="jobGroup" value="Hz"/>
+                    <property name="jobName" value="Hz-job2"/>
+                    <property name="jobClassName" value="cn.edu.cmu.quartz.job.HzQiTianTiXingJob"/>
+                    <!--<property name="cronExpression" value="0 0/5 0 0 0 ? *"/>-->
+                    <property name="cronExpression" value="0 30 8 * * ? *"/>
+                    <property name="desc" value="归国之后七天内微信提醒老师归还"/>
+                </bean>
 
             </list>
         </property>
