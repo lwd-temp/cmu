@@ -274,23 +274,33 @@
         <table tableName="T_WBJD_SQ" 	domainObjectName="WbjdSq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSqParams&gt;"/>
         </table>
-        <table tableName="T_WBJD_ZJ" 	domainObjectName="WbjdZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjParams&gt;"/>
+
+        <table tableName="T_WBJD_LP" 	domainObjectName="WbjdLp"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdLpParams&gt;"/>
+        </table> -->
+
+        <table tableName="T_WBZJ_LP" 	domainObjectName="WbZjLp"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbZjLpParams&gt;"/>
         </table>
-        <table tableName="T_WBJDZJ_SXRY" 	domainObjectName="WbjdZjSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjSxryParams&gt;"/>
-        </table>
-        <table tableName="T_WBJD_GJ" 	domainObjectName="WbjdGj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdGjParams&gt;"/>
-        </table>
-        <table tableName="T_WBJD_SXRY" 	domainObjectName="WbjdSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
-        </table>-->
 
 
-        <table tableName="T_WJJS_ZJXX" 	domainObjectName="WjjsZjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <!--  <table tableName="T_WBJD_ZJ" 	domainObjectName="WbjdZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjParams&gt;"/>
+          </table>
+          <table tableName="T_WBJDZJ_SXRY" 	domainObjectName="WbjdZjSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjSxryParams&gt;"/>
+          </table>
+          <table tableName="T_WBJD_GJ" 	domainObjectName="WbjdGj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdGjParams&gt;"/>
+          </table>
+          <table tableName="T_WBJD_SXRY" 	domainObjectName="WbjdSxry"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdSxryParams&gt;"/>
+          </table>-->
+
+
+        <!--<table tableName="T_WJJS_ZJXX" 	domainObjectName="WjjsZjxx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WjjsZjxxParams&gt;"/>
-        </table>
+        </table>-->
         <!-- 机构-->
       <!--  <table tableName="v_uicm_unit" 	domainObjectName="UnicUnit"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.UnicUnitParams&gt;"/>

@@ -271,10 +271,33 @@
                         <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名"  disabled="disabled"  name="sxr[@].xm" class="col-xs-12"/></div>
                         <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍"  disabled="disabled"  name="sxr[@].gj" class="col-xs-12"/></div>
                         <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务"  disabled="disabled"  name="sxr[@].zw" class="col-xs-12"/></div>
+                    </div>
+                </c:otherwise>
+            </c:choose>
+
+
+            <c:choose>
+                <c:when test="${lpList!=null && lpList.size()>0}">
+                    <c:forEach items="${lpList}" var="lp" varStatus="status">
+                        <div class="form-group sxr">
+                            <div class="col-xs-3"><input type="text" inp="xh"  placeholder="序号"  disabled="disabled" value="${status.count}"   class="col-xs-12"/></div>
+                            <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称"  disabled="disabled" value="${sxr.gj}"   name="lp[@].mc" class="col-xs-12"/></div>
+                            <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled" value="${sxr.zw}"   name="lp[@].sl" class="col-xs-12"/></div>
+
+                        </div>
+                    </c:forEach>
+                </c:when>
+                <c:otherwise>
+                    <div class="form-group lp">
+                        <div class="col-xs-3"><input type="text" inp="xh"  placeholder="序号"  disabled="disabled"     class="col-xs-12"/></div>
+                        <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称"  disabled="disabled"     name="lp[@].mc" class="col-xs-12"/></div>
+                        <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled"    name="lp[@].sl" class="col-xs-12"/></div>
 
                     </div>
                 </c:otherwise>
             </c:choose>
+
+
             <div  class="col-md-offset-3 col-md-9">
                 <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
                     <i class="ace-icon fa fa-check bigger-110"></i>

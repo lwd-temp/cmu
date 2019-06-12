@@ -1,18 +1,18 @@
 package cn.edu.cmu.service;
-import cn.edu.cmu.dao.WbjdGjMapper;
-import cn.edu.cmu.dao.WbjdZjMapper;
-import cn.edu.cmu.dao.WbjdZjMapperExt;
-import cn.edu.cmu.dao.WbjdZjSxryMapper;
+import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.WbglVO;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -21,6 +21,9 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 
     @Autowired
     private WbjdZjSxryMapper wbjdZjSxryMapper;
+
+    @Autowired
+    private WbZjLpMapper wbZjLpMapper;
 
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
@@ -77,6 +80,7 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
         wbjdZj = vo.getWbjdZj();
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdZjSxry> sxr = vo.getZjsxr();
+        List<WbjdLp> lpList = vo.getLp();
         if(StringUtil.isEmpty(wbjdZj.getZjid())){
             String keyId = CmuStringUtil.UUID();
             wbjdZj.setZjid(keyId);
@@ -89,24 +93,80 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
                 r.setLfid(wbjdZj.getZjid());//设置外键团组计划id
             }
         }
+
+
+
+        if((!CollectionUtils.isEmpty(lpList)) ){
+            for (WbjdLp lp : lpList) {
+                lp.setLfid(wbjdZj.getZjid());//设置外键团组计划id
+            }
+        }
+
+
         if(isEdit){ //修改
             dao.updateByPrimaryKeySelective(wbjdZj);
             //从表先删后查
             deleteSxr(wbjdZj);
             //删完后添加从表数据
             insertSxr(sxr);
+
+            //礼品从表信息，先删后插
+            deleteLp(wbjdZj);
+
+            insertLp(lpList,wbjdZj);
+
             //国别先删除后插入
             deleteGb(wbjdZj.getZjid());
             //删完后添加从表国别数据
             insertGb(wbjdZj.getZjid(),cfgbIds);
 
         }else{ //添加
-            System.out.println(wbjdZj);
             dao.insertSelective(wbjdZj);
             insertSxr(sxr);
+            insertLp(lpList,wbjdZj);//礼品从表
             insertGb(wbjdZj.getZjid(),cfgbIds);
         }
         return true;
+    }
+
+
+    /**
+     * 删除总结的 礼品信息
+     * @param wbjdZj
+     */
+    private void deleteLp(WbjdZj wbjdZj) {
+        WbZjLpParams param = new WbZjLpParams();
+        param.createCriteria().andZjidEqualTo(wbjdZj.getZjid());
+        wbZjLpMapper.deleteByExample(param);
+    }
+
+
+    /**
+     * 删除完成后重新添加礼品信息
+     * @param lpList
+     */
+    private void insertLp(List<WbjdLp> lpList,WbjdZj wbjdZj) throws InvocationTargetException, IllegalAccessException {
+        for (WbjdLp wbjdLp : lpList) {
+            WbZjLp lp = new WbZjLp();
+            BeanUtils.copyProperties(lp,wbjdLp);
+            lp.setId(CmuStringUtil.UUID());
+            lp.setZjid(wbjdZj.getZjid());
+            wbZjLpMapper.insertSelective(lp);
+        }
+    }
+
+
+    /**
+     * 查询礼品信息
+     * @param id
+     * @return
+     */
+    @Override
+    public List<WbjdLp> queryLiPinList(String id) {
+        WbZjLpParams params = new WbZjLpParams();
+        params.createCriteria().andZjidEqualTo(id);
+//        return wbjdLpMapper.selectByExample(params);
+        return wbZjLpMapper.selectByExample(params);
     }
     //删除对应的随行成员
     private void deleteSxr(WbjdZj wbjdZj){

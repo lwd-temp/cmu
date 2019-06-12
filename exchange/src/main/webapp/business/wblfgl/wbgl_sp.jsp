@@ -276,9 +276,9 @@
                                             数量
                                         </div>
                                     </div>
-                                    <c:forEach items="${lpList}" var="lp">
+                                    <c:forEach items="${lpList}" var="lp" varStatus="status">
                                         <div class="form-group lp">
-                                            <div class="col-xs-3"><input type="text" inp="xh" placeholder="序号" disabled="disabled"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                            <div class="col-xs-3"><input type="text" inp="xh" placeholder="序号" disabled="disabled"   value="${status.count}"   name="sxr[@].xm" class="col-xs-12"/></div>
                                             <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称" disabled="disabled"  value="${lp.mc}"   name="sxr[@].gj" class="col-xs-12"/></div>
                                             <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量" disabled="disabled"  value="${lp.sl}"   name="sxr[@].zw" class="col-xs-12"/></div>
                                         </div>

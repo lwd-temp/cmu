@@ -75,6 +75,9 @@ public class WbjdZjController extends BaseController {
         queryWbjdSxry.setLfid(lfid);
         List sxryList = wbjdSxryService.list(queryWbjdSxry);
 
+        //礼品信息
+        List<WbjdLp> lpList = wbjdSqService.queryLiPinList(lfid);
+
         WbjdGj queryWbjdGj = new WbjdGj();
         queryWbjdGj.setLfid(lfid);
         List<WbjdGj> gbDomainList = wbjdGjService.list(queryWbjdGj);
@@ -84,6 +87,7 @@ public class WbjdZjController extends BaseController {
         }
         model.addAttribute("wbjdSq", wbjdSq);
         model.addAttribute("sxryList", sxryList);
+        model.addAttribute("lpList", lpList);
         model.addAttribute("gbCodeList", gbCodeList);
         return "wblfgl/wbgl_zj_add";
     }
@@ -104,6 +108,11 @@ public class WbjdZjController extends BaseController {
         queryWbjdZjSxry.setLfid(zjid);
         List sxryList = wbjdZjSxryService.list(queryWbjdZjSxry);
 
+
+        //礼品信息
+        List<WbjdLp> lpList = wbjdZjService.queryLiPinList(zjid);
+
+
         WbjdGj queryWbjdGj = new WbjdGj();
         queryWbjdGj.setLfid(zjid);
         List<WbjdGj> gbDomainList = wbjdGjService.list(queryWbjdGj);
@@ -113,6 +122,7 @@ public class WbjdZjController extends BaseController {
         }
         model.addAttribute("wbjdZj", wbjdZj);
         model.addAttribute("sxryList", sxryList);
+        model.addAttribute("lpList", lpList);
         model.addAttribute("gbCodeList", gbCodeList);
         if ("show".equals(type)) {
             return "wblfgl/wbgl_zj_show";

@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.WbZjLpMapper" >
+  <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.WbZjLp" >
+    <constructor >
+      <idArg column="ID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SL" jdbcType="DECIMAL" javaType="java.lang.Long" />
+      <arg column="MC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Select_Example_Where_Clause" >
+     where valid = 1   
+    <if test="_parameter != null" >
+      <if test=" oredCriteria != null and  oredCriteria.size() > 0 " >
+        <bind name="hasCriteria" value="false" />
+        <foreach collection="oredCriteria" item="criteria" >
+          <if test="criteria.valid" >
+            <bind name="hasCriteria" value="true" />
+          </if>
+        </foreach>
+        <if test="hasCriteria" >
+           and ( 
+        </if>
+        <foreach collection="oredCriteria" item="criteria" separator="or" >
+          <if test="criteria.valid" >
+            <trim prefix="(" suffix=")" prefixOverrides="and" >
+              <foreach collection="criteria.criteria" item="criterion" >
+                <choose >
+                  <when test="criterion.noValue" >
+                    and ${criterion.condition}
+                  </when>
+                  <when test="criterion.singleValue" >
+                    and ${criterion.condition} #{criterion.value}
+                  </when>
+                  <when test="criterion.betweenValue" >
+                    and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                  </when>
+                  <when test="criterion.listValue" >
+                    and ${criterion.condition}
+                    <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                      #{listItem}
+                    </foreach>
+                  </when>
+                </choose>
+              </foreach>
+            </trim>
+          </if>
+        </foreach>
+        <if test="hasCriteria" >
+           )  
+        </if>
+      </if>
+    </if>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, ZJID, SL, MC, VALID, CREATE_TIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbZjLpParams" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from T_WBZJ_LP
+
+    <include refid="Select_Example_Where_Clause" />
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from T_WBZJ_LP
+    where ID = #{id,jdbcType=VARCHAR}
+      and VALID = 1
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from T_WBZJ_LP
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.edu.cmu.domain.WbZjLpParams" >
+    delete from T_WBZJ_LP
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.edu.cmu.domain.WbZjLp" >
+    insert into T_WBZJ_LP (ID, ZJID, SL, 
+      MC, VALID, CREATE_TIME
+      )
+    values (#{id,jdbcType=VARCHAR}, #{zjid,jdbcType=VARCHAR}, #{sl,jdbcType=DECIMAL}, 
+      #{mc,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbZjLp" >
+    insert into T_WBZJ_LP
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="zjid != null" >
+        ZJID,
+      </if>
+      <if test="sl != null" >
+        SL,
+      </if>
+      <if test="mc != null" >
+        MC,
+      </if>
+      <if test="valid != null" >
+        VALID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zjid != null" >
+        #{zjid,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null" >
+        #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="mc != null" >
+        #{mc,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.edu.cmu.domain.WbZjLpParams" resultType="java.lang.Integer" >
+    select count(*) from T_WBZJ_LP
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update T_WBZJ_LP
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zjid != null" >
+        ZJID = #{record.zjid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sl != null" >
+        SL = #{record.sl,jdbcType=DECIMAL},
+      </if>
+      <if test="record.mc != null" >
+        MC = #{record.mc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.valid != null" >
+        VALID = #{record.valid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update T_WBZJ_LP
+    set ID = #{record.id,jdbcType=VARCHAR},
+      ZJID = #{record.zjid,jdbcType=VARCHAR},
+      SL = #{record.sl,jdbcType=DECIMAL},
+      MC = #{record.mc,jdbcType=VARCHAR},
+      VALID = #{record.valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.WbZjLp" >
+    update T_WBZJ_LP
+    <set >
+      <if test="zjid != null" >
+        ZJID = #{zjid,jdbcType=VARCHAR},
+      </if>
+      <if test="sl != null" >
+        SL = #{sl,jdbcType=DECIMAL},
+      </if>
+      <if test="mc != null" >
+        MC = #{mc,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null" >
+        VALID = #{valid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.WbZjLp" >
+    update T_WBZJ_LP
+    set ZJID = #{zjid,jdbcType=VARCHAR},
+      SL = #{sl,jdbcType=DECIMAL},
+      MC = #{mc,jdbcType=VARCHAR},
+      VALID = #{valid,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
