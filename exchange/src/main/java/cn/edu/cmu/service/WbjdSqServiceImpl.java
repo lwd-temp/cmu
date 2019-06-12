@@ -18,6 +18,8 @@ import java.util.List;
 public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqMapper> implements WbjdSqService {
     @Autowired
     private WbjdSxryMapper wbjdSxryMapper;
+    @Autowired
+    private WbjdLpMapper wbjdLpMapper;
 
     @Autowired
     private WbjdGjMapper wbjdGjMapper;
@@ -92,6 +94,7 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         wbjdSq = vo.getWbjdSq();
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdSxry> sxr = vo.getSxr();
+        List<WbjdLp> lp = vo.getLp();
         if(StringUtil.isEmpty(wbjdSq.getLfid())){
             String keyId = CmuStringUtil.UUID();
             wbjdSq.setLfid(keyId);
@@ -104,12 +107,24 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
                 r.setLfid(wbjdSq.getLfid());//设置外键团组计划id
             }
         }
+        if((!CollectionUtils.isEmpty(lp)) ){
+            for (WbjdLp lp1 : lp) {
+                lp1.setLfid(wbjdSq.getLfid());//设置外键团组计划id
+            }
+        }
+
+
         if(isEdit){ //修改
             dao.updateByPrimaryKeySelective(wbjdSq);
             //从表先删后查
             deleteSxr(wbjdSq);
             //删完后添加从表数据
             insertSxr(sxr);
+
+            //从表先删后插(礼品信息)
+            deleteLp(wbjdSq);
+            insertLp(lp);
+            
             //国别先删除后插入
             deleteGb(wbjdSq);
             //删完后添加从表国别数据
@@ -120,10 +135,38 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
             dao.insertSelective(wbjdSq);
             insertSxr(sxr);
+            insertLp(lp);
             insertGb(wbjdSq,cfgbIds);
         }
         return true;
     }
+
+    /**
+     * 根据外键 删除礼品信息
+     * @param wbjdSq
+     */
+    private void deleteLp(WbjdSq wbjdSq) {
+        WbjdLpParams params = new WbjdLpParams();
+        params.createCriteria().andLfidEqualTo(wbjdSq.getLfid());
+
+        wbjdLpMapper.deleteByExample(params);
+
+    }
+
+
+    /**
+     * 添加礼品信息
+     * @param lps
+     */
+    private void insertLp(List<WbjdLp> lps) {
+        if(!CollectionUtils.isEmpty(lps)) {
+            for (WbjdLp lp : lps) {
+                lp.setId(CmuStringUtil.UUID());
+                wbjdLpMapper.insertSelective(lp);
+            }
+        }
+    }
+
     //插入新的国别
     private void insertGb(WbjdSq wbjdSq, String[] cfgbIds) {
         if(!ArrayUtils.isEmpty(cfgbIds)) {
@@ -214,6 +257,18 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
     @Override
     public WbjdSq selectSqExtPdf(String id) throws Exception {
         return wbjdSqMapperExt.selectSqExtPdf(id);
+    }
+
+    /**
+     * 查询礼品信息
+     * @param id
+     * @return
+     */
+    @Override
+    public List<WbjdLp> queryLiPinList(String id) {
+        WbjdLpParams params = new WbjdLpParams();
+        params.createCriteria().andLfidEqualTo(id);
+        return wbjdLpMapper.selectByExample(params);
     }
 }
 

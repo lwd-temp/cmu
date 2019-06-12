@@ -1,8 +1,5 @@
 package cn.edu.cmu.vo;
-import cn.edu.cmu.domain.WbjdSq;
-import cn.edu.cmu.domain.WbjdSxry;
-import cn.edu.cmu.domain.WbjdZj;
-import cn.edu.cmu.domain.WbjdZjSxry;
+import cn.edu.cmu.domain.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +19,7 @@ public class WbglVO {
     private WbjdZj wbjdZj;
 
     private List<WbjdSxry> sxr = new ArrayList<WbjdSxry>(0);
+    private List<WbjdLp> lp = new ArrayList<WbjdLp>(0);
 
     private List<WbjdZjSxry> zjsxr = new ArrayList<WbjdZjSxry>(0);
 
@@ -68,12 +66,22 @@ public class WbglVO {
         this.zjsxr = zjsxr;
     }
 
+
+
+    public List<WbjdLp> getLp() {
+        return lp;
+    }
+
+    public void setLp(List<WbjdLp> lp) {
+        this.lp = lp;
+    }
     @Override
     public String toString() {
         return "WbglVO{" +
                 "wbjdSq=" + wbjdSq +
-                "wbjdZj=" + wbjdZj +
+                ", wbjdZj=" + wbjdZj +
                 ", sxr=" + sxr +
+                ", lp=" + lp +
                 ", zjsxr=" + zjsxr +
                 ", cfgbIds=" + Arrays.toString(cfgbIds) +
                 '}';

@@ -140,7 +140,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none">
                 <label class="col-xs-2 control-label "  > 礼品: </label>
                 <div class="col-xs-4">
                     <input class="form-control  "  id="lp" name="wbjdSq.lp" disabled="disabled" value="${wbjdSq.lp}" type="text"   />
@@ -253,6 +253,44 @@
 
                 </div><!-- /.row -->
             </c:if>
+
+
+            <hr/>
+            <c:if test="${lpList!=null && lpList.size()>0}">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="widget-box">
+                            <div class="widget-header">
+                                <h4 class="widget-title">礼品信息</h4>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main">
+                                    <div class="form-group">
+                                        <div class="col-xs-3">
+                                            序号
+                                        </div>
+                                        <div class="col-xs-5">
+                                            礼品名称
+                                        </div>
+                                        <div class="col-xs-4">
+                                            数量
+                                        </div>
+                                    </div>
+                                    <c:forEach items="${lpList}" var="lp">
+                                        <div class="form-group lp">
+                                            <div class="col-xs-3"><input type="text" inp="xh" placeholder="序号" disabled="disabled"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
+                                            <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称" disabled="disabled"  value="${lp.mc}"   name="sxr[@].gj" class="col-xs-12"/></div>
+                                            <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量" disabled="disabled"  value="${lp.sl}"   name="sxr[@].zw" class="col-xs-12"/></div>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.span -->
+
+                </div><!-- /.row -->
+            </c:if>
+
 
 
 

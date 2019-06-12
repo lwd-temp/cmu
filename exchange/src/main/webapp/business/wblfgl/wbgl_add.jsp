@@ -153,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label class="col-xs-2 control-label "> 礼品: </label>
                 <div class="col-xs-4">
                     <input class="form-control  " id="lp" name="wbjdSq.lp" value="" type="text"/>
@@ -247,13 +247,13 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
-                    <div class="widget-box">
+                    <div class="widget-box ">
                         <div class="widget-header">
                             <h4 class="widget-title">随行人员</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
                         </div>
 
                         <div class="widget-body">
-                            <div class="widget-main">
+                            <div class="widget-main row-sxry">
                                 <div class="form-group">
                                     <div class="col-xs-3">
                                         姓名
@@ -276,6 +276,42 @@
             </div><!-- /.row -->
 
 
+
+
+            <hr/>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="widget-box ">
+                        <div class="widget-header">
+                            <h4 class="widget-title">礼品信息</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendLp(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main row-lp">
+                                <div class="form-group">
+                                    <div class="col-xs-5">
+                                        礼品名称
+                                    </div>
+                                    <div class="col-xs-4">
+                                        数量
+                                    </div>
+                                    <div class="col-xs-3">
+                                        操作
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.span -->
+
+            </div><!-- /.row -->
+
+
+
+
+
+
             <div id="btns" class="col-md-offset-3 col-md-9" style="text-align:right;">
                 <hr/>
                 <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
@@ -294,7 +330,7 @@
     </div>
 </form>
 
-<div id="template" style="display: none">
+<div id="template-sxry" style="display: none">
     <div class="form-group sxr">
         <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="gj" placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
@@ -304,6 +340,24 @@
         </div>
     </div>
 </div>
+<div id="template-lp" style="display: none">
+    <div class="form-group lp">
+        <div class="col-xs-5">
+            <input type="text" inp="mc" placeholder="礼品名称" name="lp[@].mc" class="col-xs-12"/>
+        </div>
+        <div class="col-xs-4">
+            <input type="text" inp="sl" placeholder="数量" name="lp[@].sl" class="col-xs-12"/>
+        </div>
+        <div class="col-xs-3">
+            <button class='btn btn-danger btn-mini' onclick='deleteLp(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 </body>
 <script src='assets/js/jquery.js'></script>
 <script src="assets/js/bootstrap.js"></script>
@@ -334,13 +388,9 @@
         });
 
         $("#jdlx").change(function () {
+            //礼品和数量更改为院级接待和校级接待都可填写并且可以添加多个礼品
             var $select = $(this);
             if ($select.val() == '01') {//校级
-
-                $("#lp").removeAttr("disabled");
-                $("#lp").removeAttr("readonly");
-                $("#lpsl").removeAttr("disabled");
-                $("#lpsl").removeAttr("readonly");
 
                 $("#jdbm").val("");
                 $("#jdbm").attr("disabled", "disabled");
@@ -355,13 +405,6 @@
                 $("#zqlxrdh").attr("readonly", "readonly");
 
             } else if ($select.val() == '02') {//院级
-
-                $("#lp").val("");
-                $("#lp").attr("disabled", "disabled");
-                $("#lp").attr("readonly", "readonly");
-                $("#lpsl").val("");
-                $("#lpsl").attr("disabled", "disabled");
-                $("#lpsl").attr("readonly", "readonly");
 
 
                 $("#jdbm").removeAttr("disabled");
@@ -428,7 +471,9 @@
                 "cfgbIds": {required: true},
                 "sxr[@].xm": {required: true},
                 "sxr[@].gj": {required: true},
-                "sxr[@].zw": {required: true}
+                "sxr[@].zw": {required: true},
+                "lp[@].mc":{ required:true},
+                "lp[@].sl":{ required:true,digits:true}
             }
         })
     }
@@ -468,6 +513,16 @@
         $('form input[inp=zw]').each(function (index, el) {
             $(el).attr('name', 'sxr[' + index + '].zw');
         });
+
+
+        $('form input[inp=mc]').each(function (index, el) {
+            $(el).attr('name', 'lp[' + index + '].mc');
+        });
+
+        $('form input[inp=sl]').each(function (index, el) {
+            $(el).attr('name', 'lp[' + index + '].sl');
+        });
+        
     }
 
     function deleteSxr(btn) {
@@ -481,9 +536,11 @@
         setFormValid();//设置校验规则
     }
 
+
     function appendSxr() {
-        $(".widget-main").append($("#template").html());
-        var sxr = $("#btns").prev(".sxr");
+        $(".row-sxry").append($("#template-sxry").html());
+        var sxr = $(".row-sxry").children().last();
+
         sxr.find("input").each(function (index, el) {
             $(el).attr("id", "formEl" + (Math.rnd()));
             $(el).rules('add', {required: true});
@@ -491,6 +548,29 @@
         setFormValid();//设置校验规则
     }
 
+
+    function deleteLp(btn) {
+
+        var row = $(btn).parent().parent();
+        row.remove();
+        setFormValid();//设置校验规则
+    }
+
+    function appendLp() {
+        $(".row-lp").append($("#template-lp").html());
+        var lp = $(".row-lp").children().last();
+
+        lp.find("input").each(function (index, el) {
+
+            $(el).attr("id", "formEl" + (Math.rnd()));
+            if(el.name =='sl'){//数量要求必须填入数字
+                $(el).rules('add', {required: true,digits:true});
+            }else{
+                $(el).rules('add', {required: true});
+            }
+        })
+        setFormValid();//设置校验规则
+    }
 
     /**
      * 判断是否包含来访目的
