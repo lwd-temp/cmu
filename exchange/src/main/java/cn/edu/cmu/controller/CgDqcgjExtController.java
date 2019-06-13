@@ -118,7 +118,8 @@ public class CgDqcgjExtController extends BaseController {
         variables.put("rjcs"	,	cgDqcgj.getRjcs());
         variables.put("cfrq_start"	,	cfksrq);
         variables.put("cfrq_end"	,	cfjsrq);
-        variables.put("cfmd"	,	DMCache.translateCode2Name("t_DM_CFMD",cgDqcgj.getCfmd()));
+        variables.put("cfmd"	,	cgDqcgj.getCfmd());
+        variables.put("cfmdqt"	,	cgDqcgj.getCfmdQt());
         variables.put("yqr_xm_en"	,	cgDqcgj.getYqrXmEn());
         variables.put("yqr_zw_en"	,	cgDqcgj.getYqrZwEn());
         variables.put("yqr_dw_en"	,	cgDqcgj.getYqrDwEn());
@@ -133,7 +134,6 @@ public class CgDqcgjExtController extends BaseController {
 
         variables.put("jfly"	,	cgDqcgj.getJfly());
         variables.put("jfysmx"	,	cgDqcgj.getJfysmx());
-        variables.put("brcn"	,	sqbsm);
 
         return variables;
     }
