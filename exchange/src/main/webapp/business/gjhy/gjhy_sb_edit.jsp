@@ -196,8 +196,8 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 会议规模: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="hysb.hygm" id="hygm" placeholder="会议规模"
-                                              maxlength="500">${hysb.hygm}</textarea>
+                                    <input type="text" name="hysb.hygm" value="${hysb.hygm}" id="hygm" placeholder="会议规模(会议人员小于800，外宾及港澳台地区人员小于300）"
+                                           class="col-xs-12"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -417,7 +417,7 @@
                 "hysb.fzrdh": {required: true, isphoneNum: true},
                 "hysb.hymcEn": {required: true},
                 "hysb.hyjbxx": {required: true},
-                "hysb.hygm": {required: true},
+                "hysb.hygm": { required:true,digits:true},
                 "hysb.bjjbyx": {required: true},
                 "chrys[@].xm": {required: true},
                 "chrys[@].gj": {required: true},

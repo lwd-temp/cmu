@@ -66,7 +66,7 @@ public class HyShenb {
     /**
      * 会议规模
      */
-    private String hygm;
+    private Long hygm;
 
     /**
      * 会议背景及必要性（必填、1000字以内）
@@ -125,9 +125,9 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
-    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, String hybh, Date jxrqKs, Date jxrqJs, String zbdw, String cbdw, String dd, String hyjbxx, String hygm, String bjjbyx, String jfly, String fzrxm, String fzrdh, String bgtm, String bgnr, String sfbb, String operator, String status, String valid, Date createTime) {
+    public HyShenb(String sbid, String jhid, String hylx, String hymc, String hymcEn, String hybh, Date jxrqKs, Date jxrqJs, String zbdw, String cbdw, String dd, String hyjbxx, Long hygm, String bjjbyx, String jfly, String fzrxm, String fzrdh, String bgtm, String bgnr, String sfbb, String operator, String status, String valid, Date createTime) {
         this.sbid = sbid;
         this.jhid = jhid;
         this.hylx = hylx;
@@ -156,7 +156,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public HyShenb() {
         super();
@@ -358,7 +358,7 @@ public class HyShenb {
      * 会议规模
      * @return HYGM 会议规模
      */
-    public String getHygm() {
+    public Long getHygm() {
         return hygm;
     }
 
@@ -366,8 +366,8 @@ public class HyShenb {
      * 会议规模
      * @param hygm 会议规模
      */
-    public void setHygm(String hygm) {
-        this.hygm = hygm == null ? null : hygm.trim();
+    public void setHygm(Long hygm) {
+        this.hygm = hygm;
     }
 
     /**
@@ -548,7 +548,7 @@ public class HyShenb {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     @Override
     public String toString() {

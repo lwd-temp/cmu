@@ -22,7 +22,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public HyShenbParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HyShenbParams {
 
     /**
      *
-     * @mbggenerated 2019-02-28
+     * @mbggenerated 2019-06-18
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HyShenbParams {
     }
 
     /**
-     * T_HY_SHENB 2019-02-28
+     * T_HY_SHENB 2019-06-18
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -991,62 +991,52 @@ public class HyShenbParams {
             return (Criteria) this;
         }
 
-        public Criteria andHygmEqualTo(String value) {
+        public Criteria andHygmEqualTo(Long value) {
             addCriterion("HYGM =", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmNotEqualTo(String value) {
+        public Criteria andHygmNotEqualTo(Long value) {
             addCriterion("HYGM <>", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmGreaterThan(String value) {
+        public Criteria andHygmGreaterThan(Long value) {
             addCriterion("HYGM >", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmGreaterThanOrEqualTo(String value) {
+        public Criteria andHygmGreaterThanOrEqualTo(Long value) {
             addCriterion("HYGM >=", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmLessThan(String value) {
+        public Criteria andHygmLessThan(Long value) {
             addCriterion("HYGM <", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmLessThanOrEqualTo(String value) {
+        public Criteria andHygmLessThanOrEqualTo(Long value) {
             addCriterion("HYGM <=", value, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmLike(String value) {
-            addCriterion("HYGM like", value, "hygm");
-            return (Criteria) this;
-        }
-
-        public Criteria andHygmNotLike(String value) {
-            addCriterion("HYGM not like", value, "hygm");
-            return (Criteria) this;
-        }
-
-        public Criteria andHygmIn(List<String> values) {
+        public Criteria andHygmIn(List<Long> values) {
             addCriterion("HYGM in", values, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmNotIn(List<String> values) {
+        public Criteria andHygmNotIn(List<Long> values) {
             addCriterion("HYGM not in", values, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmBetween(String value1, String value2) {
+        public Criteria andHygmBetween(Long value1, Long value2) {
             addCriterion("HYGM between", value1, value2, "hygm");
             return (Criteria) this;
         }
 
-        public Criteria andHygmNotBetween(String value1, String value2) {
+        public Criteria andHygmNotBetween(Long value1, Long value2) {
             addCriterion("HYGM not between", value1, value2, "hygm");
             return (Criteria) this;
         }
@@ -1823,7 +1813,7 @@ public class HyShenbParams {
     }
 
     /**
-     * T_HY_SHENB 2019-02-28
+     * T_HY_SHENB 2019-06-18
      */
     public static class Criterion {
         private String condition;
