@@ -80,11 +80,12 @@
 
             },function(){//无计划立即申报
                 layer.close(confirmIndex);
-                layer.newpage({
+                var index = layer.newpage({
                     area: ['1100px',"750px"],
                     title:'申报会议',
                     content:'business/gjhy/gjhy_sb_add.jsp',
                 });
+                layer.full(index);
             })
         }
 
@@ -223,11 +224,12 @@
 
     //查看用户
     function showSbInfo(sbid){
-        layer.newpage({
+        var index = layer.newpage({
             area: ['1100px', "750px"],
             title:'查看会议申报信息',
             content:'hysb/toEdit?type=show&id='+sbid,
         });
+        layer.full(index);
     }
 
     /**

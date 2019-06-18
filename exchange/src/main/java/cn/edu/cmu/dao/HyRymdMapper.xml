@@ -8,6 +8,10 @@
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XM_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJ_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JHID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
@@ -116,7 +120,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MDID, XM, GJ, DW, ZW, JHID, VALID, CREATE_TIME
+    MDID, XM, GJ, DW, ZW, XM_EN, GJ_EN, DW_EN, ZW_EN, JHID, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HyRymdParams" >
     select
@@ -151,10 +155,12 @@
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HyRymd" >
     insert into T_HY_RYMD (MDID, XM, GJ, 
-      DW, ZW, JHID, VALID, 
+      DW, ZW, XM_EN, GJ_EN, 
+      DW_EN, ZW_EN, JHID, VALID, 
       CREATE_TIME)
     values (#{mdid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, 
-      #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{jhid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+      #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{xmEn,jdbcType=VARCHAR}, #{gjEn,jdbcType=VARCHAR}, 
+      #{dwEn,jdbcType=VARCHAR}, #{zwEn,jdbcType=VARCHAR}, #{jhid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HyRymd" >
@@ -174,6 +180,18 @@
       </if>
       <if test="zw != null" >
         ZW,
+      </if>
+      <if test="xmEn != null" >
+        XM_EN,
+      </if>
+      <if test="gjEn != null" >
+        GJ_EN,
+      </if>
+      <if test="dwEn != null" >
+        DW_EN,
+      </if>
+      <if test="zwEn != null" >
+        ZW_EN,
       </if>
       <if test="jhid != null" >
         JHID,
@@ -200,6 +218,18 @@
       </if>
       <if test="zw != null" >
         #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="xmEn != null" >
+        #{xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gjEn != null" >
+        #{gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="dwEn != null" >
+        #{dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="zwEn != null" >
+        #{zwEn,jdbcType=VARCHAR},
       </if>
       <if test="jhid != null" >
         #{jhid,jdbcType=VARCHAR},
@@ -236,6 +266,18 @@
       <if test="record.zw != null" >
         ZW = #{record.zw,jdbcType=VARCHAR},
       </if>
+      <if test="record.xmEn != null" >
+        XM_EN = #{record.xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gjEn != null" >
+        GJ_EN = #{record.gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dwEn != null" >
+        DW_EN = #{record.dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwEn != null" >
+        ZW_EN = #{record.zwEn,jdbcType=VARCHAR},
+      </if>
       <if test="record.jhid != null" >
         JHID = #{record.jhid,jdbcType=VARCHAR},
       </if>
@@ -257,6 +299,10 @@
       GJ = #{record.gj,jdbcType=VARCHAR},
       DW = #{record.dw,jdbcType=VARCHAR},
       ZW = #{record.zw,jdbcType=VARCHAR},
+      XM_EN = #{record.xmEn,jdbcType=VARCHAR},
+      GJ_EN = #{record.gjEn,jdbcType=VARCHAR},
+      DW_EN = #{record.dwEn,jdbcType=VARCHAR},
+      ZW_EN = #{record.zwEn,jdbcType=VARCHAR},
       JHID = #{record.jhid,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
@@ -279,6 +325,18 @@
       <if test="zw != null" >
         ZW = #{zw,jdbcType=VARCHAR},
       </if>
+      <if test="xmEn != null" >
+        XM_EN = #{xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gjEn != null" >
+        GJ_EN = #{gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="dwEn != null" >
+        DW_EN = #{dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="zwEn != null" >
+        ZW_EN = #{zwEn,jdbcType=VARCHAR},
+      </if>
       <if test="jhid != null" >
         JHID = #{jhid,jdbcType=VARCHAR},
       </if>
@@ -297,6 +355,10 @@
       GJ = #{gj,jdbcType=VARCHAR},
       DW = #{dw,jdbcType=VARCHAR},
       ZW = #{zw,jdbcType=VARCHAR},
+      XM_EN = #{xmEn,jdbcType=VARCHAR},
+      GJ_EN = #{gjEn,jdbcType=VARCHAR},
+      DW_EN = #{dwEn,jdbcType=VARCHAR},
+      ZW_EN = #{zwEn,jdbcType=VARCHAR},
       JHID = #{jhid,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}

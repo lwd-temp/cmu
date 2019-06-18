@@ -22,7 +22,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public HyRymdParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HyRymdParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HyRymdParams {
     }
 
     /**
-     * T_HY_RYMD 2018-11-22
+     * T_HY_RYMD 2019-06-12
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -511,6 +511,286 @@ public class HyRymdParams {
             return (Criteria) this;
         }
 
+        public Criteria andXmEnIsNull() {
+            addCriterion("XM_EN is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnIsNotNull() {
+            addCriterion("XM_EN is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnEqualTo(String value) {
+            addCriterion("XM_EN =", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnNotEqualTo(String value) {
+            addCriterion("XM_EN <>", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnGreaterThan(String value) {
+            addCriterion("XM_EN >", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnGreaterThanOrEqualTo(String value) {
+            addCriterion("XM_EN >=", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnLessThan(String value) {
+            addCriterion("XM_EN <", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnLessThanOrEqualTo(String value) {
+            addCriterion("XM_EN <=", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnLike(String value) {
+            addCriterion("XM_EN like", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnNotLike(String value) {
+            addCriterion("XM_EN not like", value, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnIn(List<String> values) {
+            addCriterion("XM_EN in", values, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnNotIn(List<String> values) {
+            addCriterion("XM_EN not in", values, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnBetween(String value1, String value2) {
+            addCriterion("XM_EN between", value1, value2, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andXmEnNotBetween(String value1, String value2) {
+            addCriterion("XM_EN not between", value1, value2, "xmEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnIsNull() {
+            addCriterion("GJ_EN is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnIsNotNull() {
+            addCriterion("GJ_EN is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnEqualTo(String value) {
+            addCriterion("GJ_EN =", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnNotEqualTo(String value) {
+            addCriterion("GJ_EN <>", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnGreaterThan(String value) {
+            addCriterion("GJ_EN >", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnGreaterThanOrEqualTo(String value) {
+            addCriterion("GJ_EN >=", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnLessThan(String value) {
+            addCriterion("GJ_EN <", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnLessThanOrEqualTo(String value) {
+            addCriterion("GJ_EN <=", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnLike(String value) {
+            addCriterion("GJ_EN like", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnNotLike(String value) {
+            addCriterion("GJ_EN not like", value, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnIn(List<String> values) {
+            addCriterion("GJ_EN in", values, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnNotIn(List<String> values) {
+            addCriterion("GJ_EN not in", values, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnBetween(String value1, String value2) {
+            addCriterion("GJ_EN between", value1, value2, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andGjEnNotBetween(String value1, String value2) {
+            addCriterion("GJ_EN not between", value1, value2, "gjEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnIsNull() {
+            addCriterion("DW_EN is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnIsNotNull() {
+            addCriterion("DW_EN is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnEqualTo(String value) {
+            addCriterion("DW_EN =", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnNotEqualTo(String value) {
+            addCriterion("DW_EN <>", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnGreaterThan(String value) {
+            addCriterion("DW_EN >", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnGreaterThanOrEqualTo(String value) {
+            addCriterion("DW_EN >=", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnLessThan(String value) {
+            addCriterion("DW_EN <", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnLessThanOrEqualTo(String value) {
+            addCriterion("DW_EN <=", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnLike(String value) {
+            addCriterion("DW_EN like", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnNotLike(String value) {
+            addCriterion("DW_EN not like", value, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnIn(List<String> values) {
+            addCriterion("DW_EN in", values, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnNotIn(List<String> values) {
+            addCriterion("DW_EN not in", values, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnBetween(String value1, String value2) {
+            addCriterion("DW_EN between", value1, value2, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andDwEnNotBetween(String value1, String value2) {
+            addCriterion("DW_EN not between", value1, value2, "dwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnIsNull() {
+            addCriterion("ZW_EN is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnIsNotNull() {
+            addCriterion("ZW_EN is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnEqualTo(String value) {
+            addCriterion("ZW_EN =", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnNotEqualTo(String value) {
+            addCriterion("ZW_EN <>", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnGreaterThan(String value) {
+            addCriterion("ZW_EN >", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnGreaterThanOrEqualTo(String value) {
+            addCriterion("ZW_EN >=", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnLessThan(String value) {
+            addCriterion("ZW_EN <", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnLessThanOrEqualTo(String value) {
+            addCriterion("ZW_EN <=", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnLike(String value) {
+            addCriterion("ZW_EN like", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnNotLike(String value) {
+            addCriterion("ZW_EN not like", value, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnIn(List<String> values) {
+            addCriterion("ZW_EN in", values, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnNotIn(List<String> values) {
+            addCriterion("ZW_EN not in", values, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnBetween(String value1, String value2) {
+            addCriterion("ZW_EN between", value1, value2, "zwEn");
+            return (Criteria) this;
+        }
+
+        public Criteria andZwEnNotBetween(String value1, String value2) {
+            addCriterion("ZW_EN not between", value1, value2, "zwEn");
+            return (Criteria) this;
+        }
+
         public Criteria andJhidIsNull() {
             addCriterion("JHID is null");
             return (Criteria) this;
@@ -723,7 +1003,7 @@ public class HyRymdParams {
     }
 
     /**
-     * T_HY_RYMD 2018-11-22
+     * T_HY_RYMD 2019-06-12
      */
     public static class Criterion {
         private String condition;

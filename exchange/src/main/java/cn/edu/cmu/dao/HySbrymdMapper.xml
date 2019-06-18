@@ -4,11 +4,15 @@
   <resultMap id="BaseResultMap" type="cn.edu.cmu.domain.HySbrymd" >
     <constructor >
       <idArg column="MDID" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="SBID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GJ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="DW" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZW" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XM_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GJ_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="DW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ZW_EN" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="SBID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
@@ -116,7 +120,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    MDID, SBID, XM, GJ, DW, ZW, VALID, CREATE_TIME
+    MDID, XM, GJ, DW, ZW, XM_EN, GJ_EN, DW_EN, ZW_EN, SBID, VALID, CREATE_TIME
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HySbrymdParams" >
     select
@@ -150,11 +154,13 @@
     </if>
   </delete>
   <insert id="insert" parameterType="cn.edu.cmu.domain.HySbrymd" >
-    insert into T_HY_SBRYMD (MDID, SBID, XM, 
-      GJ, DW, ZW, VALID, 
+    insert into T_HY_SBRYMD (MDID, XM, GJ, 
+      DW, ZW, XM_EN, GJ_EN, 
+      DW_EN, ZW_EN, SBID, VALID, 
       CREATE_TIME)
-    values (#{mdid,jdbcType=VARCHAR}, #{sbid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
-      #{gj,jdbcType=VARCHAR}, #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
+    values (#{mdid,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, 
+      #{dw,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, #{xmEn,jdbcType=VARCHAR}, #{gjEn,jdbcType=VARCHAR}, 
+      #{dwEn,jdbcType=VARCHAR}, #{zwEn,jdbcType=VARCHAR}, #{sbid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.HySbrymd" >
@@ -162,9 +168,6 @@
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="mdid != null" >
         MDID,
-      </if>
-      <if test="sbid != null" >
-        SBID,
       </if>
       <if test="xm != null" >
         XM,
@@ -178,6 +181,21 @@
       <if test="zw != null" >
         ZW,
       </if>
+      <if test="xmEn != null" >
+        XM_EN,
+      </if>
+      <if test="gjEn != null" >
+        GJ_EN,
+      </if>
+      <if test="dwEn != null" >
+        DW_EN,
+      </if>
+      <if test="zwEn != null" >
+        ZW_EN,
+      </if>
+      <if test="sbid != null" >
+        SBID,
+      </if>
       <if test="valid != null" >
         VALID,
       </if>
@@ -188,9 +206,6 @@
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="mdid != null" >
         #{mdid,jdbcType=VARCHAR},
-      </if>
-      <if test="sbid != null" >
-        #{sbid,jdbcType=VARCHAR},
       </if>
       <if test="xm != null" >
         #{xm,jdbcType=VARCHAR},
@@ -203,6 +218,21 @@
       </if>
       <if test="zw != null" >
         #{zw,jdbcType=VARCHAR},
+      </if>
+      <if test="xmEn != null" >
+        #{xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gjEn != null" >
+        #{gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="dwEn != null" >
+        #{dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="zwEn != null" >
+        #{zwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="sbid != null" >
+        #{sbid,jdbcType=VARCHAR},
       </if>
       <if test="valid != null" >
         #{valid,jdbcType=VARCHAR},
@@ -224,9 +254,6 @@
       <if test="record.mdid != null" >
         MDID = #{record.mdid,jdbcType=VARCHAR},
       </if>
-      <if test="record.sbid != null" >
-        SBID = #{record.sbid,jdbcType=VARCHAR},
-      </if>
       <if test="record.xm != null" >
         XM = #{record.xm,jdbcType=VARCHAR},
       </if>
@@ -238,6 +265,21 @@
       </if>
       <if test="record.zw != null" >
         ZW = #{record.zw,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xmEn != null" >
+        XM_EN = #{record.xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gjEn != null" >
+        GJ_EN = #{record.gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dwEn != null" >
+        DW_EN = #{record.dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zwEn != null" >
+        ZW_EN = #{record.zwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sbid != null" >
+        SBID = #{record.sbid,jdbcType=VARCHAR},
       </if>
       <if test="record.valid != null" >
         VALID = #{record.valid,jdbcType=VARCHAR},
@@ -253,11 +295,15 @@
   <update id="updateByExample" parameterType="map" >
     update T_HY_SBRYMD
     set MDID = #{record.mdid,jdbcType=VARCHAR},
-      SBID = #{record.sbid,jdbcType=VARCHAR},
       XM = #{record.xm,jdbcType=VARCHAR},
       GJ = #{record.gj,jdbcType=VARCHAR},
       DW = #{record.dw,jdbcType=VARCHAR},
       ZW = #{record.zw,jdbcType=VARCHAR},
+      XM_EN = #{record.xmEn,jdbcType=VARCHAR},
+      GJ_EN = #{record.gjEn,jdbcType=VARCHAR},
+      DW_EN = #{record.dwEn,jdbcType=VARCHAR},
+      ZW_EN = #{record.zwEn,jdbcType=VARCHAR},
+      SBID = #{record.sbid,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -267,9 +313,6 @@
   <update id="updateByPrimaryKeySelective" parameterType="cn.edu.cmu.domain.HySbrymd" >
     update T_HY_SBRYMD
     <set >
-      <if test="sbid != null" >
-        SBID = #{sbid,jdbcType=VARCHAR},
-      </if>
       <if test="xm != null" >
         XM = #{xm,jdbcType=VARCHAR},
       </if>
@@ -282,6 +325,21 @@
       <if test="zw != null" >
         ZW = #{zw,jdbcType=VARCHAR},
       </if>
+      <if test="xmEn != null" >
+        XM_EN = #{xmEn,jdbcType=VARCHAR},
+      </if>
+      <if test="gjEn != null" >
+        GJ_EN = #{gjEn,jdbcType=VARCHAR},
+      </if>
+      <if test="dwEn != null" >
+        DW_EN = #{dwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="zwEn != null" >
+        ZW_EN = #{zwEn,jdbcType=VARCHAR},
+      </if>
+      <if test="sbid != null" >
+        SBID = #{sbid,jdbcType=VARCHAR},
+      </if>
       <if test="valid != null" >
         VALID = #{valid,jdbcType=VARCHAR},
       </if>
@@ -293,11 +351,15 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="cn.edu.cmu.domain.HySbrymd" >
     update T_HY_SBRYMD
-    set SBID = #{sbid,jdbcType=VARCHAR},
-      XM = #{xm,jdbcType=VARCHAR},
+    set XM = #{xm,jdbcType=VARCHAR},
       GJ = #{gj,jdbcType=VARCHAR},
       DW = #{dw,jdbcType=VARCHAR},
       ZW = #{zw,jdbcType=VARCHAR},
+      XM_EN = #{xmEn,jdbcType=VARCHAR},
+      GJ_EN = #{gjEn,jdbcType=VARCHAR},
+      DW_EN = #{dwEn,jdbcType=VARCHAR},
+      ZW_EN = #{zwEn,jdbcType=VARCHAR},
+      SBID = #{sbid,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
     where MDID = #{mdid,jdbcType=VARCHAR}

@@ -9,11 +9,6 @@ public class HySbrymd {
     private String mdid;
 
     /**
-     * 会议申报id
-     */
-    private String sbid;
-
-    /**
      * 姓名
      */
     private String xm;
@@ -34,6 +29,31 @@ public class HySbrymd {
     private String zw;
 
     /**
+     * 姓名-英文
+     */
+    private String xmEn;
+
+    /**
+     * 国籍-英文
+     */
+    private String gjEn;
+
+    /**
+     * 单位-英文
+     */
+    private String dwEn;
+
+    /**
+     * 职务-英文
+     */
+    private String zwEn;
+
+    /**
+     * 会议申报id
+     */
+    private String sbid;
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      */
     private String valid;
@@ -45,22 +65,26 @@ public class HySbrymd {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
-    public HySbrymd(String mdid, String sbid, String xm, String gj, String dw, String zw, String valid, Date createTime) {
+    public HySbrymd(String mdid, String xm, String gj, String dw, String zw, String xmEn, String gjEn, String dwEn, String zwEn, String sbid, String valid, Date createTime) {
         this.mdid = mdid;
-        this.sbid = sbid;
         this.xm = xm;
         this.gj = gj;
         this.dw = dw;
         this.zw = zw;
+        this.xmEn = xmEn;
+        this.gjEn = gjEn;
+        this.dwEn = dwEn;
+        this.zwEn = zwEn;
+        this.sbid = sbid;
         this.valid = valid;
         this.createTime = createTime;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public HySbrymd() {
         super();
@@ -80,22 +104,6 @@ public class HySbrymd {
      */
     public void setMdid(String mdid) {
         this.mdid = mdid == null ? null : mdid.trim();
-    }
-
-    /**
-     * 会议申报id
-     * @return SBID 会议申报id
-     */
-    public String getSbid() {
-        return sbid;
-    }
-
-    /**
-     * 会议申报id
-     * @param sbid 会议申报id
-     */
-    public void setSbid(String sbid) {
-        this.sbid = sbid == null ? null : sbid.trim();
     }
 
     /**
@@ -163,6 +171,86 @@ public class HySbrymd {
     }
 
     /**
+     * 姓名-英文
+     * @return XM_EN 姓名-英文
+     */
+    public String getXmEn() {
+        return xmEn;
+    }
+
+    /**
+     * 姓名-英文
+     * @param xmEn 姓名-英文
+     */
+    public void setXmEn(String xmEn) {
+        this.xmEn = xmEn == null ? null : xmEn.trim();
+    }
+
+    /**
+     * 国籍-英文
+     * @return GJ_EN 国籍-英文
+     */
+    public String getGjEn() {
+        return gjEn;
+    }
+
+    /**
+     * 国籍-英文
+     * @param gjEn 国籍-英文
+     */
+    public void setGjEn(String gjEn) {
+        this.gjEn = gjEn == null ? null : gjEn.trim();
+    }
+
+    /**
+     * 单位-英文
+     * @return DW_EN 单位-英文
+     */
+    public String getDwEn() {
+        return dwEn;
+    }
+
+    /**
+     * 单位-英文
+     * @param dwEn 单位-英文
+     */
+    public void setDwEn(String dwEn) {
+        this.dwEn = dwEn == null ? null : dwEn.trim();
+    }
+
+    /**
+     * 职务-英文
+     * @return ZW_EN 职务-英文
+     */
+    public String getZwEn() {
+        return zwEn;
+    }
+
+    /**
+     * 职务-英文
+     * @param zwEn 职务-英文
+     */
+    public void setZwEn(String zwEn) {
+        this.zwEn = zwEn == null ? null : zwEn.trim();
+    }
+
+    /**
+     * 会议申报id
+     * @return SBID 会议申报id
+     */
+    public String getSbid() {
+        return sbid;
+    }
+
+    /**
+     * 会议申报id
+     * @param sbid 会议申报id
+     */
+    public void setSbid(String sbid) {
+        this.sbid = sbid == null ? null : sbid.trim();
+    }
+
+    /**
      * 数据是否有效(0已经删除 1有效)
      * @return VALID 数据是否有效(0已经删除 1有效)
      */
@@ -196,7 +284,7 @@ public class HySbrymd {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     @Override
     public String toString() {
@@ -205,11 +293,15 @@ public class HySbrymd {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", mdid=").append(mdid);
-        sb.append(", sbid=").append(sbid);
         sb.append(", xm=").append(xm);
         sb.append(", gj=").append(gj);
         sb.append(", dw=").append(dw);
         sb.append(", zw=").append(zw);
+        sb.append(", xmEn=").append(xmEn);
+        sb.append(", gjEn=").append(gjEn);
+        sb.append(", dwEn=").append(dwEn);
+        sb.append(", zwEn=").append(zwEn);
+        sb.append(", sbid=").append(sbid);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append("]");

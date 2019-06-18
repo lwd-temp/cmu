@@ -66,11 +66,12 @@
                 caption:"填写会议计划",
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
-                    layer.newpage({
+                    var index = layer.newpage({
                         area: ['1100px',"750px"],
                         title:'填写会议计划',
                         content:'business/gjhy/gjhy_jh_add.jsp',
                     });
+                    layer.full(index);
                 }
             }
         ]
@@ -138,13 +139,14 @@
 
     }
 
-    //修改用户
+    //修改会议计划
     function editGjhyJh(jhid){
-        layer.newpage({
+        var index = layer.newpage({
             area: ['1100px',"750px"],
             title:'修改会议计划',
             content:'hyjh/toEdit?id='+jhid,
         });
+        layer.full(index);
     }
 
     //删除用户

@@ -29,6 +29,26 @@ public class HyRymd {
     private String zw;
 
     /**
+     * 姓名-英文
+     */
+    private String xmEn;
+
+    /**
+     * 国籍-英文
+     */
+    private String gjEn;
+
+    /**
+     * 单位-英文
+     */
+    private String dwEn;
+
+    /**
+     * 职务-英文
+     */
+    private String zwEn;
+
+    /**
      * 计划id
      */
     private String jhid;
@@ -45,14 +65,18 @@ public class HyRymd {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
-    public HyRymd(String mdid, String xm, String gj, String dw, String zw, String jhid, String valid, Date createTime) {
+    public HyRymd(String mdid, String xm, String gj, String dw, String zw, String xmEn, String gjEn, String dwEn, String zwEn, String jhid, String valid, Date createTime) {
         this.mdid = mdid;
         this.xm = xm;
         this.gj = gj;
         this.dw = dw;
         this.zw = zw;
+        this.xmEn = xmEn;
+        this.gjEn = gjEn;
+        this.dwEn = dwEn;
+        this.zwEn = zwEn;
         this.jhid = jhid;
         this.valid = valid;
         this.createTime = createTime;
@@ -60,7 +84,7 @@ public class HyRymd {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     public HyRymd() {
         super();
@@ -147,6 +171,70 @@ public class HyRymd {
     }
 
     /**
+     * 姓名-英文
+     * @return XM_EN 姓名-英文
+     */
+    public String getXmEn() {
+        return xmEn;
+    }
+
+    /**
+     * 姓名-英文
+     * @param xmEn 姓名-英文
+     */
+    public void setXmEn(String xmEn) {
+        this.xmEn = xmEn == null ? null : xmEn.trim();
+    }
+
+    /**
+     * 国籍-英文
+     * @return GJ_EN 国籍-英文
+     */
+    public String getGjEn() {
+        return gjEn;
+    }
+
+    /**
+     * 国籍-英文
+     * @param gjEn 国籍-英文
+     */
+    public void setGjEn(String gjEn) {
+        this.gjEn = gjEn == null ? null : gjEn.trim();
+    }
+
+    /**
+     * 单位-英文
+     * @return DW_EN 单位-英文
+     */
+    public String getDwEn() {
+        return dwEn;
+    }
+
+    /**
+     * 单位-英文
+     * @param dwEn 单位-英文
+     */
+    public void setDwEn(String dwEn) {
+        this.dwEn = dwEn == null ? null : dwEn.trim();
+    }
+
+    /**
+     * 职务-英文
+     * @return ZW_EN 职务-英文
+     */
+    public String getZwEn() {
+        return zwEn;
+    }
+
+    /**
+     * 职务-英文
+     * @param zwEn 职务-英文
+     */
+    public void setZwEn(String zwEn) {
+        this.zwEn = zwEn == null ? null : zwEn.trim();
+    }
+
+    /**
      * 计划id
      * @return JHID 计划id
      */
@@ -196,7 +284,7 @@ public class HyRymd {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-12
      */
     @Override
     public String toString() {
@@ -209,6 +297,10 @@ public class HyRymd {
         sb.append(", gj=").append(gj);
         sb.append(", dw=").append(dw);
         sb.append(", zw=").append(zw);
+        sb.append(", xmEn=").append(xmEn);
+        sb.append(", gjEn=").append(gjEn);
+        sb.append(", dwEn=").append(dwEn);
+        sb.append(", zwEn=").append(zwEn);
         sb.append(", jhid=").append(jhid);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);

@@ -54,7 +54,12 @@
     <script src="assets/js/respond.js"></script>
     <![endif]-->
 
-
+    <style>
+        .cy .col-xs-1, .cy .col-xs-2 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    </style>
 </head>
 
 <body class="no-skin">
@@ -163,19 +168,31 @@
 
                             <hr/>
                             <div class="form-group">
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     参会人员姓名
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     国籍
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-1">
                                     单位
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-1">
                                     职务
                                 </div>
                                 <div class="col-xs-2">
+                                    姓名(英文)
+                                </div>
+                                <div class="col-xs-1">
+                                    国籍(英文)
+                                </div>
+                                <div class="col-xs-2">
+                                    单位(英文)
+                                </div>
+                                <div class="col-xs-2">
+                                    职务(英文)
+                                </div>
+                                <div class="col-xs-1">
                                     操作
                                 </div>
                             </div>
@@ -184,19 +201,31 @@
                                 <c:when test="${ryList!=null && ryList.size()>0}">
                                     <c:forEach items="${ryList}" var="ry">
                                         <div class="form-group cy">
-                                            <div class="col-xs-2">
+                                            <div class="col-xs-1">
                                                 <input type="text"  inp="xm" name="chrys[@].xm"  value="${ry.xm}"  placeholder="姓名"  class="col-xs-12" />
                                             </div>
-                                            <div class="col-xs-2">
+                                            <div class="col-xs-1">
                                                 <input type="text"  inp="gj" name="chrys[@].gj"  value="${ry.gj}" placeholder="国籍"  class="col-xs-12" />
                                             </div>
-                                            <div class="col-xs-3">
+                                            <div class="col-xs-1">
                                                 <input type="text"  inp="dw" name="chrys[@].dw"  value="${ry.dw}"  placeholder="单位"  class="col-xs-12" />
                                             </div>
-                                            <div class="col-xs-3">
+                                            <div class="col-xs-1">
                                                 <input type="text"  inp="zw" name="chrys[@].zw"  value="${ry.zw}"  placeholder="职务"  class="col-xs-12" />
                                             </div>
                                             <div class="col-xs-2">
+                                                <input type="text"  inp="xmEn" name="chrys[@].xmEn"  value="${ry.xmEn}"  placeholder="姓名(英文)"  class="col-xs-12" />
+                                            </div>
+                                            <div class="col-xs-1">
+                                                <input type="text"  inp="gjEn" name="chrys[@].gjEn"  value="${ry.gjEn}" placeholder="国籍(英文)"  class="col-xs-12" />
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="text"  inp="dwEn" name="chrys[@].dwEn"  value="${ry.dwEn}"  placeholder="单位(英文)"  class="col-xs-12" />
+                                            </div>
+                                            <div class="col-xs-2">
+                                                <input type="text"  inp="zwEn" name="chrys[@].zwEn"  value="${ry.zwEn}"  placeholder="职务(英文)"  class="col-xs-12" />
+                                            </div>
+                                            <div class="col-xs-1">
                                                 <button class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                                 <button class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
                                             </div>
@@ -206,19 +235,31 @@
                                 <c:otherwise>
 
                                     <div class="form-group cy">
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-1">
                                             <input type="text"  inp="xm" name="chrys[@].xm"   placeholder="姓名"  class="col-xs-12" />
                                         </div>
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-1">
                                             <input type="text"  inp="gj" name="chrys[@].gj"  placeholder="国籍"  class="col-xs-12" />
                                         </div>
-                                        <div class="col-xs-3">
+                                        <div class="col-xs-1">
                                             <input type="text"  inp="dw" name="chrys[@].dw"   placeholder="单位"  class="col-xs-12" />
                                         </div>
-                                        <div class="col-xs-3">
+                                        <div class="col-xs-1">
                                             <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
                                         </div>
                                         <div class="col-xs-2">
+                                            <input type="text"  inp="xmEn" name="chrys[@].xmEn"   placeholder="姓名(英文)"  class="col-xs-12" />
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <input type="text"  inp="gjEn" name="chrys[@].gjEn"  placeholder="国籍(英文)"  class="col-xs-12" />
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text"  inp="dwEn" name="chrys[@].dwEn"   placeholder="单位(英文)"  class="col-xs-12" />
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text"  inp="zwEn" name="chrys[@].zwEn"   placeholder="职务(英文)"  class="col-xs-12" />
+                                        </div>
+                                        <div class="col-xs-1">
                                             <button type="button" class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                             <button type="button" class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
                                         </div>
@@ -247,19 +288,31 @@
 <div id="template" style="display: none">
 
     <div class="form-group cy">
-        <div class="col-xs-2">
+        <div class="col-xs-1">
             <input type="text"  inp="xm" name="chrys[@].xm"   placeholder="姓名"  class="col-xs-12" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-1">
             <input type="text"  inp="gj" name="chrys[@].gj"  placeholder="国籍"  class="col-xs-12" />
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-1">
             <input type="text"  inp="dw" name="chrys[@].dw"   placeholder="单位"  class="col-xs-12" />
         </div>
-        <div class="col-xs-3">
+        <div class="col-xs-1">
             <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
         </div>
         <div class="col-xs-2">
+            <input type="text"  inp="xmEn" name="chrys[@].xmEn"   placeholder="姓名(英文)"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-1">
+            <input type="text"  inp="gjEn" name="chrys[@].gjEn"  placeholder="国籍(英文)"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-2">
+            <input type="text"  inp="dwEn" name="chrys[@].dwEn"   placeholder="单位(英文)"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-2">
+            <input type="text"  inp="zwEn" name="chrys[@].zwEn"   placeholder="职务(英文)"  class="col-xs-12" />
+        </div>
+        <div class="col-xs-1">
             <button type="button" class='btn btn-danger btn-mini' onclick='deleteCy(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
             <button type="button" class='btn btn-info btn-mini' onclick='appendCy(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
         </div>
@@ -309,6 +362,10 @@
                 "chrys[@].gj":{required : true},
                 "chrys[@].dw":{required : true},
                 "chrys[@].zw":{required : true},
+                "chrys[@].xmEn":{required : true},
+                "chrys[@].gjEn":{required : true},
+                "chrys[@].dwEn":{required : true},
+                "chrys[@].zwEn":{required : true},
             }
         });
     }
@@ -362,6 +419,21 @@
         });
         $("form input[inp=zw]").each(function(index,el){
             $(el).attr('name','chrys['+index+'].zw');
+        });
+
+        $("form input[inp=xmEn]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].xmEn');
+        });
+
+        $("form input[inp=gjEn]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].gjEn');
+        });
+
+        $("form input[inp=dwEn]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].dwEn');
+        });
+        $("form input[inp=zwEn]").each(function(index,el){
+            $(el).attr('name','chrys['+index+'].zwEn');
         });
 
     }

@@ -171,11 +171,12 @@
 
     //查看申报
     function showSbInfo(sbid){
-        layer.newpage({
+        var index = layer.newpage({
             area: ['1100px', "750px"],
             title:'查看会议申报信息',
             content:'hysb/toEdit?type=show&id='+sbid,
         });
+        layer.full(index);
     }
 
     //查看总结

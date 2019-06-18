@@ -27,7 +27,7 @@ public class HySbrymdServiceImplTest extends SpringIOC {
     //保存
     @Test
     public void save()throws Exception {
-        HySbrymd hySbrymd = new HySbrymd(CmuStringUtil.UUID(), "01","01","01","01","01",null,null);
+        HySbrymd hySbrymd = new HySbrymd(CmuStringUtil.UUID(), "01","01","01","01","01","01","01","01","01",null,null);
         boolean success = service.insert(hySbrymd);
         System.out.println("HySbrymd:"+hySbrymd);
         System.out.println("success:"+success);
@@ -69,7 +69,7 @@ public class HySbrymdServiceImplTest extends SpringIOC {
     @Test
     public void deleteById() throws Exception{
         String keyId = CmuStringUtil.UUID();
-        HySbrymd hySbrymd = new HySbrymd(keyId,"01","01","011","01","01",null,null);
+        HySbrymd hySbrymd = new HySbrymd(keyId,"01","01","011","01","01","01","011","01","01",null,null);
         boolean success = service.insert(hySbrymd);
         System.out.println("保存成功："+success);
         HySbrymd queryHySbrymd = service.queryById(keyId);

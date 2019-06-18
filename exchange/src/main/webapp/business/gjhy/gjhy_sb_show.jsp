@@ -53,8 +53,12 @@
     <script src="assets/js/html5shiv.js"></script>
     <script src="assets/js/respond.js"></script>
     <![endif]-->
-
-
+    <style>
+        .cy .col-xs-1, .cy .col-xs-2 {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    </style>
 </head>
 
 <body class="no-skin">
@@ -201,17 +205,29 @@
                             </div>
                             <hr/>
                             <div class="form-group">
-                                <div class="col-xs-2">
+                                <div class="col-xs-1">
                                     参会人员姓名
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-1">
                                     国籍
                                 </div>
-                                <div class="col-xs-4">
+                                <div class="col-xs-2">
                                     单位
                                 </div>
-                                <div class="col-xs-3">
+                                <div class="col-xs-1">
                                     职务
+                                </div>
+                                <div class="col-xs-2">
+                                    姓名(英文)
+                                </div>
+                                <div class="col-xs-1">
+                                    国籍(英文)
+                                </div>
+                                <div class="col-xs-2">
+                                    单位(英文)
+                                </div>
+                                <div class="col-xs-2">
+                                    职务(英文)
                                 </div>
 
                             </div>
@@ -220,17 +236,29 @@
                             <c:if test="${sbRymds!=null && sbRymds.size()>0}">
                                 <c:forEach items="${sbRymds}" var="ry">
                                     <div class="form-group cy">
-                                        <div class="col-xs-2">
+                                        <div class="col-xs-1">
                                             <input type="text" readonly="readonly" disabled="disabled" inp="xm" name="chrys[@].xm" value="${ry.xm}"  placeholder="姓名" class="col-xs-12"/>
                                         </div>
-                                        <div class="col-xs-3">
+                                        <div class="col-xs-1">
                                             <input type="text" readonly="readonly" disabled="disabled" inp="gj" name="chrys[@].gj" value="${ry.gj}" placeholder="国籍" class="col-xs-12"/>
                                         </div>
-                                        <div class="col-xs-4">
+                                        <div class="col-xs-2">
                                             <input type="text" readonly="readonly" disabled="disabled" inp="dw" name="chrys[@].dw" value="${ry.dw}" placeholder="单位" class="col-xs-12"/>
                                         </div>
-                                        <div class="col-xs-3">
+                                        <div class="col-xs-1">
                                             <input type="text" readonly="readonly" disabled="disabled" inp="zw" name="chrys[@].zw" value="${ry.zw}" placeholder="职务" class="col-xs-12"/>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="xmEn" name="chrys[@].xmEn" value="${ry.xmEn}"  placeholder="姓名(英文)" class="col-xs-12"/>
+                                        </div>
+                                        <div class="col-xs-1">
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="gjEn" name="chrys[@].gjEn" value="${ry.gjEn}" placeholder="国籍(英文)" class="col-xs-12"/>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="dwEn" name="chrys[@].dwEn" value="${ry.dwEn}" placeholder="单位(英文)" class="col-xs-12"/>
+                                        </div>
+                                        <div class="col-xs-2">
+                                            <input type="text" readonly="readonly" disabled="disabled" inp="zwEn" name="chrys[@].zwEn" value="${ry.zwEn}" placeholder="职务(英文)" class="col-xs-12"/>
                                         </div>
 
                                     </div>
