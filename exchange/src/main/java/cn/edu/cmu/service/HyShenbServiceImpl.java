@@ -216,8 +216,8 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HSSFCell cell_1_2 = row1.getCell(2);
         cell_1_2.setCellValue(domain.getHybh());
         //已在属地公安部门备案
-        HSSFCell cell_1_4 = row1.getCell(4);
-        cell_1_4.setCellValue(DMCache.translateCode2Name("T_DM_YN",domain.getSfbb()));
+        HSSFCell cell_1_6 = row1.getCell(6);
+        cell_1_6.setCellValue(DMCache.translateCode2Name("T_DM_YN",domain.getSfbb()));
 
 
         HSSFRow row2 = sheet.getRow(++rowIndex);
@@ -225,8 +225,8 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HSSFCell cell_2_2 = row2.getCell(2);
         cell_2_2.setCellValue(domain.getHymc());
         //会议名称(英文):
-        HSSFCell cell_2_4 = row2.getCell(4);
-        cell_2_4.setCellValue(domain.getHymcEn());
+        HSSFCell cell_2_6 = row2.getCell(6);
+        cell_2_6.setCellValue(domain.getHymcEn());
 
 
         HSSFRow row3 = sheet.getRow(++rowIndex);
@@ -234,16 +234,16 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HSSFCell cell_3_2 = row3.getCell(2);
         cell_3_2.setCellValue(domain.getZbdw());
         //承办单位
-        HSSFCell cell_3_4 = row3.getCell(4);
-        cell_3_4.setCellValue(domain.getCbdw());
+        HSSFCell cell_3_6 = row3.getCell(6);
+        cell_3_6.setCellValue(domain.getCbdw());
 
         HSSFRow row4 = sheet.getRow(++rowIndex);
         //举行日期(开始)
         HSSFCell cell_4_2 = row4.getCell(2);
         cell_4_2.setCellValue(domain.getJxrqKs());
         //举行日期(结束)
-        HSSFCell cell_4_4 = row4.getCell(4);
-        cell_4_4.setCellValue(domain.getJxrqJs());
+        HSSFCell cell_4_6 = row4.getCell(6);
+        cell_4_6.setCellValue(domain.getJxrqJs());
 
 
         HSSFRow row5 = sheet.getRow(++rowIndex);
@@ -251,8 +251,8 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HSSFCell cell_5_2 = row5.getCell(2);
         cell_5_2.setCellValue(DMCache.translateCode2Name("T_DM_HYLX",domain.getHylx()));
         //经费来源
-        HSSFCell cell_5_4 = row5.getCell(4);
-        cell_5_4.setCellValue(domain.getJfly());
+        HSSFCell cell_5_6 = row5.getCell(6);
+        cell_5_6.setCellValue(domain.getJfly());
 
 
         HSSFRow row6 = sheet.getRow(++rowIndex);
@@ -260,8 +260,8 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         HSSFCell cell_6_2 = row6.getCell(2);
         cell_6_2.setCellValue(domain.getFzrxm());
         //负责人电话
-        HSSFCell cell_6_4 = row6.getCell(4);
-        cell_6_4.setCellValue(domain.getFzrdh());
+        HSSFCell cell_6_6 = row6.getCell(6);
+        cell_6_6.setCellValue(domain.getFzrdh());
 
         HSSFRow row7 = sheet.getRow(++rowIndex);
         //地点
@@ -302,11 +302,19 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
                 HSSFCell cell_2 = ryRow.getCell(2);
                 HSSFCell cell_3 = ryRow.getCell(3);
                 HSSFCell cell_4 = ryRow.getCell(4);
+                HSSFCell cell_5 = ryRow.getCell(5);
+                HSSFCell cell_6 = ryRow.getCell(6);
+                HSSFCell cell_7 = ryRow.getCell(7);
+                HSSFCell cell_8 = ryRow.getCell(8);
 
                 cell_1.setCellValue(hySbrymd.getXm());
                 cell_2.setCellValue(hySbrymd.getGj());
                 cell_3.setCellValue(hySbrymd.getDw());
                 cell_4.setCellValue(hySbrymd.getZw());
+                cell_5.setCellValue(hySbrymd.getXmEn());
+                cell_6.setCellValue(hySbrymd.getGjEn());
+                cell_7.setCellValue(hySbrymd.getDwEn());
+                cell_8.setCellValue(hySbrymd.getZwEn());
             }
         }
 
