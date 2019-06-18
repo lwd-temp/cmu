@@ -1,3 +1,5 @@
+-- noinspection SqlDialectInspectionForFile
+
 -- 外宾接待添加礼品表，一个接待可以允许有多个礼品信息
 
 alter table t_wflf_lp
