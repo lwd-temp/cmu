@@ -353,8 +353,8 @@
                 "cfmd":{ required:true},
                 "nncfcs":{digits:true},
                 "jfyshj":{number:true},
-                "tzh":{ required:true},
-                "tzmc":{ required:true},
+                /*"tzh":{ required:true},
+                "tzmc":{ required:true},*/
                 "cglx":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},
@@ -369,11 +369,29 @@
             }
         })
     }
+
     function saveSq(){
 
         if(!validateSq()){
             return;
         }
+        var tzh = $("#tzh").val();
+        if(tzh==null || tzh==''){
+            layer.confirm('团组号为空，请确认无计划申报？', {
+                btn: ['确定','取消'] //按钮
+            }, function(index){
+                layer.close(index);
+                realSave();
+            });
+        }else{
+            realSave();
+        }
+    }
+
+    /**
+     * 真实保存
+     */
+    function realSave(){
         $.ajax('cggl/save',{
             type:'post',
             dataType:'json',
@@ -387,7 +405,6 @@
             }
         });
     }
-
 
     //校验整个计划
     function validateSq(){
