@@ -28,29 +28,14 @@
 
     <!-- 当访问静态资源, 将请求 交给默认的 default -->
     <mvc:default-servlet-handler/>
-
-
-
-
+    
     <aop:aspectj-autoproxy ></aop:aspectj-autoproxy>
-
 
     <context:annotation-config/>
 
 
-
-
-
-
-
-
-
-
     <!-- 启动任务注册扫描-->
    <!-- <task:annotation-driven />-->
-
-
-
 
 
     <!-- 调度工厂  但是创建的是-->
