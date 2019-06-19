@@ -276,8 +276,10 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
 
         HSSFRow row9 = sheet.getRow(++rowIndex);
         //会议规模
-        HSSFCell cell_9_2 = row9.getCell(2);
-        cell_9_2.setCellValue(domain.getHygm());
+        if(domain.getHygm()!=null){
+            HSSFCell cell_9_2 = row9.getCell(2);
+            cell_9_2.setCellValue(domain.getHygm());
+        }
 
         HSSFRow row10 = sheet.getRow(++rowIndex);
         //会议背景及必要性
