@@ -291,6 +291,10 @@
         });
 
         $('#gh').blur(function(){
+            if($(this).val() == ''){
+                return;
+            }
+
             var gh = this;
             $.ajax('sys/jzg/validateGh',{
                 data:{gh:$(gh).val()},
@@ -309,6 +313,9 @@
         var validator = $("#form").setValid({
             //校验规则
             rules: {
+                gh: {
+                    required: true
+                },
                 xm: {
                     required: true
                 },

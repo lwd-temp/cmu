@@ -129,11 +129,14 @@ public class CgDqcgjController extends BaseController {
         //查询团组信息
         String tzid = cgDqcgj.getTzid();
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzh = cgTzjh.getTzh();
-        String tzmc = cgTzjh.getTzmc();
+        if(cgTzjh!=null){  //新需求， 可以无计划申报
+            String tzh = cgTzjh.getTzh();
+            String tzmc = cgTzjh.getTzmc();
+            model.addAttribute("tzh", tzh);
+            model.addAttribute("tzmc", tzmc);
+        }
         logger.info(cgDqcgj);
-        model.addAttribute("tzh", tzh);
-        model.addAttribute("tzmc", tzmc);
+
         model.addAttribute("cgdqcgj", cgDqcgj);
         return "cggl/cggl_edit";
     }
@@ -224,11 +227,14 @@ public class CgDqcgjController extends BaseController {
         //查询团组信息
         String tzid = cgDqcgj.getTzid();
         CgTzjh cgTzjh = cgTzjhService.queryById(tzid);
-        String tzh = cgTzjh.getTzh();
-        String tzmc = cgTzjh.getTzmc();
-        logger.info(cgDqcgj);
-        model.addAttribute("tzh", tzh);
-        model.addAttribute("tzmc", tzmc);
+        if(cgTzjh!=null){  //新需求 可无计划申报
+            String tzh = cgTzjh.getTzh();
+            String tzmc = cgTzjh.getTzmc();
+            logger.info(cgDqcgj);
+            model.addAttribute("tzh", tzh);
+            model.addAttribute("tzmc", tzmc);
+        }
+
         model.addAttribute("cgdqcgj", cgDqcgj);
         return "cggl/cggl_sh";
     }

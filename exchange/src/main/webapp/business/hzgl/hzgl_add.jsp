@@ -283,6 +283,10 @@
         });
 
         $('#gh').blur(function(){
+
+            if($(this).val() == ''){
+                return;
+            }
             var gh = this;
             $.ajax('sys/jzg/validateGh',{
                 data:{gh:$(gh).val()},

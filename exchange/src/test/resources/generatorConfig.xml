@@ -223,9 +223,9 @@
          <table tableName="T_HY_SBRYMD" 	domainObjectName="HySbrymd"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
              <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HySbrymdParams&gt;"/>
          </table>-->
-      <table tableName="T_HY_SHENB" 	domainObjectName="HyShenb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+     <!-- <table tableName="T_HY_SHENB" 	domainObjectName="HyShenb"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyShenbParams&gt;"/>
-        </table>
+        </table>-->
         <!--  <table tableName="T_HY_ZJ" 	domainObjectName="HyZj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.HyZjParams&gt;"/>
             <columnOverride column="JTQKJS" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -278,6 +278,11 @@
         <table tableName="T_WBJD_LP" 	domainObjectName="WbjdLp"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdLpParams&gt;"/>
         </table> -->
+
+        <table tableName="T_WBJDZJ_FJ" 	domainObjectName="WbjdZjFj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjFjParams&gt;"/>
+        </table>
+
 
        <!-- <table tableName="T_WBZJ_LP" 	domainObjectName="WbZjLp"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbZjLpParams&gt;"/>
