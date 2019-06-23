@@ -1,5 +1,9 @@
 package cn.edu.cmu.vo;
+
 import cn.edu.cmu.domain.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,6 +26,9 @@ public class WbglVO {
     private List<WbjdLp> lp = new ArrayList<WbjdLp>(0);
 
     private List<WbjdZjSxry> zjsxr = new ArrayList<WbjdZjSxry>(0);
+    private List<WbZjFjUpload> fjUploads = new ArrayList<WbZjFjUpload>(0);
+
+    private List<WbjdZjFj> zjFjs = new ArrayList();
 
     private String[] cfgbIds;
 
@@ -67,7 +74,6 @@ public class WbglVO {
     }
 
 
-
     public List<WbjdLp> getLp() {
         return lp;
     }
@@ -75,6 +81,24 @@ public class WbglVO {
     public void setLp(List<WbjdLp> lp) {
         this.lp = lp;
     }
+
+    public List<WbZjFjUpload> getFjUploads() {
+        return fjUploads;
+    }
+
+
+    public void setFjUploads(List<WbZjFjUpload> fjUploads) {
+        this.fjUploads = fjUploads;
+    }
+
+    public List<WbjdZjFj> getZjFjs() {
+        return zjFjs;
+    }
+
+    public void setZjFjs(List<WbjdZjFj> zjFjs) {
+        this.zjFjs = zjFjs;
+    }
+
     @Override
     public String toString() {
         return "WbglVO{" +
@@ -83,6 +107,8 @@ public class WbglVO {
                 ", sxr=" + sxr +
                 ", lp=" + lp +
                 ", zjsxr=" + zjsxr +
+                ", fjUploads=" + fjUploads +
+                ", zjFjs=" + zjFjs +
                 ", cfgbIds=" + Arrays.toString(cfgbIds) +
                 '}';
     }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -120,10 +121,15 @@ public class WbjdZjController extends BaseController {
         for (WbjdGj gb : gbDomainList) {
             gbCodeList.add(gb.getLfjdgjid());
         }
+
+
+        List<WbjdZjFj> zjFjs = wbjdZjService.queryWbjdZjFjs(zjid);
+
         model.addAttribute("wbjdZj", wbjdZj);
         model.addAttribute("sxryList", sxryList);
         model.addAttribute("lpList", lpList);
         model.addAttribute("gbCodeList", gbCodeList);
+        model.addAttribute("zjFjs", zjFjs);//总结上传的附件
         if ("show".equals(type)) {
             return "wblfgl/wbgl_zj_show";
         }
@@ -151,10 +157,14 @@ public class WbjdZjController extends BaseController {
      */
     @RequestMapping("/save")
     @ResponseBody
-    public Map save(WbglVO vo) throws Exception {
+    public Map save(WbglVO vo, HttpServletRequest request) throws Exception {
         logger.info("保存 外宾来访申请【总结】 信息 :" + vo);
-        boolean success = wbjdZjService.saveOrupdate(vo);
+        boolean success = wbjdZjService.saveOrupdate(vo,request);
         logger.debug("保存 外宾来访申请 【总结】结果 :" + success);
+
+
+        //清空其中的file对象防止序列化报错
+        vo.setFjUploads(null);
         return super.ajaxStatus(success, vo);
     }
 

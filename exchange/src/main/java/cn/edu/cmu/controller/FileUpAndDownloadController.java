@@ -4,6 +4,7 @@ import cn.edu.cmu.domain.Upload;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.AccessUtils;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.YmlUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.UploadService;
@@ -22,8 +23,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -144,7 +147,7 @@ public class FileUpAndDownloadController extends BaseController {
 
 
     @RequestMapping("/download")
-    public ResponseEntity<byte[]> download(String fileName, String fileId) throws Exception {
+    public void download(HttpServletRequest request, HttpServletResponse response,String fileName, String fileId) throws Exception {
 
 
         logger.debug("想要下载的文件id为："+fileId);
@@ -158,9 +161,10 @@ public class FileUpAndDownloadController extends BaseController {
 
         File file = new File(absolutePath);
 
-        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
-        headers.setContentDispositionFormData("attachment", fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt()));
-        return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
+        fileName = fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
+
+        DownLoadUtils.setDownLoadHeaders(request,response,fileName);
+        DownLoadUtils.writeToResponse(response,new FileInputStream(file));
     }
 
 }

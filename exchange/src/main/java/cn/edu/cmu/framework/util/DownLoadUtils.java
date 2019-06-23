@@ -1,8 +1,13 @@
 package cn.edu.cmu.framework.util;
 
+import org.xml.sax.InputSource;
+
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
@@ -25,4 +30,38 @@ public class DownLoadUtils {
         }
         response.setHeader("content-disposition", "attachment;filename=" + fileName);
     }
+
+
+    /**
+     * 输出到客户端
+     * @param response
+     * @param is
+     */
+    public static void writeToResponse(HttpServletResponse response, InputStream is){
+        ServletOutputStream os = null;
+        try {
+            os = response.getOutputStream();
+            int len = 0;
+            byte[] bytes = new byte[1024];
+            while((len = is.read(bytes)) != -1){
+                os.write(bytes,0,len);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                os.flush();
+                os.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+    }
+
+
+
+
 }

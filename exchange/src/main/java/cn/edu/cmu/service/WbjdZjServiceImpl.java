@@ -1,8 +1,12 @@
 package cn.edu.cmu.service;
+import cn.edu.cmu.controller.FileUpAndDownloadController;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.util.AccessUtils;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseService;
+import cn.edu.cmu.vo.WbZjFjUpload;
 import cn.edu.cmu.vo.WbglVO;
 import com.github.pagehelper.StringUtil;
 import org.apache.commons.beanutils.BeanUtils;
@@ -11,8 +15,14 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.List;
 
 
@@ -30,25 +40,28 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
     @Autowired
     private WbjdZjMapperExt wbjdZjMapperExt;
 
+    @Autowired
+    private WbjdZjFjMapper zjFjDao;
+
+
+    @Autowired
+    UploadMapper uploadDao;
+
 
     @Override
     public List list(Object... conditions) throws Exception {
         WbjdSqParams params = new WbjdSqParams();
         WbjdSqParams.Criteria c1 = params.createCriteria();
-        WbjdSqParams.Criteria c2 = params.or();
 
         c1.andStatusEqualTo("04");//并且通过才查询
-        c2.andStatusEqualTo("04");//通过审核的会议申请
 
         if(conditions != null && conditions.length>0 && conditions[0]!=null){
             WbjdSq jdsq = (WbjdSq) conditions[0];
             if(StringUtils.isNotEmpty(jdsq.getZqlxrxm())){
                 c1.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
-                c2.andZqlxrxmLike("%"+jdsq.getZqlxrxm()+"%");
             }
             if(StringUtils.isNotEmpty(jdsq.getDbtmc())){
                 c1.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
-                c2.andDbtmcLike("%"+jdsq.getDbtmc()+"%");
             }
             super.addOrderBy(params,conditions);
         }
@@ -74,7 +87,7 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 
 
     @Override
-    public boolean saveOrupdate(WbglVO vo) throws Exception {
+    public boolean saveOrupdate(WbglVO vo, HttpServletRequest request) throws Exception {
         boolean isEdit = false;//是否修改标志
         WbjdZj wbjdZj = new WbjdZj();
         wbjdZj = vo.getWbjdZj();
@@ -93,7 +106,6 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
                 r.setLfid(wbjdZj.getZjid());//设置外键团组计划id
             }
         }
-
 
 
         if((!CollectionUtils.isEmpty(lpList)) ){
@@ -126,9 +138,87 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
             insertLp(lpList,wbjdZj);//礼品从表
             insertGb(wbjdZj.getZjid(),cfgbIds);
         }
+
+
+
+
+        //上传附件操作
+        //先删后插
+        WbjdZjFjParams zjFjParam = new WbjdZjFjParams();
+        zjFjParam.createCriteria().andZjidEqualTo(wbjdZj.getZjid());
+        zjFjDao.deleteByExample(zjFjParam);
+        List<WbjdZjFj> zjFjs = transformUploadZjs(vo,request);
+
+        for (WbjdZjFj zjFj : zjFjs) {
+            zjFj.setId(CmuStringUtil.UUID());
+            zjFj.setZjid(wbjdZj.getZjid());
+            zjFjDao.insertSelective(zjFj);
+        }
+
+//        System.exit(0);
+
         return true;
     }
 
+    private List<WbjdZjFj> transformUploadZjs(WbglVO vo, HttpServletRequest request) throws IOException {
+        List<WbjdZjFj> zjFjs = vo.getZjFjs();
+
+        List<WbZjFjUpload> uploads = vo.getFjUploads();
+
+        for (WbZjFjUpload upload : uploads) {
+            MultipartFile file = upload.getFile();
+            String zjms = upload.getZjms();
+
+
+            String fid = uploadZjFjFiles(file,request);
+
+            zjFjs.add(new WbjdZjFj(CmuStringUtil.UUID(), vo.getWbjdZj().getZjid(), fid, zjms, null,null));
+
+        }
+
+
+
+        return zjFjs;
+    }
+
+
+    /**
+     * 外宾接待上传文件
+     * @param f
+     * @param request
+     * @return
+     */
+    private String uploadZjFjFiles(MultipartFile f, HttpServletRequest request) throws IOException {
+
+        String oriFileName = f.getOriginalFilename();
+        long size = f.getSize();
+        HttpSession session = request.getSession();
+        String requestIP = AccessUtils.getIpAddress(request);//操作ip
+
+        String userName = (String)session.getAttribute(CmuConstants.SESSION.USER_NAME);
+
+        logger.info(String.format("用户:%s ,ip:%s上传文件,原始文件名:%s,大小:%d", userName, requestIP, oriFileName, size));
+
+        String fileId = CmuStringUtil.UUID();
+        String ext = CmuStringUtil.fileExt(oriFileName);//文件扩展名
+        String realName = fileId + "." + ext;        //真是的文件名称
+        String relativePath = CmuStringUtil.getRelativeDatePath() + realName; //相对完整路径
+        String uploadPath = FileUpAndDownloadController.BASE_DIR + relativePath; //完整的上传路径
+        File dest = new File(uploadPath);//File类型的上传文件转储对象
+
+        if (!dest.getParentFile().exists()) {
+            dest.getParentFile().mkdirs();
+        }
+        //将临时目录文件转储到指定的文件位置
+        f.transferTo(dest);
+
+        //生成待保存的 上传信息数据
+        Upload upload = new Upload(fileId, relativePath, ext, userName, requestIP, null, null);
+        uploadDao.insertSelective(upload);
+
+
+        return upload.getFileId();
+    }
 
     /**
      * 删除总结的 礼品信息
@@ -168,6 +258,21 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
 //        return wbjdLpMapper.selectByExample(params);
         return wbZjLpMapper.selectByExample(params);
     }
+
+    /**
+     * 根据总结id 查询出已上传的 总结附件
+     * @param zjid
+     * @return
+     * @throws Exception
+     */
+    @Override
+    public List<WbjdZjFj> queryWbjdZjFjs(String zjid) throws Exception {
+
+        WbjdZjFjParams params = new WbjdZjFjParams();
+        params.createCriteria().andZjidEqualTo(zjid);
+        return zjFjDao.selectByExample(params);
+    }
+
     //删除对应的随行成员
     private void deleteSxr(WbjdZj wbjdZj){
         WbjdZjSxryParams params = new WbjdZjSxryParams();

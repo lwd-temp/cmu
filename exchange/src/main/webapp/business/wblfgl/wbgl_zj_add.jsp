@@ -240,6 +240,34 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                    <div class="widget-box ">
+                        <div class="widget-header">
+                            <h4 class="widget-title">来访成果附件</h4> &nbsp;&nbsp;&nbsp;<button class='btn btn-info btn-mini' onclick='appendLfcg(); return false;'><i class='ace-icon fa fa-plus '>添加</i></button>
+                        </div>
+
+                        <div class="widget-body">
+                            <div class="widget-main row-lfcg">
+                                <div class="form-group">
+                                    <div class="col-xs-5">
+                                        附件
+                                    </div>
+                                    <div class="col-xs-4">
+                                        说明
+                                    </div>
+                                    <div class="col-xs-3">
+                                        操作
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.span -->
+
+            </div><!-- /.row -->
+
             <hr/>
             <div class="row">
                 <div class="col-xs-12 col-sm-12">
@@ -281,7 +309,6 @@
                 </div><!-- /.span -->
 
             </div><!-- /.row -->
-
 
 
             <hr/>
@@ -340,6 +367,25 @@
     </div>
     </div>
 </form>
+
+
+<!--来访成果附件模板 -->
+<div id="template-lfcg" style="display: none">
+    <div class="form-group lfcg">
+        <div class="col-xs-5">
+            <input type="file"   multiple="multiple" class="fileUpload" inp="file" name="fjUploads[@].file"  onchange="changeFile(this)" />
+        </div>
+
+        <div class="col-xs-4"><input type="text" placeholder="说明" inp="zjms"  name="fjUploads[@].zjms" class="col-xs-12"/></div>
+        <div class="col-xs-3">
+            <button class='btn btn-danger btn-mini' onclick='deleteLfcg(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
+        </div>
+    </div>
+</div>
+
+
+
+
 <div id="template-sxry" style="display: none">
     <div class="form-group sxr">
         <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
@@ -372,6 +418,8 @@
 <script src="assets/js/date-time/bootstrap-datepicker.js"></script>
 <script src="assets/js/typeahead.jquery.js"></script>
 <script src="assets/js/ace/elements.typeahead.js"></script>
+<script src="assets/js/ace/elements.fileinput.js"></script>
+
 <script src="assets/js/jqGrid/jquery.jqGrid.js"></script>
 <script src="assets/js/jqGrid/i18n/grid.locale-cn.js"></script>
 <!-- ace scripts -->
@@ -381,6 +429,8 @@
 <script src="assets/js/jqvalidate/messages_zh.js"></script>
 <!--弹出层 -->
 <script src="assets/js/layer/layer.js"></script>
+<script src="assets/js/ace/ace.js"></script>
+
 <!--自定义js -->
 <script src="assets/project/js/common-window.js"></script>
 
@@ -427,7 +477,9 @@
                 "sxr[@].gj":{ required:true},
                 "sxr[@].zw":{ required:true},
                 "lp[@].mc":{ required:true},
-                "lp[@].sl":{ required:true,digits:true}
+                "lp[@].sl":{ required:true,digits:true},
+                "fjUploads[@].file":{ required:true},
+                "fjUploads[@].zjms":{ required:true}
             }
         })
     }
@@ -436,10 +488,15 @@
             return;
         }
         calInputNames();
+        var formData = new FormData($("#form")[0]);
         $.ajax('wbzj/save',{
             type:'post',
             dataType:'json',
-            data:$("#form").serialize(),
+            cache: false,
+            processData: false,
+            contentType: false,
+            // data:$("#form").serialize(),
+            data: formData,//是ajax支持上传文件
             success:function(res){
                 if(res && res.success){
                     parent.refreshTable();
@@ -474,6 +531,14 @@
         $('form input[inp=sl]').each(function (index, el) {
             $(el).attr('name', 'lp[' + index + '].sl');
         });
+
+        $('form input[inp=file]').each(function (index, el) {
+            $(el).attr('name', 'fjUploads[' + index + '].file');
+        });
+        $('form input[inp=zjms]').each(function (index, el) {
+            $(el).attr('name', 'fjUploads[' + index + '].zjms');
+        });
+
 
     }
 
@@ -522,6 +587,69 @@
         })
         setFormValid();//设置校验规则
     }
+
+
+
+
+    function changeFile(fileInput){
+        //alert($(fileInput).parent().prev().size())
+        $(fileInput).parent().prev().val("");
+        // alert("index:"+index)
+    }
+    /***
+     *  来访成果附件删除
+     *
+     * **/
+    function deleteLfcg(btn) {
+
+        var row = $(btn).parent().parent();
+        row.remove();
+        setFormValid();//设置校验规则
+    }
+
+    /***
+     *  来访成果附件添加
+     *
+     * **/
+    function appendLfcg() {
+        $(".row-lfcg").append($("#template-lfcg").html());
+        var lfcg = $(".row-lfcg").children().last();
+
+        lfcg.find("input").each(function (index, el) {
+
+            $(el).attr("id", "formEl" + (Math.rnd()));
+            if(el.name =='sl'){//数量要求必须填入数字
+                $(el).rules('add', {required: true,digits:true});
+            }else{
+                $(el).rules('add', {required: true});
+            }
+        })
+
+        lfcg.find('[type=file]').ace_file_input({
+            no_file:'暂无文件 ...',
+            btn_choose:'选择',
+            btn_change:'替换',
+            droppable:false,
+            onchange:null,
+            // allowExt: ['png','jpg','jpeg','gif'],//允许的文件格式
+            thumbnail:true, //| true | large
+            //whitelist:'gif|png|jpg|jpeg'
+            //blacklist:'exe|php'
+            /* onchange:'changeFile'*/
+            //
+        }).on('file.error.ace', function(event, info) {//不匹配上面的文件格式就会跳出弹框提示
+            parent.layer.alert("选择图片格式的文件上传！", {icon: 0, title: "提示"});
+        });
+        // setFormValid();//设置校验规则
+    }
+
+
+
+
+
+
+
+
 
     /**
      * 判断是否包含来访目的
