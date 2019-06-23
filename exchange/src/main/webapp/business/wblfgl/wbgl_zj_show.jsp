@@ -160,16 +160,6 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-xs-2 control-label "  > 礼品: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  "  id="lp" name="wbjdZj.lp" value="${wbjdZj.lp}"  disabled="disabled" type="text"   />
-                </div>
-                <label class="col-xs-2 control-label "  > 数量: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " id="lpsl" name="wbjdZj.lpsl" value="${wbjdZj.lpsl}"  disabled="disabled" type="text"   />
-                </div>
-            </div>
             <div class="form-group ">
                 <label class="col-xs-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
@@ -340,6 +330,12 @@
 
 <script>
     $(function () {
+
+        //是否邀请校领导， 选是，提示在备注中输入校领导的名字
+        $('input[name="wbjdZj.ynYqxld"][value="Y"]').click(function(){
+            layer.msg("请在备注中输入受邀校领导的姓名");
+        });
+
         var md = $("#lfmd").val();
         //学术讲座 -- 演讲题目
         if (md == '03') {

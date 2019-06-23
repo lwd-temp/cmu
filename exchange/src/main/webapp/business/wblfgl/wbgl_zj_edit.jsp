@@ -156,18 +156,8 @@
                 <div class="form-group "  >
                     <label class="col-xs-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
-                        <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}"  readonly=readonly type="text"  style="height: 70px;" />
+                        <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}"   type="text"  style="height: 70px;" />
                     </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-xs-2 control-label "  > 礼品: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  "  id="lp" name="wbjdZj.lp" value="${wbjdZj.lp}"  type="text"   />
-                </div>
-                <label class="col-xs-2 control-label "  > 数量: </label>
-                <div class="col-xs-4">
-                    <input class="form-control  " id="lpsl" name="wbjdZj.lpsl" value="${wbjdZj.lpsl}"  type="text"   />
                 </div>
             </div>
             <div class="form-group ">
@@ -451,6 +441,12 @@
 
 <script>
     $(function () {
+
+        //是否邀请校领导， 选是，提示在备注中输入校领导的名字
+        $('input[name="wbjdZj.ynYqxld"][value="Y"]').click(function(){
+            layer.msg("请在备注中输入受邀校领导的姓名");
+        });
+
         //选择来访目的
         selectlfmd($("#lfmd"));
 
@@ -761,7 +757,7 @@
         var ynBbssgabm_value = $("#ynBbssgabm_value").val();
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
 
-        $("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+        //$("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
     }
 </script>
 </body>

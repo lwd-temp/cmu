@@ -116,7 +116,9 @@ public class WbjdSqExtController extends BaseController {
         StringBuffer bz= new StringBuffer();
         bz.append("   【"+YN_XLD+"】是否邀请校领导\n" +
                   "   【"+YN_BBSSGABM+"】是否报备所属公安部门\n" +
-                  "   【"+YN_BBSSXCBM+"】是否报备所属宣传部门");
+                  "   【"+YN_BBSSXCBM+"】是否报备所属宣传部门\n\n");
+        bz.append("    "+wbjdSq.getMemo()+" ");
+
         variables.put("bz",bz.toString());//备注
 
         try {
