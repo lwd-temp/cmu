@@ -261,7 +261,7 @@
                                                 class="col-xs-11"/>
                                             </div>
                                             <div class="col-xs-4">
-                                                <a href="sys/file/download?fileName=${zjfj.zjms}&fileId=${zjfj.fid}" target="_blank" style="margin-top: 3px"> 下载</a>
+                                                <a href="javascript:downloadLfcg('sys/file/download?fileName=${zjfj.zjms}&fileId=${zjfj.fid}')" style="margin-top: 3px"> 下载</a>
                                             </div>
                                             <div class="col-xs-3">
                                                 <button class='btn btn-danger btn-mini' onclick='deleteLfcg(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
@@ -758,6 +758,12 @@
         var ynBbssxcbm_value = $("#ynBbssxcbm_value").val();
 
         //$("#memo").val(ynYqxld_value+'   '+ynXyty_value+'   '+ynBbssgabm_value+'   '+ynBbssxcbm_value);
+    }
+
+
+    function downloadLfcg(url){
+        var href = encodeURI(url);
+        window.open(href);
     }
 </script>
 </body>

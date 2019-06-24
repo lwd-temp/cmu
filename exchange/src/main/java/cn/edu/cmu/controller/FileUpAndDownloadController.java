@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.FileInputStream;
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -149,6 +150,8 @@ public class FileUpAndDownloadController extends BaseController {
     @RequestMapping("/download")
     public void download(HttpServletRequest request, HttpServletResponse response,String fileName, String fileId) throws Exception {
 
+
+        fileName = URLDecoder.decode(fileName);
 
         logger.debug("想要下载的文件id为："+fileId);
         HttpHeaders headers = new HttpHeaders();

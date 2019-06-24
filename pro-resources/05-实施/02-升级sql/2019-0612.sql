@@ -90,3 +90,4 @@ comment on column t_wbzj_lp.create_time is
 alter table t_wbzj_lp
    add constraint FK_T_WBZJ_L_REFERENCE_T_WBJD_Z foreign key (zjid)
       references t_wbjd_zj (zjid);
+---------------已执行 2019年6月23日18:07:30------------------------------
