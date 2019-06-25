@@ -84,6 +84,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             Xm xm = (Xm) conditions[0];
 
+
+            //已发布项目管理 需要查询已发布的项目，允许修改，删除 ready
+            if(StringUtils.isNotEmpty(xm.getStatus()) && "ready".equals(xm.getStatus())){
+                c1.andStatusNotEqualTo(CmuConstants.XM.STATUS_TEMPORARY_STORAGE);// != '01'
+            }
+
             if (StringUtils.isNotEmpty(xm.getXmmc())) {
                 c1.andXmmcLike("%" + xm.getXmmc() + "%");
             }

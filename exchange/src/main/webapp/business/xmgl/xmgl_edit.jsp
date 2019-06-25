@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -230,21 +231,17 @@
                             </div>
 
                             <div class="col-md-offset-3 col-md-9" style = "text-align:right;">
-
-                                <button class="btn btn-info btn-sm" id="btnSave" type="button" >
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    暂存
-                                </button>
-
-                                &nbsp; &nbsp; &nbsp;
-
+                                <c:if test="${param['ready'] != 'ready'}">
+                                    <button class="btn btn-info btn-sm" id="btnSave" type="button" >
+                                        <i class="ace-icon fa fa-check bigger-110"></i>
+                                        暂存
+                                    </button>
+                                </c:if>
                                 <button class="btn btn-success btn-sm" id="btnDeploy" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
                                     发布
                                 </button>
-
                             </div>
-                            &nbsp;&nbsp;&nbsp;
                         </form>
 
                     </div><!-- /.col -->

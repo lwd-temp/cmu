@@ -173,6 +173,10 @@
                                 <div class="col-xs-4">
                                     <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="请输入年级限制"/>
                                 </div>
+                                <label class="col-xs-2 control-label "> 项目层次限制: </label>
+                                <div class="col-xs-4">
+                                    <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.xmcc" data-placeholder="请选择项目层次"></dm:list>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 项目专业限制: </label>
@@ -188,7 +192,7 @@
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 语言要求: </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="t_dm_yy" value="" id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
+                                    <dm:list tabName="t_dm_yy"  multiple="multiple"   id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
                                 </div>
                             </div>
 

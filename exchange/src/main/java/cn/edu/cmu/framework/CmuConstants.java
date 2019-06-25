@@ -65,4 +65,11 @@ public class CmuConstants {
 
     }
 
+
+    public interface XM{
+        public static final String STATUS_TEMPORARY_STORAGE = "01";//项目状态
+    }
+
+
+
 }

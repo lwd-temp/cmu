@@ -65,23 +65,11 @@
         })
 
         //自定义 按钮
-        var navBtns = [
-            {
-                caption:"创建项目",
-                buttonicon:"ace-icon fa fa-plus orange",
-                onClickButton: function(){
-                    layer.newpage({
-                        area: ['1000px', '750px'],
-                        title:'创建项目',
-                        content:'xm/toAdd',
-                    });
-                }
-            }
-        ]
+        var navBtns = []
 
         var settings = {
-            caption: "项目管理",
-            url:'xm/list',
+            caption: "已发布项目管理",
+            url:'xm/list?status=ready',
             colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '层次',/*'经费来源',*/'状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
@@ -115,16 +103,10 @@
                 {name:'xmId',index:'xmId', fixed:true, sortable:false, resize:true,
                     formatter:function(xmId, options, rowObject){
                         var status = rowObject.status;
-                        var content = "";
-                        if(status == '01' ){
-                            content += "<button class='btn btn-info btn-mini' title='测试' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
 
-                            content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
-                        }
+                        var content =   "<button class='btn btn-info btn-mini' title='修改' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
+                        content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
 
-                        if(content == ''){
-                            content = "无";
-                        }
                         return content;
                     }
                 },
@@ -168,7 +150,7 @@
         layer.newpage({
             area: ['1100px', '750px'],
             title:'编辑项目',
-            content:'xm/toEdit?id='+xmid,
+            content:'xm/toEdit?ready=ready&id='+xmid,
         });
     }
 
