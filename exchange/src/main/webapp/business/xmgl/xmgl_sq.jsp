@@ -178,7 +178,7 @@
                                 <label class="col-xs-2 control-label "  > 交流目标国家或地区   : </label>
                                 <div class="col-xs-4">
 
-                                    <dm:list sourceList="${gjdqList}"  type="select" id="jlgjdqm"  name="jlgjdqm"  value="${sqjl.jlgjdqm}"  data-placeholder="交流目标国家或地区"  ></dm:list>
+                                    <dm:list sourceList="${gjdqList}"  multiple="multiple" singleSelected="true" type="select" id="jlgjdqm"  name="jlgjdqm"  value="${sqjl.jlgjdqm}"  data-placeholder="交流目标国家或地区"  ></dm:list>
 
                                 </div>
 

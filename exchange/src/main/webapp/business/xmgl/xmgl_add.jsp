@@ -175,7 +175,7 @@
                                 </div>
                                 <label class="col-xs-2 control-label "> 项目层次限制: </label>
                                 <div class="col-xs-4">
-                                    <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.xmcc" data-placeholder="请选择项目层次"></dm:list>
+                                    <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.ccxz" data-placeholder="请选择项目层次限制"></dm:list>
                                 </div>
                             </div>
                             <div class="form-group">

@@ -28,6 +28,8 @@ public class CodeTag extends  BaseTag {
     private String headerKey;
     private String headerValue;
 
+    private boolean singleSelected = false; //单个下拉选，默认选中
+
     private static  String optionFMT = "\t<option value='%s' %s >%s</option>\r\n";
     private static  String radioFMT = "\t<input   name=\"%s\"  id=\"%s_%d\"    %s  type=\"radio\" class=\"ace\" %s value=\"%s\" />  <span class=\"lbl\"> %s</span>\r\n";
 
@@ -85,6 +87,14 @@ public class CodeTag extends  BaseTag {
 
     public void setHeaderValue(String headerValue) {
         this.headerValue = headerValue;
+    }
+
+    public boolean isSingleSelected() {
+        return singleSelected;
+    }
+
+    public void setSingleSelected(boolean singleSelected) {
+        this.singleSelected = singleSelected;
     }
 
     @Override
@@ -151,7 +161,11 @@ public class CodeTag extends  BaseTag {
                 // 1 当前代码 和提供的值匹配，
                 // 2  当前代码包含在按照分隔符拆分数组（'01','02'）  ['01','02']中
                 // 3 当前代码在提供的 集合（list）值中
-                boolean isSel = dmCode.equals(value) || containsValues(dmCode) || containsListValue(dmCode);
+                // 4 代码只有一个list.size == 1 并且默认选中状态为true
+                boolean isSel = dmCode.equals(value) ||
+                                containsValues(dmCode) ||
+                                containsListValue(dmCode) ||
+                                (list.size() == 1 && singleSelected);
                 isSelected = (isSel?"selected":"");
 
                 super.writeln(String.format(optionFMT,  dmCode, isSelected,   dmName));

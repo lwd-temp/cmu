@@ -165,10 +165,15 @@ public class Xm {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2019-04-14
+     * 语言要求说明
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime) {
+    private String yyyqsm;
+
+    /**
+     *
+     * @mbggenerated 2019-06-25
+     */
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -201,11 +206,12 @@ public class Xm {
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
+        this.yyyqsm = yyyqsm;
     }
 
     /**
      *
-     * @mbggenerated 2019-04-14
+     * @mbggenerated 2019-06-25
      */
     public Xm() {
         super();
@@ -724,8 +730,24 @@ public class Xm {
     }
 
     /**
+     * 语言要求说明
+     * @return YYYQSM 语言要求说明
+     */
+    public String getYyyqsm() {
+        return yyyqsm;
+    }
+
+    /**
+     * 语言要求说明
+     * @param yyyqsm 语言要求说明
+     */
+    public void setYyyqsm(String yyyqsm) {
+        this.yyyqsm = yyyqsm == null ? null : yyyqsm.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-04-14
+     * @mbggenerated 2019-06-25
      */
     @Override
     public String toString() {
@@ -765,6 +787,7 @@ public class Xm {
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", yyyqsm=").append(yyyqsm);
         sb.append("]");
         return sb.toString();
     }

@@ -5,3 +5,9 @@ values ('15', '已发布项目管理', '1', 'business/xmgl/xmgl_admin_list.jsp',
 -- Add/modify columns
 alter table T_XM modify xmzyxz VARCHAR2(4000);
 ---------------已执行 2019年6月25日18:29:02------------------------------
+
+
+-- Add/modify columns
+alter table T_XM add yyyqsm VARCHAR2(2000);
+-- Add comments to the columns
+comment on column T_XM.yyyqsm is '语言要求说明';

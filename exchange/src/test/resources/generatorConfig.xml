@@ -96,12 +96,12 @@
         </javaClientGenerator>
 
 
-       <!-- <table tableName="T_XM" 	domainObjectName="Xm"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+        <table tableName="T_XM" 	domainObjectName="Xm"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmParams&gt;"/>
 
             <columnOverride column="xmgk" javaType="java.lang.String" jdbcType="VARCHAR" />
             <columnOverride column="xmzzjh" javaType="java.lang.String" jdbcType="VARCHAR" />
-        </table>-->
+        </table>
         <!--<table tableName="T_XM_GJDQ" 	domainObjectName="XmGjdq"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.XmGjdqParams&gt;"/>
         </table>
@@ -279,9 +279,9 @@
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdLpParams&gt;"/>
         </table> -->
 
-        <table tableName="T_WBJDZJ_FJ" 	domainObjectName="WbjdZjFj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+      <!--  <table tableName="T_WBJDZJ_FJ" 	domainObjectName="WbjdZjFj"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.WbjdZjFjParams&gt;"/>
-        </table>
+        </table>-->
 
 
        <!-- <table tableName="T_WBZJ_LP" 	domainObjectName="WbZjLp"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
