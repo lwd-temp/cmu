@@ -6,6 +6,7 @@ import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.XmVo;
+import cn.edu.cmu.vo.XmzjbgVO;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -583,5 +584,11 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         return sqExtDao.selectByExample(params);
     }
 
+
+    //查询项目交流报告总结，供管理员和教师查看
+    @Override
+    public List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo) {
+        return daoExt.selectXmzjbg(vo);
+    }
 
 }

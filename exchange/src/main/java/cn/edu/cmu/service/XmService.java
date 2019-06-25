@@ -6,6 +6,7 @@ import cn.edu.cmu.domain.XmXssbfj;
 import cn.edu.cmu.domain.XmXssqjl;
 import cn.edu.cmu.framework.web.IBaseService;
 import cn.edu.cmu.vo.XmVo;
+import cn.edu.cmu.vo.XmzjbgVO;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.InvocationTargetException;
@@ -48,5 +49,8 @@ public interface XmService extends IBaseService<Xm, XmParams> {
     boolean confirmFs(String id);
 
     List listYsqxm(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
+
+
+    List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo); //查询项目交流报告总结，供管理员和教师查看
 }
 

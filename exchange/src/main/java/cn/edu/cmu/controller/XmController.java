@@ -7,6 +7,7 @@ import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.*;
 import cn.edu.cmu.vo.XmVo;
+import cn.edu.cmu.vo.XmzjbgVO;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.collections4.CollectionUtils;
@@ -684,6 +685,25 @@ public class XmController extends BaseController {
         return "xmgl/xmgl_ckzj";
     }
 
+
+
+
+
+    @RequestMapping("/listXmzjbg")
+    @ResponseBody
+    public Map listXmzjbg(XmzjbgVO vo,
+                          @RequestParam(defaultValue = "1", required = false) Integer page,
+                          @RequestParam(defaultValue = "10", required = false) Integer rows) throws Exception {
+
+        logger.debug("condition:" + vo);
+        //开启分页
+        Page<Object> pageInfo = PageHelper.startPage(page, rows);
+        //查询
+        List list = xmService.selectXmzjbg(vo);
+
+        //返回带【分页】 的表格JSON 信息
+        return super.pagingInfo(pageInfo, list);
+    }
 
 
 }

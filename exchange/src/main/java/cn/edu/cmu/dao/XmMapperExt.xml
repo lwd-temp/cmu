@@ -139,4 +139,52 @@
     </select>
 
 
+    <resultMap id="XmzjbgVOResultMap" type="cn.edu.cmu.vo.XmzjbgVO" >
+        <id column="zjid" property="zjid" />
+        <id column="file_id" property="fileId" />
+        <id column="xmbh" property="xmbh" />
+        <id column="xmmc" property="xmmc" />
+        <id column="xh" property="xh" />
+        <id column="xm" property="xm" />
+    </resultMap>
+
+    <select id="selectXmzjbg" parameterType="cn.edu.cmu.vo.XmzjbgVO" resultMap="XmzjbgVOResultMap">
+        select zjid ,file_id ,xmbh ,xmmc,xh,xm
+        from (
+
+            select bg.zjid    zjid,
+            bg.file_id file_id,
+            xm.xmbh    xmbh,
+            sq.xmmc    xmmc,
+            sq.xh      xh,
+            sq.xm      xm
+
+            from t_xm_jlzjbg bg
+            inner join t_xm_xssqjl sq
+            on bg.sqjl_id = sq.sqjl_id
+            inner join t_xm xm
+            on sq.xm_id = xm.xm_id
+
+        )
+
+        <where>
+            <if test="xmmc != null and xmmc != '' ">
+                <bind name="xmmcLike" value="'%' + xmmc + '%'"/>
+                and xmmc like #{xmmcLike,jdbcType=VARCHAR}
+            </if>
+            <if test="xm != null and xm != '' ">
+                <bind name="xmLike" value="'%' + xm + '%'"/>
+                and  xm like #{xmLike,jdbcType=VARCHAR}
+            </if>
+
+        </where>
+
+        <if test="orderCol !=null and orderCol != '' ">
+            order by ${orderCol} ${orderType}
+        </if>
+
+    </select>
+
+
+
 </mapper>

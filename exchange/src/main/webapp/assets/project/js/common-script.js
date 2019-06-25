@@ -202,7 +202,7 @@ $(function(){
                 height:"100%",
                 viewrecords : true,
                 rowNum:10,
-                rowList:[10,20,30,50,100],
+                rowList:[5,10,20,30,50,100],
                 altRows: true,
                 multiselect: true,
                 multiboxonly: true,
