@@ -1,5 +1,6 @@
 package cn.edu.cmu.service;
 import cn.edu.cmu.dao.HzMapper;
+import cn.edu.cmu.dao.HzglMapperExt;
 import cn.edu.cmu.domain.Hz;
 import cn.edu.cmu.domain.HzParams;
 import cn.edu.cmu.framework.CmuConstants;
@@ -9,8 +10,10 @@ import cn.edu.cmu.framework.util.ResourceBundleUtils;
 import cn.edu.cmu.framework.util.WeChartUtils;
 import cn.edu.cmu.framework.web.BaseService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executors;
@@ -19,6 +22,11 @@ import java.util.concurrent.TimeUnit;
 
 @Service
 public class HzServiceImpl extends BaseService<Hz, HzParams, HzMapper> implements HzService {
+
+
+    @Autowired
+    private HzglMapperExt hzglMapperExt;
+
     @Override
     public List list(Hz Hz) {
         HzParams ex = new HzParams();
@@ -109,4 +117,26 @@ public class HzServiceImpl extends BaseService<Hz, HzParams, HzMapper> implement
 
         }
     }
+
+    /*
+    护照信息下载
+     */
+    @Override
+    public List hzlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        HzParams params = new HzParams();
+        HzParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            Hz hzgl = (Hz) conditions[0];
+
+            if (StringUtils.isNotEmpty(hzgl.getXm())) {
+                c.andXmLike("%" + hzgl.getXm() + "%");
+            }
+
+            super.addOrderBy(params, conditions);
+        }
+        return hzglMapperExt.selectByExampleTranslateCode(params);
+    }
+
+
 }

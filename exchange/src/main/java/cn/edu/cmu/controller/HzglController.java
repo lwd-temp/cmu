@@ -1,11 +1,14 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.Hz;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.DateUtils;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HzService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 @Controller
@@ -113,5 +118,33 @@ public class HzglController extends BaseController {
         boolean success = hzService.deleteById(id);
 
         return super.ajaxStatus(success);
+    }
+
+
+    /**
+     * 护照信息下载
+     * @param hz
+     * @param orderCol
+     * @param orderType
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/download")
+    public void download(Hz hz, String orderCol, String orderType, HttpServletResponse response) throws Exception {
+
+//        String hzxm=new String(hz.getXm().getBytes("ISO-8859-1"), "UTF-8");
+//        hz.setXm(hzxm);
+
+        logger.info("护照姓名:"+hz.getXm());
+        List<Hz> list = hzService.hzlistExp(hz, orderCol, orderType);
+
+        logger.info(String.format("导出护照信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "hzgl.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "hz/hz.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.HzglMapperExt" >
+
+
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.HzMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.HzParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_XB', 'code', 'name', GENDER) gender,
+        F_GetTableText('T_DM_HZLX', 'code', 'name', HZLX) hzlx,
+        F_GetTableText('T_DM_HZZT', 'code', 'name', STATUS) status ,
+        hzid, hzhm, gh, xm, gj, birthday, csdd, qfrq, qfdd, yxqz, fzjg,  jcsj,
+        dcwfqzhm_mg, dcwfqzhm_oz, dcwfqzhm_jnd, dcwfqzhm_qt, cfnr, qzhm, dw, zw, zc, cfsj_cj,
+        cfsj_rj, ghsj, qzsj, cfmd, cfrw, jfly, bz, valid, create_time
+
+        from T_HZ
+
+        <if test="_parameter != null" >
+        <include refid="cn.edu.cmu.dao.HzMapper.Select_Example_Where_Clause" />
+        </if>
+
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+
+    </select>
+
+</mapper>
