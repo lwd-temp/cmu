@@ -708,30 +708,26 @@ public class XmController extends BaseController {
         return super.pagingInfo(pageInfo, list);
     }
 
-//    @RequestMapping("/downLoadXmzjbg")
-//    public void downLoadXmzjbg(XmzjbgVO vo){
-//        //查询
-//        List<XmzjbgVO> list = xmService.selectXmzjbg(vo);
-//        System.out.println("list:"+list);
-//    }
 
+    /**
+     * 下载学生已申请的项目信息
+     * @param vo
+     * @param request
+     * @param response
+     * @throws Exception
+     */
     @RequestMapping("/downLoadXmzjbg")
     public void downLoadXmzjbg(XmzjbgVO vo,HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-//        String fzrxmnew=new String(tzjh.getFzrxm().getBytes("ISO-8859-1"), "UTF-8");
-//        tzjh.setFzrxm(fzrxmnew);
         List<XmzjbgVO> list = xmService.selectXmzjbg(vo);
 
-        logger.info(String.format("导出团组信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
-
-        String downFileName = "tzgl.xls";
-        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        logger.info(String.format("已申请项目信息(学生)，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
 
         String fileName = "已申请项目信息(学生)_"+ DateUtils.formCurrentDate("yyyy_MMdd")+".xls";
         DownLoadUtils.setDownLoadHeaders(request, response,fileName);
-        ServletOutputStream out = response.getOutputStream();
+
         String excelTempPath = "xmgl/xmgl_ysqxs.xls";
-        ExcelUtils.expExcel(list,excelTempPath,out);
+        ExcelUtils.expExcel(list,excelTempPath,response.getOutputStream());
     }
 
 }
