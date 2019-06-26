@@ -2,6 +2,7 @@ package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.Hz;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.DateUtils;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HzService;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
@@ -130,18 +133,16 @@ public class HzglController extends BaseController {
      * @throws Exception
      */
     @RequestMapping("/download")
-    public void download(Hz hz, String orderCol, String orderType, HttpServletResponse response) throws Exception {
-
-//        String hzxm=new String(hz.getXm().getBytes("ISO-8859-1"), "UTF-8");
-//        hz.setXm(hzxm);
+    public void download(Hz hz, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         logger.info("护照姓名:"+hz.getXm());
         List<Hz> list = hzService.hzlistExp(hz, orderCol, orderType);
 
         logger.info(String.format("导出护照信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
 
-        String downFileName = "hzgl.xls";
-        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        String downFileName = "护照通行证信息.xls";
+
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
         ServletOutputStream out = response.getOutputStream();
 
         String excelTempPath = "hz/hz.xls";

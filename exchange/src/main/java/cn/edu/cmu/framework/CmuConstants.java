@@ -46,6 +46,7 @@ public class CmuConstants {
     }
 
 
+    //团组状态
     public interface TZ_STAUTS{
         //待审核
         public final String REVIEW = "02";
@@ -54,8 +55,9 @@ public class CmuConstants {
     }
 
 
-
-
+    /**
+     *护照
+     */
     public interface HZ{
 
         /**
@@ -66,6 +68,9 @@ public class CmuConstants {
     }
 
 
+    /**
+     * 项目
+     */
     public interface XM{
         public static final String STATUS_TEMPORARY_STORAGE = "01";//项目状态
     }
