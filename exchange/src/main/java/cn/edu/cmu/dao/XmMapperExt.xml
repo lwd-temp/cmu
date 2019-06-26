@@ -140,30 +140,41 @@
 
 
     <resultMap id="XmzjbgVOResultMap" type="cn.edu.cmu.vo.XmzjbgVO" >
-        <id column="zjid" property="zjid" />
-        <id column="file_id" property="fileId" />
         <id column="xmbh" property="xmbh" />
         <id column="xmmc" property="xmmc" />
         <id column="xh" property="xh" />
         <id column="xm" property="xm" />
+        <id column="unit_name" property="unitName" />
+        <id column="sznj" property="sznj" />
+        <id column="zjid" property="zjid" />
+        <id column="file_id" property="fileId" />
     </resultMap>
 
     <select id="selectXmzjbg" parameterType="cn.edu.cmu.vo.XmzjbgVO" resultMap="XmzjbgVOResultMap">
-        select zjid ,file_id ,xmbh ,xmmc,xh,xm
+        select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id
         from (
 
-            select bg.zjid    zjid,
-            bg.file_id file_id,
-            xm.xmbh    xmbh,
-            sq.xmmc    xmmc,
-            sq.xh      xh,
-            sq.xm      xm
+            select xm.xmbh      xmbh,
+                sq.xmmc      xmmc,
+                sq.xh        xh,
+                sq.xm        xm,
+                xs.unit_name unit_name,
+                xs.sznj      sznj,
 
-            from t_xm_jlzjbg bg
-            inner join t_xm_xssqjl sq
-            on bg.sqjl_id = sq.sqjl_id
-            inner join t_xm xm
-            on sq.xm_id = xm.xm_id
+                bg.zjid    zjid,
+                bg.file_id file_id
+
+            from t_xm_xssqjl sq
+                inner join t_xm xm  on sq.xm_id = xm.xm_id
+
+                left join (select xh, sznj, yxsh, unit.name unit_name from v_bks_xjjbsjxx xs1 inner join v_uicm_unit unit  on xs1.yxsh = unit.unit_id
+                             union all
+                           select xh, sznj, yxsh, unit.name unit_name from v_yjs_xjjbsjxx xs2 inner join v_uicm_unit unit on xs2.yxsh = unit.unit_id
+                         ) xs
+                  on sq.xh = xs.xh
+
+                left join t_xm_jlzjbg bg on bg.sqjl_id = sq.sqjl_id
+
 
         )
 

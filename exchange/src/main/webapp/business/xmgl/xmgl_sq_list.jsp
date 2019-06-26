@@ -25,6 +25,11 @@
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
+
+
+                <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-search "></i>
+                    批量下载
+                </button>
             </div>
         </div>
 
@@ -67,22 +72,28 @@
         var navBtns = [ ]
 
         var settings = {
-            caption: "学生交流报告查看",
+            caption: "学生已申请项目列表",
             /*data: grid_data,*/
             url:'xm/listXmzjbg',
-            colNames:['项目编号','项目名称','学生学号',"学生姓名","下载查看"],
+            colNames:["学生姓名",'学生学号','学生年级','所在学院','项目编号','项目名称',"下载查看"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmbh',index:'xmbh',  },
-                {name:'xmmc',index:'xmmc',  },
-                {name:'xh',index:'xh',  },
-                {name:'xm',index:'xm',  },
-                {name:'fileId', fixed:true, sortable:false, resize:true,
+                {name:'xm',index:'xm',  width:'10'  },
+                {name:'xh',index:'xh', width:'10'},
+                {name:'sznj',index:'sznj', width:'10' },
+                {name:'unitName',index:'unitName', width:'30' },
+                {name:'xmbh',index:'xmbh', width:'10' },
+                {name:'xmmc',index:'xmmc',  width:'30'},
+
+                {name:'fileId',  sortable:false,width:'15',
                     formatter:function(fileId, options, rowObject){
                         var xm = rowObject.xm;
                         var xmmc = rowObject.xmmc;
-                        return "<button class='btn btn-info btn-mini' onclick='download(\""+fileId+"\",\""+xm+"\",\""+xmmc+"\")' title='查看总结' ><i class='ace-icon fa fa-eye '>查看总结</i></button>";
+                        if(!fileId){
+                            return "";
+                        }
+                        return "<button class='btn btn-info btn-mini' onclick='download(\""+fileId+"\",\""+xm+"\",\""+xmmc+"\")' title='查看总结' ><i class='ace-icon fa fa-download '>查看总结</i></button>";
 
                     }
                 }
@@ -91,13 +102,19 @@
 
         //渲染jqGrid表格 ,包括渲染 分页信息
         $(grid_selector).tables(settings);
-
+        // $(grid_selector).autoWidth();
 
 
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
 
+        });
+
+        $("#download").click(function(){
+            var xmmc = $("#condition1").val();      //项目名称
+            var xm = $("#condition2").val();        //姓名
+            window.open('xm/downLoadXmzjbg?xmmc='+xmmc+'&xm='+xm);
         });
 
     });

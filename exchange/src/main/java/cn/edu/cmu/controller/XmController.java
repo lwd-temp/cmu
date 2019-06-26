@@ -3,6 +3,8 @@ package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.DateUtils;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.*;
@@ -26,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -705,5 +708,30 @@ public class XmController extends BaseController {
         return super.pagingInfo(pageInfo, list);
     }
 
+//    @RequestMapping("/downLoadXmzjbg")
+//    public void downLoadXmzjbg(XmzjbgVO vo){
+//        //查询
+//        List<XmzjbgVO> list = xmService.selectXmzjbg(vo);
+//        System.out.println("list:"+list);
+//    }
+
+    @RequestMapping("/downLoadXmzjbg")
+    public void downLoadXmzjbg(XmzjbgVO vo,HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+//        String fzrxmnew=new String(tzjh.getFzrxm().getBytes("ISO-8859-1"), "UTF-8");
+//        tzjh.setFzrxm(fzrxmnew);
+        List<XmzjbgVO> list = xmService.selectXmzjbg(vo);
+
+        logger.info(String.format("导出团组信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "tzgl.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+
+        String fileName = "已申请项目信息(学生)_"+ DateUtils.formCurrentDate("yyyy_MMdd")+".xls";
+        DownLoadUtils.setDownLoadHeaders(request, response,fileName);
+        ServletOutputStream out = response.getOutputStream();
+        String excelTempPath = "xmgl/xmgl_ysqxs.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
+    }
 
 }

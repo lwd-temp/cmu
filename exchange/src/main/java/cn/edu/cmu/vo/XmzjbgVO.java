@@ -20,6 +20,8 @@ public class XmzjbgVO {
     private String  xmmc;//项目名称
     private String  xh; // 序号
     private String  xm; //姓名
+    private String  unitName; //所属院系
+    private String  sznj; //所在年级
 
     //排序条件
     private String orderCol;

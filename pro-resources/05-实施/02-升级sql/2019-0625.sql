@@ -14,5 +14,5 @@ comment on column T_XM.yyyqsm is '语言要求说明';
 
 
 insert into t_sys_menu (MENU_ID, MENU_NAME, PARENT_ID, URL, MENU_ICON, MENU_STYLE, SORT, MEMO)
-values ('16', '交流报告查看(教师)', '1', 'business/xmgl/xmgl_jlbgzj_list.jsp', null, null, 5, null);
+values ('16', '交流报告查看(教师)', '1', 'business/xmgl/xmgl_sq_list.jsp', null, null, 5, null);
 

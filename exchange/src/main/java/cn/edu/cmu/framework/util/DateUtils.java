@@ -27,6 +27,17 @@ public class DateUtils {
         return sdfYMD.format(date);
     }
 
+    /**
+     * 根据格式获取日期 字符串
+     * @param pattern
+     * @return
+     */
+    public static String formCurrentDate(String pattern){
+
+        return new SimpleDateFormat(pattern).format(new Date());
+    }
+
+
 
 
     public static void main(String[] args) {
