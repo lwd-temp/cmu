@@ -11,7 +11,11 @@
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    下载护照信息
+                </button>
             </div>
+        </div>
         </div>
     </form>
     <div id="grid-pager"></div>
@@ -96,7 +100,7 @@
                 {name:'hzid',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='测试' onclick='editHz(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHz(\""+id+"\")' ><i class='ace-icon fa fa-eye '>删除</i></button>";
+                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHz(\""+id+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
@@ -106,6 +110,18 @@
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
+        });
+
+        //下载护照信息
+        $("#download").click(function(){
+
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("hzgl/download?xm="+$("#xm").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
     function clearTable(){
