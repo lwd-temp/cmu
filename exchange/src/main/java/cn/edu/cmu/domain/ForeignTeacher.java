@@ -14,17 +14,17 @@ public class ForeignTeacher {
     private String gh;
 
     /**
-     * 教师姓名
+     * 教师姓
      */
     private String jsx;
 
     /**
-     * 教师性别
+     * 教师名
      */
     private String jsm;
 
     /**
-     * 语种
+     * 教师中文
      */
     private String chineseName;
 

@@ -17,6 +17,7 @@ import cn.edu.cmu.domain.Upload;
 import cn.edu.cmu.domain.WjjsZjxx;
 import cn.edu.cmu.framework.web.IBaseService;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -31,5 +32,7 @@ public interface ForeignTeacherService extends IBaseService<ForeignTeacher, Fore
     boolean uploadZj(List<Upload> uploads, List<WjjsZjxx> zjs);
 
     List<WjjsZjxx> queryZjs(String tid);
+
+    public List wjjslistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

@@ -1,15 +1,18 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.ForeignTeacherMapper;
+import cn.edu.cmu.dao.ForeignTeacherMapperExt;
 import cn.edu.cmu.dao.UploadMapper;
 import cn.edu.cmu.dao.WjjsZjxxMapper;
 import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseService;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /*
@@ -33,6 +36,9 @@ public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, Forei
 
     @Autowired
     WjjsZjxxMapper zjDao;
+
+    @Autowired
+    ForeignTeacherMapperExt foreignTeacherMapperExt;
 
     @Override
     public List list(ForeignTeacher foreignTeacher) {
@@ -109,5 +115,29 @@ public class ForeignTeacherServiceImpl extends BaseService<ForeignTeacher, Forei
         param.createCriteria().andTidEqualTo(tid);
         List zjs = zjDao.selectByExample(param);
         return zjs;
+    }
+
+    @Override
+    public List wjjslistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+        ForeignTeacherParams params = new ForeignTeacherParams();
+        ForeignTeacherParams.Criteria c = params.createCriteria();
+
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            ForeignTeacher wjjs = (ForeignTeacher) conditions[0];
+
+            if(StringUtils.isNotEmpty(wjjs.getJsx())){
+                c.andJsxLike("%"+wjjs.getJsx()+"%");
+            }
+            if(StringUtils.isNotEmpty(wjjs.getJsm())){
+                c.andJsmLike("%"+wjjs.getJsm()+"%");
+            }
+            if(StringUtils.isNotEmpty(wjjs.getChineseName())){
+                c.andChineseNameLike("%"+wjjs.getChineseName()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return foreignTeacherMapperExt.selectByExampleTranslateCode(params);
     }
 }

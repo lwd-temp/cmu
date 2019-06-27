@@ -6,11 +6,13 @@ import cn.edu.cmu.domain.WjjsZjxx;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.AccessUtils;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.ForeignTeacherService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.StringUtil;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.util.ArrayList;
@@ -223,6 +227,27 @@ public class ForignTeacherController  extends BaseController {
         model.addAttribute("zjs",zjs);
 
         return "jsgl/jsgl_zjgl";
+    }
+
+    /*
+    外籍教师信息下载
+     */
+    @RequestMapping("/download")
+    public void download(ForeignTeacher wjjs,String orderCol, String orderType, HttpServletResponse response)throws Exception{
+
+//        String newchinesename=new String(wjjs.getChineseName().getBytes("ISO-8859-1"), "UTF-8");
+//        wjjs.setChineseName(newchinesename);
+
+        List<ForeignTeacher> list = foreignTeacherService.wjjslistExp(wjjs, orderCol, orderType);//demoList();
+
+        logger.info(String.format("导出教师信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "wjjs.xls";
+        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "js/wjjs.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 
 
