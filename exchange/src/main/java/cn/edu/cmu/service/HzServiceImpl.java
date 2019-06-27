@@ -125,7 +125,6 @@ public class HzServiceImpl extends BaseService<Hz, HzParams, HzMapper> implement
     public List hzlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         HzParams params = new HzParams();
         HzParams.Criteria c = params.createCriteria();
-        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             Hz hzgl = (Hz) conditions[0];
 
