@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.HzxyMapperExt" >
+
+
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.HzxyMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.HzxyParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        xyid, xymc, hzfmc, qdrq, sxrq, upload_id, qzr, qzrzw, memo, valid, create_time
+
+        from T_HZXY
+
+        <if test="_parameter != null" >
+        <include refid="cn.edu.cmu.dao.HzxyMapper.Select_Example_Where_Clause" />
+        </if>
+
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+
+    </select>
+
+</mapper>

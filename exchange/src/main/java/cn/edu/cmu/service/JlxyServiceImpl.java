@@ -3,6 +3,7 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.DmGbMapper;
 import cn.edu.cmu.dao.HzxyGbMapper;
 import cn.edu.cmu.dao.HzxyMapper;
+import cn.edu.cmu.dao.HzxyMapperExt;
 import cn.edu.cmu.domain.Hzxy;
 import cn.edu.cmu.domain.HzxyGb;
 import cn.edu.cmu.domain.HzxyGbParams;
@@ -16,6 +17,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -28,6 +30,8 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
     HzxyGbMapper hzxyGbMapper;
     @Autowired
     DmGbMapper dmGbMapper;
+    @Autowired
+    HzxyMapperExt hzxyMapperExt;
 
 
 
@@ -78,6 +82,26 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
 
 
         return false;
+    }
+
+    /*
+    交流协议信息下载
+     */
+    @Override
+    public List jlxylistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+        HzxyParams params = new HzxyParams();
+        HzxyParams.Criteria c = params.createCriteria();
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            Hzxy xy = (Hzxy) conditions[0];
+
+            if (StringUtils.isNotEmpty(xy.getXymc())) {
+                c.andXymcLike("%" + xy.getXymc() + "%");
+            }
+
+            super.addOrderBy(params, conditions);
+        }
+        return hzxyMapperExt.selectByExampleTranslateCode(params);
     }
 
 
