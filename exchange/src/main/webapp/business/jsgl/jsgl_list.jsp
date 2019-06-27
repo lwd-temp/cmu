@@ -10,7 +10,7 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 外籍教师姓: </label>
+            <label class="col-sm-1 control-label no-padding-right" for="condition1"> 外籍教师姓: </label>
 
             <div class="col-sm-2">
                 <input type="text" id="condition1" placeholder="外籍教师姓" class="col-xs-12" />
@@ -23,12 +23,12 @@
             <div class="col-sm-2">
                 <input type="text" id="condition3" placeholder="中文姓名" class="col-xs-12" />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
                 <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
-                    下载外籍教师信息
+                    批量下载
                 </button>
             </div>
         </div>
