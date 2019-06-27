@@ -6,6 +6,7 @@ import cn.edu.cmu.domain.WjjsZjxx;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.util.AccessUtils;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.ForeignTeacherService;
@@ -233,17 +234,17 @@ public class ForignTeacherController  extends BaseController {
     外籍教师信息下载
      */
     @RequestMapping("/download")
-    public void download(ForeignTeacher wjjs,String orderCol, String orderType, HttpServletResponse response)throws Exception{
-
-//        String newchinesename=new String(wjjs.getChineseName().getBytes("ISO-8859-1"), "UTF-8");
-//        wjjs.setChineseName(newchinesename);
+    public void download(ForeignTeacher wjjs,String orderCol, String orderType, HttpServletRequest request,HttpServletResponse response)throws Exception{
 
         List<ForeignTeacher> list = foreignTeacherService.wjjslistExp(wjjs, orderCol, orderType);//demoList();
 
         logger.info(String.format("导出教师信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
 
-        String downFileName = "wjjs.xls";
-        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        String downFileName = "外籍教师汇总.xls";
+
+        //设置下载文件Header信息
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+
         ServletOutputStream out = response.getOutputStream();
 
         String excelTempPath = "js/wjjs.xls";
