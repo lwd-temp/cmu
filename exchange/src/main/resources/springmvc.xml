@@ -170,6 +170,10 @@
 
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
+            <!--查询类型的方法不需要运行在事务上 -->
+            <tx:method name="select*" propagation="SUPPORTS"/>
+            <tx:method name="list*" propagation="SUPPORTS"/>
+
             <tx:method name="account*" propagation="REQUIRED"/>
             <tx:method name="insert*" propagation="REQUIRED"/>
             <tx:method name="update*" propagation="REQUIRED"/>
@@ -177,6 +181,7 @@
             <tx:method name="*insert" propagation="REQUIRED"/>
             <tx:method name="*update" propagation="REQUIRED"/>
             <tx:method name="*delete" propagation="REQUIRED"/>
+            <tx:method name="*" propagation="REQUIRED"/>
         </tx:attributes>
 
     </tx:advice>

@@ -10,6 +10,7 @@ package cn.edu.cmu.framework.util;
 
 import cn.edu.cmu.dao.IfsWxlogMapper;
 import cn.edu.cmu.domain.IfsWxlog;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -118,9 +119,12 @@ public class WeChartUtils extends Thread implements Runnable{
 
         logger.info("===============发送微信参数如下========================================");
         logger.info("debug开关:  "+debug);
-        logger.info("debug模式下接受者:  "+debugReceiveUser);
+
         logger.info("sendUser:  "+sendUser);
         logger.info("receiveUser:   "+receiveUser);
+        if(debug){
+            logger.info("debug模式下接受者:  "+debugReceiveUser);
+        }
         logger.info("title: "+title);
         logger.info("description:   "+description);
         logger.info("content:   "+content);
@@ -215,6 +219,18 @@ public class WeChartUtils extends Thread implements Runnable{
 
         if(!sendSwitch){//使用开关控制，是否允许环境发送微信消息
             logger.info("当前环境已关闭微信接口，暂不发送微信消息(如需打开请联系管理员)...");
+            return;
+        }
+
+
+        if(StringUtils.isEmpty(receiveUser)){
+
+            logger.info("*************发送微信通知终止=====【receiveUser is null】 ============");
+            logger.info("=============title:\t"+title);
+            logger.info("=============description:\t"+description);
+            logger.info("=============content:\t"+content);
+            logger.info("*************发送微信通知终止=====receiveUser is null ============");
+
             return;
         }
 

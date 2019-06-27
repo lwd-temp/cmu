@@ -155,8 +155,6 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
             zjFjDao.insertSelective(zjFj);
         }
 
-//        System.exit(0);
-
         return true;
     }
 

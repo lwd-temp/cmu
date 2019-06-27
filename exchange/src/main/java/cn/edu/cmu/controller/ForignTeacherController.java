@@ -40,6 +40,7 @@ import java.util.Map;
  * @Project cmu
  * @Version 1.0
  */
+
 @Controller
 @RequestMapping("/wjjs")
 public class ForignTeacherController  extends BaseController {

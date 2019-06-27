@@ -50,9 +50,22 @@ public class CmuConstants {
     public interface TZ_STAUTS{
         //待审核
         public final String REVIEW = "02";
+
         //已审核通过
         public final String PASS = "04";
     }
+
+
+    //外宾接待
+    public interface WBJD{
+        //退回
+        public static final String  STATUS_BACK = "03";
+
+        //通过
+        public static final String  STATUS_PASS = "04";
+    }
+
+
 
 
     /**

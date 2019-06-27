@@ -43,6 +43,7 @@
       <arg column="MEMO" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -151,7 +152,7 @@
     LFID, DBTMC, LFRS, LFSJ_START, LFSJ_END, TLSJ_START, TLSJ_END, LFMD, LFMD_QT, YJTM, 
     YQXX, JFLY, LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZXB, TZCSRQ, TZGZDW, TZZC, TZZW, TZZY, 
     TZXSLY, YQCG, ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, YN_YQXLD, YN_XYTY, YN_BBSSGABM, 
-    YN_BBSSXCBM, JDLX, STATUS, MEMO, VALID, CREATE_TIME
+    YN_BBSSXCBM, JDLX, STATUS, MEMO, VALID, CREATE_TIME, OPERATOR
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSqParams" >
     select
@@ -197,7 +198,8 @@
       ZQLXRDH, JDBM, YN_YQXLD, 
       YN_XYTY, YN_BBSSGABM, YN_BBSSXCBM, 
       JDLX, STATUS, MEMO, 
-      VALID, CREATE_TIME)
+      VALID, CREATE_TIME, OPERATOR
+      )
     values (#{lfid,jdbcType=VARCHAR}, #{dbtmc,jdbcType=VARCHAR}, #{lfrs,jdbcType=DECIMAL}, 
       #{lfsjStart,jdbcType=TIMESTAMP}, #{lfsjEnd,jdbcType=TIMESTAMP}, #{tlsjStart,jdbcType=TIMESTAMP}, 
       #{tlsjEnd,jdbcType=TIMESTAMP}, #{lfmd,jdbcType=VARCHAR}, #{lfmdQt,jdbcType=VARCHAR}, 
@@ -210,7 +212,8 @@
       #{zqlxrdh,jdbcType=VARCHAR}, #{jdbm,jdbcType=VARCHAR}, #{ynYqxld,jdbcType=VARCHAR}, 
       #{ynXyty,jdbcType=VARCHAR}, #{ynBbssgabm,jdbcType=VARCHAR}, #{ynBbssxcbm,jdbcType=VARCHAR}, 
       #{jdlx,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.WbjdSq" >
     insert into T_WBJD_SQ
@@ -335,6 +338,9 @@
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
+      <if test="operator != null" >
+        OPERATOR,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="lfid != null" >
@@ -456,6 +462,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -588,6 +597,9 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.operator != null" >
+        OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -634,7 +646,8 @@
       STATUS = #{record.status,jdbcType=VARCHAR},
       MEMO = #{record.memo,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      OPERATOR = #{record.operator,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -759,6 +772,9 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="operator != null" >
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
     </set>
     where LFID = #{lfid,jdbcType=VARCHAR}
   </update>
@@ -802,7 +818,8 @@
       STATUS = #{status,jdbcType=VARCHAR},
       MEMO = #{memo,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      OPERATOR = #{operator,jdbcType=VARCHAR}
     where LFID = #{lfid,jdbcType=VARCHAR}
   </update>
 </mapper>

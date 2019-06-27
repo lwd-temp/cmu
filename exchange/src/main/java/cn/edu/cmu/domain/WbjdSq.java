@@ -185,7 +185,7 @@ public class WbjdSq {
     private String jdlx;
 
     /**
-     * 状态 01 资料需修改、02 资料合格、03 办结
+     * 状态 01 资料需修改、02 资料合格、03 办结、04直接通过
      */
     private String status;
 
@@ -205,10 +205,15 @@ public class WbjdSq {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-11-22
+     * 申请操作人id
      */
-    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzc, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String jdlx, String status, String memo, String valid, Date createTime) {
+    private String operator;
+
+    /**
+     *
+     * @mbggenerated 2019-06-27
+     */
+    public WbjdSq(String lfid, String dbtmc, BigDecimal lfrs, Date lfsjStart, Date lfsjEnd, Date tlsjStart, Date tlsjEnd, String lfmd, String lfmdQt, String yjtm, String yqxx, String jfly, String lp, BigDecimal lpsl, String qkjl, String fwcg, String tzxm, String tzgj, String tzxb, Date tzcsrq, String tzgzdw, String tzzc, String tzzw, String tzzy, String tzxsly, String yqcg, String zqrxm, String zqrdh, String zqlxrxm, String zqlxrdh, String jdbm, String ynYqxld, String ynXyty, String ynBbssgabm, String ynBbssxcbm, String jdlx, String status, String memo, String valid, Date createTime, String operator) {
         this.lfid = lfid;
         this.dbtmc = dbtmc;
         this.lfrs = lfrs;
@@ -249,11 +254,12 @@ public class WbjdSq {
         this.memo = memo;
         this.valid = valid;
         this.createTime = createTime;
+        this.operator = operator;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-27
      */
     public WbjdSq() {
         super();
@@ -836,16 +842,16 @@ public class WbjdSq {
     }
 
     /**
-     * 状态 01 资料需修改、02 资料合格、03 办结
-     * @return STATUS 状态 01 资料需修改、02 资料合格、03 办结
+     * 状态 01 资料需修改、02 资料合格、03 办结、04直接通过
+     * @return STATUS 状态 01 资料需修改、02 资料合格、03 办结、04直接通过
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     * 状态 01 资料需修改、02 资料合格、03 办结
-     * @param status 状态 01 资料需修改、02 资料合格、03 办结
+     * 状态 01 资料需修改、02 资料合格、03 办结、04直接通过
+     * @param status 状态 01 资料需修改、02 资料合格、03 办结、04直接通过
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
@@ -900,8 +906,24 @@ public class WbjdSq {
     }
 
     /**
+     * 申请操作人id
+     * @return OPERATOR 申请操作人id
+     */
+    public String getOperator() {
+        return operator;
+    }
+
+    /**
+     * 申请操作人id
+     * @param operator 申请操作人id
+     */
+    public void setOperator(String operator) {
+        this.operator = operator == null ? null : operator.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-27
      */
     @Override
     public String toString() {
@@ -949,6 +971,7 @@ public class WbjdSq {
         sb.append(", memo=").append(memo);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", operator=").append(operator);
         sb.append("]");
         return sb.toString();
     }

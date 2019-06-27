@@ -22,6 +22,7 @@ public class WbjdSqController extends BaseController {
     @Autowired
     WbjdSqService wbjdSqService;
 
+
     @Autowired
     WbjdSxryService wbjdSxryService;
 

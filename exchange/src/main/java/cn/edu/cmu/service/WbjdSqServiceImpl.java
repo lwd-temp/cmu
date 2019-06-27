@@ -2,7 +2,11 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.UserContext;
+import cn.edu.cmu.framework.threadpool.SysThreadPoolRunner;
 import cn.edu.cmu.framework.util.CmuStringUtil;
+import cn.edu.cmu.framework.util.ResourceBundleUtils;
+import cn.edu.cmu.framework.util.WeChartUtils;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.WbglVO;
 import com.github.pagehelper.StringUtil;
@@ -98,6 +102,7 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         if(StringUtil.isEmpty(wbjdSq.getLfid())){
             String keyId = CmuStringUtil.UUID();
             wbjdSq.setLfid(keyId);
+            wbjdSq.setOperator(UserContext.getUserId());
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
@@ -219,10 +224,22 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         String zjid = CmuStringUtil.UUID();
         int count  = dao.updateByPrimaryKeySelective(wbjdSq);
         //新增到总结表中 ，申请的数据
-        if(wbjdSq.getStatus().equals(CmuConstants.TZ_STAUTS.PASS)){
+        if(CmuConstants.WBJD.STATUS_PASS.equals(wbjdSq.getStatus())){
             insertWbjdZjSxry(sxryList,zjid);
             insertWbjdZjGb(gbDomainList,zjid);
         }
+
+
+        //如果退回需要发送微信通知
+        if(CmuConstants.WBJD.STATUS_BACK.equals(wbjdSq.getStatus())){
+            String title =          ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.title");//【通知】护照半年到期提醒
+            String description =    ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+
+            SysThreadPoolRunner.submit(new WeChartUtils("", wbjdSq.getOperator(), title, description, content));
+        }
+
+
 
         return count>0  ;
     }

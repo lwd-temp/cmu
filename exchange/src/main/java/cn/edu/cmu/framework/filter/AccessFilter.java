@@ -3,6 +3,7 @@ package cn.edu.cmu.framework.filter;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.UserContext;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.framework.util.YmlUtils;
@@ -133,6 +134,9 @@ public class AccessFilter implements Filter {
 
             queryUserBody(loginUserType, sessionUserId, session);
         }
+
+        //将信息放到线程池中
+        UserContext.setUserId(sessionUserId);
 
     }
 
