@@ -5,7 +5,10 @@ import cn.edu.cmu.dao.HyRymdMapper;
 import cn.edu.cmu.dao.HySbrymdMapper;
 import cn.edu.cmu.dao.HyShenbMapper;
 import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.UserContext;
 import cn.edu.cmu.framework.cache.DMCache;
+import cn.edu.cmu.framework.threadpool.SysThreadPoolRunner;
 import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.HysbVO;
@@ -110,6 +113,7 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         if(StringUtil.isEmpty(hysb.getSbid())){
             String keyId = CmuStringUtil.UUID();
             hysb.setSbid(keyId);
+            hysb.setOperator(UserContext.getUserId());
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
@@ -200,6 +204,24 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         os.flush();
         os.close();
         workbook.close();
+    }
+
+    @Override
+    public boolean sh(HyShenb shenb) {
+        int count = dao.updateByPrimaryKeySelective(shenb);
+
+        //退回需要发送微信消息
+        if(CmuConstants.HY.STATUS_BACK.equals(shenb.getStatus())){
+            shenb = dao.selectByPrimaryKey(shenb.getSbid());
+            String title =          ResourceBundleUtils.getString("ifs.wechat.hy.shth.title");//【通知】国际会议审核
+            String description =    ResourceBundleUtils.getString("ifs.wechat.hy.shth.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.hy.shth.content");//尊敬的老师您好，您的国际会议申请已退回，请知悉。
+
+            SysThreadPoolRunner.submit(new WeChartUtils("",shenb.getOperator(), title, description, content));
+        }
+
+
+        return count>0;
     }
 
 

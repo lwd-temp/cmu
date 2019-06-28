@@ -169,7 +169,7 @@ public class HyShenbController extends BaseController {
     @ResponseBody
     public Map sh(HyShenb shenb) throws Exception {
 
-        boolean success = hyShenbService.updateById(shenb);
+        boolean success = hyShenbService.sh(shenb);
 
         return super.ajaxStatus(success);
     }

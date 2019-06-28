@@ -89,5 +89,15 @@ public class CmuConstants {
     }
 
 
+    /**
+     * 国际会议
+     */
+    public interface HY{
+        //审核退回
+        public static final String STATUS_BACK = "03";
+    }
+
+
+
 
 }

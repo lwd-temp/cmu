@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class WeChartUtils extends Thread implements Runnable{
 
-    private static Logger logger = Logger.getLogger(NetUtils.class);
+    private static Logger logger = Logger.getLogger(WeChartUtils.class);
 
     //private static String postUrl = "http://i.cmu.edu.cn/dcp/ifs";
     //private static String sysid = "wxpt_gjjl";
@@ -225,11 +225,13 @@ public class WeChartUtils extends Thread implements Runnable{
 
         if(StringUtils.isEmpty(receiveUser)){
 
+            logger.info("********************************************************************");
             logger.info("*************发送微信通知终止=====【receiveUser is null】 ============");
             logger.info("=============title:\t"+title);
             logger.info("=============description:\t"+description);
             logger.info("=============content:\t"+content);
             logger.info("*************发送微信通知终止=====receiveUser is null ============");
+            logger.info("********************************************************************");
 
             return;
         }

@@ -173,6 +173,8 @@
             <!--查询类型的方法不需要运行在事务上 -->
             <tx:method name="select*" propagation="SUPPORTS"/>
             <tx:method name="list*" propagation="SUPPORTS"/>
+            <tx:method name="*List" propagation="SUPPORTS"/>
+            <tx:method name="*list" propagation="SUPPORTS"/>
 
             <tx:method name="account*" propagation="REQUIRED"/>
             <tx:method name="insert*" propagation="REQUIRED"/>
