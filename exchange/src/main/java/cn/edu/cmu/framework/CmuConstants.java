@@ -98,6 +98,12 @@ public class CmuConstants {
     }
 
 
+    //出国境
+    public interface DQCGJ{
+        //审核退回
+        public static final String STATUS_BACK = "03";
+    }
+
 
 
 }

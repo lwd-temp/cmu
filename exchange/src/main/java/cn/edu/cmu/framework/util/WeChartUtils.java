@@ -123,7 +123,8 @@ public class WeChartUtils extends Thread implements Runnable{
         logger.info("sendUser:  "+sendUser);
         logger.info("receiveUser:   "+receiveUser);
         if(debug){
-            logger.info("debug模式下接受者:  "+debugReceiveUser);
+            receiveUser = debugReceiveUser;
+            logger.info("debug模式下接受者:  "+receiveUser);
         }
         logger.info("title: "+title);
         logger.info("description:   "+description);
@@ -234,10 +235,6 @@ public class WeChartUtils extends Thread implements Runnable{
             logger.info("********************************************************************");
 
             return;
-        }
-
-        if(debug){
-            receiveUser = debugReceiveUser;
         }
 
         String json = null;

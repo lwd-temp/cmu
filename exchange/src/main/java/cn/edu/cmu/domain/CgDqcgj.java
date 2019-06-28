@@ -240,10 +240,15 @@ public class CgDqcgj {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-11-22
+     * 申请人id
      */
-    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime) {
+    private String operator;
+
+    /**
+     *
+     * @mbggenerated 2019-06-28
+     */
+    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator) {
         this.cgid = cgid;
         this.cglx = cglx;
         this.xm = xm;
@@ -291,11 +296,12 @@ public class CgDqcgj {
         this.cfzjbgid = cfzjbgid;
         this.valid = valid;
         this.createTime = createTime;
+        this.operator = operator;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-28
      */
     public CgDqcgj() {
         super();
@@ -1054,8 +1060,24 @@ public class CgDqcgj {
     }
 
     /**
+     * 申请人id
+     * @return OPERATOR 申请人id
+     */
+    public String getOperator() {
+        return operator;
+    }
+
+    /**
+     * 申请人id
+     * @param operator 申请人id
+     */
+    public void setOperator(String operator) {
+        this.operator = operator == null ? null : operator.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-28
      */
     @Override
     public String toString() {
@@ -1110,6 +1132,7 @@ public class CgDqcgj {
         sb.append(", cfzjbgid=").append(cfzjbgid);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", operator=").append(operator);
         sb.append("]");
         return sb.toString();
     }

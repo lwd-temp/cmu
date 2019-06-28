@@ -54,6 +54,7 @@
       <arg column="ZJID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="WRITED" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SSEJDWMC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
 
@@ -66,7 +67,7 @@
     cgid, cglx, xm, xb, csrq, csd, hjszd, sfzh, ssejdw, ks, zw, zc, lxdh, email, nncfcs, qtshrz,
     cfgj, rjcs, tzid, cfksrq, cfjsrq, cfmd, cfmd_qt, yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en,
     yqr_zw_en, yqr_dw_en, yqr_xxdz_en, yqr_dh_en, jfly, jfysmx, jfyshj, sqbsm, sqrq,
-    status, shjg, shry, shyj, shrq, gdwjid, cfzjbgid, valid, create_time,''
+    status, shjg, shry, shyj, shrq, gdwjid, cfzjbgid, valid, create_time,'',operator
     from t_cg_dqcgj
     left join (select rwfk_id ,cgid zjsbid  from t_cg_rwzxqkfk ) zj on cgid = zj.zjsbid
     left join (select unit_id ,name ssejdwmc from v_uicm_unit ) un on ssejdw = un.unit_id

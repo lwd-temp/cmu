@@ -211,8 +211,8 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         int count = dao.updateByPrimaryKeySelective(shenb);
 
         //退回需要发送微信消息
+        shenb = dao.selectByPrimaryKey(shenb.getSbid());
         if(CmuConstants.HY.STATUS_BACK.equals(shenb.getStatus())){
-            shenb = dao.selectByPrimaryKey(shenb.getSbid());
             String title =          ResourceBundleUtils.getString("ifs.wechat.hy.shth.title");//【通知】国际会议审核
             String description =    ResourceBundleUtils.getString("ifs.wechat.hy.shth.description");//国际事务部通知
             String content =        ResourceBundleUtils.getString("ifs.wechat.hy.shth.content");//尊敬的老师您好，您的国际会议申请已退回，请知悉。
