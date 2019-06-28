@@ -1,13 +1,16 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.ContactMapper;
+import cn.edu.cmu.dao.ContactMapperExt;
 import cn.edu.cmu.domain.Contact;
 import cn.edu.cmu.domain.ContactParams;
 import cn.edu.cmu.framework.web.BaseService;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /*
@@ -25,6 +28,8 @@ import java.util.List;
 @Service
 public class ContactServiceImpl extends BaseService<Contact, ContactParams, ContactMapper> implements ContactService {
 
+    @Autowired
+    ContactMapperExt contactMapperExt;
 
     @Override
     public List list(Contact contact) {
@@ -68,5 +73,24 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
 
 
         return false;
+    }
+
+    /*
+    国际交流联系人信息下载
+     */
+    @Override
+    public List lxrlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        ContactParams params=new ContactParams();
+        ContactParams.Criteria c = params.createCriteria();
+
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            Contact lxr = (Contact) conditions[0];
+
+            if(StringUtils.isNotEmpty(lxr.getName())){
+                c.andNameLike("%"+lxr.getName()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+        return contactMapperExt.selectByExampleTranslateCode(params);
     }
 }

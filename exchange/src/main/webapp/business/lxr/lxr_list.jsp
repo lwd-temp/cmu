@@ -12,13 +12,16 @@
         <div class="form-group">
             <label class="col-sm-4 control-label no-padding-right" for="condition"> 联系人姓名: </label>
 
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <input type="text" id="condition" placeholder="联系人姓名" class="col-xs-12" />
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
+                </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
                 </button>
             </div>
         </div>
@@ -130,6 +133,17 @@
             refreshTable();
         });
 
+        //下载联系人信息信息
+        $("#download").click(function(){
+
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("lxr/download?name="+$("#condition").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+        });
     });
 
     function clearTable(){
