@@ -15,6 +15,9 @@ import cn.edu.cmu.domain.Contact;
 import cn.edu.cmu.domain.ContactParams;
 import cn.edu.cmu.framework.web.IBaseService;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
 /**
  * 用户操作的 业务的抽象
  * @author jshand
@@ -23,5 +26,7 @@ import cn.edu.cmu.framework.web.IBaseService;
 public interface ContactService extends IBaseService<Contact, ContactParams> {
 
     boolean deleteMulti(String[] ids) throws Exception;
+
+    public List lxrlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

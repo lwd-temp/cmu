@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.ContactMapperExt" >
+
+    <!--自定义查询 使用代码转换
+      resultMap 引用的是其他Mapper中定义好的
+    -->
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.ContactMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.ContactParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_XB', 'code', 'name', GENDER) gender,
+
+        lxr_id, name, gj, yz, gzdw, zwzc, zyly, glxm, email, fax, telphone, address, remark, valid, create_time
+
+        from T_CMU_CONTACT t
+        <if test="_parameter != null" >
+            /*此处应用的refid 是其他Mapper中写好的*/
+            <include refid="cn.edu.cmu.dao.ContactMapper.Select_Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
+
+
+
+
+</mapper>
