@@ -51,7 +51,7 @@
                 </button>
                 &nbsp;&nbsp;&nbsp;
 
-                <button class="btn btn-info btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
                     批量下载
                 </button>
             </div>
