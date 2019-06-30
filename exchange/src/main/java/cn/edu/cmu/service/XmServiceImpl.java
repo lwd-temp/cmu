@@ -3,6 +3,7 @@ package cn.edu.cmu.service;
 import cn.edu.cmu.dao.*;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
+import cn.edu.cmu.framework.threadpool.SysThreadPoolRunner;
 import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.XmVo;
@@ -412,18 +413,18 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         int count = sqDao.updateByPrimaryKeySelective(sqjl);
 
         String sendUser = "";
-        String receiveUser = sqjl.getXh();
-        String title = "国际交流项目初审";
-        String description = "";
-        String content = "审核结果：";
-        if("03".equals(sqjl.getStatus()) ) {//审核通过
-            content += "通过";
-        }else if("04".equals(sqjl.getStatus())){
-            content += "不通过";
+        String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】国际交流项目审核
+        String description = ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
+
+        String content = null;
+        if("02".equals(sqjl.getStatus() ) ) {//审核通过
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs.pass.content");
+        }else if("03".equals(sqjl.getStatus())){
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs.back.content");
         }
 
-        //异步发送微信消息
-        new WeChartUtils(sendUser,receiveUser,title,description,content).sendWxMessageSync();
+        //异步发送微信消息,改为后台线程池 执行.
+        SysThreadPoolRunner.submit(new WeChartUtils(sendUser,sqjl.getXh(), title, description, content));
 
         return count>0;
     }
@@ -530,19 +531,19 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
 
         String sendUser = "";
-        String receiveUser = jl.getXh();
-        String title = "国际交流项目复审";
-        String description = "";
-        String content = "审核结果：";
+        String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】国际交流项目审核
+        String description = ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
 
+        String content = null;
         if("02".equals(jl.getConfirmStatus() ) ) {//审核通过
-            content += "通过";
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.fs.pass.content");
         }else if("03".equals(jl.getConfirmStatus())){
-            content += "不通过";
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.fs.back.content");
         }
 
-        //异步发送微信消息
-        new WeChartUtils(sendUser,receiveUser,title,description,content).sendWxMessageSync();
+        //异步发送微信消息,改为后台线程池 执行.
+//        new WeChartUtils(sendUser,receiveUser,title,description,content).sendWxMessageSync();
+        SysThreadPoolRunner.submit(new WeChartUtils(sendUser,jl.getXh(), title, description, content));
 
 
         return count>0;
