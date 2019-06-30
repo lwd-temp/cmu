@@ -342,6 +342,9 @@
                                 <directory>src/main/webapp/WEB-INF</directory>
                                 <filtering>true</filtering>
                                 <targetPath>WEB-INF</targetPath>
+                                <excludes>
+                                    <exclude>**/*.jar</exclude>
+                                </excludes>
                             </resource>
                         </webResources>
                     </configuration>
@@ -383,6 +386,7 @@
                             <nonFilteredFileExtension>svg</nonFilteredFileExtension>
                             <nonFilteredFileExtension>xls</nonFilteredFileExtension>
                             <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+                            <nonFilteredFileExtension>jar</nonFilteredFileExtension>
                         </nonFilteredFileExtensions>
                     </configuration>
                 </plugin>
@@ -413,6 +417,7 @@
                 </includes>
                 <filtering>true</filtering>
             </resource>
+
             <resource>
                 <directory>src/main/resources</directory>
                 <includes>
@@ -424,12 +429,6 @@
                 </excludes>
                 <filtering>true</filtering>
             </resource>
-            <!--<resource>
-                <directory>src/main/webapp/WEB-INF</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>-->
         </resources>
 
     </build>
