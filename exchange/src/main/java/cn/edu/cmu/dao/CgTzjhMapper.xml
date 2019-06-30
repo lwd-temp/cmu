@@ -35,6 +35,7 @@
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -142,7 +143,7 @@
   <sql id="Base_Column_List" >
     TZID, TZH, TZMC, TZLB, JHLX, CFDW, TZJB, ZZHSK, FZRXM, XZZW, XZJB, JSZW, ZW, ZJ, 
     CFGJ1, CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, 
-    RWPJWH, RWPFSJ, STATUS, VALID, CREATE_TIME
+    RWPJWH, RWPFSJ, STATUS, VALID, CREATE_TIME, OPERATOR
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
     select
@@ -185,7 +186,8 @@
       TZRS, CFRW, CFSJ, 
       CFTS, SJYS, QTYS, YSHJ, 
       RWPJWH, RWPFSJ, STATUS, 
-      VALID, CREATE_TIME)
+      VALID, CREATE_TIME, OPERATOR
+      )
     values (#{tzid,jdbcType=VARCHAR}, #{tzh,jdbcType=VARCHAR}, #{tzmc,jdbcType=VARCHAR}, 
       #{tzlb,jdbcType=VARCHAR}, #{jhlx,jdbcType=VARCHAR}, #{cfdw,jdbcType=VARCHAR}, #{tzjb,jdbcType=VARCHAR}, 
       #{zzhsk,jdbcType=VARCHAR}, #{fzrxm,jdbcType=VARCHAR}, #{xzzw,jdbcType=VARCHAR}, 
@@ -195,7 +197,8 @@
       #{tzrs,jdbcType=DECIMAL}, #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=TIMESTAMP}, 
       #{cfts,jdbcType=DECIMAL}, #{sjys,jdbcType=DECIMAL}, #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, 
       #{rwpjwh,jdbcType=VARCHAR}, #{rwpfsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgTzjh" >
     insert into T_CG_TZJH
@@ -296,6 +299,9 @@
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
+      <if test="operator != null" >
+        OPERATOR,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="tzid != null" >
@@ -393,6 +399,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -501,6 +510,9 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.operator != null" >
+        OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -539,7 +551,8 @@
       RWPFSJ = #{record.rwpfsj,jdbcType=TIMESTAMP},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      OPERATOR = #{record.operator,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -640,6 +653,9 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="operator != null" >
+        OPERATOR = #{operator,jdbcType=VARCHAR},
+      </if>
     </set>
     where TZID = #{tzid,jdbcType=VARCHAR}
   </update>
@@ -675,7 +691,8 @@
       RWPFSJ = #{rwpfsj,jdbcType=TIMESTAMP},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      OPERATOR = #{operator,jdbcType=VARCHAR}
     where TZID = #{tzid,jdbcType=VARCHAR}
   </update>
 </mapper>

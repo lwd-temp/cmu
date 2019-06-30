@@ -165,10 +165,15 @@ public class CgTzjh {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-11-22
+     * 申请操作人id
      */
-    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime) {
+    private String operator;
+
+    /**
+     *
+     * @mbggenerated 2019-06-30
+     */
+    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime, String operator) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzmc = tzmc;
@@ -201,11 +206,12 @@ public class CgTzjh {
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
+        this.operator = operator;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public CgTzjh() {
         super();
@@ -724,8 +730,24 @@ public class CgTzjh {
     }
 
     /**
+     * 申请操作人id
+     * @return OPERATOR 申请操作人id
+     */
+    public String getOperator() {
+        return operator;
+    }
+
+    /**
+     * 申请操作人id
+     * @param operator 申请操作人id
+     */
+    public void setOperator(String operator) {
+        this.operator = operator == null ? null : operator.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     @Override
     public String toString() {
@@ -765,6 +787,7 @@ public class CgTzjh {
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", operator=").append(operator);
         sb.append("]");
         return sb.toString();
     }

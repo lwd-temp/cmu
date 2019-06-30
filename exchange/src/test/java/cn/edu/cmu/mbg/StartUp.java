@@ -21,7 +21,6 @@ import java.util.List;
  * @作者：jshand
  * @创建时间：2018年09月22日
  * @修改记录：
-[DEBUG]:00:00:47 org.mybatis.generator.internal.db.DatabaseIntrospector(46行) Retrieving column information for table "T_XM_XSSQJL"
  */
 public class StartUp {
     public static void main(String[] args) throws URISyntaxException {

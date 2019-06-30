@@ -23,7 +23,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public CgTzjhParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-06-30
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-11-22
+     * T_CG_TZJH 2019-06-30
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2321,6 +2321,76 @@ public class CgTzjhParams {
             addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
+
+        public Criteria andOperatorIsNull() {
+            addCriterion("OPERATOR is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorIsNotNull() {
+            addCriterion("OPERATOR is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorEqualTo(String value) {
+            addCriterion("OPERATOR =", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorNotEqualTo(String value) {
+            addCriterion("OPERATOR <>", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorGreaterThan(String value) {
+            addCriterion("OPERATOR >", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorGreaterThanOrEqualTo(String value) {
+            addCriterion("OPERATOR >=", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorLessThan(String value) {
+            addCriterion("OPERATOR <", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorLessThanOrEqualTo(String value) {
+            addCriterion("OPERATOR <=", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorLike(String value) {
+            addCriterion("OPERATOR like", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorNotLike(String value) {
+            addCriterion("OPERATOR not like", value, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorIn(List<String> values) {
+            addCriterion("OPERATOR in", values, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorNotIn(List<String> values) {
+            addCriterion("OPERATOR not in", values, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorBetween(String value1, String value2) {
+            addCriterion("OPERATOR between", value1, value2, "operator");
+            return (Criteria) this;
+        }
+
+        public Criteria andOperatorNotBetween(String value1, String value2) {
+            addCriterion("OPERATOR not between", value1, value2, "operator");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2334,7 +2404,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2018-11-22
+     * T_CG_TZJH 2019-06-30
      */
     public static class Criterion {
         private String condition;

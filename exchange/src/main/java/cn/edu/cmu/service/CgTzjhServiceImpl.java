@@ -6,9 +6,9 @@ import cn.edu.cmu.dao.CgTzjhMapperExt;
 import cn.edu.cmu.dao.CgjhGbMapper;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.CmuConstants;
-import cn.edu.cmu.framework.util.CmuStringUtil;
-import cn.edu.cmu.framework.util.DateUtils;
-import cn.edu.cmu.framework.util.MaxNumUtils;
+import cn.edu.cmu.framework.UserContext;
+import cn.edu.cmu.framework.threadpool.SysThreadPoolRunner;
+import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.CgtzjhVO;
 import com.github.pagehelper.StringUtil;
@@ -88,6 +88,7 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
         if(StringUtil.isEmpty(cgTzjh.getTzid())){
             String keyId = CmuStringUtil.UUID();
             cgTzjh.setTzid(keyId);
+            cgTzjh.setOperator(UserContext.getUserId());
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
@@ -164,6 +165,16 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
         domain.setStatus(status);
 
         int count  = dao.updateByPrimaryKeySelective(domain);
+
+        if(CmuConstants.CGTZJH.STATUS_BACK.equals(domain.getStatus())){
+
+            String title =          ResourceBundleUtils.getString("ifs.wechat.cgtzjh.shth.title");//【通知】出国团组计划审核
+            String description =    ResourceBundleUtils.getString("ifs.wechat.cgtzjh.shth.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.cgtzjh.shth.content");//尊敬的老师您好，您的出国团组计划申请已退回，请知悉。
+
+            SysThreadPoolRunner.submit(new WeChartUtils("", domain.getOperator(), title, description, content));
+        }
+
         return count>0  ;
     }
 
