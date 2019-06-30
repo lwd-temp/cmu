@@ -33,15 +33,20 @@
             <version>1.2</version>
         </dependency>
 
+        <!--单点登录-->
         <dependency>
             <groupId>com.neusoft.cas</groupId>
             <artifactId>cas-client-core</artifactId>
             <version>3.2.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/cas-client-core-3.2.1.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.neusoft.cas</groupId>
             <artifactId>neusoft-cas-client</artifactId>
             <version>4.0.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/webapp/WEB-INF/lib/neusoft-cas-client-4.0.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
