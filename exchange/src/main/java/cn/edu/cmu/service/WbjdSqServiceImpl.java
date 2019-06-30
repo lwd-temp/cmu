@@ -15,6 +15,8 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -286,6 +288,26 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         WbjdLpParams params = new WbjdLpParams();
         params.createCriteria().andLfidEqualTo(id);
         return wbjdLpMapper.selectByExample(params);
+    }
+
+    @Override
+    public List wbjdlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        WbjdSqParams params = new WbjdSqParams();
+        WbjdSqParams.Criteria c = params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            WbjdSq wbjdSq= (WbjdSq) conditions[0];
+
+            if(StringUtils.isNotEmpty(wbjdSq.getDbtmc())){
+                c.andDbtmcLike("%"+wbjdSq.getDbtmc()+"%");
+            }
+            if(StringUtils.isNotEmpty(wbjdSq.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+wbjdSq.getZqlxrxm()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return wbjdSqMapperExt.selectByExampleTranslateCode(params);
     }
 }
 

@@ -4,12 +4,15 @@ import cn.edu.cmu.domain.WbjdGj;
 import cn.edu.cmu.domain.WbjdSq;
 import cn.edu.cmu.domain.WbjdSxry;
 import cn.edu.cmu.framework.util.DateUtils;
+import cn.edu.cmu.framework.util.DownLoadUtils;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.util.PdfUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.WbjdGjService;
 import cn.edu.cmu.service.WbjdSqService;
 import cn.edu.cmu.service.WbjdSxryService;
 import cn.edu.cmu.service.WbjdZjService;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -131,5 +135,26 @@ public class WbjdSqExtController extends BaseController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /*
+    外宾来访接待信息下载
+     */
+    @RequestMapping("/download")
+    public void download(WbjdSq wbjdSq,String orderCol, String orderType, HttpServletRequest request,HttpServletResponse response) throws Exception {
+
+        List<WbjdSq> list = wbjdSqService.wbjdlistExp(wbjdSq, orderCol, orderType);//demoList();
+
+        logger.info(String.format("导出外宾来访接待信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "外宾来访申请信息.xls";
+
+        //设置下载文件Header信息
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "wblfgl/wbjdsq.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 }

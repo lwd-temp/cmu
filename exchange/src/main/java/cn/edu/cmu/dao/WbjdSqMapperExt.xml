@@ -16,4 +16,29 @@
         where LFID = #{lfid,jdbcType=VARCHAR}
     </select>
 
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.WbjdSqMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdSqParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_WBLF_JDLX ', 'code', 'name', JDLX) JDLX,
+        F_GetTableText('T_DM_LFMD', 'code', 'name', LFMD) LFMD,
+        F_GetTableText('T_DM_XB', 'code', 'name', TZXB) TZXB,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_YQXLD) YN_YQXLD,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_XYTY) YN_XYTY,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_BBSSGABM) YN_BBSSGABM,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_BBSSXCBM) YN_BBSSXCBM,
+
+        LFID, DBTMC, LFRS, LFSJ_START, LFSJ_END, TLSJ_START, TLSJ_END, LFMD_QT, YJTM,
+        YQXX, JFLY, LP, LPSL, QKJL, FWCG, TZXM, TZGJ, TZCSRQ, TZGZDW, TZZC, TZZW, TZZY,
+        TZXSLY, YQCG, ZQRXM, ZQRDH, ZQLXRXM, ZQLXRDH, JDBM, STATUS, MEMO, VALID, CREATE_TIME, OPERATOR
+        from T_WBJD_SQ
+        <if test="_parameter != null" >
+            /*此处应用的refid 是其他Mapper中写好的*/
+            <include refid="cn.edu.cmu.dao.WbjdSqMapper.Select_Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
 </mapper>

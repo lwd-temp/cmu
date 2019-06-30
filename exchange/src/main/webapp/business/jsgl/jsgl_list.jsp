@@ -173,7 +173,7 @@
             refreshTable();
         });
 
-        //下载外籍教师信息信息
+        //下载外籍教师信息
         $("#download").click(function(){
 
             var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
