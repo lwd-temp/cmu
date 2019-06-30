@@ -17,7 +17,7 @@
         (select wm_concat(gb.name) from t_cg_cgjh_gb t inner join T_DM_GB gb on gb.code = t.gjdm  where t.jhid =TZID) cfgj1,
         tzid, tzh, tzmc, cfdw, fzrxm, xzzw,
         xzjb, jszw, zw, zj, cfgj2, cfgj3, cfgj4, cfgj5, ffgz, tzrs,
-        cfrw, cfsj, cfts, sjys, qtys, yshj, rwpjwh, rwpfsj, status, valid, create_time
+        cfrw, cfsj, cfts, sjys, qtys, yshj, rwpjwh, rwpfsj, status, valid, create_time,operator
         from T_CG_TZJH
         <if test="_parameter != null" >
             /*此处应用的refid 是其他Mapper中写好的*/
