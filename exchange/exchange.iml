@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
+  <component name="ExternalSystem" externalSystem="Maven" />
   <component name="FacetManager">
     <facet type="web" name="Web">
       <configuration>
@@ -114,8 +115,24 @@
     <orderEntry type="library" name="Maven: com.itextpdf:itext-asian:5.2.0" level="project" />
     <orderEntry type="library" name="Maven: org.xhtmlrenderer:flying-saucer-pdf-itext5:9.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.xhtmlrenderer:flying-saucer-core:9.0.3" level="project" />
-    <orderEntry type="library" name="Maven: com.neusoft.cas:cas-client-core:3.2.1" level="project" />
-    <orderEntry type="library" name="Maven: com.neusoft.cas:neusoft-cas-client:4.0.0" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.neusoft.cas:cas-client-core:3.2.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/cas-client-core-3.2.1.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.neusoft.cas:neusoft-cas-client:4.0.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/src/main/webapp/WEB-INF/lib/neusoft-cas-client-4.0.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.10" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.6" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.10" level="project" />
