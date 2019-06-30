@@ -12,6 +12,8 @@ import com.github.pagehelper.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 @Service
@@ -34,6 +36,9 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
 
     @Autowired
     private CgRwzxqkfkMapper cgRwzxqkfkMapper;
+
+    @Autowired
+    private CgDqcgjMapperExt cgDqcgjMapperExt;
 
     @Override
     public List list(CgDqcgj cgDqcgj) {
@@ -130,5 +135,27 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
         }
 
         return count>0;
+    }
+
+    /*
+    短期出国境人员信息下载
+     */
+    @Override
+    public List cggllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        CgDqcgjParams params = new CgDqcgjParams();
+        CgDqcgjParams.Criteria c=params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            CgDqcgj cggl = (CgDqcgj) conditions[0];
+//
+            if (StringUtils.isNotEmpty(cggl.getCfgj())) {
+                c.andCfgjLike("%" + cggl.getCfgj() + "%");
+            }
+
+            super.addOrderBy(params, conditions);
+        }
+        return cgDqcgjMapperExt.selectByExampleTranslateCode(params);
+
     }
 }

@@ -3,6 +3,8 @@ import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.Jzg;
 import cn.edu.cmu.domain.UnicUnit;
+import cn.edu.cmu.framework.util.ExcelUtils;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjService;
@@ -10,12 +12,17 @@ import cn.edu.cmu.service.CgTzjhService;
 import cn.edu.cmu.service.UnicUnitService;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Map;
@@ -265,5 +272,21 @@ public class CgDqcgjController extends BaseController {
         cgDqcgj.setGdwjid(fileId);
         boolean success = cgDqcgjService.updateById(cgDqcgj);
         return super.ajaxStatus(success);
+    }
+
+    @RequestMapping("/download")
+    public void download(CgDqcgj cggl, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        logger.info("出访国家:"+cggl.getCfgj());
+        List<CgDqcgj> list = cgDqcgjService.cggllistExp(cggl, orderCol, orderType);
+        logger.info(String.format("导出短期出国(境)人员信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "短期出国(境)人员信息.xls";
+
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "cggl/cggl.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 }

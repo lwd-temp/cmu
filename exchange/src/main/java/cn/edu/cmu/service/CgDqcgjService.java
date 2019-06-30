@@ -15,6 +15,7 @@ import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgDqcgjParams;
 import cn.edu.cmu.framework.web.IBaseService;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -32,6 +33,8 @@ public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
     public List shlist(Object... conditions)throws Exception;
 
     public boolean shSave(CgDqcgj cgDqcgj);
+
+    public List cggllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 
 }
 

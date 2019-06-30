@@ -5,12 +5,15 @@
         <div class="form-group">
             <label class="col-sm-4 control-label no-padding-right" for="condition1"> 出访国家: </label>
 
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <input type="text" id="condition1" name="condition"  placeholder="出访国家" class="col-xs-12" />
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-4">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
+                </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
                 </button>
             </div>
         </div>
@@ -109,6 +112,18 @@
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
+        });
+
+        //下载短期出国境人员信息信息信息
+        $("#download").click(function(){
+
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("cggl/download?cfgj="+$("#condition1").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
     function refreshTable(){

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.cmu.dao.CgDqcgjMapperExt" >
+
+  <!--自定义查询 使用代码转换
+    resultMap 引用的是其他Mapper中定义好的
+  -->
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.CgDqcgjMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_CFMD', 'code', 'name', CFMD) cfmd,
+        F_GetTableText('T_DM_CGSQLX', 'code', 'name', CGLX) cglx,
+        F_GetTableText('T_DM_XB', 'code', 'name', XB) xb,
+        F_GetTableText('T_DM_CGSPJG', 'code', 'name', SHJG) shjg,
+        F_GetTableText('T_CG_TZJH', 'TZID', 'TZH', TZID) tzid,
+        F_GetTableText('T_CG_RWZXQKFK', 'CGID', 'TZZDW', CGID) ssejdw,
+
+        cgid, xm, csrq, csd, hjszd, sfzh, ks, zw, zc, lxdh,
+        email, nncfcs, qtshrz, cfgj, rjcs, cfksrq, cfjsrq, cfmd_qt,
+        yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en, yqr_zw_en, yqr_dw_en,
+        yqr_xxdz_en, yqr_dh_en, jfly, jfysmx, jfyshj, sqbsm, sqrq, status, shry,
+        shyj, shrq, gdwjid, cfzjbgid, valid, create_time, operator
+
+        from T_CG_DQCGJ
+         <if test="_parameter != null" >
+             /*此处应用的refid 是其他Mapper中写好的*/
+             <include refid="cn.edu.cmu.dao.CgDqcgjMapper.Select_Example_Where_Clause" />
+         </if>
+         <if test="orderByClause != null" >
+             order by ${orderByClause}
+         </if>
+     </select>
+
+
+
+
+ </mapper>
