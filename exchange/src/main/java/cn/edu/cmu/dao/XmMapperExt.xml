@@ -180,9 +180,9 @@
 
         <where>
             <if test="xmmc != null and xmmc != '' ">
-                <bind name="xmmcLike" value="'%' + xmmc + '%'"/>
-                and xmmc like #{xmmcLike,jdbcType=VARCHAR}
-            </if>
+            <bind name="xmmcLike" value="'%' + xmmc + '%'"/>
+            and xmmc like #{xmmcLike,jdbcType=VARCHAR}
+        </if>
             <if test="xm != null and xm != '' ">
                 <bind name="xmLike" value="'%' + xm + '%'"/>
                 and  xm like #{xmLike,jdbcType=VARCHAR}
@@ -195,11 +195,6 @@
         </if>
 
     </select>
-
-
-
-
-
 
 
 
