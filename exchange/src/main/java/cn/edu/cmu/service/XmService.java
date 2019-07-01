@@ -52,5 +52,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
 
     List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo); //查询项目交流报告总结，供管理员和教师查看
+
+    List listDeploy(Xm xm);
 }
 

@@ -1,5 +1,6 @@
 package cn.edu.cmu.dao;
 
+import cn.edu.cmu.domain.Xm;
 import cn.edu.cmu.domain.XmParams;
 import cn.edu.cmu.framework.web.BaseMapper;
 import cn.edu.cmu.vo.XmzjbgVO;
@@ -15,4 +16,5 @@ public interface XmMapperExt  {
     List<Map> selectXmGb(String xmid);
     List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo);
 
+    List selectDeploy(Xm xm);
 }

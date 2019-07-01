@@ -126,6 +126,10 @@
 
         });
 
+        $("#download").click(function(){
+            window.open("xm/downloadDeploy");
+        });
+
     });
 
     function clearTable(){

@@ -198,4 +198,51 @@
 
 
 
+
+
+
+
+
+    <select id="selectDeploy" parameterType="cn.edu.cmu.domain.Xm" resultMap="cn.edu.cmu.dao.XmMapper.BaseResultMap">
+           select xm_id,
+                   xmlx,
+                   xmzm,
+                   glxmmcid,
+                   xmmc,
+                   xmbh,
+                   xmkssj,
+                   smjssj,
+                   xmjlts,
+                   F_GetTableText('t_dm_xmcc', 'code', 'name', xmcc) xmcc,
+                   jfly,
+                   zjje,
+                   xmgk,
+                   xmzzjh,
+                   jlmbjgmc,
+                   fybz,
+                   zysm,
+                   sfxzrs,
+                   jhrs,
+                   ccxz,
+                   xmnjxz,
+                   yyyq,
+                   xmzyxz,
+                   gsyxdm,
+                   gsyxmc,
+                   gsxsdm,
+                   gsxsxm,
+                   operator_code,
+                   bmjzsj,
+                   decode(status,'01','暂存','02','已发布','03','允许申报','04','申报结束','05','项目中介','未知') status,
+                   valid,
+                   create_time,
+                   yyyqsm
+              from t_xm
+              where valid = 1 and status != '01'
+
+    </select>
+
+
+
+
 </mapper>

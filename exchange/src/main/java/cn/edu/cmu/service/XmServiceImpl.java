@@ -592,4 +592,9 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         return daoExt.selectXmzjbg(vo);
     }
 
+    @Override
+    public List listDeploy(Xm xm) {
+        return daoExt.selectDeploy(xm);
+    }
+
 }

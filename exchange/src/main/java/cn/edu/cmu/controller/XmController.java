@@ -730,4 +730,28 @@ public class XmController extends BaseController {
         ExcelUtils.expExcel(list,excelTempPath,response.getOutputStream());
     }
 
+
+    /**
+     * 下载已发布项目信息
+     * @param xm
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/downloadDeploy")
+    public void downloadDeploy(Xm xm, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+
+
+        List list = xmService.listDeploy(xm);//demoList();
+
+        logger.info(String.format("导出已发布项目信息信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "已发布项目信息.xls";
+
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+        String excelTempPath = "xm/deploy_xm.xls";
+        ExcelUtils.expExcel(list,excelTempPath,response.getOutputStream());
+    }
+
 }
