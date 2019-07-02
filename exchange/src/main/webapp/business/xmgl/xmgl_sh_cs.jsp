@@ -119,6 +119,7 @@
 
 
             <form class="form-horizontal" role="form">
+                <input type="hidden" name="shType" id="shType" value="${param.type}" />
                 <input type="hidden" name="sqjlId" id="sqjlId" value="${sqjl.sqjlId}" />
                 <input type="hidden" name="xmId" id="xmId" value="${sqjl.xmId}" />
                 <input type="hidden" name="status" id="status" value="${sqjl.status}" />
@@ -216,6 +217,23 @@
                     <label class="col-xs-2 control-label "  > 外语水平 </label>
                     <div class="col-xs-4">
                         <input type="text"  name="yysp" id="yysp" value="${sqjl.yysp}"  readonly="readonly" placeholder="考试种类+成绩"      class="col-xs-12" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-xs-2 control-label "  > 已资助金额   : </label>
+                    <div class="col-xs-4">
+                        <input type="text"  name="yzzje"    readonly="readonly" disabled="" value="${yzzje}"    class="col-xs-12" />
+                    </div>
+
+                    <label class="col-xs-2 control-label "  > 心理测评结果: </label>
+                    <div class="col-xs-4">
+                        <select class="chosen-select form-control" name="xlcp"  id="xlcp"    data-placeholder="请选择该学生测评结果">
+                            <option value="A"  <c:if test="${sqjl.xlcp == 'A'}">selected</c:if>>合格</option>
+                            <option value="B"  <c:if test="${sqjl.xlcp == 'B'}">selected</c:if>>不合格</option>
+                            <option value="C"  <c:if test="${sqjl.xlcp == 'C'}">selected</c:if>>待定</option>
+                        </select>
                     </div>
                 </div>
 
@@ -347,11 +365,20 @@
 
 
         $("#btnPass").click(function(){
-            sh("03");
+            if($("#shType").val() == 'xy'){
+                sh("03");       //学院审核通过  03  ，学生处审核通过05
+            }else if($("#shType").val() == 'xsc') {
+                sh("05");
+            }
+
         });
 
         $("#btnBack").click(function(){
-            sh("04");
+            if($("#shType").val() == 'xy'){
+                sh("04");                   //学院审核不通过  03  ，
+            }else if($("#shType").val() == 'xsc') {
+                sh("06");                   //学生处审核不通过06
+            }
         })
 
     })
@@ -362,7 +389,9 @@
         $.ajax('xm/xsshCs',{
             data:{
                 id:$("#sqjlId").val(),
-                status:status
+                status:status,
+                type:$("#shType").val(),
+                xlcp:$("#xlcp").val(),
             },
             success:function(resp){
                 if(resp && resp.success){

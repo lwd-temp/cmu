@@ -86,6 +86,36 @@ public class CmuConstants {
      */
     public interface XM{
         public static final String STATUS_TEMPORARY_STORAGE = "01";//项目状态
+
+
+
+        //申请暂存
+        public static final String SQ_STATUS_TEMPORARY_STORAGE = "01";
+        //申请提交，待初审
+        public static final String SQ_STATUS_SUBMIT = "02";
+
+        //学院初审通过
+        public static final String SQ_STATUS_XY_PASS = "03";
+        //学院初审不通过
+        public static final String SQ_STATUS_XY_BACK = "04";
+
+        //学生处初审通过
+        public static final String SQ_STATUS_XSC_PASS = "05";
+        //学生处初审不通过
+        public static final String SQ_STATUS_XSC_BACK = "06";
+
+
+        /**
+         * 复审 状态，
+         *    01 已发送微信通知，待复审
+         *    02 复审通过
+         *    03 复审不通过
+         */
+        public static final String SH_FS_STATUS_SEND_MSG = "01";
+        public static final String SH_FS_STATUS_PASS = "02";
+        public static final String SH_FS_STATUS_BACK = "03";
+
+
     }
 
 

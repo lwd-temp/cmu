@@ -32,7 +32,6 @@ sys:
       ext:
         css,js,png,gif,jpg,woff,woff2,otf,svg,ttf,eot
       url:
-
 wx_interface:
   switch:
     ${ifs.wechat.switch}

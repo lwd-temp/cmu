@@ -191,7 +191,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-2 control-label "> 语言要求: </label>
-                                <div class="col-xs-4">
+                                <div class="col-xs-10">
                                     <dm:list tabName="t_dm_yy"  multiple="multiple"   id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
                                 </div>
                             </div>
@@ -360,6 +360,8 @@
             } else {
                 $("#status").val('02');
             }
+
+            alert($("#status").val())
 
             $.ajax('xm/save', {
                 data: $("#form").serialize(),

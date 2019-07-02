@@ -99,19 +99,23 @@
                         }else if(status == '01'){
                             return "申请中";
                         }else if(status == "02"){
-                            return "初审待审核";
-                        }else if(status == '03'){
-                            //初审通过
-                            if(comfirm1 == '0'  || !comfirm1){
-                                return "初审通过待确认";
-                            }else{
-                                if(confirmStatus == '01'){
-                                    return "待复审";
-                                }else if(confirmStatus == "02"){
-                                    return "复审通过"+(comfirm2=='1'?',已确认':',未确认');
-                                }else if(confirmStatus == '03'){
-                                    return "复审不通过"+(selfPay == 'Y'?".已自费":(comfirm2=='1'?',已确认':'未确认'));
-                                }
+                            return "学院初审中";
+                        }else if(status == "03"){
+                            return "学院初审通过";
+                        }else if(status == "04"){
+                            return "学院初审不通过";
+                        }else if(status == "06"){
+                            return "学生处初审待不通过";
+                        }else if(status == "05"){
+                             //初审通过
+                            if(!confirmStatus  || confirmStatus ==''){
+                                return "学生处初审通过";
+                            }else if(confirmStatus == '01'){
+                                return "已发送复审通知";
+                            }else if(confirmStatus == "02"){
+                                return "复审通过"+(comfirm2=='1'?',已确认':',未确认');
+                            }else if(confirmStatus == '03'){
+                                return "复审不通过"+(selfPay == 'Y'?".已自费":(comfirm2=='1'?',已确认':'未确认'));
                             }
                         }else if(status == '04'){
                             return "初审不通过";

@@ -9,8 +9,6 @@
 <div >
     <form class="form-horizontal" role="form">
 
-        <!-- shType , xy:学院初审管理， xsc:学生处初审管理-->
-        <input type="hidden" id="shType" value="${param.type}"/>
         <!-- #section:elements.form -->
         <div class="form-group">
             <label class="col-sm-4 control-label no-padding-right" for="condition"> 项目总名或者项目名称: </label>
@@ -62,15 +60,10 @@
         })
 
         //自定义 按钮
-        var title = "";
-        if($("#shType").val() == 'xy'){
-            title = "学院审核";
-        }else{
-            title = "学生处审核";
-        }
+
 
         var settings = {
-            caption: "项目初审（"+title+"）",
+            caption: "项目复审管理",
             /*data: grid_data,*/
             url:'xm/list',
             colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '项目层次','操作'/*,'经费来源'*/,/*'状态'*/,/*"操作"*/],
@@ -156,7 +149,7 @@
         var index = layer.newpage({
             area: ['1000px', ($(window).height()-20)+'px'],
             title:'审核项目',
-            content:'business/xmgl/xmgl_sh_xslb.jsp?xmid='+xmid+"&type="+$("#shType").val(),
+            content:'business/xmgl/xmgl_fs_xslb.jsp?xmid='+xmid,
         });
 
         //此处全屏，不缩小

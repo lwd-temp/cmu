@@ -457,6 +457,17 @@ public class XmController extends BaseController {
         //已申请项目
         List<XmXssqjl> ysqxmList = sqService.listYsqxm(sqjl);
         model.addAttribute("ysqxmList", ysqxmList);
+        //已资助金额
+        double yzzje = 0;
+        if(ysqxmList!=null) {
+            for (XmXssqjl xmXssqjl : ysqxmList) {
+                //复审通过,其他的不应该有资助金额
+                if (CmuConstants.XM.SH_FS_STATUS_PASS.equals(xmXssqjl.getConfirmStatus()) && xmXssqjl.getZzje()!=null) {
+                    yzzje += xmXssqjl.getZzje().doubleValue();
+                }
+            }
+        }
+        model.addAttribute("yzzje", yzzje);
 
         return "xmgl/xmgl_sh_cs";
     }
@@ -498,12 +509,11 @@ public class XmController extends BaseController {
         model.addAttribute("ysqxmList", ysqxmList);
 
 
-
-
         double yzzje = 0;//已资助金额
         if(ysqxmList!=null) {
             for (XmXssqjl xmXssqjl : ysqxmList) {
-                if ("02".equals(xmXssqjl.getConfirmStatus())) { //复审通过,其他的不应该有资助金额
+                //复审通过,其他的不应该有资助金额
+                if (CmuConstants.XM.SH_FS_STATUS_PASS.equals(xmXssqjl.getConfirmStatus()) && xmXssqjl.getZzje()!=null) {
                     yzzje += xmXssqjl.getZzje().doubleValue();
                 }
             }
@@ -531,15 +541,10 @@ public class XmController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/xsshCs")
-    public Map xsshCs(String id, String status) throws Exception {
-        System.out.println("id:" + id);
-        System.out.println("status:" + status);
+    public Map xsshCs(String id, String status,String type,String xlcp) throws Exception {
+        logger.info(String.format("[项目初审] type:%s\tid:%s\tstatus:%s",type,id,status));
 
-        boolean success = xmService.xsshCs(id, status);
-
-
-        //TODO 此处需要根据 状态给学生发邮件
-
+        boolean success = xmService.xsshCs(id, status,type,xlcp);
 
         return super.ajaxStatus(success);
     }
@@ -555,10 +560,6 @@ public class XmController extends BaseController {
     public Map xsshFs(XmXssqjl jl) throws Exception {
 
         boolean success = xmService.xsshFs(jl);
-
-
-        //TODO 此处需要根据 状态给学生发邮件
-
 
         return super.ajaxStatus(success);
     }
@@ -752,6 +753,32 @@ public class XmController extends BaseController {
         DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
         String excelTempPath = "xm/deploy_xm.xls";
         ExcelUtils.expExcel(list,excelTempPath,response.getOutputStream());
+    }
+
+
+    /**
+     * 批量通知参加复审
+     * @param ids
+     * @param msg
+     * @param request
+     * @param response
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/tzfs")
+    public Map tzfs(String[] ids,String msg,HttpServletRequest request ,HttpServletResponse response){
+
+        Map map = new HashMap();
+
+
+        for (String id : ids) {
+            System.out.println(id+"\t"+msg);
+        }
+
+        boolean success = xmService.tzfs(ids,msg);
+        map.put("success",success);
+
+        return map;
     }
 
 }

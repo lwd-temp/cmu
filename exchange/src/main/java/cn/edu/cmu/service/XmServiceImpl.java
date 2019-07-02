@@ -400,14 +400,15 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
      * 项目初审
      * @param id
      * @param status
+     * @param type  初审类型， xy :学院初审，   xsc:学生处初审
      * @return
      * @throws Exception
      */
     @Override
-    public boolean xsshCs(String id, String status) throws Exception {
+    public boolean xsshCs(String id, String status,String type,String xlcp) throws Exception {
 
         XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
-
+        sqjl.setXlcp(xlcp);
         sqjl.setStatus(status);
 
         int count = sqDao.updateByPrimaryKeySelective(sqjl);
@@ -417,10 +418,18 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         String description = ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
 
         String content = null;
-        if("02".equals(sqjl.getStatus() ) ) {//审核通过
-            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs.pass.content");
-        }else if("03".equals(sqjl.getStatus())){
-            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs.back.content");
+        //审核通过
+        if(CmuConstants.XM.SQ_STATUS_XY_PASS.equals(sqjl.getStatus() )   ||   //学院
+                CmuConstants.XM.SQ_STATUS_XSC_PASS.equals(sqjl.getStatus() )  ) { //学生处
+
+            // ifs.wechat.xm.cs.xy.pass.content
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+type+".pass.content");
+        }
+        //审核不通过
+        else if(CmuConstants.XM.SQ_STATUS_XY_BACK.equals(sqjl.getStatus())  ||//学院
+                CmuConstants.XM.SQ_STATUS_XSC_BACK.equals(sqjl.getStatus())     //学生处
+        ){
+            content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+type+".back.content");
         }
 
         //异步发送微信消息,改为后台线程池 执行.
@@ -595,6 +604,30 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
     @Override
     public List listDeploy(Xm xm) {
         return daoExt.selectDeploy(xm);
+    }
+
+
+    /**
+     * 批量通知复审
+     * @param ids
+     * @param msg
+     * @return
+     */
+    @Override
+    public boolean tzfs(String[] ids, String msg) {
+        int successCount = 0;
+        for (String id : ids) {
+            XmXssqjl sq = sqDao.selectByPrimaryKey(id);
+
+            sq.setConfirmStatus(CmuConstants.XM.SH_FS_STATUS_SEND_MSG);
+            successCount += sqDao.updateByPrimaryKeySelective(sq);
+
+            //发送微信通知
+
+            SysThreadPoolRunner.submit(new WeChartUtils("",sq.getXh(), "【通知】申请项目参加复审", "国际事务部通知", msg));
+        }
+
+        return successCount == ids.length ;
     }
 
 }

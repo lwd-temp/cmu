@@ -272,12 +272,12 @@
 
 
 
-                            <c:if test="${(sqjl.status =='03' || sqjl.status =='04') && sqjl.isconfirm1 == '0'}">
+                            <%--<c:if test="${(sqjl.status =='03' || sqjl.status =='04') && sqjl.isconfirm1 == '0'}">
                                 <button class="btn btn-info btn-sm " id="btnConfirmCs"  type="button">
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     初审结果确认
                                 </button>
-                            </c:if>
+                            </c:if>--%>
 
 
                             <c:if test="${(sqjl.confirmStatus =='02' || sqjl.confirmStatus =='03') && sqjl.isconfirm2 == '0'}">

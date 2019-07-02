@@ -36,7 +36,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
     List listXmSqxs(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 
-    boolean xsshCs(String id, String status) throws Exception;
+    boolean xsshCs(String id, String status,String type,String xlcp) throws Exception;
 
     boolean confirmCs(String id) throws Exception;
 
@@ -54,5 +54,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
     List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo); //查询项目交流报告总结，供管理员和教师查看
 
     List listDeploy(Xm xm);
+
+    boolean tzfs(String[] ids, String msg);
 }
 

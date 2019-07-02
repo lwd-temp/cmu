@@ -230,8 +230,9 @@
                     <label class="col-xs-2 control-label "  > 心理测评结果: </label>
                     <div class="col-xs-4">
                         <select class="chosen-select form-control" name="xlcp"  id="xlcp"    data-placeholder="请选择该学生测评结果">
-                            <option value="A" selected>&nbsp;&nbsp;A&nbsp;&nbsp;</option>
-                            <option value="B">&nbsp;&nbsp;B&nbsp;&nbsp;</option>
+                            <option value="A"  <c:if test="${sqjl.xlcp == 'A'}">selected</c:if>>合格</option>
+                            <option value="B"  <c:if test="${sqjl.xlcp == 'B'}">selected</c:if>>不合格</option>
+                            <option value="C"  <c:if test="${sqjl.xlcp == 'C'}">selected</c:if>>待定</option>
                         </select>
                     </div>
                 </div>
