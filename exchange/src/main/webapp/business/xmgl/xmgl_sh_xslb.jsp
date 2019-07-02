@@ -153,7 +153,7 @@
                             return "不合格";
                         }else if("C" == cellvalue){
                             return "待定";
-                        }else if(cellvalue){
+                        }else {
                              return "无";
                          }
                     }  },
