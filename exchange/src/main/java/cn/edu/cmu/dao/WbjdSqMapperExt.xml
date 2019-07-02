@@ -11,7 +11,7 @@
         lfmd_qt , yjtm, yqxx, jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj,  tzcsrq,
         tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg, zqrxm, zqrdh, zqlxrxm,
         zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm,
-        status, memo, valid, create_time
+        status, memo, valid, create_time,operator
         from t_wbjd_sq
         where LFID = #{lfid,jdbcType=VARCHAR}
     </select>

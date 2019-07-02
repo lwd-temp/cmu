@@ -1801,14 +1801,14 @@
 													"left": 190,
 													"top": 80,
 													"width": 1,
-													"height": 495
+													"height": 535
 												}
 											],
 											"font": "Arial;13;0",
 											"left": 152,
 											"top": 40,
 											"width": 76,
-											"height": 535,
+											"height": 575,
 											"nameCompartment": {
 												"$ref": "AAAAAAFrrBpiAHzhNpE="
 											},
@@ -3607,6 +3607,117 @@
 											"activation": {
 												"$ref": "AAAAAAFrrmkGJHwALBM="
 											}
+										},
+										{
+											"_type": "UMLSeqMessageView",
+											"_id": "AAAAAAFrsLk9tjHcQ1U=",
+											"_parent": {
+												"$ref": "AAAAAAFrrBm/Rnyvx1g="
+											},
+											"model": {
+												"$ref": "AAAAAAFrsLk9tjHbCZI="
+											},
+											"subViews": [
+												{
+													"_type": "EdgeLabelView",
+													"_id": "AAAAAAFrsLk9tzHds38=",
+													"_parent": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"model": {
+														"$ref": "AAAAAAFrsLk9tjHbCZI="
+													},
+													"font": "Arial;13;0",
+													"left": 125,
+													"top": 555,
+													"width": 220.29541015625,
+													"height": 13,
+													"alpha": 1.5707963267948966,
+													"distance": 10,
+													"hostEdge": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"edgePosition": 1,
+													"text": "14 : 如果复审不通过，学生科申请自费"
+												},
+												{
+													"_type": "EdgeLabelView",
+													"_id": "AAAAAAFrsLk9tzHeI34=",
+													"_parent": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"model": {
+														"$ref": "AAAAAAFrsLk9tjHbCZI="
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"left": 250,
+													"top": 555,
+													"height": 13,
+													"alpha": 1.5707963267948966,
+													"distance": 25,
+													"hostEdge": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"edgePosition": 1
+												},
+												{
+													"_type": "EdgeLabelView",
+													"_id": "AAAAAAFrsLk9tzHfY/M=",
+													"_parent": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"model": {
+														"$ref": "AAAAAAFrsLk9tjHbCZI="
+													},
+													"visible": false,
+													"font": "Arial;13;0",
+													"left": 216,
+													"top": 556,
+													"height": 13,
+													"alpha": -1.5707963267948966,
+													"distance": 10,
+													"hostEdge": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"edgePosition": 1
+												},
+												{
+													"_type": "UMLActivationView",
+													"_id": "AAAAAAFrsLk9tzHgeuA=",
+													"_parent": {
+														"$ref": "AAAAAAFrsLk9tjHcQ1U="
+													},
+													"model": {
+														"$ref": "AAAAAAFrsLk9tjHbCZI="
+													},
+													"font": "Arial;13;0",
+													"left": 183,
+													"top": 572,
+													"width": 14,
+													"height": 29
+												}
+											],
+											"font": "Arial;13;0",
+											"head": {
+												"$ref": "AAAAAAFrrBpiAXzmNms="
+											},
+											"tail": {
+												"$ref": "AAAAAAFrrBpiAXzmNms="
+											},
+											"points": "196:552;226:552;226:572;196:572",
+											"nameLabel": {
+												"$ref": "AAAAAAFrsLk9tzHds38="
+											},
+											"stereotypeLabel": {
+												"$ref": "AAAAAAFrsLk9tzHeI34="
+											},
+											"propertyLabel": {
+												"$ref": "AAAAAAFrsLk9tzHfY/M="
+											},
+											"activation": {
+												"$ref": "AAAAAAFrsLk9tzHgeuA="
+											}
 										}
 									]
 								}
@@ -3790,6 +3901,20 @@
 										"$ref": "AAAAAAFrrBm/RnyuWU8="
 									},
 									"name": "学生复审结果确认",
+									"source": {
+										"$ref": "AAAAAAFrrBpiAHzff4w="
+									},
+									"target": {
+										"$ref": "AAAAAAFrrBpiAHzff4w="
+									}
+								},
+								{
+									"_type": "UMLMessage",
+									"_id": "AAAAAAFrsLk9tjHbCZI=",
+									"_parent": {
+										"$ref": "AAAAAAFrrBm/RnyuWU8="
+									},
+									"name": "如果复审不通过，学生科申请自费",
 									"source": {
 										"$ref": "AAAAAAFrrBpiAHzff4w="
 									},
