@@ -179,6 +179,8 @@
                             return "不合格";
                         }else if("C" == cellvalue){
                             return "待定";
+                        }else{
+                            return "无";
                         }
                     }  },
                 {name:'status',index:'status',formatter:function(status,options,rowObject){

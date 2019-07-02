@@ -147,13 +147,15 @@
                 {name:'chpm',index:'chpm',  },
                 {name:'zhpj',index:'zhpj',  },
                 {name:'xlcp',index:'xlcp', formatter:function(cellvalue, options, rowObject){
-                        if("A" == cellvalue){
+                         if("A" == cellvalue){
                             return "合格";
                         }else if("B" == cellvalue){
                             return "不合格";
                         }else if("C" == cellvalue){
                             return "待定";
-                        }
+                        }else if(cellvalue){
+                             return "无";
+                         }
                     }  },
                 {name:'status',index:'status',formatter:function(status,options,rowObject){
 
