@@ -65,13 +65,13 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm' ,width:'25%'},
-                {name:'xb',index:'xb', width:'20%',formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm' ,width:'5'},
+                {name:'xb',index:'xb', width:'3',phoneHide:true,formatter:function(xb,options,rowObject){
                     return dmcache.getCode('t_dm_xb',xb);
                 }},
-                {name:'ssejdw',index:'ssejdw', hidden:true },
-                {name:'cfgj',index:'cfgj', width:'20%' },
-                {name:'status',index:'status', width:'20%',formatter:function(status,options,rowObject) {
+                {name:'ssejdw',index:'ssejdw',  hidden:true },
+                {name:'cfgj',index:'cfgj', width:'5',phoneHide:true, },
+                {name:'status',index:'status',width:'4',formatter:function(status,options,rowObject) {
                         switch (status) {
                             case '01':
                                 zt = "暂存";
@@ -92,7 +92,7 @@
                         return zt;
                     }
                 },
-                {name:'cgid',index:'',  width:'15%',sortable:false, resize:true,
+                {name:'cgid',index:'',  width:'4' ,sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == '01'||zt == '03'){
