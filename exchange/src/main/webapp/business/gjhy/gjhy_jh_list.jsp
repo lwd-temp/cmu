@@ -84,22 +84,22 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'hybh',index:'hybh',  },
+                {name:'hybh',index:'hybh', phoneHide:true, },
                 {name:'hymc',index:'hymc',  },
-                {name:'zbdw',index:'zbdw',  },
-                {name:'cbdw',index:'cbdw',  },
-                {name:'jxrqKs',index:'jxrq_ks',
+                {name:'zbdw',index:'zbdw', phoneHide:true, },
+                {name:'cbdw',index:'cbdw', phoneHide:true, },
+                {name:'jxrqKs',index:'jxrq_ks',phoneHide:true,
                     formatter:function(jxrqKs){
                         return new Date(jxrqKs).getYmd("yyyy年MM月dd日");
                     }
-                },{name:'jxrqJs',index:'jxrq_js',
+                },{name:'jxrqJs',index:'jxrq_js',phoneHide:true,
                     formatter:function(jxrqJs){
                         return new Date(jxrqJs).getYmd("yyyy年MM月dd日");
                     }
                 },
-                {name:'jfly',index:'jfly', },
+                {name:'jfly',index:'jfly', phoneHide:true,},
 
-                {name:'jhid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'jhid',index:'',  sortable:false, resize:true,
                     formatter:function(jhid, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='修改' onclick='editGjhyJh(\""+jhid+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" +
                             "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delGjhyJh(\""+jhid+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";

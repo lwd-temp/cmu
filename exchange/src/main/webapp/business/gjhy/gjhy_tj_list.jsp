@@ -110,20 +110,20 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'hybh',index:'hybh',  },
-                {name:'hymc',index:'hymc',  },
+                {name:'hybh',index:'hybh',  width:'4',phoneHide:true,},
+                {name:'hymc',index:'hymc', width:'10' },
 
-                {name:'jxrqKs',index:'jxrq_ks',formatter:function(jxrqKs){
+                {name:'jxrqKs',index:'jxrq_ks',width:'4',phoneHide:true,formatter:function(jxrqKs){
                         return new Date(jxrqKs).getYmd("yyyy-MM-dd");
                     }  },
-                {name:'jxrqJs',index:'jxrq_js',formatter:function(jxrqJs){
+                {name:'jxrqJs',index:'jxrq_js',width:'4',phoneHide:true,formatter:function(jxrqJs){
                         return new Date(jxrqJs).getYmd("yyyy-MM-dd");
                     }  },
-                {name:'jfly',index:'jfly',  },
-                {name:'hylx',index:'hylx', formatter:function (hylx) {
+                {name:'jfly',index:'jfly', width:'6',phoneHide:true, },
+                {name:'hylx',index:'hylx', width:'8',phoneHide:true,formatter:function (hylx) {
                         return dmcache.getCode('t_dm_hylx',hylx);
                     } },
-                {name:'sfzxjh',index:'sfzxjh',  formatter:function(sfzxjh, options, rowObject){
+                {name:'sfzxjh',index:'sfzxjh', width:'4', formatter:function(sfzxjh, options, rowObject){
                     var sbid = rowObject.sbid;
                     if(sfzxjh == '1'){//查看申报信息
                         return "<a href='javascript:showSbInfo(\""+sbid+"\")' >已执行</a>";
@@ -132,7 +132,7 @@
                     }
 
                  } },
-                {name:'sfzj',index:'sfzj', formatter:function(sfzj, options, rowObject){
+                {name:'sfzj',index:'sfzj', width:'4',formatter:function(sfzj, options, rowObject){
                         var zjid = rowObject.zjid;
                         if(sfzj == '1'){//查看总结信息
                             return "<a href='javascript:showZjInfo(\""+zjid+"\")' >已总结</a>";

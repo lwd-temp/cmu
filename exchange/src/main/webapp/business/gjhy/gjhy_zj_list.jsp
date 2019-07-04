@@ -73,18 +73,18 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'hybh',index:'hybh',  },
-                {name:'hymc',index:'hymc',  },
-                {name:'zbdw',index:'zbdw',  },
-                {name:'cbdw',index:'cbdw',  },
-                {name:'jxrqKs',index:'jxrq_ks', formatter:function(jxrqKs){
+                {name:'hybh',index:'hybh', width:'6' ,phoneHide:true,},
+                {name:'hymc',index:'hymc', width:'10' },
+                {name:'zbdw',index:'zbdw', width:'10' ,phoneHide:true },
+                {name:'cbdw',index:'cbdw', width:'10' ,phoneHide:true},
+                {name:'jxrqKs',index:'jxrq_ks',width:'8',  phoneHide:true,formatter:function(jxrqKs){
                         return new Date(jxrqKs).getYmd("yyyy年MM月dd日")
                     } },
-                {name:'jxrqJs',index:'jxrq_js', formatter:function(jxrqJs){
+                {name:'jxrqJs',index:'jxrq_js', width:'8',phoneHide:true,formatter:function(jxrqJs){
                         return new Date(jxrqJs).getYmd("yyyy年MM月dd日")
                     } },
-                {name:'jfly',index:'jfly',  },
-                {name:'writed',index:'writed', formatter:function(status){
+                {name:'jfly',index:'jfly', width:'6',phoneHide:true, },
+                {name:'writed',index:'writed',width:'5', formatter:function(status){
                         var ztText = "";
                         if("0" == status){
                             ztText = "未填写";
@@ -94,7 +94,7 @@
                         return ztText;
                     } },
 
-                {name:'sbid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'sbid',index:'', width:'5', sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         var status = rowObject.writed;
                         var sbid = rowObject.sbid;
