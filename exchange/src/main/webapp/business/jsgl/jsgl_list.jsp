@@ -112,50 +112,50 @@
             pager:pager_selector,
             colModel:[
                 {name:'tid',index:'tid', key:true,hidden:true  },
-                {name:'jsx',index:'jsx', formatter:function(jsx,options,rowObject){
+                {name:'jsx',index:'jsx',width:6, formatter:function(jsx,options,rowObject){
                         if(jsx==null){
                             return '';
                         }else{
                             return jsx;
                         }
                      } },
-                {name:'jsm',index:'jsm', formatter:function(jsm,options,rowObject){
+                {name:'jsm',index:'jsm', width:6,phoneHide:true,formatter:function(jsm,options,rowObject){
                         if(jsm==null){
                             return '';
                         }else{
                             return jsm;
                         }
                     } },
-                {name:'chineseName',index:'chineseName', formatter:function(chineseName,options,rowObject){
+                {name:'chineseName',index:'chineseName',width:6,phoneHide:true, formatter:function(chineseName,options,rowObject){
                         if(chineseName==null){
                             return '';
                         }else{
                             return chineseName;
                         }
                     } },
-                {name:'gender',index:'gender',
+                {name:'gender',index:'gender',width:3,phoneHide:true,
                     formatter:function(gender){
                         return dmcache.getCode('t_dm_xb',gender);
                     }
                 },
-                {name:'gj',index:'gj',  },
-                {name:'birthday',index:'birthday',formatter:function(time){
+                {name:'gj',index:'gj', width:6,phoneHide:true },
+                {name:'birthday',index:'birthday',width:3,phoneHide:true,formatter:function(time){
                         if(time==null){
                             return '';
                         }else{
                             return new Date(time).getYmd("yyyy-MM-dd");
                         }
                     }  },
-                {name:'tid',index:'tid', formatter:function(tid, options, rowObject){
+                {name:'tid',index:'tid', width:8,formatter:function(tid, options, rowObject){
                         return '<button class="btn btn-white btn-mini btn-bold" onclick="zjsc(\''+tid+'\')"><i class="ace-icon fa fa-floppy-o blue"></i>上传</button>' +
                             '&nbsp;<button class="btn btn-blue btn-mini btn-bold" title="查看" onclick="zjgl(\''+tid+'\')"><i class="ace-icon fa fa-floppy-o blue"></i>管理</button>';
                     } },
 
 
-                {name:'tid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'tid',index:'', width:8, sortable:false, resize:true,
                     formatter:function(tid, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='编辑' onclick='editjsgl(\""+tid+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
-                            "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='deljsgl(\""+tid+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                            "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='deljsgl(\""+tid+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                     }
                 },
             ]
