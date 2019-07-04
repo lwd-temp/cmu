@@ -105,15 +105,15 @@
             pager:pager_selector,
             colModel:[
                 {name:'lxrId',index:'lxrId',  key:true,hidden:true},
-                {name:'name',index:'name',  },
-                {name:'gender',index:'gender', formatter:function(gender){
+                {name:'name',index:'name', width:3 },
+                {name:'gender',index:'gender', width:3,phoneHide:true,formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);//从缓存中获取代码对应的名称
                 } },
-                {name:'gj',index:'gj',  },
-                {name:'zyly',index:'zyly',  },
-                {name:'glxm',index:'glxm',  },
+                {name:'gj',index:'gj',  width:4,phoneHide:true},
+                {name:'zyly',index:'zyly', width:4,},
+                {name:'glxm',index:'glxm',  width:4,phoneHide:true},
 
-                {name:'lxrId',index:'', fixed:true, sortable:false, resize:true,
+                {name:'lxrId',index:'', width:6, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
 
                         return "<button class='btn btn-info btn-mini' title='编辑' onclick='editLxr(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
