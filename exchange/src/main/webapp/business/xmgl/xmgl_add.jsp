@@ -71,13 +71,13 @@
                             <!-- #section:elements.form -->
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 项目层次: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目层次: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_XMCC" id="xmcc" name="xm.xmcc" data-placeholder="请选择项目层次"></dm:list>
                                 </div>
 
-                                <label class="col-xs-2 control-label "> 项目编号: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目编号: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text" name="xm.xmbh" readonly="readonly" placeholder="保存后自动生成项目编号" class="col-xs-12"/>
                                 </div>
                             </div>
@@ -85,26 +85,26 @@
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 项目总名: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目总名: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text" name="xm.xmzm" id="xmzm" placeholder="请输入项目总名" class="col-xs-12"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label "> 项目名称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目名称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text" name="xm.xmmc" id="xmmc" placeholder="请输入项目名称" class="col-xs-12"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 交流目标国家或地区: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 交流目标国家或地区: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_GB" type="select" multiple="multiple" id="gb" name="gbs" data-placeholder="请选择"></dm:list>
                                 </div>
 
-                                <label class="col-xs-2 control-label "> 交流目标机构名称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 交流目标机构名称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" type="text" placeholder="请输入交流目标机构名称,如'国'"/>
                                 </div>
                             </div>
@@ -113,15 +113,15 @@
                             <div class="form-group">
 
 
-                                <label class="col-xs-2 control-label "> 项目类型: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目类型: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_XMLX" id="xmlx" name="xm.xmlx" data-placeholder="请选择项目类型"></dm:list>
                                 </div>
 
 
-                                <label class="col-xs-2 control-label "> 经费来源: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_JFLY" id="jfly" name="xm.jfly" data-placeholder="请选择经费来源"></dm:list>
                                 </div>
 
@@ -129,26 +129,26 @@
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 项目开始时间: </label>
-                                <div class="col-xs-2">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目开始时间: </label>
+                                <div class="col-xs-12 col-sm-2 ">
                                     <input class="form-control date-picker jlsc" id="xmkssj" name="xm.xmkssj" placeholder="请选择项目开始时间" value="" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label "> 项目结束时间: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目结束时间: </label>
 
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2 ">
                                     <input class="form-control date-picker jlsc" id="smjssj" name="xm.smjssj" value="" placeholder="请选择项目结束时间" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
-                                <label class="col-xs-2 control-label "> 项目交流时长: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目交流时长: </label>
 
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2 ">
                                     <input class="form-control" id="xmjlsc" readonly="readonly" value="" placeholder="项目交流时长" type="text" />
                                 </div>
 
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目收费标准: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目收费标准: </label>
                                 <div class="col-xs-10">
                                     <input class="form-control" name="xm.fybz" id="fybz" type="text" placeholder="请输入费用标准"/>
                                 </div>
@@ -156,30 +156,30 @@
                             </div>
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 是否限制人数: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 是否限制人数: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <%--<input class="form-control" name="xm.sfxzrs" id="sfxzrs" value="" type="text"/>--%>
                                     <dm:list tabName="t_dm_yn" type="radio" value="${xm.sfxzrs}" id="sfxzrs" name="xm.sfxzrs"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label "> 计划人数: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 计划人数: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control" name="xm.jhrs" id="jhrs" value="" type="text"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目年级限制: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目年级限制: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="请输入年级限制"/>
                                 </div>
-                                <label class="col-xs-2 control-label "> 项目层次限制: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目层次限制: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.ccxz" data-placeholder="请选择项目层次限制"></dm:list>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目专业限制: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目专业限制: </label>
                                 <div class="col-xs-10">
                                     <dm:list sourceList="${zyList}"  type="select" multiple="multiple" headerKey="-1" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
@@ -190,7 +190,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 语言要求: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 语言要求: </label>
                                 <div class="col-xs-10">
                                     <dm:list tabName="t_dm_yy"  multiple="multiple"   id="yyyq" name="xm.yyyq" data-placeholder="请选择语言"></dm:list>
                                 </div>
@@ -198,16 +198,16 @@
 
                             <div class="form-group selectgs">
 
-                                <label class="col-xs-2 control-label "> 归属院系: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 归属院系: </label>
+                                <div class="col-xs-12 col-sm-4">
 
                                     <input name="xm.gsyxdm" id="gsyxdm" value="" id="gsyxdm" type="hidden"/>
                                     <input class="form-control " style="cursor: pointer;" name="xm.gsyxmc" id="gsyx" value="" readonly="readonly" type="text" placeholder="请点击进行选择"/>
                                 </div>
 
 
-                                <label class="col-xs-2 control-label "> 归属学生: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 归属学生: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input name="xm.gsxsdm" id="gsxsdm" value="" type="hidden"/>
                                     <input class="form-control" style="cursor: pointer;" name="xm.gsxsxm" readonly="readonly" id="gsxs" type="text" placeholder="请点击进行选择"/>
                                 </div>
@@ -215,33 +215,33 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 资助金额: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 资助金额: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control  " name="xm.zjje" id="zjje" placeholder="请输入资助金额" value="" type="text"/>
                                 </div>
-                                <label class="col-xs-2 control-label "> 语言要求说明: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2  control-label "> 语言要求说明: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control  " name="xm.yyyqsm" id="yyyqsm" placeholder="语言要求说明" value="" type="text"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "> 项目收费说明: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目收费说明: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="xm.zysm" id="zysm" placeholder="请输入项目收费说明" maxlength="300"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目概况: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目概况: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="xm.xmgk" id="xmgk" placeholder="请输入项目概况" maxlength="300"></textarea>
                                 </div>
 
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "> 项目资助计划: </label>
+                                <label class="col-xs-12 col-sm-2  control-label "> 项目资助计划: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" placeholder="请输入项目资助计划" maxlength="300"></textarea>
                                 </div>

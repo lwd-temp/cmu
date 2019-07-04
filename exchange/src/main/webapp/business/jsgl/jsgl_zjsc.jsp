@@ -92,7 +92,7 @@
                             <input type="hidden" name="tid" id="tid" value="${param['tid']}" />
                             <div class="form-group">
 
-                                <label class="col-xs-4 control-label "  style="text-align:center" > 选择证件   : </label>
+                                <label class="col-xs-12 col-sm-4 control-label "  style="text-align:center" > 选择证件   : </label>
 
                                 <label class="col-xs-5 control-label "   style="text-align:center"> 证件描述   : </label>
 
@@ -101,7 +101,7 @@
 
                             <div class="form-group uploadGroup">
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="file"  multiple="multiple" class="fileUpload"  onchange="changeFile(this)" />
                                 </div>
 
@@ -141,7 +141,7 @@
 <div style="display: none;" id="template">
     <div class="form-group uploadGroup">
 
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-4">
             <input type="file"  class="fileUpload" onchange="changeFile(this)"/>
         </div>
 

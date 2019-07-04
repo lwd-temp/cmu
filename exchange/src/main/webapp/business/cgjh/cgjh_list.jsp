@@ -84,7 +84,7 @@
 
 
         var settings = {
-            caption: "出访计划管理??",
+            caption: "出访计划管理",
             url:'cgjh/list',
             colNames:['团组号','团组名称','团组类别', '团组负责人姓名', '团组级别','出访天数',"状态","操作"],
             navBtns:navBtns,//自定义按钮

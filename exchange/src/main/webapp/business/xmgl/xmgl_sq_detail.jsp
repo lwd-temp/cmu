@@ -94,96 +94,96 @@
                             <input type="hidden" name="confirmStatus" id="confirmStatus" value="${sqjl.confirmStatus}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 项目总名: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 项目总名: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xmzm" id="xmzm" value="${sqjl.xmzm}" readonly="readonly"    class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 项目名称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 项目名称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xmmc"  id="xmmc" value="${sqjl.xmmc}" readonly="readonly"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 学号 : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 学号 : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xh" id="xh"  value="${sqjl.xh}" readonly="readonly"    class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 姓名: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 姓名: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xm"  id="xm" value="${sqjl.xm}" readonly="readonly"     class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 性别  : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 性别  : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_XB" type="radio" name="gender" id="gender" value="${sqjl.gender}"/>
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 院系: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 院系: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="hidden" name="yxdm" id="yxdm" value="${sqjl.yxdm}" />
                                     <input type="text"  name="yxmc"  id="yxmc" value="${sqjl.yxmc}" readonly="readonly"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 入学年级   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 入学年级   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="rxn" id="rxn" value="${sqjl.rxn}" readonly="readonly"     class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 年级: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 年级: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="nj" id="nj"  value="${sqjl.nj}" readonly="readonly"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 专业   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 专业   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="hidden" name="zyh" id="zyh" value="${sqjl.zyh}" />
                                     <input type="text"  name="zymc" id="zymc"  value="${sqjl.zymc}" readonly="readonly"     class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 班级: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 班级: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="hidden" name="bjh" id="bjh" value="${sqjl.bjh}" />
                                     <input type="text"  name="bjmc"  id="bjmc" value="${sqjl.bjmc}" readonly="readonly"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 成绩排名   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 成绩排名   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="chpm" id="chpm"  value="${sqjl.chpm}"   placeholder="格式20/100"    class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 综合评级: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 综合评级: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_zhpj" name="zhpj" id="zhpj" value="${sqjl.zhpj}" data-placeholder="请选择综合评级"/>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 手机号   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 手机号   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="phone" id="phone"  value="${sqjl.phone}"    placeholder="手机号"    class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 邮箱: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 邮箱: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="email" id="email" value="${sqjl.email}"    placeholder="邮箱"    class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 交流目标国家或地区   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 交流目标国家或地区   : </label>
+                                <div class="col-xs-12 col-sm-4">
 
                                     <dm:list sourceList="${gjdqList}"  type="select" id="jlgjdqm"  name="jlgjdqm"  value="${sqjl.jlgjdqm}"  data-placeholder="交流目标国家或地区"  ></dm:list>
 
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 外语水平 </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 外语水平 </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="yysp" id="yysp" value="${sqjl.yysp}"  placeholder="考试种类+成绩"      class="col-xs-12" />
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                             <c:if test="${sqjl.confirmStatus == '02' || sqjl.confirmStatus == '03'}">
                                 <%--复审通过或退回显示意见--%>
                                 <div class="form-group">
-                                    <label class="col-xs-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>
+                                    <label class="col-xs-12 col-sm-2 control-label "  > 审核意见<i class="fa fa-star-o red"></i>   : </label>
                                     <div class="col-xs-10">
                                         <input type="text"  readonly="readonly" name="fsyj"  id="fsyj"  value="${sqjl.fsyj}"    class="col-xs-12" />
                                     </div>
@@ -202,7 +202,7 @@
 
                                 <c:if test="${sqjl.confirmStatus == '02'}">
                                     <div class="form-group">
-                                        <label class="col-xs-2 control-label "  > 资助金额<i class="fa fa-star-o red"></i>   : </label>
+                                        <label class="col-xs-12 col-sm-2 control-label "  > 资助金额<i class="fa fa-star-o red"></i>   : </label>
                                         <div class="col-xs-10">
                                             <input type="text"  readonly="readonly" name="zzje"  id="zzje"  value="${sqjl.zzje}"    class="col-xs-12" />
                                         </div>
@@ -228,7 +228,7 @@
 
                             <div class="form-group">
 
-                                <label class="col-xs-4 control-label "  style="text-align:center" > 上传材料   : </label>
+                                <label class="col-xs-12 col-sm-4 control-label "  style="text-align:center" > 上传材料   : </label>
 
                                 <label class="col-xs-5 control-label "   style="text-align:center"> 材料说明   : </label>
 
@@ -239,7 +239,7 @@
                                     <c:forEach items="${fjList}" var="fj" varStatus="status" >
 
                                         <div class="form-group ">
-                                            <div class="col-xs-4" >
+                                            <div class="col-xs-12 col-sm-4" >
                                                 <input type="hidden"  name="fileid" value="${fj.fileId}" />
                                                 <input  class="col-xs-12"   readonly="readonly" type="text" value="已上传材料${status.count}" />
                                             </div>
@@ -318,7 +318,7 @@
 <div style="display: none;" id="template">
     <div class="form-group uploadGroup">
 
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-4">
             <input type="hidden" name="fileid" value="" />
             <input type="file"  class="fileUpload" onchange="changeFile(this)"/>
         </div>

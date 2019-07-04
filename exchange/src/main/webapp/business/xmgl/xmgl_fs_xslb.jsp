@@ -174,7 +174,7 @@
                 {name:'zhpj',index:'zhpj',  phoneHide:true,},
                 {name:'xlcp',index:'xlcp',phoneHide:true, formatter:function(cellvalue, options, rowObject){
                         if("A" == cellvalue){
-                            return "合格???";
+                            return "合格";
                         }else if("B" == cellvalue){
                             return "不合格";
                         }else if("C" == cellvalue){

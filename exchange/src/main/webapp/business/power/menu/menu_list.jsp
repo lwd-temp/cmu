@@ -16,7 +16,7 @@
     <div class="col-xs-12 col-sm-9" >
         <form class="f orm-horizontal"  id="addForm" style="display: none;" >
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 菜单名称: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 菜单名称: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="username" id=""   placeholder="请输入菜单名称"  class="col-xs-10" />
@@ -24,7 +24,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 功能url: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 功能url: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="username" id=""   placeholder="请输入功能url"  class="col-xs-10" />
@@ -32,7 +32,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 备注: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="username" id=""   placeholder="请输入备注"  class="col-xs-10" />
@@ -61,14 +61,14 @@
         <form class="form-horizontal"  id="editForm"   >
             <input type="hidden"  name="menuId" id="menuId"    class="col-xs-10" />
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 菜单名称: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 菜单名称: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="menuName" id="menuName"   placeholder="请输入菜单名称"  class="col-xs-10" />
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 功能url: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 功能url: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="url" id="url"   placeholder="请输入功能url"  class="col-xs-10" />
@@ -76,7 +76,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 图标: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 图标: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="menuIcon" id="menuIcon"     class="col-xs-10" />
@@ -84,7 +84,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 自定义样式: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 自定义样式: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="menuStyle" id="menuStyle"      class="col-xs-10" />
@@ -92,7 +92,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 排序: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 排序: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="sort" id="sort"      class="col-xs-10" />
@@ -100,7 +100,7 @@
 
             </div>
             <div class="form-group">
-                <label class="col-xs-2 control-label "  > 备注: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
 
                 <div class="col-xs-10">
                     <input type="text"  name="memo" id="memo"   placeholder="请输入备注"  class="col-xs-10" />

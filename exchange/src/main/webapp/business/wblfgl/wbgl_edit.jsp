@@ -70,169 +70,169 @@
 
 
                 <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 接待类型: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 接待类型: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_wblf_jdlx"  id="jdlx" name="wbjdSq.jdlx" value="${wbjdSq.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 接待部门: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 接待部门: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control  " id="jdbm" name="wbjdSq.jdbm" value="${wbjdSq.jdbm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 代表团名称: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 代表团名称: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="wbjdSq.dbtmc"   placeholder="" value="${wbjdSq.dbtmc}" class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label " > 来访人数: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label " > 来访人数: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="wbjdSq.lfrs" id="lfrs"  placeholder=""  value="${wbjdSq.lfrs}"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 来访时间起: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 来访时间起: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="wbjdSq.lfsjStart"
                                value="<fmt:formatDate value="${wbjdSq.lfsjStart}" pattern="yyyy-MM-dd"/>"
                                id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 来访时间止: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 来访时间止: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="wbjdSq.lfsjEnd"
                                value="<fmt:formatDate value="${wbjdSq.lfsjEnd}" pattern="yyyy-MM-dd"/>"
                                id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label " > 来访目的: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label " > 来访目的: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_lfmd"  name="wbjdSq.lfmd" id="lfmd"  multiple="multiple" value="${wbjdSq.lfmd}" data-placeholder="请选择来访目的"  onchange="selectlfmd(this)"></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 国家/地区: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 国家/地区: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  valueList="${gbCodeList}"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
-                    <label class="col-xs-2 control-label "  > 其他目的: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
                         <input class="form-control  " name="wbjdSq.lfmdQt" value="${wbjdSq.lfmdQt}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group yjtm" >
-                    <label class="col-xs-2 control-label "  > 演讲题目: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
                         <input class="form-control  " name="wbjdSq.yjtm" value="${wbjdSq.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 经费来源: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-10">
                         <textarea class="form-control limited" name="wbjdSq.jfly"  placeholder="请输入经费来源"  maxlength="300">${wbjdSq.jfly}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否邀请校领导: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否邀请校领导: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdSq.ynYqxld" type="radio" value="${wbjdSq.ynYqxld}"
                                  onclick="getRadio()" data-placeholder="请选是否邀请校领导" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否获学院同意: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否获学院同意: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdSq.ynXyty"  type="radio" value="${wbjdSq.ynXyty}"
                                  onclick="getRadio()" data-placeholder="请选是否获学院同意" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否报备属地公安部门: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否报备属地公安部门: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssgabm"   type="radio" value="${wbjdSq.ynBbssgabm}"
                                  onclick="getRadio()" data-placeholder="请选是否报备属地公安部门" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否报备学校宣传部: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否报备学校宣传部: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdSq.ynBbssxcbm"   type="radio" value="${wbjdSq.ynBbssxcbm}"
                                  onclick="getRadio()" data-placeholder="请选是否报备学校宣传部" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >
-                    <label class="col-xs-2 control-label "  > 备注: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
                         <input class="form-control"  id="memo" name="wbjdSq.memo"  value="${wbjdSq.memo}" type="text"  style="height: 70px;" />
                     </div>
                 </div>
             </div>
             <div class="form-group" style="display: none">
-                <label class="col-xs-2 control-label "  > 礼品: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 礼品: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  "  id="lp" name="wbjdSq.lp" value="${wbjdSq.lp}" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 数量: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 数量: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " id="lpsl" name="wbjdSq.lpsl" value="${wbjdSq.lpsl}" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 情况记录: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
                     <textarea class="form-control limited" name="wbjdSq.qkjl"  placeholder="情况记录"  maxlength="300">${wbjdSq.qkjl}</textarea>
                 </div>
             </div>
 
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长姓名: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长姓名: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzxm" value="${wbjdSq.tzxm}" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 团长国籍: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长国籍: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzgj" value="${wbjdSq.tzgj}" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长性别: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长性别: </label>
+                <div class="col-xs-12 col-sm-4">
                     <dm:list tabName="t_dm_xb"  name="wbjdSq.tzxb" type="radio" value="${wbjdSq.tzxb}" data-placeholder="请选接团长性别" ></dm:list>
                 </div>
-                <label class="col-xs-2 control-label "  > 出生年份: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 出生年份: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control year-picker" name="wbjdSq.tzcsrq" id="tzcsrq"
                            value="<fmt:formatDate value="${wbjdSq.tzcsrq}" pattern="yyyy"/>"
                            type="text" data-date-format="yyyy" />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长工作单位: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长工作单位: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzgzdw" value="${wbjdSq.tzgzdw}" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 团长职称: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长职称: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzzc" value="${wbjdSq.tzzc}" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 专业及学术领域: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzzy" value="${wbjdSq.tzzy}" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 团长职务: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长职务: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdSq.tzzw" value="${wbjdSq.tzzw}" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 主请联系人姓名: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " id="zqlxrxm" name="wbjdSq.zqlxrxm" value="${wbjdSq.zqlxrxm}" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 主请联系人电话: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " id="zqlxrdh" name="wbjdSq.zqlxrdh" value="${wbjdSq.zqlxrdh}" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 拟访问成果: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 拟访问成果: </label>
                 <div class="col-xs-10">
                     <input class="form-control  " name="wbjdSq.fwcg" value="${wbjdSq.fwcg}" type="text"   />
                 </div>
@@ -258,7 +258,7 @@
                                     <div class="col-xs-3">
                                         职务
                                     </div>
-                                    <div class="col-xs-2">
+                                    <div class="col-xs-12 col-sm-2">
                                         操作
                                     </div>
                                 </div>
@@ -269,7 +269,7 @@
                                             <div class="col-xs-3"><input type="text" inp="xm" placeholder="姓名"   value="${sxr.xm}"   name="sxr[@].xm" class="col-xs-12"/></div>
                                             <div class="col-xs-3"><input type="text" inp="gj"  placeholder="国籍"  value="${sxr.gj}"   name="sxr[@].gj" class="col-xs-12"/></div>
                                             <div class="col-xs-3"><input type="text" inp="zw"  placeholder="职务"  value="${sxr.zw}"   name="sxr[@].zw" class="col-xs-12"/></div>
-                                            <div class="col-xs-2">
+                                            <div class="col-xs-12 col-sm-2">
                                                 <button class='btn btn-danger btn-mini' onclick='deleteSxr(this);return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
                                             </div>
                                         </div>
@@ -302,7 +302,7 @@
                                     <div class="col-xs-5">
                                         礼品名称
                                     </div>
-                                    <div class="col-xs-4">
+                                    <div class="col-xs-12 col-sm-4">
                                         数量
                                     </div>
                                     <div class="col-xs-3">
@@ -316,7 +316,7 @@
                                             <div class="col-xs-5">
                                                 <input type="text" inp="mc" placeholder="礼品名称" name="lp[@].mc" value="${lp.mc}" class="col-xs-12"/>
                                             </div>
-                                            <div class="col-xs-4">
+                                            <div class="col-xs-12 col-sm-4">
                                                 <input type="text" inp="sl" placeholder="数量" name="lp[@].sl" value="${lp.sl}" class="col-xs-12"/>
                                             </div>
                                             <div class="col-xs-3">
@@ -360,7 +360,7 @@
         <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2"  >
+        <div class="col-xs-12 col-sm-2"  >
             <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
         </div>
     </div>
@@ -371,7 +371,7 @@
         <div class="col-xs-5">
             <input type="text" inp="mc" placeholder="礼品名称" name="lp[@].mc" class="col-xs-12"/>
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-sm-4">
             <input type="text" inp="sl" placeholder="数量" name="lp[@].sl" class="col-xs-12"/>
         </div>
         <div class="col-xs-3">

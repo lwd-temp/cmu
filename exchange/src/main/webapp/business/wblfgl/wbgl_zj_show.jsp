@@ -67,166 +67,166 @@
                 <input type="hidden"   id="ynBbssxcbm_value"  />
 
                 <div class="form-group ">
-                    <label class="col-xs-2 control-label "  > 接待类型: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 接待类型: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_wblf_jdlx"  id="jdlx" name="wbjdZj.jdlx" disabled="disabled" value="${wbjdZj.jdlx}" data-placeholder="请选接待类型" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 接待部门: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 接待部门: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control" id="jdbm" name="wbjdZj.jdbm" disabled="disabled" value="${wbjdZj.jdbm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 代表团名称: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 代表团名称: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="wbjdZj.dbtmc"   placeholder="" disabled="disabled" value="${wbjdZj.dbtmc}" class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label " > 来访人数: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label " > 来访人数: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="wbjdZj.lfrs"   placeholder="" disabled="disabled" value="${wbjdZj.lfrs}" class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 来访时间起: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 来访时间起: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="wbjdZj.lfsjStart" disabled="disabled"
                                value="<fmt:formatDate value="${wbjdZj.lfsjStart}" pattern="yyyy-MM-dd"/>"
                                id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 来访时间止: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 来访时间止: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="wbjdZj.lfsjEnd" disabled="disabled"
                                value="<fmt:formatDate value="${wbjdZj.lfsjEnd}" pattern="yyyy-MM-dd"/>"
                                id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label " > 来访目的: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label " > 来访目的: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_lfmd"   type="select" multiple="multiple"  name="wbjdZj.lfmd" id="lfmd" disabled="disabled" data-placeholder="请选择来访目的" value="${wbjdZj.lfmd}"  onchange="selectlfmd(this)"></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 国家/地区: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 国家/地区: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="T_DM_GB"  type="select" multiple="multiple" disabled="disabled"  id="cfgbIds"  name="cfgbIds"  valueList="${gbCodeList}"  data-placeholder="请选择国家/地区"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group qtmd">
-                    <label class="col-xs-2 control-label "  > 其他目的: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 其他目的: </label>
                     <div class="col-xs-10">
                         <input class="form-control  " name="wbjdZj.lfmdQt" disabled="disabled" value="${wbjdZj.lfmdQt}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group yjtm" >
-                    <label class="col-xs-2 control-label "  > 演讲题目: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 演讲题目: </label>
                     <div class="col-xs-10">
                         <input class="form-control  " name="wbjdZj.yjtm" disabled="disabled" value="${wbjdZj.yjtm}" type="text"   />
                     </div>
                 </div>
                 <div class="form-group">
 
-                    <label class="col-xs-2 control-label "  > 经费来源: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
                     <div class="col-xs-10">
                         <textarea class="form-control limited" name="wbjdZj.jfly"  disabled="disabled" placeholder="请输入经费来源"  maxlength="300">${wbjdZj.jfly}</textarea>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否邀请校领导: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否邀请校领导: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynYqxld" type="radio" id="ynYqxld"
                                  value="${wbjdZj.ynYqxld}"  disabled="disabled"  data-placeholder="请选是否邀请校领导" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否获学院同意: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否获学院同意: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynXyty"  type="radio" id="ynXyty"
                                  value="${wbjdZj.ynXyty}" disabled="disabled"  data-placeholder="请选是否获学院同意" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 是否报备属地公安部门: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否报备属地公安部门: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssgabm"   type="radio" id="ynBbssgabm"
                                  value="${wbjdZj.ynBbssgabm}"  disabled="disabled"  data-placeholder="请选是否报备属地公安部门" ></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label "  > 是否报备学校宣传部: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 是否报备学校宣传部: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_yn"  name="wbjdZj.ynBbssxcbm"   type="radio" id="ynBbssxcbm"
                                  value="${wbjdZj.ynBbssxcbm}" disabled="disabled" data-placeholder="请选是否报备学校宣传部" ></dm:list>
                     </div>
                 </div>
                 <div class="form-group "  >
-                    <label class="col-xs-2 control-label "  > 备注: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
                         <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}" disabled="disabled"  readonly=readonly type="text"  style="height: 70px;" />
                     </div>
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 情况记录: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 情况记录: </label>
                 <div class="col-xs-10">
                     <input class="form-control  " name="wbjdZj.qkjl" value="${wbjdZj.qkjl}"  disabled="disabled" type="text"   />
                 </div>
             </div>
 
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长姓名: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长姓名: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzxm" value="${wbjdZj.tzxm}"  disabled="disabled" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 团长国籍: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长国籍: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzgj" value="${wbjdZj.tzgj}"  disabled="disabled" type="text"   />
 
                 </div>
             </div>
 
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长性别: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长性别: </label>
+                <div class="col-xs-12 col-sm-4">
                     <dm:list tabName="t_dm_xb"  name="wbjdZj.tzxb" type="radio" value="${wbjdZj.tzxb}" disabled="disabled" data-placeholder="请选接团长性别" ></dm:list>
                 </div>
 
-                <label class="col-xs-2 control-label "  > 出生年份: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 出生年份: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq" disabled="disabled"
                            value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy"/>"
                            type="text" data-date-format="yyyy" />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 团长工作单位: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长工作单位: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzgzdw" value="${wbjdZj.tzgzdw}" disabled="disabled" type="text"   />
                 </div>
 
-                <%--<label class="col-xs-2 control-label "  > 团长职称: </label>
-                <div class="col-xs-4">
+                <%--<label class="col-xs-12 col-sm-2 control-label "  > 团长职称: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzzw" value="${wbjdZj.tzzw}" type="text"   />
                 </div>--%>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 专业及学术领域: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 专业及学术领域: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzzy" value="${wbjdZj.tzzy}" disabled="disabled" type="text"   />
                 </div>
-                <label class="col-xs-2 control-label "  > 团长职务: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 团长职务: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " name="wbjdZj.tzzw" value="${wbjdZj.tzzw}" disabled="disabled" type="text"   />
                 </div>
             </div>
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 主请联系人姓名: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 主请联系人姓名: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " id="zqlxrxm" name="wbjdZj.zqlxrxm" disabled="disabled" value="${wbjdZj.zqlxrxm}" type="text"   />
                 </div>
 
-                <label class="col-xs-2 control-label "  > 主请联系人电话: </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label "  > 主请联系人电话: </label>
+                <div class="col-xs-12 col-sm-4">
                     <input class="form-control  " id="zqlxrdh" disabled="disabled" name="wbjdZj.zqlxrdh" value="${wbjdZj.zqlxrdh}" type="text"   />
                 </div>
             </div>
 
             <div class="form-group ">
-                <label class="col-xs-2 control-label "  > 访问成果: </label>
+                <label class="col-xs-12 col-sm-2 control-label "  > 访问成果: </label>
                 <div class="col-xs-10">
                     <input class="form-control  " name="wbjdZj.fwcg" value="${wbjdZj.fwcg}"  disabled="disabled" type="text"   />
                 </div>
@@ -272,7 +272,7 @@
                         <div class="form-group sxr">
                             <div class="col-xs-3"><input type="text" inp="xh"  placeholder="序号"  disabled="disabled" value="${status.count}"   class="col-xs-12"/></div>
                             <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称"  disabled="disabled" value="${sxr.gj}"   name="lp[@].mc" class="col-xs-12"/></div>
-                            <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled" value="${sxr.zw}"   name="lp[@].sl" class="col-xs-12"/></div>
+                            <div class="col-xs-12 col-sm-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled" value="${sxr.zw}"   name="lp[@].sl" class="col-xs-12"/></div>
 
                         </div>
                     </c:forEach>
@@ -281,7 +281,7 @@
                     <div class="form-group lp">
                         <div class="col-xs-3"><input type="text" inp="xh"  placeholder="序号"  disabled="disabled"     class="col-xs-12"/></div>
                         <div class="col-xs-5"><input type="text" inp="mc"  placeholder="礼品名称"  disabled="disabled"     name="lp[@].mc" class="col-xs-12"/></div>
-                        <div class="col-xs-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled"    name="lp[@].sl" class="col-xs-12"/></div>
+                        <div class="col-xs-12 col-sm-4"><input type="text" inp="sl"  placeholder="数量"  disabled="disabled"    name="lp[@].sl" class="col-xs-12"/></div>
 
                     </div>
                 </c:otherwise>
@@ -304,7 +304,7 @@
         <div class="col-xs-3"><input type="text" inp="xm"   placeholder="姓名" name="sxr[@].xm" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="gj"   placeholder="国籍" name="sxr[@].gj" class="col-xs-12"/></div>
         <div class="col-xs-3"><input type="text" inp="zw"   placeholder="职务" name="sxr[@].zw" class="col-xs-12"/></div>
-        <div class="col-xs-2"  >
+        <div class="col-xs-12 col-sm-2"  >
             <button class='btn btn-danger btn-mini' onclick='deleteSxr(this); return false;'><i class='ace-icon fa fa-trash-o  '>删除</i></button>
             <button class='btn btn-info btn-mini' onclick='appendSxr(); return false;'><i class='ace-icon fa fa-plus '>添加</i>  </button>
         </div>

@@ -55,25 +55,25 @@
                             <input type="hidden" name="hzid" value="${hz.hzid}" />
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 工号: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 工号: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="gh" id="gh" value="${hz.gh}" placeholder="工号"    class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 性别: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 性别: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender" value="${hz.gender}"  ></dm:list>
                                 </div>
                             </div>
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "  > 姓名: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 姓名: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xm"  value="${hz.xm}" placeholder="请输入姓名"    class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 职务: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 职务: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="zw"   value="${hz.zw}"  placeholder="请输入职务"  class="col-xs-12" />
                                 </div>
                             </div>
@@ -83,149 +83,149 @@
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label "  > 单位   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 单位   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="dw"  value="${hz.dw}"  placeholder="请输入单位"  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 签证或签注时间: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签证或签注时间: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="qzsj" name="qzsj"  value="<fmt:formatDate value="${hz.qzsj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" placeholder="请选择签证或签注时间" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 职称   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 职称   : </label>
                                 <div class="col-xs-10">
                                     <input type="text"  name="zc"  value="${hz.zc}" placeholder="请输入职称" class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 出访时间（出境）   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出访时间（出境）   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="cfsjCj" name="cfsjCj" value="<fmt:formatDate value="${hz.cfsjCj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" placeholder="请选择出境时间" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 出访时间（入境）   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出访时间（入境）   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="cfsjRj" name="cfsjRj" value="<fmt:formatDate value="${hz.cfsjRj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" placeholder="请选择入境时间" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 出访目的地   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出访目的地   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="cfmd"  value="${hz.cfmd}"   placeholder="请输入出访目的地"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 经费来源: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="jfly"  value="${hz.jfly}"  placeholder="请输入经费来源"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 出访任务   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出访任务   : </label>
                                 <div class="col-xs-10">
                                     <input type="text"  name="cfrw"  value="${hz.cfrw}"    placeholder="请输入出访任务" class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 护照号码: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 护照号码: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hzhm" value="${hz.hzhm}"     class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 国籍: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 国籍: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="gj"  value="${hz.gj}"     class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 出生日期: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出生日期: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-1" name="birthday" value="<fmt:formatDate value="${hz.birthday}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd"  />
 
                                 </div>
-                                <label class="col-xs-2 control-label "  > 出生地点: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 出生地点: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="csdd"  value="${hz.csdd}"   class="col-xs-12" />
                                 </div>
 
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 签发日期: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签发日期: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-5" name="qfrq" value="<fmt:formatDate value="${hz.qfrq}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 签发地点: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签发地点: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="qfdd"  value="${hz.qfdd}"   class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 有效期至: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 有效期至: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-10"  name="yxqz"  value="<fmt:formatDate value="${hz.yxqz}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 发证机关: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 发证机关: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="fzjg"   value="${hz.fzjg}"    class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 借出时间:</label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 借出时间:</label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-8"  name="jcsj"  value="<fmt:formatDate value="${hz.jcsj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 归还时间:</label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 归还时间:</label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-9"  name="ghsj"  value="<fmt:formatDate value="${hz.ghsj}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 证件类型   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 证件类型   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzlx" type="select" id="hzlx"  name="hzlx" value="${hz.hzlx}"  ></dm:list>
                                 </div>
-                                <label class="col-xs-2 control-label "  > 护照状态: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 护照状态: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzzt" type="select" id="status"  name="status"  value="${hz.status}" ></dm:list>
                                 </div>
                             </div>
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 美国多次往返签证号码: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 美国多次往返签证号码: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="dcwfqzhmMg" value="${hz.dcwfqzhmMg}"    class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 欧洲多次往返签证号码: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 欧洲多次往返签证号码: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="dcwfqzhmOz"  value="${hz.dcwfqzhmOz}"    class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 加拿大多次往返签证号码   : </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 加拿大多次往返签证号码   : </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="dcwfqzhmJnd" value="${hz.dcwfqzhmJnd}"    class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 其他地区多次往返签证号码: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 其他地区多次往返签证号码: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="dcwfqzhmQt" value="${hz.dcwfqzhmQt}"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 备注   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 备注   : </label>
                                 <div class="col-xs-10">
                                     <input type="text"  name="bz"  value="${hz.bz}"    placeholder="备注" class="col-xs-12" />
                                 </div>

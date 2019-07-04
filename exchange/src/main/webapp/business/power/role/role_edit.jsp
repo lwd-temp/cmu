@@ -61,7 +61,7 @@
                             <input type="hidden" name="roleId" value="${role.roleId}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 角色名称:</label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 角色名称:</label>
 
                                 <div class="col-xs-10">
                                     <input type="text"  name="roleName" id="roleName" value="${role.roleName}" placeholder="请输入角色名称"  class="col-xs-12" />

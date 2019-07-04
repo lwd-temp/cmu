@@ -83,12 +83,12 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 上传材料1   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 上传材料1   : </label>
                                 <div class="col-xs-8">
                                     <input type="file" id="id-input-file-1" />
 
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <button class="btn  btn-minier btn-warning">
                                         <i class="ace-icon fa fa-plus"></i>
                                     </button>
@@ -98,12 +98,12 @@
                                 </div>
 
                             </div>  <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 上传材料2   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 上传材料2   : </label>
                                 <div class="col-xs-8">
                                     <input type="file" id="id-input-file-2" />
 
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <button class="btn  btn-minier btn-warning red">
                                         <i class="ace-icon fa fa-plus"></i>
                                     </button>
@@ -115,12 +115,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 上传材料3   : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 上传材料3   : </label>
                                 <div class="col-xs-8">
                                     <input type="file" id="id-input-file-3" />
 
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <button class="btn  btn-minier btn-warning">
                                         <i class="ace-icon fa fa-plus"></i>
                                     </button>
