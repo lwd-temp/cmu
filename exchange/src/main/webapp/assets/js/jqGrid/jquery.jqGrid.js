@@ -9415,7 +9415,10 @@ $.jgrid.extend({
 				$("#testpg2").remove();
 				
 				if($t.p._nvtd) {
-					if(o.dropmenu) {
+
+                    $(pgid+"_"+o.position,pgid).append(navtbl);
+
+					/*if(o.dropmenu) {
 						navtbl = null;
 						$($t).jqGrid('_buildNavMenu', pgid, elemids, p, pEdit, pAdd, pDel, pSearch, pView );						
 					} else if(twd > $t.p._nvtd[0] ) {
@@ -9428,7 +9431,7 @@ $.jgrid.extend({
 						$t.p._nvtd[0] = twd;
 					} else {
 						$(pgid+"_"+o.position,pgid).append(navtbl);
-					}
+					}*/
 					$t.p._nvtd[1] = twd;
 				}
 				$t.p.navGrid = true;

@@ -19217,7 +19217,7 @@ input.typeahead.scrollable ~ .tt-menu {
 }
 @media (max-width: 479px) {
   .navbar-fixed-top + .main-container {
-    padding-top: 90px;
+    padding-top: 48px;
   }
   .navbar-fixed-top.navbar-collapse + .main-container {
     padding-top: 45px;

@@ -74,16 +74,16 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmbh',index:'xmbh',  },
-                {name:'xmzm',index:'xmzm',  },
+                {name:'xmbh',index:'xmbh', phoneHide:true },
+                {name:'xmzm',index:'xmzm',  phoneHide:true},
                 {name:'xmmc',index:'xmmc',  },
-                {name:'xmkssj',index:'xmkssj', formatter:function( time){
+                {name:'xmkssj',index:'xmkssj', phoneHide:true,formatter:function( time){
                     return new Date(time).getYmd("yyyy年MM月dd日")
                     } },
-                {name:'smjssj',index:'smjssj', formatter:function( time){
+                {name:'smjssj',index:'smjssj', phoneHide:true,formatter:function( time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
                     }   },
-                {name:'xmcc',index:'xmcc',formatter:function(xmccdm){
+                {name:'xmcc',index:'xmcc',phoneHide:true,formatter:function(xmccdm){
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     }  },
                /* {name:'jfly',index:'jfly', formatter:function(jfly){

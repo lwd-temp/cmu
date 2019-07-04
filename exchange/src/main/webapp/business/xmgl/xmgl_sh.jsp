@@ -77,26 +77,26 @@
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmbh',index:'xmbh',  formatter:function(cellvalue, options, rowObject){
+                {name:'xmbh',index:'xmbh', width:'2',  phoneHide:true,formatter:function(cellvalue, options, rowObject){
                         var callback = 'javascript:applyXm("'+rowObject.id+'")';
                         var href = "<a href='"+callback+"'  >"+cellvalue+"<a>";
                         //console.info(href);
                         return href;
                     } },
-                {name:'xmzm',index:'xmzm',  },
-                {name:'xmmc',index:'xmmc', },
+                {name:'xmzm',index:'xmzm',  width:'3', phoneHide:true},
+                {name:'xmmc',index:'xmmc', width:'4', },
 
-                {name:'xmkssj',index:'xmkssj',formatter:function(time){
+                {name:'xmkssj',index:'xmkssj',width:'3', phoneHide:true,formatter:function(time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
                     }  },
-                {name:'smjssj',index:'smjssj',formatter:function(time){
+                {name:'smjssj',index:'smjssj',width:'3', phoneHide:true,formatter:function(time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
                     }  },
-                {name:'xmcc',index:'xmcc', formatter:function(xmccdm){
+                {name:'xmcc',index:'xmcc', width:'3', phoneHide:true,formatter:function(xmccdm){
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     } },
 
-                {name:'xmId',index:'', fixed:true, sortable:false, resize:true,
+                {name:'xmId',index:'', width:'3',  sortable:false, resize:true,
                     formatter:function(xmId, options, rowObject){
 
                             return "<button class='btn btn-info btn-mini' onclick='shxm(\""+xmId+"\")' title='审核项目' ><i class='ace-icon fa fa-eye'>审核</i></button> &nbsp;" +

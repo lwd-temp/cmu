@@ -86,23 +86,23 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmbh',index:'xmbh',  },
-                {name:'xmzm',index:'xmzm',  },
-                {name:'xmmc',index:'xmmc',  },
-                {name:'xmkssj',index:'xmkssj', formatter:function( time){
+                {name:'xmbh',width:'8',index:'xmbh', phoneHide:true},
+                {name:'xmzm',width:'10',index:'xmzm', phoneHide:true  },
+                {name:'xmmc',width:'10',index:'xmmc',  },
+                {name:'xmkssj',width:'8',phoneHide:true,index:'xmkssj', formatter:function( time){
                     return new Date(time).getYmd("yyyy年MM月dd日")
                     } },
-                {name:'smjssj',index:'smjssj', formatter:function( time){
+                {name:'smjssj',width:'8',phoneHide:true,index:'smjssj', formatter:function( time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
                     }   },
-                {name:'xmcc',index:'xmcc',formatter:function(xmccdm){
+                {name:'xmcc',width:'4',phoneHide:true,index:'xmcc',formatter:function(xmccdm){
                         return dmcache.getCode('T_DM_XMCC',xmccdm);
                     }  },
                /* {name:'jfly',index:'jfly', formatter:function(jfly){
                         return dmcache.getCode('T_DM_JFLY',jfly);
                     }  },*/
 
-                {name:'status',index:'status', formatter:function(status){
+                {name:'status',width:'10',index:'status', formatter:function(status){
                         var zt = "";
                         if('01' == status){
                             zt = "暂存";
@@ -112,7 +112,7 @@
                         return zt;
                     }  },
 
-                {name:'xmId',index:'xmId', fixed:true, sortable:false, resize:true,
+                {name:'xmId',width:'5',index:'xmId', sortable:false, resize:true,
                     formatter:function(xmId, options, rowObject){
                         var status = rowObject.status;
                         var content = "";

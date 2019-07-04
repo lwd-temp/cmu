@@ -361,7 +361,7 @@
                 $("#status").val('02');
             }
 
-            alert($("#status").val())
+            //alert($("#status").val())
 
             $.ajax('xm/save', {
                 data: $("#form").serialize(),
