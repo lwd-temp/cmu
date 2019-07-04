@@ -66,28 +66,28 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'dbtmc',index:'dbtmc',  },
-                {name:'lfsjStart',index:'lfsj_start',formatter:function(lfsjStart, options, rowObject){
+                {name:'dbtmc',index:'dbtmc',  width:6, },
+                {name:'lfsjStart',index:'lfsj_start', width:4,phoneHide:true,formatter:function(lfsjStart, options, rowObject){
                         if(lfsjStart==null){
                             return '';
                         }else{
                             return new Date(lfsjStart).getYmd("yyyy-MM-dd");
                         }
                     }},
-                {name:'lfsjEnd',index:'lfsj_end',formatter:function(lfsjEnd, options, rowObject){
+                {name:'lfsjEnd',index:'lfsj_end',width:4,phoneHide:true,formatter:function(lfsjEnd, options, rowObject){
                         if(lfsjEnd==null){
                             return '';
                         }else{
                             return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
                         }
                     }},
-                {name:'lfrs',index:'lfrs',  },
+                {name:'lfrs',index:'lfrs',   width:3,},
                 /*{name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                         return dmcache.getCode('t_dm_lfmd',lfmd);
                     }},*/
-                {name:'tzxm',index:'tzxm',  },
-                {name:'zqlxrxm',index:'zqlxrxm',  },
-                {name:'status',index:'status', formatter:function(status,options,rowObject){
+                {name:'tzxm',index:'tzxm',width:4,  },
+                {name:'zqlxrxm',index:'zqlxrxm',width:6,  phoneHide:true,},
+                {name:'status',index:'status',width:5,phoneHide:true, formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
                             case '01':
@@ -109,7 +109,7 @@
                         return zt;
                     }
                 },
-                {name:'lfid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'lfid',index:'', width:5, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == '02' || zt == '03'){

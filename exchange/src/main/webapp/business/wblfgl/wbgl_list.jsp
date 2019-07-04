@@ -73,27 +73,27 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'dbtmc',index:'dbtmc',width:9},
-                {name:'lfsjStart',index:'lfsj_start',width:6,formatter:function(lfsjStart, options, rowObject){
+                {name:'dbtmc',index:'dbtmc',width:6,},
+                {name:'lfsjStart',index:'lfsj_start',width:4,phoneHide:true,formatter:function(lfsjStart, options, rowObject){
                     if(lfsjStart==null){
                         return '';
                     }else{
                         return new Date(lfsjStart).getYmd("yyyy-MM-dd");
                     }
                 }},
-                {name:'lfsjEnd',index:'lfsj_end',width:6,formatter:function(lfsjEnd, options, rowObject){
+                {name:'lfsjEnd',index:'lfsj_end',width:4,phoneHide:true,formatter:function(lfsjEnd, options, rowObject){
                     if(lfsjEnd==null){
                         return '';
                     }else{
                         return new Date(lfsjEnd).getYmd("yyyy-MM-dd");
                     }
                 }},
-                {name:'lfrs',index:'lfrs', width:3, },
+                {name:'lfrs',index:'lfrs', width:3, phoneHide:true,},
                 // {name:'lfmd',index:'lfmd', formatter:function(lfmd,options,rowObject){
                 //     return dmcache.getCode('t_dm_lfmd',lfmd);
                 // }},
-                {name:'tzxm',index:'tzxm', width:6, },
-                {name:'zqlxrxm',index:'zqlxrxm',width:8,  },
+                {name:'tzxm',index:'tzxm', width:4, phoneHide:true,},
+                {name:'zqlxrxm',index:'zqlxrxm',width:6, phoneHide:true, },
                 {name:'status',index:'status', width:5,formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
@@ -116,7 +116,7 @@
                         return zt;
                     }
                 },
-                {name:'lfid',index:'',  width:8,sortable:false, resize:true,
+                {name:'lfid',index:'',  width:10,sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var zt = rowObject.status;
                         if(zt == "02"  || zt == "04"|| zt == "05"){
