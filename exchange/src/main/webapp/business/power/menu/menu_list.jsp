@@ -9,11 +9,11 @@
 
 
 <div class="row" >
-    <div class="col-xs-3"  style="max-height: 420px;overflow-y: auto;">
+    <div class="col-xs-12 col-sm-3"   style="max-height: 420px;overflow-y: auto;">
         <ul id="ztree" class="ztree"></ul>
     </div>
 
-    <div class="col-xs-9" >
+    <div class="col-xs-12 col-sm-9" >
         <form class="f orm-horizontal"  id="addForm" style="display: none;" >
             <div class="form-group">
                 <label class="col-xs-2 control-label "  > 菜单名称: </label>

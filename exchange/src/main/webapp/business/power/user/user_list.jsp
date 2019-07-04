@@ -7,11 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="row">
-    <div class="col-xs-3"  style="max-height: 520px;overflow-y: auto;">
+    <div class="col-xs-12 col-sm-3"  style="max-height: 520px;overflow-y: auto;">
         <ul id="ztree" class="ztree"></ul>
     </div>
 
-    <div class="col-xs-9">
+    <div class="col-xs-12 col-sm-9">
         <form class="form-horizontal" role="form">
             <input type="hidden" id="dwh" value="" />
            <%-- <input type="text" id="ejdwh" value="" />--%>
