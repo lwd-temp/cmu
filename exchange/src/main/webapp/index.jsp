@@ -77,13 +77,13 @@
 
 		<script>
             //百度统计
-            var _hmt = _hmt || [];
-            (function() {
-                var hm = document.createElement("script");
-                hm.src = "https://hm.baidu.com/hm.js?291e8d2eb3df921b2f5cbd0282ef31bf";
-                var s = document.getElementsByTagName("script")[0];
-                s.parentNode.insertBefore(hm, s);
-            })();
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?f5f536e9ba66e821f92a47fcd833dd4e";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
 		</script>
 		<style>
 			.ui-jqgrid tr.jqgrow td {
