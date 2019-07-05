@@ -108,7 +108,7 @@
                             return "学生处初审待不通过";
                         }else if(status == "05"){
                              //初审通过
-                            if(!confirmStatus  || confirmStatus ==''){
+                            if(!confirmStatus  || confirmStatus =='' || confirmStatus =='00'){
                                 return "学生处初审通过";
                             }else if(confirmStatus == '01'){
                                 return "已发送复审通知";
@@ -120,6 +120,8 @@
                         }else if(status == '04'){
                             return "初审不通过";
                         }
+
+                        return "";
 
                     } },
                 {name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
