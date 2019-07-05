@@ -63,77 +63,77 @@
                             <input type="hidden" name="lxrId" value="${contact.lxrId}" />
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 姓名: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 姓名: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="name" id="name" value="${contact.name}" placeholder="姓名"  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 性别: </label>
+                                <label class="col-xs-12 col-sm-2 control-label " > 性别: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  value="${contact.gender}" ></dm:list>
 
                                 </div>
 
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 国籍: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 国籍: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="gj" id="gj" value="${contact.gj}"  placeholder="国籍"  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 语种: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 语种: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="yz"  id="yz" value="${contact.yz}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 工作单位: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 工作单位: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="gzdw" id="gzdw" value="${contact.gzdw}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 职务职称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 职务职称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="zwzc"  id="zwzc"  value="${contact.zwzc}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 专业领域: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 专业领域: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="zyly" id="zyly" value="${contact.zyly}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 关联项目: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 关联项目: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="glxm"  id="glxm" value="${contact.glxm}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 邮箱: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 邮箱: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="email" id="email" value="${contact.email}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 传真: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 传真: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="fax"  id="fax" value="${contact.fax}"  placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 工作电话: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 工作电话: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="telphone" id="telphone" value="${contact.telphone}"  placeholder=""  class="col-xs-12" />
                                 </div>
 
-                                <label class="col-xs-2 control-label " > 通信地址: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 通信地址: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="address" id="address"  value="${contact.address}" placeholder=""  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 备注: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
                                 <div class="col-xs-10">
                                     <input type="text"  name="remark" id="remark" value="${contact.remark}" placeholder="备注"  class="col-xs-12" />
                                 </div>

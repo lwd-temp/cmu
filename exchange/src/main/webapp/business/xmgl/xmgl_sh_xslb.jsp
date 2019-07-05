@@ -139,21 +139,23 @@
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xh',index:'xh',  },
+                {name:'xh',index:'xh', phoneHide:true },
                 {name:'xm',index:'xm', formatter:function(cellvalue, options, rowObject){
                         return cellvalue;
                     } },
 
-                {name:'chpm',index:'chpm',  },
-                {name:'zhpj',index:'zhpj',  },
-                {name:'xlcp',index:'xlcp', formatter:function(cellvalue, options, rowObject){
-                        if("A" == cellvalue){
+                {name:'chpm',index:'chpm', phoneHide:true, },
+                {name:'zhpj',index:'zhpj', phoneHide:true, },
+                {name:'xlcp',index:'xlcp',phoneHide:true, formatter:function(cellvalue, options, rowObject){
+                         if("A" == cellvalue){
                             return "合格";
                         }else if("B" == cellvalue){
                             return "不合格";
                         }else if("C" == cellvalue){
                             return "待定";
-                        }
+                        }else {
+                             return "无";
+                         }
                     }  },
                 {name:'status',index:'status',formatter:function(status,options,rowObject){
 

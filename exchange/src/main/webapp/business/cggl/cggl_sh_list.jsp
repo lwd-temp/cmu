@@ -53,12 +53,12 @@
             colNames:['姓名','性别', '出访国家','状态',"操作"],
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm' },
-                {name:'xb',index:'xb', formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm' ,width:'5'},
+                {name:'xb',index:'xb',width:'3', phoneHide:true,formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
-                {name:'cfgj',index:'cfgj',  },
-                {name:'status',index:'status', formatter:function(status,options,rowObject) {
+                {name:'cfgj',index:'cfgj',width:'5',  },
+                {name:'status',index:'status',width:'4', formatter:function(status,options,rowObject) {
                         switch (status) {
                             case '01':
                                 zt = "暂存";
@@ -79,7 +79,7 @@
                         return zt;
                     }
                 },
-                {name:'cgid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'cgid',index:'', width:'4', sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         return  "<button class='btn btn-info btn-mini' title='审核' onclick='shCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-eye '>审核</i></button>"+
                             "&nbsp;&nbsp;<button class='btn btn-info btn-mini' title='归档' onclick='gdCgsq(\""+cellvalue+"\")'><i class='ace-icon fa fa-upload '>归档</i></button>";

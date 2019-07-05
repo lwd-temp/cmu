@@ -80,7 +80,7 @@
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" role="form">
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 归档材料  : </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 归档材料  : </label>
                                 <div class="col-xs-10">
                                     <input type="file" id="id-input-file-1" />
 

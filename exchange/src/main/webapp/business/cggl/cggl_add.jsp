@@ -63,198 +63,198 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="01" />
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 姓名: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="xm" id="xm" value="${jzg.xm}"  readonly="readonly"    class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label"  > 性别: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 性别: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_xb"  name="xb" id="xb" value="01" type="radio" readonly="readonly"  ></dm:list>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 出生日期 : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出生日期 : </label>
+                    <div class="col-xs-12 col-sm-4">
 
                         <input class="form-control" name="csrq" id="csrq"
                                value="${jzg.csrq}" readonly="readonly"
                                type="text" data-date-format="yyyy-mm-dd" />
 
                     </div>
-                    <label class="col-xs-2 control-label"  > 出生地: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出生地: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="csd" id="csd"   value="${jzg.csdm}"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 户籍所在地  : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 户籍所在地  : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="hjszd"  id="hjszd"       class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label"  > 身份证号: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 身份证号: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="sfzh"  id="sfzh" value="${jzg.sfzjh}"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 所属二级单位   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 所属二级单位   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="hidden" name="ssejdw"  value="${jzg.ejdwh}" />
                         <input type="text"   value="${ssejdwMc}"  readonly="readonly"  class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label"  > 科室: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 科室: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="ks"  id="ks"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 职务   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 职务   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="zw"   id="zw"    class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label"  > 职称: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 职称: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="zc"   id="zc"    class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 联系电话   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 联系电话   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="lxdh" id="yddh" value="${jzg.yddh}"  class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 邮箱: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 邮箱: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="email" id="dzxx" value="${jzg.dzxx}"   class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 出访国家（地区）   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访国家（地区）   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="cfgj"      class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 入境城市（地区）: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 入境城市（地区）: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="rjcs"      class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 出访团组号   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访团组号   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="hidden"  name="tzid"  id="tzid"  />
                         <input type="text" name="tzh" id="tzh" onclick="clicktzid()" readonly="readonly" placeholder="请选择出访团组号" class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 出访团组名称   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访团组名称   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text" name="tzmc" id="tzmc" onclick="clicktzid()"  readonly="readonly" placeholder="请选择出访团组名称" class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 出访开始日期 </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访开始日期 </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="cfksrq"
                                readonly="readonly"  placeholder="请选择出访开始日期"   id="cfksrq" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label"  > 出访结束日期   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访结束日期   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="cfjsrq"
                                readonly="readonly"  placeholder="请选择出访结束日期"  id="cfjsrq" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 出访目的: </label>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访目的: </label>
                     <div class="col-xs-10">
                         <dm:list tabName="t_dm_cfmd"  name="cfmd" id="cfmd" data-placeholder="请选择出访目的"  onchange="selectcfmd(this)"></dm:list>
                     </div>
                 </div>
                 <div class="form-group cfmdqt" >
-                    <label class="col-xs-2 control-label"  > 出访目的—其他: </label>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访目的—其他: </label>
                     <div class="col-xs-10">
                         <input type="text"  name="cfmdQt"  id="cfmdqt"   class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 邀请人姓名   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人姓名   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrXm"   placeholder="请输入邀请人姓名"     class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 邀请人职务: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人职务: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrZw"    placeholder="请输入邀请人职务"  class="col-xs-12" />
                     </div>
                 </div><div class="form-group">
-                <label class="col-xs-2 control-label"  > 邀请人姓名(英文)   : </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label"  > 邀请人姓名(英文)   : </label>
+                <div class="col-xs-12 col-sm-4">
                     <input type="text"  name="yqrXmEn"  placeholder="请输入邀请人姓名(英文)"   class="col-xs-12" />
                 </div>
 
-                <label class="col-xs-2 control-label"  > 邀请人职务(英文): </label>
-                <div class="col-xs-4">
+                <label class="col-xs-12 col-sm-2 control-label"  > 邀请人职务(英文): </label>
+                <div class="col-xs-12 col-sm-4">
                     <input type="text"  name="yqrZwEn"     placeholder="请输入邀请人职务(英文)"      class="col-xs-12" />
                 </div>
             </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 邀请人单位   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人单位   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDw"     placeholder="请输入邀请人单位"    class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 邀请人详细地址: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人详细地址: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrXxdz"   placeholder="请输入邀请人详细地址"     class="col-xs-12" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 邀请人单位(英文)   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人单位(英文)   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDwEn"     placeholder="请输入邀请人单位(英文)"     class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 邀请人详细地址(英文): </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人详细地址(英文): </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrXxdzEn"   placeholder="请输入邀请人详细地址(英文)"      class="col-xs-12" />
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 邀请人电话  : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话  : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDh"    placeholder="请输入邀请人电话"     class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label"  > 邀请人电话(英文): </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDhEn"    placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 申请类别  : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_cgsqlx"  name="cglx"  id="cglx" data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>
                     </div>
-                    <label class="col-xs-2 control-label"  > 年内出访次数  : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="nncfcs"   placeholder="请输入年内出访次数"    class="col-xs-12" />
                     </div>
                 </div>
 
                 <div class="form-group jfysmx">
-                    <label class="col-xs-2 control-label"> 经费预算明细  : </label>
+                    <label class="col-xs-12 col-sm-2 control-label"> 经费预算明细  : </label>
                     <div class="col-xs-10">
                         <textarea class="form-control" name="jfysmx" id="jfysmx" maxlength="300"></textarea>
                     </div>
                 </div>
                 <div class="form-group jfyshj">
-                    <label class="col-xs-2 control-label"> 预算合计  : </label>
+                    <label class="col-xs-12 col-sm-2 control-label"> 预算合计  : </label>
                     <div class="col-xs-10">
                         <input type="text"  name="jfyshj" id="jfyshj" class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label"  > 申请人其他社会任职  : </label>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 申请人其他社会任职  : </label>
                     <div class="col-xs-10">
                         <textarea class="form-control limited" name="qtshrz"   maxlength="300"></textarea>
                     </div>

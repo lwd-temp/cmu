@@ -80,11 +80,11 @@
             pager:pager_selector,
             colModel:[
                 {name:'xm',index:'xm',  width:'10'  },
-                {name:'xh',index:'xh', width:'10'},
-                {name:'sznj',index:'sznj', width:'10' },
-                {name:'unitName',index:'unitName', width:'30' },
-                {name:'xmbh',index:'xmbh', width:'10' },
-                {name:'xmmc',index:'xmmc',  width:'30'},
+                {name:'xh',index:'xh', width:'10',phoneHide:true,},
+                {name:'sznj',index:'sznj', width:'10' ,phoneHide:true,},
+                {name:'unitName',index:'unitName', width:'30' ,phoneHide:true,},
+                {name:'xmbh',index:'xmbh', width:'10',phoneHide:true, },
+                {name:'xmmc',index:'xmmc',  width:'30',},
 
                 {name:'fileId',  sortable:false,width:'15',
                     formatter:function(fileId, options, rowObject){

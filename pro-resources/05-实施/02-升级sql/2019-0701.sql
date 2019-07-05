@@ -22,3 +22,4 @@ alter table t_xm_xssqjl modify xlcp default null;
 -- Add comments to the columns
 comment on column T_XM_XSSQJL.xlcp is '心理测评值 A 合格 B不合格 C 待定';
 
+---------------已执行 2019年7月1日09:06:04------------------------------

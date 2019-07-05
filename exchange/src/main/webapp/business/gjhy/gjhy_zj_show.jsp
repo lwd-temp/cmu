@@ -69,7 +69,7 @@
                             <input type="hidden" name="sbid" value="${hyzj.sbid}"/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 基本信息: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 基本信息: </label>
 
                                 <div class="col-xs-10">
                                     <input type="text" readonly="readonly" disabled="disabled"  name="jbxx"  value="${hyzj.jbxx}"  placeholder="基本信息"  class="col-xs-12" />
@@ -77,26 +77,26 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议批件文号: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议批件文号: </label>
                                 <div class="col-xs-10">
                                     <input type="text" readonly="readonly" disabled="disabled"  name="pjwh" value="${hyzj.pjwh}"    placeholder="会议批件文号"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议具体情况介绍: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议具体情况介绍: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="jtqkjs"   id="form-field-10" maxlength="300" placeholder="会议具体情况介绍" readonly="readonly" disabled="disabled">${hyzj.jtqkjs}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议产出情况介绍: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议产出情况介绍: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" name="ccqkjs"    id="form-field-2" maxlength="300" placeholder="会议产出情况介绍" readonly="readonly" disabled="disabled">${hyzj.ccqkjs}</textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议申办主办过程中的经验与问题: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议申办主办过程中的经验与问题: </label>
                                 <div class="col-xs-10">
                                     <textarea class="form-control limited" id="form-field-12"  name="jyywt"  maxlength="300" placeholder="会议申办主办过程中的经验与问题" readonly="readonly" disabled="disabled">${hyzj.jyywt}</textarea>
                                 </div>

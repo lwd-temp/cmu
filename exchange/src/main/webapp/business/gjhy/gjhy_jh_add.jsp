@@ -53,7 +53,7 @@
     <![endif]-->
 
     <style>
-        .cy .col-xs-1, .cy .col-xs-2 {
+        .cy .col-xs-1, .cy .col-xs-12 col-sm-2 {
             padding-left: 2px;
             padding-right: 2px;
         }
@@ -75,13 +75,13 @@
                         <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议名称: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议名称: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.hymc" id="hymc"   placeholder="会议名称"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label " > 会议编号: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 会议编号: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.hybh" id="hybh"  value="" readonly="readonly"  placeholder="会议编号保存时自动生成"  class="col-xs-12" />
                                 </div>
 
@@ -90,48 +90,48 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 主办单位: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 主办单位: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.zbdw" id="zbdw"  value=""   placeholder="主办单位"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label " > 承办单位: </label>
+                                <label class="col-xs-12 col-sm-2 control-label " > 承办单位: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.cbdw"  id="cbdw"  placeholder="承办单位"  class="col-xs-12" />
                                 </div>
 
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 举行日期(开始): </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 举行日期(开始): </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker"  name="hyJh.jxrqKs" id="jxrqKs" placeholder="请选择举行日期(开始)" value="" type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
 
-                                <label class="col-xs-2 control-label "  > 举行日期(结束): </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 举行日期(结束): </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker"  name="hyJh.jxrqJs" id="jxrqJs" placeholder="请选择举行日期(结束)" value="" type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 会议类型: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 会议类型: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <dm:list  name="hyJh.hylx" type="select" id="hylx" tabName="t_dm_hylx" onchange="change_hylx(this)" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 经费来源: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.jfly"  id="jfly" placeholder="经费来源"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 负责人姓名: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 负责人姓名: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.fzrxm"  id="fzrxm" placeholder="负责人姓名"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 负责人电话: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 负责人电话: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.fzrdh"  id="fzrdh"  placeholder="负责人电话"  class="col-xs-12" />
                                 </div>
                             </div>
@@ -139,19 +139,19 @@
 
                             <!-- 报告信息  如果是报告、讲座、论坛，请增加【报告、讲座等题目】、【报告、讲座等内容简介】字段-->
                             <div class="form-group bgxx" style="display: none">
-                                <label class="col-xs-2 control-label "  > 报告、讲座等题目: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 报告、讲座等题目: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.bgtm"  id="bgtm" placeholder="报告、讲座等题目"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label "  > 报告、讲座等内容简介: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 报告、讲座等内容简介: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hyJh.bgnr"  id="bgnr"  placeholder="报告、讲座等内容简介"  class="col-xs-12" />
                                 </div>
                             </div>
 
                             <div class="form-group">
 
-                                <label class="col-xs-2 control-label " > 地点: </label>
+                                <label class="col-xs-12 col-sm-2 control-label " > 地点: </label>
 
                                 <div class="col-xs-10">
                                     <input type="text"  name="hyJh.dd"  id="dd"  placeholder="地点"  class="col-xs-12" />
@@ -172,16 +172,16 @@
                                 <div class="col-xs-1">
                                     职务
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     姓名(英文)
                                 </div>
                                 <div class="col-xs-1">
                                     国籍(英文)
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     单位(英文)
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     职务(英文)
                                 </div>
                                 <div class="col-xs-1">
@@ -203,16 +203,16 @@
                                 <div class="col-xs-1">
                                     <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <input type="text"  inp="xmEn" name="chrys[@].xmEn"   placeholder="姓名(英文)"  class="col-xs-12" />
                                 </div>
                                 <div class="col-xs-1">
                                     <input type="text"  inp="gjEn" name="chrys[@].gjEn"  placeholder="国籍(英文)"  class="col-xs-12" />
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <input type="text"  inp="dwEn" name="chrys[@].dwEn"   placeholder="单位(英文)"  class="col-xs-12" />
                                 </div>
-                                <div class="col-xs-2">
+                                <div class="col-xs-12 col-sm-2">
                                     <input type="text"  inp="zwEn" name="chrys[@].zwEn"   placeholder="职务(英文)"  class="col-xs-12" />
                                 </div>
                                 <div class="col-xs-1">
@@ -254,16 +254,16 @@
         <div class="col-xs-1">
             <input type="text"  inp="zw" name="chrys[@].zw"   placeholder="职务"  class="col-xs-12" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-2">
             <input type="text"  inp="xmEn" name="chrys[@].xmEn"   placeholder="姓名(英文)"  class="col-xs-12" />
         </div>
         <div class="col-xs-1">
             <input type="text"  inp="gjEn" name="chrys[@].gjEn"  placeholder="国籍(英文)"  class="col-xs-12" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-2">
             <input type="text"  inp="dwEn" name="chrys[@].dwEn"   placeholder="单位(英文)"  class="col-xs-12" />
         </div>
-        <div class="col-xs-2">
+        <div class="col-xs-12 col-sm-2">
             <input type="text"  inp="zwEn" name="chrys[@].zwEn"   placeholder="职务(英文)"  class="col-xs-12" />
         </div>
         <div class="col-xs-1">

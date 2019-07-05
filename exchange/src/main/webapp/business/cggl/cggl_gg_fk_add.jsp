@@ -51,88 +51,88 @@
                 <input type="hidden" name="status"  id="status"     value="${cgRwzxqkfk.status}" />
                 <input type="hidden" name="cgid"    id="cgid"       value="${cgRwzxqkfk.cgid}"  />
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 组团单位   : </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 组团单位   : </label>
                     <div class="col-xs-10">
                         <input type="text"  name="tzdw"   value="${cgRwzxqkfk.tzdw}" readonly="readonly"    class="col-xs-12" />
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 出访国家或地区 : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 出访国家或地区 : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="cfgjdq"  value="${cgRwzxqkfk.cfgjdq}" readonly="readonly"     class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 团长姓名   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 团长姓名   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="tzxm"  value="${cgRwzxqkfk.tzxm}" readonly="readonly"     class="col-xs-12" />
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 团长单位: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 团长单位: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="tzzdw"  value="${cgRwzxqkfk.tzzdw}" readonly="readonly"     class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 团长职务: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 团长职务: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="tzzw"  value="${cgRwzxqkfk.tzzw}" readonly="readonly"     class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
 
-                    <label class="col-xs-2 control-label "  > 批准出访人数   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 批准出访人数   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="pzcfrw"  placeholder="请输入批准出访人数"  class="col-xs-12" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 批准出访天数: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 批准出访天数: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="pzcfts"   placeholder="请输入批准出访天数"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 实际出访人数   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 实际出访人数   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="sjcfrs"   placeholder="请输入实际出访人数"  class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-2 control-label "  > 实际出访天数: </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 实际出访天数: </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="sjcfts"    placeholder="请输入实际出访天数"  class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 出境时间   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 出境时间   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="cjsj"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
-                    <label class="col-xs-2 control-label "  > 任务批件文号 </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 任务批件文号 </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control"  name="rwpjwh"  type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-2 control-label "  > 入境时间   : </label>
-                    <div class="col-xs-4">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 入境时间   : </label>
+                    <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="rjsj"
                                type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group"   >
-                    <label class="col-xs-2 control-label "  > 出访报告标题: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 出访报告标题: </label>
                     <div class="col-xs-10">
                         <input type="text"  name="cfbt"   class="col-xs-12" />
                     </div>
                 </div>
                 <div class="form-group"   >
-                    <label class="col-xs-2 control-label "  > 任务执行情况: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 任务执行情况: </label>
                     <div class="col-xs-10">
                         <textarea class="form-control limited" id="rwzxqk" name="rwzxqk" maxlength="300"></textarea>
                     </div>
                 </div>
                 <div class="form-group"   >
-                    <label class="col-xs-2 control-label "  > 未完成任务情况及原因: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 未完成任务情况及原因: </label>
                     <div class="col-xs-10">
                         <textarea class="form-control limited" id="rwwwcnr" name="rwwwcnr" maxlength="300">${cgRwzxqkfk.rwwwcnr}</textarea>
                     </div>

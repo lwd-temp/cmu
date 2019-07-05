@@ -83,7 +83,7 @@
 
 
                             <div class="form-group">
-                                <label class="col-xs-4 control-label "  > 归档材料  : </label>
+                                <label class="col-xs-12 col-sm-4 control-label "  > 归档材料  : </label>
                                 <div class="col-xs-5">
                                     <input type="file" id="id-input-file-1" />
 

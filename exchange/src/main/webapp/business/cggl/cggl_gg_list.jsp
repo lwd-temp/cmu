@@ -47,14 +47,14 @@
             colNames:['姓名','性别', '所属二级单位', '所属二级单位名称','出访国家','状态',"操作"],
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm' ,width:'15%'},
-                {name:'xb',index:'xb',  width:'15%',  formatter:function(xb,options,rowObject){
+                {name:'xm',index:'xm' ,width:'5'},
+                {name:'xb',index:'xb', phoneHide:true, width:'2',  formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
                 {name:'ssejdw',index:'ssejdw', hidden:true },
-                {name:'ssejdwmc',index:'ssejdwmc' ,width:'20%' },
-                {name:'cfgj',index:'cfgj',width:'15%' },
-                {name:'writed',index:'writed',width:'10%',formatter:function(status){
+                {name:'ssejdwmc',index:'ssejdwmc' ,phoneHide:true,width:'5' },
+                {name:'cfgj',index:'cfgj',width:'5' },
+                {name:'writed',index:'writed',width:'5',formatter:function(status){
                         var ztText = "";
                         if("0" == status){
                             ztText = "未填写";
@@ -63,7 +63,7 @@
                         }
                         return ztText;
                     } },
-                {name:'cgid',index:'',width:'25%', sortable:false, resize:true,
+                {name:'cgid',index:'',width:'8', sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         var status = rowObject.writed;
                         var cgid = rowObject.cgid;

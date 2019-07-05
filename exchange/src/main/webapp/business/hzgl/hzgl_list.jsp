@@ -81,22 +81,22 @@
             navBtns:navBtns,
             pager:pager_selector,
             colModel:[
-                {name:'xm',index:'xm'},
-                {name:'gender',index:'gender', formatter:function(gender){
+                {name:'xm',index:'xm'  ,width:'10'},
+                {name:'gender',index:'gender', width:'4',  phoneHide:true,formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);
                     } },
-                {name:'hzhm',index:'hzhm'},
-                {name:'birthday',index:'birthday',formatter:function(birthday){
+                {name:'hzhm',index:'hzhm',width:'8',phoneHide:true},
+                {name:'birthday',index:'birthday',width:'10',phoneHide:true,formatter:function(birthday){
                         if(birthday==null){
                             return '';
                         }else{
                             return new Date(birthday).getYmd("yyyy-MM-dd");
                         }
                     }},
-                {name:'status',index:'status', formatter:function(status){
+                {name:'status',index:'status',width:'10', formatter:function(status){
                         return dmcache.getCode("t_dm_hzzt",status);
                     } },
-                {name:'hzid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'hzid',index:'', width:'15',  sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='测试' onclick='editHz(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
                             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHz(\""+id+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";

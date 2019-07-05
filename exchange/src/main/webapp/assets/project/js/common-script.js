@@ -179,7 +179,9 @@ $(function(){
     //定义加载表格的公共方法
     $.fn.extend({
         tables:function(options){
-
+            console.info(options);
+            calPhoneCell(options);
+            console.info(options);
             var tab = this;
             var settings = {
                 datatype: "json",
@@ -258,6 +260,34 @@ $(function(){
 
         }
     });
+
+
+    /**
+     * 设置小屏幕--移动端，部分jqgrid不显示
+     * @param options
+     */
+    function calPhoneCell(options){
+        var width = $(document).width()
+        if($("#frameSetContent")){
+            width =  parseInt($("#frameSetContent").css('width'));
+        }
+        if(isNaN(width)){
+            width =  $(document).width()
+        }
+        if(width > 800){//超过800宽的屏幕不设置
+            return;
+        }
+
+        var colModel = options.colModel;
+
+        if(colModel){
+            $(colModel).each(function(index,rowOption){
+                if(rowOption && rowOption.phoneHide){
+                    rowOption.hidden = true;
+                }
+            })
+        }
+    }
 
 
 });

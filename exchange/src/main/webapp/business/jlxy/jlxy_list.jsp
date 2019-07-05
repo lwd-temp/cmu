@@ -91,29 +91,29 @@
             pager:pager_selector,
             colModel:[
                 {name:'xyid',index:'xyid',key:true,hidden:true},
-                {name:'xymc',index:'xymc'},
-                {name:'qdrq',index:'qdrq',formatter:function(qdrq, options, rowObject){
+                {name:'xymc',index:'xymc',width:6,},
+                {name:'qdrq',index:'qdrq',width:6,phoneHide:true,formatter:function(qdrq, options, rowObject){
                         if(qdrq==null){
                             return '';
                         }else{
                             return new Date(qdrq).getYmd("yyyy-MM-dd");
                         }
                     }},
-                {name:'sxrq',index:'sxrq',formatter:function(sxrq, options, rowObject){
+                {name:'sxrq',index:'sxrq',width:6,phoneHide:true,formatter:function(sxrq, options, rowObject){
                         if(sxrq==null){
                             return '';
                         }else{
                             return new Date(sxrq).getYmd("yyyy-MM-dd");
                         }
                     }},
-                {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'xyid',index:'', width:12, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         var fileId = rowObject.uploadId;
                         return "<button class='btn btn-info btn-mini' title='上传' onclick=\"uploadXy('"+id+"')\" ><i class='ace-icon fa fa-upload '>上传</i></button>" +
                             "&nbsp;&nbsp;<button class='btn btn-success btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
                     }
                 },
-                {name:'xyid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'xyid',index:'',width:13, sortable:false, resize:true,
                     formatter:function(id, options, rowObject){
                         return "<button class='btn btn-info btn-mini' title='编辑' onclick='editHzxy(\""+id+"\")' ><i class='ace-icon fa fa-pencil '>编辑</i></button>" +
                             "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class='btn btn-danger btn-mini' title='删除' onclick='delHzxy(\""+id+"\")' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";

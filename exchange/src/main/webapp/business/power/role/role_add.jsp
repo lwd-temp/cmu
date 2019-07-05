@@ -60,15 +60,15 @@
                         <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 角色名称: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 角色名称: </label>
 
                                 <div class="col-xs-10">
                                     <input type="text"  name="roleName" id="roleName" value=""  placeholder="请输入角色名称"  class="col-xs-12" />
                                 </div>
 <%--
-                                <label class="col-xs-2 control-label " > 部门名称: </label>
+                                <label class="col-xs-12 col-sm-2 control-label " > 部门名称: </label>
 
-                                <div class="col-xs-4">
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="username"   value="" placeholder="请输入部门名称"  class="col-xs-12" />
                                 </div>--%>
 

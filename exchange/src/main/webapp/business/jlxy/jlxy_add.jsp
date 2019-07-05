@@ -51,48 +51,48 @@
                          <form class="form-horizontal" id="form" role="form">
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 协议名称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 协议名称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hzxy.xymc"   placeholder="协议名称"  class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-2 control-label " > 合作方名称: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 合作方名称: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="hzxy.hzfmc"   placeholder="合作方名称"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-xs-2 control-label "  > 签订日期: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签订日期: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-1" name="hzxy.qdrq" value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-2 control-label " > 失效日期: </label>
-                                <div class="col-xs-4">
+                                <label class="col-xs-12 col-sm-2 control-label " > 失效日期: </label>
+                                <div class="col-xs-12 col-sm-4">
                                     <input class="form-control date-picker" id="id-date-picker-2" name="hzxy.sxrq" value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
                             </div>
                              <div class="form-group">
-                                 <label class="col-xs-2 control-label" > 国别或地区: </label>
+                                 <label class="col-xs-12 col-sm-2 control-label" > 国别或地区: </label>
                                  <div class="col-xs-10">
                                      <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="gb"  name="gbs"   data-placeholder="请选择国别或地区"  ></dm:list>
                                  </div>
                              </div>
                              <div class="form-group">
-                                 <label class="col-xs-2 control-label "  > 签字人: </label>
+                                 <label class="col-xs-12 col-sm-2 control-label "  > 签字人: </label>
                                  <div class="col-xs-10">
                                      <textarea class="form-control limited" name="hzxy.qzr"  placeholder="签字人"  maxlength="300"></textarea>
                                  </div>
 
                              </div>
                              <div class="form-group">
-                                 <label class="col-xs-2 control-label "  > 签字人职务: </label>
+                                 <label class="col-xs-12 col-sm-2 control-label "  > 签字人职务: </label>
                                  <div class="col-xs-10">
                                      <textarea class="form-control limited" name="hzxy.qzrzw"   placeholder="签字人职务"  maxlength="300"></textarea>
                                  </div>
                              </div>
                              <div class="form-group">
-                                 <label class="col-xs-2 control-label "  > 备注: </label>
+                                 <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
                                  <div class="col-xs-10">
                                      <textarea class="form-control limited" name="hzxy.memo"   placeholder="备注"  maxlength="300"></textarea>
                                  </div>

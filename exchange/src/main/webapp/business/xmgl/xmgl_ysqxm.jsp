@@ -69,15 +69,15 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'xmzm',index:'xmzm',  },
+                {name:'xmzm',index:'xmzm', phoneHide:true, },
                 {name:'xmmc',index:'kssj',  },
-                {name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
+                {name:'sqjlId',index:'sqjlId',  sortable:false, resize:true,
                     formatter:function(sqjlId, options, rowObject){
 
                         return "<button class='btn btn-info btn-mini' onclick='ckzj(\""+sqjlId+"\")' title='查看总结' ><i class='ace-icon fa fa-eye '>查看总结</i></button>";
 
                     }
-                },{name:'sqjlId',index:'sqjlId', fixed:true, sortable:false, resize:true,
+                },{name:'sqjlId',index:'sqjlId', sortable:false, resize:true,
                     formatter:function(sqjlId, options, rowObject){
 
                         return "<button class='btn btn-yellow btn-mini' onclick='zj(\""+sqjlId+"\")' title='总结' ><i class='ace-icon fa fa-upload '>总结</i></button>";

@@ -66,16 +66,16 @@
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
-                {name:'tzh',index:'tzh',  },
+                {name:'tzh',index:'tzh', phoneHide:true, },
                 {name:'tzmc',index:'tzmc',  },
-                {name:'tzlb',index:'tzlb', formatter:function(tzlb,options,rowObject){
+                {name:'tzlb',index:'tzlb', phoneHide:true,formatter:function(tzlb,options,rowObject){
                         return dmcache.getCode('t_dm_tzlb',tzlb);
                     }  },
                 {name:'fzrxm',index:'fzrxm',  },
-                {name:'tzjb',index:'tzjb', formatter:function(tzjb,options,rowObject){
+                {name:'tzjb',index:'tzjb',phoneHide:true, formatter:function(tzjb,options,rowObject){
                         return dmcache.getCode('t_dm_tzjb',tzjb);
                     }   },
-                {name:'cfts',index:'cfts',  },
+                {name:'cfts',index:'cfts',phoneHide:true,  },
                 {name:'status',index:'status', formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
@@ -95,7 +95,7 @@
                         return zt;
                     } },
 
-                {name:'tzid',index:'', fixed:true, sortable:false, resize:true,
+                {name:'tzid',index:'',  sortable:false, resize:true,
                     formatter:function(tzid, options, rowObject){
                         var zt = rowObject.status;
                         return "<button class='btn btn-info btn-mini' onclick='showShCgjh(\""+tzid+"\")' title='审核' ><i class='ace-icon fa fa-eye '>审核</i></button>";

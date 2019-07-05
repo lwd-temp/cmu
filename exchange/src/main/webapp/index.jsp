@@ -92,6 +92,10 @@
 				vertical-align:text-top;
 				padding-top:2px;
 			}
+
+			.nav-wrap-up{
+				z-index: 99;
+			}
 		</style>
 	</head>
 
@@ -115,7 +119,7 @@
 				</button>
 
 				<!-- /section:basics/sidebar.mobile.toggle -->
-				<div class="navbar-header pull-left">
+				<div class="navbar-header pull-left hidden-xs">
 					<!-- #section:basics/navbar.layout.brand -->
 					<a href="#" class="navbar-brand">
 						<small>
@@ -482,323 +486,7 @@
 				</div><!-- /.sidebar-shortcuts -->
 
 				<ul class="nav nav-list menus">
-					<%--<li class="">
-						<a href="">
-							<i class="menu-icon fa fa-tachometer"></i>
-							<span class="menu-text"> 功能仪表盘 </span>
-						</a>
 
-
-					</li>--%>
-                    <%--<li class=" ">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 权限管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-
-                        <ul class="submenu">
-
-                            <li class="">
-                                <a href="#" tg="business/power/user/user_list.jsp">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    用户管理
-                                </a>
-
-
-                            </li>
-                            <li class="">
-                                <a href="#" tg="business/power/menu/menu_list.jsp">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    菜单管理
-                                </a>
-
-                            </li>
-                            <li class="">
-                                <a href="#" tg="business/power/role/role_list.jsp">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    角色管理
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> 学生交流项目管理 </span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/xmgl/xmgl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-									交流项目设定
-                                </a>
-
-                            </li>
-
-							<li class="" tg="business/xmgl/xmgl_list_sq.jsp">
-								<a href="#" >
-									<i class="menu-icon fa fa-caret-right"></i>
-									申请交流项目
-								</a>
-
-							</li>
-
-							<li class="" tg="business/xmgl/xmgl_sh.jsp">
-								<a href="#" >
-									<i class="menu-icon fa fa-caret-right"></i>
-									项目审核
-								</a>
-
-							</li>
-                            <li class="" tg="business/xmgl/xmgl_ysqxm.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    已申请项目管理(交流报告总结)
-                                </a>
-
-                            </li>
-
-
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> 出国团组计划与管理 </span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/cgjh/cgjh_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    出访团组申请
-                                </a>
-
-
-                            </li>
-
-                            <li class="" tg="business/cgjh/cgjh_sp_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    出访团组审批
-                                </a>
-
-                            </li>
-
-                            <li class="" tg="business/cgjh/cgjh_gl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    出访团组管理
-                                </a>
-
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> 短期出国（境）管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/cggl/cggl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    出国（境）申请
-                                </a>
-
-
-                            </li>
-
-                            <li class="" tg="business/cggl/cggl_sh_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    出国（境）审批
-                                </a>
-
-                            </li>
-
-                            <li class="" tg="business/cggl/cggl_gg_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    归国管理
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-list"></i>
-                            <span class="menu-text"> 国际会议管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/gjhy/gjhy_jh_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    国际会议计划
-                                </a>
-
-
-                            </li>
-
-                            <li class="" tg="business/gjhy/gjhy_sb_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    国际会议申报
-                                </a>
-
-                            </li>
-
-                            <li class="" tg="business/gjhy/gjhy_zj_list.jsp">
-								<a href="#" >
-									<i class="menu-icon fa fa-caret-right"></i>
-									国际会议总结
-								</a>
-
-							</li>
-
-							<li class="" tg="business/gjhy/gjhy_tj_list.jsp">
-								<a href="#" >
-									<i class="menu-icon fa fa-caret-right"></i>
-									国际会议数据统计
-								</a>
-
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 护照及通行证管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/hzgl/hzgl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    护照及通行证管理
-                                </a>
-
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 外宾来访接待</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <ul class="submenu">
-
-                            <li class="" tg="business/wblfgl/wbgl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    来访接待申请
-                                </a>
-
-                            </li>
-                            <li class="" tg="business/wblfgl/wbgl_sp_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    接待审批
-                                </a>
-
-                            </li>
-                            <li class="">
-                                <a href="#" tg="business/wblfgl/wbgl_zj_list.jsp">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    来访接待总结
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 交流合作协议管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <b class="arrow"></b>
-                        <ul class="submenu">
-
-                            <li class="" tg="business/jlxy/jlxy_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    协议信息管理
-                                </a>
-
-                            </li>
-                        </ul>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 外籍教师管理</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-                        <ul class="submenu">
-
-                            <li class="" tg="business/jsgl/jsgl_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    外籍教师管理
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-
-
-                    <li class="">
-                        <a href="#" class="dropdown-toggle">
-                            <i class="menu-icon fa fa-bar-chart"></i>
-                            <span class="menu-text"> 国际交流联系人库</span>
-                            <b class="arrow fa fa-angle-down"></b>
-                        </a>
-
-                        <ul class="submenu">
-                            <li class="" tg="business/lxr/lxr_list.jsp">
-                                <a href="#" >
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    联系人库管理
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>--%>
 
 				</ul><!-- /.nav-list -->
 
@@ -840,7 +528,7 @@
 					<div class="page-content">
 
 						<div class="row">
-							<div class="col-xs-12" style="overflow-x: hidden" id="frameSetContent">
+							<div class="col-xs-12" style="overflow-x: hidden;padding-bottom: 10px" id="frameSetContent">
 								<!-- PAGE CONTENT BEGINS -->
 
 
@@ -851,7 +539,7 @@
 				</div>
 			</div><!-- /.main-content -->
 
-            <div class="footer">
+            <div class="footer" style="margin-top: 5px">
 				<div class="footer-inner">
 					<!-- #section:basics/footer -->
 					<div class="footer-content">
