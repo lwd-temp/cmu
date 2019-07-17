@@ -136,7 +136,7 @@
 
                         </select>
                     </div>
-                    <label class="col-xs-2 control-label " > 自主或参加双跨: </label>
+                    <label class="col-xs-2 control-label " > 组团方式: </label>
                     <div class="col-xs-4">
                         <select class="chosen-select form-control"   data-placeholder="请选择"  >
                             <option value="01">自主</option>
@@ -360,7 +360,7 @@
 
                                     </select>
                                 </div>
-                                <label class="col-xs-2 control-label " > 自主或参加双跨: </label>
+                                <label class="col-xs-2 control-label " > 组团方式: </label>
                                 <div class="col-xs-4">
                                     <select class="chosen-select form-control"   data-placeholder="请选择"  >
                                         <option value="01">自主</option>

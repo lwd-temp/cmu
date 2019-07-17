@@ -132,7 +132,7 @@
 
 
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "> 自主或参加双跨: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "> 组团方式: </label>
                     <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="T_DM_ZZSK" id="zzhsk" name="cgTzjh.zzhsk" value="${cgTzjh.zzhsk}" data-placeholder="请选择" ></dm:list>
 
@@ -227,7 +227,7 @@
 
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "> 省本级部门预算: </label>
+                    <label class="col-xs-12 col-sm-2 control-label "> 预算: </label>
                     <div class="col-xs-12 col-sm-4">
                         <input class="form-control" id="sjys" name="cgTzjh.sjys" value="${cgTzjh.sjys}" type="text"/>
                     </div>
