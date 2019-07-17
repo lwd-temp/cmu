@@ -147,7 +147,7 @@
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目交流时长: </label>
 
                                 <div class="col-xs-12 col-sm-2">
-                                    <input class="form-control" id="xmjlsc" readonly="readonly" value="" placeholder="项目交流时长" type="text" />
+                                    <input class="form-control" id="xmjlts" name="xm.xmjlts" value="${xm.xmjlts}"  readonly="readonly" value="" placeholder="项目交流时长" type="text" />
                                 </div>
 
                             </div>
@@ -405,7 +405,7 @@
             var startDay = Date.instance(start);
             var endDay = Date.instance(end);
             // alert('天：'+startDay.diffDay(endDay));
-            $("#xmjlsc").val(startDay.diffDay(endDay));
+            $("#xmjlts").val(startDay.diffDay(endDay));
         }
     }
     /***
@@ -475,7 +475,7 @@
                 'xm.zjje': {required: true/*, digits: true*/},
                 'xm.jlmbjgmc': 'required',
                 //'xm.jlmbgj': 'required',
-                'xm.fybz': {required: true, digits: true},
+                'xm.fybz': {required: true/*, , digits: true*/},
                 'xm.zysm': 'required',
                 'xm.sfxzrs': 'required',
                 'xm.jhrs': {
