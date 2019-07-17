@@ -187,12 +187,12 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "  > 成绩排名   : </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text"  name="chpm" id="chpm"  value="${sqjl.chpm}"  readonly="readonly"  placeholder="格式20/100"    class="col-xs-12" />
+                        <input type="text"  name="chpm" id="chpm"  value="${sqjl.chpm}"    placeholder="格式20/100"    class="col-xs-12" />
                     </div>
 
                     <label class="col-xs-12 col-sm-2 control-label "  > 综合评级: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="t_dm_zhpj" name="zhpj" id="zhpj" value="${sqjl.zhpj}" readonly="readonly"  data-placeholder="请选择综合评级"/>
+                        <dm:list tabName="t_dm_zhpj" name="zhpj" id="zhpj" value="${sqjl.zhpj}"   data-placeholder="请选择综合评级"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -227,14 +227,14 @@
                         <input type="text"  name="yzzje"    readonly="readonly" disabled="" value="${yzzje}"    class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-12 col-sm-2 control-label "  > 心理测评结果: </label>
+                    <%--<label class="col-xs-12 col-sm-2 control-label "  > 心理测评结果: </label>
                     <div class="col-xs-12 col-sm-4">
                         <select class="chosen-select form-control" name="xlcp"  id="xlcp"    data-placeholder="请选择该学生测评结果">
                             <option value="A"  <c:if test="${sqjl.xlcp == 'A'}">selected</c:if>>合格</option>
                             <option value="B"  <c:if test="${sqjl.xlcp == 'B'}">selected</c:if>>不合格</option>
                             <option value="C"  <c:if test="${sqjl.xlcp == 'C'}">selected</c:if>>待定</option>
                         </select>
-                    </div>
+                    </div>--%>
                 </div>
 
                 <%--<div class="form-group">

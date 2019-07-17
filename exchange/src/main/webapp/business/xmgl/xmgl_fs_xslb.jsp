@@ -141,8 +141,8 @@
                         layer.open({
                             title:'通知消息',
                             type: 1,
-                            content: '<textarea id="wechat_msg" rols="15" cols="30"></textarea>',
-                            area:["300px","170px"],
+                            content: '<textarea id="wechat_msg" style="width:600px;height:200px"></textarea>',
+                            area:["600px","300px"],
                             btn: ['发送通知'],
                             yes: function(index, layero){
                                 tzfs(ids,$("#wechat_msg").val(),index);
@@ -160,7 +160,7 @@
         var settings = {
             caption: "申请学生列表(复审)",
             url:'xm/listXmSqxs?xmId=${param["xmid"]}',
-            colNames:['申请id','学号','姓名','成绩排名','综合测评',"心理测评",'初审状态',"复审状态",'是否自费',"审核"],
+            colNames:['申请id','学号','姓名','成绩排名','综合评级',"心理测评",'初审状态',"复审状态",'是否自费',"审核"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[

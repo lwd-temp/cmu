@@ -237,7 +237,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "  > 项目资助金额(分段): </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 项目资助标准: </label>
                     <div class="col-xs-12 col-sm-4">
                         <input type="text"     readonly="readonly" disabled="" value="${xm.zjje}"    class="col-xs-12" />
                     </div>

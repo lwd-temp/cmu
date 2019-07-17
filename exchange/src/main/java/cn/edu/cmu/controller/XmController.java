@@ -742,8 +742,6 @@ public class XmController extends BaseController {
     @RequestMapping("/downloadDeploy")
     public void downloadDeploy(Xm xm, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-
-
         List list = xmService.listDeploy(xm);//demoList();
 
         logger.info(String.format("导出已发布项目信息信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));

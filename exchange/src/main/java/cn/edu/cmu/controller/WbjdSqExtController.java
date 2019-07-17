@@ -87,6 +87,7 @@ public class WbjdSqExtController extends BaseController {
         variables.put("fwnr",wbjdSq.getFwcg());//访问内容
         variables.put("jfcc",wbjdSq.getJfly());//经费出处
         variables.put("yjtm",wbjdSq.getYjtm());//演讲题目
+        variables.put("shijian",new SimpleDateFormat("yyyy年MM月dd日").format(wbjdSq.getCreateTime()).toString());//填写时间
 
         //团长信息
         variables.put("tz_xm",wbjdSq.getTzxm());//姓名
@@ -117,11 +118,16 @@ public class WbjdSqExtController extends BaseController {
         String YN_BBSSXCBM = "Y".equals(wbjdSq.getYnYqxld())?"√":"×";
         //
         //
+        String memo;
+        memo = wbjdSq.getMemo();
+        if (wbjdSq.getMemo() == null){
+            memo=" ";
+        }
         StringBuffer bz= new StringBuffer();
         bz.append("   【"+YN_XLD+"】是否邀请校领导\n" +
                   "   【"+YN_BBSSGABM+"】是否报备所属公安部门\n" +
                   "   【"+YN_BBSSXCBM+"】是否报备所属宣传部门\n\n");
-        bz.append("    "+wbjdSq.getMemo()+" ");
+        bz.append("    "+memo+" ");
 
         variables.put("bz",bz.toString());//备注
 
