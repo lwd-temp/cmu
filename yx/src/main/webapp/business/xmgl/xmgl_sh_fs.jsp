@@ -214,7 +214,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-5 control-label "  > 项目资助金额(分段博士/硕士/本科)   : </label>
+                    <label class="col-xs-5 control-label "  > 项目资助标准   : </label>
                     <div class="col-xs-7">
                         <input type="text"  name="username"    readonly="readonly" disabled="" value="5000/4000/2500"    class="col-xs-12" />
                     </div>
