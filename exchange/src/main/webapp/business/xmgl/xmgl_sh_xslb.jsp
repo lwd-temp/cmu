@@ -135,7 +135,7 @@
         var settings = {
             caption: "申请学生列表",
             url:'xm/listXmSqxs?xmId=${param["xmid"]}',
-            colNames:['学号','姓名','成绩排名','综合测评',"心理测评",'初审状态','是否自费',"审核"],
+            colNames:['学号','姓名','成绩排名','综合评级',"心理测评",'初审状态',/*'是否自费',*/"审核"],
             navBtns:[],//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -176,12 +176,12 @@
                         }
                     }  },
 
-                {name:'selfPay',index:'selfPay',formatter:function(selfPay){
+                /*{name:'selfPay',index:'selfPay',formatter:function(selfPay){
                         if(selfPay == 'Y'){
                             return "是"
                         }
                         return "";
-                    }},
+                    }},*/
 
                 {name:'sqjlId',index:'', fixed:true, sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
