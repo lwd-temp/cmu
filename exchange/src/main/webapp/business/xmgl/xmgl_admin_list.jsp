@@ -127,7 +127,7 @@
         });
 
         $("#download").click(function(){
-            window.open("xm/downloadDeploy");
+            window.open("xm/downloadDeploy?xmmc="+$("#condition").val()+"&xmzm="+$("#condition").val());
         });
 
     });

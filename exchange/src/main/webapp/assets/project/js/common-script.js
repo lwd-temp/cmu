@@ -179,9 +179,7 @@ $(function(){
     //定义加载表格的公共方法
     $.fn.extend({
         tables:function(options){
-            console.info(options);
             calPhoneCell(options);
-            console.info(options);
             var tab = this;
             var settings = {
                 datatype: "json",

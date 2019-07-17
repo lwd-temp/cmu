@@ -224,6 +224,14 @@
                    valid, create_time, yyyqsm
               from t_xm
               where valid = 1 and status != '01'
+                <if test="xmmc != null" >
+                    <bind name="xmmcLike" value="'%' + xmmc + '%'"/>
+                    and xmmc like #{xmmcLike}
+                </if>
+                <if test="xmzm != null" >
+                    <bind name="xmzmLike" value="'%' + xmzm + '%'"/>
+                    and xmzm like #{xmzmLike}
+                </if>
 
     </select>
 
