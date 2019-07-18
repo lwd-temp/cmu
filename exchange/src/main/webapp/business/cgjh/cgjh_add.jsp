@@ -232,18 +232,18 @@
                     </div>
 
                 </div>
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "> 任务批件文号: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" placeholder="请输入任务批件文号" value="" type="text"/>
-                    </div>
+                <%--<div class="form-group">--%>
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 任务批件文号: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" placeholder="请输入任务批件文号" value="" type="text"/>--%>
+                    <%--</div>--%>
 
-                    <label class="col-xs-12 col-sm-2 control-label "> 任务批复时间: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cgTzjh.rwpfsj" placeholder="请输入任务批复时间" id="rwpfsj" value="" type="text"
-                               data-date-format="yyyy-mm-dd"/>
-                    </div>
-                </div>
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 任务批复时间: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input class="form-control date-picker" name="cgTzjh.rwpfsj" placeholder="请输入任务批复时间" id="rwpfsj" value="" type="text"--%>
+                               <%--data-date-format="yyyy-mm-dd"/>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             <hr/>
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-2">

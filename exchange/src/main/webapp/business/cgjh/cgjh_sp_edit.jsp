@@ -237,20 +237,18 @@
                     </div>
 
                 </div>
-                <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "> 任务批件文号: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" value="${cgTzjh.rwpjwh}" type="text"/>
-                    </div>
+                <%--<div class="form-group">--%>
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 任务批件文号: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input class="form-control" id="rwpjwh" name="cgTzjh.rwpjwh" value="${cgTzjh.rwpjwh}" type="text"/>--%>
+                    <%--</div>--%>
 
-                    <label class="col-xs-12 col-sm-2 control-label "> 任务批复时间: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cgTzjh.rwpfsj" id="rwpfsj"  value="<fmt:formatDate value="${cgTzjh.rwpfsj}" pattern="yyyy-MM-dd"/>"
-                               type="text" data-date-format="yyyy-mm-dd"/>
-                    </div>
-
-                </div>
-
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 任务批复时间: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input class="form-control date-picker" name="cgTzjh.rwpfsj" id="rwpfsj"  value="<fmt:formatDate value="${cgTzjh.rwpfsj}" pattern="yyyy-MM-dd"/>"--%>
+                               <%--type="text" data-date-format="yyyy-mm-dd"/>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <hr/>
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-2">
