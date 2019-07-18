@@ -25,6 +25,9 @@
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
+                </button>
             </div>
         </div>
 
@@ -119,6 +122,18 @@
         //查询按钮添加事件
         $("#query").click(function(){
             refreshTable();
+        });
+
+        //下载外宾来访接待信息
+        $("#download").click(function(){
+
+            var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+            var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+            if(typeof(sortname) != 'string'){
+                sortname = '';
+            }
+
+            window.open("wbzj/download?zqlxrxm="+$("#condition1").val()+"&dbtmc="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
 

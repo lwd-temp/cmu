@@ -271,6 +271,29 @@ public class WbjdZjServiceImpl extends BaseService<WbjdZj, WbjdZjParams, WbjdZjM
         return zjFjDao.selectByExample(params);
     }
 
+    /*
+    外宾来访接待总结信息下载
+    */
+    @Override
+    public List wbjdzjlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+
+        WbjdZjParams params = new WbjdZjParams();
+        WbjdZjParams.Criteria c = params.createCriteria();
+        if(conditions != null && conditions.length>0 && conditions[0]!=null){
+            WbjdZj wbjdZj= (WbjdZj) conditions[0];
+
+            if(StringUtils.isNotEmpty(wbjdZj.getDbtmc())){
+                c.andDbtmcLike("%"+wbjdZj.getDbtmc()+"%");
+            }
+            if(StringUtils.isNotEmpty(wbjdZj.getZqlxrxm())){
+                c.andZqlxrxmLike("%"+wbjdZj.getZqlxrxm()+"%");
+            }
+            super.addOrderBy(params,conditions);
+        }
+
+        return wbjdZjMapperExt.selectByExampleTranslateCode(params);
+    }
+
     //删除对应的随行成员
     private void deleteSxr(WbjdZj wbjdZj){
         WbjdZjSxryParams params = new WbjdZjSxryParams();

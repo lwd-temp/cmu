@@ -148,7 +148,7 @@
                 sortname = '';
             }
 
-            window.open("wbjdexp/download?zqlxrxm="+$("#condition1").val()+"&dbtmc="+$("#condition2").val()+"&chineseName="+$("#condition3").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+            window.open("wbjdexp/download?zqlxrxm="+$("#condition1").val()+"&dbtmc="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
 
     });

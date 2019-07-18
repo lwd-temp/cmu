@@ -8,6 +8,7 @@ import cn.edu.cmu.framework.web.IBaseService;
 import cn.edu.cmu.vo.WbglVO;
 
 import javax.servlet.http.HttpServletRequest;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -18,5 +19,7 @@ public interface WbjdZjService extends IBaseService<WbjdZj, WbjdZjParams> {
     List<WbjdLp> queryLiPinList(String zjid);
 
     public List<WbjdZjFj> queryWbjdZjFjs(String zjid)throws Exception;
+
+    public List wbjdzjlistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 }
 

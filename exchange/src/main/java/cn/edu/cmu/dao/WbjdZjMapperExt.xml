@@ -72,4 +72,31 @@
             order by ${orderByClause}
         </if>
     </select>
+
+    <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.WbjdZjMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.WbjdZjParams" >
+        select
+        <if test="distinct" >
+            distinct
+        </if>
+        F_GetTableText('T_DM_WBLF_JDLX ', 'code', 'name', JDLX) jdlx,
+        F_GetTableText('T_DM_LFMD', 'code', 'name', LFMD) lfmd,
+        F_GetTableText('T_DM_XB', 'code', 'name', TZXB) tzxb,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_YQXLD) yn_yqxld,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_XYTY) yn_xyty,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_BBSSGABM) yn_bbssgabm,
+        F_GetTableText('T_DM_YN', 'code', 'name', YN_BBSSXCBM) yn_bbssxcbm,
+
+        zjid, lfid, dbtmc, lfrs, lfsj_start, lfsj_end, tlsj_start, tlsj_end,
+        yjtm, lfmd_qt, yqxx, jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj,
+        tzcsrq, tzgzdw, tzzw, tzzy, tzxsly, yqcg, zqrxm, zqrdh, zqlxrxm, zqlxrdh,
+        jdbm, memo, gdid, tzzc, valid, status, create_time
+        from T_WBJD_Zj
+        <if test="_parameter != null" >
+            /*此处应用的refid 是其他Mapper中写好的*/
+            <include refid="cn.edu.cmu.dao.WbjdZjMapper.Select_Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null" >
+            order by ${orderByClause}
+        </if>
+    </select>
 </mapper>
