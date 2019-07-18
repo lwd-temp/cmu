@@ -1,6 +1,7 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.Hzxy;
 import cn.edu.cmu.domain.HzxyGb;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HzxyGbService;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
@@ -165,18 +167,16 @@ public class JlxyController extends BaseController {
     下砸协议信息
      */
     @RequestMapping("/download")
-    public void download(Hzxy xy, String orderCol, String orderType, HttpServletResponse response) throws Exception {
+    public void download(Hzxy xy, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-//        String jlxymc=new String(xy.getXymc().getBytes("ISO-8859-1"), "UTF-8");
-//        xy.setXymc(jlxymc);
         logger.info("交流协议名称:"+xy.getXymc());
 
         List<Hzxy> list = jlxyService.jlxylistExp(xy, orderCol, orderType);
 
         logger.info(String.format("导出协议信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
 
-        String downFileName = "jlxy.xls";
-        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        String downFileName = "交流协议管理.xls";
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
         ServletOutputStream out = response.getOutputStream();
 
         String excelTempPath = "jlxy/hzxy.xls";

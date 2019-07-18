@@ -4,6 +4,7 @@ import cn.edu.cmu.domain.CgTzcy;
 import cn.edu.cmu.domain.CgTzjh;
 import cn.edu.cmu.domain.CgjhGb;
 import cn.edu.cmu.domain.UnicUnit;
+import cn.edu.cmu.framework.util.DownLoadUtils;
 import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.*;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
@@ -245,16 +247,14 @@ public class CgTzjhController extends BaseController {
 
 
     @RequestMapping("/download")
-    public void export(CgTzjh tzjh, String orderCol, String orderType, HttpServletResponse response) throws Exception {
+    public void export(CgTzjh tzjh, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        String fzrxmnew=new String(tzjh.getFzrxm().getBytes("ISO-8859-1"), "UTF-8");
-        tzjh.setFzrxm(fzrxmnew);
         List<CgTzjh> list = cgTzjhService.gllistExp(tzjh, orderCol, orderType);//demoList();
 
         logger.info(String.format("导出团组信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
 
-        String downFileName = "tzgl.xls";
-        response.setHeader("content-disposition", "attachment;filename="+downFileName);
+        String downFileName = "出访团组计划管理.xls";
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
         ServletOutputStream out = response.getOutputStream();
 
         String excelTempPath = "cgjh/cgjh_gl.xls";
