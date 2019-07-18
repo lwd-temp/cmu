@@ -225,10 +225,10 @@
                         <input type="text"  name="yqrDh"    placeholder="请输入邀请人电话"     class="col-xs-12" />
                     </div>
 
-                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input type="text"  name="yqrDhEn"    placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />
-                    </div>
+                    <%--<label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input type="text"  name="yqrDhEn"    placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />--%>
+                    <%--</div>--%>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
