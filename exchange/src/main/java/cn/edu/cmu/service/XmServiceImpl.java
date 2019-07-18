@@ -630,4 +630,62 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         return successCount == ids.length ;
     }
 
+    /**
+     * 批量初审
+     * @param ids
+     * @return
+     */
+    @Override
+    public boolean plcs(String[] ids,String status) {
+
+        String sendUser = "";
+        String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】国际交流项目审核
+        String description = ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
+
+        String content = null;
+        int count=0;
+        for (String id : ids){
+            XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
+            if ("xy".equals(status) ){
+                jl.setStatus("03");
+                count=sqDao.updateByPrimaryKeySelective(jl);
+                XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
+                //审核通过
+                if(CmuConstants.XM.SQ_STATUS_XY_PASS.equals(sqjl.getStatus() ) ) { //学生处
+
+                    // ifs.wechat.xm.cs.xy.pass.content
+                    content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".pass.content");
+                }
+                //审核不通过
+                else if(CmuConstants.XM.SQ_STATUS_XSC_BACK.equals(sqjl.getStatus())     //学生处
+                ){
+                    content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".back.content");
+                }
+
+                //异步发送微信消息,改为后台线程池 执行.
+                SysThreadPoolRunner.submit(new WeChartUtils(sendUser,sqjl.getXh(), title, description, content));
+            }else{
+                jl.setStatus("05");
+                 count=sqDao.updateByPrimaryKeySelective(jl);
+                XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
+                //审核通过
+                if(CmuConstants.XM.SQ_STATUS_XSC_PASS.equals(sqjl.getStatus() )  ) { //学生处
+
+                    // ifs.wechat.xm.cs.xy.pass.content
+                    content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".pass.content");
+                }
+                //审核不通过
+                else if(CmuConstants.XM.SQ_STATUS_XSC_BACK.equals(sqjl.getStatus())     //学生处
+                ){
+                    content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".back.content");
+                }
+
+                //异步发送微信消息,改为后台线程池 执行.
+                SysThreadPoolRunner.submit(new WeChartUtils(sendUser,sqjl.getXh(), title, description, content));
+            }
+
+        }
+        return count>0;
+    }
+
 }

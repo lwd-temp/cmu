@@ -381,12 +381,12 @@
 
 
         $("#btnPass").click(function(){
-            alert("复审通过");
+            // alert("复审通过");
             sh("02");
         });
         $("#btnBack").click(function(){
 
-            alert("复审不通过");
+            // alert("复审不通过");
             sh("03");
         })
 

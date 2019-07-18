@@ -779,4 +779,19 @@ public class XmController extends BaseController {
         return map;
     }
 
+    /**
+     * 批量初审
+     * @param ids
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/plcs")
+    @ResponseBody
+    public Map plcs(String[] ids,String status) throws Exception {
+
+        boolean success = xmService.plcs(ids,status);
+
+        return super.ajaxStatus(success);
+
+    }
 }

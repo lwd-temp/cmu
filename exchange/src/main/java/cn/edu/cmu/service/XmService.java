@@ -56,5 +56,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
     List listDeploy(Xm xm);
 
     boolean tzfs(String[] ids, String msg);
+
+    boolean plcs (String[] ids,String status);
 }
 
