@@ -408,7 +408,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
     public boolean xsshCs(String id, String status,String type,String xlcp,String zhpj, String chpm) throws Exception {
 
         XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
-        sqjl.setXlcp(xlcp);
+        if (type == "xy"){
+            sqjl.setXlcp("C");
+        }
+        if (type == "xsc"){
+            sqjl.setXlcp("A");
+        }
         sqjl.setStatus(status);
         sqjl.setZhpj(zhpj);
         sqjl.setChpm(chpm);
@@ -650,16 +655,17 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             XmXssqjl jl  = (XmXssqjl) sqDao.selectByPrimaryKey(id);
             if ("xy".equals(status) ){
                 jl.setStatus("03");
+                jl.setXlcp("C");
                 count=sqDao.updateByPrimaryKeySelective(jl);
                 XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
                 //审核通过
-                if(CmuConstants.XM.SQ_STATUS_XY_PASS.equals(sqjl.getStatus() ) ) { //学生处
+                if(CmuConstants.XM.SQ_STATUS_XY_PASS.equals(sqjl.getStatus() ) ) { //学院
 
                     // ifs.wechat.xm.cs.xy.pass.content
                     content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".pass.content");
                 }
                 //审核不通过
-                else if(CmuConstants.XM.SQ_STATUS_XSC_BACK.equals(sqjl.getStatus())     //学生处
+                else if(CmuConstants.XM.SQ_STATUS_XY_BACK.equals(sqjl.getStatus())     //学院
                 ){
                     content = ResourceBundleUtils.getString("ifs.wechat.xm.cs."+status+".back.content");
                 }
@@ -668,6 +674,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
                 SysThreadPoolRunner.submit(new WeChartUtils(sendUser,sqjl.getXh(), title, description, content));
             }else{
                 jl.setStatus("05");
+                jl.setXlcp("A");
                  count=sqDao.updateByPrimaryKeySelective(jl);
                 XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
                 //审核通过
