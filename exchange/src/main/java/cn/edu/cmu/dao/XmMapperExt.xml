@@ -154,7 +154,7 @@
 
     <select id="selectXmzjbg" parameterType="cn.edu.cmu.vo.XmzjbgVO" resultMap="XmzjbgVOResultMap">
 
-        select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id,zymc,jlgjdqm,zzje,xmlx,jlmbjgmc,jfly,xmkssj,smjssj,xmjlts
+        select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id,zymc,jlgjdqm,zzje,xmlx,jlmbjgmc,jfly,xmkssj,smjssj,xmjlts,rxn
         from (
 
             select xm.xmbh      xmbh,
@@ -164,6 +164,7 @@
                 sq.zymc      zymc,
                 F_GetTableText('t_dm_gb', 'code', 'name', sq.jlgjdqm) jlgjdqm,
                 sq.zzje      zzje,
+                substr(sq.rxn,3,2)       rxn,
 
                 xs.unit_name unit_name,
                 xs.sznj      sznj,
@@ -232,7 +233,7 @@
                 </if>
                 <if test="xmzm != null" >
                     <bind name="xmzmLike" value="'%' + xmzm + '%'"/>
-                    and xmzm like #{xmzmLike}
+                    or xmzm like #{xmzmLike}
                 </if>
 
     </select>

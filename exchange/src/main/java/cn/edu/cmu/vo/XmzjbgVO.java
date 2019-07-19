@@ -33,6 +33,7 @@ public class XmzjbgVO {
     private Date xmkssj;//出国开始时间
     private Date  smjssj;//回国时间
     private String xmjlts;//交流时长
+    private String rxn;//入学年
 
     //排序条件
     private String orderCol;
