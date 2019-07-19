@@ -100,8 +100,8 @@
           jl.self_pay     as self_pay,
           t.YYYQSM	as YYYQSM
         from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
-            where t.valid = '1'  and t.status ='02'
-            and (
+            where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1
+        and (
               <!--全校项目-->
                 t.xmcc = '01'
                 <!--院系项目-->
@@ -109,7 +109,9 @@
                 <!--个人项目-->
                 or (t.xmcc ='03' and t.gsxsdm =#{gsxsdm,jdbcType=VARCHAR})
             )
-
+        <!--<if test="xm.bmjzsj !=null">-->
+            <!--and t.bmjzsj > sysdate-->
+        <!--</if>-->
 
         <if test="xm.xmmc != null and  xm.xmzm != null">
             and

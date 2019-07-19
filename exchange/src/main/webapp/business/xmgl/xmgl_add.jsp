@@ -126,7 +126,12 @@
                                 </div>
 
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-xs-12 col-sm-2  control-label "> 报名结束时间: </label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input class="form-control date-picker" name="xm.bmjzsj" id="bmjzsj" type="text" placeholder="请选择报名结束时间" data-date-format="yyyy-mm-dd"/>
+                                </div>
+                            </div>
                             <div class="form-group">
 
                                 <label class="col-xs-12 col-sm-2  control-label "> 项目开始时间: </label>
@@ -466,6 +471,7 @@
                 'xm.xmmc': 'required',
                 'xm.xmzm': 'required',
                 'xm.xmkssj': 'required',
+                'xm.bmjzsj': 'required',
                 'xm.xmcc': 'required',
                 'xm.smjssj': 'required',
                 'xm.jfly': 'required',
