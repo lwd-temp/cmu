@@ -405,11 +405,13 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
      * @throws Exception
      */
     @Override
-    public boolean xsshCs(String id, String status,String type,String xlcp) throws Exception {
+    public boolean xsshCs(String id, String status,String type,String xlcp,String zhpj, String chpm) throws Exception {
 
         XmXssqjl sqjl = (XmXssqjl)sqDao.selectByPrimaryKey(id);
         sqjl.setXlcp(xlcp);
         sqjl.setStatus(status);
+        sqjl.setZhpj(zhpj);
+        sqjl.setChpm(chpm);
 
         int count = sqDao.updateByPrimaryKeySelective(sqjl);
 

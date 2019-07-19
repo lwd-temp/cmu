@@ -392,6 +392,8 @@
                 status:status,
                 type:$("#shType").val(),
                 xlcp:$("#xlcp").val(),
+                zhpj:$("#zhpj").val(),
+                chpm:$("#chpm").val()
             },
             success:function(resp){
                 if(resp && resp.success){

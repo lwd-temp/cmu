@@ -541,10 +541,10 @@ public class XmController extends BaseController {
      */
     @ResponseBody
     @RequestMapping("/xsshCs")
-    public Map xsshCs(String id, String status,String type,String xlcp) throws Exception {
+    public Map xsshCs(String id, String status,String type,String xlcp,String zhpj, String chpm) throws Exception {
         logger.info(String.format("[项目初审] type:%s\tid:%s\tstatus:%s",type,id,status));
 
-        boolean success = xmService.xsshCs(id, status,type,xlcp);
+        boolean success = xmService.xsshCs(id, status,type,xlcp,zhpj,chpm);
 
         return super.ajaxStatus(success);
     }

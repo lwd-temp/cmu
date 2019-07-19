@@ -36,7 +36,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
     List listXmSqxs(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 
-    boolean xsshCs(String id, String status,String type,String xlcp) throws Exception;
+    boolean xsshCs(String id, String status,String type,String xlcp,String zhpj, String chpm) throws Exception;
 
     boolean confirmCs(String id) throws Exception;
 
