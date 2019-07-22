@@ -2,10 +2,7 @@ package cn.edu.cmu.controller;
 
 import cn.edu.cmu.domain.Upload;
 import cn.edu.cmu.framework.CmuConstants;
-import cn.edu.cmu.framework.util.AccessUtils;
-import cn.edu.cmu.framework.util.CmuStringUtil;
-import cn.edu.cmu.framework.util.DownLoadUtils;
-import cn.edu.cmu.framework.util.YmlUtils;
+import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.UploadService;
 import org.apache.commons.io.FileUtils;
@@ -165,6 +162,32 @@ public class FileUpAndDownloadController extends BaseController {
         File file = new File(absolutePath);
 
         fileName = fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
+
+        DownLoadUtils.setDownLoadHeaders(request,response,fileName);
+        DownLoadUtils.writeToResponse(response,new FileInputStream(file));
+    }
+
+
+    /**
+     * 常用下载
+     * @param request
+     * @param response
+     * @throws Exception
+     */
+    @RequestMapping("/cydownload")
+    public void cydownload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        String application = WebAppContextUtils.REAL_CONTEXT_PATH;
+
+        String fileName = "免责声明.docx";
+
+        HttpHeaders headers = new HttpHeaders();
+
+        String absolutePath = application+"/download_template/word/xm/mzsm.docx"; //下载文件位置
+        logger.debug("下载文件对应的完成路为："+absolutePath);
+
+        File file = new File(absolutePath);
+
 
         DownLoadUtils.setDownLoadHeaders(request,response,fileName);
         DownLoadUtils.writeToResponse(response,new FileInputStream(file));

@@ -672,7 +672,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
                 //异步发送微信消息,改为后台线程池 执行.
                 SysThreadPoolRunner.submit(new WeChartUtils(sendUser,sqjl.getXh(), title, description, content));
-            }else{
+            }else if ("xsc".equals(status) ){
                 jl.setStatus("05");
                 jl.setXlcp("A");
                  count=sqDao.updateByPrimaryKeySelective(jl);

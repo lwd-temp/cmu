@@ -142,7 +142,7 @@ public class CgDqcgjExtController extends BaseController {
     @RequestMapping("/downloadword")
     public void downloadword(HttpServletResponse response, HttpServletRequest request, String rwfkid) throws Exception {
         String application = WebAppContextUtils.REAL_CONTEXT_PATH;
-        FileInputStream is = new FileInputStream(new File(application + "/download_template/word/cggl.docx"));
+        FileInputStream is = new FileInputStream(new File(application + "/download_template/word/cggl/cggl.docx"));
         XWPFTemplate template = XWPFTemplate.compile(is);
         HashMap<String, Object> data = new HashMap<String, Object>();
         CgRwzxqkfk cgRwzxqkfk = new CgRwzxqkfk();
