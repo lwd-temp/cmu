@@ -6,30 +6,45 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 <div >
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 项目名称: </label>
-
-            <div class="col-sm-3">
-                <input type="text" id="condition1" placeholder="项目名称" class="col-xs-12" />
-            </div>
-            <label class="col-sm-2 control-label no-padding-right"  for="condition2"> 学生姓名: </label>
-
-            <div class="col-sm-3">
-                <input type="text" id="condition2" placeholder="学生姓名" class="col-xs-12" />
-            </div>
-
             <div class="col-sm-2">
-                <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
-                    查询
-                </button>
+                项目名称:  <input type="text" id="condition1" placeholder="项目名称" class="" />
+            </div>
+            <div class="col-sm-2">
+                学生姓名: <input type="text" id="condition2" placeholder="学生姓名" class="" />
+            </div>
+            <div class="col-sm-2">
+                项目层次: <dm:list tabName="T_DM_CCXZ" id="condition3" data-placeholder="请选择项目层次限制" style="width:70%;display:inline"></dm:list>
+            </div>
+            <div class="col-sm-2">
+                项目类型: <dm:list tabName="T_DM_XMLX" id="condition4" data-placeholder="请选择项目类型" style="width:70%;display:inline"></dm:list>
+            </div>
+            <div class="col-sm-2">
+                国别: <dm:list tabName="T_DM_GB" id="condition5" data-placeholder="请选择" style="width:70%;display:inline"></dm:list>
+            </div>
 
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4">
+                项目开始时间:
+                <input class="form-control date-picker" style="width:70%;display:inline" id="condition6" placeholder="项目开始时间"     type="text" data-date-format="yyyy-mm-dd"/>
+            </div>
+            <div class="col-sm-4">
+                项目结束时间:
+                <input class="form-control date-picker" style="width:70%;display:inline" id="condition7" placeholder="项目结束时间"     type="text" data-date-format="yyyy-mm-dd"/>
 
-                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
-                    批量下载
-                </button>
+            </div>
+            <div class="col-sm-4">
+                    <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
+                        查询
+                    </button>
+                    <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                        批量下载
+                    </button>
             </div>
         </div>
 
@@ -51,6 +66,11 @@
 
 
     $(function() {
+        //日期控件
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -114,7 +134,12 @@
         $("#download").click(function(){
             var xmmc = $("#condition1").val();      //项目名称
             var xm = $("#condition2").val();        //姓名
-            window.open('xm/downLoadXmzjbg?xmmc='+xmmc+'&xm='+xm);
+            var xmcc=$("#condition3").val();        //项目层次
+            var xmlx=$("#condition4").val();        //项目类型
+            var jlgjdqm=$("#condition5").val();        //国别
+            var xmkssj=$("#condition6").val();      //项目开始时间
+            var smjssj=$("#condition7").val();      //项目结束时间
+            window.open('xm/downLoadXmzjbg?xmmc='+xmmc+'&xm='+xm+'&xmcc='+xmcc+'&xmlx='+xmlx+'&jlgjdqm='+jlgjdqm+'&smjssj='+smjssj+'&xmkssj='+xmkssj);
         });
 
     });
@@ -128,7 +153,12 @@
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
                 'xmmc':$("#condition1").val(),//项目名称
-                'xm':$("#condition2").val() //项目总名
+                'xm':$("#condition2").val(), //项目总名
+                'xmcc':$("#condition3").val(),//项目层次
+                'xmlx':$("#condition4").val(),//项目类型
+                'jlgjdqm':$("#condition5").val(),//国别
+                'xmkssj':$("#condition6").val(),//项目开始时间
+                'smjssj':$("#condition7").val()//项目结束时间
             },
             page:1
         }).trigger("reloadGrid");
