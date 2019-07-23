@@ -17,10 +17,10 @@
             <div class="col-sm-2">
                 学生姓名: <input type="text" id="condition2" placeholder="学生姓名" class="" />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 项目层次: <dm:list tabName="T_DM_CCXZ" id="condition3" data-placeholder="请选择项目层次限制" style="width:70%;display:inline"></dm:list>
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 项目类型: <dm:list tabName="T_DM_XMLX" id="condition4" data-placeholder="请选择项目类型" style="width:70%;display:inline"></dm:list>
             </div>
             <div class="col-sm-2">

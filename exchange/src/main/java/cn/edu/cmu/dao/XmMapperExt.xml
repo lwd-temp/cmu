@@ -156,7 +156,8 @@
 
         select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id,zymc,jlmbjgmc,zzje,
         decode(xmlx,'01','临床实习','02','假期访学','03','攻读学位','04','课程学习','99','其它','未知') xmlx,
-        F_GetTableText('t_dm_gb', 'code', 'name', jlgjdqm) jlgjdqm,jfly,xmkssj,smjssj,xmjlts,rxn,xmcc
+        F_GetTableText('t_dm_gb', 'code', 'name', jlgjdqm) jlgjdqm,
+        F_GetTableText('t_dm_jfly', 'code', 'name', jfly) jfly,xmkssj,smjssj,xmjlts,rxn,xmcc
         from (
 
             select xm.xmbh      xmbh,
