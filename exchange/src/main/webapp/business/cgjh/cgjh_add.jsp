@@ -105,7 +105,7 @@
                     <label class="col-xs-12 col-sm-2 control-label "> 团组名称: </label>
 
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text" id="tzmc" name="cgTzjh.tzmc" placeholder="团组名称" class="col-xs-12"/>
+                        <input type="text" id="tzmc" name="cgTzjh.tzmc" placeholder="团组名称" readonly="readonly"  class="col-xs-12"/>
                     </div>
                 </div>
 
@@ -113,7 +113,7 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "> 团组类别: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
+                        <dm:list tabName="T_DM_TZLB" id="tzlb" name="cgTzjh.tzlb"  value=""  data-placeholder="请选择团组类别" onchange="selecttzjb(this)"></dm:list>
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label "> 计划类型: </label>
                     <div class="col-xs-12 col-sm-4">
@@ -136,7 +136,7 @@
                 <div class="form-group lx1">
                     <label class="col-xs-12 col-sm-2 control-label "> 团组负责人姓名: </label>
                     <div class="col-xs-12 col-sm-4" id="fzr1">
-                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm" placeholder="请输入团组负责人姓名" value="" type="text"/>
+                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm" onchange="gettzmc()"  placeholder="请输入团组负责人姓名" value="" type="text"/>
                     </div>
 
                     <label class="col-xs-12 col-sm-2 control-label "> 行政职务: </label>
@@ -191,7 +191,7 @@
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"   data-placeholder="请选择出访国家"  ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  value=""  id="cfgbIds" onchange="gettzmc()" name="cfgbIds"   data-placeholder="请选择出访国家"  ></dm:list>
 
 
                     </div>
@@ -346,6 +346,8 @@
 
 
     $(function () {
+
+
         var validator = null;
         //月份选择器
         $(".month-picker").datetimepicker({viewMode: "months",format: 'YYYY-MM'});
@@ -463,6 +465,7 @@
 
     //选择团组类别决定团组号
     function selecttzjb(select) {
+
         var lb = $(select).val();
 
         //$("#tzh").val(lb);
@@ -485,8 +488,9 @@
             $("#fzr2").append(fzr);
             $("#fzr1").children().remove()
 
-
         }
+
+        gettzmc($(select).find("option:selected").text());
     }
 
 
@@ -536,6 +540,14 @@
         setFormValid();//设置校验规则
     }
 
+
+        function gettzmc(tzlb){
+            if (tzlb == null){
+                tzlb=$("#tzlb").find("option:selected").text()
+            }
+
+            $("#tzmc").val($("#fzrxm").val()+"赴"+"  "+$("#cfgbIds").find("option:selected").text()+"  "+"参加"+tzlb);
+        }
 </script>
 </body>
 </html>

@@ -100,7 +100,7 @@
                     <label class="col-xs-12 col-sm-2 control-label "> 团组名称: </label>
 
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text" id="tzmc" name="cgTzjh.tzmc" value="${cgTzjh.tzmc}" placeholder="团组名称" class="col-xs-12"/>
+                        <input type="text" id="tzmc" name="cgTzjh.tzmc" value="${cgTzjh.tzmc}" readonly="readonly" placeholder="团组名称" class="col-xs-12"/>
                     </div>
 
                 </div>
@@ -133,7 +133,7 @@
                 <div class="form-group lx1">
                     <label class="col-xs-12 col-sm-2 control-label "> 团组负责人姓名: </label>
                     <div class="col-xs-12 col-sm-4" id="fzr1">
-                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm"  value="${cgTzjh.fzrxm}" placeholder="请输入团组负责人姓名" type="text"/>
+                        <input class="form-control" name="cgTzjh.fzrxm" id="fzrxm"  value="${cgTzjh.fzrxm}" onchange="gettzmc()" placeholder="请输入团组负责人姓名" type="text"/>
                     </div>
 
                     <label class="col-xs-12 col-sm-2 control-label "> 行政职务: </label>
@@ -188,7 +188,7 @@
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds"  data-placeholder="请选择出访国家"  valueList="${gbCodeList}"   ></dm:list>
+                        <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  id="cfgbIds"  name="cfgbIds" onchange="gettzmc()" data-placeholder="请选择出访国家"  valueList="${gbCodeList}"   ></dm:list>
 
 
                     </div>
@@ -527,6 +527,7 @@
 
 
         }
+        gettzmc($("#tzlb").find("option:selected").text());
     }
 
 
@@ -573,6 +574,14 @@
         setFormValid();//设置校验规则
     }
 
+    //自动生成团组名称
+    function gettzmc(tzlb){
+        if (tzlb == null){
+            tzlb=$("#tzlb").find("option:selected").text()
+        }
+
+        $("#tzmc").val($("#fzrxm").val()+"赴"+"  "+$("#cfgbIds").find("option:selected").text()+"  "+"参加"+tzlb);
+    }
 </script>
 </body>
 </html>
