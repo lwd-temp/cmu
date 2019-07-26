@@ -55,7 +55,6 @@
 
 
 
-
     <!--查询可申请的项目-->
     <select id="selectSqxm" resultMap="BaseResultMap" parameterType="hashmap">
         select
@@ -100,7 +99,7 @@
           jl.self_pay     as self_pay,
           t.YYYQSM	as YYYQSM
         from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
-            where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1
+            where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1 and jl.status is null
         and (
               <!--全校项目-->
                 t.xmcc = '01'
@@ -126,7 +125,80 @@
 
         </if>
     </select>
+    <!--查询可申请的项目-->
+    <select id="selectSqzxm" resultMap="BaseResultMap" parameterType="hashmap">
+        select
+        t.XM_ID 			as XM_ID 				,
+        t.XMLX			as XMLX				,
+        t.XMZM			as XMZM				,
+        t.GLXMMCID		as GLXMMCID				,
+        t.XMMC			as XMMC				,
+        t.XMBH			as XMBH				,
+        t.XMKSSJ			as XMKSSJ				,
+        t.SMJSSJ			as SMJSSJ				,
+        t.XMJLTS			as XMJLTS				,
+        t.XMCC			as XMCC				,
+        t.JFLY			as JFLY				,
+        t.ZJJE			as ZJJE				,
+        t.XMGK			as XMGK				,
+        t.XMZZJH			as XMZZJH				,
+        t.JLMBJGMC		as JLMBJGMC				,
+        t.FYBZ			as FYBZ				,
+        t.ZYSM			as ZYSM				,
+        t.SFXZRS			as SFXZRS				,
+        t.JHRS			as JHRS				,
+        t.CCXZ			as CCXZ				,
+        t.XMNJXZ			as XMNJXZ				,
+        t.YYYQ			as YYYQ				,
+        t.XMZYXZ			as XMZYXZ				,
+        t.GSYXDM			as GSYXDM				,
+        t.GSYXMC			as GSYXMC				,
+        t.GSXSDM		as  GSXSDM				,
+        t.GSXSXM			as GSXSXM				,
+        t.OPERATOR_CODE	as OPERATOR_CODE		,
+        t.BMJZSJ	as BMJZSJ		,
+        t.STATUS			as STATUS				,
+        t.VALID			as VALID				,
+        t.CREATE_TIME	as CREATE_TIME		,
 
+
+        nvl(jl.status,'00')||  '-' || nvl(jl.confirm_status,'00') as   SQ_STATUS,
+        jl.sqjl_id  as SQJL_ID,
+        jl.isconfirm1   as is_comfirm1,
+        jl.isconfirm2   as is_comfirm2,
+        jl.self_pay     as self_pay,
+        t.YYYQSM	as YYYQSM
+        from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
+        where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1
+        and (
+            <!--全校项目-->
+            t.xmcc = '01'
+            <!--院系项目-->
+            or (t.xmcc ='02' and t.gsyxdm =#{gsyxdm,jdbcType=VARCHAR})
+            <!--个人项目-->
+            or (t.xmcc ='03' and t.gsxsdm =#{gsxsdm,jdbcType=VARCHAR})
+        )
+        and jl.status is not null
+
+
+        <!--<if test="xm.bmjzsj !=null">-->
+        <!--and t.bmjzsj > sysdate-->
+        <!--</if>-->
+
+        <if test="xm.xmmc != null and  xm.xmzm != null">
+            and
+            (
+
+            <bind name="xmmcLike" value="'%' + xm.xmmc + '%'"/>
+            t.xmmc like #{xmmcLike,jdbcType=VARCHAR}
+
+            <bind name="xmzmLike" value="'%' + xm.xmzm + '%'"/>
+            or t.xmzm like #{xmzmLike,jdbcType=VARCHAR}
+            )
+
+        </if>
+        order by SQ_STATUS
+    </select>
 
     <select id="selectXmGb" parameterType="java.lang.String" resultType="hashmap">
 
@@ -253,6 +325,15 @@
                 <if test="xmzm != null" >
                     <bind name="xmzmLike" value="'%' + xmzm + '%'"/>
                     and xmzm like #{xmzmLike}
+                </if>
+                <if test="gbdq != null and gbdq != ''"  >
+                    and gbdq = #{gbdq,jdbcType=VARCHAR}
+                </if>
+                <if test="xmkssj!=null">
+                    and xmkssj &lt;= #{xmkssj,jdbcType=TIMESTAMP}
+                </if>
+                <if test="smjssj!=null">
+                    and smjssj  &gt;= #{smjssj,jdbcType=TIMESTAMP}
                 </if>
 
     </select>
