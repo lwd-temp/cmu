@@ -63,6 +63,7 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
+                <input type="hidden" name="cfsc" id="cfsc" value="" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>
                     <div class="col-xs-12 col-sm-4">
@@ -154,13 +155,13 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 出访开始日期 </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cfksrq"
+                        <input class="form-control date-picker cfsc" name="cfksrq"
                                value="<fmt:formatDate value="${cgdqcgj.cfksrq}" pattern="yyyy-MM-dd"/>"
                                readonly="readonly"    id="cfksrq" type="text" placeholder="请选择出访开始日期" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label"  > 出访结束日期   : </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cfjsrq"
+                        <input class="form-control date-picker cfsc" name="cfjsrq"
                                value="<fmt:formatDate value="${cgdqcgj.cfjsrq}" pattern="yyyy-MM-dd"/>"
                                readonly="readonly"    id="cfjsrq" type="text" placeholder="请选择出访结束日期" data-date-format="yyyy-mm-dd" />
                     </div>
@@ -232,6 +233,22 @@
                     <%--<div class="col-xs-12 col-sm-4">--%>
                         <%--<input type="text"  name="yqrDhEn"   value="${cgdqcgj.yqrDhEn}"   placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />--%>
                     <%--</div>--%>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
+                    <div class="col-xs-10">
+                        <textarea name="ysfbjzljj" id="ysfbjzljj"   cols="120" rows="10">${cgdqcgj.ysfbjzljj}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访任务简介  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfrwjj" value="${cgdqcgj.cfrwjj}"  placeholder="请输入出访任务简介"    class="col-xs-12" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访意义  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfyy" value="${cgdqcgj.cfyy}"  placeholder="请输入出访意义"    class="col-xs-12" />
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
@@ -382,6 +399,10 @@
             }
             saveSq();
         });
+        //计算交流时长
+        $(".cfsc").change(function(){
+            calJlsc();
+        })
     });
     function setFormValid(){
         $("#form").setValid({
@@ -454,6 +475,21 @@
         return true;
     }
 
+    /**
+     * 计算交流时长
+     * */
+    function calJlsc(){
+        var start = $("#cfksrq").val();
+        var end = $("#cfjsrq").val();
+
+        if(start && end){
+
+            var startDay = Date.instance(start);
+            var endDay = Date.instance(end);
+            // alert('天：'+startDay.diffDay(endDay));
+            $("#cfsc").val(startDay.diffDay(endDay));
+        }
+    }
     //选择出国类型
     function selectcglx(cglx) {
         var cglx = $(cglx).val();

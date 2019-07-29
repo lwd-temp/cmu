@@ -51,6 +51,16 @@
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YSFBJZLJJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFRWJJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFYY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGSXXBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFRCBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQHID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YSQFYJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CGRWHYSSPYJBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XNSQBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFSC" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -160,7 +170,8 @@
     QTSHRZ, CFGJ, RJCS, TZID, CFKSRQ, CFJSRQ, CFMD, CFMD_QT, YQR_XM, YQR_ZW, YQR_DW, 
     YQR_XXDZ, YQR_DH, YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, 
     JFYSMX, JFYSHJ, SQBSM, SQRQ, STATUS, SHJG, SHRY, SHYJ, SHRQ, GDWJID, CFZJBGID, VALID, 
-    CREATE_TIME, OPERATOR
+    CREATE_TIME, OPERATOR, YSFBJZLJJ, CFRWJJ, CFYY, CFGSXXBID, CFRCBID, YQHID, YSQFYJID, 
+    CGRWHYSSPYJBID, XNSQBID, CFSC
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
     select
@@ -208,7 +219,11 @@
       SQBSM, SQRQ, STATUS, 
       SHJG, SHRY, SHYJ, SHRQ, 
       GDWJID, CFZJBGID, VALID, 
-      CREATE_TIME, OPERATOR)
+      CREATE_TIME, OPERATOR, YSFBJZLJJ, 
+      CFRWJJ, CFYY, CFGSXXBID, 
+      CFRCBID, YQHID, YSQFYJID, 
+      CGRWHYSSPYJBID, XNSQBID, CFSC
+      )
     values (#{cgid,jdbcType=VARCHAR}, #{cglx,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{csd,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR}, 
       #{sfzh,jdbcType=VARCHAR}, #{ssejdw,jdbcType=VARCHAR}, #{ks,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, 
@@ -223,7 +238,11 @@
       #{sqbsm,jdbcType=VARCHAR}, #{sqrq,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
       #{shjg,jdbcType=VARCHAR}, #{shry,jdbcType=VARCHAR}, #{shyj,jdbcType=VARCHAR}, #{shrq,jdbcType=TIMESTAMP}, 
       #{gdwjid,jdbcType=VARCHAR}, #{cfzjbgid,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR})
+      #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, #{ysfbjzljj,jdbcType=VARCHAR}, 
+      #{cfrwjj,jdbcType=VARCHAR}, #{cfyy,jdbcType=VARCHAR}, #{cfgsxxbid,jdbcType=VARCHAR}, 
+      #{cfrcbid,jdbcType=VARCHAR}, #{yqhid,jdbcType=VARCHAR}, #{ysqfyjid,jdbcType=VARCHAR}, 
+      #{cgrwhysspyjbid,jdbcType=VARCHAR}, #{xnsqbid,jdbcType=VARCHAR}, #{cfsc,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
     insert into T_CG_DQCGJ
@@ -372,6 +391,36 @@
       <if test="operator != null" >
         OPERATOR,
       </if>
+      <if test="ysfbjzljj != null" >
+        YSFBJZLJJ,
+      </if>
+      <if test="cfrwjj != null" >
+        CFRWJJ,
+      </if>
+      <if test="cfyy != null" >
+        CFYY,
+      </if>
+      <if test="cfgsxxbid != null" >
+        CFGSXXBID,
+      </if>
+      <if test="cfrcbid != null" >
+        CFRCBID,
+      </if>
+      <if test="yqhid != null" >
+        YQHID,
+      </if>
+      <if test="ysqfyjid != null" >
+        YSQFYJID,
+      </if>
+      <if test="cgrwhysspyjbid != null" >
+        CGRWHYSSPYJBID,
+      </if>
+      <if test="xnsqbid != null" >
+        XNSQBID,
+      </if>
+      <if test="cfsc != null" >
+        CFSC,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cgid != null" >
@@ -517,6 +566,36 @@
       </if>
       <if test="operator != null" >
         #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="ysfbjzljj != null" >
+        #{ysfbjzljj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfrwjj != null" >
+        #{cfrwjj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfyy != null" >
+        #{cfyy,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgsxxbid != null" >
+        #{cfgsxxbid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfrcbid != null" >
+        #{cfrcbid,jdbcType=VARCHAR},
+      </if>
+      <if test="yqhid != null" >
+        #{yqhid,jdbcType=VARCHAR},
+      </if>
+      <if test="ysqfyjid != null" >
+        #{ysqfyjid,jdbcType=VARCHAR},
+      </if>
+      <if test="cgrwhysspyjbid != null" >
+        #{cgrwhysspyjbid,jdbcType=VARCHAR},
+      </if>
+      <if test="xnsqbid != null" >
+        #{xnsqbid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfsc != null" >
+        #{cfsc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -673,6 +752,36 @@
       <if test="record.operator != null" >
         OPERATOR = #{record.operator,jdbcType=VARCHAR},
       </if>
+      <if test="record.ysfbjzljj != null" >
+        YSFBJZLJJ = #{record.ysfbjzljj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfrwjj != null" >
+        CFRWJJ = #{record.cfrwjj,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfyy != null" >
+        CFYY = #{record.cfyy,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfgsxxbid != null" >
+        CFGSXXBID = #{record.cfgsxxbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfrcbid != null" >
+        CFRCBID = #{record.cfrcbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqhid != null" >
+        YQHID = #{record.yqhid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ysqfyjid != null" >
+        YSQFYJID = #{record.ysqfyjid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cgrwhysspyjbid != null" >
+        CGRWHYSSPYJBID = #{record.cgrwhysspyjbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.xnsqbid != null" >
+        XNSQBID = #{record.xnsqbid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cfsc != null" >
+        CFSC = #{record.cfsc,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -727,7 +836,17 @@
       CFZJBGID = #{record.cfzjbgid,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      OPERATOR = #{record.operator,jdbcType=VARCHAR}
+      OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      YSFBJZLJJ = #{record.ysfbjzljj,jdbcType=VARCHAR},
+      CFRWJJ = #{record.cfrwjj,jdbcType=VARCHAR},
+      CFYY = #{record.cfyy,jdbcType=VARCHAR},
+      CFGSXXBID = #{record.cfgsxxbid,jdbcType=VARCHAR},
+      CFRCBID = #{record.cfrcbid,jdbcType=VARCHAR},
+      YQHID = #{record.yqhid,jdbcType=VARCHAR},
+      YSQFYJID = #{record.ysqfyjid,jdbcType=VARCHAR},
+      CGRWHYSSPYJBID = #{record.cgrwhysspyjbid,jdbcType=VARCHAR},
+      XNSQBID = #{record.xnsqbid,jdbcType=VARCHAR},
+      CFSC = #{record.cfsc,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -876,6 +995,36 @@
       <if test="operator != null" >
         OPERATOR = #{operator,jdbcType=VARCHAR},
       </if>
+      <if test="ysfbjzljj != null" >
+        YSFBJZLJJ = #{ysfbjzljj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfrwjj != null" >
+        CFRWJJ = #{cfrwjj,jdbcType=VARCHAR},
+      </if>
+      <if test="cfyy != null" >
+        CFYY = #{cfyy,jdbcType=VARCHAR},
+      </if>
+      <if test="cfgsxxbid != null" >
+        CFGSXXBID = #{cfgsxxbid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfrcbid != null" >
+        CFRCBID = #{cfrcbid,jdbcType=VARCHAR},
+      </if>
+      <if test="yqhid != null" >
+        YQHID = #{yqhid,jdbcType=VARCHAR},
+      </if>
+      <if test="ysqfyjid != null" >
+        YSQFYJID = #{ysqfyjid,jdbcType=VARCHAR},
+      </if>
+      <if test="cgrwhysspyjbid != null" >
+        CGRWHYSSPYJBID = #{cgrwhysspyjbid,jdbcType=VARCHAR},
+      </if>
+      <if test="xnsqbid != null" >
+        XNSQBID = #{xnsqbid,jdbcType=VARCHAR},
+      </if>
+      <if test="cfsc != null" >
+        CFSC = #{cfsc,jdbcType=VARCHAR},
+      </if>
     </set>
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
@@ -927,7 +1076,17 @@
       CFZJBGID = #{cfzjbgid,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      OPERATOR = #{operator,jdbcType=VARCHAR}
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      YSFBJZLJJ = #{ysfbjzljj,jdbcType=VARCHAR},
+      CFRWJJ = #{cfrwjj,jdbcType=VARCHAR},
+      CFYY = #{cfyy,jdbcType=VARCHAR},
+      CFGSXXBID = #{cfgsxxbid,jdbcType=VARCHAR},
+      CFRCBID = #{cfrcbid,jdbcType=VARCHAR},
+      YQHID = #{yqhid,jdbcType=VARCHAR},
+      YSQFYJID = #{ysqfyjid,jdbcType=VARCHAR},
+      CGRWHYSSPYJBID = #{cgrwhysspyjbid,jdbcType=VARCHAR},
+      XNSQBID = #{xnsqbid,jdbcType=VARCHAR},
+      CFSC = #{cfsc,jdbcType=VARCHAR}
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
 </mapper>

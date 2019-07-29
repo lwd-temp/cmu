@@ -51,7 +51,7 @@
                 {name:'xb',index:'xb', phoneHide:true, width:'2',  formatter:function(xb,options,rowObject){
                         return dmcache.getCode('t_dm_xb',xb);
                     }},
-                {name:'ssejdw',index:'ssejdw', hidden:true },
+                {name:'ssejdw',index:'ssejdw',width:'2', hidden:true },
                 {name:'ssejdwmc',index:'ssejdwmc' ,phoneHide:true,width:'5' },
                 {name:'cfgj',index:'cfgj',width:'5' },
                 {name:'writed',index:'writed',width:'5',formatter:function(status){

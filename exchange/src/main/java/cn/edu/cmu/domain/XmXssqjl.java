@@ -115,7 +115,7 @@ public class XmXssqjl {
     private String jlgjdqm;
 
     /**
-     * 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
+     * 心理测评值 A 合格 B不合格 C 待定
      */
     private String xlcp;
 
@@ -160,10 +160,15 @@ public class XmXssqjl {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-11-22
+     * 上传文件位置
      */
-    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selfPay, String valid, Date createTime) {
+    private String scwjid;
+
+    /**
+     *
+     * @mbggenerated 2019-07-24
+     */
+    public XmXssqjl(String sqjlId, String xmId, String xmzm, String xmmc, String xh, String xm, String gender, String yxdm, String yxmc, String rxn, String nj, String zyh, String zymc, String bjh, String bjmc, String chpm, String zhpj, String yysp, String phone, String email, BigDecimal zzje, String jlgjdqm, String xlcp, String status, String confirmStatus, String isconfirm1, String isconfirm2, String fsyj, String selfPay, String valid, Date createTime, String scwjid) {
         this.sqjlId = sqjlId;
         this.xmId = xmId;
         this.xmzm = xmzm;
@@ -195,11 +200,12 @@ public class XmXssqjl {
         this.selfPay = selfPay;
         this.valid = valid;
         this.createTime = createTime;
+        this.scwjid = scwjid;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public XmXssqjl() {
         super();
@@ -558,16 +564,16 @@ public class XmXssqjl {
     }
 
     /**
-     * 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
-     * @return XLCP 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
+     * 心理测评值 A 合格 B不合格 C 待定
+     * @return XLCP 心理测评值 A 合格 B不合格 C 待定
      */
     public String getXlcp() {
         return xlcp;
     }
 
     /**
-     * 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
-     * @param xlcp 默认值为“A”，其他值为“B”  此字段学生不可见。参与程序判断
+     * 心理测评值 A 合格 B不合格 C 待定
+     * @param xlcp 心理测评值 A 合格 B不合格 C 待定
      */
     public void setXlcp(String xlcp) {
         this.xlcp = xlcp == null ? null : xlcp.trim();
@@ -702,8 +708,24 @@ public class XmXssqjl {
     }
 
     /**
+     * 上传文件位置
+     * @return SCWJID 上传文件位置
+     */
+    public String getScwjid() {
+        return scwjid;
+    }
+
+    /**
+     * 上传文件位置
+     * @param scwjid 上传文件位置
+     */
+    public void setScwjid(String scwjid) {
+        this.scwjid = scwjid == null ? null : scwjid.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     @Override
     public String toString() {
@@ -742,6 +764,7 @@ public class XmXssqjl {
         sb.append(", selfPay=").append(selfPay);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", scwjid=").append(scwjid);
         sb.append("]");
         return sb.toString();
     }

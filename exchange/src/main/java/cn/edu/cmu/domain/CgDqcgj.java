@@ -245,10 +245,60 @@ public class CgDqcgj {
     private String operator;
 
     /**
-     *
-     * @mbggenerated 2019-06-28
+     * 邀请方背景资料简介
      */
-    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator) {
+    private String ysfbjzljj;
+
+    /**
+     * 出访任务简介
+     */
+    private String cfrwjj;
+
+    /**
+     * 出访意义
+     */
+    private String cfyy;
+
+    /**
+     * 出访团组公示信息表
+     */
+    private String cfgsxxbid;
+
+    /**
+     * 出访团组日程表
+     */
+    private String cfrcbid;
+
+    /**
+     * 邀请函
+     */
+    private String yqhid;
+
+    /**
+     * 邀请函翻译件
+     */
+    private String ysqfyjid;
+
+    /**
+     * 因公临时出国任务和预算审批意见表
+     */
+    private String cgrwhysspyjbid;
+
+    /**
+     * 校内审签表
+     */
+    private String xnsqbid;
+
+    /**
+     * 出访时长
+     */
+    private String cfsc;
+
+    /**
+     *
+     * @mbggenerated 2019-07-25
+     */
+    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator, String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid, String cfrcbid, String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String cfsc) {
         this.cgid = cgid;
         this.cglx = cglx;
         this.xm = xm;
@@ -297,11 +347,21 @@ public class CgDqcgj {
         this.valid = valid;
         this.createTime = createTime;
         this.operator = operator;
+        this.ysfbjzljj = ysfbjzljj;
+        this.cfrwjj = cfrwjj;
+        this.cfyy = cfyy;
+        this.cfgsxxbid = cfgsxxbid;
+        this.cfrcbid = cfrcbid;
+        this.yqhid = yqhid;
+        this.ysqfyjid = ysqfyjid;
+        this.cgrwhysspyjbid = cgrwhysspyjbid;
+        this.xnsqbid = xnsqbid;
+        this.cfsc = cfsc;
     }
 
     /**
      *
-     * @mbggenerated 2019-06-28
+     * @mbggenerated 2019-07-25
      */
     public CgDqcgj() {
         super();
@@ -1076,8 +1136,168 @@ public class CgDqcgj {
     }
 
     /**
+     * 邀请方背景资料简介
+     * @return YSFBJZLJJ 邀请方背景资料简介
+     */
+    public String getYsfbjzljj() {
+        return ysfbjzljj;
+    }
+
+    /**
+     * 邀请方背景资料简介
+     * @param ysfbjzljj 邀请方背景资料简介
+     */
+    public void setYsfbjzljj(String ysfbjzljj) {
+        this.ysfbjzljj = ysfbjzljj == null ? null : ysfbjzljj.trim();
+    }
+
+    /**
+     * 出访任务简介
+     * @return CFRWJJ 出访任务简介
+     */
+    public String getCfrwjj() {
+        return cfrwjj;
+    }
+
+    /**
+     * 出访任务简介
+     * @param cfrwjj 出访任务简介
+     */
+    public void setCfrwjj(String cfrwjj) {
+        this.cfrwjj = cfrwjj == null ? null : cfrwjj.trim();
+    }
+
+    /**
+     * 出访意义
+     * @return CFYY 出访意义
+     */
+    public String getCfyy() {
+        return cfyy;
+    }
+
+    /**
+     * 出访意义
+     * @param cfyy 出访意义
+     */
+    public void setCfyy(String cfyy) {
+        this.cfyy = cfyy == null ? null : cfyy.trim();
+    }
+
+    /**
+     * 出访团组公示信息表
+     * @return CFGSXXBID 出访团组公示信息表
+     */
+    public String getCfgsxxbid() {
+        return cfgsxxbid;
+    }
+
+    /**
+     * 出访团组公示信息表
+     * @param cfgsxxbid 出访团组公示信息表
+     */
+    public void setCfgsxxbid(String cfgsxxbid) {
+        this.cfgsxxbid = cfgsxxbid == null ? null : cfgsxxbid.trim();
+    }
+
+    /**
+     * 出访团组日程表
+     * @return CFRCBID 出访团组日程表
+     */
+    public String getCfrcbid() {
+        return cfrcbid;
+    }
+
+    /**
+     * 出访团组日程表
+     * @param cfrcbid 出访团组日程表
+     */
+    public void setCfrcbid(String cfrcbid) {
+        this.cfrcbid = cfrcbid == null ? null : cfrcbid.trim();
+    }
+
+    /**
+     * 邀请函
+     * @return YQHID 邀请函
+     */
+    public String getYqhid() {
+        return yqhid;
+    }
+
+    /**
+     * 邀请函
+     * @param yqhid 邀请函
+     */
+    public void setYqhid(String yqhid) {
+        this.yqhid = yqhid == null ? null : yqhid.trim();
+    }
+
+    /**
+     * 邀请函翻译件
+     * @return YSQFYJID 邀请函翻译件
+     */
+    public String getYsqfyjid() {
+        return ysqfyjid;
+    }
+
+    /**
+     * 邀请函翻译件
+     * @param ysqfyjid 邀请函翻译件
+     */
+    public void setYsqfyjid(String ysqfyjid) {
+        this.ysqfyjid = ysqfyjid == null ? null : ysqfyjid.trim();
+    }
+
+    /**
+     * 因公临时出国任务和预算审批意见表
+     * @return CGRWHYSSPYJBID 因公临时出国任务和预算审批意见表
+     */
+    public String getCgrwhysspyjbid() {
+        return cgrwhysspyjbid;
+    }
+
+    /**
+     * 因公临时出国任务和预算审批意见表
+     * @param cgrwhysspyjbid 因公临时出国任务和预算审批意见表
+     */
+    public void setCgrwhysspyjbid(String cgrwhysspyjbid) {
+        this.cgrwhysspyjbid = cgrwhysspyjbid == null ? null : cgrwhysspyjbid.trim();
+    }
+
+    /**
+     * 校内审签表
+     * @return XNSQBID 校内审签表
+     */
+    public String getXnsqbid() {
+        return xnsqbid;
+    }
+
+    /**
+     * 校内审签表
+     * @param xnsqbid 校内审签表
+     */
+    public void setXnsqbid(String xnsqbid) {
+        this.xnsqbid = xnsqbid == null ? null : xnsqbid.trim();
+    }
+
+    /**
+     * 出访时长
+     * @return CFSC 出访时长
+     */
+    public String getCfsc() {
+        return cfsc;
+    }
+
+    /**
+     * 出访时长
+     * @param cfsc 出访时长
+     */
+    public void setCfsc(String cfsc) {
+        this.cfsc = cfsc == null ? null : cfsc.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-06-28
+     * @mbggenerated 2019-07-25
      */
     @Override
     public String toString() {
@@ -1133,6 +1353,16 @@ public class CgDqcgj {
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append(", operator=").append(operator);
+        sb.append(", ysfbjzljj=").append(ysfbjzljj);
+        sb.append(", cfrwjj=").append(cfrwjj);
+        sb.append(", cfyy=").append(cfyy);
+        sb.append(", cfgsxxbid=").append(cfgsxxbid);
+        sb.append(", cfrcbid=").append(cfrcbid);
+        sb.append(", yqhid=").append(yqhid);
+        sb.append(", ysqfyjid=").append(ysqfyjid);
+        sb.append(", cgrwhysspyjbid=").append(cgrwhysspyjbid);
+        sb.append(", xnsqbid=").append(xnsqbid);
+        sb.append(", cfsc=").append(cfsc);
         sb.append("]");
         return sb.toString();
     }

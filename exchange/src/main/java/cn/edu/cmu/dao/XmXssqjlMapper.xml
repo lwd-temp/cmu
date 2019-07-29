@@ -34,6 +34,7 @@
       <arg column="SELF_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SCWJID" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -141,7 +142,7 @@
   <sql id="Base_Column_List" >
     SQJL_ID, XM_ID, XMZM, XMMC, XH, XM, GENDER, YXDM, YXMC, RXN, NJ, ZYH, ZYMC, BJH, 
     BJMC, CHPM, ZHPJ, YYSP, PHONE, EMAIL, ZZJE, JLGJDQM, XLCP, STATUS, CONFIRM_STATUS, 
-    ISCONFIRM1, ISCONFIRM2, FSYJ, SELF_PAY, VALID, CREATE_TIME
+    ISCONFIRM1, ISCONFIRM2, FSYJ, SELF_PAY, VALID, CREATE_TIME, SCWJID
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjlParams" >
     select
@@ -183,8 +184,8 @@
       EMAIL, ZZJE, JLGJDQM, 
       XLCP, STATUS, CONFIRM_STATUS, 
       ISCONFIRM1, ISCONFIRM2, FSYJ, 
-      SELF_PAY, VALID, CREATE_TIME
-      )
+      SELF_PAY, VALID, CREATE_TIME, 
+      SCWJID)
     values (#{sqjlId,jdbcType=VARCHAR}, #{xmId,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{xmmc,jdbcType=VARCHAR}, #{xh,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
       #{yxdm,jdbcType=VARCHAR}, #{yxmc,jdbcType=VARCHAR}, #{rxn,jdbcType=VARCHAR}, #{nj,jdbcType=VARCHAR}, 
@@ -193,8 +194,8 @@
       #{email,jdbcType=VARCHAR}, #{zzje,jdbcType=DECIMAL}, #{jlgjdqm,jdbcType=VARCHAR}, 
       #{xlcp,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=VARCHAR}, 
       #{isconfirm1,jdbcType=VARCHAR}, #{isconfirm2,jdbcType=VARCHAR}, #{fsyj,jdbcType=VARCHAR}, 
-      #{selfPay,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
-      )
+      #{selfPay,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{scwjid,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.XmXssqjl" >
     insert into T_XM_XSSQJL
@@ -292,6 +293,9 @@
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
+      <if test="scwjid != null" >
+        SCWJID,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="sqjlId != null" >
@@ -386,6 +390,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="scwjid != null" >
+        #{scwjid,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -491,6 +498,9 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.scwjid != null" >
+        SCWJID = #{record.scwjid,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -528,7 +538,8 @@
       FSYJ = #{record.fsyj,jdbcType=VARCHAR},
       SELF_PAY = #{record.selfPay,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      SCWJID = #{record.scwjid,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -626,6 +637,9 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="scwjid != null" >
+        SCWJID = #{scwjid,jdbcType=VARCHAR},
+      </if>
     </set>
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
   </update>
@@ -660,7 +674,8 @@
       FSYJ = #{fsyj,jdbcType=VARCHAR},
       SELF_PAY = #{selfPay,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      SCWJID = #{scwjid,jdbcType=VARCHAR}
     where SQJL_ID = #{sqjlId,jdbcType=VARCHAR}
   </update>
 </mapper>

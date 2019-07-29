@@ -23,7 +23,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public XmXssqjlParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class XmXssqjlParams {
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-07-24
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class XmXssqjlParams {
     }
 
     /**
-     * T_XM_XSSQJL 2018-11-22
+     * T_XM_XSSQJL 2019-07-24
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2311,6 +2311,76 @@ public class XmXssqjlParams {
             addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
+
+        public Criteria andScwjidIsNull() {
+            addCriterion("SCWJID is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidIsNotNull() {
+            addCriterion("SCWJID is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidEqualTo(String value) {
+            addCriterion("SCWJID =", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidNotEqualTo(String value) {
+            addCriterion("SCWJID <>", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidGreaterThan(String value) {
+            addCriterion("SCWJID >", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidGreaterThanOrEqualTo(String value) {
+            addCriterion("SCWJID >=", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidLessThan(String value) {
+            addCriterion("SCWJID <", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidLessThanOrEqualTo(String value) {
+            addCriterion("SCWJID <=", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidLike(String value) {
+            addCriterion("SCWJID like", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidNotLike(String value) {
+            addCriterion("SCWJID not like", value, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidIn(List<String> values) {
+            addCriterion("SCWJID in", values, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidNotIn(List<String> values) {
+            addCriterion("SCWJID not in", values, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidBetween(String value1, String value2) {
+            addCriterion("SCWJID between", value1, value2, "scwjid");
+            return (Criteria) this;
+        }
+
+        public Criteria andScwjidNotBetween(String value1, String value2) {
+            addCriterion("SCWJID not between", value1, value2, "scwjid");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2324,7 +2394,7 @@ public class XmXssqjlParams {
     }
 
     /**
-     * T_XM_XSSQJL 2018-11-22
+     * T_XM_XSSQJL 2019-07-24
      */
     public static class Criterion {
         private String condition;

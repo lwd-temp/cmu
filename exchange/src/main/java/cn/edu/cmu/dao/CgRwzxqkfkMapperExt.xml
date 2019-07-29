@@ -55,6 +55,16 @@
       <arg column="WRITED" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SSEJDWMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YSFBJZLJJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFRWJJ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFYY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFGSXXBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFRCBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YQHID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YSQFYJID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CGRWHYSSPYJBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="XNSQBID" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="CFSC" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
 
@@ -64,10 +74,10 @@
     zj.rwfk_id zjid ,
     un.ssejdwmc ssejdwmc,
     decode(zj.rwfk_id,null,'0','1') writed,
-    cgid, cglx, xm, xb, csrq, csd, hjszd, sfzh, ssejdw, ks, zw, zc, lxdh, email, nncfcs, qtshrz,
-    cfgj, rjcs, tzid, cfksrq, cfjsrq, cfmd, cfmd_qt, yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en,
-    yqr_zw_en, yqr_dw_en, yqr_xxdz_en, yqr_dh_en, jfly, jfysmx, jfyshj, sqbsm, sqrq,
-    status, shjg, shry, shyj, shrq, gdwjid, cfzjbgid, valid, create_time,'',operator
+    cgid,  cglx, xm,  xb,csrq,  csd,  hjszd,  sfzh,  ssejdw, ks, zw, zc, lxdh,  email,  nncfcs, qtshrz, cfgj,
+    rjcs, tzid, cfksrq,  cfjsrq,  cfmd,  cfmd_qt, yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en, yqr_zw_en, yqr_dw_en,
+    yqr_xxdz_en, yqr_dh_en, jfly,  jfysmx,  jfyshj,  sqbsm,  sqrq,  status,  shjg, shry,shyj, shrq, gdwjid, cfzjbgid,
+    valid,create_time,'',operator,ysfbjzljj, cfrwjj, cfyy, cfgsxxbid,cfrcbid, cfsc, yqhid,ysqfyjid,cgrwhysspyjbid, xnsqbid
     from t_cg_dqcgj
     left join (select rwfk_id ,cgid zjsbid  from t_cg_rwzxqkfk ) zj on cgid = zj.zjsbid
     left join (select unit_id ,name ssejdwmc from v_uicm_unit ) un on ssejdw = un.unit_id

@@ -72,7 +72,6 @@ public class CgDqcgjExtController extends BaseController {
 
 
         CgDqcgj cgDqcgj = cgDqcgjService.queryById(id);
-
         //先把申请表信息更新到表中
         if(sqbsm!=null&&sqbsm!=""){
             cgDqcgj.setSqbsm(sqbsm);
@@ -134,6 +133,7 @@ public class CgDqcgjExtController extends BaseController {
 
         variables.put("jfly"	,	cgDqcgj.getJfly());
         variables.put("jfysmx"	,	cgDqcgj.getJfysmx());
+        variables.put("cfsc"	,	cgDqcgj.getCfsc());
 
         return variables;
     }

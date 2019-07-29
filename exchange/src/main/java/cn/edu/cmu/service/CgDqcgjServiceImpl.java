@@ -127,9 +127,9 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
         cgDqcgj = dao.selectByPrimaryKey(cgDqcgj.getCgid());
         if(CmuConstants.DQCGJ.STATUS_BACK.equals(cgDqcgj.getStatus())){
 
-            String title =          ResourceBundleUtils.getString("ifs.wechat.dqcgj.shth.title");//【通知】护照半年到期提醒
+            String title =          ResourceBundleUtils.getString("ifs.wechat.dqcgj.shth.title");//【通知】短期出国境审核
             String description =    ResourceBundleUtils.getString("ifs.wechat.dqcgj.shth.description");//国际事务部通知
-            String content =        ResourceBundleUtils.getString("ifs.wechat.dqcgj.shth.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+            String content =        ResourceBundleUtils.getString("ifs.wechat.dqcgj.shth.content");//尊敬的老师您好，您的短期出国境申请已退回，请知悉。
 
             SysThreadPoolRunner.submit(new WeChartUtils("", cgDqcgj.getOperator(), title, description, content));
         }

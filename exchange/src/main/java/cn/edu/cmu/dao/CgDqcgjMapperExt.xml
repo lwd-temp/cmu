@@ -17,12 +17,12 @@
         F_GetTableText('T_CG_TZJH', 'TZID', 'TZH', TZID) tzid,
         F_GetTableText('T_CG_RWZXQKFK', 'CGID', 'TZZDW', CGID) ssejdw,
 
-        cgid, xm, csrq, csd, hjszd, sfzh, ks, zw, zc, lxdh,
-        email, nncfcs, qtshrz, cfgj, rjcs, cfksrq, cfjsrq, cfmd_qt,
+        cgid, xm, csrq,  csd,  hjszd,  sfzh, ks, zw, zc, lxdh,
+        email,  nncfcs, qtshrz, cfgj,  rjcs, cfksrq,  cfjsrq, cfmd_qt,
         yqr_xm, yqr_zw, yqr_dw, yqr_xxdz, yqr_dh, yqr_xm_en, yqr_zw_en, yqr_dw_en,
-        yqr_xxdz_en, yqr_dh_en, jfly, jfysmx, jfyshj, sqbsm, sqrq, status, shry,
-        shyj, shrq, gdwjid, cfzjbgid, valid, create_time, operator
-
+        yqr_xxdz_en, yqr_dh_en,jfly,  jfysmx,  jfyshj,  sqbsm,  sqrq,  status, shry,
+        shyj, shrq, gdwjid, cfzjbgid, valid, create_time, operator, ysfbjzljj, cfrwjj, cfyy,
+        cfgsxxbid, cfrcbid, yqhid, ysqfyjid, cgrwhysspyjbid, xnsqbid, cfsc
         from T_CG_DQCGJ
          <if test="_parameter != null" >
              /*此处应用的refid 是其他Mapper中写好的*/

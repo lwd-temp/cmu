@@ -221,6 +221,22 @@
                     <%--</div>--%>
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
+                    <div class="col-xs-10">
+                        <textarea name="ysfbjzljj" id="ysfbjzljj" disabled="disabled"  cols="120" rows="10">${cgdqcgj.ysfbjzljj}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访任务简介  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfrwjj" value="${cgdqcgj.cfrwjj}"  placeholder="请输入出访任务简介" disabled="disabled"   class="col-xs-12" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访意义  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfyy" value="${cgdqcgj.cfyy}"  placeholder="请输入出访意义"  disabled="disabled"  class="col-xs-12" />
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
                     <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="t_dm_cgsqlx"  name="cglx" id="cglx" value="${cgdqcgj.cglx}" disabled="disabled"   data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>

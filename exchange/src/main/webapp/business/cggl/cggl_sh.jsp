@@ -48,7 +48,7 @@
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
+                <input type="text" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>
@@ -220,6 +220,22 @@
                     <%--<div class="col-xs-12 col-sm-4">--%>
                         <%--<input type="text"  name="yqrDhEn"   value="${cgdqcgj.yqrDhEn}"  readonly="readonly"       class="col-xs-12" />--%>
                     <%--</div>--%>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
+                    <div class="col-xs-10">
+                        <textarea name="ysfbjzljj" id="ysfbjzljj" disabled="disabled" disabled="disabled" cols="120" rows="10">${cgdqcgj.ysfbjzljj}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访任务简介  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfrwjj" value="${cgdqcgj.cfrwjj}" disabled="disabled" disabled="disabled" placeholder="请输入出访任务简介"    class="col-xs-12" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 出访意义  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="cfyy" value="${cgdqcgj.cfyy}" disabled="disabled" disabled="disabled" placeholder="请输入出访意义"    class="col-xs-12" />
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
