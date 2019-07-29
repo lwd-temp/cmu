@@ -36,6 +36,7 @@
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="YYYQSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="GBDQ" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -143,7 +144,8 @@
   <sql id="Base_Column_List" >
     XM_ID, XMLX, XMZM, GLXMMCID, XMMC, XMBH, XMKSSJ, SMJSSJ, XMJLTS, XMCC, JFLY, ZJJE, 
     XMGK, XMZZJH, JLMBJGMC, FYBZ, ZYSM, SFXZRS, JHRS, CCXZ, XMNJXZ, YYYQ, XMZYXZ, GSYXDM, 
-    GSYXMC, GSXSDM, GSXSXM, OPERATOR_CODE, BMJZSJ, STATUS, VALID, CREATE_TIME, YYYQSM
+    GSYXMC, GSXSDM, GSXSXM, OPERATOR_CODE, BMJZSJ, STATUS, VALID, CREATE_TIME, YYYQSM, 
+    GBDQ
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmParams" >
     select
@@ -187,7 +189,8 @@
       XMZYXZ, GSYXDM, GSYXMC, 
       GSXSDM, GSXSXM, OPERATOR_CODE, 
       BMJZSJ, STATUS, VALID, 
-      CREATE_TIME, YYYQSM)
+      CREATE_TIME, YYYQSM, GBDQ
+      )
     values (#{xmId,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{glxmmcid,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, #{xmbh,jdbcType=VARCHAR}, 
       #{xmkssj,jdbcType=TIMESTAMP}, #{smjssj,jdbcType=TIMESTAMP}, #{xmjlts,jdbcType=DECIMAL}, 
@@ -198,7 +201,8 @@
       #{xmzyxz,jdbcType=VARCHAR}, #{gsyxdm,jdbcType=VARCHAR}, #{gsyxmc,jdbcType=VARCHAR}, 
       #{gsxsdm,jdbcType=VARCHAR}, #{gsxsxm,jdbcType=VARCHAR}, #{operatorCode,jdbcType=VARCHAR}, 
       #{bmjzsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP}, #{yyyqsm,jdbcType=VARCHAR})
+      #{createTime,jdbcType=TIMESTAMP}, #{yyyqsm,jdbcType=VARCHAR}, #{gbdq,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Xm" >
     insert into T_XM
@@ -302,6 +306,9 @@
       <if test="yyyqsm != null" >
         YYYQSM,
       </if>
+      <if test="gbdq != null" >
+        GBDQ,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="xmId != null" >
@@ -402,6 +409,9 @@
       </if>
       <if test="yyyqsm != null" >
         #{yyyqsm,jdbcType=VARCHAR},
+      </if>
+      <if test="gbdq != null" >
+        #{gbdq,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -513,6 +523,9 @@
       <if test="record.yyyqsm != null" >
         YYYQSM = #{record.yyyqsm,jdbcType=VARCHAR},
       </if>
+      <if test="record.gbdq != null" >
+        GBDQ = #{record.gbdq,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -552,7 +565,8 @@
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      YYYQSM = #{record.yyyqsm,jdbcType=VARCHAR}
+      YYYQSM = #{record.yyyqsm,jdbcType=VARCHAR},
+      GBDQ = #{record.gbdq,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -656,6 +670,9 @@
       <if test="yyyqsm != null" >
         YYYQSM = #{yyyqsm,jdbcType=VARCHAR},
       </if>
+      <if test="gbdq != null" >
+        GBDQ = #{gbdq,jdbcType=VARCHAR},
+      </if>
     </set>
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </update>
@@ -692,7 +709,8 @@
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      YYYQSM = #{yyyqsm,jdbcType=VARCHAR}
+      YYYQSM = #{yyyqsm,jdbcType=VARCHAR},
+      GBDQ = #{gbdq,jdbcType=VARCHAR}
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -170,10 +170,15 @@ public class Xm {
     private String yyyqsm;
 
     /**
-     *
-     * @mbggenerated 2019-06-25
+     * 国别地区
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm) {
+    private String gbdq;
+
+    /**
+     *
+     * @mbggenerated 2019-07-29
+     */
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm, String gbdq) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -207,11 +212,12 @@ public class Xm {
         this.valid = valid;
         this.createTime = createTime;
         this.yyyqsm = yyyqsm;
+        this.gbdq = gbdq;
     }
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public Xm() {
         super();
@@ -746,8 +752,24 @@ public class Xm {
     }
 
     /**
+     * 国别地区
+     * @return GBDQ 国别地区
+     */
+    public String getGbdq() {
+        return gbdq;
+    }
+
+    /**
+     * 国别地区
+     * @param gbdq 国别地区
+     */
+    public void setGbdq(String gbdq) {
+        this.gbdq = gbdq == null ? null : gbdq.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     @Override
     public String toString() {
@@ -788,6 +810,7 @@ public class Xm {
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append(", yyyqsm=").append(yyyqsm);
+        sb.append(", gbdq=").append(gbdq);
         sb.append("]");
         return sb.toString();
     }

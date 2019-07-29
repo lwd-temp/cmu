@@ -23,7 +23,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public XmParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class XmParams {
 
     /**
      *
-     * @mbggenerated 2019-06-25
+     * @mbggenerated 2019-07-29
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class XmParams {
     }
 
     /**
-     * T_XM 2019-06-25
+     * T_XM 2019-07-29
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2401,6 +2401,76 @@ public class XmParams {
             addCriterion("YYYQSM not between", value1, value2, "yyyqsm");
             return (Criteria) this;
         }
+
+        public Criteria andGbdqIsNull() {
+            addCriterion("GBDQ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqIsNotNull() {
+            addCriterion("GBDQ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqEqualTo(String value) {
+            addCriterion("GBDQ =", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqNotEqualTo(String value) {
+            addCriterion("GBDQ <>", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqGreaterThan(String value) {
+            addCriterion("GBDQ >", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqGreaterThanOrEqualTo(String value) {
+            addCriterion("GBDQ >=", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqLessThan(String value) {
+            addCriterion("GBDQ <", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqLessThanOrEqualTo(String value) {
+            addCriterion("GBDQ <=", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqLike(String value) {
+            addCriterion("GBDQ like", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqNotLike(String value) {
+            addCriterion("GBDQ not like", value, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqIn(List<String> values) {
+            addCriterion("GBDQ in", values, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqNotIn(List<String> values) {
+            addCriterion("GBDQ not in", values, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqBetween(String value1, String value2) {
+            addCriterion("GBDQ between", value1, value2, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andGbdqNotBetween(String value1, String value2) {
+            addCriterion("GBDQ not between", value1, value2, "gbdq");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2414,7 +2484,7 @@ public class XmParams {
     }
 
     /**
-     * T_XM 2019-06-25
+     * T_XM 2019-07-29
      */
     public static class Criterion {
         private String condition;

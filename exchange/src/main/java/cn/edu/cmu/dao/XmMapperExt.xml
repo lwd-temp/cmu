@@ -41,6 +41,7 @@
             <arg column="IS_COMFIRM2" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SELF_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="YYYQSM" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="GBDQ" jdbcType="VARCHAR" javaType="java.lang.String" />
         </constructor>
     </resultMap>
 
