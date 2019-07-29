@@ -172,7 +172,7 @@
         parent.layer.close(index);
 
         parent.layer.newpage({
-            area: ['1100px', ($(window).height()-10)+"px"],
+            area: ['1100px', "750px"],
             title:'申报会议',
             content:'hysb/jh2sb?id='+jhid,
         });

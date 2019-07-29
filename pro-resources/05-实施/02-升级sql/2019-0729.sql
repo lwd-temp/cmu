@@ -18,4 +18,11 @@ alter table T_XM add gbdq VARCHAR2(50);
 -- Add comments to the columns
 comment on column T_XM.gbdq
   is '国别地区';
+
+删掉字段 FYBZ
+-- Add/modify columns
+alter table T_XM add FYBZ VARCHAR2(50);
+-- Add comments to the columns
+comment on column T_XM.FYBZ2
+  is '项目收费标准';
 -----------------已执行 2019年7月29日09:55:22--------------------------------

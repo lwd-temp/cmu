@@ -18,7 +18,7 @@
             <arg column="XMGK" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="XMZZJH" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="JLMBJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
-            <arg column="FYBZ" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+            <arg column="FYBZ" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -91,6 +91,7 @@
             t.STATUS			as STATUS				,
             t.VALID			as VALID				,
             t.CREATE_TIME	as CREATE_TIME		,
+            t.GBDQ          as  GBDQ      ,
 
 
           nvl(jl.status,'00')||  '-' || nvl(jl.confirm_status,'00') as   SQ_STATUS,
@@ -161,6 +162,7 @@
         t.STATUS			as STATUS				,
         t.VALID			as VALID				,
         t.CREATE_TIME	as CREATE_TIME		,
+        t.GBDQ          as  GBDQ      ,
 
 
         nvl(jl.status,'00')||  '-' || nvl(jl.confirm_status,'00') as   SQ_STATUS,
@@ -325,7 +327,7 @@
                 </if>
                 <if test="xmzm != null" >
                     <bind name="xmzmLike" value="'%' + xmzm + '%'"/>
-                    and xmzm like #{xmzmLike}
+                    or xmzm like #{xmzmLike}
                 </if>
                 <if test="gbdq != null and gbdq != ''"  >
                     and gbdq = #{gbdq,jdbcType=VARCHAR}

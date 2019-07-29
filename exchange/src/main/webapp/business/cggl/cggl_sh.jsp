@@ -48,7 +48,7 @@
     <div class="tabbable">
         <div class="tab-content">
             <div id="home" class="tab-pane fade in active">
-                <input type="text" name="status" id="status" value="${cgdqcgj.status}" />
+                <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>

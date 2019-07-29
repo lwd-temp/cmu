@@ -1182,66 +1182,6 @@ public class XmParams {
             return (Criteria) this;
         }
 
-        public Criteria andFybzIsNull() {
-            addCriterion("FYBZ is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzIsNotNull() {
-            addCriterion("FYBZ is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzEqualTo(BigDecimal value) {
-            addCriterion("FYBZ =", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzNotEqualTo(BigDecimal value) {
-            addCriterion("FYBZ <>", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzGreaterThan(BigDecimal value) {
-            addCriterion("FYBZ >", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("FYBZ >=", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzLessThan(BigDecimal value) {
-            addCriterion("FYBZ <", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("FYBZ <=", value, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzIn(List<BigDecimal> values) {
-            addCriterion("FYBZ in", values, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzNotIn(List<BigDecimal> values) {
-            addCriterion("FYBZ not in", values, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("FYBZ between", value1, value2, "fybz");
-            return (Criteria) this;
-        }
-
-        public Criteria andFybzNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("FYBZ not between", value1, value2, "fybz");
-            return (Criteria) this;
-        }
-
         public Criteria andZysmIsNull() {
             addCriterion("ZYSM is null");
             return (Criteria) this;
@@ -2469,6 +2409,76 @@ public class XmParams {
 
         public Criteria andGbdqNotBetween(String value1, String value2) {
             addCriterion("GBDQ not between", value1, value2, "gbdq");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzIsNull() {
+            addCriterion("FYBZ is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzIsNotNull() {
+            addCriterion("FYBZ is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzEqualTo(String value) {
+            addCriterion("FYBZ =", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzNotEqualTo(String value) {
+            addCriterion("FYBZ <>", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzGreaterThan(String value) {
+            addCriterion("FYBZ >", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzGreaterThanOrEqualTo(String value) {
+            addCriterion("FYBZ >=", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzLessThan(String value) {
+            addCriterion("FYBZ <", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzLessThanOrEqualTo(String value) {
+            addCriterion("FYBZ <=", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzLike(String value) {
+            addCriterion("FYBZ like", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzNotLike(String value) {
+            addCriterion("FYBZ not like", value, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzIn(List<String> values) {
+            addCriterion("FYBZ in", values, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzNotIn(List<String> values) {
+            addCriterion("FYBZ not in", values, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzBetween(String value1, String value2) {
+            addCriterion("FYBZ between", value1, value2, "fybz");
+            return (Criteria) this;
+        }
+
+        public Criteria andFybzNotBetween(String value1, String value2) {
+            addCriterion("FYBZ not between", value1, value2, "fybz");
             return (Criteria) this;
         }
     }

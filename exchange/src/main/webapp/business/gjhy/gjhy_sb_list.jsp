@@ -197,11 +197,12 @@
 
     //修改用户
     function editHysb(sbid){
-        layer.newpage({
+        var index = layer.newpage({
             area: ['1100px', "750px"],
             title:'修改会议申报信息',
             content:'hysb/toEdit?id='+sbid,
         });
+        layer.full(index);
     }
 
     //删除用户

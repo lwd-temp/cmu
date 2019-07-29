@@ -80,11 +80,6 @@ public class Xm {
     private String jlmbjgmc;
 
     /**
-     * 项目收费标准
-     */
-    private BigDecimal fybz;
-
-    /**
      * 项目收费说明
      */
     private String zysm;
@@ -175,10 +170,15 @@ public class Xm {
     private String gbdq;
 
     /**
+     * 项目收费标准
+     */
+    private String fybz;
+
+    /**
      *
      * @mbggenerated 2019-07-29
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, BigDecimal fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm, String gbdq) {
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm, String gbdq, String fybz) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -194,7 +194,6 @@ public class Xm {
         this.xmgk = xmgk;
         this.xmzzjh = xmzzjh;
         this.jlmbjgmc = jlmbjgmc;
-        this.fybz = fybz;
         this.zysm = zysm;
         this.sfxzrs = sfxzrs;
         this.jhrs = jhrs;
@@ -213,6 +212,7 @@ public class Xm {
         this.createTime = createTime;
         this.yyyqsm = yyyqsm;
         this.gbdq = gbdq;
+        this.fybz = fybz;
     }
 
     /**
@@ -461,22 +461,6 @@ public class Xm {
      */
     public void setJlmbjgmc(String jlmbjgmc) {
         this.jlmbjgmc = jlmbjgmc == null ? null : jlmbjgmc.trim();
-    }
-
-    /**
-     * 项目收费标准
-     * @return FYBZ 项目收费标准
-     */
-    public BigDecimal getFybz() {
-        return fybz;
-    }
-
-    /**
-     * 项目收费标准
-     * @param fybz 项目收费标准
-     */
-    public void setFybz(BigDecimal fybz) {
-        this.fybz = fybz;
     }
 
     /**
@@ -768,6 +752,22 @@ public class Xm {
     }
 
     /**
+     * 项目收费标准
+     * @return FYBZ 项目收费标准
+     */
+    public String getFybz() {
+        return fybz;
+    }
+
+    /**
+     * 项目收费标准
+     * @param fybz 项目收费标准
+     */
+    public void setFybz(String fybz) {
+        this.fybz = fybz == null ? null : fybz.trim();
+    }
+
+    /**
      *
      * @mbggenerated 2019-07-29
      */
@@ -792,7 +792,6 @@ public class Xm {
         sb.append(", xmgk=").append(xmgk);
         sb.append(", xmzzjh=").append(xmzzjh);
         sb.append(", jlmbjgmc=").append(jlmbjgmc);
-        sb.append(", fybz=").append(fybz);
         sb.append(", zysm=").append(zysm);
         sb.append(", sfxzrs=").append(sfxzrs);
         sb.append(", jhrs=").append(jhrs);
@@ -811,6 +810,7 @@ public class Xm {
         sb.append(", createTime=").append(createTime);
         sb.append(", yyyqsm=").append(yyyqsm);
         sb.append(", gbdq=").append(gbdq);
+        sb.append(", fybz=").append(fybz);
         sb.append("]");
         return sb.toString();
     }
