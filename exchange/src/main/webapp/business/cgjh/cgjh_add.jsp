@@ -222,14 +222,25 @@
 
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <dm:list tabName="T_DM_JFLY" id="jfly" name="cgTzjh.jfly" data-placeholder="请选择经费来源" onchange="selectjfly(this)"></dm:list>
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label jflydsf"  > 第三方名称: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control jflydsf" type="text"  name="cgTzjh.jflydsf" value="${cgTzjh.jflydsf}"  id="jflydsf"    />
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "> 预算: </label>
                     <div class="col-xs-12 col-sm-4">
                         <input class="form-control" id="sjys" name="cgTzjh.sjys" placeholder="请输入预算" value="" type="text"/>
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "> 其他预算: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" id="qtys" name="cgTzjh.qtys" placeholder="请输入其他预算" value="" type="text"/>
-                    </div>
+
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 其他预算: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<input class="form-control" id="qtys" name="cgTzjh.qtys" placeholder="请输入其他预算" value="" type="text"/>--%>
+                    <%--</div>--%>
 
                 </div>
                 <%--<div class="form-group">--%>
@@ -346,7 +357,12 @@
 
 
     $(function () {
-
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {
+            $(".jflydsf").show();
+        }else{
+            $(".jflydsf").hide();
+        }
 
         var validator = null;
         //月份选择器
@@ -366,6 +382,15 @@
             saveJh();
         });
     });
+    //选择经费来源
+    function selectjfly(select) {
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {
+            $(".jflydsf").show();
+        }else{
+            $(".jflydsf").hide();
+        }
+    }
 
     //校验整个计划
     function validateJh(){

@@ -23,7 +23,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public CgTzjhParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgTzjhParams {
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2019-06-30
+     * T_CG_TZJH 2019-07-29
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2391,6 +2391,146 @@ public class CgTzjhParams {
             addCriterion("OPERATOR not between", value1, value2, "operator");
             return (Criteria) this;
         }
+
+        public Criteria andJflyIsNull() {
+            addCriterion("JFLY is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyIsNotNull() {
+            addCriterion("JFLY is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyEqualTo(String value) {
+            addCriterion("JFLY =", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyNotEqualTo(String value) {
+            addCriterion("JFLY <>", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyGreaterThan(String value) {
+            addCriterion("JFLY >", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyGreaterThanOrEqualTo(String value) {
+            addCriterion("JFLY >=", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyLessThan(String value) {
+            addCriterion("JFLY <", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyLessThanOrEqualTo(String value) {
+            addCriterion("JFLY <=", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyLike(String value) {
+            addCriterion("JFLY like", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyNotLike(String value) {
+            addCriterion("JFLY not like", value, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyIn(List<String> values) {
+            addCriterion("JFLY in", values, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyNotIn(List<String> values) {
+            addCriterion("JFLY not in", values, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyBetween(String value1, String value2) {
+            addCriterion("JFLY between", value1, value2, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflyNotBetween(String value1, String value2) {
+            addCriterion("JFLY not between", value1, value2, "jfly");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfIsNull() {
+            addCriterion("JFLYDSF is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfIsNotNull() {
+            addCriterion("JFLYDSF is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfEqualTo(String value) {
+            addCriterion("JFLYDSF =", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfNotEqualTo(String value) {
+            addCriterion("JFLYDSF <>", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfGreaterThan(String value) {
+            addCriterion("JFLYDSF >", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfGreaterThanOrEqualTo(String value) {
+            addCriterion("JFLYDSF >=", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfLessThan(String value) {
+            addCriterion("JFLYDSF <", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfLessThanOrEqualTo(String value) {
+            addCriterion("JFLYDSF <=", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfLike(String value) {
+            addCriterion("JFLYDSF like", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfNotLike(String value) {
+            addCriterion("JFLYDSF not like", value, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfIn(List<String> values) {
+            addCriterion("JFLYDSF in", values, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfNotIn(List<String> values) {
+            addCriterion("JFLYDSF not in", values, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfBetween(String value1, String value2) {
+            addCriterion("JFLYDSF between", value1, value2, "jflydsf");
+            return (Criteria) this;
+        }
+
+        public Criteria andJflydsfNotBetween(String value1, String value2) {
+            addCriterion("JFLYDSF not between", value1, value2, "jflydsf");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2404,7 +2544,7 @@ public class CgTzjhParams {
     }
 
     /**
-     * T_CG_TZJH 2019-06-30
+     * T_CG_TZJH 2019-07-29
      */
     public static class Criterion {
         private String condition;

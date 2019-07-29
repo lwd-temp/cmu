@@ -36,6 +36,8 @@
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
       <arg column="OPERATOR" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLY" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLYDSF" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -143,7 +145,7 @@
   <sql id="Base_Column_List" >
     TZID, TZH, TZMC, TZLB, JHLX, CFDW, TZJB, ZZHSK, FZRXM, XZZW, XZJB, JSZW, ZW, ZJ, 
     CFGJ1, CFGJ2, CFGJ3, CFGJ4, CFGJ5, FFGZ, TZRS, CFRW, CFSJ, CFTS, SJYS, QTYS, YSHJ, 
-    RWPJWH, RWPFSJ, STATUS, VALID, CREATE_TIME, OPERATOR
+    RWPJWH, RWPFSJ, STATUS, VALID, CREATE_TIME, OPERATOR, JFLY, JFLYDSF
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgTzjhParams" >
     select
@@ -186,8 +188,8 @@
       TZRS, CFRW, CFSJ, 
       CFTS, SJYS, QTYS, YSHJ, 
       RWPJWH, RWPFSJ, STATUS, 
-      VALID, CREATE_TIME, OPERATOR
-      )
+      VALID, CREATE_TIME, OPERATOR, 
+      JFLY, JFLYDSF)
     values (#{tzid,jdbcType=VARCHAR}, #{tzh,jdbcType=VARCHAR}, #{tzmc,jdbcType=VARCHAR}, 
       #{tzlb,jdbcType=VARCHAR}, #{jhlx,jdbcType=VARCHAR}, #{cfdw,jdbcType=VARCHAR}, #{tzjb,jdbcType=VARCHAR}, 
       #{zzhsk,jdbcType=VARCHAR}, #{fzrxm,jdbcType=VARCHAR}, #{xzzw,jdbcType=VARCHAR}, 
@@ -197,8 +199,8 @@
       #{tzrs,jdbcType=DECIMAL}, #{cfrw,jdbcType=VARCHAR}, #{cfsj,jdbcType=TIMESTAMP}, 
       #{cfts,jdbcType=DECIMAL}, #{sjys,jdbcType=DECIMAL}, #{qtys,jdbcType=DECIMAL}, #{yshj,jdbcType=DECIMAL}, 
       #{rwpjwh,jdbcType=VARCHAR}, #{rwpfsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}
-      )
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, 
+      #{jfly,jdbcType=VARCHAR}, #{jflydsf,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgTzjh" >
     insert into T_CG_TZJH
@@ -302,6 +304,12 @@
       <if test="operator != null" >
         OPERATOR,
       </if>
+      <if test="jfly != null" >
+        JFLY,
+      </if>
+      <if test="jflydsf != null" >
+        JFLYDSF,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="tzid != null" >
@@ -402,6 +410,12 @@
       </if>
       <if test="operator != null" >
         #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="jfly != null" >
+        #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="jflydsf != null" >
+        #{jflydsf,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -513,6 +527,12 @@
       <if test="record.operator != null" >
         OPERATOR = #{record.operator,jdbcType=VARCHAR},
       </if>
+      <if test="record.jfly != null" >
+        JFLY = #{record.jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="record.jflydsf != null" >
+        JFLYDSF = #{record.jflydsf,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -552,7 +572,9 @@
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
-      OPERATOR = #{record.operator,jdbcType=VARCHAR}
+      OPERATOR = #{record.operator,jdbcType=VARCHAR},
+      JFLY = #{record.jfly,jdbcType=VARCHAR},
+      JFLYDSF = #{record.jflydsf,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -656,6 +678,12 @@
       <if test="operator != null" >
         OPERATOR = #{operator,jdbcType=VARCHAR},
       </if>
+      <if test="jfly != null" >
+        JFLY = #{jfly,jdbcType=VARCHAR},
+      </if>
+      <if test="jflydsf != null" >
+        JFLYDSF = #{jflydsf,jdbcType=VARCHAR},
+      </if>
     </set>
     where TZID = #{tzid,jdbcType=VARCHAR}
   </update>
@@ -692,7 +720,9 @@
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
-      OPERATOR = #{operator,jdbcType=VARCHAR}
+      OPERATOR = #{operator,jdbcType=VARCHAR},
+      JFLY = #{jfly,jdbcType=VARCHAR},
+      JFLYDSF = #{jflydsf,jdbcType=VARCHAR}
     where TZID = #{tzid,jdbcType=VARCHAR}
   </update>
 </mapper>

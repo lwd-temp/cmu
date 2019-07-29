@@ -227,15 +227,26 @@
 
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <dm:list tabName="T_DM_JFLY" id="jfly" name="cgTzjh.jfly" value="${cgTzjh.jfly}" disabled="disabled" onchange="selectjfly(this)" data-placeholder="请选择经费来源"></dm:list>
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label  jflydsf"  > 第三方名称: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control jflydsf" type="text"  name="cgTzjh.jflydsf" value="${cgTzjh.jflydsf}" readonly="readonly" id="jflydsf"    />
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "> 预算: </label>
                     <div class="col-xs-12 col-sm-4">
                         <input class="form-control" disabled="disabled" id="sjys" name="cgTzjh.sjys" value="${cgTzjh.sjys}" type="text"/>
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "> 其他预算: </label>
-                    <div class="col-xs-12 col-sm-4">
-                        <input class="form-control" disabled="disabled" id="qtys" name="cgTzjh.qtys" value="${cgTzjh.qtys}" type="text"/>
-                    </div>
+                    <%--<label class="col-xs-12 col-sm-2 control-label "> 其他预算: </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                    <%--<input class="form-control" id="qtys" name="cgTzjh.qtys" placeholder="请输入其他预算" value="" type="text"/>--%>
+                    <%--</div>--%>
                 </div>
+
                 <%--<div class="form-group">--%>
                     <%--<label class="col-xs-12 col-sm-2 control-label "> 任务批件文号: </label>--%>
                     <%--<div class="col-xs-12 col-sm-4">--%>
@@ -359,9 +370,23 @@
             parent.layer.close(index);
 
         })
-
-
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {
+            $(".jflydsf").show();
+        }else{
+            $(".jflydsf").hide();
+        }
     });
+
+    //选择经费来源
+    function selectjfly(select) {
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {
+            $(".jflydsf").show();
+        }else{
+            $(".jflydsf").hide();
+        }
+    }
 
 
 

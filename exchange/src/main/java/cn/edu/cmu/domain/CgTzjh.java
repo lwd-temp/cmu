@@ -170,10 +170,20 @@ public class CgTzjh {
     private String operator;
 
     /**
-     *
-     * @mbggenerated 2019-06-30
+     * 经费来源
      */
-    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime, String operator) {
+    private String jfly;
+
+    /**
+     * 经费来源第三方名称
+     */
+    private String jflydsf;
+
+    /**
+     *
+     * @mbggenerated 2019-07-29
+     */
+    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime, String operator, String jfly, String jflydsf) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzmc = tzmc;
@@ -207,11 +217,13 @@ public class CgTzjh {
         this.valid = valid;
         this.createTime = createTime;
         this.operator = operator;
+        this.jfly = jfly;
+        this.jflydsf = jflydsf;
     }
 
     /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     public CgTzjh() {
         super();
@@ -746,8 +758,40 @@ public class CgTzjh {
     }
 
     /**
+     * 经费来源
+     * @return JFLY 经费来源
+     */
+    public String getJfly() {
+        return jfly;
+    }
+
+    /**
+     * 经费来源
+     * @param jfly 经费来源
+     */
+    public void setJfly(String jfly) {
+        this.jfly = jfly == null ? null : jfly.trim();
+    }
+
+    /**
+     * 经费来源第三方名称
+     * @return JFLYDSF 经费来源第三方名称
+     */
+    public String getJflydsf() {
+        return jflydsf;
+    }
+
+    /**
+     * 经费来源第三方名称
+     * @param jflydsf 经费来源第三方名称
+     */
+    public void setJflydsf(String jflydsf) {
+        this.jflydsf = jflydsf == null ? null : jflydsf.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-06-30
+     * @mbggenerated 2019-07-29
      */
     @Override
     public String toString() {
@@ -788,6 +832,8 @@ public class CgTzjh {
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
         sb.append(", operator=").append(operator);
+        sb.append(", jfly=").append(jfly);
+        sb.append(", jflydsf=").append(jflydsf);
         sb.append("]");
         return sb.toString();
     }
