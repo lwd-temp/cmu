@@ -35,7 +35,7 @@ public class CgDqcgjServiceImplTest_false extends SpringIOC {
         CgDqcgj CgDqcgj = new CgDqcgj(CmuStringUtil.UUID(), "cglx", "xm", "xb", new Date(), "csd", "hjszd", "sfzh",  "ssejdw", "ks", "zw", "zc", "lxdh" , "email" , new BigDecimal(10.0),
                 "qtshrz" , "cfgj" , "rjcs" , "tzid" ,new Date(), new Date(), "cfmd" , "cfmdQt" , "yqrXm" , "yqrZw" , "yqrDw" ,
                 "yqrXxdz" , "yqrDh" , "yqrXmEn" , "yqrZwEn" , "yqrDwEn" , "yqrXxdzEn" , "yqrDhEn" , "jfly" , "jfysmx" , new BigDecimal(15.0)
-                , "sqbsm" , new Date(), "01" , "shjg" , "shry" , "shyj" , new Date(), "gdwjid" , "cfzjbgid" ,null,null,null,"ysfbjzljj","cfrwjj","cfyy","cfgsxxbid","cfrcbid","yqhid","ysqfyjid","cgrwhysspyjbid","xnsqbid","cfsc");
+                , "sqbsm" , new Date(), "01" , "shjg" , "shry" , "shyj" , new Date(), "gdwjid" , "cfzjbgid" ,null,null,null,"ysfbjzljj","cfrwjj","cfyy","cfgsxxbid","cfrcbid","yqhid","ysqfyjid","cgrwhysspyjbid","xnsqbid","cfsc","jflydsf");
         boolean success = service.insert(CgDqcgj);
         System.out.println("CgDqcgj:"+CgDqcgj);
         System.out.println("success:"+success);

@@ -215,6 +215,10 @@
                     <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDh"    value="${cgdqcgj.yqrDh}"  readonly="readonly"      class="col-xs-12" />
                     </div>
+                    <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="nncfcs"  value="${cgdqcgj.nncfcs}" readonly="readonly"      class="col-xs-12" />
+                    </div>
 
                     <%--<label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>--%>
                     <%--<div class="col-xs-12 col-sm-4">--%>
@@ -238,14 +242,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
+                    <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="t_dm_cgsqlx"  name="cglx" id="cglx" value="${cgdqcgj.cglx}" disabled="disabled"   data-placeholder="请选择申请类别"  ></dm:list>
+                        <dm:list tabName="T_DM_JFLY" id="jfly" name="jfly" value="${cgdqcgj.jfly}" onchange="selectjfly(this)" disabled="disabled"  data-placeholder="请选择经费来源"></dm:list>
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
+                    <label class="col-xs-12 col-sm-2 control-label jflydsf"  > 第三方名称: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text"  name="nncfcs"  value="${cgdqcgj.nncfcs}" readonly="readonly"      class="col-xs-12" />
+                        <input class="form-control jflydsf" type="text"  name="jflydsf" value="${cgdqcgj.jflydsf}"  disabled="disabled"  id="jflydsf"    />
                     </div>
+                    <%--<label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<dm:list tabName="t_dm_cgsqlx"  name="cglx" id="cglx" value="${cgdqcgj.cglx}" disabled="disabled"   data-placeholder="请选择申请类别"  ></dm:list>--%>
+                    <%--</div>--%>
                 </div>
 
                 <div class="form-group jfysmx">
@@ -327,13 +335,11 @@
         }else{
             $("#cfmdQt").hide();
         }
-        var cglx =  $("#cglx").val();
-        if (cglx == '01') {//因私短期出国
-            $(".jfysmx").hide();
-            $(".jfyshj").hide();
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {//第三方
+            $(".jflydsf").show();
         }else{
-            $(".jfysmx").show();
-            $(".jfyshj").show();
+            $(".jflydsf").hide();
         }
 
         $("#btnClose").click(function(){

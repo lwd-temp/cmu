@@ -26,12 +26,12 @@ public class CgrwzxqkfkVo extends CgDqcgj {
                         String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status,
                         String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String zjid,
                         String writed,String ssejdwmc,String operator,String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid,String cfrcbid, String cfsc,
-                        String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid) {
+                        String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String jflydsf) {
 
           super(cgid,  cglx, xm,  xb,csrq,  csd,  hjszd,  sfzh,  ssejdw, ks, zw, zc, lxdh,  email,  nncfcs, qtshrz, cfgj,
                 rjcs, tzid, cfksrq,  cfjsrq,  cfmd,  cfmdQt, yqrXm,  yqrZw,yqrDw, yqrXxdz, yqrDh, yqrXmEn,  yqrZwEn, yqrDwEn,
                 yqrXxdzEn, yqrDhEn, jfly,  jfysmx,  jfyshj,  sqbsm,  sqrq,  status,  shjg, shry,shyj, shrq, gdwjid, cfzjbgid,
-                valid,createTime,operator,ysfbjzljj, cfrwjj, cfyy, cfgsxxbid,cfrcbid, cfsc, yqhid,ysqfyjid,cgrwhysspyjbid, xnsqbid);
+                valid,createTime,operator,ysfbjzljj, cfrwjj, cfyy, cfgsxxbid,cfrcbid, cfsc, yqhid,ysqfyjid,cgrwhysspyjbid, xnsqbid ,jflydsf);
 
         this.zjid = zjid;
         this.writed = writed;

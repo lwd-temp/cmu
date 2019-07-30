@@ -295,10 +295,15 @@ public class CgDqcgj {
     private String cfsc;
 
     /**
-     *
-     * @mbggenerated 2019-07-25
+     * 经费来源第三方名称
      */
-    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator, String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid, String cfrcbid, String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String cfsc) {
+    private String jflydsf;
+
+    /**
+     *
+     * @mbggenerated 2019-07-30
+     */
+    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator, String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid, String cfrcbid, String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String cfsc, String jflydsf) {
         this.cgid = cgid;
         this.cglx = cglx;
         this.xm = xm;
@@ -357,11 +362,12 @@ public class CgDqcgj {
         this.cgrwhysspyjbid = cgrwhysspyjbid;
         this.xnsqbid = xnsqbid;
         this.cfsc = cfsc;
+        this.jflydsf = jflydsf;
     }
 
     /**
      *
-     * @mbggenerated 2019-07-25
+     * @mbggenerated 2019-07-30
      */
     public CgDqcgj() {
         super();
@@ -1296,8 +1302,24 @@ public class CgDqcgj {
     }
 
     /**
+     * 经费来源第三方名称
+     * @return JFLYDSF 经费来源第三方名称
+     */
+    public String getJflydsf() {
+        return jflydsf;
+    }
+
+    /**
+     * 经费来源第三方名称
+     * @param jflydsf 经费来源第三方名称
+     */
+    public void setJflydsf(String jflydsf) {
+        this.jflydsf = jflydsf == null ? null : jflydsf.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-07-25
+     * @mbggenerated 2019-07-30
      */
     @Override
     public String toString() {
@@ -1363,6 +1385,7 @@ public class CgDqcgj {
         sb.append(", cgrwhysspyjbid=").append(cgrwhysspyjbid);
         sb.append(", xnsqbid=").append(xnsqbid);
         sb.append(", cfsc=").append(cfsc);
+        sb.append(", jflydsf=").append(jflydsf);
         sb.append("]");
         return sb.toString();
     }

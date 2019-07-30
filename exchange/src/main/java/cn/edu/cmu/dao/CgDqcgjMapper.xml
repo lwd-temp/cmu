@@ -61,6 +61,7 @@
       <arg column="CGRWHYSSPYJBID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XNSQBID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CFSC" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JFLYDSF" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -171,7 +172,7 @@
     YQR_XXDZ, YQR_DH, YQR_XM_EN, YQR_ZW_EN, YQR_DW_EN, YQR_XXDZ_EN, YQR_DH_EN, JFLY, 
     JFYSMX, JFYSHJ, SQBSM, SQRQ, STATUS, SHJG, SHRY, SHYJ, SHRQ, GDWJID, CFZJBGID, VALID, 
     CREATE_TIME, OPERATOR, YSFBJZLJJ, CFRWJJ, CFYY, CFGSXXBID, CFRCBID, YQHID, YSQFYJID, 
-    CGRWHYSSPYJBID, XNSQBID, CFSC
+    CGRWHYSSPYJBID, XNSQBID, CFSC, JFLYDSF
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgDqcgjParams" >
     select
@@ -222,8 +223,8 @@
       CREATE_TIME, OPERATOR, YSFBJZLJJ, 
       CFRWJJ, CFYY, CFGSXXBID, 
       CFRCBID, YQHID, YSQFYJID, 
-      CGRWHYSSPYJBID, XNSQBID, CFSC
-      )
+      CGRWHYSSPYJBID, XNSQBID, CFSC, 
+      JFLYDSF)
     values (#{cgid,jdbcType=VARCHAR}, #{cglx,jdbcType=VARCHAR}, #{xm,jdbcType=VARCHAR}, 
       #{xb,jdbcType=VARCHAR}, #{csrq,jdbcType=TIMESTAMP}, #{csd,jdbcType=VARCHAR}, #{hjszd,jdbcType=VARCHAR}, 
       #{sfzh,jdbcType=VARCHAR}, #{ssejdw,jdbcType=VARCHAR}, #{ks,jdbcType=VARCHAR}, #{zw,jdbcType=VARCHAR}, 
@@ -241,8 +242,8 @@
       #{createTime,jdbcType=TIMESTAMP}, #{operator,jdbcType=VARCHAR}, #{ysfbjzljj,jdbcType=VARCHAR}, 
       #{cfrwjj,jdbcType=VARCHAR}, #{cfyy,jdbcType=VARCHAR}, #{cfgsxxbid,jdbcType=VARCHAR}, 
       #{cfrcbid,jdbcType=VARCHAR}, #{yqhid,jdbcType=VARCHAR}, #{ysqfyjid,jdbcType=VARCHAR}, 
-      #{cgrwhysspyjbid,jdbcType=VARCHAR}, #{xnsqbid,jdbcType=VARCHAR}, #{cfsc,jdbcType=VARCHAR}
-      )
+      #{cgrwhysspyjbid,jdbcType=VARCHAR}, #{xnsqbid,jdbcType=VARCHAR}, #{cfsc,jdbcType=VARCHAR}, 
+      #{jflydsf,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgDqcgj" >
     insert into T_CG_DQCGJ
@@ -421,6 +422,9 @@
       <if test="cfsc != null" >
         CFSC,
       </if>
+      <if test="jflydsf != null" >
+        JFLYDSF,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="cgid != null" >
@@ -596,6 +600,9 @@
       </if>
       <if test="cfsc != null" >
         #{cfsc,jdbcType=VARCHAR},
+      </if>
+      <if test="jflydsf != null" >
+        #{jflydsf,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -782,6 +789,9 @@
       <if test="record.cfsc != null" >
         CFSC = #{record.cfsc,jdbcType=VARCHAR},
       </if>
+      <if test="record.jflydsf != null" >
+        JFLYDSF = #{record.jflydsf,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -846,7 +856,8 @@
       YSQFYJID = #{record.ysqfyjid,jdbcType=VARCHAR},
       CGRWHYSSPYJBID = #{record.cgrwhysspyjbid,jdbcType=VARCHAR},
       XNSQBID = #{record.xnsqbid,jdbcType=VARCHAR},
-      CFSC = #{record.cfsc,jdbcType=VARCHAR}
+      CFSC = #{record.cfsc,jdbcType=VARCHAR},
+      JFLYDSF = #{record.jflydsf,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -1025,6 +1036,9 @@
       <if test="cfsc != null" >
         CFSC = #{cfsc,jdbcType=VARCHAR},
       </if>
+      <if test="jflydsf != null" >
+        JFLYDSF = #{jflydsf,jdbcType=VARCHAR},
+      </if>
     </set>
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
@@ -1086,7 +1100,8 @@
       YSQFYJID = #{ysqfyjid,jdbcType=VARCHAR},
       CGRWHYSSPYJBID = #{cgrwhysspyjbid,jdbcType=VARCHAR},
       XNSQBID = #{xnsqbid,jdbcType=VARCHAR},
-      CFSC = #{cfsc,jdbcType=VARCHAR}
+      CFSC = #{cfsc,jdbcType=VARCHAR},
+      JFLYDSF = #{jflydsf,jdbcType=VARCHAR}
     where CGID = #{cgid,jdbcType=VARCHAR}
   </update>
 </mapper>

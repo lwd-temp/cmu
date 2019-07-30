@@ -225,7 +225,10 @@
                     <div class="col-xs-12 col-sm-4">
                         <input type="text"  name="yqrDh"    placeholder="请输入邀请人电话"     class="col-xs-12" />
                     </div>
-
+                    <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input type="text"  name="nncfcs"   placeholder="请输入年内出访次数"    class="col-xs-12" />
+                    </div>
                     <%--<label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>--%>
                     <%--<div class="col-xs-12 col-sm-4">--%>
                         <%--<input type="text"  name="yqrDhEn"    placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />--%>
@@ -247,14 +250,21 @@
                         <input type="text"  name="cfyy"   placeholder="请输入出访意义"    class="col-xs-12" />
                     </div>
                 </div>
+                <%--<div class="form-group">--%>
+                    <%--<label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>--%>
+                    <%--<div class="col-xs-12 col-sm-4">--%>
+                        <%--<dm:list tabName="t_dm_cgsqlx"  name="cglx"  id="cglx" data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>--%>
+                    <%--</div>--%>
+                    <%----%>
+                <%--</div>--%>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label"  > 申请类别  : </label>
+                    <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <dm:list tabName="t_dm_cgsqlx"  name="cglx"  id="cglx" data-placeholder="请选择申请类别"  onchange="selectcglx(this)"></dm:list>
+                        <dm:list tabName="T_DM_JFLY" id="jfly" name="jfly" data-placeholder="请选择经费来源" onchange="selectjfly(this)"></dm:list>
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
+                    <label class="col-xs-12 col-sm-2 control-label jflydsf"  > 第三方名称: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text"  name="nncfcs"   placeholder="请输入年内出访次数"    class="col-xs-12" />
+                        <input class="form-control jflydsf" type="text"  name="jflydsf" value="${jflydsf}"  id="jflydsf"    />
                     </div>
                 </div>
 
@@ -325,19 +335,24 @@
         }else{
             $(".cfmdqt").hide();
         }
+        var jfly =  $("#jfly").val();
+        if (jfly == '99') {//第三方
+            $(".jflydsf").show();
+        }else{
+            $(".jflydsf").hide();
+        }
 
         setFormValid();//设置校验规则
 
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
             var cfmd =  $("#cfmd").val();
-            var cglx =  $("#cglx").val();
+            var jfly =  $("#jfly").val();
             if(cfmd != '99'){
                 $("#cfmdqt").val('');
             }
-            if(cglx == '01'){
-                $("#jfysmx").val('');
-                $("#jfyshj").val(0);
+            if (jfly != '99') {//第三方
+                $("#cfmdqt").val('');
             }
 
             if(!validateSq()){
@@ -349,13 +364,12 @@
         $("#submitForm").click(function(){
             $("#status").val("02");//提交
             var cfmd =  $("#cfmd").val();
-            var cglx =  $("#cglx").val();
+            var jfly =  $("#jfly").val();
             if(cfmd != '99'){
                 $("#cfmdqt").val('');
             }
-            if(cglx == '01'){
-                $("#jfysmx").val('');
-                $("#jfyshj").val(0);
+            if(jfly != '99'){
+                $("#jflydsf").val('');
             }
             if(!validateSq()){
                 return;
@@ -375,8 +389,9 @@
                 "nncfcs":{digits:true},
                 "jfyshj":{number:true},
                 /*"tzh":{ required:true},
-                "tzmc":{ required:true},*/
-                "cglx":{ required:true},
+                "tzmc":{ required:true},
+                "cglx":{ required:true},*/
+                "jfly":{ required:true},
                 "yqrXm":{ required:true},
                 "yqrZw":{ required:true},
                 "yqrDw":{ required:true},
@@ -435,15 +450,13 @@
         return true;
     }
 
-    //选择出国类型
-    function selectcglx(select) {
-        var cglx = $(select).val();
-        if (cglx == '01') {//因私短期出国
-            $(".jfysmx").hide();
-            $(".jfyshj").hide();
+    //选择经费来源
+    function selectjfly(select) {
+        var jfly = $(select).val();
+        if (jfly == '99') {//因私短期出国
+            $(".jflydsf").show();
         }else{
-            $(".jfysmx").show();
-            $(".jfyshj").show();
+            $(".jflydsf").hide();
         }
     }
 
