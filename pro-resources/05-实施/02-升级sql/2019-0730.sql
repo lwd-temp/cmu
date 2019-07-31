@@ -7,4 +7,4 @@ comment on column T_CG_DQCGJ.jflydsf
 alter table T_CG_DQCGJ
   add constraint FK_T_CG_DQC_REFERENCE_T_DM_JFL foreign key (JFLY)
   references t_dm_jfly (CODE);
------------------已执行 2019年7月30日15:18:10-----121上已执行-------------------------
+-----------------已执行 2019年7月30日15:18:10------------------------------

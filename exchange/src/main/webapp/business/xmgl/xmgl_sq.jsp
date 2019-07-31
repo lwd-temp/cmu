@@ -251,7 +251,7 @@
                             <div class="col-md-offset-3 col-md-9 btns">
 
                                 <button class="btn btn-info btn-sm " id="btnSave"  type="button">
-                                    <i class="ace-icon fa fa-save bigger-110"></i>
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
                                     暂存
                                 </button>
 

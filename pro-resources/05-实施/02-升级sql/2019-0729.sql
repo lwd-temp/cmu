@@ -23,6 +23,6 @@ comment on column T_XM.gbdq
 -- Add/modify columns
 alter table T_XM add FYBZ VARCHAR2(50);
 -- Add comments to the columns
-comment on column T_XM.FYBZ2
+comment on column T_XM.FYBZ
   is '项目收费标准';
------------------已执行 2019年7月29日16:10:22-----121上已执行-------------------------
+-----------------已执行 2019年7月29日16:10:22------------------------------

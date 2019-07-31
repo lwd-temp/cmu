@@ -140,7 +140,7 @@
                         }else if(status == '01'){
                             content += "<button class='btn btn-info btn-mini' title='编辑' onclick='editXmSb(\""+sqjlId+"\")' ><i class='ace-icon fa fa-pencil '>编辑申报</i></button>" ;
                         }else {
-                            content += "<button class='btn btn-info btn-mini' title='查看' onclick='detail(\""+sqjlId+"\")' ><i class='ace-icon fa fa-pencil '>查看</i></button>" ;
+                            content += "<button class='btn btn-success btn-mini' title='查看' onclick='detail(\""+sqjlId+"\")' ><i class='ace-icon fa fa-eye '>查看</i></button>" ;
                         }
 
                         return content;

@@ -439,6 +439,7 @@
                 "cgTzjh.tzjb":{ required:true},
                 "cgTzjh.zzhsk":{ required:true},
                 "cgTzjh.fzrxm":{ required:true},
+                "cgTzjh.jfly":{ required:true},
 
                 "cgTzjh.xzzw":{ required:isLx1},
                 "cgTzjh.xzjb":{ required:isLx1},

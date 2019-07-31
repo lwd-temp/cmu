@@ -174,18 +174,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
         String xh = (String) session.getAttribute(CmuConstants.SESSION.USER_ID);
         String yxsh = (String) session.getAttribute(CmuConstants.SESSION.USER_DEPT);
-
-        if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){
-            map.put("gsyxdm",yxsh);
-            map.put("gsxsdm",xh);
-            map.put("xm",xm);
-
-            return daoExt.selectSqzxm(map);
-        }
         map.put("gsyxdm",yxsh);
         map.put("gsxsdm",xh);
         map.put("xm",xm);
-
+        if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){
+            return daoExt.selectSqzxm(map);
+        }
         return daoExt.selectSqxm(map);
     }
 
