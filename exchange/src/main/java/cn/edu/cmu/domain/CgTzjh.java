@@ -110,11 +110,6 @@ public class CgTzjh {
     private BigDecimal tzrs;
 
     /**
-     * 出访任务
-     */
-    private String cfrw;
-
-    /**
      * 出访时间(精确到月)
      */
     private Date cfsj;
@@ -180,10 +175,15 @@ public class CgTzjh {
     private String jflydsf;
 
     /**
-     *
-     * @mbggenerated 2019-07-29
+     * 出访任务
      */
-    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, String cfrw, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime, String operator, String jfly, String jflydsf) {
+    private String cfrw;
+
+    /**
+     *
+     * @mbggenerated 2019-08-01
+     */
+    public CgTzjh(String tzid, String tzh, String tzmc, String tzlb, String jhlx, String cfdw, String tzjb, String zzhsk, String fzrxm, String xzzw, String xzjb, String jszw, String zw, String zj, String cfgj1, String cfgj2, String cfgj3, String cfgj4, String cfgj5, String ffgz, BigDecimal tzrs, Date cfsj, BigDecimal cfts, BigDecimal sjys, BigDecimal qtys, BigDecimal yshj, String rwpjwh, Date rwpfsj, String status, String valid, Date createTime, String operator, String jfly, String jflydsf, String cfrw) {
         this.tzid = tzid;
         this.tzh = tzh;
         this.tzmc = tzmc;
@@ -205,7 +205,6 @@ public class CgTzjh {
         this.cfgj5 = cfgj5;
         this.ffgz = ffgz;
         this.tzrs = tzrs;
-        this.cfrw = cfrw;
         this.cfsj = cfsj;
         this.cfts = cfts;
         this.sjys = sjys;
@@ -219,11 +218,12 @@ public class CgTzjh {
         this.operator = operator;
         this.jfly = jfly;
         this.jflydsf = jflydsf;
+        this.cfrw = cfrw;
     }
 
     /**
      *
-     * @mbggenerated 2019-07-29
+     * @mbggenerated 2019-08-01
      */
     public CgTzjh() {
         super();
@@ -566,22 +566,6 @@ public class CgTzjh {
     }
 
     /**
-     * 出访任务
-     * @return CFRW 出访任务
-     */
-    public String getCfrw() {
-        return cfrw;
-    }
-
-    /**
-     * 出访任务
-     * @param cfrw 出访任务
-     */
-    public void setCfrw(String cfrw) {
-        this.cfrw = cfrw == null ? null : cfrw.trim();
-    }
-
-    /**
      * 出访时间(精确到月)
      * @return CFSJ 出访时间(精确到月)
      */
@@ -790,8 +774,24 @@ public class CgTzjh {
     }
 
     /**
+     * 出访任务
+     * @return CFRW 出访任务
+     */
+    public String getCfrw() {
+        return cfrw;
+    }
+
+    /**
+     * 出访任务
+     * @param cfrw 出访任务
+     */
+    public void setCfrw(String cfrw) {
+        this.cfrw = cfrw == null ? null : cfrw.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-07-29
+     * @mbggenerated 2019-08-01
      */
     @Override
     public String toString() {
@@ -820,7 +820,6 @@ public class CgTzjh {
         sb.append(", cfgj5=").append(cfgj5);
         sb.append(", ffgz=").append(ffgz);
         sb.append(", tzrs=").append(tzrs);
-        sb.append(", cfrw=").append(cfrw);
         sb.append(", cfsj=").append(cfsj);
         sb.append(", cfts=").append(cfts);
         sb.append(", sjys=").append(sjys);
@@ -834,6 +833,7 @@ public class CgTzjh {
         sb.append(", operator=").append(operator);
         sb.append(", jfly=").append(jfly);
         sb.append(", jflydsf=").append(jflydsf);
+        sb.append(", cfrw=").append(cfrw);
         sb.append("]");
         return sb.toString();
     }

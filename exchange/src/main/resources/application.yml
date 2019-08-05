@@ -21,7 +21,7 @@ sys:
 #      "1"
   cache:
     mapperbeans:
-      dmWjjsqzMapper,dmCcxzMapper,dmHzlxMapper,dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper
+      dmWjjsqzMapper,dmCcxzMapper,dmHzlxMapper,dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper,dmCfrwMapper
   upload:
     #上传文件的基本路径
     base_dir:

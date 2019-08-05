@@ -205,7 +205,7 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "> 出访任务: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw" value="${cgTzjh.cfrw}" type="text"/>
+                        <dm:list tabName="T_DM_CFRW"  name="cgTzjh.cfrw" id="cfrw"  data-placeholder="请选择出访任务" value="${cgTzjh.cfrw}" ></dm:list>
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label "> 出访单位: </label>
 

@@ -192,21 +192,18 @@
                     <label class="col-xs-12 col-sm-2 control-label "> 拟出访国家或地区: </label>
                     <div class="col-xs-12 col-sm-4">
                         <dm:list tabName="T_DM_GB"  type="select" multiple="multiple"  value=""  id="cfgbIds" onchange="gettzmc()" name="cfgbIds"   data-placeholder="请选择出访国家"  ></dm:list>
-
-
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "> 出访任务: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control " name="cgTzjh.cfrw" id="cfrw" placeholder="请输入出访任务" value="" type="text"/>
+                        <dm:list tabName="T_DM_CFRW"  name="cgTzjh.cfrw" id="cfrw"  data-placeholder="请选择出访任务" value="" ></dm:list>
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "> 出访单位: </label>
 
+                    <label class="col-xs-12 col-sm-2 control-label "> 出访单位: </label>
                     <div class="col-xs-12 col-sm-4">
                         <input type="text" name="cgTzjh.cfdw" readonly="readonly" value="中国医科大学" data-placeholder="请选择出访单位" class="col-xs-12"/>
                     </div>
-
                 </div>
 
 
@@ -450,7 +447,7 @@
                 "cgTzjh.ffgz":{ required:isLx2},
 
                 "cgTzjh.tzrs":{ required:true,number:true},
-                "cgTzjh.cfrw":{ required:true},
+                // "cgTzjh.cfrw":{ required:true},
                 "cgTzjh.cfsj":{ required:true},
                 "cgTzjh.cfts":{ required:true,number:true},
                 "cgTzjh.sjys":{ required:true,range:[0.01,9999999999.99]},

@@ -15,10 +15,11 @@
         F_GetTableText('T_DM_TZJB', 'code', 'name', TZJB) tzjb,
         F_GetTableText('T_DM_ZZSK', 'code', 'name', ZZHSK) zzhsk,
         F_GetTableText('T_DM_JFLY', 'code', 'name', JFLY) jfly,
+        F_GetTableText('T_DM_CFRW', 'code', 'name', CFRW) CFRW,
 
         (select wm_concat(gb.name) from t_cg_cgjh_gb t inner join T_DM_GB gb on gb.code = t.gjdm  where t.jhid =TZID) cfgj1,
         tzid, tzh, tzmc, cfdw, fzrxm, xzzw, xzjb, jszw, zw, zj,
-        cfgj2, cfgj3, cfgj4, cfgj5, ffgz, tzrs, cfrw, cfsj, cfts, sjys, qtys, yshj, rwpjwh,
+        cfgj2, cfgj3, cfgj4, cfgj5, ffgz, tzrs, cfsj, cfts, sjys, qtys, yshj, rwpjwh,
         rwpfsj, status, valid, create_time, operator , jflydsf
         from T_CG_TZJH
         <if test="_parameter != null" >

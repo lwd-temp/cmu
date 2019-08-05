@@ -59,7 +59,6 @@ T_DM_ZZSK radio <dm:list tabName="T_DM_ZZSK" type="radio" id="T_DM_ZZSK" name="T
 
 T_DM_XB : <dm:list tabName="T_DM_XB" id="T_DM_XB" name="T_DM_XB" value="01"></dm:list><br/>
 T_DM_XB radio  <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"  value="${'01'}" ></dm:list>
-
 <hr>
 
 
@@ -75,5 +74,12 @@ T_DM_XB radio  <dm:list tabName="T_DM_XB" type="radio" id="gender" name="gender"
 T_DM_GB : <dm:list tabName="T_DM_GB" id="T_DM_GB" multiple="multiple"  length="10" valueList="${gbList}" name="T_DM_GB"  ></dm:list><br/>
 T_DM_GB radio  <dm:list tabName="T_DM_GB" type="radio" id="gb" name="gb"  value="${'01'}" ></dm:list>
 <hr>
+
+
+T_DM_CFRW : <dm:list tabName="T_DM_CFRW" id="T_DM_CFRW" name="T_DM_CFRW" value="01"></dm:list><br/>
+T_DM_CFRW radio  <dm:list tabName="T_DM_CFRW" type="radio" id="T_DM_CFRW" name="T_DM_CFRW"  value="01" ></dm:list>
+
+<hr>
+
 </body>
 </html>
