@@ -215,8 +215,11 @@
                         if("02" == status && $("#shType").val() == 'xy'){//待学院初审
                             content += "<button class='btn btn-info btn-mini' onclick='sh_ch(\""+cellvalue+"\")' title='初审' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
                         }
-                        if("03" == status && $("#shType").val() == 'xsc'){//待学生处初审
+                        else if("03" == status && $("#shType").val() == 'xsc'){//待学生处初审
                             content += "<button class='btn btn-info btn-mini' onclick='sh_ch(\""+cellvalue+"\")' title='初审' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
+                        }
+                        else{
+                            content += "<button class='btn btn-info btn-mini'  disabled='disabled' title='初审' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
                         }
                         return content;
 
