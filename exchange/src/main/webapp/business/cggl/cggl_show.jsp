@@ -273,6 +273,14 @@
                         <textarea class="form-control limited" name="qtshrz"  readonly="readonly"   maxlength="300">${cgdqcgj.qtshrz}</textarea>
                     </div>
                 </div>
+                <div class="form-group">
+                <label class="col-xs-12 col-sm-2 control-label"  > 审核日期  : </label>
+                <div class="col-xs-10">
+                    <input class="form-control date-picker" name="shrq"
+                           value="<fmt:formatDate value="${cgdqcgj.shrq}" pattern="yyyy-MM-dd hh:mm:ss"/>"
+                           disabled="disabled"    id="shrq" type="text" data-date-format="yyyy-mm-dd" />
+                </div>
+            </div>
                 <div id="btnClose" class="col-md-offset-3 col-md-9" style = "text-align:right;">
                     <hr/>
                     <button class="btn btn-info btn-sm btns" id="saveForm" type="button">

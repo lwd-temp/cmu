@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -121,6 +122,7 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
 
     @Override
     public boolean shSave(CgDqcgj cgDqcgj) {
+        cgDqcgj.setShrq(new Date());
         int count = dao.updateByPrimaryKeySelective(cgDqcgj);
 
 
