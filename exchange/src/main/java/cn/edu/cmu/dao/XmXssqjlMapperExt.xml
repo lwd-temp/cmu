@@ -50,6 +50,16 @@
       order by ${orderByClause}
     </if>
   </select>
+    <select id="listYsqxmxh" resultMap="cn.edu.cmu.dao.XmXssqjlMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.XmXssqjl" >
+        select
+        sqjl_id, xm_id, xmzm, xmmc, xh, xm, gender, yxdm, yxmc, rxn, nj, zyh, zymc, bjh, bjmc, chpm, zhpj, yysp, phone, email, zzje, jlgjdqm, xlcp, status, confirm_status, isconfirm1,
+        isconfirm2, fsyj, self_pay, valid, create_time, scwjid
+
+        from t_xm_xssqjl t
+
+        where t.xh=#{xh,jdbcType=VARCHAR} and rownum = '1'
+
+    </select>
 
 
 

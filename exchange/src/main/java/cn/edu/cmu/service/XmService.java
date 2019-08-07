@@ -24,7 +24,7 @@ public interface XmService extends IBaseService<Xm, XmParams> {
 
     List<Map> listZy();
 
-    List listSqXm(Xm xm, HttpSession session) throws Exception;
+    List listSqXm(Xm xm, HttpSession session ,XmXssqjl sqjl) throws Exception;
 
     XmXssqjl initSqPage(HttpSession session);
 

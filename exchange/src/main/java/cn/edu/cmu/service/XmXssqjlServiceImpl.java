@@ -1,10 +1,12 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.XmXssqjlMapper;
+import cn.edu.cmu.dao.XmXssqjlMapperExt;
 import cn.edu.cmu.domain.XmXssqjl;
 import cn.edu.cmu.domain.XmXssqjlParams;
 import cn.edu.cmu.framework.web.BaseService;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,8 @@ import java.util.List;
 @Service
 public class XmXssqjlServiceImpl extends BaseService<XmXssqjl, XmXssqjlParams, XmXssqjlMapper> implements XmXssqjlService {
 
+    @Autowired
+    XmXssqjlMapperExt xmxssqjlmapperext;
 
     @Override
     public List list(XmXssqjl XmXssqjl) {
@@ -43,5 +47,11 @@ public class XmXssqjlServiceImpl extends BaseService<XmXssqjl, XmXssqjlParams, X
 
         List list = dao.selectByExample(param);
         return list;
+    }
+
+    @Override
+    public XmXssqjl listYsqxmxh(String xh) {
+        XmXssqjl Ysqxmxh=xmxssqjlmapperext.listYsqxmxh(xh);
+        return Ysqxmxh;
     }
 }

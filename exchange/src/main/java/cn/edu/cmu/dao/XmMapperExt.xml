@@ -102,6 +102,7 @@
           t.YYYQSM	as YYYQSM
         from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
             where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1 and jl.status is null
+
         and (
               <!--全校项目-->
                 t.xmcc = '01'
@@ -110,10 +111,20 @@
                 <!--个人项目-->
                 or (t.xmcc ='03' and t.gsxsdm =#{gsxsdm,jdbcType=VARCHAR})
             )
+
+
+            and (
+                <!--层次限制  1本科生,2研究生-->
+                t.ccxz like ( '%'||#{ccxz}||'%' )
+                <!--院系项目-->
+                or t.ccxz is null
+            )
+
         <!--<if test="xm.bmjzsj !=null">-->
             <!--and t.bmjzsj > sysdate-->
         <!--</if>-->
 
+            and t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}
         <if test="xm.xmmc != null and  xm.xmzm != null">
             and
             (
@@ -127,7 +138,7 @@
 
         </if>
     </select>
-    <!--查询可申请的项目-->
+    <!--查询申请中的项目-->
     <select id="selectSqzxm" resultMap="BaseResultMap" parameterType="hashmap">
         select
         t.XM_ID 			as XM_ID 				,
@@ -172,7 +183,7 @@
         jl.self_pay     as self_pay,
         t.YYYQSM	as YYYQSM
         from t_xm t left join t_xm_xssqjl jl  on jl.xm_id = t.xm_id and jl.xh = #{gsxsdm,jdbcType=VARCHAR}
-        where t.valid = '1'  and t.status ='02' and t.bmjzsj >= sysdate-1
+        where t.valid = '1'  and t.status ='02'
         and (
             <!--全校项目-->
             t.xmcc = '01'

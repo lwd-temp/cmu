@@ -92,8 +92,10 @@ public class XmController extends BaseController {
         logger.debug("condition:" + xm);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
+        //初始化页面学生信息
+        XmXssqjl sqjl = xmService.initSqPage(session);
         //查询
-        List list = xmService.listSqXm(xm, session);//demoList();
+        List list = xmService.listSqXm(xm, session,sqjl);//demoList();
 
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo, list);
@@ -260,6 +262,11 @@ public class XmController extends BaseController {
 
         model.addAttribute("sqjl", sqjl);
 
+        XmXssqjl ysqjl=sqService.listYsqxmxh(sqjl.getXh());
+        List<XmXssqjl> ysqxmList = sqService.listYsqxm(ysqjl);
+        model.addAttribute("ysqxmList", ysqxmList);
+
+
 
         List<Map> gjdqList = xmService.initGjdq(id);
 
@@ -290,6 +297,9 @@ public class XmController extends BaseController {
 
         model.addAttribute("gjdqList", gjdqList);
 
+        //已申请项目
+        List<XmXssqjl> ysqxmList = sqService.listYsqxm(sqjl);
+        model.addAttribute("ysqxmList", ysqxmList);
 
         List<XmXssbfj> fjList = xmService.querySbFjs(id);
         model.addAttribute("fjList", fjList);
@@ -310,7 +320,9 @@ public class XmController extends BaseController {
         Xm xm = xmService.queryById(sqjl.getXmId());
         model.addAttribute("xm", xm);
 
-
+        //已申请项目
+        List<XmXssqjl> ysqxmList = sqService.listYsqxm(sqjl);
+        model.addAttribute("ysqxmList", ysqxmList);
 
 
         List<Map> gjdqList = xmService.initGjdq(sqjl.getXmId());
@@ -442,7 +454,7 @@ public class XmController extends BaseController {
 
         //初始化页面学生信息
         XmXssqjl sqjl = sqService.queryById(id);
-
+        logger.info(sqjl);
         model.addAttribute("sqjl", sqjl);
 
         List<Map> gjdqList = xmService.initGjdq(sqjl.getXmId());

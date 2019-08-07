@@ -10,5 +10,6 @@ import java.util.List;
 public interface XmXssqjlService extends IBaseService<XmXssqjl, XmXssqjlParams> {
 
     List<XmXssqjl> listYsqxm(XmXssqjl sqjl);
+    XmXssqjl listYsqxmxh(String xh);
 }
 

@@ -154,7 +154,7 @@
     //审核项目
     function shxm(xmid){
         var index = layer.newpage({
-            area: ['1000px', ($(window).height()-20)+'px'],
+            area: ['1000px', '750px'],
             title:'审核项目',
             content:'business/xmgl/xmgl_sh_xslb.jsp?xmid='+xmid+"&type="+$("#shType").val(),
         });

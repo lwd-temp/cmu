@@ -314,7 +314,7 @@
     function sh_ch(sqjlId){
         clickEvent = true;
         var index = parent.layer.newpage({
-            area: ['1000px', ($(window).height()-10)+'px'],
+            area: ['1000px', '750px'],
             title:'【初审】申请',
             content:'xm/toCs?id='+sqjlId+"&type="+$("#shType").val(),
             success:function(layero, index){
@@ -337,7 +337,7 @@
 
     function sh_fh(sqjlId){
         var index = parent.layer.newpage({
-            area: ['1000px', ($(window).height()-10)+'px'],
+            area: ['1000px', '750px'],
             title:'【复审】申请',
             content:'xm/toFs?id='+sqjlId,
             success:function(layero, index){

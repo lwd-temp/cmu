@@ -80,12 +80,30 @@
 <!-- #section:basics/navbar.layout -->
 
 <!-- /section:basics/navbar.layout -->
-<div class="main-container" id="main-container">
+<div class="tabbable">
+    <ul class="nav nav-tabs" id="myTab">
+        <li class="active">
+            <a data-toggle="tab" href="#home">
+                <i class="green ace-icon fa fa-home bigger-120"></i>
+                学生信息
+            </a>
+        </li>
+        <li>
+            <a data-toggle="tab" href="#ysqxm">
+                已申请项目
+                <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
+                    <span class="badge badge-danger">${ysqxmList.size()}</span>
+                </c:if>
+            </a>
+        </li>
+    </ul>
+</div>
+<div class="main-container" >
     <div class="main-content">
         <div class="main-content-inner">
             <div class="page-content">
-                <div class="row">
-                    <div class="col-xs-12">
+                <div class="row tab-content">
+                    <div class="tab-pane fade in active" id="home">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
                             <input type="hidden" name="sqjlId" id="sqjlId" value="${sqjl.sqjlId}" />
@@ -262,17 +280,39 @@
                                     提交
                                 </button>
                             </div>
-
                         </form>
-
                     </div><!-- /.col -->
+                    <div id="ysqxm" class="tab-pane fade">
+                        <c:if  test="${ysqxmList != null && ysqxmList.size() >0 }">
+                            <table >
+                                <thead>
+                                <tr>
+                                    <th>序号</th>
+                                    <th>项目名称</th>
+                                    <th>资助金额</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${ysqxmList}" var="ysqJl" varStatus="status">
+                                    <tr>
+                                        <td>${status.count}</td>
+                                        <td>${ysqJl.xmmc}</td>
+                                        <td>${ysqJl.zzje}</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                        </c:if>
+                    </div>
                 </div><!-- /.row -->
             </div><!-- /.page-content -->
         </div>
     </div><!-- /.main-content -->
 
 
-</div><!-- /.main-container -->
+</div>
+
+    <!-- /.main-container -->
 
 
 
