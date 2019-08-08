@@ -165,7 +165,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
     }
 
     @Override
-    public List listSqXm(Xm xm, HttpSession session ,XmXssqjl sqjl) throws Exception {
+    public List listSqXm(Xm xm, HttpSession session ) throws Exception {
         Map map = new HashMap();
         String userType = (String) session.getAttribute(CmuConstants.SESSION.USER_TYPE);
         if(!CmuConstants.SESSION.USER_TYPE_BKS.equals(userType) && !CmuConstants.SESSION.USER_TYPE_YJS.equals(userType) ){
@@ -177,8 +177,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         map.put("gsyxdm",yxsh);
         map.put("gsxsdm",xh);
         map.put("xm",xm);
-        map.put("ccxz",CmuConstants.SESSION.USER_TYPE_BKS);
-        map.put("xmnjxz",sqjl.getNj());
+        map.put("ccxz",userType);
         if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){
             return daoExt.selectSqzxm(map);
         }

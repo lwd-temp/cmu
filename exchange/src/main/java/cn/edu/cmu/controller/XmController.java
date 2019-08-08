@@ -92,10 +92,9 @@ public class XmController extends BaseController {
         logger.debug("condition:" + xm);
         //开启分页
         Page<Object> pageInfo = PageHelper.startPage(page, rows);
-        //初始化页面学生信息
-        XmXssqjl sqjl = xmService.initSqPage(session);
+
         //查询
-        List list = xmService.listSqXm(xm, session,sqjl);//demoList();
+        List list = xmService.listSqXm(xm, session);//demoList();
 
         //返回带【分页】 的表格JSON 信息
         return super.pagingInfo(pageInfo, list);

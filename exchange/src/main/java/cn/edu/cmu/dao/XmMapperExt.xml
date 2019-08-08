@@ -124,21 +124,22 @@
             <!--and t.bmjzsj > sysdate-->
         <!--</if>-->
 
-            and t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}
-        <if test="xm.xmmc != null and  xm.xmzm != null">
-            and
-            (
+    <!--and t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}-->
 
-                <bind name="xmmcLike" value="'%' + xm.xmmc + '%'"/>
-                t.xmmc like #{xmmcLike,jdbcType=VARCHAR}
+    <if test="xm.xmmc != null and  xm.xmzm != null">
+        and
+        (
 
-                <bind name="xmzmLike" value="'%' + xm.xmzm + '%'"/>
-                or t.xmzm like #{xmzmLike,jdbcType=VARCHAR}
-            )
+            <bind name="xmmcLike" value="'%' + xm.xmmc + '%'"/>
+            t.xmmc like #{xmmcLike,jdbcType=VARCHAR}
 
-        </if>
-    </select>
-    <!--查询申请中的项目-->
+            <bind name="xmzmLike" value="'%' + xm.xmzm + '%'"/>
+            or t.xmzm like #{xmzmLike,jdbcType=VARCHAR}
+        )
+
+    </if>
+</select>
+<!--查询申请中的项目-->
     <select id="selectSqzxm" resultMap="BaseResultMap" parameterType="hashmap">
         select
         t.XM_ID 			as XM_ID 				,
