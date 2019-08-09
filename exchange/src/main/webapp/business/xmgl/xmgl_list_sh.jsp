@@ -79,7 +79,7 @@
 
         var settings = {
             caption: "项目管理",
-            url:'xm/list',
+            url:'xm/list?status=sh',
             colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '层次',/*'经费来源',*/'状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
@@ -102,12 +102,10 @@
 
                 {name:'status',width:'10',index:'status', formatter:function(status){
                         var zt = "";
-                        if('01' == status){
-                            zt = "暂存";
+                        if('06' == status){
+                            zt = "待审核";
                         }else if('02' == status){
                             zt = "已发布";
-                        }else if('06' == status){
-                            zt = "待审核";
                         }
                         return zt;
                     }  },
@@ -116,12 +114,9 @@
                     formatter:function(xmId, options, rowObject){
                         var status = rowObject.status;
                         var content = "";
-                        if(status == '01' ){
-                            content += "<button class='btn btn-info btn-mini' title='修改' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
-
-                            content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        if(status == '06'){
+                            content += "<button class='btn btn-info btn-mini' title='审核' onclick='shXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>审核</i></button>" ;
                         }
-
                         if(content == ''){
                             content = "无";
                         }
@@ -169,6 +164,16 @@
             area: ['1100px', '750px'],
             title:'编辑项目',
             content:'xm/toEdit?id='+xmid,
+        });
+    }
+
+    //审核项目
+    function shXm(xmid){
+
+        layer.newpage({
+            area: ['1100px', '750px'],
+            title:'审核项目',
+            content:'xm/toshXm?id='+xmid,
         });
     }
 

@@ -78,7 +78,7 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目层次:</label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_XMCC" id="xmcc" name="xm.xmcc" value="${xm.xmcc}" data-placeholder="请选择项目层次"></dm:list>
+                                    <dm:list tabName="T_DM_XMCC" id="xmcc" disabled="disabled" name="xm.xmcc" value="${xm.xmcc}" readonly="readonly" data-placeholder="请选择项目层次"></dm:list>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目编号: </label>
@@ -92,12 +92,12 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目总名: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input type="text" name="xm.xmzm" id="xmzm"  value="${xm.xmzm}"  placeholder="请输入项目总名" class="col-xs-12"/>
+                                    <input type="text" name="xm.xmzm" id="xmzm"  value="${xm.xmzm}" readonly="readonly" placeholder="请输入项目总名" class="col-xs-12"/>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目名称: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input type="text" name="xm.xmmc" id="xmmc" value="${xm.xmmc}" placeholder="请输入项目名称" class="col-xs-12"/>
+                                    <input type="text" name="xm.xmmc" id="xmmc" value="${xm.xmmc}" readonly="readonly" placeholder="请输入项目名称" class="col-xs-12"/>
                                 </div>
                             </div>
 
@@ -105,12 +105,12 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 交流目标国家或地区: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_GB" type="select" multiple="multiple" valueList="${gbCodeList}" id="gb" name="gbs" data-placeholder="请选择"></dm:list>
+                                    <dm:list tabName="T_DM_GB" type="select" multiple="multiple" valueList="${gbCodeList}" disabled="disabled" id="gb" name="gbs" data-placeholder="请选择"></dm:list>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 交流目标机构名称: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" value="${xm.jlmbjgmc}"  type="text" placeholder="请输入交流目标机构名称,如'国'"/>
+                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" value="${xm.jlmbjgmc}" readonly="readonly"  type="text" placeholder="请输入交流目标机构名称,如'国'"/>
                                 </div>
                             </div>
 
@@ -121,33 +121,33 @@
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目类型: </label>
 
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_XMLX" id="xmlx" name="xm.xmlx" value="${xm.xmlx}" data-placeholder="请选择项目类型"></dm:list>
+                                    <dm:list tabName="T_DM_XMLX" id="xmlx" name="xm.xmlx" value="${xm.xmlx}" disabled="disabled" data-placeholder="请选择项目类型"></dm:list>
                                 </div>
 
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 经费来源: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_JFLY" id="jfly"  value="${xm.jfly}" name="xm.jfly" data-placeholder="请选择经费来源"></dm:list>
+                                    <dm:list tabName="T_DM_JFLY" id="jfly"  value="${xm.jfly}" name="xm.jfly" disabled="disabled" data-placeholder="请选择经费来源"></dm:list>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2  control-label "> 报名结束时间: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control date-picker" name="xm.bmjzsj" value="<fmt:formatDate value="${xm.bmjzsj}" pattern="yyyy-MM-dd"/>" id="bmjzsj" type="text" placeholder="请选择报名结束时间" />
+                                    <input class="form-control date-picker" name="xm.bmjzsj" readonly="readonly" value="<fmt:formatDate value="${xm.bmjzsj}" pattern="yyyy-MM-dd"/>" id="bmjzsj" type="text" placeholder="请选择报名结束时间" />
                                 </div>
                             </div>
                             <div class="form-group">
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目开始时间: </label>
                                 <div class="col-xs-12 col-sm-2">
-                                    <input class="form-control date-picker jlsc" id="xmkssj" name="xm.xmkssj"  value="<fmt:formatDate value="${xm.xmkssj}" pattern="yyyy-MM-dd"/>" placeholder="请选择项目开始时间"   type="text" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control date-picker jlsc" id="xmkssj" name="xm.xmkssj" readonly="readonly"  value="<fmt:formatDate value="${xm.xmkssj}" pattern="yyyy-MM-dd"/>" placeholder="请选择项目开始时间"   type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目结束时间: </label>
 
                                 <div class="col-xs-12 col-sm-2">
-                                    <input class="form-control date-picker jlsc" id="smjssj" name="xm.smjssj" value="<fmt:formatDate value="${xm.smjssj}" pattern="yyyy-MM-dd"/>"  placeholder="请选择项目结束时间" type="text" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control date-picker jlsc" id="smjssj" name="xm.smjssj" readonly="readonly" value="<fmt:formatDate value="${xm.smjssj}" pattern="yyyy-MM-dd"/>"  placeholder="请选择项目结束时间" type="text" data-date-format="yyyy-mm-dd"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目交流时长: </label>
 
@@ -160,7 +160,7 @@
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目收费标准: </label>
                                 <div class="col-xs-10">
-                                    <input class="form-control" name="xm.fybz" id="fybz" value="${xm.fybz}" type="text" placeholder="请输入费用标准"/>
+                                    <input class="form-control" name="xm.fybz" id="fybz" value="${xm.fybz}" type="text" readonly="readonly" placeholder="请输入费用标准"/>
                                 </div>
 
                             </div>
@@ -169,29 +169,29 @@
                                 <label class="col-xs-12 col-sm-2 control-label "> 是否限制人数: </label>
                                 <div class="col-xs-12 col-sm-4">
                                     <%--<input class="form-control" name="xm.sfxzrs" id="sfxzrs" value="" type="text"/>--%>
-                                    <dm:list tabName="t_dm_yn" type="radio" value="${xm.sfxzrs}" id="sfxzrs" name="xm.sfxzrs"/>
+                                    <dm:list tabName="t_dm_yn" type="radio" value="${xm.sfxzrs}" id="sfxzrs" disabled="disabled" name="xm.sfxzrs"/>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 计划人数: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control" name="xm.jhrs" id="jhrs" value="${xm.jhrs}" type="text"/>
+                                    <input class="form-control" name="xm.jhrs" id="jhrs" value="${xm.jhrs}" readonly="readonly" type="text"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目年级限制: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" value="${xm.xmnjxz}" type="text" placeholder="请输入年级限制"/>
+                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" readonly="readonly" value="${xm.xmnjxz}" type="text" placeholder="请输入年级限制"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目层次限制: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.ccxz" value="${xm.ccxz}" data-placeholder="请选择项目层次限制"></dm:list>
+                                    <dm:list tabName="T_DM_CCXZ" multiple="multiple"  id="xmcc" name="xm.ccxz" value="${xm.ccxz}" disabled="disabled" data-placeholder="请选择项目层次限制"></dm:list>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目专业限制: </label>
                                 <div class="col-xs-10">
-                                    <dm:list sourceList="${zyList}"  type="select" multiple="multiple" value="${xm.xmzyxz}" headerKey="-1" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
+                                    <dm:list sourceList="${zyList}"  type="select" multiple="multiple" value="${xm.xmzyxz}" headerKey="-1" disabled="disabled" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
                                         <option value="2014" >临床医学</option>
                                         <option value="2015" >影像学</option>
@@ -202,7 +202,7 @@
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 语言要求: </label>
                                 <div class="col-xs-10">
-                                    <dm:list tabName="t_dm_yy"  multiple="multiple"   id="yyyq" name="xm.yyyq" value="${xm.yyyq}" data-placeholder="请选择语言"></dm:list>
+                                    <dm:list tabName="t_dm_yy"  multiple="multiple"   id="yyyq" name="xm.yyyq" value="${xm.yyyq}" disabled="disabled" data-placeholder="请选择语言"></dm:list>
                                 </div>
                             </div>
 
@@ -212,12 +212,12 @@
                                 <div class="col-xs-12 col-sm-4">
 
                                     <input   name="xm.gsyxdm" id="gsyxdm" value="${xm.gsyxdm}"  id="gsyxdm" type="hidden" />
-                                    <input class="form-control " style="cursor: pointer;" name="xm.gsyxmc"   value="${xm.gsyxmc}"  id="gsyx" value="" readonly="readonly" type="text" placeholder="请点击进行选择"/>
+                                    <input class="form-control " style="cursor: pointer;" name="xm.gsyxmc"   value="${xm.gsyxmc}"  id="gsyx" value="" disabled="disabled" type="text" placeholder="请点击进行选择"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2 control-label "> 归属学生: </label>
                                 <div class="col-xs-12 col-sm-4">
                                     <input   name="xm.gsxsdm" id="gsxsdm"  value="${xm.gsxsdm}"   type="hidden" />
-                                    <input class="form-control"  style="cursor: pointer;" name="xm.gsxsxm"  value="${xm.gsxsxm}" readonly="readonly" id="gsxs" type="text" placeholder="请点击进行选择"/>
+                                    <input class="form-control"  style="cursor: pointer;" name="xm.gsxsxm"  value="${xm.gsxsxm}"  disabled="disabled" id="gsxs" type="text" placeholder="请点击进行选择"/>
                                 </div>
                             </div>
 
@@ -225,11 +225,11 @@
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 资助金额: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control  " name="xm.zjje"  value="${xm.zjje}" id="zjje" value="" type="text"/>
+                                    <input class="form-control  " name="xm.zjje" readonly="readonly"  value="${xm.zjje}" id="zjje" value="" type="text"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2 control-label "> 语言要求说明: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control  " name="xm.yyyqsm" id="yyyqsm" value="${xm.yyyqsm}" placeholder="语言要求说明" value="" type="text"/>
+                                    <input class="form-control  " name="xm.yyyqsm" id="yyyqsm" value="${xm.yyyqsm}" placeholder="语言要求说明" readonly="readonly" value="" type="text"/>
                                 </div>
                             </div>
 
@@ -237,39 +237,35 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目收费说明: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="xm.zysm" id="zysm"  placeholder="请输入项目收费说明" maxlength="300">${xm.zysm}</textarea>
+                                    <textarea class="form-control limited" name="xm.zysm" id="zysm" readonly="readonly"  placeholder="请输入项目收费说明" maxlength="300">${xm.zysm}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目概况: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="xm.xmgk" id="xmgk" placeholder="请输入项目概况" maxlength="300">${xm.xmgk}</textarea>
+                                    <textarea class="form-control limited" name="xm.xmgk" id="xmgk" readonly="readonly" placeholder="请输入项目概况" maxlength="300">${xm.xmgk}</textarea>
                                 </div>
 
                             </div>
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目资助计划: </label>
                                 <div class="col-xs-10">
-                                    <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" maxlength="300">${xm.xmzzjh}</textarea>
+                                    <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" readonly="readonly" maxlength="300">${xm.xmzzjh}</textarea>
                                 </div>
 
                             </div>
 
                             <div class="col-md-offset-3 col-md-9" style="text-align:right;">
-
-                                <c:if test="${param['ready'] != 'ready'}">
-                                    <button class="btn btn-info btn-sm" id="btnSave" type="button" >
-                                        <i class="ace-icon fa fa-check bigger-110"></i>
-                                        暂存
-                                    </button>
-                                </c:if>
-
+                                <button class="btn btn-info btn-sm" id="btnClose" type="button" >
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    关闭
+                                </button>
                                 &nbsp; &nbsp; &nbsp;
 
                                 <button class="btn btn-success btn-sm" id="btnDeploy" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    提交
+                                    发布
                                 </button>
                             </div>
                             &nbsp;&nbsp;&nbsp;
@@ -358,17 +354,15 @@
         });
 
 
-        $("#btnSave,#btnDeploy").click(function () {
+        $("#btnDeploy").click(function () {
             if (!$("#form").valid()) {
                 validator.focusInvalid();
                 return;
             }
             var id = $(this).attr('id');
 
-            if ("btnSave" == id) {
-                $("#status").val('01');
-            } else {
-                $("#status").val('06');
+            if ("btnSave" != id)  {
+                $("#status").val('02');
             }
 
             $.ajax('xm/save', {
@@ -381,6 +375,11 @@
                     }
                 }
             })
+        });
+        $("#btnClose").click(function(){
+
+            closeLayer();
+
         });
 
 

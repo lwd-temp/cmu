@@ -105,6 +105,8 @@
                             return "学院初审中";
                         }else if(status == "03"){
                             return "学院初审通过";
+                        }else if(status == "06"){
+                            return "学生处初审待不通过";
                         }else if(status == "05"){
                              //初审通过
                             if(!confirmStatus  || confirmStatus =='' || confirmStatus =='00'){
@@ -117,7 +119,7 @@
                                 return "复审不通过"+(selfPay == 'Y'?".已自费":(comfirm2=='1'?',已确认':'未确认'));
                             }
                         }else if(status == '04'){
-                            return "初审不通过";
+                            return "学院初审不通过";
                         }
 
                         return "";

@@ -157,6 +157,40 @@ public class XmController extends BaseController {
     }
 
     /**
+     * 跳转到审核项目
+     *
+     * @param id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toshXm")
+    public String toshXm(String id, Model model) throws Exception {
+
+        Xm xm = xmService.queryById(id);
+        model.addAttribute("xm", xm);
+
+
+        XmGjdq queryXmGjdq = new XmGjdq();
+        queryXmGjdq.setXmid(id);
+        List<XmGjdq> gbDomainList = xmGjService.list(queryXmGjdq);
+        List gbCodeList = new ArrayList();
+        if(gbDomainList!=null){
+            for (XmGjdq gb : gbDomainList) {
+                gbCodeList.add(gb.getGjdm());
+            }
+        }
+        List zyList = initZyList();
+        model.addAttribute("zyList", zyList);
+        model.addAttribute("gbCodeList", gbCodeList);
+
+        return "xmgl/xmgl_sh_xmsh";
+    }
+
+
+
+
+    /**
      * 跳转到添加页面
      *
      * @param model

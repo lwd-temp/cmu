@@ -91,6 +91,8 @@ public class CmuConstants {
 
         //申请暂存
         public static final String SQ_STATUS_TEMPORARY_STORAGE = "01";
+        //项目待审核
+        public static final String SQ_STATUS_XM_SH = "06";
         //申请提交，待初审
         public static final String SQ_STATUS_SUBMIT = "02";
 

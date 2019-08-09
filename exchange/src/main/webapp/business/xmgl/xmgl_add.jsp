@@ -264,7 +264,7 @@
 
                                 <button class="btn btn-success btn-sm" id="btnDeploy" type="button">
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    发布
+                                    提交
                                 </button>
                             </div>
                             &nbsp;&nbsp;&nbsp;
@@ -363,7 +363,7 @@
             if ("btnSave" == id) {
                 $("#status").val('01');
             } else {
-                $("#status").val('02');
+                $("#status").val('06');
             }
 
             //alert($("#status").val())
@@ -373,7 +373,7 @@
                 success: function (resp) {
                     if (resp && resp.success) {
                         parent.refreshTable();
-                        winAlert("保存成功");
+                        winAlert("提交成功");
                         closeLayer();
                     }
                 }
