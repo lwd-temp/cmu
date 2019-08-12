@@ -329,26 +329,26 @@
                    zjje, xmgk, xmzzjh, jlmbjgmc, fybz, zysm, sfxzrs, jhrs,
                    ccxz, xmnjxz, yyyq, xmzyxz, gsyxdm, gsyxmc, gsxsdm, gsxsxm,
                    operator_code, bmjzsj,
-                   decode(status,'01','暂存','02','已发布','03','允许申报','04','申报结束','05','项目中介','未知') status,
+                   decode(status,'01','暂存','02','已发布','03','允许申报','04','申报结束','05','项目中介','06','待审核','未知') status,
                    valid, create_time, yyyqsm
               from t_xm
-              where valid = 1 and status != '01'
-                <if test="xmmc != null" >
+              where valid = 1 and status != '01' and status != '06'
+                <if test="xmmc != null and xmzm != null">
+                    and(
                     <bind name="xmmcLike" value="'%' + xmmc + '%'"/>
-                    and xmmc like #{xmmcLike}
-                </if>
-                <if test="xmzm != null" >
+                    xmmc like #{xmmcLike}
                     <bind name="xmzmLike" value="'%' + xmzm + '%'"/>
                     or xmzm like #{xmzmLike}
-                </if>
-                <if test="gbdq != null and gbdq != ''"  >
+                    )
+               </if>
+                <!--<if test="gbdq != null and gbdq != ''"  >
                     and gbdq = #{gbdq,jdbcType=VARCHAR}
+                </if> -->
+                <if test="xmkssj !=null">
+                    and xmkssj  &gt;= #{xmkssj,jdbcType=TIMESTAMP}
                 </if>
-                <if test="xmkssj!=null">
-                    and xmkssj &lt;= #{xmkssj,jdbcType=TIMESTAMP}
-                </if>
-                <if test="smjssj!=null">
-                    and smjssj  &gt;= #{smjssj,jdbcType=TIMESTAMP}
+                <if test="smjssj !=null">
+                    and smjssj  &lt;= #{smjssj,jdbcType=TIMESTAMP}
                 </if>
 
     </select>

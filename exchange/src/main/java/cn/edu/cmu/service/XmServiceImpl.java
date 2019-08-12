@@ -83,16 +83,18 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         XmParams params = new XmParams();
         XmParams.Criteria c1 = params.createCriteria();
         XmParams.Criteria c2 = params.or();
-        params.setOrderByClause("status");
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             Xm xm = (Xm) conditions[0];
+            params.setOrderByClause("status desc");
                 //待审核项目管理 需要查询提交的项目
                 if (StringUtils.isNotEmpty(xm.getStatus()) && "sh".equals(xm.getStatus())){
-                    c1.andStatusEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH);
+                    c1.andStatusEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH); // =='06'
+                    c2.andStatusEqualTo("02");
                 }
                 //已发布项目管理 需要查询已发布的项目，允许修改，删除 ready
                 if(StringUtils.isNotEmpty(xm.getStatus()) && "ready".equals(xm.getStatus())){
                     c1.andStatusNotEqualTo(CmuConstants.XM.STATUS_TEMPORARY_STORAGE);// != '01'
+                    c1.andStatusNotEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH);// != '06'
                 }
 
                 if (StringUtils.isNotEmpty(xm.getXmmc())) {
@@ -100,6 +102,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
                 }
                 if(StringUtils.isNotEmpty(xm.getXmzm())){
                     c2.andXmzmLike("%" + xm.getXmzm() + "%");
+                }
+                if(xm.getXmkssj() !=null){
+                    c1.andXmkssjGreaterThanOrEqualTo(xm.getXmkssj());
+                }
+                if (xm.getSmjssj() !=null){
+                    c1.andSmjssjLessThanOrEqualTo(xm.getSmjssj());
                 }
                 super.addOrderBy(params, conditions);
 

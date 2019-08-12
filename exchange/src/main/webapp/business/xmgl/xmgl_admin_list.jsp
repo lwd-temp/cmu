@@ -6,27 +6,34 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://cn.edu.cmu/uitag" prefix="dm" %>
 <div >
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="condition"> 项目总名或者项目名称: </label>
-
-            <div class="col-sm-5">
-                <input type="text" id="condition" placeholder="请输入项目总名或者项目名称" class="col-xs-12" />
+            <div class="col-sm-4">
+                项目总名或者项目名称: <input type="text" id="condition" placeholder="请输入项目总名或者项目名称" style="width:50%" class="" />
             </div>
-
-            <div class="col-sm-3">
+            <!--<div class="col-sm-2">
+                国别:<dm:list tabName="T_DM_GB" id="condition2" data-placeholder="请选择" style="width:70%;display:inline"></dm:list>
+            </div>-->
+            <div class="col-sm-2">
+                项目开始时间:<input class="form-control date-picker" style="width:50%;display:inline" id="condition3" placeholder="项目开始时间"   data-date-format="yyyy-mm-dd"/>
+            </div>
+            <div class="col-sm-2">
+                项目结束时间: <input class="form-control date-picker" style="width:50%;display:inline" id="condition4" placeholder="项目结束时间"    data-date-format="yyyy-mm-dd"/>
+            </div>
+            <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
-
 
                 <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
                     批量下载
                 </button>
             </div>
         </div>
+
 
     </form>
     <div id="grid-pager"></div>
@@ -47,6 +54,11 @@
 
 
     $(function() {
+        //日期控件
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
 
         var parent_column = $(grid_selector).closest('[class*="col-"]');
         //resize to fit page size
@@ -105,7 +117,7 @@
                         var status = rowObject.status;
 
                         var content =   "<button class='btn btn-info btn-mini' title='修改' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
-                        content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                            content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='测试' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
 
                         return content;
                     }
@@ -127,7 +139,7 @@
         });
 
         $("#download").click(function(){
-            window.open("xm/downloadDeploy?xmmc="+$("#condition").val()+"&xmzm="+$("#condition").val());
+            window.open("xm/downloadDeploy?xmmc="+$("#condition").val()+"&xmzm="+$("#condition").val()+"&gbdq="+$("#condition2").val()+"&xmkssj="+$("#condition3").val()+"&smjssj="+$("#condition4").val());
         });
 
     });
@@ -141,7 +153,10 @@
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
                 'xmmc':$("#condition").val(),//项目名称
-                'xmzm':$("#condition").val() //项目总名
+                'xmzm':$("#condition").val(), //项目总名
+                'gbdq':$("#condition2").val(),//国别
+                'xmkssj':$("#condition3").val(),//项目开始时间
+                'smjssj':$("#condition4").val()//项目结束时间
             },
             page:1
         }).trigger("reloadGrid");
