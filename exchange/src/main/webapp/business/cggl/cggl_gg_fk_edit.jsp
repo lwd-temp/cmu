@@ -102,15 +102,15 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "  > 出境时间   : </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 护照号码: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cjsj"
-                               value="<fmt:formatDate value="${cgRwzxqkfk.cjsj}" pattern="yyyy-MM-dd"/>"
-                               type="text" data-date-format="yyyy-mm-dd" />
+                        <input type="text"  name="hzhm"   placeholder="请输入护照号码" value="${cgRwzxqkfk.hzhm}" class="col-xs-12" />
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "  > 任务批件文号 </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 护照有效期至: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control"  name="rwpjwh" value="${cgRwzxqkfk.rwpjwh}" type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" id="id-date-picker-10"  name="yxqz"
+                               value="<fmt:formatDate value="${cgRwzxqkfk.yxqz}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -119,6 +119,24 @@
                         <input class="form-control date-picker" name="rjsj"
                                value="<fmt:formatDate value="${cgRwzxqkfk.rjsj}" pattern="yyyy-MM-dd"/>"
                                type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 出境时间   : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control date-picker" name="cjsj"
+                               value="<fmt:formatDate value="${cgRwzxqkfk.cjsj}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 签证有效期: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control date-picker" id="qzsj" name="qzsj"
+                               value="<fmt:formatDate value="${cgRwzxqkfk.qzsj}" pattern="yyyy-MM-dd"/>"
+                               type="text" data-date-format="yyyy-mm-dd" placeholder="签证有效期" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 任务批件文号 </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control"  name="rwpjwh" value="${cgRwzxqkfk.rwpjwh}" type="text"  />
                     </div>
                 </div>
                 <div class="form-group"   >

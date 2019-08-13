@@ -102,14 +102,14 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "  > 出境时间   : </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 护照号码: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="cjsj"
-                               type="text" data-date-format="yyyy-mm-dd" />
+                        <input type="text"  name="hzhm"  value=""  placeholder="请输入护照号码"  class="col-xs-12" />
                     </div>
-                    <label class="col-xs-12 col-sm-2 control-label "  > 任务批件文号 </label>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 护照有效期至: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control"  name="rwpjwh"  type="text" data-date-format="yyyy-mm-dd" />
+                        <input class="form-control date-picker" id="id-date-picker-10"  name="yxqz"  value=""
+                               type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group">
@@ -117,6 +117,22 @@
                     <div class="col-xs-12 col-sm-4">
                         <input class="form-control date-picker" name="rjsj"
                                type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 出境时间   : </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control date-picker" name="cjsj"
+                               type="text" data-date-format="yyyy-mm-dd" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label "  > 签证有效期: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control date-picker" id="qzsj" name="qzsj" value=""
+                               type="text" data-date-format="yyyy-mm-dd" placeholder="签证有效期" />
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label "  > 任务批件文号 </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control"  name="rwpjwh"  type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                 </div>
                 <div class="form-group"   >

@@ -151,6 +151,7 @@ public class CgDqcgjExtController extends BaseController {
         data.put("cfgjdq", cgRwzxqkfk.getCfgjdq());
         data.put("tzxm", cgRwzxqkfk.getTzxm());
         data.put("tzzdw", cgRwzxqkfk.getTzzdw());
+        data.put("hzhm", cgRwzxqkfk.getHzhm());
         data.put("tzzw", cgRwzxqkfk.getTzzw());
         data.put("pzcfrw", cgRwzxqkfk.getPzcfrw());
         data.put("pzcfts", cgRwzxqkfk.getPzcfts());
@@ -163,10 +164,20 @@ public class CgDqcgjExtController extends BaseController {
         }else{
             data.put("rjsj", cgRwzxqkfk.getRjsj());
         }
+        if(cgRwzxqkfk.getYxqz()!=null){
+            data.put("yxqz", new SimpleDateFormat("yyyy-MM-dd").format(cgRwzxqkfk.getYxqz()).toString());
+        }else{
+            data.put("yxqz", cgRwzxqkfk.getYxqz());
+        }
         if(cgRwzxqkfk.getCjsj()!=null){
             data.put("cjsj", new SimpleDateFormat("yyyy-MM-dd").format(cgRwzxqkfk.getCjsj()).toString());
         }else{
             data.put("cjsj", cgRwzxqkfk.getCjsj());
+        }
+        if(cgRwzxqkfk.getQzsj()!=null){
+            data.put("qzsj", new SimpleDateFormat("yyyy-MM-dd").format(cgRwzxqkfk.getQzsj()).toString());
+        }else{
+            data.put("qzsj", cgRwzxqkfk.getQzsj());
         }
         data.put("cfbt", cgRwzxqkfk.getCfbt());
         data.put("rwzxqk", cgRwzxqkfk.getRwzxqk());

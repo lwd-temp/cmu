@@ -125,10 +125,25 @@ public class CgRwzxqkfk {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2018-11-22
+     * 护照号码
      */
-    public CgRwzxqkfk(String rwfkId, String tzdw, String cfgjdq, String tzxm, String xb, String tzzdw, String tzzw, String ssejdw, BigDecimal pzcfrw, BigDecimal pzcfts, BigDecimal sjcfrs, BigDecimal sjcfts, Date cjsj, Date rjsj, String rwpjwh, String cfbt, String rwzxqk, String rwwwcnr, String tbr, String tbrDh, String cgid, String status, String valid, Date createTime) {
+    private String hzhm;
+
+    /**
+     * 护照有效期
+     */
+    private Date yxqz;
+
+    /**
+     * 签证有效期
+     */
+    private Date qzsj;
+
+    /**
+     *
+     * @mbggenerated 2019-08-13
+     */
+    public CgRwzxqkfk(String rwfkId, String tzdw, String cfgjdq, String tzxm, String xb, String tzzdw, String tzzw, String ssejdw, BigDecimal pzcfrw, BigDecimal pzcfts, BigDecimal sjcfrs, BigDecimal sjcfts, Date cjsj, Date rjsj, String rwpjwh, String cfbt, String rwzxqk, String rwwwcnr, String tbr, String tbrDh, String cgid, String status, String valid, Date createTime, String hzhm, Date yxqz, Date qzsj) {
         this.rwfkId = rwfkId;
         this.tzdw = tzdw;
         this.cfgjdq = cfgjdq;
@@ -153,11 +168,14 @@ public class CgRwzxqkfk {
         this.status = status;
         this.valid = valid;
         this.createTime = createTime;
+        this.hzhm = hzhm;
+        this.yxqz = yxqz;
+        this.qzsj = qzsj;
     }
 
     /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-08-13
      */
     public CgRwzxqkfk() {
         super();
@@ -548,8 +566,56 @@ public class CgRwzxqkfk {
     }
 
     /**
+     * 护照号码
+     * @return HZHM 护照号码
+     */
+    public String getHzhm() {
+        return hzhm;
+    }
+
+    /**
+     * 护照号码
+     * @param hzhm 护照号码
+     */
+    public void setHzhm(String hzhm) {
+        this.hzhm = hzhm == null ? null : hzhm.trim();
+    }
+
+    /**
+     * 护照有效期
+     * @return YXQZ 护照有效期
+     */
+    public Date getYxqz() {
+        return yxqz;
+    }
+
+    /**
+     * 护照有效期
+     * @param yxqz 护照有效期
+     */
+    public void setYxqz(Date yxqz) {
+        this.yxqz = yxqz;
+    }
+
+    /**
+     * 签证有效期
+     * @return QZSJ 签证有效期
+     */
+    public Date getQzsj() {
+        return qzsj;
+    }
+
+    /**
+     * 签证有效期
+     * @param qzsj 签证有效期
+     */
+    public void setQzsj(Date qzsj) {
+        this.qzsj = qzsj;
+    }
+
+    /**
      *
-     * @mbggenerated 2018-11-22
+     * @mbggenerated 2019-08-13
      */
     @Override
     public String toString() {
@@ -581,6 +647,9 @@ public class CgRwzxqkfk {
         sb.append(", status=").append(status);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", hzhm=").append(hzhm);
+        sb.append(", yxqz=").append(yxqz);
+        sb.append(", qzsj=").append(qzsj);
         sb.append("]");
         return sb.toString();
     }

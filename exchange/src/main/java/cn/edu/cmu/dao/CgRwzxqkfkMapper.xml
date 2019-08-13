@@ -27,6 +27,9 @@
       <arg column="STATUS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="HZHM" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="YXQZ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="QZSJ" jdbcType="TIMESTAMP" javaType="java.util.Date" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -133,7 +136,8 @@
   </sql>
   <sql id="Base_Column_List" >
     RWFK_ID, TZDW, CFGJDQ, TZXM, XB, TZZDW, TZZW, SSEJDW, PZCFRW, PZCFTS, SJCFRS, SJCFTS, 
-    CJSJ, RJSJ, RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID, STATUS, VALID, CREATE_TIME
+    CJSJ, RJSJ, RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID, STATUS, VALID, CREATE_TIME, 
+    HZHM, YXQZ, QZSJ
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" >
     select
@@ -174,7 +178,8 @@
       RJSJ, RWPJWH, CFBT, 
       RWZXQK, RWWWCNR, TBR, 
       TBR_DH, CGID, STATUS, 
-      VALID, CREATE_TIME)
+      VALID, CREATE_TIME, HZHM, 
+      YXQZ, QZSJ)
     values (#{rwfkId,jdbcType=VARCHAR}, #{tzdw,jdbcType=VARCHAR}, #{cfgjdq,jdbcType=VARCHAR}, 
       #{tzxm,jdbcType=VARCHAR}, #{xb,jdbcType=VARCHAR}, #{tzzdw,jdbcType=VARCHAR}, #{tzzw,jdbcType=VARCHAR}, 
       #{ssejdw,jdbcType=VARCHAR}, #{pzcfrw,jdbcType=DECIMAL}, #{pzcfts,jdbcType=DECIMAL}, 
@@ -182,7 +187,8 @@
       #{rjsj,jdbcType=TIMESTAMP}, #{rwpjwh,jdbcType=VARCHAR}, #{cfbt,jdbcType=VARCHAR}, 
       #{rwzxqk,jdbcType=VARCHAR}, #{rwwwcnr,jdbcType=VARCHAR}, #{tbr,jdbcType=VARCHAR}, 
       #{tbrDh,jdbcType=VARCHAR}, #{cgid,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, 
-      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{hzhm,jdbcType=VARCHAR}, 
+      #{yxqz,jdbcType=TIMESTAMP}, #{qzsj,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.CgRwzxqkfk" >
     insert into T_CG_RWZXQKFK
@@ -259,6 +265,15 @@
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
+      <if test="hzhm != null" >
+        HZHM,
+      </if>
+      <if test="yxqz != null" >
+        YXQZ,
+      </if>
+      <if test="qzsj != null" >
+        QZSJ,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="rwfkId != null" >
@@ -332,6 +347,15 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="hzhm != null" >
+        #{hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="yxqz != null" >
+        #{yxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qzsj != null" >
+        #{qzsj,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -416,6 +440,15 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.hzhm != null" >
+        HZHM = #{record.hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yxqz != null" >
+        YXQZ = #{record.yxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.qzsj != null" >
+        QZSJ = #{record.qzsj,jdbcType=TIMESTAMP},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -446,7 +479,10 @@
       CGID = #{record.cgid,jdbcType=VARCHAR},
       STATUS = #{record.status,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      HZHM = #{record.hzhm,jdbcType=VARCHAR},
+      YXQZ = #{record.yxqz,jdbcType=TIMESTAMP},
+      QZSJ = #{record.qzsj,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -523,6 +559,15 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="hzhm != null" >
+        HZHM = #{hzhm,jdbcType=VARCHAR},
+      </if>
+      <if test="yxqz != null" >
+        YXQZ = #{yxqz,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qzsj != null" >
+        QZSJ = #{qzsj,jdbcType=TIMESTAMP},
+      </if>
     </set>
     where RWFK_ID = #{rwfkId,jdbcType=VARCHAR}
   </update>
@@ -550,7 +595,10 @@
       CGID = #{cgid,jdbcType=VARCHAR},
       STATUS = #{status,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      HZHM = #{hzhm,jdbcType=VARCHAR},
+      YXQZ = #{yxqz,jdbcType=TIMESTAMP},
+      QZSJ = #{qzsj,jdbcType=TIMESTAMP}
     where RWFK_ID = #{rwfkId,jdbcType=VARCHAR}
   </update>
 </mapper>
