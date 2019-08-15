@@ -161,9 +161,12 @@
         <table tableName="T_DM_HYLX" 	domainObjectName="DmHylx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmHylxParams&gt;"/>
         </table>-->
-       <!-- <table tableName="T_DM_HZLX" 	domainObjectName="DmHzlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
-            <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmHzlxParams&gt;"/>
-        </table>-->
+        <!-- <table tableName="T_DM_HZLX" 	domainObjectName="DmHzlx"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
+             <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmHzlxParams&gt;"/>
+         </table>-->
+        <!--<table tableName="T_DM_JLJGMC" 	domainObjectName="DmJljgmc"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >-->
+            <!--<property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmJljgmcParams&gt;"/>-->
+        <!--</table>-->
         <!-- <table tableName="T_DM_JFLY" 	domainObjectName="DmJfly"   enableCountByExample="true"  enableUpdateByExample="true"  enableDeleteByExample="true"  enableSelectByExample="true" selectByExampleQueryId="false" >
          <property name="rootInterface" value="cn.edu.cmu.framework.web.BaseMapper&lt;cn.edu.cmu.domain.DmJflyParams&gt;"/>
         </table>

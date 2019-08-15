@@ -15,13 +15,15 @@ sys:
       ${app.ignoreLogin.switch}
     userId:
       "20112026"
+#      "2017120919"
 #      "127506"
     userType:
       "3"
+#      "2"
 #      "1"
   cache:
     mapperbeans:
-      dmWjjsqzMapper,dmCcxzMapper,dmHzlxMapper,dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper,dmCfrwMapper
+      dmWjjsqzMapper,dmCcxzMapper,dmHzlxMapper,dmZhpjMapper,dmYyMapper,dmCgSqlxMapper,dmYnMapper,dmHylxMapper,dmGbMapper,dmXbMapper,dmCfmdMapper,dmCgspjgMapper,dmHzztMapper,dmJflyMapper,dmJhlxMapper,dmLfmdMapper,dmTzjbMapper,dmTzlbMapper,dmWblfJdlxMapper,dmXmccMapper,dmXmlxMapper,dmXmmcMapper,dmZzskMapper,dmCfrwMapper,dmJljgmcMapper
   upload:
     #上传文件的基本路径
     base_dir:

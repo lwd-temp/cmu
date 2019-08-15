@@ -17,7 +17,6 @@
       <arg column="ZJJE" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMGK" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="XMZZJH" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="JLMBJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="JHRS" jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
@@ -37,6 +36,7 @@
       <arg column="YYYQSM" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="GBDQ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="FYBZ" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="JLJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -143,9 +143,8 @@
   </sql>
   <sql id="Base_Column_List" >
     XM_ID, XMLX, XMZM, GLXMMCID, XMMC, XMBH, XMKSSJ, SMJSSJ, XMJLTS, XMCC, JFLY, ZJJE, 
-    XMGK, XMZZJH, JLMBJGMC, ZYSM, SFXZRS, JHRS, CCXZ, XMNJXZ, YYYQ, XMZYXZ, GSYXDM, GSYXMC, 
-    GSXSDM, GSXSXM, OPERATOR_CODE, BMJZSJ, STATUS, VALID, CREATE_TIME, YYYQSM, GBDQ, 
-    FYBZ
+    XMGK, XMZZJH, ZYSM, SFXZRS, JHRS, CCXZ, XMNJXZ, YYYQ, XMZYXZ, GSYXDM, GSYXMC, GSXSDM, 
+    GSXSXM, OPERATOR_CODE, BMJZSJ, STATUS, VALID, CREATE_TIME, YYYQSM, GBDQ, FYBZ, JLJGMC
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.XmParams" >
     select
@@ -183,24 +182,24 @@
       GLXMMCID, XMMC, XMBH, 
       XMKSSJ, SMJSSJ, XMJLTS, 
       XMCC, JFLY, ZJJE, XMGK, 
-      XMZZJH, JLMBJGMC, ZYSM, 
-      SFXZRS, JHRS, CCXZ, 
-      XMNJXZ, YYYQ, XMZYXZ, 
-      GSYXDM, GSYXMC, GSXSDM, 
-      GSXSXM, OPERATOR_CODE, BMJZSJ, 
-      STATUS, VALID, CREATE_TIME, 
-      YYYQSM, GBDQ, FYBZ)
+      XMZZJH, ZYSM, SFXZRS, 
+      JHRS, CCXZ, XMNJXZ, 
+      YYYQ, XMZYXZ, GSYXDM, 
+      GSYXMC, GSXSDM, GSXSXM, 
+      OPERATOR_CODE, BMJZSJ, STATUS, 
+      VALID, CREATE_TIME, YYYQSM, 
+      GBDQ, FYBZ, JLJGMC)
     values (#{xmId,jdbcType=VARCHAR}, #{xmlx,jdbcType=VARCHAR}, #{xmzm,jdbcType=VARCHAR}, 
       #{glxmmcid,jdbcType=VARCHAR}, #{xmmc,jdbcType=VARCHAR}, #{xmbh,jdbcType=VARCHAR}, 
       #{xmkssj,jdbcType=TIMESTAMP}, #{smjssj,jdbcType=TIMESTAMP}, #{xmjlts,jdbcType=DECIMAL}, 
       #{xmcc,jdbcType=VARCHAR}, #{jfly,jdbcType=VARCHAR}, #{zjje,jdbcType=VARCHAR}, #{xmgk,jdbcType=VARCHAR}, 
-      #{xmzzjh,jdbcType=VARCHAR}, #{jlmbjgmc,jdbcType=VARCHAR}, #{zysm,jdbcType=VARCHAR}, 
-      #{sfxzrs,jdbcType=VARCHAR}, #{jhrs,jdbcType=DECIMAL}, #{ccxz,jdbcType=VARCHAR}, 
-      #{xmnjxz,jdbcType=VARCHAR}, #{yyyq,jdbcType=VARCHAR}, #{xmzyxz,jdbcType=VARCHAR}, 
-      #{gsyxdm,jdbcType=VARCHAR}, #{gsyxmc,jdbcType=VARCHAR}, #{gsxsdm,jdbcType=VARCHAR}, 
-      #{gsxsxm,jdbcType=VARCHAR}, #{operatorCode,jdbcType=VARCHAR}, #{bmjzsj,jdbcType=TIMESTAMP}, 
-      #{status,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
-      #{yyyqsm,jdbcType=VARCHAR}, #{gbdq,jdbcType=VARCHAR}, #{fybz,jdbcType=VARCHAR})
+      #{xmzzjh,jdbcType=VARCHAR}, #{zysm,jdbcType=VARCHAR}, #{sfxzrs,jdbcType=VARCHAR}, 
+      #{jhrs,jdbcType=DECIMAL}, #{ccxz,jdbcType=VARCHAR}, #{xmnjxz,jdbcType=VARCHAR}, 
+      #{yyyq,jdbcType=VARCHAR}, #{xmzyxz,jdbcType=VARCHAR}, #{gsyxdm,jdbcType=VARCHAR}, 
+      #{gsyxmc,jdbcType=VARCHAR}, #{gsxsdm,jdbcType=VARCHAR}, #{gsxsxm,jdbcType=VARCHAR}, 
+      #{operatorCode,jdbcType=VARCHAR}, #{bmjzsj,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{yyyqsm,jdbcType=VARCHAR}, 
+      #{gbdq,jdbcType=VARCHAR}, #{fybz,jdbcType=VARCHAR}, #{jljgmc,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Xm" >
     insert into T_XM
@@ -246,9 +245,6 @@
       </if>
       <if test="xmzzjh != null" >
         XMZZJH,
-      </if>
-      <if test="jlmbjgmc != null" >
-        JLMBJGMC,
       </if>
       <if test="zysm != null" >
         ZYSM,
@@ -307,6 +303,9 @@
       <if test="fybz != null" >
         FYBZ,
       </if>
+      <if test="jljgmc != null" >
+        JLJGMC,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="xmId != null" >
@@ -350,9 +349,6 @@
       </if>
       <if test="xmzzjh != null" >
         #{xmzzjh,jdbcType=VARCHAR},
-      </if>
-      <if test="jlmbjgmc != null" >
-        #{jlmbjgmc,jdbcType=VARCHAR},
       </if>
       <if test="zysm != null" >
         #{zysm,jdbcType=VARCHAR},
@@ -411,6 +407,9 @@
       <if test="fybz != null" >
         #{fybz,jdbcType=VARCHAR},
       </if>
+      <if test="jljgmc != null" >
+        #{jljgmc,jdbcType=VARCHAR},
+      </if>
     </trim>
   </insert>
   <select id="countByExample" parameterType="cn.edu.cmu.domain.XmParams" resultType="java.lang.Integer" >
@@ -463,9 +462,6 @@
       </if>
       <if test="record.xmzzjh != null" >
         XMZZJH = #{record.xmzzjh,jdbcType=VARCHAR},
-      </if>
-      <if test="record.jlmbjgmc != null" >
-        JLMBJGMC = #{record.jlmbjgmc,jdbcType=VARCHAR},
       </if>
       <if test="record.zysm != null" >
         ZYSM = #{record.zysm,jdbcType=VARCHAR},
@@ -524,6 +520,9 @@
       <if test="record.fybz != null" >
         FYBZ = #{record.fybz,jdbcType=VARCHAR},
       </if>
+      <if test="record.jljgmc != null" >
+        JLJGMC = #{record.jljgmc,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -545,7 +544,6 @@
       ZJJE = #{record.zjje,jdbcType=VARCHAR},
       XMGK = #{record.xmgk,jdbcType=VARCHAR},
       XMZZJH = #{record.xmzzjh,jdbcType=VARCHAR},
-      JLMBJGMC = #{record.jlmbjgmc,jdbcType=VARCHAR},
       ZYSM = #{record.zysm,jdbcType=VARCHAR},
       SFXZRS = #{record.sfxzrs,jdbcType=VARCHAR},
       JHRS = #{record.jhrs,jdbcType=DECIMAL},
@@ -564,7 +562,8 @@
       CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       YYYQSM = #{record.yyyqsm,jdbcType=VARCHAR},
       GBDQ = #{record.gbdq,jdbcType=VARCHAR},
-      FYBZ = #{record.fybz,jdbcType=VARCHAR}
+      FYBZ = #{record.fybz,jdbcType=VARCHAR},
+      JLJGMC = #{record.jljgmc,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -610,9 +609,6 @@
       </if>
       <if test="xmzzjh != null" >
         XMZZJH = #{xmzzjh,jdbcType=VARCHAR},
-      </if>
-      <if test="jlmbjgmc != null" >
-        JLMBJGMC = #{jlmbjgmc,jdbcType=VARCHAR},
       </if>
       <if test="zysm != null" >
         ZYSM = #{zysm,jdbcType=VARCHAR},
@@ -671,6 +667,9 @@
       <if test="fybz != null" >
         FYBZ = #{fybz,jdbcType=VARCHAR},
       </if>
+      <if test="jljgmc != null" >
+        JLJGMC = #{jljgmc,jdbcType=VARCHAR},
+      </if>
     </set>
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </update>
@@ -689,7 +688,6 @@
       ZJJE = #{zjje,jdbcType=VARCHAR},
       XMGK = #{xmgk,jdbcType=VARCHAR},
       XMZZJH = #{xmzzjh,jdbcType=VARCHAR},
-      JLMBJGMC = #{jlmbjgmc,jdbcType=VARCHAR},
       ZYSM = #{zysm,jdbcType=VARCHAR},
       SFXZRS = #{sfxzrs,jdbcType=VARCHAR},
       JHRS = #{jhrs,jdbcType=DECIMAL},
@@ -708,7 +706,8 @@
       CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       YYYQSM = #{yyyqsm,jdbcType=VARCHAR},
       GBDQ = #{gbdq,jdbcType=VARCHAR},
-      FYBZ = #{fybz,jdbcType=VARCHAR}
+      FYBZ = #{fybz,jdbcType=VARCHAR},
+      JLJGMC = #{jljgmc,jdbcType=VARCHAR}
     where XM_ID = #{xmId,jdbcType=VARCHAR}
   </update>
 </mapper>

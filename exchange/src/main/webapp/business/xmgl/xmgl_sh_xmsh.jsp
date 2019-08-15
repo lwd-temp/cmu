@@ -105,12 +105,12 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 交流目标国家或地区: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <dm:list tabName="T_DM_GB" type="select" multiple="multiple" valueList="${gbCodeList}" disabled="disabled" id="gb" name="gbs" data-placeholder="请选择"></dm:list>
+                                    <dm:list tabName="T_DM_GB" type="select" multiple="multiple" valueList="${gbCodeList}" id="gb"  name="gbs" data-placeholder="请选择"></dm:list>
                                 </div>
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 交流目标机构名称: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" value="${xm.jlmbjgmc}" readonly="readonly"  type="text" placeholder="请输入交流目标机构名称,如'国'"/>
+                                    <dm:list tabName="T_DM_JLJGMC" multiple="multiple"  id="jljgmc" name="xm.jljgmc" value="${xm.jljgmc}" disabled="disabled" data-placeholder="请选择交流目标机构"></dm:list>
                                 </div>
                             </div>
 
@@ -257,9 +257,9 @@
                             </div>
 
                             <div class="col-md-offset-3 col-md-9" style="text-align:right;">
-                                <button class="btn btn-info btn-sm" id="btnClose" type="button" >
+                                <button class="btn btn-info btn-sm" id="btnBack" type="button" >
                                     <i class="ace-icon fa fa-check bigger-110"></i>
-                                    关闭
+                                    不通过
                                 </button>
                                 &nbsp; &nbsp; &nbsp;
 
@@ -310,10 +310,10 @@
         //设置验证.
         setFormValidate();
 
-        var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
-
-
-        $('#jlmbjgmc').inputSelect(names);
+        // var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
+        //
+        //
+        // $('#jlmbjgmc').inputSelect(names);
 
         $('#xmnjxz').inputSelect('xm/listNj');
         $('#xmzm').inputSelect('xm/listMc');
@@ -354,6 +354,7 @@
         });
 
 
+
         $("#btnDeploy").click(function () {
             if (!$("#form").valid()) {
                 validator.focusInvalid();
@@ -375,10 +376,24 @@
                     }
                 }
             })
-        });
-        $("#btnClose").click(function(){
 
-            closeLayer();
+        });
+
+        $("#btnBack").click(function(){
+            $("#status").val('07');
+            //审核，07 退回，
+            $.ajax('xm/save',{
+                data:$("#form").serialize(),
+                success:function(res){
+                    if(res && res.success){
+                        winAlert("处理成功");
+                        parent.refreshTable();
+                        closeLayer();
+                    }else{
+                        winAlert("处理失败");
+                    }
+                }
+            })
 
         });
 

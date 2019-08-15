@@ -110,7 +110,7 @@
 
                                 <label class="col-xs-12 col-sm-2 control-label "> 交流目标机构名称: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control typeahead scrollable" name="xm.jlmbjgmc" id="jlmbjgmc" value="${xm.jlmbjgmc}"  type="text" placeholder="请输入交流目标机构名称,如'国'"/>
+                                    <dm:list tabName="T_DM_JLJGMC" multiple="multiple"  id="jljgmc" name="xm.jljgmc" value="${xm.jljgmc}" data-placeholder="请选择交流目标机构"></dm:list>
                                 </div>
                             </div>
 
@@ -314,10 +314,10 @@
         //设置验证.
         setFormValidate();
 
-        var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
-
-
-        $('#jlmbjgmc').inputSelect(names);
+        // var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
+        //
+        //
+        // $('#jlmbjgmc').inputSelect(names);
 
         $('#xmnjxz').inputSelect('xm/listNj');
         $('#xmzm').inputSelect('xm/listMc');

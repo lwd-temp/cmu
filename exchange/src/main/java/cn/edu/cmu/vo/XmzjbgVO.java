@@ -28,7 +28,7 @@ public class XmzjbgVO {
     private String  zzje;//资助金额
     private String  zymc;//校内专业
     private String  jlgjdqm;//国家地区
-    private String  jlmbjgmc;//交流机构名称
+    private String  jljgmc;//交流机构名称
     private String  jfly;//经费来源
     private Date xmkssj;//出国开始时间
     private Date  smjssj;//回国时间

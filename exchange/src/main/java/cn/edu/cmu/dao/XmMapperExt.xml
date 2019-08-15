@@ -17,7 +17,6 @@
             <arg column="ZJJE" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="XMGK" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="XMZZJH" jdbcType="VARCHAR" javaType="java.lang.String" />
-            <arg column="JLMBJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="FYBZ" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="ZYSM" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="SFXZRS" jdbcType="VARCHAR" javaType="java.lang.String" />
@@ -42,6 +41,7 @@
             <arg column="SELF_PAY" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="YYYQSM" jdbcType="VARCHAR" javaType="java.lang.String" />
             <arg column="GBDQ" jdbcType="VARCHAR" javaType="java.lang.String" />
+            <arg column="JLJGMC" jdbcType="VARCHAR" javaType="java.lang.String" />
         </constructor>
     </resultMap>
 
@@ -73,7 +73,7 @@
             t.ZJJE			as ZJJE				,
             t.XMGK			as XMGK				,
             t.XMZZJH			as XMZZJH				,
-            t.JLMBJGMC		as JLMBJGMC				,
+            t.JLJGMC		as JLJGMC				,
             t.FYBZ			as FYBZ				,
             t.ZYSM			as ZYSM				,
             t.SFXZRS			as SFXZRS				,
@@ -116,8 +116,8 @@
             and (
                 <!--层次限制  1本科生,2研究生-->
                 t.ccxz like ( '%'||#{ccxz}||'%' )
-                <!--院系项目-->
-                or t.ccxz is null
+                <!--不限-->
+                or t.ccxz = '99'
             )
 
         <!--<if test="xm.bmjzsj !=null">-->
@@ -156,7 +156,7 @@
         t.ZJJE			as ZJJE				,
         t.XMGK			as XMGK				,
         t.XMZZJH			as XMZZJH				,
-        t.JLMBJGMC		as JLMBJGMC				,
+        t.JLJGMC		as JLJGMC				,
         t.FYBZ			as FYBZ				,
         t.ZYSM			as ZYSM				,
         t.SFXZRS			as SFXZRS				,
@@ -241,8 +241,9 @@
 
     <select id="selectXmzjbg" parameterType="cn.edu.cmu.vo.XmzjbgVO" resultMap="XmzjbgVOResultMap">
 
-        select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id,zymc,jlmbjgmc,zzje,
+        select xmbh,xmmc,xh,xm,unit_name,sznj,zjid,file_id,zymc,zzje,
         decode(xmlx,'01','临床实习','02','假期访学','03','攻读学位','04','课程学习','99','其它','未知') xmlx,
+        F_GetTableText('t_dm_jljgmc', 'code', 'name', jljgmc) jljgmc,
         F_GetTableText('t_dm_gb', 'code', 'name', jlgjdqm) jlgjdqm,
         F_GetTableText('t_dm_jfly', 'code', 'name', jfly) jfly,xmkssj,smjssj,xmjlts,rxn,xmcc
         from (
@@ -261,7 +262,7 @@
 
 
                 xm.xmlx      xmlx,
-                xm.jlmbjgmc  jlmbjgmc,
+                xm.jljgmc  jljgmc,
                 xm.jfly      jfly,
                 xm.xmkssj    xmkssj,
                 xm.smjssj    smjssj,
@@ -326,13 +327,14 @@
                    (select wm_concat(gb.name) from t_xm_gjdq t inner join T_DM_GB gb on gb.code = t.gjdm  where t.XMID =XM_ID) gbdq,
                    xmzm, glxmmcid, xmmc, xmbh,  xmkssj, smjssj, xmjlts,
                    F_GetTableText('t_dm_xmcc', 'code', 'name', xmcc) xmcc, jfly,
-                   zjje, xmgk, xmzzjh, jlmbjgmc, fybz, zysm, sfxzrs, jhrs,
+                   zjje, xmgk, xmzzjh, fybz, zysm, sfxzrs, jhrs,
+                   F_GetTableText('t_dm_jljgmc', 'code', 'name', jljgmc) jljgmc,
                    ccxz, xmnjxz, yyyq, xmzyxz, gsyxdm, gsyxmc, gsxsdm, gsxsxm,
                    operator_code, bmjzsj,
                    decode(status,'01','暂存','02','已发布','03','允许申报','04','申报结束','05','项目中介','06','待审核','未知') status,
                    valid, create_time, yyyqsm
               from t_xm
-              where valid = 1 and status != '01' and status != '06'
+              where valid = 1 and status != '01' and status != '06'  and status != '07'
                 <if test="xmmc != null and xmzm != null">
                     and(
                     <bind name="xmmcLike" value="'%' + xmmc + '%'"/>

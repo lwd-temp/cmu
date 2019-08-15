@@ -75,11 +75,6 @@ public class Xm {
     private String xmzzjh;
 
     /**
-     * 交流目标机构名称
-     */
-    private String jlmbjgmc;
-
-    /**
      * 项目收费说明
      */
     private String zysm;
@@ -145,7 +140,7 @@ public class Xm {
     private Date bmjzsj;
 
     /**
-     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
+     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结、06审核
      */
     private String status;
 
@@ -175,10 +170,15 @@ public class Xm {
     private String fybz;
 
     /**
-     *
-     * @mbggenerated 2019-07-29
+     * 交流机构名称
      */
-    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm, String gbdq, String fybz) {
+    private String jljgmc;
+
+    /**
+     *
+     * @mbggenerated 2019-08-14
+     */
+    public Xm(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz, String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj, String status, String valid, Date createTime, String yyyqsm, String gbdq, String fybz, String jljgmc) {
         this.xmId = xmId;
         this.xmlx = xmlx;
         this.xmzm = xmzm;
@@ -193,7 +193,6 @@ public class Xm {
         this.zjje = zjje;
         this.xmgk = xmgk;
         this.xmzzjh = xmzzjh;
-        this.jlmbjgmc = jlmbjgmc;
         this.zysm = zysm;
         this.sfxzrs = sfxzrs;
         this.jhrs = jhrs;
@@ -213,11 +212,12 @@ public class Xm {
         this.yyyqsm = yyyqsm;
         this.gbdq = gbdq;
         this.fybz = fybz;
+        this.jljgmc = jljgmc;
     }
 
     /**
      *
-     * @mbggenerated 2019-07-29
+     * @mbggenerated 2019-08-14
      */
     public Xm() {
         super();
@@ -448,22 +448,6 @@ public class Xm {
     }
 
     /**
-     * 交流目标机构名称
-     * @return JLMBJGMC 交流目标机构名称
-     */
-    public String getJlmbjgmc() {
-        return jlmbjgmc;
-    }
-
-    /**
-     * 交流目标机构名称
-     * @param jlmbjgmc 交流目标机构名称
-     */
-    public void setJlmbjgmc(String jlmbjgmc) {
-        this.jlmbjgmc = jlmbjgmc == null ? null : jlmbjgmc.trim();
-    }
-
-    /**
      * 项目收费说明
      * @return ZYSM 项目收费说明
      */
@@ -672,16 +656,16 @@ public class Xm {
     }
 
     /**
-     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
-     * @return STATUS 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
+     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结、06审核
+     * @return STATUS 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结、06审核
      */
     public String getStatus() {
         return status;
     }
 
     /**
-     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
-     * @param status 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结
+     * 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结、06审核
+     * @param status 01 暂存、02 发布、03 允许申报、04 申报结束、05 项目终结、06审核
      */
     public void setStatus(String status) {
         this.status = status == null ? null : status.trim();
@@ -768,8 +752,24 @@ public class Xm {
     }
 
     /**
+     * 交流机构名称
+     * @return JLJGMC 交流机构名称
+     */
+    public String getJljgmc() {
+        return jljgmc;
+    }
+
+    /**
+     * 交流机构名称
+     * @param jljgmc 交流机构名称
+     */
+    public void setJljgmc(String jljgmc) {
+        this.jljgmc = jljgmc == null ? null : jljgmc.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-07-29
+     * @mbggenerated 2019-08-14
      */
     @Override
     public String toString() {
@@ -791,7 +791,6 @@ public class Xm {
         sb.append(", zjje=").append(zjje);
         sb.append(", xmgk=").append(xmgk);
         sb.append(", xmzzjh=").append(xmzzjh);
-        sb.append(", jlmbjgmc=").append(jlmbjgmc);
         sb.append(", zysm=").append(zysm);
         sb.append(", sfxzrs=").append(sfxzrs);
         sb.append(", jhrs=").append(jhrs);
@@ -811,6 +810,7 @@ public class Xm {
         sb.append(", yyyqsm=").append(yyyqsm);
         sb.append(", gbdq=").append(gbdq);
         sb.append(", fybz=").append(fybz);
+        sb.append(", jljgmc=").append(jljgmc);
         sb.append("]");
         return sb.toString();
     }

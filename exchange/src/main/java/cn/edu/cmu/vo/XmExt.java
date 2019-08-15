@@ -26,8 +26,8 @@ public class XmExt extends Xm {
     public XmExt() {
     }
 
-    public XmExt(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String jlmbjgmc, String fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz,String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj,String status, String valid, Date createTime, String sqStatus, String sqjlId, String comfirm1, String comfirm2, String selfPay,String yyyqsm,String gbdq) {
-        super(xmId, xmlx, xmzm, glxmmcid, xmmc, xmbh, xmkssj, smjssj, xmjlts, xmcc, jfly, zjje, xmgk, xmzzjh, jlmbjgmc, zysm, sfxzrs, jhrs, ccxz, xmnjxz, yyyq, xmzyxz, gsyxdm, gsyxmc, gsxsdm, gsxsxm, operatorCode, bmjzsj, status, valid, createTime,yyyqsm,gbdq,fybz );
+    public XmExt(String xmId, String xmlx, String xmzm, String glxmmcid, String xmmc, String xmbh, Date xmkssj, Date smjssj, BigDecimal xmjlts, String xmcc, String jfly, String zjje, String xmgk, String xmzzjh, String fybz, String zysm, String sfxzrs, BigDecimal jhrs, String ccxz,String xmnjxz, String yyyq, String xmzyxz, String gsyxdm, String gsyxmc, String gsxsdm, String gsxsxm, String operatorCode, Date bmjzsj,String status, String valid, Date createTime, String sqStatus, String sqjlId, String comfirm1, String comfirm2, String selfPay,String yyyqsm,String gbdq, String jljgmc) {
+        super(xmId, xmlx, xmzm, glxmmcid, xmmc, xmbh, xmkssj, smjssj, xmjlts, xmcc, jfly, zjje, xmgk, xmzzjh, zysm, sfxzrs, jhrs, ccxz, xmnjxz, yyyq, xmzyxz, gsyxdm, gsyxmc, gsxsdm, gsxsxm, operatorCode, bmjzsj, status, valid, createTime,yyyqsm,gbdq,fybz,jljgmc );
         this.sqStatus = sqStatus;
         this.sqjlId = sqjlId;
         this.comfirm1 = comfirm1;

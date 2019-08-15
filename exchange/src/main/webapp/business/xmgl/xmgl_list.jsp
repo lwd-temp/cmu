@@ -108,6 +108,8 @@
                             zt = "已发布";
                         }else if('06' == status){
                             zt = "待审核";
+                        }else if('07' == status){
+                            zt = "审核未通过";
                         }
                         return zt;
                     }  },
@@ -117,6 +119,11 @@
                         var status = rowObject.status;
                         var content = "";
                         if(status == '01' ){
+                            content += "<button class='btn btn-info btn-mini' title='修改' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
+
+                            content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
+                        }
+                        if(status == '07' ){
                             content += "<button class='btn btn-info btn-mini' title='修改' onclick='editXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>修改</i></button>" ;
 
                             content += "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delXm(\""+xmId+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
