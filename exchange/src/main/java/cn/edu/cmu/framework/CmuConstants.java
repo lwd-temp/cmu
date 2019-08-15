@@ -56,6 +56,8 @@ public class CmuConstants {
     }
 
 
+
+
     //外宾接待
     public interface WBJD{
         //退回
@@ -93,6 +95,8 @@ public class CmuConstants {
         public static final String SQ_STATUS_TEMPORARY_STORAGE = "01";
         //项目待审核
         public static final String SQ_STATUS_XM_SH = "06";
+        //项目审核未通过
+        public static final String SQ_STATUS_XM_SH_PASS = "07";
         //申请提交，待初审
         public static final String SQ_STATUS_SUBMIT = "02";
 

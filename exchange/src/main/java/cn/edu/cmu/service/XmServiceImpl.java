@@ -95,6 +95,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
                 if(StringUtils.isNotEmpty(xm.getStatus()) && "ready".equals(xm.getStatus())){
                     c1.andStatusNotEqualTo(CmuConstants.XM.STATUS_TEMPORARY_STORAGE);// != '01'
                     c1.andStatusNotEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH);// != '06'
+                    c1.andStatusNotEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH_PASS);// != '07'
                 }
 
                 if (StringUtils.isNotEmpty(xm.getXmmc())) {
@@ -154,6 +155,23 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
                 XmGjdq gj = new XmGjdq(CmuStringUtil.UUID(), gjdm, xm.getXmId(), null, null);
                 gjDao.insertSelective(gj);
             }
+        }
+        Xm xmwx = dao.selectByPrimaryKey(xm.getXmId());
+        //如果退回需要发送微信通知
+        if(CmuConstants.XM.SQ_STATUS_SUBMIT.equals(xmwx.getStatus())){
+            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】护照半年到期提醒
+            String description =    ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.pass.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+
+            SysThreadPoolRunner.submit(new WeChartUtils("", xmwx.getOperatorCode(), title, description, content));
+        }
+        //如果通过需要发送微信通知
+        if(CmuConstants.XM.SQ_STATUS_XM_SH_PASS.equals(xmwx.getStatus())){
+            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】护照半年到期提醒
+            String description =    ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.back.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+
+            SysThreadPoolRunner.submit(new WeChartUtils("", xmwx.getOperatorCode(), title, description, content));
         }
 
         return success;
