@@ -33,7 +33,7 @@ comment on column T_DM_CFRW.CREATE_TIME
 alter table T_DM_CFRW
   add constraint PK_T_DM_CFRW primary key (CODE);
 
-删掉出访任务字段
+alter table T_CG_TZJH drop column cfrw
 -- Add/modify columns
 alter table T_CG_TZJH add cfrw VARCHAR2(100);
 -- Add comments to the columns
@@ -41,6 +41,6 @@ comment on column T_CG_TZJH.cfrw
   is '出访任务';
   -- Create/Recreate primary, unique and foreign key constraints
 alter table T_CG_TZJH
-  add constraint FK_T_CG_TZJ_REFERENCE_T_DM_CFRW foreign key (CFRW)
+  add constraint FK_T_CG_TZJ_REFERENCE_T_DM_CFR foreign key (CFRW)
   references t_dm_cfrw (CODE);
------------------已执行 2019年7月30日15:18:10----121已执行-----------------------
+-----------------已执行 2019年7月30日15:18:10----2019年8月15日15:35:10----学校数据库已更新----------------
