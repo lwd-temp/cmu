@@ -257,8 +257,8 @@
                             </div>
 
                             <div class="col-md-offset-3 col-md-9" style="text-align:right;">
-                                <button class="btn btn-info btn-sm" id="btnBack" type="button" >
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                <button class="btn btn-danger btn-sm" id="btnBack" type="button" >
+                                    <i class="ace-icon fa fa-close bigger-110"ace-icon fa fa-close bigger-110></i>
                                     不通过
                                 </button>
                                 &nbsp; &nbsp; &nbsp;

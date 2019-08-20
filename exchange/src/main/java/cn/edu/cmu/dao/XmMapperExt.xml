@@ -49,10 +49,9 @@
       select distinct xmmc  from t_xm where xmmc is not null
     </select>
 
-
-    <select id="selectNjxzDistinct" resultType="java.lang.String">
-      select distinct xmnjxz from t_xm where xmnjxz is not null order by xmnjxz
-    </select>
+    <!--<select id="selectNjxzDistinct" resultType="java.lang.String">-->
+      <!--select distinct xmnjxz from t_xm where xmnjxz is not null order by xmnjxz-->
+    <!--</select>-->
 
 
 
@@ -120,11 +119,19 @@
                 or t.ccxz = '99'
             )
 
+        <if test="xm.xmnjxz != null and  xm.xmnjxz != ''">
+            and (
+                <!--层次限制  本科生-->
+                t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}
+                <!--研究生-->
+                or t.xmnjxz is null
+            )
+        </if>
+
         <!--<if test="xm.bmjzsj !=null">-->
             <!--and t.bmjzsj > sysdate-->
         <!--</if>-->
 
-    <!--and t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}-->
 
     <if test="xm.xmmc != null and  xm.xmzm != null">
         and

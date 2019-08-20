@@ -494,7 +494,7 @@
 
                     }, number: true
                 },
-                'xm.xmnjxz': 'required',
+                'xm.xmnjxz': {required:true,number:true},
                 'xm.xmzyxz': 'required',
                 'xm.yyyq': 'required',
                 'xm.xmgk': 'required',

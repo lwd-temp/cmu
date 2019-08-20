@@ -191,7 +191,7 @@
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目专业限制: </label>
                                 <div class="col-xs-10">
-                                    <dm:list sourceList="${zyList}"  type="select" multiple="multiple" value="${xm.xmzyxz}" headerKey="-1" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
+                                    <dm:list sourceList="${zyList}" class="zyxz"  type="select" multiple="multiple" value="${xm.xmzyxz}" headerKey="-1" headerValue="不限" id="xmzyxz" name="xm.xmzyxz" data-placeholder="项目专业限制"></dm:list>
                                     <%--<select class="form-control chosen-select" name="xm.xmzyxz"  id="xmzyxz" data-placeholder="请选择专业" multiple="multiple">
                                         <option value="2014" >临床医学</option>
                                         <option value="2015" >影像学</option>
@@ -314,6 +314,8 @@
         //设置验证.
         setFormValidate();
 
+        xmzyx();
+
         // var names = ["美国", "英国1", "英国2", "英国3", "英国4", "英国5", "英国6", "英国7", "英国8"];
         //
         //
@@ -395,6 +397,11 @@
 
 
     });
+    function xmzyx(){
+        if ($("#xmzyxz").val() == null){
+            $("#xmzyxz  option[value='-1'] ").attr("selected",true)
+        }
+    }
 
 
 
@@ -497,7 +504,7 @@
 
                     }, number: true
                 },
-                'xm.xmnjxz': 'required',
+                'xm.xmnjxz': {required:true,number:true},
                 'xm.xmzyxz': 'required',
                 'xm.yyyq': 'required',
                 'xm.xmgk': 'required',

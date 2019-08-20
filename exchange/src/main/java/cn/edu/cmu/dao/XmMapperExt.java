@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface XmMapperExt  {
     List<String> selectXmmcDistinct();
-    List<String> selectNjxzDistinct();
+//    List<String> selectNjxzDistinct();
     List selectSqxm(Map map);
     List selectSqzxm(Map map);
 

@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 import java.lang.reflect.InvocationTargetException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +39,9 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
     @Autowired
     YjsXjjbsjxxMapper yjsXjDao;
+
+    @Autowired
+    BksXjjbsjxxMapperExt bksXjExtDao;
 
     @Autowired
     BjsjxxMapper bjDao;//班级dao
@@ -159,17 +164,17 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         Xm xmwx = dao.selectByPrimaryKey(xm.getXmId());
         //如果退回需要发送微信通知
         if(CmuConstants.XM.SQ_STATUS_SUBMIT.equals(xmwx.getStatus())){
-            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】护照半年到期提醒
+            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】学生交流项目管理审核通过
             String description =    ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
-            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.pass.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.pass.content");//该项目领导审核已通过,现项目已发布
 
             SysThreadPoolRunner.submit(new WeChartUtils("", xmwx.getOperatorCode(), title, description, content));
         }
         //如果通过需要发送微信通知
         if(CmuConstants.XM.SQ_STATUS_XM_SH_PASS.equals(xmwx.getStatus())){
-            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】护照半年到期提醒
+            String title =          ResourceBundleUtils.getString("ifs.wechat.xm.sh.title");//【通知】学生交流项目管理审核失败
             String description =    ResourceBundleUtils.getString("ifs.wechat.xm.sh.description");//国际事务部通知
-            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.back.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+            String content =        ResourceBundleUtils.getString("ifs.wechat.xm.ld.back.content");//该项目领导审核未通过。
 
             SysThreadPoolRunner.submit(new WeChartUtils("", xmwx.getOperatorCode(), title, description, content));
         }
@@ -184,7 +189,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
 
     @Override
     public List listNjDistinct() {
-        return daoExt.selectNjxzDistinct();
+        return bksXjExtDao.selectNjxzDistinct();
     }
 
 
@@ -207,6 +212,18 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         map.put("gsxsdm",xh);
         map.put("xm",xm);
         map.put("ccxz",userType);
+        if(userType.equals(CmuConstants.SESSION.USER_TYPE_BKS)){
+            BksXjjbsjxxParams xjjbsjxxParams = new BksXjjbsjxxParams();
+            xjjbsjxxParams.createCriteria().andXhEqualTo(xh);
+            List xjList = bksXjDao.selectByExample(xjjbsjxxParams);
+            BksXjjbsjxx xjDto = (BksXjjbsjxx) xjList.get(0);
+            int bjh=Integer.parseInt(xjDto.getSzbh().substring(0,4));
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
+            int nian=Integer.parseInt(formatter.format(new Date()));
+            int xmnjxz=nian-bjh+1;
+            map.put("xmnjxz",String.valueOf(xmnjxz));
+
+        }
         if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){
             return daoExt.selectSqzxm(map);
         }

@@ -287,7 +287,7 @@
                             <table >
                                 <thead>
                                 <tr>
-                                    <th>序号</th>
+                                    <th>序号&nbsp&nbsp&nbsp</th>
                                     <th>项目名称</th>
                                     <th>资助金额</th>
                                 </tr>

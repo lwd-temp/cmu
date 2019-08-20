@@ -62,20 +62,20 @@
             }
         })
 
-        //自定义 按钮
-        var navBtns = [
-            {
-                caption:"创建项目",
-                buttonicon:"ace-icon fa fa-plus orange",
-                onClickButton: function(){
-                    layer.newpage({
-                        area: ['1000px', '750px'],
-                        title:'创建项目',
-                        content:'xm/toAdd',
-                    });
-                }
-            }
-        ]
+        // //自定义 按钮
+        // var navBtns = [
+        //     {
+        //         caption:"创建项目",
+        //         buttonicon:"ace-icon fa fa-plus orange",
+        //         onClickButton: function(){
+        //             layer.newpage({
+        //                 area: ['1000px', '750px'],
+        //                 title:'创建项目',
+        //                 content:'xm/toAdd',
+        //             });
+        //         }
+        //     }
+        // ]
 
         var settings = {
             caption: "项目管理",
