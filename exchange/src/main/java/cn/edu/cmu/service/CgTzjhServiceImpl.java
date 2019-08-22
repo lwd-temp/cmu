@@ -65,6 +65,10 @@ public class CgTzjhServiceImpl extends BaseService<CgTzjh, CgTzjhParams, CgTzjhM
         if(conditions != null && conditions.length>0 && conditions[0]!=null){//如果 User不等于 null 说明可能穿条件了
             CgTzjh tzjh = (CgTzjh) conditions[0];
 
+            if (StringUtils.isNotEmpty(tzjh.getStatus()) && "cggl".equals(tzjh.getStatus())){
+                c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+            }
+
             if(StringUtils.isNotEmpty(tzjh.getFzrxm())){
                 c.andFzrxmLike("%"+tzjh.getFzrxm()+"%");
             }

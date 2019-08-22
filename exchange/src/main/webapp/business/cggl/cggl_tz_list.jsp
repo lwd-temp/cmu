@@ -82,7 +82,7 @@
         })
         var settings = {
             caption: "出访计划管理",
-            url:'cgjh/list',
+            url:'cgjh/list?status=cggl',
             colNames:['tzid','团组号','团组类别', '团组负责人姓名', '团组级别','团组名称',"状态"],
             pager:pager_selector,
             colModel:[
