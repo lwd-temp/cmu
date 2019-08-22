@@ -122,6 +122,7 @@
 
                                 <label class="col-xs-12 col-sm-2  control-label "> 经费来源: </label>
                                 <div class="col-xs-12 col-sm-4">
+                                    <%--<input class="form-control" type="text" id="jfly" name="xm.jfly" data-placeholder="请输入经费来源"/>--%>
                                     <dm:list tabName="T_DM_JFLY" id="jfly" name="xm.jfly" data-placeholder="请选择经费来源"></dm:list>
                                 </div>
 

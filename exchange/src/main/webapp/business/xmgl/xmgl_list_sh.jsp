@@ -62,8 +62,8 @@
             }
         })
 
-        // //自定义 按钮
-        // var navBtns = [
+        //自定义 按钮
+        var navBtns = [
         //     {
         //         caption:"创建项目",
         //         buttonicon:"ace-icon fa fa-plus orange",
@@ -75,7 +75,7 @@
         //             });
         //         }
         //     }
-        // ]
+        ]
 
         var settings = {
             caption: "项目管理",

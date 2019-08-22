@@ -20,6 +20,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 @Service
@@ -94,7 +96,11 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
                 //待审核项目管理 需要查询提交的项目
                 if (StringUtils.isNotEmpty(xm.getStatus()) && "sh".equals(xm.getStatus())){
                     c1.andStatusEqualTo(CmuConstants.XM.SQ_STATUS_XM_SH); // =='06'
-                    c2.andStatusEqualTo("02");
+                    c2.andStatusEqualTo(CmuConstants.XM.SQ_STATUS_SUBMIT);// =='02'
+                }
+                //审核项目 需要查询已发布的项目
+                if (StringUtils.isNotEmpty(xm.getStatus()) && "xmsh".equals(xm.getStatus())){
+                    c1.andStatusEqualTo(CmuConstants.XM.SQ_STATUS_SUBMIT); // =='06'
                 }
                 //已发布项目管理 需要查询已发布的项目，允许修改，删除 ready
                 if(StringUtils.isNotEmpty(xm.getStatus()) && "ready".equals(xm.getStatus())){
@@ -212,7 +218,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         map.put("gsxsdm",xh);
         map.put("xm",xm);
         map.put("ccxz",userType);
-        if(userType.equals(CmuConstants.SESSION.USER_TYPE_BKS)){
+        if(userType.equals(CmuConstants.SESSION.USER_TYPE_BKS)){//本科生查询可申报项目
             BksXjjbsjxxParams xjjbsjxxParams = new BksXjjbsjxxParams();
             xjjbsjxxParams.createCriteria().andXhEqualTo(xh);
             List xjList = bksXjDao.selectByExample(xjjbsjxxParams);
@@ -221,7 +227,13 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
             int nian=Integer.parseInt(formatter.format(new Date()));
             int xmnjxz=nian-bjh+1;
-            map.put("xmnjxz",String.valueOf(xmnjxz));
+            Pattern pattern = Pattern.compile("^(\\-|\\+)?\\d+(\\.\\d+)?$");//判断班号是否为数字
+            Matcher isNum = pattern.matcher(xjDto.getSzbh());
+            if (isNum.matches()) {
+                map.put("xmnjxz",String.valueOf(xmnjxz));
+            }
+        }else if(userType.equals(CmuConstants.SESSION.USER_TYPE_YJS)){//研究生查询可申报项目
+            map.put("xmnjxz"," ");
 
         }
         if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){

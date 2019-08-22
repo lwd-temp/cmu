@@ -72,7 +72,7 @@
         var settings = {
             caption: "项目初审（"+title+"）",
             /*data: grid_data,*/
-            url:'xm/list',
+            url:'xm/list?Status=xmsh',
             colNames:['项目编号','项目总名','项目名称','开始时间', '结束时间', '项目层次','操作'/*,'经费来源'*/,/*'状态'*/,/*"操作"*/],
             navBtns:[],//自定义按钮
             pager:pager_selector,

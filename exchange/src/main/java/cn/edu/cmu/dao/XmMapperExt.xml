@@ -119,14 +119,12 @@
                 or t.ccxz = '99'
             )
 
-        <if test="xm.xmnjxz != null and  xm.xmnjxz != ''">
             and (
-                <!--层次限制  本科生-->
+                <!--年级限制  本科生-->
                 t.xmnjxz = #{xmnjxz,jdbcType=VARCHAR}
                 <!--研究生-->
                 or t.xmnjxz is null
             )
-        </if>
 
         <!--<if test="xm.bmjzsj !=null">-->
             <!--and t.bmjzsj > sysdate-->
