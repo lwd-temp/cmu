@@ -144,8 +144,7 @@
                         return content;
                     }
                 },
-            ],
-            loadonce:true, //一次加载全部数据到客户端，由客户端进行排序。
+            ]
 
         }
 

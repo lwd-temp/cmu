@@ -209,7 +209,7 @@
 
 
                             <hr>
-
+                            <p>学生申报项目时需上传免责声明,具体模板点击申请交流项目页面上方的常用下载进行下载操作</p>
                             <div class="form-group">
 
                                 <label class="col-xs-12 col-sm-4 control-label "  style="text-align:center" > 上传材料   : </label>

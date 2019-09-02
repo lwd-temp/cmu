@@ -637,7 +637,9 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         XmXssqjlParams.Criteria c1 = params.createCriteria();
         XmXssqjlParams.Criteria c2 = params.or();
 
+        c1.andStatusEqualTo("05");
         c1.andConfirmStatusEqualTo("02"); //复审通过
+        c2.andStatusEqualTo("05");
         c2.andSelfPayEqualTo("Y");//自费
 
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {

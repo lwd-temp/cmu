@@ -274,10 +274,6 @@
                                 </c:when>
                             </c:choose>
 
-
-
-
-
                             <!--
                                 初审确认， status =3 isConfirm1 =0;     ---?  confirmStatus=01
 
@@ -285,10 +281,7 @@
                                 如果 复审没通过， 不限制人数 复审自费
                              -->
 
-
                             <div class="col-md-offset-3 col-md-9 btns">
-
-
 
                             <%--<c:if test="${(sqjl.status =='03' || sqjl.status =='04') && sqjl.isconfirm1 == '0'}">
                                 <button class="btn btn-info btn-sm " id="btnConfirmCs"  type="button">
@@ -297,14 +290,16 @@
                                 </button>
                             </c:if>--%>
 
-
                             <c:if test="${(sqjl.confirmStatus =='02' || sqjl.confirmStatus =='03') && sqjl.isconfirm2 == '0'}">
                                 <button class="btn btn-info btn-sm " id="btnConfirmFs"  type="button">
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     复审结果确认
                                 </button>
+                                <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    关闭
+                                </button>
                             </c:if>
-
 
                             <c:if test="${sqjl.confirmStatus == '03' && xm.sfxzrs == 'N'}">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -312,21 +307,14 @@
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     申请自费
                                 </button>
-
-
+                                <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
+                                    <i class="ace-icon fa fa-check bigger-110"></i>
+                                    关闭
+                                </button>
                             </c:if>
-
-
-
                             </div>
 
                         </form>
-                        <div  class="col-md-offset-3 col-md-9">
-                            <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
-                                <i class="ace-icon fa fa-check bigger-110"></i>
-                                关闭
-                            </button>
-                        </div>
 
                     </div><!-- /.col -->
                     <div id="ysqxm" class="tab-pane fade">
@@ -356,10 +344,7 @@
         </div>
     </div><!-- /.main-content -->
 
-
 </div><!-- /.main-container -->
-
-
 
 <div style="display: none;" id="template">
     <div class="form-group uploadGroup">
@@ -368,7 +353,6 @@
             <input type="hidden" name="fileid" value="" />
             <input type="file"  class="fileUpload" onchange="changeFile(this)"/>
         </div>
-
 
         <div class="col-xs-5">
             <input type="text"  name="clsm"  value=""     placeholder="材料说明"    class="col-xs-12" />
@@ -383,15 +367,12 @@
 </div>
 <!-- ace scripts -->
 
-
 <script src='assets/js/jquery.js'></script>
 <script src="assets/js/bootstrap.js"></script>
 <script src="assets/js/jquery.knob.js"></script>
 <script src="assets/js/autosize.js"></script>
 <script src="assets/js/jquery.inputlimiter.1.3.1.js"></script>
 <script src="assets/js/jquery.maskedinput.js"></script>
-
-
 
 
 <script src="assets/js/chosen.jquery.js"></script>
@@ -440,8 +421,6 @@
         $("#btnConfirmFs").click(function(){
             comfirmFs();
         });
-
-
 
         $("#btnSqzf").click(function(){
             sqzf();
@@ -492,7 +471,6 @@
         });
     }
 
-
     /**
      * 复审确认
      */
@@ -528,13 +506,9 @@
         });
     }
 
-
-
     function download(fileId){
         window.open('sys/file/download?fileId='+fileId+'&fileName=download')
     }
-
-
 
 </script>
 </body>
