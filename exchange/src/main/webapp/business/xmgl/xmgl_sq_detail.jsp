@@ -295,10 +295,6 @@
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     复审结果确认
                                 </button>
-                                <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    关闭
-                                </button>
                             </c:if>
 
                             <c:if test="${sqjl.confirmStatus == '03' && xm.sfxzrs == 'N'}">
@@ -307,9 +303,11 @@
                                     <i class="ace-icon fa fa-save bigger-110"></i>
                                     申请自费
                                 </button>
+                            </c:if>
+                            <c:if test="${((sqjl.confirmStatus =='02' || sqjl.confirmStatus =='03') && sqjl.isconfirm2 == '0')||(sqjl.confirmStatus == '03' && xm.sfxzrs == 'N')}">
                                 <button class="btn btn-info btn-sm btns" id="btnClose" type="button">
-                                    <i class="ace-icon fa fa-check bigger-110"></i>
-                                    关闭
+                                     <i class="ace-icon fa fa-check bigger-110"></i>
+                                        关闭
                                 </button>
                             </c:if>
                             </div>
