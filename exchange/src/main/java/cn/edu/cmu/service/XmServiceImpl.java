@@ -227,14 +227,16 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy");
             int nian=Integer.parseInt(formatter.format(new Date()));
             int xmnjxz=nian-bjh+1;
-            Pattern pattern = Pattern.compile("^(\\-|\\+)?\\d+(\\.\\d+)?$");//判断班号是否为数字
-            Matcher isNum = pattern.matcher(xjDto.getSzbh());
-            if (isNum.matches()) {
-                map.put("xmnjxz",String.valueOf(xmnjxz));
-            }
+            map.put("xmnjxz",String.valueOf(xmnjxz));
         }else if(userType.equals(CmuConstants.SESSION.USER_TYPE_YJS)){//研究生查询可申报项目
             map.put("xmnjxz"," ");
-
+        }
+        if (StringUtils.isNotEmpty(xm.getStatus()) && "ycj".equals(xm.getStatus())){
+            Map ycmap = new HashMap();
+            ycmap.put("gsyxdm",yxsh);
+            ycmap.put("gsxsdm",xh);
+            ycmap.put("xm",xm);
+            return daoExt.selectYcjxm(ycmap);
         }
         if (StringUtils.isNotEmpty(xm.getStatus()) && "sqz".equals(xm.getStatus())){
             return daoExt.selectSqzxm(map);
@@ -649,12 +651,12 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
             c2.andXhEqualTo(jl.getXh());
 
             if(StringUtils.isNotEmpty(jl.getXmmc())){
-                c1.andXmmcLike(jl.getXmmc());
-                c2.andXmmcLike(jl.getXmmc());
+                c1.andXmmcLike("%" + jl.getXmmc() + "%");
+                c2.andXmmcLike("%" + jl.getXmmc() + "%");
             }
             if(StringUtils.isNotEmpty(jl.getXmzm())){
-                c1.andXmzmLike(jl.getXmzm());
-                c2.andXmzmLike(jl.getXmzm());
+                c1.andXmmcLike("%" + jl.getXmzm() + "%");
+                c2.andXmmcLike("%" + jl.getXmzm() + "%");
             }
 
             super.addOrderBy(params, conditions);

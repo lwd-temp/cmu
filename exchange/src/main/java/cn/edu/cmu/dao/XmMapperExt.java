@@ -13,6 +13,7 @@ public interface XmMapperExt  {
 //    List<String> selectNjxzDistinct();
     List selectSqxm(Map map);
     List selectSqzxm(Map map);
+    List selectYcjxm(Map map);
 
     List<Map> selectXmGb(String xmid);
     List<XmzjbgVO> selectXmzjbg(XmzjbgVO vo);
