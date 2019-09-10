@@ -115,7 +115,7 @@
                         var status = rowObject.status;
                         var content = "";
                         if(status == '06'){
-                            content += "<button class='btn btn-info btn-mini' title='审核' onclick='shXm(\""+xmId+"\")' ><i class='ace-icon fa fa-pencil '>审核</i></button>" ;
+                            content += "<button class='btn btn-info btn-mini' title='审核' onclick='shXm(\""+xmId+"\")' ><i class='ace-icon fa fa-eye '>审核</i></button>" ;
                         }
                         if(content == ''){
                             content = "无";

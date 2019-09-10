@@ -110,7 +110,7 @@
                     formatter:function(id, options, rowObject){
                         var fileId = rowObject.uploadId;
                         return "<button class='btn btn-info btn-mini' title='上传' onclick=\"uploadXy('"+id+"')\" ><i class='ace-icon fa fa-upload '>上传</i></button>" +
-                            "&nbsp;&nbsp;<button class='btn btn-success btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
+                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' onclick=\"downloadXy('"+fileId+"')\" title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
                     }
                 },
                 {name:'xyid',index:'',width:13, sortable:false, resize:true,

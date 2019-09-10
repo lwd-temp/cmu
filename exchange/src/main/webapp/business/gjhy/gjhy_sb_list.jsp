@@ -153,7 +153,7 @@
                                 "&nbsp;&nbsp;<button class='btn btn-danger btn-mini' onclick='delHysb(\""+id+"\")' title='删除' ><i class='ace-icon fa fa-trash-o '>删除</i></button>";
                         }else{
                             btns = "<button class='btn btn-success btn-mini' onclick='showSbInfo(\""+id+"\")' title='查看' ><i class='ace-icon fa fa-eye '>查看</i></button>"+
-                            "&nbsp;&nbsp;<button class='btn btn-success btn-mini' onclick='downloadSbInfo(\""+id+"\")' title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
+                            "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' onclick='downloadSbInfo(\""+id+"\")' title='下载' ><i class='ace-icon fa fa-download '>下载</i></button>";
 
                         }
                         return btns;

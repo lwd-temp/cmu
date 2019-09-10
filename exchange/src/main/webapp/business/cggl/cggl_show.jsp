@@ -284,7 +284,7 @@
                 <div id="btnClose" class="col-md-offset-3 col-md-9" style = "text-align:right;">
                     <hr/>
                     <button class="btn btn-info btn-sm btns" id="saveForm" type="button">
-                        <i class="ace-icon fa fa-check bigger-110"></i>
+                        <i class="ace-icon fa fa-close bigger-110"></i>
                         关闭
                     </button>
                 </div>
