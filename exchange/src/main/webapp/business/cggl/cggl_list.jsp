@@ -47,12 +47,12 @@
         //自定义 按钮
         var navBtns = [
             {
-                caption:"出国申请",
+                caption:"出国（境）申请",
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
                         area: ['1100px', "750px"],
-                        title:'申请短期出国',
+                        title:'申请短期出国（境）',
                         content:'cggl/add',
                     });
                 }
