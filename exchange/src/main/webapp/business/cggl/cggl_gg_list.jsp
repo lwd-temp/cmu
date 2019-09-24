@@ -42,7 +42,7 @@
             }
         })
         var settings = {
-            caption: "已申请出国流程",
+            caption: "已申请出国（境）流程",
             url:'cgglgg/list',
             colNames:['姓名','性别', '所属二级单位', '所属二级单位名称','出访国家','状态',"操作"],
             pager:pager_selector,
@@ -104,7 +104,7 @@
     function fkCgsq(cgid){
         layer.newpage({
             area: ['1100px',"750px"],
-            title:'填写出国反馈',
+            title:'填写出国（境）反馈',
             content:'cgglgg/add?cgid='+cgid,
         });
     }
@@ -119,7 +119,7 @@
     function editfkCgsq(zjid){
         layer.newpage({
             area: ['1100px', "750px"],
-            title:'编辑出国反馈',
+            title:'编辑出国（境）反馈',
             content:'cgglgg/toEdit?rwfkid='+zjid,
         });
     }
