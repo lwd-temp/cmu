@@ -167,9 +167,9 @@
                                     <input class="form-control date-picker" id="id-date-picker-10"  name="yxqz"  value=""
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-12 col-sm-2 control-label "  > 发证机关: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签发机关: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input type="text"  name="fzjg"  value=""  placeholder="请输入发证机关"  class="col-xs-12" />
+                                    <input type="text"  name="fzjg"  value=""  placeholder="请输入签发机关"  class="col-xs-12" />
                                 </div>
                             </div>
                             <div class="form-group">
@@ -190,7 +190,7 @@
                                 <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzlx" type="select" id="hzlx"  name="hzlx"   ></dm:list>
                                 </div>
-                                <label class="col-xs-12 col-sm-2 control-label "  > 护照状态: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 护照及通行证状态: </label>
                                 <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzzt" type="select" id="status"  name="status"   ></dm:list>
                                 </div>
