@@ -172,7 +172,7 @@
                                     <input class="form-control date-picker" id="id-date-picker-10"  name="yxqz"  value="<fmt:formatDate value="${hz.yxqz}" pattern="yyyy-MM-dd"/>"
                                            type="text" data-date-format="yyyy-mm-dd" />
                                 </div>
-                                <label class="col-xs-12 col-sm-2 control-label "  > 发证机关: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 签发机关: </label>
                                 <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="fzjg"   value="${hz.fzjg}"    class="col-xs-12" />
                                 </div>
@@ -195,7 +195,7 @@
                                 <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzlx" type="select" id="hzlx"  name="hzlx" value="${hz.hzlx}"  ></dm:list>
                                 </div>
-                                <label class="col-xs-12 col-sm-2 control-label "  > 护照状态: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 护照及通行证状态: </label>
                                 <div class="col-xs-12 col-sm-4">
                                     <dm:list tabName="t_dm_hzzt" type="select" id="status"  name="status"  value="${hz.status}" ></dm:list>
                                 </div>
