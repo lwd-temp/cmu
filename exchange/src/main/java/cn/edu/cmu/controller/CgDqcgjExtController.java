@@ -188,7 +188,7 @@ public class CgDqcgjExtController extends BaseController {
         response.setContentType("application/x-msdownload");
         response.setHeader("Content-Type", "application/octet-stream");
         String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
-        String fileName = "导出word.doc";
+        String fileName = "辽宁省国家工作人员因公临时出国（境）出访情况报告.doc";
         if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
             fileName = URLEncoder.encode(fileName, "UTF-8");
         } else {  //其他浏览器
