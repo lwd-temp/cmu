@@ -36,5 +36,7 @@ public interface CgDqcgjService extends IBaseService<CgDqcgj, CgDqcgjParams> {
 
     public List cggllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
 
+    public List cggshllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException;
+
 }
 

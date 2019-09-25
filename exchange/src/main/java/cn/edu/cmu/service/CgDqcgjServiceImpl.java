@@ -41,6 +41,9 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
     @Autowired
     private CgDqcgjMapperExt cgDqcgjMapperExt;
 
+    @Autowired
+    private UnicUnitMapperExt unicUnitMapperExt;
+
     @Override
     public List list(CgDqcgj cgDqcgj) {
         CgDqcgjParams ex = new CgDqcgjParams();
@@ -159,5 +162,25 @@ public class CgDqcgjServiceImpl extends BaseService<CgDqcgj, CgDqcgjParams, CgDq
         }
         return cgDqcgjMapperExt.selectByExampleTranslateCode(params);
 
+    }
+
+    @Override
+    public List cggshllistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        CgDqcgjParams params = new CgDqcgjParams();
+        CgDqcgjParams.Criteria c=params.createCriteria();
+        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.REVIEW);
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            CgDqcgj cggl = (CgDqcgj) conditions[0];
+
+            if (StringUtils.isNotEmpty(cggl.getXm())) {
+                c.andXmLike("%" + cggl.getXm() + "%");
+            }
+            if (StringUtils.isNotEmpty(cggl.getCfgj())) {
+                c.andCfgjLike("%" + cggl.getCfgj() + "%");
+            }
+
+            super.addOrderBy(params, conditions);
+        }
+        return cgDqcgjMapperExt.selectByExampleTranslateCode(params);
     }
 }

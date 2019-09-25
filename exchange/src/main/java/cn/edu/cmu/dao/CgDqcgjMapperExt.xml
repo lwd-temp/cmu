@@ -15,7 +15,8 @@
         F_GetTableText('T_DM_XB', 'code', 'name', XB) xb,
         F_GetTableText('T_DM_CGSPJG', 'code', 'name', SHJG) shjg,
         F_GetTableText('T_CG_TZJH', 'TZID', 'TZH', TZID) tzid,
-        F_GetTableText('T_CG_RWZXQKFK', 'CGID', 'TZZDW', CGID) ssejdw,
+--         F_GetTableText('T_CG_RWZXQKFK', 'CGID', 'TZZDW', CGID) ssejdw,
+        (select distinct unit.name from T_CG_DQCGJ t inner join v_uicm_unit unit on unit.unit_id = t.ssejdw  where t.ssejdw=ss.ssejdw and rownum &lt; '2' ) ssejdw,
         F_GetTableText('T_DM_JFLY', 'code', 'name', JFLY) jfly,
 
         cgid, xm, csrq,  csd,  hjszd,  sfzh, ks, zw, zc, lxdh,
@@ -24,7 +25,7 @@
         yqr_xxdz_en, yqr_dh_en,jfysmx,  jfyshj,  sqbsm,  sqrq,  status, shry,
         shyj, shrq, gdwjid, cfzjbgid, valid, create_time, operator, ysfbjzljj, cfrwjj, cfyy,
         cfgsxxbid, cfrcbid, yqhid, ysqfyjid, cgrwhysspyjbid, xnsqbid, cfsc,ysfbjzljj,cfrwjj,cfyy,jflydsf
-        from T_CG_DQCGJ
+        from T_CG_DQCGJ ss
          <if test="_parameter != null" >
              /*此处应用的refid 是其他Mapper中写好的*/
              <include refid="cn.edu.cmu.dao.CgDqcgjMapper.Select_Example_Where_Clause" />

@@ -8,7 +8,7 @@
             <div class="col-sm-3">
                 <input type="text" id="condition1" name="xm"  placeholder="教师姓名" class="col-xs-12" />
             </div>
-            <label class="col-sm-2 control-label no-padding-right" for="condition1"> 出访国家: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 出访国家: </label>
 
             <div class="col-sm-3">
                 <input type="text" id="condition2" name="cfgj"  placeholder="出访国家" class="col-xs-12" />
@@ -16,6 +16,9 @@
             <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
+                </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
                 </button>
             </div>
         </div>
@@ -48,7 +51,7 @@
         })
 
         var settings = {
-            caption: "出国审批",
+            caption: "出国(境)审批",
             url:'cggl/shlist',
             colNames:['姓名','性别', '出访国家','状态',"操作"],
             pager:pager_selector,
@@ -124,4 +127,16 @@
             content:'sys/file/uppage?targetUrl=cggl/updateUploadId&cgid='+cgid,
         });
     }
+
+    //下载短期出国境人员审核信息
+    $("#download").click(function(){
+
+        var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+        var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+        if(typeof(sortname) != 'string'){
+            sortname = '';
+        }
+
+        window.open("cgglexp/download?xm="+$("#condition1").val()+"&cfgj="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+    });
 </script>

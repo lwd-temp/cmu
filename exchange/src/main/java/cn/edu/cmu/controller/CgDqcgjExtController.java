@@ -1,6 +1,8 @@
 package cn.edu.cmu.controller;
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.cache.DMCache;
+import cn.edu.cmu.framework.util.DownLoadUtils;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.util.PdfUtils;
 import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.framework.web.BaseController;
@@ -9,6 +11,7 @@ import cn.edu.cmu.service.CgDqcgjService;
 import cn.edu.cmu.service.CgTzjhService;
 import cn.edu.cmu.service.UnicUnitService;
 import com.deepoove.poi.XWPFTemplate;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +26,7 @@ import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -200,5 +204,20 @@ public class CgDqcgjExtController extends BaseController {
         os.flush();
         os.close();
         template.close();
+    }
+
+    @RequestMapping("/download")
+    public void download(CgDqcgj cggl, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        List<CgDqcgj> list = cgDqcgjService.cggshllistExp(cggl, orderCol, orderType);
+        logger.info(String.format("导出短期出国(境)人员审核信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "短期出国(境)人员审核信息.xls";
+
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "cggl/cggl.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
     }
 }
