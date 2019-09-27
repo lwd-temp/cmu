@@ -6,11 +6,14 @@
             <label class="col-sm-4 control-label no-padding-right" for="condition1"> 出访国家: </label>
 
             <div class="col-sm-5">
-                <input type="text" id="condition1" name="condition"  placeholder="出访国家" class="col-xs-12" />
+                <input type="text" id="condition1" name="condition1"  placeholder="出访国家" class="col-xs-12" />
             </div>
             <div class="col-sm-3">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
+                </button>
+                <button class="btn btn-warning btn-xs" id="download" type="button"> <i class="ace-icon fa fa-download "></i>
+                    批量下载
                 </button>
             </div>
         </div>
@@ -127,5 +130,17 @@
     function  fkCgsqWord(zjid){
         window.open("cgglexp/downloadword?rwfkid="+zjid);
     }
+
+    //下载短期出国境人员归国管理信息
+    $("#download").click(function(){
+
+        var sortname = $(grid_selector).jqGrid('getGridParam','sortname');
+        var sortorder = $(grid_selector).jqGrid('getGridParam','sortorder');
+        if(typeof(sortname) != 'string'){
+            sortname = '';
+        }
+
+        window.open("cgglgg/download?cfgjdq="+$("#condition1").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+    });
 
 </script>

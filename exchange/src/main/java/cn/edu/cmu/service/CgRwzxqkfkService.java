@@ -11,11 +11,13 @@ package cn.edu.cmu.service;
  * @author 东软，张金山
  */
 
-import cn.edu.cmu.domain.CgDqcgj;
-import cn.edu.cmu.domain.CgDqcgjParams;
+
 import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.CgRwzxqkfkParams;
 import cn.edu.cmu.framework.web.IBaseService;
+
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
 
 /**
  * 用户操作的 业务的抽象
@@ -23,6 +25,8 @@ import cn.edu.cmu.framework.web.IBaseService;
  *
  */
 public interface CgRwzxqkfkService extends IBaseService<CgRwzxqkfk, CgRwzxqkfkParams> {
+
+    public List cgglgglistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InvocationTargetException;
 
 }
 

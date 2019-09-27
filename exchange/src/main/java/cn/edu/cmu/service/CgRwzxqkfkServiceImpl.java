@@ -1,11 +1,16 @@
 package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.CgRwzxqkfkMapper;
+import cn.edu.cmu.dao.CgRwzxqkfkMapperExt;
 import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.CgRwzxqkfkParams;
+import cn.edu.cmu.framework.CmuConstants;
 import cn.edu.cmu.framework.web.BaseService;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 
@@ -25,6 +30,9 @@ import java.util.List;
 @Service
 public class CgRwzxqkfkServiceImpl extends BaseService<CgRwzxqkfk, CgRwzxqkfkParams, CgRwzxqkfkMapper> implements CgRwzxqkfkService {
 
+    @Autowired
+    private CgRwzxqkfkMapperExt cgrwzxqkfkmapperext;
+
     @Override
     public List list(CgRwzxqkfk cgRwzxqkfk) {
         CgRwzxqkfkParams ex = new CgRwzxqkfkParams();
@@ -42,4 +50,20 @@ public class CgRwzxqkfkServiceImpl extends BaseService<CgRwzxqkfk, CgRwzxqkfkPar
         return null;
     }
 
+    @Override
+    public List cgglgglistExp(Object... conditions) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        CgRwzxqkfkParams params = new CgRwzxqkfkParams();
+        CgRwzxqkfkParams.Criteria c=params.createCriteria();
+//        c.andStatusEqualTo(CmuConstants.TZ_STAUTS.PASS);
+        if (conditions != null && conditions.length > 0 && conditions[0] != null) {
+            CgRwzxqkfk cgrwzxqkfk = (CgRwzxqkfk) conditions[0];
+//
+            if (StringUtils.isNotEmpty(cgrwzxqkfk.getCfgjdq())) {
+                c.andCfgjdqLike("%" + cgrwzxqkfk.getCfgjdq() + "%");
+            }
+
+            super.addOrderBy(params, conditions);
+        }
+        return cgrwzxqkfkmapperext.selectByExampleTranslateCode(params);
+    }
 }

@@ -50,6 +50,7 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status"  id="status"     value="${cgRwzxqkfk.status}" />
                 <input type="hidden" name="cgid"    id="cgid"       value="${cgRwzxqkfk.cgid}"  />
+                <input type="hidden" name="xb"  id="xb"     value="${cgRwzxqkfk.xb}" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "  > 组团单位   : </label>
                     <div class="col-xs-10">

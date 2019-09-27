@@ -91,6 +91,26 @@
   </select>
 
 
+  <select id="selectByExampleTranslateCode" resultMap="cn.edu.cmu.dao.CgRwzxqkfkMapper.BaseResultMap" parameterType="cn.edu.cmu.domain.CgRwzxqkfkParams" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    RWFK_ID, TZDW, CFGJDQ, TZXM,
+    F_GetTableText('T_DM_XB', 'code', 'name', XB) XB, TZZDW, TZZW, SSEJDW, PZCFRW, PZCFTS, SJCFRS, SJCFTS,
+    CJSJ, RJSJ, RWPJWH, CFBT, RWZXQK, RWWWCNR, TBR, TBR_DH, CGID, STATUS, VALID, CREATE_TIME,
+    HZHM, YXQZ, QZSJ
+    from t_cg_rwzxqkfk
+    <if test="_parameter != null" >
+      /*此处应用的refid 是其他Mapper中写好的*/
+      <include refid="cn.edu.cmu.dao.CgRwzxqkfkMapper.Select_Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+
+
 
 
 </mapper>

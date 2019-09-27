@@ -3,19 +3,27 @@ import cn.edu.cmu.dao.UnicUnitMapperExt;
 import cn.edu.cmu.domain.CgDqcgj;
 import cn.edu.cmu.domain.CgRwzxqkfk;
 import cn.edu.cmu.domain.UnicUnit;
+import cn.edu.cmu.framework.util.DownLoadUtils;
+import cn.edu.cmu.framework.util.ExcelUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.CgDqcgjGgService;
 import cn.edu.cmu.service.CgDqcgjService;
+import cn.edu.cmu.service.CgRwzxqkfkService;
 import cn.edu.cmu.service.CgTzjhService;
 import cn.edu.cmu.vo.CgrwzxqkfkVo;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired; ;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +42,9 @@ public class CgDqcgjGgController extends BaseController {
 
     @Autowired
     UnicUnitMapperExt unicUnitService;
+
+    @Autowired
+    CgRwzxqkfkService cgRwzxqkfkService;
     /**
      * 分页查询
      *
@@ -82,6 +93,7 @@ public class CgDqcgjGgController extends BaseController {
             cgRwzxqkfk.setTzdw("中国医科大学");//出访单位
             cgRwzxqkfk.setTzzw(cgDqcgj.getZw());//团长职务
             cgRwzxqkfk.setSsejdw(cgDqcgj.getSsejdw());//二级单位
+            cgRwzxqkfk.setXb(cgDqcgj.getXb());//性别
             //查询二级单位
             String ejdwid = cgDqcgj.getSsejdw();
             UnicUnit unicUnit = unicUnitService.queryMcById(ejdwid);
@@ -139,5 +151,19 @@ public class CgDqcgjGgController extends BaseController {
         return "cggl/cggl_gg_fk_edit";
     }
 
+    @RequestMapping("/download")
+    public void download(CgRwzxqkfk cgRwzxqkfk, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        logger.info("出访国家:"+cgRwzxqkfk.getCfgjdq());
+        List<CgDqcgj> list = cgRwzxqkfkService.cgglgglistExp(cgRwzxqkfk, orderCol, orderType);
+        logger.info(String.format("导出归国(境)人员信息，共计: %d 条",(CollectionUtils.isEmpty(list)?0:list.size())));
+
+        String downFileName = "归国(境)人员信息.xls";
+
+        DownLoadUtils.setDownLoadHeaders(request,response,downFileName);
+        ServletOutputStream out = response.getOutputStream();
+
+        String excelTempPath = "cggl/cgglgg.xls";
+        ExcelUtils.expExcel(list,excelTempPath,out);
+    }
 }
