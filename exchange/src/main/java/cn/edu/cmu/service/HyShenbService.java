@@ -19,8 +19,6 @@ public interface HyShenbService extends IBaseService<HyShenb, HyShenbParams> {
 
     List<HySbrymd> rymcList(String id);
 
-    void download(String id, HttpServletRequest request, HttpServletResponse response) throws IOException;
-
     boolean sh(HyShenb shenb);
 }
 

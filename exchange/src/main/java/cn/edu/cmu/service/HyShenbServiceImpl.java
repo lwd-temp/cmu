@@ -12,6 +12,7 @@ import cn.edu.cmu.framework.threadpool.SysThreadPoolRunner;
 import cn.edu.cmu.framework.util.*;
 import cn.edu.cmu.framework.web.BaseService;
 import cn.edu.cmu.vo.HysbVO;
+import com.deepoove.poi.XWPFTemplate;
 import com.github.pagehelper.StringUtil;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.collections4.CollectionUtils;
@@ -25,12 +26,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -163,48 +161,6 @@ public class HyShenbServiceImpl extends BaseService<HyShenb, HyShenbParams, HySh
         return sbRyDao.selectByExample(params);
     }
 
-    /**
-     * 会议申报下载 hymc
-     * @param sbid
-     * @param response
-     */
-    @Override
-    public void download(String sbid, HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        HyShenb domain = dao.selectByPrimaryKey(sbid);
-
-        HySbrymdParams params = new HySbrymdParams();
-        params.createCriteria().andSbidEqualTo(sbid);
-        List<HySbrymd> sbrymds = sbRyDao.selectByExample(params);
-        logger.debug("会议申报下载");
-
-
-        //设置下载信息
-        DownLoadUtils.setDownLoadHeaders(request,response,domain.getHymc()+".xls");
-        ServletOutputStream os = response.getOutputStream();
-
-
-        FileInputStream fis=new FileInputStream(DOWNLOAD_TEMP);
-        POIFSFileSystem fs = new POIFSFileSystem(fis);//使用POIFSFileSystem包括下避免同时读，写出错
-        HSSFWorkbook workbook = new HSSFWorkbook(fs);
-        HSSFSheet sheet = workbook.getSheetAt(0);//第一个sheet页
-
-
-        //设置会议基本信息
-        setHyData(sheet,domain);
-
-        //设置会议人员信息
-        setHyRyData(sheet,sbrymds);
-
-
-        logger.info("准备将文件输出到客户端：" + DOWNLOAD_TEMP);
-        workbook.write(os);
-
-        logger.info("输出到客户端完成关闭资源" );
-        os.flush();
-        os.close();
-        workbook.close();
-    }
 
     @Override
     public boolean sh(HyShenb shenb) {

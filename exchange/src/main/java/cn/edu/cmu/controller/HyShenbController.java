@@ -2,11 +2,13 @@ package cn.edu.cmu.controller;
 
 import cn.edu.cmu.domain.*;
 import cn.edu.cmu.framework.util.ExcelUtils;
+import cn.edu.cmu.framework.util.WebAppContextUtils;
 import cn.edu.cmu.framework.web.BaseController;
 import cn.edu.cmu.service.HyJhService;
 import cn.edu.cmu.service.HySbrymdService;
 import cn.edu.cmu.service.HyShenbService;
 import cn.edu.cmu.vo.HysbVO;
+import com.deepoove.poi.XWPFTemplate;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import org.apache.commons.beanutils.BeanUtils;
@@ -21,7 +23,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.FileInputStream;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -180,8 +187,57 @@ public class HyShenbController extends BaseController {
      */
     @RequestMapping("/download")
     public void export(String id, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String application = WebAppContextUtils.REAL_CONTEXT_PATH;
+        HyShenb domain = hyShenbService.queryById(id);
+        String gjhy;
+        String fileName;
+        if (domain.getHylx().equals("01")){
+            gjhy="/download_template/word/gjhy/gjhy.docx";
+            fileName = "中国医科大学举办国际学术会议申报表.doc";
+        }else {
+            gjhy="/download_template/word/gjhy/lgjhy.docx";
+            fileName = "中国医科大学举办两国间、同港澳台地区间会议、论坛、讲座、报告会申报表.doc";
+        }
+        FileInputStream is = new FileInputStream(new File(application+gjhy));
+        XWPFTemplate template = XWPFTemplate.compile(is);
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("hymc",domain.getHymc());
+        data.put("hymcEn",domain.getHymcEn());
+        data.put("zbdw",domain.getZbdw());
+        data.put("dd",domain.getDd());
+        data.put("bjjbyx",domain.getBjjbyx());
+        data.put("jfly",domain.getJfly());
+        data.put("fzrxm",domain.getFzrxm());
+        data.put("operator",domain.getOperator());
+        data.put("fzrdh",domain.getFzrdh());
+        data.put("hygm",domain.getHygm());
+        if(domain.getJxrqKs()!=null){
+            data.put("jxrqKs", new SimpleDateFormat("yyyy-MM-dd").format(domain.getJxrqKs()).toString());
+        }else{
+            data.put("jxrqKs", domain.getJxrqKs());
+        }
+        if(domain.getJxrqJs()!=null){
+            data.put("jxrqJs", new SimpleDateFormat("yyyy-MM-dd").format(domain.getJxrqJs()).toString());
+        }else{
+            data.put("jxrqJs", domain.getJxrqJs());
+        }
 
-        hyShenbService.download(id,request,response);
+        template.render(data);
+        response.reset();
+        response.setContentType("application/x-msdownload");
+        response.setHeader("Content-Type", "application/octet-stream");
+        String agent = request.getHeader("User-Agent").toUpperCase(); //获得浏览器信息并转换为大写
+        if (agent.indexOf("MSIE") > 0 || (agent.indexOf("GECKO")>0 && agent.indexOf("RV:11")>0)) {  //IE浏览器和Edge浏览器
+            fileName = URLEncoder.encode(fileName, "UTF-8");
+        } else {  //其他浏览器
+            fileName = new String(fileName.getBytes("UTF-8"), "iso-8859-1");
+        }
+        response.setHeader("content-disposition", "attachment;filename=" + fileName);
+        ServletOutputStream os = response.getOutputStream();
+        template.write(os);
+        os.flush();
+        os.close();
+        template.close();
     }
 
 
