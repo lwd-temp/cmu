@@ -71,9 +71,9 @@
                                 <div class="col-xs-12 col-sm-4">
                                     <input type="text"  name="xm"  value="" placeholder="请输入姓名"    class="col-xs-12" />
                                 </div>
-                                <label class="col-xs-12 col-sm-2 control-label "  > 职务: </label>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 身份证号码: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input type="text"  name="zw"  value=""   placeholder="请输入职务"  class="col-xs-12" />
+                                    <input type="text"  name="sfzhm"  value=""  placeholder="请输入您的身份证号码"  class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -93,8 +93,12 @@
 
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2 control-label "  > 职称   : </label>
-                                <div class="col-xs-10">
-                                    <input type="text"  name="zc"  value=""    placeholder="请输入职称" class="col-xs-12" />
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text"  name="zc"  value=""   placeholder="请输入职称"  class="col-xs-12" />
+                                </div>
+                                <label class="col-xs-12 col-sm-2 control-label "  > 职务: </label>
+                                <div class="col-xs-12 col-sm-4">
+                                    <input type="text"  name="zw"  value=""   placeholder="请输入职务"  class="col-xs-12" />
                                 </div>
                             </div>
 
@@ -344,6 +348,9 @@
                     required: true
                 },
                 cfnr: {
+                    required: true
+                },
+                sfzhm: {
                     required: true
                 },
                 qzhm: {

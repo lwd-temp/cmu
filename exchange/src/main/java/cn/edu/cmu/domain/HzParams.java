@@ -22,7 +22,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public HzParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -30,7 +30,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -38,7 +38,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -46,7 +46,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -54,7 +54,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public boolean isDistinct() {
         return distinct;
@@ -62,7 +62,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -70,7 +70,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -78,7 +78,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -88,7 +88,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -100,7 +100,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -109,7 +109,7 @@ public class HzParams {
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public void clear() {
         oredCriteria.clear();
@@ -118,7 +118,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2019-06-03
+     * T_HZ 2019-10-08
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -2450,6 +2450,76 @@ public class HzParams {
             addCriterion("CREATE_TIME not between", value1, value2, "createTime");
             return (Criteria) this;
         }
+
+        public Criteria andSfzhmIsNull() {
+            addCriterion("SFZHM is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmIsNotNull() {
+            addCriterion("SFZHM is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmEqualTo(String value) {
+            addCriterion("SFZHM =", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmNotEqualTo(String value) {
+            addCriterion("SFZHM <>", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmGreaterThan(String value) {
+            addCriterion("SFZHM >", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmGreaterThanOrEqualTo(String value) {
+            addCriterion("SFZHM >=", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmLessThan(String value) {
+            addCriterion("SFZHM <", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmLessThanOrEqualTo(String value) {
+            addCriterion("SFZHM <=", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmLike(String value) {
+            addCriterion("SFZHM like", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmNotLike(String value) {
+            addCriterion("SFZHM not like", value, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmIn(List<String> values) {
+            addCriterion("SFZHM in", values, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmNotIn(List<String> values) {
+            addCriterion("SFZHM not in", values, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmBetween(String value1, String value2) {
+            addCriterion("SFZHM between", value1, value2, "sfzhm");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfzhmNotBetween(String value1, String value2) {
+            addCriterion("SFZHM not between", value1, value2, "sfzhm");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -2463,7 +2533,7 @@ public class HzParams {
     }
 
     /**
-     * T_HZ 2019-06-03
+     * T_HZ 2019-10-08
      */
     public static class Criterion {
         private String condition;

@@ -37,6 +37,7 @@
       <arg column="BZ" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="VALID" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="CREATE_TIME" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="SFZHM" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -144,7 +145,7 @@
   <sql id="Base_Column_List" >
     HZID, HZHM, GH, XM, GENDER, GJ, BIRTHDAY, CSDD, QFRQ, QFDD, YXQZ, FZJG, HZLX, JCSJ, 
     DCWFQZHM_MG, DCWFQZHM_OZ, DCWFQZHM_JND, DCWFQZHM_QT, CFNR, QZHM, DW, ZW, ZC, CFSJ_CJ, 
-    CFSJ_RJ, GHSJ, QZSJ, CFMD, CFRW, JFLY, STATUS, BZ, VALID, CREATE_TIME
+    CFSJ_RJ, GHSJ, QZSJ, CFMD, CFRW, JFLY, STATUS, BZ, VALID, CREATE_TIME, SFZHM
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.edu.cmu.domain.HzParams" >
     select
@@ -188,7 +189,7 @@
       CFSJ_CJ, CFSJ_RJ, GHSJ, 
       QZSJ, CFMD, CFRW, 
       JFLY, STATUS, BZ, VALID, 
-      CREATE_TIME)
+      CREATE_TIME, SFZHM)
     values (#{hzid,jdbcType=VARCHAR}, #{hzhm,jdbcType=VARCHAR}, #{gh,jdbcType=VARCHAR}, 
       #{xm,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, #{gj,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
       #{csdd,jdbcType=VARCHAR}, #{qfrq,jdbcType=TIMESTAMP}, #{qfdd,jdbcType=VARCHAR}, 
@@ -199,7 +200,7 @@
       #{cfsjCj,jdbcType=TIMESTAMP}, #{cfsjRj,jdbcType=TIMESTAMP}, #{ghsj,jdbcType=TIMESTAMP}, 
       #{qzsj,jdbcType=TIMESTAMP}, #{cfmd,jdbcType=VARCHAR}, #{cfrw,jdbcType=VARCHAR}, 
       #{jfly,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{bz,jdbcType=VARCHAR}, #{valid,jdbcType=VARCHAR}, 
-      #{createTime,jdbcType=TIMESTAMP})
+      #{createTime,jdbcType=TIMESTAMP}, #{sfzhm,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.edu.cmu.domain.Hz" >
     insert into T_HZ
@@ -306,6 +307,9 @@
       <if test="createTime != null" >
         CREATE_TIME,
       </if>
+      <if test="sfzhm != null" >
+        SFZHM,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="hzid != null" >
@@ -409,6 +413,9 @@
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sfzhm != null" >
+        #{sfzhm,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -523,6 +530,9 @@
       <if test="record.createTime != null" >
         CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="record.sfzhm != null" >
+        SFZHM = #{record.sfzhm,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -563,7 +573,8 @@
       STATUS = #{record.status,jdbcType=VARCHAR},
       BZ = #{record.bz,jdbcType=VARCHAR},
       VALID = #{record.valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      SFZHM = #{record.sfzhm,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -670,6 +681,9 @@
       <if test="createTime != null" >
         CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
       </if>
+      <if test="sfzhm != null" >
+        SFZHM = #{sfzhm,jdbcType=VARCHAR},
+      </if>
     </set>
     where HZID = #{hzid,jdbcType=VARCHAR}
   </update>
@@ -707,7 +721,8 @@
       STATUS = #{status,jdbcType=VARCHAR},
       BZ = #{bz,jdbcType=VARCHAR},
       VALID = #{valid,jdbcType=VARCHAR},
-      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      SFZHM = #{sfzhm,jdbcType=VARCHAR}
     where HZID = #{hzid,jdbcType=VARCHAR}
   </update>
 </mapper>

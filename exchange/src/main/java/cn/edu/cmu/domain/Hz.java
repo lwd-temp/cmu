@@ -174,10 +174,15 @@ public class Hz {
     private Date createTime;
 
     /**
-     *
-     * @mbggenerated 2019-06-03
+     * 身份证号码
      */
-    public Hz(String hzid, String hzhm, String gh, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String bz, String valid, Date createTime) {
+    private String sfzhm;
+
+    /**
+     *
+     * @mbggenerated 2019-10-08
+     */
+    public Hz(String hzid, String hzhm, String gh, String xm, String gender, String gj, Date birthday, String csdd, Date qfrq, String qfdd, Date yxqz, String fzjg, String hzlx, Date jcsj, String dcwfqzhmMg, String dcwfqzhmOz, String dcwfqzhmJnd, String dcwfqzhmQt, String cfnr, String qzhm, String dw, String zw, String zc, Date cfsjCj, Date cfsjRj, Date ghsj, Date qzsj, String cfmd, String cfrw, String jfly, String status, String bz, String valid, Date createTime, String sfzhm) {
         this.hzid = hzid;
         this.hzhm = hzhm;
         this.gh = gh;
@@ -212,11 +217,12 @@ public class Hz {
         this.bz = bz;
         this.valid = valid;
         this.createTime = createTime;
+        this.sfzhm = sfzhm;
     }
 
     /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     public Hz() {
         super();
@@ -767,8 +773,24 @@ public class Hz {
     }
 
     /**
+     * 身份证号码
+     * @return SFZHM 身份证号码
+     */
+    public String getSfzhm() {
+        return sfzhm;
+    }
+
+    /**
+     * 身份证号码
+     * @param sfzhm 身份证号码
+     */
+    public void setSfzhm(String sfzhm) {
+        this.sfzhm = sfzhm == null ? null : sfzhm.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-06-03
+     * @mbggenerated 2019-10-08
      */
     @Override
     public String toString() {
@@ -810,6 +832,7 @@ public class Hz {
         sb.append(", bz=").append(bz);
         sb.append(", valid=").append(valid);
         sb.append(", createTime=").append(createTime);
+        sb.append(", sfzhm=").append(sfzhm);
         sb.append("]");
         return sb.toString();
     }
