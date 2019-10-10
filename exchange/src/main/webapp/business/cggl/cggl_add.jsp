@@ -235,6 +235,13 @@
                     <%--</div>--%>
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label "> 是否携带配偶或子女同行: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input name="sfxd" value="01"   type="radio"  />是
+                        <input name="sfxd" value="02"  type="radio"  />否
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
                     <div class="col-xs-10">
                         <textarea name="ysfbjzljj" id="ysfbjzljj"  cols="120" rows="10"></textarea>

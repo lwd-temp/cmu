@@ -300,10 +300,15 @@ public class CgDqcgj {
     private String jflydsf;
 
     /**
-     *
-     * @mbggenerated 2019-07-30
+     * 是否携带配偶或子女  01是 02否
      */
-    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator, String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid, String cfrcbid, String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String cfsc, String jflydsf) {
+    private String sfxd;
+
+    /**
+     *
+     * @mbggenerated 2019-10-09
+     */
+    public CgDqcgj(String cgid, String cglx, String xm, String xb, Date csrq, String csd, String hjszd, String sfzh, String ssejdw, String ks, String zw, String zc, String lxdh, String email, BigDecimal nncfcs, String qtshrz, String cfgj, String rjcs, String tzid, Date cfksrq, Date cfjsrq, String cfmd, String cfmdQt, String yqrXm, String yqrZw, String yqrDw, String yqrXxdz, String yqrDh, String yqrXmEn, String yqrZwEn, String yqrDwEn, String yqrXxdzEn, String yqrDhEn, String jfly, String jfysmx, BigDecimal jfyshj, String sqbsm, Date sqrq, String status, String shjg, String shry, String shyj, Date shrq, String gdwjid, String cfzjbgid, String valid, Date createTime, String operator, String ysfbjzljj, String cfrwjj, String cfyy, String cfgsxxbid, String cfrcbid, String yqhid, String ysqfyjid, String cgrwhysspyjbid, String xnsqbid, String cfsc, String jflydsf, String sfxd) {
         this.cgid = cgid;
         this.cglx = cglx;
         this.xm = xm;
@@ -363,11 +368,12 @@ public class CgDqcgj {
         this.xnsqbid = xnsqbid;
         this.cfsc = cfsc;
         this.jflydsf = jflydsf;
+        this.sfxd = sfxd;
     }
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public CgDqcgj() {
         super();
@@ -1318,8 +1324,24 @@ public class CgDqcgj {
     }
 
     /**
+     * 是否携带配偶或子女  01是 02否
+     * @return SFXD 是否携带配偶或子女  01是 02否
+     */
+    public String getSfxd() {
+        return sfxd;
+    }
+
+    /**
+     * 是否携带配偶或子女  01是 02否
+     * @param sfxd 是否携带配偶或子女  01是 02否
+     */
+    public void setSfxd(String sfxd) {
+        this.sfxd = sfxd == null ? null : sfxd.trim();
+    }
+
+    /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     @Override
     public String toString() {
@@ -1386,6 +1408,7 @@ public class CgDqcgj {
         sb.append(", xnsqbid=").append(xnsqbid);
         sb.append(", cfsc=").append(cfsc);
         sb.append(", jflydsf=").append(jflydsf);
+        sb.append(", sfxd=").append(sfxd);
         sb.append("]");
         return sb.toString();
     }

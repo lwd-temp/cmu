@@ -23,7 +23,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public CgDqcgjParams() {
         oredCriteria = new ArrayList<Criteria>();
@@ -31,7 +31,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public void setOrderByClause(String orderByClause) {
         this.orderByClause = orderByClause;
@@ -39,7 +39,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public String getOrderByClause() {
         return orderByClause;
@@ -47,7 +47,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public void setDistinct(boolean distinct) {
         this.distinct = distinct;
@@ -55,7 +55,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public boolean isDistinct() {
         return distinct;
@@ -63,7 +63,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public List<Criteria> getOredCriteria() {
         return oredCriteria;
@@ -71,7 +71,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
@@ -79,7 +79,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
@@ -89,7 +89,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public Criteria createCriteria() {
         Criteria criteria = createCriteriaInternal();
@@ -101,7 +101,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     protected Criteria createCriteriaInternal() {
         Criteria criteria = new Criteria();
@@ -110,7 +110,7 @@ public class CgDqcgjParams {
 
     /**
      *
-     * @mbggenerated 2019-07-30
+     * @mbggenerated 2019-10-09
      */
     public void clear() {
         oredCriteria.clear();
@@ -119,7 +119,7 @@ public class CgDqcgjParams {
     }
 
     /**
-     * T_CG_DQCGJ 2019-07-30
+     * T_CG_DQCGJ 2019-10-09
      */
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
@@ -4211,6 +4211,76 @@ public class CgDqcgjParams {
             addCriterion("JFLYDSF not between", value1, value2, "jflydsf");
             return (Criteria) this;
         }
+
+        public Criteria andSfxdIsNull() {
+            addCriterion("SFXD is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdIsNotNull() {
+            addCriterion("SFXD is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdEqualTo(String value) {
+            addCriterion("SFXD =", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdNotEqualTo(String value) {
+            addCriterion("SFXD <>", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdGreaterThan(String value) {
+            addCriterion("SFXD >", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdGreaterThanOrEqualTo(String value) {
+            addCriterion("SFXD >=", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdLessThan(String value) {
+            addCriterion("SFXD <", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdLessThanOrEqualTo(String value) {
+            addCriterion("SFXD <=", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdLike(String value) {
+            addCriterion("SFXD like", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdNotLike(String value) {
+            addCriterion("SFXD not like", value, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdIn(List<String> values) {
+            addCriterion("SFXD in", values, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdNotIn(List<String> values) {
+            addCriterion("SFXD not in", values, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdBetween(String value1, String value2) {
+            addCriterion("SFXD between", value1, value2, "sfxd");
+            return (Criteria) this;
+        }
+
+        public Criteria andSfxdNotBetween(String value1, String value2) {
+            addCriterion("SFXD not between", value1, value2, "sfxd");
+            return (Criteria) this;
+        }
     }
 
     /**
@@ -4224,7 +4294,7 @@ public class CgDqcgjParams {
     }
 
     /**
-     * T_CG_DQCGJ 2019-07-30
+     * T_CG_DQCGJ 2019-10-09
      */
     public static class Criterion {
         private String condition;

@@ -50,6 +50,7 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
+                <input type="hidden" name="sfxd" id="sfxd" value="${cgdqcgj.sfxd}" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>
                     <div class="col-xs-12 col-sm-4">
@@ -225,6 +226,13 @@
                     <%--</div>--%>
                 </div>
                 <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label "> 是否携带配偶或子女同行: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input id="shi" name="yn" value=""  type="radio"  disabled="disabled" />是
+                        <input id="fou" name="yn" value=""  type="radio"  disabled="disabled" />否
+                    </div>
+                </div>
+                <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
                     <div class="col-xs-10">
                         <textarea name="ysfbjzljj" id="ysfbjzljj" disabled="disabled"  cols="120" rows="10">${cgdqcgj.ysfbjzljj}</textarea>
@@ -317,6 +325,15 @@
 <script>
 
     $(function () {
+        var sfxd =  $("#sfxd").val();
+        if(sfxd == '01'){
+            $("#shi").attr("checked",true)
+            $("#fou").attr("checked",false)
+        }else {
+            $("#fou").attr("checked", true);
+            $("#shi").attr("checked", false);
+        }
+
         var cfmd =  $("#cfmd").val();
         if (cfmd == '99') {
             $("#cfmdQt").show();

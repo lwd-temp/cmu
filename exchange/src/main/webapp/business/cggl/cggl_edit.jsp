@@ -63,6 +63,7 @@
             <div id="home" class="tab-pane fade in active">
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="cgid" id="cgid" value="${cgdqcgj.cgid}" />
+                <input type="hidden" name="sfxd" id="sfxd" value="${cgdqcgj.sfxd}" />
                 <input type="hidden" name="cfsc" id="cfsc" value="" />
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 姓名: </label>
@@ -230,13 +231,20 @@
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label"  > 年内出访次数  : </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input type="text"  name="nncfcs"  value="${cgdqcgj.nncfcs}"  placeholder="请输入年内出访次数"    class="col-xs-12" />
+                        <input type="text"  name="nncfcs" id="nncfcs"  value="${cgdqcgj.nncfcs}"  placeholder="请输入年内出访次数"    class="col-xs-12" />
                     </div>
 
                     <%--&lt;%&ndash;<label class="col-xs-12 col-sm-2 control-label"  > 邀请人电话(英文): </label>&ndash;%&gt;--%>
                     <%--&lt;%&ndash;<div class="col-xs-12 col-sm-4">&ndash;%&gt;--%>
                         <%--&lt;%&ndash;<input type="text"  name="yqrDhEn"   value="${cgdqcgj.yqrDhEn}"   placeholder="请输入邀请人电话(英文)"    class="col-xs-12" />&ndash;%&gt;--%>
                     <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-2 control-label "> 是否携带配偶或子女同行: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input id="shi" name="yn" value=""  type="radio"  />是
+                        <input id="fou"  name="yn" value=""  type="radio"  />否
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label"  > 邀请方背景资料简介(150字以上): </label>
@@ -341,6 +349,14 @@
 <script>
 
     $(function () {
+        var sfxd =  $("#sfxd").val();
+        if(sfxd == '01'){
+            $("#shi").attr("checked",true)
+            $("#fou").attr("checked",false)
+        }else {
+            $("#fou").attr("checked", true);
+            $("#shi").attr("checked", false);
+        }
 
         var shjg = $("#status").val();
         if(shjg == '03'){
@@ -408,6 +424,23 @@
         $(".cfsc").change(function(){
             calJlsc();
         })
+    });
+    $(document).ready(function() {
+        var sfxd =  $("#sfxd").val();
+        $('input[type=radio][id=fou]').change(function() {
+            if ($("#fou").attr("checked", true)){
+                console.log("fou");
+                $("#sfxd").val("02");
+                console.log(sfxd);
+            }
+        });
+        $('input[type=radio][id=shi]').change(function() {
+            if ($("#shi").attr("checked", true)){
+                console.log("shi");
+                $("#sfxd").val("01");
+                console.log(sfxd);
+            }
+        });
     });
     function setFormValid(){
         $("#form").setValid({
