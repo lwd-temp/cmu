@@ -11,7 +11,7 @@
         F_GetTableText('T_DM_XB', 'code', 'name', GENDER) gender,
         F_GetTableText('T_DM_HZLX', 'code', 'name', HZLX) hzlx,
         F_GetTableText('T_DM_HZZT', 'code', 'name', STATUS) status ,
-        hzid, hzhm, gh, xm, gj, birthday, csdd, qfrq, qfdd, yxqz, fzjg,  jcsj,
+        hzid, hzhm, gh, xm, gj, birthday, csdd, qfrq, qfdd, yxqz, fzjg,  jcsj, sfzhm,
         dcwfqzhm_mg, dcwfqzhm_oz, dcwfqzhm_jnd, dcwfqzhm_qt, cfnr, qzhm, dw, zw, zc, cfsj_cj,
         cfsj_rj, ghsj, qzsj, cfmd, cfrw, jfly, bz, valid, create_time
 

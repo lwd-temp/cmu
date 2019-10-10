@@ -382,7 +382,12 @@
                 and  xm like #{xmLike,jdbcType=VARCHAR}
             </if>
             <if test="xmcc != null and xmcc != ''"  >
-                and xmcc = #{xmcc,jdbcType=VARCHAR}
+                <if test="xmcc == 99 "  >
+                    and xmcc != #{xmcc,jdbcType=VARCHAR}
+                </if>
+                <if test="xmcc != 99 "  >
+                    and xmcc = #{xmcc,jdbcType=VARCHAR}
+                </if>
             </if>
             <if test="xmlx != null and xmlx != ''"  >
                 and xmlx = #{xmlx,jdbcType=VARCHAR}
