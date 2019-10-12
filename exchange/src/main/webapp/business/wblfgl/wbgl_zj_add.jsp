@@ -451,9 +451,6 @@
             saveSq();
         });
 
-        $("#fwcg").mouseover(function(){
-            layer.tips('总结时，此部分需要可修改', '#fwcg');
-        });
 
     });
 

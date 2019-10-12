@@ -466,10 +466,6 @@
             saveSq();
         });
 
-        //提示访问结果 在总结时 需要修改
-        $("#fwcg").mouseover(function(){
-            layer.tips('总结时，此部分需要可修改', '#fwcg');
-        });
 
     });
 
