@@ -61,9 +61,9 @@
             lfrs, lfsj_start, lfsj_end, tlsj_start, tlsj_end, lfmd, lfmd_qt, yjtm, yqxx,
             jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj, tzxb, tzcsrq, tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg,
             zqrxm, zqrdh, zqlxrxm, zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm, jdlx, status,
-            memo, valid, create_time,operator
+            memo, valid, zj.create_time create_time,operator
             from t_wbjd_sq
-            left join (select zjid ,lfid zjlfid ,dbtmc from t_wbjd_zj ) zj on lfid = zj.zjlfid
+            left join (select zjid ,lfid zjlfid ,dbtmc ,create_time from t_wbjd_zj ) zj on lfid = zj.zjlfid
         )
         <if test="_parameter != null" >
             <include refid="cn.edu.cmu.dao.WbjdSqMapper.Example_Where_Clause" />

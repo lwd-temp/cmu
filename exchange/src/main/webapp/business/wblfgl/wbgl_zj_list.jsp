@@ -65,7 +65,7 @@
         var settings = {
             caption: "已申请来访接待",
             url:'wbzj/list',
-            colNames:['代表团名称','来访时间起','来访时间止', '来访人数',/* '来访目的',*/'团长姓名','主请联系人姓名','状态',"操作"],
+            colNames:['代表团名称','来访时间起','来访时间止', '来访人数',/* '来访目的',*/'团长姓名','主请联系人姓名','填报时间','状态',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -90,6 +90,13 @@
                     }},*/
                 {name:'tzxm',index:'tzxm', width:4,  },
                 {name:'zqlxrxm',index:'zqlxrxm', width:6, phoneHide:true },
+                {name:'createTime',index:'create_time',width:4,phoneHide:true,formatter:function(createTime, options, rowObject){
+                        if(createTime==null){
+                            return '';
+                        }else{
+                            return new Date(createTime).getYmd("yyyy-MM-dd hh:mm");
+                        }
+                    }},
                 {name:'writed',index:'writed', width:5, formatter:function(status){
                         var ztText = "";
                         if("0" == status){
