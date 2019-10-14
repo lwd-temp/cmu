@@ -292,6 +292,7 @@ public class XmController extends BaseController {
         sqjl.setXmId(xm.getXmId());
         sqjl.setXmzm(xm.getXmzm());
         sqjl.setXmmc(xm.getXmmc());
+        sqjl.setNj(xm.getXmnjxz());
 
         model.addAttribute("sqjl", sqjl);
 

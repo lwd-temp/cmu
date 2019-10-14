@@ -331,7 +331,8 @@
         decode(xmlx,'01','临床实习','02','假期访学','03','攻读学位','04','课程学习','99','其它','未知') xmlx,
         F_GetTableText('t_dm_jljgmc', 'code', 'name', jljgmc) jljgmc,
         F_GetTableText('t_dm_gb', 'code', 'name', jlgjdqm) jlgjdqm,
-        F_GetTableText('t_dm_jfly', 'code', 'name', jfly) jfly,xmkssj,smjssj,xmjlts,rxn,xmcc
+        F_GetTableText('t_dm_jfly', 'code', 'name', jfly) jfly,
+        F_GetTableText('t_dm_xb', 'code', 'name', gender) gender,xmkssj,smjssj,xmjlts,rxn,xmcc
         from (
 
             select xm.xmbh      xmbh,
@@ -340,6 +341,7 @@
                 sq.xm        xm,
                 sq.zymc      zymc,
                 sq.jlgjdqm   jlgjdqm,
+                sq.gender    gender,
                 sq.zzje      zzje,
                 substr(sq.rxn,3,2)       rxn,
 

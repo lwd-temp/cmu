@@ -35,6 +35,7 @@ public class XmzjbgVO {
     private String xmjlts;//交流时长
     private String rxn;//入学年
     private String xmcc;//项目层次
+    private String gender;//年龄
 
     //排序条件
     private String orderCol;
