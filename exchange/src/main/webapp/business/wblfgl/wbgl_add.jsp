@@ -385,6 +385,7 @@
         //是否邀请校领导， 选是，提示在备注中输入校领导的名字
         $('input[name="wbjdSq.ynYqxld"][value="Y"]').click(function(){
             layer.msg("请在备注中输入受邀校领导的姓名");
+            $("#memo").val("校领导： ");
         });
 
         $("#jdlx").change(function () {

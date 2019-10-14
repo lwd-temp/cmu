@@ -157,6 +157,7 @@
                     <label class="col-xs-12 col-sm-2 control-label "  > 备注: </label>
                     <div class="col-xs-10">
                         <input class="form-control"  id="memo" name="wbjdZj.memo" value="${wbjdZj.memo}"   type="text"  style="height: 70px;" />
+                        <input class="form-control"   id="memo1"  value="${wbjdZj.memo}" type="hidden"  style="height: 70px;" />
                     </div>
                 </div>
             </div>
@@ -445,6 +446,12 @@
         //是否邀请校领导， 选是，提示在备注中输入校领导的名字
         $('input[name="wbjdZj.ynYqxld"][value="Y"]').click(function(){
             layer.msg("请在备注中输入受邀校领导的姓名");
+            $("#memo").val("校领导： "+$("#memo").val());
+        });
+
+        //是否邀请校领导， 选否，提示在备注中输入之前内容
+        $('input[name="wbjdZj.ynYqxld"][value="N"]').click(function(){
+            $("#memo").val($("#memo1").val());
         });
 
         //选择来访目的

@@ -58,12 +58,12 @@
             decode(zj.zjid,null,'0','1') writed,
             lfid,
             decode(zj.dbtmc,null,t_wbjd_sq.dbtmc,zj.dbtmc) dbtmc,
-            lfrs, lfsj_start, lfsj_end, tlsj_start, tlsj_end, lfmd, lfmd_qt, yjtm, yqxx,
-            jfly, lp, lpsl, qkjl, fwcg, tzxm, tzgj, tzxb, tzcsrq, tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg,
-            zqrxm, zqrdh, zqlxrxm, zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm, jdlx, status,
+            zj.lfrs lfrs, zj.lfsj_start lfsj_start, zj.lfsj_end lfsj_end, tlsj_start, tlsj_end, lfmd, lfmd_qt, yjtm, yqxx,
+            jfly, lp, lpsl, qkjl, fwcg, zj.tzxm tzxm, tzgj, tzxb, tzcsrq, tzgzdw, tzzc, tzzw, tzzy, tzxsly, yqcg,
+            zqrxm, zqrdh, zj.zqlxrxm zqlxrxm, zqlxrdh, jdbm, yn_yqxld, yn_xyty, yn_bbssgabm, yn_bbssxcbm, jdlx, status,
             memo, valid, zj.create_time create_time,operator
             from t_wbjd_sq
-            left join (select zjid ,lfid zjlfid ,dbtmc ,create_time from t_wbjd_zj ) zj on lfid = zj.zjlfid
+            left join (select zjid ,lfid zjlfid ,dbtmc ,create_time ,lfsj_start, lfsj_end, lfrs ,tzxm ,zqlxrxm from t_wbjd_zj ) zj on lfid = zj.zjlfid
         )
         <if test="_parameter != null" >
             <include refid="cn.edu.cmu.dao.WbjdSqMapper.Example_Where_Clause" />
