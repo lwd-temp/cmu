@@ -160,7 +160,7 @@
         var settings = {
             caption: "申请学生列表(复审)",
             url:'xm/listXmSqxs?xmId=${param["xmid"]}',
-            colNames:['申请id','学号','姓名','成绩排名','综合评级',"心理测评",'初审状态',"复审状态",'是否自费',"审核"],
+            colNames:['申请id','学号','姓名','成绩排名','综合评级',"身心健康",'初审状态',"复审状态",'是否自费',"审核"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -183,7 +183,7 @@
                             return "无";
                         }
                     }  },
-                {name:'status',index:'status',formatter:function(status,options,rowObject){
+                {name:'status',index:'status',hidden:true ,formatter:function(status,options,rowObject){
 
                         //var confirm1 = rowObject.isconfirm1;
                         rowObject.orgStatus = status;
@@ -213,7 +213,7 @@
                             return "复审不通过"+(comfirm2=='1'?',已确认':',未确认');
                         }
                     }  },
-                {name:'selfPay',index:'selfPay',formatter:function(selfPay){
+                {name:'selfPay',index:'selfPay',hidden:true ,formatter:function(selfPay){
                         if(selfPay == 'Y'){
                             return "是"
                         }
@@ -226,6 +226,9 @@
                         var content = "";
                         if("01" == confirmStatus ){//国际事务部管理员 复审
                             content += "<button class='btn btn-info btn-mini' onclick='sh_fs(\""+cellvalue+"\")' title='复审' ><i class='ace-icon fa fa-eye '>复审</i></button>";
+                        }
+                        if("01" != confirmStatus ){//国际事务部管理员 复审
+                            content += "<button class='btn btn-info btn-mini'  disabled='disabled' title='复审' ><i class='ace-icon fa fa-eye '>复审</i></button>";
                         }
                         return content;
 
