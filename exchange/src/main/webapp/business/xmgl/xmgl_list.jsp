@@ -69,7 +69,7 @@
                 buttonicon:"ace-icon fa fa-plus orange",
                 onClickButton: function(){
                     layer.newpage({
-                        area: ['1000px', '750px'],
+                        area: ['1150px', '850px'],
                         title:'创建项目',
                         content:'xm/toAdd',
                     });
