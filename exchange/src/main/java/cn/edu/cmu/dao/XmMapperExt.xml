@@ -46,7 +46,7 @@
     </resultMap>
 
     <select id="selectXmmcDistinct" resultType="java.lang.String">
-      select distinct xmmc  from t_xm where xmmc is not null
+        select distinct xmmc|| '   ' ||(select to_char(sysdate,'yyyy') as year from dual) from t_xm where xmmc is not null
     </select>
 
     <!--<select id="selectNjxzDistinct" resultType="java.lang.String">-->
