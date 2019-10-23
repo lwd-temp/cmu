@@ -83,8 +83,8 @@
                         //console.info(href);
                         return href;
                     } },
-                {name:'xmzm',index:'xmzm',  width:'3', phoneHide:true},
-                {name:'xmmc',index:'xmmc', width:'4', },
+                {name:'xmzm',index:'xmzm',  width:'3', phoneHide:true,hidden:true},
+                {name:'xmmc',index:'xmmc', width:'4', phoneHide:true},
 
                 {name:'xmkssj',index:'xmkssj',width:'3', phoneHide:true,formatter:function(time){
                         return new Date(time).getYmd("yyyy年MM月dd日")
