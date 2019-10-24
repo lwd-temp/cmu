@@ -88,13 +88,13 @@
                 <div class="form-group">
                     <label class="col-xs-12 col-sm-2 control-label "  > 来访时间起: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="wbjdZj.lfsjStart"
+                        <input class="form-control lfsj" name="wbjdZj.lfsjStart"
                                value="<fmt:formatDate value="${wbjdSq.lfsjStart}" pattern="yyyy-MM-dd"/>"
                                id="lfsjStart" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
                     <label class="col-xs-12 col-sm-2 control-label "  > 来访时间止: </label>
                     <div class="col-xs-12 col-sm-4">
-                        <input class="form-control date-picker" name="wbjdZj.lfsjEnd"
+                        <input class="form-control lfsj" name="wbjdZj.lfsjEnd"
                                value="<fmt:formatDate value="${wbjdSq.lfsjEnd}" pattern="yyyy-MM-dd"/>"
                                id="lfsjEnd" type="text" data-date-format="yyyy-mm-dd" />
                     </div>
@@ -451,11 +451,20 @@
             var $select = $(this);
             var val = $select.val();
             jdlxfunction(val);
-        })
+        });
 
         $("#saveForm").click(function(){
             $("#status").val("01");//暂存
             saveSq();
+        });
+
+        $('.lfsj').datepicker({
+            minView : "month", //选择日期后，不会再跳转去选择时分秒
+            format : "yyyy-mm-dd", //选择日期后，文本框显示的日期格式
+            language : 'zh-CN', //汉化
+            autoclose : true,//选择日期后自动关闭
+            todayHighlight: true, // 高亮"今日"
+            startDate : new Date() //日期从今天开始选中
         });
 
 
