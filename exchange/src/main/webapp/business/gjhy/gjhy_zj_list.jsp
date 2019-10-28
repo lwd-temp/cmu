@@ -150,7 +150,7 @@
         layer.newpage({
             area: ['1100px', "600px"],
             title:'填写会议总结',
-            content:'business/gjhy/gjhy_zj_add.jsp?sbid='+sbid,
+            content:'hyzj/toAdd?id='+sbid,
         });
     }
 

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +66,14 @@
                     <div class="col-xs-12">
                         <!-- PAGE CONTENT BEGINS -->
                         <form class="form-horizontal" id="form" role="form">
-                            <input type="hidden" name="sbid" value="${param['sbid']}"/>
+                            <input type="hidden" name="sbid" value="${sbid}"/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-3 control-label "  > 基本信息: </label>
-
+                                <label class="col-xs-3 control-label "  > 历史申报内容: </label>
                                 <div class="col-xs-9">
-                                    <input type="text"  name="jbxx"   placeholder="基本信息"  class="col-xs-12" />
+                                    <textarea class="form-control " name="jbxx" id="jbxx" maxlength="300" placeholder="历史申报内容" style="height: 150px">
+<c:choose><c:when test="${hyzj!=null && hyzj.size()>0}"><c:forEach items="${hyzj}" var="hy">${hy.hybh}   ${hy.hymc}   ${hy.hymcEn}   ${hy.hylx}
+</c:forEach></c:when></c:choose>    </textarea>
                                 </div>
                             </div>
 

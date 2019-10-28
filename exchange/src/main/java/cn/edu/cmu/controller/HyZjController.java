@@ -1,5 +1,6 @@
 package cn.edu.cmu.controller;
 
+import cn.edu.cmu.domain.HyShenb;
 import cn.edu.cmu.domain.HyZj;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.web.BaseController;
@@ -89,6 +90,26 @@ public class HyZjController extends BaseController {
         return super.ajaxStatus(success,hyzj);
     }
 
+    /**
+     * 跳转到增加页面
+     * @param id
+     * @param model
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toAdd")
+    public String toAdd(String id,Model model) throws Exception {
+
+        List<HyShenbVo> hyzj = hyZjService.queryByJbxx();
+//        for (HyShenbVo hy:hyzj){
+//            logger.info("hy:"+hy);
+//            model.addAttribute("hy",hy);
+//        }
+        model.addAttribute("hyzj",hyzj);
+        model.addAttribute("sbid",id);
+
+        return "gjhy/gjhy_zj_add";
+    }
 
 
     /**

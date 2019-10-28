@@ -6,6 +6,7 @@ import cn.edu.cmu.domain.HyJh;
 import cn.edu.cmu.domain.HyJhParams;
 import cn.edu.cmu.domain.HyRymd;
 import cn.edu.cmu.domain.HyRymdParams;
+import cn.edu.cmu.framework.UserContext;
 import cn.edu.cmu.framework.util.CmuStringUtil;
 import cn.edu.cmu.framework.util.DateUtils;
 import cn.edu.cmu.framework.util.MaxNumUtils;
@@ -91,6 +92,7 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
         if(StringUtil.isEmpty(hyjh.getJhid())){
             String keyId = CmuStringUtil.UUID();
             hyjh.setJhid(keyId);
+            hyjh.setOperator(UserContext.getUserId());
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
@@ -103,6 +105,7 @@ public class HyJhServiceImpl extends BaseService<HyJh, HyJhParams, HyJhMapper> i
             //新增需要生成会议编号
             String hybh = DateUtils.getYear() + "909" + MaxNumUtils.getMaxNum("hyjh", DateUtils.getYear(), 3);
             hyjh.setHybh(hybh);
+            hyjh.setOperator(UserContext.getUserId());
             count = dao.insertSelective(hyjh);
         }
         logger.info("保存 主表的hyJh 结果 :"+(count>0));

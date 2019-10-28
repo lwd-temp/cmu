@@ -2,11 +2,10 @@ package cn.edu.cmu.service;
 
 import cn.edu.cmu.dao.HyMapperExt;
 import cn.edu.cmu.dao.HyZjMapper;
-import cn.edu.cmu.domain.HyShenb;
-import cn.edu.cmu.domain.HyShenbParams;
-import cn.edu.cmu.domain.HyZj;
-import cn.edu.cmu.domain.HyZjParams;
+import cn.edu.cmu.domain.*;
+import cn.edu.cmu.framework.UserContext;
 import cn.edu.cmu.framework.web.BaseService;
+import cn.edu.cmu.vo.HyShenbVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +57,17 @@ public class HyZjServiceImpl extends BaseService<HyZj, HyZjParams, HyZjMapper> i
             super.addOrderBy(params,conditions);
         }
 
+        return hyExtDao.selectZjByExample(params);
+    }
+
+    @Override
+    public List<HyShenbVo>  queryByJbxx() {
+        String operator=UserContext.getUserId();
+        HyShenbParams params = new HyShenbParams();
+        HyShenbParams.Criteria c1 = params.createCriteria();
+        c1.andOperatorEqualTo(operator);
+        c1.andStatusEqualTo("04");
+        logger.info(operator);
         return hyExtDao.selectZjByExample(params);
     }
 }

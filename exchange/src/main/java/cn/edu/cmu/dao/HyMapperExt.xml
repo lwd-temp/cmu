@@ -38,9 +38,9 @@
         select
         zj.zjid zjid ,
         decode(zj.zjid,null,'0','1') writed,
-
-        SBID, JHID, HYLX, HYMC, HYMC_EN, HYBH, JXRQ_KS,JXRQ_JS, ZBDW, CBDW, DD, HYJBXX, HYGM, BJJBYX,
-        JFLY, FZRXM, FZRDH,BGTM, BGNR, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME,''
+        F_GetTableText('T_DM_HYLX', 'code', 'name', HYLX) HYLX,
+        SBID, JHID, HYMC, HYMC_EN, HYBH, JXRQ_KS,JXRQ_JS, ZBDW, CBDW, DD, HYJBXX, HYGM, BJJBYX,
+        JFLY, FZRXM, FZRDH,BGTM, BGNR, SFBB, OPERATOR, STATUS, VALID, CREATE_TIME
         from T_HY_SHENB
              left join (select zjid ,sbid zjsbid  from t_hy_zj ) zj on sbid = zj.zjsbid
 

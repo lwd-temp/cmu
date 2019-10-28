@@ -69,10 +69,10 @@
                             <input type="hidden" name="sbid" value="${hyzj.sbid}"/>
                             <!-- #section:elements.form -->
                             <div class="form-group">
-                                <label class="col-xs-3 control-label "  > 基本信息: </label>
+                                <label class="col-xs-3 control-label "  > 历史申报内容: </label>
 
                                 <div class="col-xs-9">
-                                    <input type="text"  name="jbxx"  value="${hyzj.jbxx}"  placeholder="基本信息"  class="col-xs-12" />
+                                    <textarea class="form-control limited" name="jbxx"  maxlength="300" placeholder="历史申报内容" style="height: 150px">${hyzj.jbxx}</textarea>
                                 </div>
                             </div>
 
