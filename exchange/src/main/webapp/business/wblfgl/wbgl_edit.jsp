@@ -572,10 +572,10 @@
     }
     function deleteSxr(btn){
         var size = $("#form .sxr").size();1
-        if (size <= 1 && $("#lfrs").val()>1) {
-            parent.layer.alert("请至少录入一个随行成员");
-            return false;
-        }
+        // if (size <= 1 && $("#lfrs").val()>1) {
+        //     parent.layer.alert("请至少录入一个随行成员");
+        //     return false;
+        // }
         var row = $(btn).parent().parent();
         row.remove();
         setFormValid();//设置校验规则
