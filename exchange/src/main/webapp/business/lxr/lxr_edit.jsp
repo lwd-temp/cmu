@@ -206,7 +206,12 @@
                     required:true
                 },
                 email:{
-                    email: true
+                    required:true,
+                    email:true
+                },
+                telphone:{
+                    required:true,
+                    isphoneNum:true
                 },
 
             }
