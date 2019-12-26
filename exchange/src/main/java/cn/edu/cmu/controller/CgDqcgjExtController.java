@@ -102,7 +102,8 @@ public class CgDqcgjExtController extends BaseController {
             cfjsrq = new SimpleDateFormat("yyyy-MM-dd").format(cgDqcgj.getCfjsrq()).toString();
         }
 
-
+        CgTzjh cgTzjh = cgTzjhService.queryById(cgDqcgj.getTzid());
+        variables.put("tzh"	,	cgTzjh.getTzh());
         variables.put("xm"	,	cgDqcgj.getXm());
         variables.put("xb"	,	DMCache.translateCode2Name("t_DM_XB",cgDqcgj.getXb()));//代码转名称
         variables.put("csrq"	,	csrq);
