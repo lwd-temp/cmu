@@ -126,9 +126,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
-                    <div class="col-xs-10">
-                        <textarea class="form-control limited" name="wbjdSq.jfly"  placeholder="请输入经费来源"  maxlength="300">${wbjdSq.jfly}</textarea>
+                    <label class="col-xs-12 col-sm-2 control-label "> 经费来源: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control  " name="wbjdSq.jfly" id="jfly" value="${wbjdSq.jfly}" type="hidden"/>
+                        <select class="form-control" name="" id="jf"  data-placeholder="请选择经费来源" onchange="selectjfly(this)">
+                            <option  value=" ">请选择经费来源</option>
+                            <option  value="外方付费">外方付费</option>
+                            <option  value="我方付费">我方付费</option>
+                        </select>
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label jfbh"> 经费编号: </label>
+                    <div class="col-xs-12 col-sm-4" >
+                        <input class="form-control  jfbh" name="" id="jfbh" value="" type="text" onchange="selectjfbh(this)"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -399,6 +408,7 @@
 <script src="assets/project/js/common-window.js"></script>
 <script>
     $(function () {
+
         var md= $("#lfmd").val();
         //学术讲座 -- 演讲题目
         if (md == '03') {
@@ -476,6 +486,16 @@
             todayHighlight: true, // 高亮"今日"
             startDate : new Date() //日期从今天开始选中
         });
+
+        var jfly=$("#jfly").val();
+        if (jfly.substring(0,1) == '我') {
+            $(".jfbh").show();
+            $("#jf").val("我方付费")
+            $("#jfbh").val(jfly.substring(4,jfly.length))
+        } else {
+            $(".jfbh").hide();
+            $("#jf").val("外方付费")
+        };
 
 
     });
@@ -654,6 +674,24 @@
         }else{
             $(".qtmd").hide();
         }
+    }
+
+    //选择经费来源
+    function selectjfly(select) {
+        var jf = $(select).val();
+        if (containLfmd('我方付费', jf)) {
+            $(".jfbh").show();
+        } else {
+            $(".jfbh").hide();
+        }
+        $("#jfly").attr("value",jf);
+
+    }
+
+    function selectjfbh() {
+        var bh=$("#jfbh").val();
+        var jfly=$("#jfly").val();
+        $("#jfly").attr("value",jfly+bh);
     }
 
     function getRadio(){

@@ -123,10 +123,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-
-                    <label class="col-xs-12 col-sm-2 control-label "  > 经费来源: </label>
-                    <div class="col-xs-10">
-                        <textarea class="form-control limited" name="wbjdZj.jfly"  placeholder="请输入经费来源"  maxlength="300">${wbjdZj.jfly}</textarea>
+                    <label class="col-xs-12 col-sm-2 control-label "> 经费来源: </label>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control  " name="wbjdZj.jfly" id="jfly" value="${wbjdZj.jfly}" type="hidden"/>
+                        <select class="form-control" name="" id="jf"  data-placeholder="请选择经费来源" onchange="selectjfly(this)">
+                            <option  value=" ">请选择经费来源</option>
+                            <option  value="外方付费">外方付费</option>
+                            <option  value="我方付费">我方付费</option>
+                        </select>
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label jfbh"> 经费编号: </label>
+                    <div class="col-xs-12 col-sm-4" >
+                        <input class="form-control  jfbh" name="" id="jfbh" value="" type="text" onchange="selectjfbh(this)"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -188,7 +196,7 @@
 
                 <label class="col-xs-12 col-sm-2 control-label "  > 出生年份: </label>
                 <div class="col-xs-12 col-sm-4">
-                    <input class="form-control date-picker" name="wbjdZj.tzcsrq" id="tzcsrq"
+                    <input class="form-control year-picker" name="wbjdZj.tzcsrq" id="tzcsrq"
                            value="<fmt:formatDate value="${wbjdZj.tzcsrq}" pattern="yyyy"/>"
                            type="text" data-date-format="yyyy" />
                 </div>
@@ -482,6 +490,23 @@
             startDate : new Date() //日期从今天开始选中
         });
 
+        var jfly=$("#jfly").val();
+        if (jfly.substring(0,1) == '我') {
+            $(".jfbh").show();
+            $("#jf").val("我方付费")
+            $("#jfbh").val(jfly.substring(4,jfly.length))
+        } else {
+            $(".jfbh").hide();
+            $("#jf").val("外方付费")
+        };
+
+        $('.year-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            startView: 2,
+            maxViewMode: 2,
+            minViewMode: 2,
+        });
 
     });
 
@@ -633,10 +658,10 @@
 
     function deleteSxr(btn) {
         var size = $("#form .sxr").size();
-        if (size <= 1 && $("#lfrs").val()>1) {
-            parent.layer.alert("请至少录入一个随行成员");
-            return false;
-        }
+        // if (size <= 1 && $("#lfrs").val()>1) {
+        //     parent.layer.alert("请至少录入一个随行成员");
+        //     return false;
+        // }
         var row = $(btn).parent().parent();
         row.remove();
         setFormValid();//设置校验规则
@@ -651,6 +676,24 @@
             $(el).rules('add', {required: true});
         })
         setFormValid();//设置校验规则
+    }
+
+    //选择经费来源
+    function selectjfly(select) {
+        var jf = $(select).val();
+        if (containLfmd('我方付费', jf)) {
+            $(".jfbh").show();
+        } else {
+            $(".jfbh").hide();
+        }
+        $("#jfly").attr("value",jf);
+
+    }
+
+    function selectjfbh() {
+        var bh=$("#jfbh").val();
+        var jfly=$("#jfly").val();
+        $("#jfly").attr("value",jfly+bh);
     }
 
     function deleteLp(btn) {

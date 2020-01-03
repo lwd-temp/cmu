@@ -122,8 +122,17 @@
                 <div class="form-group">
 
                     <label class="col-xs-12 col-sm-2 control-label "> 经费来源: </label>
-                    <div class="col-xs-10">
-                        <textarea class="form-control limited" name="wbjdSq.jfly" placeholder="请输入经费来源" maxlength="300"></textarea>
+                    <div class="col-xs-12 col-sm-4">
+                        <input class="form-control  " name="wbjdSq.jfly" id="jfly" value="" type="hidden"/>
+                        <select class="form-control" name="" id="jf"  data-placeholder="请选择经费来源" onchange="selectjfly(this)">
+                            <option  >请选择经费来源</option>
+                            <option  >外方付费</option>
+                            <option  >我方付费</option>
+                        </select>
+                    </div>
+                    <label class="col-xs-12 col-sm-2 control-label jfbh"> 经费编号: </label>
+                    <div class="col-xs-12 col-sm-4" >
+                        <input class="form-control  jfbh" name="" id="jfbh" value="" type="text" onchange="selectjfbh(this)"/>
                     </div>
                 </div>
                 <div class="form-group">
@@ -379,6 +388,7 @@
     $(function () {
         $(".yjtm").hide();
         $(".qtmd").hide();
+        $(".jfbh").hide();
 
         setFormValid();//设置校验规则
 
@@ -621,6 +631,24 @@
         } else {
             $(".qtmd").hide();
         }
+    }
+
+    //选择经费来源
+    function selectjfly(select) {
+        var jf = $(select).val();
+        if (containLfmd('我方付费', jf)) {
+            $(".jfbh").show();
+        } else {
+            $(".jfbh").hide();
+        }
+        $("#jfly").attr("value",jf);
+
+    }
+
+    function selectjfbh() {
+       var bh=$("#jfbh").val();
+       var jfly=$("#jfly").val();
+        $("#jfly").attr("value",jfly+bh);
     }
 
 
