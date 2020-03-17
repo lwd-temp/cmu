@@ -51,10 +51,13 @@
                 <input type="hidden" name="status" id="status" value="${cgdqcgj.status}" />
                 <input type="hidden" name="id" id="cgid" value="${cgdqcgj.cgid}" />
                 <div class="form-group">
+
                     <label class="col-xs-3 control-label"  > 本人承诺(申请表说明): </label>
                     <div class="col-xs-9">
                         <input type="hidden" name="sqbsm" id="sqbsm"/>
-                        <textarea class="form-control" name="sqbsm_show" id="sqbsm_show" maxlength="300">${cgdqcgj.sqbsm}</textarea>
+                        <textarea class="form-control" name="sqbsm_show" id="sqbsm_show" maxlength="300" style="height: 100px"><c:if test="${empty cgdqcgj.sqbsm}"  >本人承诺：以上情况均属实。本次出访无科技涉密问题和知识产权保护问题，不涉及政治敏感问题。本人的教学、科研工作已交接。本人自愿执行我校有关出国的各项规定。</c:if>
+                        <c:if test="${not empty cgdqcgj.sqbsm}">${cgdqcgj.sqbsm}</c:if>
+                        </textarea>
                     </div>
                 </div>
                 &nbsp; &nbsp; &nbsp;
