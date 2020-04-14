@@ -114,7 +114,7 @@
 
             and (
                 <!--层次限制  1本科生,2研究生-->
-                t.ccxz like ( '%'||#{ccxz}||'%' )
+                t.ccxz =#{ccxz,jdbcType=VARCHAR}
                 <!--不限-->
                 or t.ccxz = '99'
             )

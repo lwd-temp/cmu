@@ -217,7 +217,7 @@ public class XmServiceImpl extends BaseService<Xm, XmParams, XmMapper> implement
         map.put("gsyxdm",yxsh);
         map.put("gsxsdm",xh);
         map.put("xm",xm);
-        map.put("ccxz",userType);
+        map.put("ccxz","0"+userType);
         if(userType.equals(CmuConstants.SESSION.USER_TYPE_BKS)){//本科生查询可申报项目
             BksXjjbsjxxParams xjjbsjxxParams = new BksXjjbsjxxParams();
             xjjbsjxxParams.createCriteria().andXhEqualTo(xh);
