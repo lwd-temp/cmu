@@ -8,15 +8,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div >
     <form class="form-horizontal" role="form">
-        <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="condition"> 联系人姓名: </label>
+            <label class="col-sm-2 control-label no-padding-right" for="condition"> 联系人姓名: </label>
 
-            <div class="col-sm-4">
-                <input type="text" id="condition" placeholder="联系人姓名" class="col-xs-12" />
+            <div class="col-sm-3">
+                <input type="text" id="condition" name="condition" placeholder="联系人姓名" class="col-xs-12" />
             </div>
+            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 工作单位: </label>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                <input type="text" id="condition2" name="condition2"  placeholder="工作单位" class="col-xs-12" />
+            </div>
+            <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -142,7 +145,7 @@
                 sortname = '';
             }
 
-            window.open("lxr/download?name="+$("#condition").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+            window.open("lxr/download?name="+$("#condition").val()+"&gzdw="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
 
@@ -152,10 +155,12 @@
 
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'name':$("#condition").val()},//条件查询项后台发送的条件数据
+            postData:{
+                'name':$("#condition").val(),
+                'gzdw':$("#condition2").val()
+            },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
-
     }
 
     //修改用户

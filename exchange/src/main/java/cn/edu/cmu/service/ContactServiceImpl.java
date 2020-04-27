@@ -36,6 +36,9 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
         ContactParams ex = new ContactParams();
         if(contact != null){
             ContactParams.Criteria c = ex.createCriteria();
+            if(StringUtils.isNotEmpty(contact.getName())){
+                c.andNameLike("%"+contact.getName()+"%");
+            }
             if(StringUtils.isNotEmpty(contact.getGzdw())){
                 c.andGzdwLike("%"+contact.getGzdw()+"%");
             }
@@ -54,6 +57,9 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
 
             if(StringUtils.isNotEmpty(contact.getName())){
                 c.andNameLike("%"+contact.getName()+"%");
+            }
+            if(StringUtils.isNotEmpty(contact.getGzdw())){
+                c.andGzdwLike("%"+contact.getGzdw()+"%");
             }
             super.addOrderBy(params,conditions);
         }
@@ -88,6 +94,9 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
 
             if(StringUtils.isNotEmpty(lxr.getName())){
                 c.andNameLike("%"+lxr.getName()+"%");
+            }
+            if(StringUtils.isNotEmpty(lxr.getGzdw())){
+                c.andGzdwLike("%"+lxr.getGzdw()+"%");
             }
             super.addOrderBy(params,conditions);
         }
