@@ -75,9 +75,9 @@
 
 
         var settings = {
-            caption: "护照管理",
+            caption: "护照、通行证管理",
             url: 'hzgl/list',
-            colNames:['姓名','性别','护照号码','出生日期','状态','操作'],
+            colNames:['姓名','性别','护照、通行证号码','出生日期','状态','操作'],
             navBtns:navBtns,
             pager:pager_selector,
             colModel:[
