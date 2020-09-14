@@ -218,7 +218,7 @@
                                     <input class="form-control  " name="xm.zjje"  value="${xm.zjje}" id="zjje" value="" type="text"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2 control-label "> 项目资助计划: </label>
-                                <div class="col-xs-10">
+                                <div class="col-xs-12 col-sm-4">
                                     <textarea class="form-control limited" name="xm.xmzzjh" id="xmzzjh" maxlength="300">${xm.xmzzjh}</textarea>
                                 </div>
                             </div>
@@ -242,6 +242,23 @@
                                     <input class="form-control date-picker" name="xm.bmjzsj" value="<fmt:formatDate value="${xm.bmjzsj}" pattern="yyyy-MM-dd"/>" id="bmjzsj" type="text" placeholder="请选择报名结束时间" />
                                 </div>
                             </div>
+                            <%--<div class="form-group">--%>
+                                <%--<label class="col-xs-12 col-sm-2  control-label "> 宣讲会时间: </label>--%>
+                                <%--<div class="col-xs-12 col-sm-4">--%>
+                                    <%--<input class="form-control date-picker" name="xm.xjhsj" id="xjhsj" type="text" value="<fmt:formatDate value="${xm.xjhsj}" pattern="yyyy-MM-dd"/>" placeholder="请选择宣讲会时间" />--%>
+                                <%--</div>--%>
+                                <%--<label class="col-xs-12 col-sm-2  control-label "> 宣讲会地点: </label>--%>
+                                <%--<div class="col-xs-12 col-sm-4">--%>
+                                    <%--<input class="form-control " name="xm.xjhdd" id="xjhdd" type="text" value="${xm.xjhdd}" placeholder="请输入宣讲会地点"/>--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
+
+                            <%--<div class="form-group">--%>
+                                <%--<label class="col-xs-12 col-sm-2  control-label "> 咨询QQ群号: </label>--%>
+                                <%--<div class="col-xs-12 col-sm-4">--%>
+                                    <%--<input class="form-control" name="xm.zxqq" id="zxqq" type="text" value="${xm.zxqq}" placeholder="请输入咨询QQ群号" />--%>
+                                <%--</div>--%>
+                            <%--</div>--%>
 
                             <div class="col-md-offset-3 col-md-9" style="text-align:right;">
                                 <hr/>

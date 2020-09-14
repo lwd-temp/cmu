@@ -163,7 +163,7 @@
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2  control-label "> 项目年级限制: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="请输入年级限制"/>
+                                    <input class="form-control typeahead scrollable" name="xm.xmnjxz" id="xmnjxz" type="text" placeholder="请输入年级限制,年级限制=当前年-班号前4位+1"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2  control-label "> 项目层次限制: </label>
                                 <div class="col-xs-12 col-sm-4">
@@ -246,23 +246,23 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <%--<div class="form-group">
                                 <label class="col-xs-12 col-sm-2  control-label "> 宣讲会时间: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control date-picker" name="xm.yjhsj" id="yjhsj" type="text" placeholder="请选择报名结束时间" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control date-picker" name="xm.xjhsj" id="xjhsj" type="text" placeholder="请选择宣讲会时间" data-date-format="yyyy-mm-dd"/>
                                 </div>
                                 <label class="col-xs-12 col-sm-2  control-label "> 宣讲会地点: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control date-picker" name="xm.yjhdd" id="yjhdd" type="text" placeholder="请选择报名结束时间" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control " name="xm.xjhdd" id="xjhdd" type="text" placeholder="请输入宣讲会地点"/>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-xs-12 col-sm-2  control-label "> 咨询QQ群号: </label>
                                 <div class="col-xs-12 col-sm-4">
-                                    <input class="form-control date-picker" name="xm.zxqq" id="zxqq" type="text" placeholder="请选择报名结束时间" data-date-format="yyyy-mm-dd"/>
+                                    <input class="form-control" name="xm.zxqq" id="zxqq" type="text" placeholder="请输入咨询QQ群号" />
                                 </div>
-                            </div>
+                            </div>--%>
 
                             <div class="col-md-offset-3 col-md-9" style="text-align:right;">
                                 <hr/>
@@ -325,7 +325,7 @@
         //
         // $('#jlmbjgmc').inputSelect(names);
 
-        $('#xmnjxz').inputSelect('xm/listNj');
+        // $('#xmnjxz').inputSelect('xm/listNj');
         $('#xmzm').inputSelect('xm/listMc');
 
 
