@@ -103,12 +103,18 @@
             caption: "联系人管理",
             /*data: grid_data,*/
             url:'lxr/list',
-            colNames:["ID",'姓名','性别', '国籍', '专业领域','关联项目',"操作"],
+            colNames:["ID",'姓名','姓名','性别', '国籍', '专业领域','关联项目',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
                 {name:'lxrId',index:'lxrId',  key:true,hidden:true},
-                {name:'name',index:'name', width:3 },
+                {name:'name',index:'name',  key:true,hidden:true},
+                {name:'lxrId',index:'lxrId', width:3,formatter:function(lxrId, options, rowObject){
+                        var name = rowObject.name;
+                        var content = "";
+                        content += "<span class='mark_data' ondblclick='editLxr(\""+lxrId+"\")'>"+name+"</span>";
+                        return content;
+                    }  },
                 {name:'gender',index:'gender', width:3,phoneHide:true,formatter:function(gender){
                         return dmcache.getCode("t_dm_xb",gender);//从缓存中获取代码对应的名称
                 } },
