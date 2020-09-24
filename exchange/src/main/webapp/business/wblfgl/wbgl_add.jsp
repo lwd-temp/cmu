@@ -492,7 +492,6 @@
                 "wbjdSq.zqlxrdh": {required: true},
                 "cfgbIds": {required: true},
                 "sxr[@].xm": {required: true},
-                "sxr[@].gj": {required: true},
                 "sxr[@].zw": {required: true},
                 "lp[@].mc":{ required:true},
                 "lp[@].sl":{ required:true,digits:true}
