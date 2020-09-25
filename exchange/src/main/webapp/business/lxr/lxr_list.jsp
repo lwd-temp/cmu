@@ -11,15 +11,18 @@
         <div class="form-group">
             <label class="col-sm-2 control-label no-padding-right" for="condition"> 联系人姓名: </label>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" id="condition" name="condition" placeholder="联系人姓名" class="col-xs-12" />
             </div>
             <label class="col-sm-2 control-label no-padding-right" for="condition2"> 工作单位: </label>
 
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <input type="text" id="condition2" name="condition2"  placeholder="工作单位" class="col-xs-12" />
             </div>
-            <div class="col-sm-2">
+            <div class="col-sm-3">
+                <button class="btn btn-info btn-xs" id="tuihui" type="button" onclick="qingk()"> <i class="ace-icon fa fa-search "></i>
+                    清空退回
+                </button>
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -154,6 +157,19 @@
             window.open("lxr/download?name="+$("#condition").val()+"&gzdw="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
+
+
+    function qingk() {
+        $("#condition").val(" "),
+        $("#condition2").val(" ")
+        $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
+            postData:{
+                'name':$("#condition").val(),
+                'gzdw':$("#condition2").val()
+            },//条件查询项后台发送的条件数据
+            page:1
+        }).trigger("reloadGrid");
+    }
 
     function huiche() {
         if(event.keyCode==13) {
