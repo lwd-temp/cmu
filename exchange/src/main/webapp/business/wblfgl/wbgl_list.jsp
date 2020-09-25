@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div >
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" onkeydown="huiche()">
         <div class="form-group">
             <label class="col-sm-2 control-label no-padding-right" for="condition1"> 主请人姓名: </label>
 
@@ -143,6 +143,9 @@
 
         //查询按钮添加事件
         $("#query").click(function(){
+            if(event.keyCode==13) {
+                refreshTable();
+            }
             refreshTable();
         });
 
@@ -159,6 +162,12 @@
         });
 
     });
+
+    function huiche() {
+        if(event.keyCode==13) {
+            refreshTable();
+        }
+    }
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div >
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" onkeydown="huiche()">
         <div class="form-group">
             <label class="col-sm-2 control-label no-padding-right" for="condition"> 联系人姓名: </label>
 
@@ -154,6 +154,12 @@
             window.open("lxr/download?name="+$("#condition").val()+"&gzdw="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
+
+    function huiche() {
+        if(event.keyCode==13) {
+            refreshTable();
+        }
+    }
 
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div >
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" onkeydown="huiche()">
         <!-- #section:elements.form -->
         <div class="form-group">
             <label class="col-sm-2 control-label no-padding-right" for="condition1"> 主请人姓名: </label>
@@ -136,6 +136,11 @@
         });
     });
 
+    function huiche() {
+        if(event.keyCode==13) {
+            refreshTable();
+        }
+    }
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
