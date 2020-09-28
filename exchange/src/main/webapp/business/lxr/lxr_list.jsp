@@ -9,15 +9,17 @@
 <div >
     <form class="form-horizontal" role="form" onkeydown="huiche()">
         <div class="form-group">
-            <label class="col-sm-2 control-label no-padding-right" for="condition"> 联系人姓名: </label>
 
-            <div class="col-sm-2">
-                <input type="text" id="condition" name="condition" placeholder="联系人姓名" class="col-xs-12" />
+            <div class="col-sm-3">
+                联系人姓名:<input type="text" id="condition" name="condition" placeholder="联系人姓名"  />
             </div>
-            <label class="col-sm-2 control-label no-padding-right" for="condition2"> 工作单位: </label>
 
-            <div class="col-sm-2">
-                <input type="text" id="condition2" name="condition2"  placeholder="工作单位" class="col-xs-12" />
+            <div class="col-sm-3">
+                工作单位:<input type="text" id="condition2" name="condition2"  placeholder="工作单位"  />
+            </div>
+
+            <div class="col-sm-3">
+                国籍:<input type="text" id="condition3" name="condition3"  placeholder="工作单位"  />
             </div>
             <div class="col-sm-3">
                 <button class="btn btn-info btn-xs" id="tuihui" type="button" onclick="qingk()"> <i class="ace-icon fa fa-search "></i>
@@ -106,7 +108,7 @@
             caption: "联系人管理",
             /*data: grid_data,*/
             url:'lxr/list',
-            colNames:["ID",'姓名','姓名','性别', '国籍', '专业领域','关联项目',"操作"],
+            colNames:["ID",'姓名','姓名','性别', '国籍','工作单位', '专业领域','关联项目',"操作"],
             navBtns:navBtns,//自定义按钮
             pager:pager_selector,
             colModel:[
@@ -122,6 +124,7 @@
                         return dmcache.getCode("t_dm_xb",gender);//从缓存中获取代码对应的名称
                 } },
                 {name:'gj',index:'gj',  width:4,phoneHide:true},
+                {name:'gzdw',index:'gzdw',  width:4,phoneHide:true},
                 {name:'zyly',index:'zyly', width:4,},
                 {name:'glxm',index:'glxm',  width:4,phoneHide:true},
 
@@ -154,7 +157,7 @@
                 sortname = '';
             }
 
-            window.open("lxr/download?name="+$("#condition").val()+"&gzdw="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+            window.open("lxr/download?name="+$("#condition").val()+"&gzdw="+$("#condition2").val()+"&gj="+$("#condition3").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
 
@@ -162,10 +165,12 @@
     function qingk() {
         $("#condition").val(" "),
         $("#condition2").val(" ")
+        $("#condition3").val(" ")
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
                 'name':$("#condition").val(),
-                'gzdw':$("#condition2").val()
+                'gzdw':$("#condition2").val(),
+                'gj':$("#condition3").val()
             },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
@@ -185,7 +190,8 @@
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
             postData:{
                 'name':$("#condition").val(),
-                'gzdw':$("#condition2").val()
+                'gzdw':$("#condition2").val(),
+                'gj':$("#condition3").val()
             },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
