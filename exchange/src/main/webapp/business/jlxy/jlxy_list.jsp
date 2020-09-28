@@ -165,7 +165,7 @@
             layer.alert("未查询到上传协议.");
             return ;
         }
-        window.open("sys/file/download?fileId="+fileId+"&fileName=download")
+        window.open("sys/file/jlxydownload?fileId="+fileId)
     }
 
 

@@ -88,7 +88,7 @@ public class FileUpAndDownloadController extends BaseController {
 
                 String fileId = CmuStringUtil.UUID();
                 String ext = CmuStringUtil.fileExt(oriFileName);//文件扩展名
-                String realName = fileId + "." + ext;        //真是的文件名称
+                String realName = oriFileName;        //真是的文件名称
                 String relativePath = CmuStringUtil.getRelativeDatePath() + realName; //相对完整路径
                 String uploadPath = BASE_DIR + relativePath; //完整的上传路径
                 File dest = new File(uploadPath);//File类型的上传文件转储对象
@@ -143,6 +143,14 @@ public class FileUpAndDownloadController extends BaseController {
         return sb.toString();
     }
 
+    /**
+     * 以特定文件名下载
+     * @param request
+     * @param response
+     * @param fileName
+     * @param fileId
+     * @throws Exception
+     */
 
     @RequestMapping("/download")
     public void download(HttpServletRequest request, HttpServletResponse response,String fileName, String fileId) throws Exception {
@@ -161,6 +169,41 @@ public class FileUpAndDownloadController extends BaseController {
 
         File file = new File(absolutePath);
 
+        fileName = upload.getExt();//fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
+
+        DownLoadUtils.setDownLoadHeaders(request,response,fileName);
+        DownLoadUtils.writeToResponse(response,new FileInputStream(file));
+    }
+
+    /**
+     * 以上传文件名下载
+     * @param request
+     * @param response80081
+     * @param fileName
+     * @param fileId
+     * @throws Exception
+     */
+    @RequestMapping("/jlxydownload")
+    public void jlxydownload(HttpServletRequest request, HttpServletResponse response,String fileName, String fileId) throws Exception {
+
+
+//        fileName = URLDecoder.decode(fileName);
+
+        logger.debug("想要下载的文件id为："+fileId);
+        HttpHeaders headers = new HttpHeaders();
+
+
+        Upload upload = uploadService.queryById(fileId);
+
+        String absolutePath = BASE_DIR + upload.getUploadPath(); //完整的上传路径
+        logger.debug("下载文件对应的完成路为："+absolutePath);
+
+        File file = new File(absolutePath);
+        if (upload.getExt().length() < 4){
+            fileName = upload.getUploadPath().substring(10,upload.getUploadPath().length()-4);
+        }else {
+            fileName = upload.getUploadPath().substring(10,upload.getUploadPath().length()-5);
+        }
         fileName = fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
 
         DownLoadUtils.setDownLoadHeaders(request,response,fileName);
