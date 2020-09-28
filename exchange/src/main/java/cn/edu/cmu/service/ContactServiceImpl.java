@@ -39,9 +39,6 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
             if(StringUtils.isNotEmpty(contact.getName())){
                 c.andNameLike("%"+contact.getName()+"%");
             }
-            if(StringUtils.isNotEmpty(contact.getGzdw())){
-                c.andGzdwLike("%"+contact.getGzdw()+"%");
-            }
         }
         return dao.selectByExample(ex);
     }
@@ -60,6 +57,9 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
             }
             if(StringUtils.isNotEmpty(contact.getGzdw())){
                 c.andGzdwLike("%"+contact.getGzdw()+"%");
+            }
+            if(StringUtils.isNotEmpty(contact.getGj())){
+                c.andGjLike("%"+contact.getGj()+"%");
             }
             super.addOrderBy(params,conditions);
         }
@@ -97,6 +97,9 @@ public class ContactServiceImpl extends BaseService<Contact, ContactParams, Cont
             }
             if(StringUtils.isNotEmpty(lxr.getGzdw())){
                 c.andGzdwLike("%"+lxr.getGzdw()+"%");
+            }
+            if(StringUtils.isNotEmpty(lxr.getGj())){
+                c.andGjLike("%"+lxr.getGj()+"%");
             }
             super.addOrderBy(params,conditions);
         }
