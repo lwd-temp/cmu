@@ -143,6 +143,7 @@ public class CgDqcgjExtController extends BaseController {
         variables.put("jfysmx"	,	cgDqcgj.getJfysmx());
         variables.put("cfsc"	,	cgDqcgj.getCfsc());
         variables.put("nncfcs"	,	cgDqcgj.getNncfcs().toString());
+        variables.put("sfxd"	,	cgDqcgj.getSfxd());
 
         return variables;
     }
