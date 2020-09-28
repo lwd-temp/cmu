@@ -10,13 +10,18 @@
     <form class="form-horizontal" role="form">
         <!-- #section:elements.form -->
         <div class="form-group">
-            <label class="col-sm-4 control-label no-padding-right" for="xymc"> 协议名称: </label>
 
-            <div class="col-sm-4">
-                <input type="text" id="xymc" placeholder="协议名称" class="col-xs-12" />
+            <div class="col-sm-3">
+                协议名称:
+                <input type="text" id="xymc" placeholder="协议名称"  />
             </div>
-
-            <div class="col-sm-4">
+            <div class="col-sm-3">
+                签订日期从:<input class="form-control date-picker" style="width:70%;display:inline" id="qdrq" name="qdrq"  placeholder="签订日期"     type="text" data-date-format="yyyy-mm-dd"/>
+            </div>
+            <div class="col-sm-3">
+                到失效日期:<input class="form-control date-picker" style="width:70%;display:inline" id="sxrq" name="sxrq"  placeholder="失效日期（终止）"   type="text" data-date-format="yyyy-mm-dd"/>
+            </div>
+            <div class="col-sm-2">
                 <button class="btn btn-info btn-xs" id="query" type="button"> <i class="ace-icon fa fa-search "></i>
                     查询
                 </button>
@@ -37,6 +42,13 @@
     var grid_selector = "#grid-table";
     var pager_selector = "#grid-pager";
     $(function() {
+
+        //日期控件
+        $('.date-picker').datepicker({
+            autoclose: true,
+            todayHighlight: true
+        });
+
         grid_selector = "#grid-table";
         pager_selector = "#grid-pager";
         var parent_column = $(grid_selector).closest('[class*="col-"]');
@@ -136,7 +148,7 @@
                 sortname = '';
             }
 
-            window.open("jlxy/download?xymc="+$("#xymc").val()+"&orderCol="+sortname+"&orderType="+sortorder);
+            window.open("jlxy/download?xymc="+$("#xymc").val()+"&qdrq="+$("#qdrq").val()+"&sxrq="+$("#sxrq").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
     function clearTable(){
@@ -144,7 +156,10 @@
     }
     function refreshTable(){
         $(grid_selector).jqGrid('setGridParam',{  // 重新加载数据
-            postData:{'xymc':$("#xymc").val()},//条件查询项后台发送的条件数据
+            postData:{'xymc':$("#xymc").val(),
+                      'qdrq':$("#qdrq").val(),
+                      'sxrq':$("#sxrq").val()
+            },//条件查询项后台发送的条件数据
             page:1
         }).trigger("reloadGrid");
     }

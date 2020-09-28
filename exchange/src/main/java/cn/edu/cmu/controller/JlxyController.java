@@ -169,7 +169,7 @@ public class JlxyController extends BaseController {
     @RequestMapping("/download")
     public void download(Hzxy xy, String orderCol, String orderType, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        logger.info("交流协议名称:"+xy.getXymc());
+        logger.info("交流协议:"+xy.toString());
 
         List<Hzxy> list = jlxyService.jlxylistExp(xy, orderCol, orderType);
 

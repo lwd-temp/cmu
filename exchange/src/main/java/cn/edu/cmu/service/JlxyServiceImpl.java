@@ -94,10 +94,16 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
         HzxyParams.Criteria c = params.createCriteria();
         if (conditions != null && conditions.length > 0 && conditions[0] != null) {
             Hzxy xy = (Hzxy) conditions[0];
-
             if (StringUtils.isNotEmpty(xy.getXymc())) {
                 c.andXymcLike("%" + xy.getXymc() + "%");
             }
+            if(xy.getQdrq()!=null){
+                c.andQdrqGreaterThanOrEqualTo(xy.getQdrq());
+            }
+            if (xy.getSxrq() !=null){
+                c.andSxrqLessThanOrEqualTo(xy.getSxrq());
+            }
+            logger.info("交流协议impl:"+xy.toString());
 
             super.addOrderBy(params, conditions);
         }
@@ -163,6 +169,12 @@ public class JlxyServiceImpl extends BaseService<Hzxy, HzxyParams, HzxyMapper> i
             if(StringUtils.isNotEmpty(hzxy.getXymc())){
 
                 c.andXymcLike("%"+hzxy.getXymc()+"%");//先按照这个查询，如果有多个条件 就在该这
+            }
+            if(hzxy.getQdrq()!=null){
+                c.andQdrqGreaterThanOrEqualTo(hzxy.getQdrq());
+            }
+            if (hzxy.getSxrq() !=null){
+                c.andSxrqLessThanOrEqualTo(hzxy.getSxrq());
             }
             super.addOrderBy(params,conditions);//排序
         }
