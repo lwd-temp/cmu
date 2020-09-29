@@ -254,13 +254,13 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         int count  = dao.updateByPrimaryKeySelective(wbjdSq);
 
         //如果退回需要发送微信通知
-//        if(CmuConstants.WBJD.STATUS_RESTART.equals(wbjdSq.getStatus())){
-//            String title =          ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.title");//【通知】护照半年到期提醒
-//            String description =    ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.description");//国际事务部通知
-//            String content =        ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
-//
-//            SysThreadPoolRunner.submit(new WeChartUtils("", wbjdSq.getOperator(), title, description, content));
-//        }
+        if(CmuConstants.WBJD.STATUS_RESTART.equals(wbjdSq.getStatus())){
+            String title =          ResourceBundleUtils.getString("ifs.wechat.wbjd.ckth.title");//【通知】护照半年到期提醒
+            String description =    ResourceBundleUtils.getString("ifs.wechat.wbjd.ckth.description");//国际事务部通知
+            String content =        ResourceBundleUtils.getString("ifs.wechat.wbjd.ckth.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+
+            SysThreadPoolRunner.submit(new WeChartUtils("", wbjdSq.getOperator(), title, description, content));
+        }
 
         return count>0  ;
     }
