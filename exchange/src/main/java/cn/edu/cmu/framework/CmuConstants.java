@@ -63,6 +63,9 @@ public class CmuConstants {
         //退回
         public static final String  STATUS_BACK = "03";
 
+        //重新开始
+        public static final String  STATUS_RESTART = "00";
+
         //通过
         public static final String  STATUS_PASS = "04";
     }

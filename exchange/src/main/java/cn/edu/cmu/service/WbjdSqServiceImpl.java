@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import java.util.Date;
 
 
 @Service
@@ -98,13 +99,14 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
 
         WbjdSq wbjdSq = new  WbjdSq();
         wbjdSq = vo.getWbjdSq();
+        wbjdSq.setCreateTime(new Date());
         String[] cfgbIds = vo.getCfgbIds();
         List<WbjdSxry> sxr = vo.getSxr();
         List<WbjdLp> lp = vo.getLp();
         if(StringUtil.isEmpty(wbjdSq.getLfid())){
             String keyId = CmuStringUtil.UUID();
             wbjdSq.setLfid(keyId);
-            wbjdSq.setOperator(UserContext.getUserId());
+            wbjdSq.setOperator(UserContext.getUserId());;
         }else{//如果存在id则说明是修改
             isEdit = true;
         }
@@ -242,6 +244,23 @@ public class WbjdSqServiceImpl extends BaseService<WbjdSq, WbjdSqParams, WbjdSqM
         }
 
 
+
+        return count>0  ;
+    }
+
+    @Override
+    public boolean sc(WbjdSq wbjdSq, List sxryList, List gbDomainList) throws Exception {
+        logger.info("状态为:"+wbjdSq.getStatus());
+        int count  = dao.updateByPrimaryKeySelective(wbjdSq);
+
+        //如果退回需要发送微信通知
+//        if(CmuConstants.WBJD.STATUS_RESTART.equals(wbjdSq.getStatus())){
+//            String title =          ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.title");//【通知】护照半年到期提醒
+//            String description =    ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.description");//国际事务部通知
+//            String content =        ResourceBundleUtils.getString("ifs.wechat.wbjd.shth.content");//尊敬的老师您好，您的护照还有半年即将超期，请知晓中文
+//
+//            SysThreadPoolRunner.submit(new WeChartUtils("", wbjdSq.getOperator(), title, description, content));
+//        }
 
         return count>0  ;
     }

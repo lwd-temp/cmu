@@ -123,6 +123,31 @@ public class WbjdSqController extends BaseController {
         return super.ajaxStatus(success);
     }
 
+    /**
+     * 退回重开
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
+
+    @RequestMapping("/scsave")
+    @ResponseBody
+    public Map scsave(String id,String status) throws Exception {
+        logger.info("状态为"+status+"id为"+id);
+        WbjdSq domain = wbjdSqService.queryById(id);
+        domain.setStatus(status);
+        WbjdSxry queryWbjdSxry = new WbjdSxry();
+        queryWbjdSxry.setLfid(id);
+        List sxryList = wbjdSxryService.list(queryWbjdSxry);
+
+        WbjdGj queryWbjdGj = new WbjdGj();
+        queryWbjdGj.setLfid(id);
+        List<WbjdGj> gbDomainList = wbjdGjService.list(queryWbjdGj);
+
+        boolean success = wbjdSqService.sc(domain,sxryList,gbDomainList);
+        return super.ajaxStatus(success);
+    }
 
     /**
      * 【审核】分页查询

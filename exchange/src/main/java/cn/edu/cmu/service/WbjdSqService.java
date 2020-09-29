@@ -15,6 +15,7 @@ public interface WbjdSqService extends IBaseService<WbjdSq, WbjdSqParams> {
     public boolean saveOrUpdate(WbglVO vo) throws Exception;
     public List shlist(Object... conditions) throws Exception;
     public boolean sh(WbjdSq wbjdSq,List sxryList,List gbDomainList) throws Exception;
+    public boolean sc(WbjdSq wbjdSq,List sxryList,List gbDomainList) throws Exception;
     public WbjdSq selectSqExtPdf(String id) throws Exception;
 
     List<WbjdLp> queryLiPinList(String id);

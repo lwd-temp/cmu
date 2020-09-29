@@ -104,6 +104,9 @@
                 {name:'status',index:'status', width:4,formatter:function(status,options,rowObject){
                         var zt = "未知";
                         switch (status) {
+                            case '00':
+                                zt = "重开";
+                                break;
                             case '01':
                                 zt = "暂存";
                                 break;

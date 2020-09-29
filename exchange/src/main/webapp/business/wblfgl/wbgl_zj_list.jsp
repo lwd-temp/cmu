@@ -106,7 +106,7 @@
                         }
                         return ztText;
                     } },
-                {name:'lfid',index:'', width:5,  sortable:false, resize:true,
+                {name:'lfid',index:'', width:6,  sortable:false, resize:true,
                     formatter:function(cellvalue, options, rowObject){
                         var status = rowObject.writed;
                         var lfid = rowObject.lfid;
@@ -115,10 +115,13 @@
                         var zt = rowObject.status;
 
                         if("0" == status ){
-                            btns = "<button class='btn btn-success btn-mini' onclick='zjWbgl(\""+lfid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>";
+                            btns = "<button class='btn btn-success btn-mini' onclick='zjWbgl(\""+lfid+"\")' title='填写' ><i class='ace-icon fa fa-pencil '>填写</i></button>"+
+                                "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' onclick='ckWbgl(\""+cellvalue+"\")' title='申请重开' ><i class='ace-icon fa fa-plus '>申请重开</i></button>";
                         }else {
-                            btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>";
+                            btns = "<button class='btn btn-info btn-mini' onclick='editWbgl(\""+zjid+"\")' title='编辑' ><i class='ace-icon fa fa-pencil '>编辑</i></button>"+
+                                "&nbsp;&nbsp;<button class='btn btn-warning btn-mini' onclick='ckWbgl(\""+cellvalue+"\")' title='申请重开' ><i class='ace-icon fa fa-plus '>申请重开</i></button>";
                         }
+
                         return btns;
                     }
                 },
@@ -143,6 +146,22 @@
             window.open("wbzj/download?zqlxrxm="+$("#condition1").val()+"&dbtmc="+$("#condition2").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
+
+    //外宾接待申请重开
+    function ckWbgl(lfid){
+            var status="00";
+            $.ajax('wbjd/scsave',{
+                data:{id:lfid,status:status},
+                success:function(res){
+                    if(res && res.success){
+                        layer.alert("重新申报成功");
+                        refreshTable();
+                    }else{
+                        layer.alert("重新申报失败")
+                    }
+                }
+            })
+    }
 
 
     function huiche() {
