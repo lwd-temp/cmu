@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div >
-    <form class="form-horizontal" role="form">
+    <form class="form-horizontal" role="form" onkeydown="huiche()">
         <!-- #section:elements.form -->
         <div class="form-group">
 
@@ -151,6 +151,14 @@
             window.open("jlxy/download?xymc="+$("#xymc").val()+"&qdrq="+$("#qdrq").val()+"&sxrq="+$("#sxrq").val()+"&orderCol="+sortname+"&orderType="+sortorder);
         });
     });
+
+    //回车查询
+    function huiche() {
+        if(event.keyCode==13) {
+            refreshTable();
+        }
+    }
+
     function clearTable(){
         $(grid_selector).jqGrid('clearGridData');  //清空表格
     }
