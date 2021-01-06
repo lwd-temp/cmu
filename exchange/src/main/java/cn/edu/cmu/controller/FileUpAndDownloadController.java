@@ -169,8 +169,8 @@ public class FileUpAndDownloadController extends BaseController {
 
         File file = new File(absolutePath);
 
-        fileName = upload.getExt();//fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
-
+        fileName = fileName+"."+upload.getExt();//fileName+(StringUtils.isEmpty(upload.getExt())?"":"."+upload.getExt());
+        logger.info(fileName);
         DownLoadUtils.setDownLoadHeaders(request,response,fileName);
         DownLoadUtils.writeToResponse(response,new FileInputStream(file));
     }
