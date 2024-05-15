@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
-        <spring.version>4.3.24.RELEASE</spring.version>
+        <spring.version>6.0.19</spring.version>
     </properties>
 
     <dependencies>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>4.13.1</version>
             <scope>provided</scope>
         </dependency>
 
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>org.yaml</groupId>
             <artifactId>snakeyaml</artifactId>
-            <version>1.10</version>
+            <version>2.0</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl -->
@@ -96,7 +96,7 @@
         <dependency>
             <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.3.3</version>
+            <version>1.5</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-validator -->
@@ -115,7 +115,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.9</version>
+            <version>2.12.7.1</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
         <dependency>
@@ -153,7 +153,7 @@
         <dependency>
             <groupId>ognl</groupId>
             <artifactId>ognl</artifactId>
-            <version>2.6.9</version>
+            <version>3.0.12</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -170,13 +170,13 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.2.7</version>
+            <version>3.5.6</version>
         </dependency>
 
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <version>4.1.4</version>
+            <version>5.3.1</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
@@ -231,7 +231,7 @@
         <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
-            <version>1.9.3</version>
+            <version>1.9.4</version>
         </dependency>
 
         <!-- POI模板方法，封装了POI-->
@@ -295,7 +295,7 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.5.6</version>
+            <version>4.5.13</version>
         </dependency>
 
         <!---定时任务-->
@@ -308,13 +308,13 @@
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
+            <version>2.3.2</version>
         </dependency>
 
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
             <artifactId>quartz</artifactId>
-            <version>2.2.1</version>
+            <version>2.3.2</version>
         </dependency>
 
         <!--lombok  代码插件-->
